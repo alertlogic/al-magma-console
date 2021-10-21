@@ -1,0 +1,25 @@
+<!-- <div class="ald-radio-group" [ngClass]="[inline ? 'al-radio-group--inline' : 'al-radio-group--stacked']"> -->
+    <div class="ald-radio-group__row">
+        <label
+            [for]="value"
+            class="ald-radio "
+            [ngClass]="disabled ? 'ald-radio--disabled' : ''">
+            <input
+                type="radio"
+                class="ald-radio__input"
+                [id]="value"
+                [name]="name"
+                [value]="value"
+                [disabled]="disabled"
+                [checked]="checked"
+                (change)="onChange()">
+
+            <div class="ald-radio__circle">
+                <div class="ald-radio__check"></div>
+            </div>
+            <span class="ald-radio__label">
+                {{ label }}
+            </span>
+        </label>
+    </div>
+<!-- </div> -->

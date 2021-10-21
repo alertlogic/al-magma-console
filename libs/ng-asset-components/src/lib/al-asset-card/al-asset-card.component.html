@@ -1,0 +1,67 @@
+<div class="grid grid-nogutter align-items-startstart">
+    <ng-container *ngIf="checkable">
+        <div class="col-fix  center-text"
+             style="width:35px">
+            <p-checkbox
+                        [binary]="true"
+                        [(ngModel)]="asset.checked"
+                        (ngModelChange)="toggleCheck($event)">
+            </p-checkbox>
+        </div>
+    </ng-container>
+    <div class="col">
+        <al-exposure-mini-card
+        [expanded]="expanded"
+        [expandable]="expandable"
+        (onExpand)="toggleAssetDetails($event)"
+        [cardBackground]="asset.cardBackground"
+        [tooltip]="asset?.tooltip"
+        >
+        <div class="card-expandable-header">
+            <i class="details-icon-title" [ngClass]="asset.icon">{{asset.iconMt}}</i>
+            <span>
+                {{ (asset.name) }}
+            </span>
+        </div>
+        <div class="card-expandable-content">
+            <div class="grid grid-nogutter">
+                <div class="col-12 card-expandable-content">
+                    <div *ngIf="asset.hasComplementaryData === false" class="padding-left-desc padding-right-10">
+                        <span class="fa fa-spinner fa-spin"></span>
+                        <span i18n>Loading...</span>
+                    </div>
+                    <div *ngIf="asset.hasComplementaryData === true" >
+                        <div *ngFor="let attribute of asset.details" >
+                            <p class="title padding-left-15 padding-right-10">
+                                <i *ngIf="attribute.caption !== 'Deployment'" class="details-icon-title {{attribute.icon}}"></i>
+                                <i *ngIf="attribute.caption === 'Deployment' && deploymentDictionary[attribute.value]" class="details-icon-title al al-{{deploymentDictionary[attribute.value]?.type}}"></i>
+                                {{attribute.caption}}:
+                            </p>
+                            <p class="desc padding-left-desc"
+                                *ngIf=" attribute.caption === 'Deployment' && deploymentDictionary[attribute.value]" >
+                                {{ deploymentDictionary[attribute.value]?.name }}
+                            </p>
+                            <p class="desc padding-left-desc"
+                                *ngIf="attribute.caption !== 'Deployment' && attribute.format !== 'date'">
+                                {{ attribute.value }}
+                            </p>
+                            <div *ngIf="attribute.format == 'date'">
+                                <p *ngIf="attribute.value !== 'Never' && attribute.value.toString().length < 13" class="desc padding-left-desc">
+                                    {{attribute.value * 1000 | date:'medium'}}
+                                </p>
+                                <p *ngIf="attribute.value !== 'Never' && attribute.value.toString().length >= 13" class="desc padding-left-desc">
+                                    {{attribute.value | date:'medium'}}
+                                </p>
+                                <p *ngIf="attribute.value === 'Never'" class="desc padding-left-desc">
+                                    {{ attribute.value }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </al-exposure-mini-card>
+    </div>
+</div>
+

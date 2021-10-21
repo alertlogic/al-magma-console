@@ -1,0 +1,27 @@
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>Page Header with FAB</h1>
+            <div class="card-content">
+                <al-content-header 
+                    [showAddButton]="true" 
+                    title="Create an Exposure Alert"
+                    [showTime]="true"
+                    showCalendar="single"
+                    (onDateRangeSelected)="applyDateChange($event)"
+                    (onButtonClicked)="addButtonClicked($event.event)">
+                </al-content-header>
+                <h5>Component Name:</h5>
+                <code class="language-css" pCode>al-content-header</code>
+            </div>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Usage Guide">
+        <div class="card card-w-title">
+            <h1>Usage Guide</h1>
+            <div class="card-content">
+                <embedded-markdown resourceId="readme/al-content-header/README"></embedded-markdown>
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>

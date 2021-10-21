@@ -1,0 +1,708 @@
+@font-face {
+  font-family: 'alertlogic-icons';
+  src:
+    url('alertlogic-icons.woff2?oqy65') format('woff2'),
+    url('alertlogic-icons.ttf?oqy65') format('truetype'),
+    url('alertlogic-icons.woff?oqy65') format('woff'),
+    url('alertlogic-icons.svg?oqy65#alertlogic-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.al {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'alertlogic-icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  
+  /* Enable Ligatures ================ */
+  letter-spacing: 0;
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga";
+  -webkit-font-variant-ligatures: discretionary-ligatures;
+  font-variant-ligatures: discretionary-ligatures;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.al-ms-teams:before {
+  content: "\e90f";
+}
+.al-service-now:before {
+  content: "\e91e";
+}
+.al-jira:before {
+  content: "\e903";
+}
+.al-zendesk:before {
+  content: "\e908";
+}
+.al-risk-1:before {
+  content: "\e95f";
+}
+.al-risk-2:before {
+  content: "\e960";
+}
+.al-risk-3:before {
+  content: "\e961";
+}
+.al-risk-4:before {
+  content: "\e962";
+}
+.al-cloud-circle:before {
+  content: "\e95e";
+}
+.al-firewall:before {
+  content: "\e95d";
+}
+.al-linux:before {
+  content: "\e95c";
+}
+.al-markdown:before {
+  content: "\e959";
+}
+.al-slack:before {
+  content: "\e958";
+}
+.al-pagerduty:before {
+  content: "\e953";
+}
+.al-webhooks:before {
+  content: "\e954";
+}
+.al-event-hub:before {
+  content: "\e94f";
+}
+.al-deploy-aws-1:before {
+  content: "\e94b";
+}
+.al-deploy-aws-2:before {
+  content: "\e950";
+}
+.al-deploy-aws-3:before {
+  content: "\e951";
+}
+.al-deploy-azure-1:before {
+  content: "\e952";
+}
+.al-deploy-azure-2:before {
+  content: "\e955";
+}
+.al-deploy-azure-3:before {
+  content: "\e956";
+}
+.al-deploy-dc-1:before {
+  content: "\e957";
+}
+.al-deploy-dc-2:before {
+  content: "\e95a";
+}
+.al-deploy-dc-3:before {
+  content: "\e95b";
+}
+.al-network-peering:before {
+  content: "\e94a";
+}
+.al-vpc-peering:before {
+  content: "\e949";
+}
+.al-apple:before {
+  content: "\e932";
+}
+.al-scope-all:before {
+  content: "\e92e";
+}
+.al-scope-none:before {
+  content: "\e92f";
+}
+.al-config-remediation:before {
+  content: "\64";
+}
+.al-security-breach:before {
+  content: "\e94d";
+}
+.al-security-remediation:before {
+  content: "\e94e";
+}
+.al-protection-1:before {
+  content: "\e946";
+}
+.al-protection-2:before {
+  content: "\e947";
+}
+.al-protection-3:before {
+  content: "\e948";
+}
+.al-topology-network-1:before {
+  content: "\e93a";
+}
+.al-topology-network-2:before {
+  content: "\e93b";
+}
+.al-topology-network-3:before {
+  content: "\e93c";
+}
+.al-topology-network-4:before {
+  content: "\e93d";
+}
+.al-topology-region-1:before {
+  content: "\e93e";
+}
+.al-topology-region-2:before {
+  content: "\e93f";
+}
+.al-topology-region-3:before {
+  content: "\e940";
+}
+.al-topology-region-4:before {
+  content: "\e941";
+}
+.al-topology-vpc-1:before {
+  content: "\e942";
+}
+.al-topology-vpc-2:before {
+  content: "\e943";
+}
+.al-topology-vpc-3:before {
+  content: "\e944";
+}
+.al-topology-vpc-4:before {
+  content: "\e945";
+}
+.al-status:before {
+  content: "\e939";
+}
+.al-cloudtrails:before {
+  content: "\e92a";
+}
+.al-vuln-report:before {
+  content: "\e928";
+}
+.al-vuln-analysis:before {
+  content: "\e936";
+}
+.al-guardDuty2:before {
+  content: "\e937";
+}
+.al-guardDuty1:before {
+  content: "\e938";
+}
+.al-debian:before {
+  content: "\e919";
+}
+.al-red-hat:before {
+  content: "\e925";
+}
+.al-office-365:before {
+  content: "\e916";
+}
+.al-vulnerability-library:before {
+  content: "\e911";
+}
+.al-network-private:before {
+  content: "\e91a";
+}
+.al-policies:before {
+  content: "\e910";
+}
+.al-alert-rules:before {
+  content: "\e90e";
+}
+.al-collection:before {
+  content: "\e912";
+}
+.al-environment-config:before {
+  content: "\e913";
+}
+.al-environment:before {
+  content: "\e914";
+}
+.al-flatfile:before {
+  content: "\e915";
+}
+.al-hipaa:before {
+  content: "\e917";
+}
+.al-intrusion:before {
+  content: "\e918";
+}
+.al-network:before {
+  content: "\e91b";
+}
+.al-outcomes-global:before {
+  content: "\e91c";
+}
+.al-outcomes-security:before {
+  content: "\e91d";
+}
+.al-pci:before {
+  content: "\e920";
+}
+.al-protection-scope:before {
+  content: "\e921";
+}
+.al-shrug:before {
+  content: "\e922";
+}
+.al-template-broswer:before {
+  content: "\e923";
+}
+.al-template:before {
+  content: "\e924";
+}
+.al-cidr:before {
+  content: "\e927";
+}
+.al-data-retention:before {
+  content: "\e929";
+}
+.al-asset:before {
+  content: "\e92b";
+}
+.al-assets-view:before {
+  content: "\e92c";
+}
+.al-assets:before {
+  content: "\e92d";
+}
+.al-access-control:before {
+  content: "\e930";
+}
+.al-application-group:before {
+  content: "\e931";
+}
+.al-exclusion:before {
+  content: "\e933";
+}
+.al-cloud:before {
+  content: "\e90d";
+}
+.al-acl:before {
+  content: "\e613a";
+}
+.al-acl2:before {
+  content: "\e626";
+}
+.al-no-scan:before {
+  content: "\e926";
+}
+.al-scan:before {
+  content: "\e611";
+}
+.al-appliance:before {
+  content: "\e62a";
+}
+.al-application:before {
+  content: "\e601a";
+}
+.al-application-color .path1:before {
+  content: "\e60a";
+  color: rgb(0, 0, 0);
+}
+.al-application-color .path2:before {
+  content: "\e60b";
+  margin-left: -1em;
+  color: rgb(245, 127, 32);
+}
+.al-application-color .path3:before {
+  content: "\e64c";
+  margin-left: -1em;
+  color: rgb(245, 127, 32);
+}
+.al-application-color .path4:before {
+  content: "\e64d";
+  margin-left: -1em;
+  color: rgb(245, 127, 32);
+}
+.al-application-set:before {
+  content: "\e601b";
+}
+.al-asset2:before {
+  content: "\e63b";
+}
+.al-aws:before {
+  content: "\e602";
+}
+.al-aws-autoscaling:before {
+  content: "\e614";
+}
+.al-aws-beanstalk:before {
+  content: "\e630";
+}
+.al-aws-cf:before {
+  content: "\e63c";
+}
+.al-aws-cloud-front:before {
+  content: "\e63d";
+}
+.al-aws-cloud-watch:before {
+  content: "\e63e";
+}
+.al-aws-ddb:before {
+  content: "\e907";
+}
+.al-aws-direct-connect:before {
+  content: "\e63f";
+}
+.al-aws-elasticache:before {
+  content: "\e640";
+}
+.al-aws-elb:before {
+  content: "\e641";
+}
+.al-aws-emr:before {
+  content: "\e642";
+}
+.al-aws-glacier:before {
+  content: "\e643";
+}
+.al-aws-iam2:before {
+  content: "\e906";
+}
+.al-aws-rds:before {
+  content: "\e644";
+}
+.al-aws-route53:before {
+  content: "\e645";
+}
+.al-aws-s3:before {
+  content: "\e646";
+}
+.al-aws-sbd:before {
+  content: "\e647";
+}
+.al-azure:before {
+  content: "\e603a";
+}
+.al-blacklist:before {
+  content: "\e905";
+}
+.al-bubble-link:before {
+  content: "\eae3";
+}
+.al-checklist:before {
+  content: "\f076";
+}
+.al-cloud-formation:before {
+  content: "\e726b";
+}
+.al-console:before {
+  content: "\e617b";
+}
+.al-deploy2:before {
+  content: "\e64b";
+}
+.al-discover:before {
+  content: "\e64f";
+}
+.al-dns:before {
+  content: "\e639";
+}
+.al-dns-private:before {
+  content: "\e638";
+}
+.al-email:before {
+  content: "\e62b";
+}
+.al-enlarge:before {
+  content: "\eb39";
+}
+.al-generic-http:before {
+  content: "\e721";
+}
+.al-host:before {
+  content: "\e609";
+}
+.al-html:before {
+  content: "\e618a";
+}
+.al-iam:before {
+  content: "\e635";
+}
+.al-id:before {
+  content: "\e655";
+}
+.al-igw:before {
+  content: "\e619";
+}
+.al-image:before {
+  content: "\e600";
+}
+.al-insight:before {
+  content: "\e665";
+}
+.al-insight-bold:before {
+  content: "\e661";
+}
+.al-instance:before {
+  content: "\e634";
+}
+.al-ip:before {
+  content: "\e633";
+}
+.al-ip-private:before {
+  content: "\e632";
+}
+.al-kernel:before {
+  content: "\e637";
+}
+.al-key:before {
+  content: "\e622";
+}
+.al-launch-config:before {
+  content: "\e623";
+}
+.al-launch-time:before {
+  content: "\e636";
+}
+.al-link:before {
+  content: "\ec96";
+}
+.al-link2:before {
+  content: "\ec9a";
+}
+.al-listener:before {
+  content: "\e624";
+}
+.al-load-balancer:before {
+  content: "\e616";
+}
+.al-logo:before {
+  content: "\e603";
+}
+.al-logo-color .path1:before {
+  content: "\e61a";
+  color: rgb(60, 60, 60);
+}
+.al-logo-color .path2:before {
+  content: "\e61b";
+  margin-left: -1em;
+  color: rgb(255, 127, 0);
+}
+.al-misc:before {
+  content: "\e625";
+}
+.al-name:before {
+  content: "\e62f";
+}
+.al-native-type:before {
+  content: "\e62d";
+}
+.al-network-interface:before {
+  content: "\e60f";
+}
+.al-on-prem:before {
+  content: "\e90a";
+}
+.al-datacenter:before {
+  content: "\e90a";
+}
+.al-port:before {
+  content: "\e725";
+}
+.al-region:before {
+  content: "\e610a";
+}
+.al-region-lock:before {
+  content: "\e601";
+}
+.al-remediate2:before {
+  content: "\e64a";
+}
+.al-report-bars:before {
+  content: "\e902";
+}
+.al-route:before {
+  content: "\e627";
+}
+.al-samba:before {
+  content: "\e724";
+}
+.al-scan1:before {
+  content: "\e613";
+}
+.al-scope:before {
+  content: "\e658";
+}
+.al-scope-no:before {
+  content: "\e900";
+}
+.al-settings:before {
+  content: "\e604";
+}
+.al-sg:before {
+  content: "\e606";
+}
+.al-security:before {
+  content: "\e606";
+}
+.al-shared-security-appliance:before {
+  content: "\e628";
+}
+.al-shrink:before {
+  content: "\eb3a";
+}
+.al-subnet:before {
+  content: "\e612";
+}
+.al-tag:before {
+  content: "\e607";
+}
+.al-tag-whitelist:before {
+  content: "\e901";
+}
+.al-tasks:before {
+  content: "\e720";
+}
+.al-terminal:before {
+  content: "\e615";
+}
+.al-threat:before {
+  content: "\e649";
+}
+.al-threat-manager:before {
+  content: "\e90c";
+}
+.al-threat-manager2:before {
+  content: "\e90b";
+}
+.al-topology:before {
+  content: "\e60c";
+}
+.al-tutorial:before {
+  content: "\e6a7";
+}
+.al-type:before {
+  content: "\e62e";
+}
+.al-uk:before {
+  content: "\e809";
+}
+.al-uk-color .path1:before {
+  content: "\e800";
+  color: rgb(45, 47, 118);
+}
+.al-uk-color .path2:before {
+  content: "\e801";
+  margin-left: -1em;
+  color: rgb(202, 32, 39);
+}
+.al-uk-color .path3:before {
+  content: "\e802";
+  margin-left: -1em;
+  color: rgb(202, 32, 39);
+}
+.al-uk-color .path4:before {
+  content: "\e803";
+  margin-left: -1em;
+  color: rgb(45, 47, 118);
+}
+.al-uk-color .path5:before {
+  content: "\e804";
+  margin-left: -1em;
+  color: rgb(45, 47, 118);
+}
+.al-uk-color .path6:before {
+  content: "\e805";
+  margin-left: -1em;
+  color: rgb(202, 32, 39);
+}
+.al-uk-color .path7:before {
+  content: "\e806";
+  margin-left: -1em;
+  color: rgb(202, 32, 39);
+}
+.al-uk-color .path8:before {
+  content: "\e807";
+  margin-left: -1em;
+  color: rgb(202, 32, 39);
+}
+.al-uk-color .path9:before {
+  content: "\e808";
+  margin-left: -1em;
+  color: rgb(45, 47, 118);
+}
+.al-usa:before {
+  content: "\e812";
+}
+.al-usa-color .path1:before {
+  content: "\e80a";
+  color: rgb(45, 47, 118);
+}
+.al-usa-color .path2:before {
+  content: "\e80b";
+  margin-left: -1em;
+  color: rgb(202, 32, 39);
+}
+.al-usa-color .path3:before {
+  content: "\e80c";
+  margin-left: -1em;
+  color: rgb(202, 32, 39);
+}
+.al-usa-color .path4:before {
+  content: "\e80d";
+  margin-left: -1em;
+  color: rgb(202, 32, 39);
+}
+.al-usa-color .path5:before {
+  content: "\e80e";
+  margin-left: -1em;
+  color: rgb(202, 32, 39);
+}
+.al-usa-color .path6:before {
+  content: "\e80f";
+  margin-left: -1em;
+  color: rgb(202, 32, 39);
+}
+.al-usa-color .path7:before {
+  content: "\e810";
+  margin-left: -1em;
+  color: rgb(202, 32, 39);
+}
+.al-usa-color .path8:before {
+  content: "\e811";
+  margin-left: -1em;
+  color: rgb(202, 32, 39);
+}
+.al-versions:before {
+  content: "\e700";
+}
+.al-view-all:before {
+  content: "\e629";
+}
+.al-vmware:before {
+  content: "\e909";
+}
+.al-vpc:before {
+  content: "\e608";
+}
+.al-vulnerability:before {
+  content: "\e604a";
+}
+.al-vulnerability-set:before {
+  content: "\e604b";
+}
+.al-whitelist:before {
+  content: "\e904";
+}
+.al-windows:before {
+  content: "\e603b";
+}
+.al-windows-sm:before {
+  content: "\e60d";
+}
+.al-world-map:before {
+  content: "\e659";
+}
+.al-zone:before {
+  content: "\e610b";
+}

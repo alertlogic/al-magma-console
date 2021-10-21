@@ -1,0 +1,34 @@
+[
+    {
+      "properties": {
+        "id": "20200501-360400-394C3F4B-A484-1005-8001-0242AC11003A",
+        "caption": "May 01 2020 11:04:00 GMT-5",
+        "scheduleId": "394C3F4B-A484-1005-8001-0242AC11003A",
+        "viewId": "5c129475-01ab-4a22-87df-858b76ccf7d8",
+        "format": "pdf",
+        "subtitle": "MonthlyVulnerabilitySummary - tests params, host only",
+        "toptitle": "Monthly Vulnerability Summary"
+      },
+      "entity": {
+        "id": "20200501-360400-394C3F4B-A484-1005-8001-0242AC11002A",
+        "caption": "May 01 2020 11:04:00 GMT-5",
+        "properties": {
+          "id": "20200501-360400-394C3F4B-A484-1005-8001-0242AC11003A",
+          "caption": "May 01 2020 11:04:00 GMT-5",
+          "scheduleId": "394C3F4B-A484-1005-8001-0242AC11003A",
+          "viewId": "5c129475-01ab-4a22-87df-858b76ccf7d8",
+          "format": "pdf",
+          "subtitle": "MonthlyVulnerabilitySummary - tests params, host only",
+          "toptitle": "Monthly Vulnerability Summary"
+        }
+      },
+      "id": "20200501-360400-394C3F4B-A484-1005-8001-0242AC11003A",
+      "caption": "May 01 2020 11:04:00 GMT-5",
+      "visible": false,
+      "checked": true,
+      "icon": {
+        "name": "picture_as_pdf"
+      },
+      "expanded": false
+    }
+]

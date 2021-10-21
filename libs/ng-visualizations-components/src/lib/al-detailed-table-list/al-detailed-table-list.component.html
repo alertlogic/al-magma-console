@@ -1,0 +1,33 @@
+<p-table [columns]="tableConfig.headers"
+          [value]="tableConfig.body"
+          (sortFunction)="customSort($event)"
+          [customSort]="tableConfig.sortable"
+          [sortField]="tableConfig.defaultSortField"
+          [sortOrder]="tableConfig.defaultSortOrder">
+    <ng-template pTemplate="header">
+        <tr>
+            <th *ngFor="let col of tableConfig.headers"
+                [class]='col.style ? col.style + " " + col.class : col.class'
+                [pSortableColumn]="tableConfig.sortable === true ? col.field : undefined">
+                  {{col.name}}
+                <p-sortIcon [field]="col.field" *ngIf="tableConfig.sortable"></p-sortIcon>
+              </th>
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-body>
+      <tr (click)="onDataRowClick($event, body)" [ngClass]='body.clickable ? "clickable": ""'>
+           <td *ngFor="let col of tableConfig.headers"
+            [class]='col.style ? col.style + " " + col.class : col.class'
+                 [ngClass]="extractCellCss(body, col.field)">
+            <div #overlayTarget
+              (mouseenter)="onContentMouseOver($event, overlayTarget, body[col.field], col.class);"
+              (mouseleave)="onContentMouseOut();"
+              (click)="onDataCellClick($event, body[col.field])">{{extractCellValue(body[col.field])}}</div>
+          </td>
+       </tr>
+    </ng-template>
+</p-table>
+<p-overlayPanel styleClass="tablecell-tooltip" #op [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'">
+  {{mouseOverContent}}
+</p-overlayPanel>

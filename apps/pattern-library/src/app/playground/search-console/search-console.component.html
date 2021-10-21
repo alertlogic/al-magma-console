@@ -1,0 +1,207 @@
+
+<!-- SEARCH QUEUE -->
+<div class="search-queue-area grid">
+    <div class="queued-search grid p-justify-between"
+         *ngFor="let search of searchQueue let index = index"
+         [ngClass]="{'search-selected':search.selected, 'col-3':searchQueue.length <= 3, 'col-2':searchQueue.length > 3}"
+         (click)="viewResults(index)">
+
+        <div class="search-details col">
+            <span *ngIf="search.nResults < search.resultLimit"
+                  pTooltip="{{search.nResults | number:'1.0-0'}} Results/1000 {{search.nResults/search.resultLimit*100 | number:'1.0-0'}}%"
+                  tooltipPosition="top">
+                    {{search.name}}
+            </span>
+            <span *ngIf="search.nResults >= search.resultLimit && !search.estimated"
+                    pTooltip="{{search.nResults | number:'1.0-0'}} results"
+                    tooltipPosition="top">
+                    {{search.nResults | number:'1.0-0'}} results
+            </span>
+
+            <span *ngIf="search.nResults >= search.resultLimit && search.estimated"
+                    pTooltip="{{search.nResults | number:'1.0-0'}} results of estimated {{search.estimatedTotal}}"
+                    tooltipPosition="top">
+                    {{search.nResults | number:'1.0-0'}} results / {{search.estimatedTotal}} (est.)
+            </span>
+        </div>
+        <div class="actions col-fixed">
+            <div class="material-icons"
+                (click)="cancelSearch(0)"
+                pTooltip="Close"
+                tooltipPosition="top">
+                    close
+            </div>
+            <!-- <div class="material-icons"
+                    *ngIf="search.nResults < search.resultLimit"
+                    pTooltip="Pause"
+                    tooltipPosition="top">
+                    pause
+            </div> -->
+            <div class="material-icons"
+                    *ngIf="search.nResults >= search.resultLimit && search.estimated"
+                    (click)="continueSearch(search)"
+                    pTooltip="Continue Searching"
+                    tooltipPosition="top">
+                    play_arrow
+            </div>
+            <a href="assets/demo/search-export.csv" download>
+                <div class="material-icons"
+                        *ngIf="search.nResults >= search.resultLimit && search.nResults > 0"
+                        pTooltip="Download"
+                        tooltipPosition="top">
+                        get_app
+                </div>
+            </a>
+        </div>
+        <div class="search-progress">
+            <div class="search-completedness"
+                    [ngClass]="{'search-completedness-done':search.nResults >= search.resultLimit}"
+                    [ngStyle]="{'width': search.nResults/search.resultLimit*100 + '%'}">
+            </div>
+        </div>
+    </div>
+    <div class="queued-search col-1"
+         *ngIf="searchQueue.length < 6">
+        <div class="add-search">
+            <button type="button" icon="ui-icon-add" pButton class="primary flat" (click)="addSearch()"></button>
+        </div>
+    </div>
+</div>
+
+<!-- <al-protected-content-ex [authentication]="true"> -->
+<label>Where <b>all</b> of the following is:</label>
+
+<div pDroppable="dd">
+    <div pDraggable="dd" *ngFor="let chicklet of query let chickIndex = index" class="chicklet"
+        [ngClass]="chicklet.type">
+
+        <div class="label">
+            {{chicklet.name}}
+        </div>
+
+        <div class="content">
+            <div *ngIf="chicklet.operator.label" class="operator">
+                    {{chicklet.operator.label}}
+            </div>
+
+            <div *ngIf="chicklet.values.length">
+                <span class="autocomplete" *ngFor="let value of chicklet.values let valueIndex = index">
+
+                    <p-autoComplete [(ngModel)]="chicklet.values[valueIndex]" [suggestions]="suggestions"
+                        (completeMethod)="filterSingle($event, chicklet)"
+                        (onSelect)="selectSuggestion(value, chicklet, valueIndex)" field="name" [size]="30"
+                        placeholder="any" [minLength]="1">
+                    </p-autoComplete>
+
+                    <div class="remove material-icons" (click)="chicklet.removeValue(valueIndex)">remove</div>
+                </span><!-- end autocomplete -->
+            </div>
+
+            <div *ngIf="chicklet.values.length" class="add-chicklet">
+                <div class="add material-icons" (click)="addValue()">add</div>
+            </div>
+
+            <div *ngIf="chicklet.aggregation.label != 'none'" class="aggregation">
+                | {{chicklet.aggregation.label}}
+            </div>
+        </div> <!-- end content -->
+
+        <!-- <div class="aggregation-options"> -->
+            <p-tieredMenu #chickletOptions [model]="chicklet.options" [popup]="true"></p-tieredMenu>
+            <!-- <p-menu #chickletOptions [model]="chicklet.options" [popup]="true"></p-menu> -->
+            <button type="button" icon="ui-icon-more-vert" pButton [ngClass]="chicklet.type" (click)="chickletOptions.toggle($event)"></button>
+        <!-- </div> -->
+
+        <div class="close-chicklet">
+            <div class="close material-icons" (click)="removeChicklet(chickIndex, chicklet)">close</div>
+        </div>
+
+    </div><!-- end chicklet -->
+
+    <!-- FREE SEARCH -->
+    <p-autoComplete [(ngModel)]="freeSearch" [suggestions]="suggestions" (completeMethod)="filterSingle($event, null)"
+        (onSelect)="freeSearchSelect(freeSearch)" field="name" [size]="30" placeholder="search" [minLength]="1"
+        [forceSelection]="true">
+        <ng-template pTemplate="suggestions" let-suggestion>
+            <div><b>{{suggestion.type}}</b> {{suggestion.name}}</div>
+        </ng-template>
+    </p-autoComplete>
+
+</div>
+<hr>
+
+<div class="grid p-justify-end" style="margin: 12px 0px;">
+    <p-dropdown [options]="timeRangeOptions" [(ngModel)]="timeRange" optionLabel="value"></p-dropdown>
+    <button label="Search" pButton type="button" class="primaryAction" style="margin-left: 12px;" (click)="executeSearch()"></button>
+</div>
+
+<p-table [columns]="cols"
+         [value]="activeSearch.results"
+         *ngIf="activeSearch.complete"
+         [paginator]="true"
+         [rows]="displayNumberOfResults"
+         [rowsPerPageOptions]="rowsPerPageOptions"
+         [showCurrentPageReport]="true"
+         currentPageReportTemplate="Selected {{selectedResults.length}} results | Showing {first} to {last} shown of {totalRecords} results found of {{activeSearch.estimatedTotal}} (estimated)"
+         [(selection)]="selectedResults"
+         (onRowSelect)="onRowSelect()"
+         (onRowUnselect)="onRowUnselect()"
+         dataKey="time_recv">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th>
+                <div class="grid">
+                    <p-checkbox [(ngModel)]="selectAll" [binary]="true" (onChange)="selectAllResults($event.checked)"></p-checkbox>
+                    <p-dropdown [options]="selectResultsOptions"
+                                [(ngModel)]="selectNumberOfResults"
+                                optionLabel="label"
+                                (onChange)="changeSelectResults()">
+                    </p-dropdown>
+                </div>
+            </th>
+            <th *ngFor="let col of columns">{{col.header}}</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr class="ui-selectable-row" [pSelectableRow]="rowData">
+            <td>
+                <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+            </td>
+            <td *ngFor="let col of columns">
+                {{rowData[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+        <button
+            class="continue-search"
+            *ngIf="activeSearch.estimated"
+            icon="ui-icon-play-arrow"
+            (click)="continueSearch(activeSearch)"
+            pButton type="button"
+            style="margin-left: 12px;"
+            pTooltip="Continue searching for {{activeSearch.estimatedTotal}} (estimated) results"
+            tooltipPosition="top">
+        </button>
+    </ng-template>
+</p-table>
+
+<al-action-snackbar [text]="actionSnackbarText"
+                    [visible]="actionSnackbarVisible"
+                    [elements]="actionSnackbarButtons"
+                    (onElementPressed)="actionSnackbarEvent($any($event))">
+</al-action-snackbar>
+
+
+
+
+<!--     <div unavailable>
+        <h2>Unauthenticated Access Not Allowed</h2>
+        <p>You must be signed in to see this functionality.</p>
+    </div> -->
+
+<!-- </al-protected-content-ex> -->
+<!-- END Authentication -->
+
+
+

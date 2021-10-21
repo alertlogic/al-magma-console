@@ -1,0 +1,4 @@
+<h5>Animate: {{val3}}</h5>
+<p-slider [(ngModel)]="val3" [animate]="true"></p-slider>
+
+Typescript: val3: number;

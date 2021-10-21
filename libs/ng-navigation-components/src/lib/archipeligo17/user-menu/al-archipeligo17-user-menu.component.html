@@ -1,0 +1,86 @@
+<div class="user-navigation">
+    <section class="user-menu-container" *ngIf="menu && menu.visible && userMenuAvailable">
+      <main>
+        <div class="userinfo" *ngIf="menu">
+          <div class="entity-wrapper textual-label" title="{{accountName}} - Choose Account">
+              <div class="user-menu-block">
+                <div class="account-icon-space">
+                    <al-archipeligo17-account-selector  [accountList]="allAccountsData"
+                                                        [activeAccountID]="accountId"
+                                                        [activeAccountName]="accountName"
+                                                        (accountSelection)="selectActingAccount($event)"></al-archipeligo17-account-selector>
+                </div>
+              </div>
+          </div>
+          <div class="entity-wrapper" *ngIf="menu && menu.children">
+              <div class="user-menu-block">
+                <div class="account-icon-space" (click)="initialsDropdownMenu.toggle($event)">
+                    <al-identity-icon [name]="userName"
+                                      [circular]="false"
+                                      [withLegend]="false">
+                    </al-identity-icon>
+                  </div>
+              </div>
+          </div>
+          <ng-container *ngIf="datacenter && datacenter.locationsAvailable > 0">
+              <p-menu class="region-menu" #menux [popup]="true" [model]="datacenter.selectableRegions" [style]="{'width':'180px'}"></p-menu>
+              <div class="entity-wrapper" *ngIf="datacenter.locationsAvailable > 0">
+                  <div class="user-menu-block" [ngClass]="{'inactive': datacenter.locationsAvailable <= 1 }" [title]="datacenter.currentRegion">
+                      <div class="menu-trigger" (click)="menux.toggle($event)">
+                          <div class="account-icon-space">
+                              <div class="dco-flag" *ngIf="datacenter.currentResidency==='US'">
+                                  <i class="al al-usa-color dco-flag">
+                                      <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span>
+                                  </i>
+                              </div>
+                              <div class="dco-flag" *ngIf="datacenter.currentResidency==='EMEA'">
+                                  <i class="al al-uk-color dco-flag">
+                                      <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span>
+                                  </i>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </ng-container>
+        </div>
+      </main>
+    </section>
+
+    <section class="below" *ngIf="menu && menu.visible">
+        <div class="stacked-vertical">
+            <span *ngIf="activeChild">{{activeChild.caption}}</span>
+            <i class="material-icons active" (click)="elipsisMenu.toggle($event)">more_vert</i>
+        </div>
+    </section>
+    <p-menu class="elipsis-menu" #elipsisMenu [popup]="true" [model]="menuItems"></p-menu>
+
+    <!-- logout from user dropdown menu -->
+    <p-menu class="user-dropdown-menu" #initialsDropdownMenu [popup]="true" [model]="initialsMenu"></p-menu>
+
+    <!--
+    <mat-menu md-position-mode="bottom" #locationDropdownMenu="matMenu" class="location-dropdown-menu" [overlapTrigger]="false">
+      <div>
+          <ul class="location-dropdown-menu">
+              <ng-container *ngIf="locations.US !== undefined">
+                  <li class="dropdown-header" translate>UNITED STATES</li>
+                  <ng-template ngFor let-location [ngForOf]="locations.US">
+                      <li class="list-item" mat-menu-item (click)="onClickDatacenter(location,$event)" [ngClass]="{'active': location.activated }">
+                          <a href="{{location._href}}" (click)="onClickDatacenter(location,$event)">{{location.caption | uppercase}}</a>
+                      </li>
+                  </ng-template>
+              </ng-container>
+              <ng-container *ngIf="locations.EMEA !== undefined">
+                  <li class="dropdown-header" translate>UNITED KINGDOM</li>
+                  <ng-template ngFor let-location [ngForOf]="locations.EMEA">
+                      <li class="list-item" mat-menu-item (click)="onClickDatacenter(location,$event)" [ngClass]="{'active': location.activated }">
+                          <a href="{{location._href}}" (click)="onClickDatacenter(location,$event)">{{location.caption | uppercase}}</a>
+                      </li>
+                  </ng-template>
+              </ng-container>
+          </ul>
+      </div>
+    </mat-menu>
+    -->
+  </div>
+

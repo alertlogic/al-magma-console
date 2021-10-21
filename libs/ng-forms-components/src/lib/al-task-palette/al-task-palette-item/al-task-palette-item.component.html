@@ -1,0 +1,25 @@
+<div class="grid grid-nogutter list-option">
+    <div class="col-fix list-icon"
+         [style.background-color]="item.icon?.color">
+        <i *ngIf="item?.icon?.name"
+           class="material-icons">{{ item?.icon?.name }}</i>
+        <i *ngIf="item.icon?.cssClasses"
+           class="{{item.icon?.cssClasses}}"></i>
+
+    </div>
+    <div class="col hide-overflow">
+        <div class="list-text">
+            <div *ngIf="item.label"
+                 class="title">{{ item.label }}:</div>
+            {{ item.name }}
+        </div>
+    </div>
+    <i *ngIf="hasError" class="material-icons risk critical" [pTooltip]="errorTooltipMessage">warning</i>
+    <button *ngIf="removeable"
+        type="button"
+        pButton
+        class="flat"
+        icon="ui-icon-clear"
+        (click)="removeActionClick(item)">
+    </button>
+</div>

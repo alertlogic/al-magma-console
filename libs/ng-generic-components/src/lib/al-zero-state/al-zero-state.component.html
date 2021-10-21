@@ -1,0 +1,15 @@
+<div [ngClass]="'al-zero-state ' + flavor">
+    <ng-content select="[above]"></ng-content>
+    <div class="al-zero-state-icon">
+        <ng-content select="[zero-state-icon]"></ng-content>
+    </div>
+    <div class="al-zero-state-body">
+        <div class="primaryText">
+            <ng-content select="[zero-state-title]"></ng-content>
+        </div>
+        <div class="secondaryText">
+            <ng-content select="[zero-state-description]"></ng-content>
+        </div>
+    </div>
+    <ng-content select="[below]"></ng-content>
+</div>

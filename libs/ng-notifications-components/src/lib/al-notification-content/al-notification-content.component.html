@@ -1,0 +1,299 @@
+<div class="grid grid-nogutter nested-grid">
+    <div class="col-12 al-cardstack-content-first-title-margin grid-nogutter">
+        <div class="al-cardstack-content-title"
+            >Details</div>
+    </div>
+    <div *ngIf="item.entity.type.notificationType === 'tableau/notifications'" class="al-cardstack-content-value-top-padding">
+        Alert Logic generates a report on a schedule that you set and can send a notification when the report is ready.
+    </div>
+    <div *ngIf="item.entity.type.notificationType === 'search/notifications'" class="al-cardstack-content-value-top-padding">
+        Alert Logic conducts a File Integrity Monitoring search on a schedule that you set and can send a notification when the search results are ready.
+    </div>
+    <div class="col-12 grid-nogutter">
+        <div class="grid grid-nogutter">
+            <div class="col-3 grid-nogutter al-cardstack-content-column-righ-padding">
+                <div class="al-cardstack-content-label "
+                    >Created</div>
+                <div *ngIf="item.properties.createdTime">
+                    <div *ngIf="item.properties.createdByName">{{item.properties.createdByName}}</div>
+                    <div>{{item.properties.createdTime *1000 | date: 'MMM dd yyyy HH:mm z'}}</div>
+                </div>
+                <div *ngIf="!item.properties.createdTime"
+                    >
+                    N/A
+                </div>
+            </div>
+            <div class="col-3 grid-nogutter al-cardstack-content-column-righ-padding">
+                <div class="al-cardstack-content-label"
+                    >Last Modified</div>
+                <div *ngIf="item.properties.modifiedByName">{{item.properties.modifiedByName}}</div>
+                <div *ngIf="item.properties.modifiedTime">
+                    {{item.properties.modifiedTime *1000 | date: 'MMM dd yyyy HH:mm z'}}
+                </div>
+                <div *ngIf="!item.properties.modifiedTime"
+                    >
+                    N/A
+                </div>
+            </div>
+            <div class="col-3 grid-nogutter al-cardstack-content-column-righ-padding"
+                 *ngIf="item.properties.active">
+                <div class="al-cardstack-content-label" *ngIf="item.entity.type.notificationType === 'search/notifications'">Conduct FIM Searches</div>
+                <div class="al-cardstack-content-label" *ngIf="item.entity.type.notificationType === 'tableau/notifications'">Send Reports</div>
+                <div>{{ item.properties.active ? 'Active' : 'Inactive' }}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 grid-nogutter"
+         *ngIf="item.properties.runTime">
+        <div class="grid grid-nogutter">
+            <div *ngIf="item.entity.type.notificationType === 'tableau/notifications'" class="col-3 grid-nogutter al-cardstack-content-column-righ-padding">
+                <div class="al-cardstack-content-label"
+                    >Generate at This Time</div>
+                    <span *ngIf="item.properties.cadenceName === 'daily'">
+                        Following day at
+                    </span>
+                    <span *ngIf="item.properties.cadenceName === 'weekly'">
+                        Each Monday at
+                    </span>
+                    <span *ngIf="item.properties.cadenceName === 'monthly'">
+                        First of each month at
+                    </span>
+                    <span>
+                        {{ item.properties.runTime | date: 'HH:mm z'}}
+                    </span>
+            </div>
+            <div *ngIf="item.entity.type.notificationType === 'search/notifications'" class="col-3 grid-nogutter al-cardstack-content-column-righ-padding">
+                <div class="al-cardstack-content-label"
+                    >Generate at This Time</div>
+                    <span *ngIf="item.properties.cadenceName === 'daily'">
+                        Following day at
+                    </span>
+                    <span *ngIf="item.properties.cadenceName === 'weekly'">
+                        Each {{ item.properties.dayOfTheWeek | titlecase }} at
+                    </span>
+                    <span *ngIf="item.properties.cadenceName === 'monthly'">
+                        Day {{ item.properties.dayOfTheMonth }} of each month at
+                    </span>
+                    <span>
+                        {{ item.properties.runTime | date: 'HH:mm z'}}
+                    </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 grid-nogutter al-cardstack-content-chips-section"
+    *ngIf="item.entity.type.notificationType === 'observations/notification' ||
+            item.entity.type.notificationType === 'incidents/alerts' ||
+            item.entity.type.notificationType === 'health/alerts' " >
+        <div class="al-cardstack-content-chips-section-title"
+            >Send a notification for the following account(s):</div>
+        <div class="list-container">
+            <div class="grid grid-nogutter">
+                <div class="al-cardstack-content-chips-wrapper"
+                     *ngFor="let account of item.properties.accountsName">
+                    <div class="al-cardstack-chips-rounded">
+                        <span class="bold">{{account.name }}</span>
+                        <span *ngIf="account.isCreator"
+                             > (creator) </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="al-cardstack-content-chips-section-title"
+            >with information that matches the following filter(s):</div>
+        <div class="grid grid-nogutter"
+             *ngIf="item.properties.correlation && item.entity.type.notificationType !== 'health/alerts'">
+            <div class="al-cardstack-content-chips-wrapper">
+                <div class="al-cardstack-chips-rounded" >
+                    <span class="bold">{{item.properties.correlation.name}}</span>
+                    <span> Correlation Rule </span>
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-nogutter"
+             *ngIf="item.properties.escalated && item.entity.type.notificationType !== 'health/alerts'">
+            <div class="al-cardstack-content-chips-wrapper">
+                <div class="al-cardstack-chips-rounded"
+                    >
+                    <span class="bold">Escalations</span>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="item.entity.type.notificationType !== 'health/alerts' &&
+                    item.properties.escalated && item.properties.threatLevel &&
+                    item.properties.threatLevel.length > 0"
+            class="and-condition"
+           >
+           AND
+       </div>
+       <div class="grid grid-nogutter" *ngIf="item.entity.type.notificationType !== 'health/alerts'">
+            <div class="al-cardstack-content-chips-wrapper"
+                *ngFor="let threat of item.properties.threatLevel">
+                <div class="al-cardstack-chips-rounded">
+                    <span class="bold">{{threat}}</span>
+                    <span> (Threat Level)</span>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="item.entity.type.notificationType === 'health/alerts'">
+            <div class="grid grid-nogutter">
+                <div class="al-cardstack-content-chips-wrapper" *ngFor="let filter of getHealthFilters('notification.agent_status')">
+                    <div class="al-cardstack-chips-rounded">
+                        <span class="bold">{{ filter }}</span>
+                        <span> (Agent Status)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-nogutter">
+                <div class="al-cardstack-content-chips-wrapper" *ngFor="let filter of getHealthFilters('notification.appliance_status')">
+                    <div class="al-cardstack-chips-rounded">
+                        <span class="bold">{{ filter }}</span>
+                        <span> (Appliance Status)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-nogutter">
+                <div class="al-cardstack-content-chips-wrapper" *ngFor="let filter of getHealthFilters('notification.collector_status')">
+                    <div class="al-cardstack-chips-rounded">
+                        <span class="bold">{{ filter }}</span>
+                        <span> (Collector Status)</span>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="getHealthFilters('assets').length > 0"
+                    class="and-condition">
+                AND
+            </div>
+            <div class="grid grid-nogutter assets-container-list">
+                <div class="al-cardstack-content-chips-wrapper" *ngFor="let filter of getHealthFilters('assets')">
+                    <div class="al-cardstack-chips-rounded">
+                        <span class="bold">{{ filter }}</span>
+                        <span> (Asset)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="al-cardstack-content-chips-section-title"
+                *ngIf="healthPolicy.name">
+                Time Before Alert is Triggered:
+            </div>
+            <div class="grid grid-nogutter" *ngIf="healthPolicy.name">
+                <div class="al-cardstack-chips-rounded">
+                    <span class="bold">{{healthPolicy.name}}</span>
+                </div>
+            </div>
+            <div class="al-cardstack-content-chips-section-title"
+                *ngIf="item?.properties?.suppressionInterval">
+                Time Before Notification is Triggered:
+            </div>
+            <div class="grid nogutter" *ngIf="item?.properties?.suppressionInterval">
+                <div class="al-cardstack-chips-rounded">
+                    <span class="bold">{{getGovernanceText(item.properties.suppressionInterval)}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- transform data is missing -->
+    <div class="col-12 grid-nogutter"
+    *ngIf="item.entity.type.notificationType === 'tableau/notifications'">
+        <div class="al-cardstack-content-title">
+            Report Settings
+        </div>
+        <al-aggregation-filter-content [filters]="item.properties?.reportFilters"
+                                        [filtersSort]="item.properties?.reportFiltersSort"
+                                        [columns]="3">
+        </al-aggregation-filter-content>
+    </div>
+    <div class="col-12 grid-nogutter"
+    *ngIf="item.entity.type.notificationType === 'search/notifications'">
+        <div class="al-cardstack-content-title">
+            Search Settings
+        </div>
+        <al-aggregation-filter-content [filters]="item.properties?.searchFilters"
+                                        [filtersSort]="item.properties?.searchFiltersSort"
+                                        [columns]="6">
+        </al-aggregation-filter-content>
+    </div>
+    <div class="col-12 grid-nogutter">
+        <div class="al-cardstack-content-title"
+            >Users Subscribed</div>
+        <div class="al-cardstack-content-value-top-padding"
+             *ngIf="item.properties.usersName.length > 0">
+             <span>Users that receive this notification:</span>
+            <div class="list-container">
+                <div class="grid grid-nogutter">
+                    <div class="al-cardstack-content-chips-wrapper"
+                         *ngFor="let user of item.properties.usersName">
+                        <div class="al-cardstack-chips-rounded">
+                            <span class="bold">{{user.name}}</span>
+                            <span *ngIf="user.isCreator"
+                                 > (creator) </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="al-cardstack-content-value-top-padding"
+             *ngIf="item.properties.usersName.length === 0"
+            >
+            No users subscribed
+        </div>
+    </div>
+    <div class="col-12 grid-nogutter">
+        <div class="grid grid-nogutter">
+            <div class="col-6 grid-nogutter al-cardstack-content-column-righ-padding">
+                <div class="al-cardstack-content-label"
+                    >Email Subject</div>
+                {{ item.properties.emailSubject || 'N/A' }}
+            </div>
+            <div class="col-6 grid-nogutter al-cardstack-content-column-righ-padding"
+                *ngIf="item.entity.type.notificationType === 'tableau/notifications' && item.properties.format">
+                <div class="al-cardstack-content-label"
+                    >Report Delivery</div>
+                Attach {{item.properties.format | uppercase}} file
+            </div>
+            <div class="col-6 grid-nogutter al-cardstack-content-column-righ-padding"
+                *ngIf="item.entity.type.notificationType === 'search/notifications' && item.properties.includeAttachments">
+                <div class="al-cardstack-content-label"
+                    >Search Delivery</div>
+                Attach {{item.properties.format | uppercase}} file
+            </div>
+        </div>
+    </div>
+    <div *ngIf="item.entity.type.notificationType !== 'search/notifications'" class="col-12 grid-nogutter">
+        <div class="al-cardstack-content-title"
+            >Connector Subscribed</div>
+        <div class="al-cardstack-content-value-top-padding"
+             *ngIf="item.properties.integrationsName.length > 0">
+            <span>Connector that receive this notification:</span>
+            <div class="list-container">
+                <div class="grid grid-nogutter">
+                    <div class="al-cardstack-content-chips-wrapper"
+                         *ngFor="let integration of item.properties.integrationsName">
+                        <div class="al-cardstack-chips-rounded">
+                            <span class="bold">{{integration}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="al-cardstack-content-value-top-padding"
+             *ngIf="item.properties.integrationsName.length === 0"
+            >
+            <div>No connector subscribed</div>
+        </div>
+    </div>
+    <div class="col-12"
+         *ngIf="item.properties.error">
+        <div class="error-container">
+            <div class="error-message">
+                {{ item.properties.error }}
+            </div>
+            <div class="close-error">
+                <i class="material-icons close"
+                   (click)="closeError(item)">close</i>
+            </div>
+        </div>
+    </div>
+</div>

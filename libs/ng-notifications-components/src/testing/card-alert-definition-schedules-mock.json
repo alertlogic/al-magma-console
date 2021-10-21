@@ -1,0 +1,86 @@
+{
+    "id": "C1FC19A8-30D7-4C3B-8FA4-FD4008723CC3",
+    "caption": "ConfigurationRemediationTrends, only sre test",
+    "type": {
+      "entityCode": "scheduled_report",
+      "notificationType": "tableau/notifications",
+      "group": "scheduled"
+    },
+    "properties": {
+      "id": "C1FC19A8-30D7-4C3B-8FA4-FD4008723CC3",
+      "caption": "ConfigurationRemediationTrends, only sre test",
+      "schedule": {
+        "monthly": {
+          "minute": 29,
+          "hour": 20,
+          "day": 1
+        }
+      },
+      "active": true,
+      "workbookId": "00dffec9-2be8-4c80-90f8-04de50e149fd",
+      "viewId": "5d72bd5b-8325-46c0-a8f1-c24d7ab7ac16",
+      "siteId": "d741e65f-4498-48e8-b5ae-6ea3b270654e",
+      "reportFilters": {
+        "Report Type": [
+          "Configuration Remediation Trends"
+        ],
+        "Customer Account": [
+          "Site Reliability Engineering (SRE) AL(134248568)"
+        ]
+      },
+      "format": "pdf",
+      "createdBy": "27692F50-B489-49B0-9804-432BE9DDEAEA",
+      "createdTime": 1588019375,
+      "modifiedBy": "27692F50-B489-49B0-9804-432BE9DDEAEA",
+      "modifiedTime": 1588019374,
+      "accountId": "134248568",
+      "filters": {
+        "=": [
+          {
+            "source": "notification.schedule_id"
+          },
+          "92BCA6A0-A44B-1005-8001-0242AC11000B"
+        ]
+      },
+      "subscribers": [
+        {
+          "subscriber_type": "user",
+          "subscriber": "27692F50-B489-49B0-9804-432BE9DDEAEA",
+          "account_id": "134248568"
+        }
+      ],
+      "notificationType": "tableau/notifications",
+      "externalId": "92BCA6A0-A44B-1005-8001-0242AC11000B",
+      "emailSubject": "Scheduled Report {{scheduled_report_name}} was generated",
+      "users": [
+        "27692F50-B489-49B0-9804-432BE9DDEAEA"
+      ],
+      "usersName": [
+        {
+          "isCreator": true,
+          "name": "Bryan Tabarez"
+        }
+      ],
+      "searchables": [
+        "Bryan Tabarez"
+      ],
+      "integrations": [],
+      "integrationsName": [],
+      "createdByName": "Bryan Tabarez",
+      "modifiedByName": "Bryan Tabarez",
+      "recipientsTotal": 1,
+      "subtitle": "Most recent notification sent: No notifications sent.",
+      "viewName": "Configuration Remediation Trends",
+      "workbookName": "Configuration Remediations",
+      "workbookSubMenu": "Remediations",
+      "cadenceName": "monthly",
+      "runTime": 1585772940110,
+      "embedUrl": "ConfigurationRemediationTrends_0/ConfigurationRemediationTrends",
+      "contentUrl": "ConfigurationRemediationTrends_0",
+      "accounts": [
+        "134248568"
+      ],
+      "toptitle": "Configuration Remediation Trends",
+      "artifactCount": 0
+    }
+}

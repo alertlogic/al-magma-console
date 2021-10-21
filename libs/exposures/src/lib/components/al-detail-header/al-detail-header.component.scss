@@ -1,0 +1,43 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.header-container {
+    border-bottom: 1px solid al-color($al-gray, 50);
+    color: al-color($al-gray, 600);
+    width: 100%;
+
+    .risk-icon {
+        al-icon-block {
+            cursor: default;
+        }
+    }
+
+    .titles {
+        .upper-title {
+            font-weight: 700;
+            padding-bottom: 10px;
+        }
+        .main-title {
+            font-size: 1.5em;
+            padding-bottom: 10px;
+        }
+        .lower-title {
+            display: inherit;
+        }
+    }
+
+    .actions {
+        display: inherit;
+    }
+
+    .action-buttons {
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        flex-flow: row;
+        height: 100%;
+        white-space: nowrap;
+    }
+}

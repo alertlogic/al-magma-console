@@ -1,0 +1,328 @@
+{
+    "user": {
+        "descriptor": "User Menu",
+        "structure": [
+            {
+                "id": "user:user-management",
+                "caption": "Users",
+                "target": {
+                    "site": "cd17:accounts",
+                    "path": "/users/aims/#/"
+                }
+            },
+            {
+                "id": "user:integrations",
+                "caption": "Integrations",
+                "target": {
+                    "site": "cd17:accounts",
+                    "path": "/users/developer/#/"
+                }
+            },
+            {
+                "id": "user:support",
+                "caption": "Support",
+                "target": {
+                    "site": "cd17:accounts",
+                    "path": "/#/support/home"
+                },
+                "children": [
+                    {
+                        "id": "cd17:accounts:details",
+                        "caption": "Details",
+                        "target": {
+                            "site": "cd17:accounts",
+                            "path": "/#/support/home"
+                        }
+                    },
+                    {
+                        "id": "cd17:accounts:helpcenter",
+                        "caption": "Help Center",
+                        "target": {
+                            "site": "cd14:support",
+                            "path": "/hc/en-us"
+                        }
+                    }
+                ],
+                "disabled": false
+            },
+            {
+                "id": "user:signout",
+                "caption": "Sign Out",
+                "action": {
+                    "type": "trigger",
+                    "hook": "Navigation.User.Signout"
+                }
+            }
+        ]
+    },
+    "main": {
+        "description": "Top Navigation",
+        "structure": [
+            {
+                "id": "cd17:overview",
+                "caption": "Overview",
+                "target": {
+                    "site": "cd17:overview",
+                    "path": "/#/"
+                },
+                "matches": [ "/#/.*" ],
+                "visible": false,
+                "children": [
+                    {
+                        "id": "cd17:overview:dashboards",
+                        "caption": "Dashboards",
+                        "target": {
+                            "site": "cd17:overview",
+                            "path": "/#/remediations-scan-status/:accountId"
+                        },
+                        "matches": [ "/#/.*" ]
+                    }
+                ]
+            },
+            {
+                "id": "cd17:config",
+                "caption": "Deployments",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/"
+                },
+                "matches": [ "/#/", "/#/scope/.*" ],
+                "children": [
+                    {
+                        "caption": "List",
+                        "target": {
+                            "site": "cd17:config",
+                            "path": "/#/deployments/:accountId"
+                        },
+                        "bubble": true
+                    },
+                    {
+                        "id": "cd17:config:scope",
+                        "caption": "Scope",
+                        "target": {
+                            "site": "cd17:config",
+                            "path": "/#/scope/:accountId/:deploymentId"
+                        },
+                        "visible": false
+                    },
+                    {
+                        "id": "cd17:config:discovery",
+                        "caption": "Discovery",
+                        "target": {
+                            "site": "cd17:config",
+                            "path": "/#/discovery/:accountId/:deploymentId"
+                        },
+                        "visible": false
+                    },
+                    {
+                        "caption": "Tutorial",
+                        "action": {
+                            "type": "trigger",
+                            "hook": "Navigation.Open.Tutorial"
+                        },
+                        "properties": {
+                            "css_class": "atTheEnd"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "cd17:incidents",
+                "caption": "Incidents",
+                "target": {
+                    "site": "cd17:incidents",
+                    "path": "/#/"
+                },
+                "matches": "/#/.*",
+                "children": [
+                    {
+                        "id": "cd17:incidents:summary",
+                        "caption": "Summary",
+                        "target": {
+                            "site": "cd17:incidents",
+                            "path": "/#/summary/:accountId"
+                        }
+                    },
+                    {
+                        "id": "cd17:incidents:list",
+                        "caption": "List",
+                        "target": {
+                            "site": "cd17:incidents",
+                            "path": "/#/incidents/:accountId/open"
+                        },
+                        "matches": [
+                            "/#/incidents/.*"
+                        ]
+                    },
+                    {
+                        "caption": "Events",
+                        "target": {
+                            "site": "cd14:ui",
+                            "path": "/event_monitor.php"
+                        },
+                        "disabled": false,
+                        "visible": [
+                            {
+                                "parameter": "account",
+                                "operator": "can_access",
+                                "expression": "cd14:ui"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "cd17:incidents:tutorial",
+                        "caption": "Tutorial",
+                        "matches": "/#/tutorial.*",
+                        "properties": {
+                            "css_class": "atTheEnd"
+                        },
+                        "action": {
+                            "type": "trigger",
+                            "hook": "Navigation.Open.Tutorial"
+                        }
+                    },
+                    {
+                        "id": "cd17:incidents:investigation_view_by_id",
+                        "caption": "Retrieves the UI url for a specific incident.",
+                        "target": {
+                            "site": "cd17:incidents",
+                            "path": "/#/incidents/:accountId/:incidentId/investigation"
+                        },
+                        "visible": false
+                    }
+                ]
+            },
+            {
+                "id": "cd17:topology",
+                "caption": "Topology",
+                "target": {
+                    "site": "cd17:overview",
+                    "path": "/topology/index.html#/:accountId"
+                },
+                "matches": [ "/topology/index.html#/.*" ],
+                "children": [
+                    {
+                        "caption": "Topology for specific accountId/deploymentId",
+                        "visible": false,
+                        "target": {
+                            "site": "cd17:overview",
+                            "path": "/topology/index.html#/:accountId/:deploymentId"
+                        },
+                        "bubble": true
+                    }
+                ]
+            },
+            {
+                "id": "cd17:remediations",
+                "caption": "Remediations",
+                "target": {
+                    "site": "cd17:remediations",
+                    "path": "/#/remediations/:accountId"
+                },
+                "children": [
+                    {
+                        "id": "cd17:config:dashboard",
+                        "caption": "Dashboard",
+                        "target": {
+                            "site": "cd17:config",
+                            "path": "/#/dashboard/:accountId/:deploymentId"
+                        }
+                    },
+                    {
+                        "id": "cd17:remediations:list",
+                        "caption": "List",
+                        "target": {
+                            "site": "cd17:remediations",
+                            "path": "/#/remediations/:accountId/:deploymentId"
+                        },
+                        "bubble": true,
+                        "matches": "/#/remediations/.*"
+                    },
+                    {
+                        "id": "cd17:remediations:plan",
+                        "caption": "Plan",
+                        "target": {
+                            "site": "cd17:remediations",
+                            "path": "/#/myplan/:accountId/:deploymentId"
+                        }
+                    },
+                    {
+                        "id": "cd17:remediations:history",
+                        "caption": "History",
+                        "target": {
+                            "site": "cd17:remediations",
+                            "path": "/#/history/:accountId/:deploymentId"
+                        }
+                    },
+                    {
+                        "id": "cd17:remediations:tutorial",
+                        "caption": "Tutorial",
+                        "action": {
+                            "type": "trigger",
+                            "hook": "Navigation.Open.Tutorial"
+                        },
+                        "properties": {
+                            "css_class": "atTheEnd"
+                        }
+                    },
+                    {
+                        "id": "cd17:remediations:remediationsByDeployment",
+                        "caption": "Remediations By Deployment",
+                        "target": {
+                            "site": "cd17:remediations",
+                            "path": "/#/remediations/:accountId/:deploymentId"
+                        },
+                        "visible": false
+                    },
+                    {
+                        "id": "cd17:remediations:remediationsByFilter",
+                        "caption": "Remediations By Saved Filter",
+                        "target": {
+                            "site": "cd17:remediations",
+                            "path": "/#/remediations/:accountId/:deploymentId/filter/:filterId"
+                        },
+                        "visible": false
+                    },
+                    {
+                        "id": "cd17:remediations:remediationsByAsset",
+                        "caption": "Remediations By Asset",
+                        "target": {
+                            "site": "cd17:remediations",
+                            "path": "/#/remediations/:accountId/:deploymentId/asset/:assetType:assetKey"
+                        },
+                        "visible": false
+                    }
+                ]
+            },
+            {
+                "id": "cd17:intelligence",
+                "caption": "Reports",
+                "target": {
+                    "site": "cd17:intelligence",
+                    "path": "/#/"
+                },
+                "matches": [ "/#/.*" ],
+                "children": [
+                    {
+                        "id": "cd17:intelligence:list",
+                        "caption": "Summary",
+                        "target": {
+                            "site": "cd17:intelligence",
+                            "path": "/#/dashboard/:accountId"
+                        },
+                        "matches": [ "/#/dashboard/.*" ]
+                    },
+                    {
+                        "id": "cd17:intelligence:legacyReports",
+                        "caption": "Legacy Reports",
+                        "target": {
+                            "site": "cd17:intelligence",
+                            "path": "/#/legacy-reports/dashboard/:accountId"
+                        },
+                        "matches": [ "/#/legacy-reports/.*" ]
+                    }
+                ]
+            }
+        ]
+    }
+}

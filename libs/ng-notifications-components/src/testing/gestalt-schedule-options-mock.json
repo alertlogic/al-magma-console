@@ -1,0 +1,49 @@
+{
+    "accounts": [
+      {
+        "id": "234250395",
+        "name": "Child Customer",
+        "default_location": "defender-us-ashburn"
+      },
+      {
+        "id": "354257035",
+        "name": "Child Level2",
+        "default_location": "defender-us-ashburn"
+      },
+      {
+        "id": "6d255110",
+        "name": "Integration Account",
+        "default_location": "defender-us-ashburn"
+      }
+    ],
+    "connections": [
+      {
+        "id": "B3A803F5-60EC-4196-9667-68DC8B4E99F1",
+        "name": "My super Webhook",
+        "type":"webhook",
+        "payload_type":"incidents",
+        "sample_payload": {"name":"abc", "content":""}
+      },
+      {
+        "id": "9DA2795A-DED4-4692-8E51-16F2F76F08A9",
+        "name": "Test Webhook for Someone",
+        "type":"webhook",
+        "payload_type":"incidents",
+        "sample_payload": {"name":"abc", "content":""}
+      },
+      {
+        "id": "B3A803F5-60EC-4196-9667-68DC8B4E99F1",
+        "name": "My super Webhook",
+        "type":"webhook",
+        "payload_type":"scheduled_report",
+        "sample_payload": {"name":"abc", "content":""}
+      },
+      {
+        "id": "9DA2795A-DED4-4692-8E51-16F2F76F08A9",
+        "name": "Test Webhook for Someone",
+        "type":"webhook",
+        "payload_type":"scheduled_report",
+        "sample_payload": {"name":"abc", "content":""}
+      }
+    ]
+}

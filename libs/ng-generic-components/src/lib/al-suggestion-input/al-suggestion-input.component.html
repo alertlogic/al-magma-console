@@ -1,0 +1,67 @@
+<div class="suggestion-input" #suggestion>
+    <div #suggestionPanel [ngClass]="['suggestion-panel', suggestionPanelClass, !openWithSpecialCharacter ? 'full-width' : '']">
+        <div *ngIf="suggestionTemp.length > 0" #hasSuggestions>
+            <li
+                *ngFor="let suggestion of suggestionTemp"
+                (click)="putSuggestion(suggestion)"
+                class="grid align-items-center">
+                    <span class="col-11 label">{{suggestion}}</span>
+                    <span class="col-1 icon"><i class="material-icons">add_circle</i></span>
+            </li>
+        </div>
+        <div *ngIf="suggestionTemp.length === 0" #notSuggestions>
+            <li>No suggestions found</li>
+        </div>
+    </div>
+    <div class="tracing-paper" #tracingPaper></div>
+    <ng-container *ngIf="type === 'input'; then inputTpl; else textareaTpl"></ng-container>
+    <ng-template #inputTpl>
+        <span class="md-inputfield">
+            <input
+                #input
+                pInputText
+                type="text"
+                [required]="required"
+                [ngClass]="{'invalid-input': control?.invalid && (control.dirty || control.touched)}"
+                [(ngModel)]="value"
+                [disabled]="isDisabled"
+                alsuggestioninput="true"
+                autocomplete="off"
+                (keyup)="onKeyup($event)"
+                (click)="onClick($event)"
+                (keydown)="onKeydown($event)"
+                (input)="onChange()"
+                (change)="onChange()"
+                (blur)="onTouchFn()"
+                (focusin)="hasFocus = true"
+                (focusout)="hasFocus = false">
+            <label for="input" class="label">{{placeholder}}</label>
+            <ng-content select="[errors]"></ng-content>
+        </span>
+    </ng-template>
+    <ng-template #textareaTpl>
+        <span class="ui-float-label">
+            <textarea
+                #input
+                pInputTextarea
+                [rows]="rows"
+                [autoResize]="autoResize"
+                [required]="required"
+                [ngClass]="{'invalid-input': control?.invalid && (control.dirty || control.touched)}"
+                [(ngModel)]="value"
+                [disabled]="isDisabled"
+                alsuggestioninput="true"
+                autocomplete="off"
+                (keyup)="onKeyup($event)"
+                (click)="onClick($event)"
+                (keydown)="onKeydown($event)"
+                (input)="onChange()"
+                (change)="onChange()"
+                (blur)="onTouchFn()"
+                (focusin)="hasFocus = true"
+                (focusout)="hasFocus = false"></textarea>
+            <label for="input" class="label">{{placeholder}}</label>
+            <ng-content select="[errors]"></ng-content>
+        </span>
+    </ng-template>
+</div>

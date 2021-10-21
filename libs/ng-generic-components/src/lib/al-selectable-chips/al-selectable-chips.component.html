@@ -1,0 +1,33 @@
+<div class="options-container">
+    <ul class="chips">
+        <li *ngFor="let option of andChips; index as i" class="options">
+            <span class="chip">
+                <strong>{{option.title}}</strong> &nbsp;{{option.subtitle}}
+                <i *ngIf="!readonly" style="cursor: pointer; font-size:medium" class="pi pi-times"
+                    (click)="removeSelectedItemAt(i, 'and')"></i>
+            </span>
+            <span class="separator">
+                <strong>
+                    {{i === andChips.length - 1 ? "" : option.separator}}
+                </strong>
+            </span>
+        </li>
+    </ul>
+    <div *ngIf="andChips.length > 0 && orChips.length > 0" class="big-or">
+        <strong>OR</strong>
+    </div>
+    <ul class="chips">
+        <li *ngFor="let option of orChips; index as i" class="options">
+            <span class="chip">
+                <strong> {{option.title}} </strong> &nbsp;{{option.subtitle}}
+                <i *ngIf="!readonly" style="cursor: pointer; font-size:medium" class="pi pi-times"
+                    (click)="removeSelectedItemAt(i, 'or')"></i>
+            </span>
+            <span class="separator">
+                <strong>
+                    {{i === orChips.length - 1 ? "" : option.separator}}
+                </strong>
+            </span>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,47 @@
+
+@import "@al/ng-generic-components/styles/utility";
+
+.al-search-bar {
+    input {
+        width: 100%;
+    }
+    input:not(:focus) {
+        // background-image: none;
+    }
+    input:focus ~ label {
+        color: al-color($al-smokeBlue, 500);
+    }
+
+    i {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        cursor: pointer;
+
+        .header {
+            font-size: 32px;
+        }
+
+        &.toolbar {
+            font-size: 18px;
+        }
+
+    }
+
+    .p-inputtext{
+        border:0px;
+        padding-right: 20px;
+    }
+
+    .bar-content {
+        text-align: left;
+        .input-error {
+            background-color: transparent;
+            border: 0;
+            margin: 0;
+            color: al-color($al-red, 600);
+            font-size: 11px;
+        }
+
+    }
+}

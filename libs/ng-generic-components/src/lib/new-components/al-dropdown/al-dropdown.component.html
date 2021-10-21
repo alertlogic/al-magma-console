@@ -1,0 +1,42 @@
+<div class="ald-dropdown">
+
+    <!-- CUSTOM BUTTON -->
+    <div #customButtonContent (click)="optionsVisible = !optionsVisible">
+        <ng-content select="[dropdown]"></ng-content>
+    </div>
+
+    <!-- DROPDOWN TEMPLATE -->
+    <ng-container *ngIf="customButton">
+        <ng-container *ngTemplateOutlet="dropdownContent"></ng-container>
+    </ng-container>
+
+    <!-- DEFAULT FORM DROPWDOWN BUTTON -->
+    <ng-container *ngIf="!customButton">
+        <al2-form-group [id]="id" [label]="label" [tip]="tip" [hint]="hint" [required]="required">
+            <div class="ald-select">
+                <button
+                    class="ald-select__element text-left"
+                    [ngClass]="[disabled ? 'ald-select__element--disabled' : '']"
+                    (click)="optionsVisible = !optionsVisible">
+                    {{ buttonText }}
+                </button>
+                <div [ngClass]="[disabled ? 'ald-select__icon--disabled' : '']"
+                    class="ald-select__icon">
+                    <al2-icon icon="keyboard_arrow_down"></al2-icon>
+                </div>
+            </div>
+
+            <!-- DROPDOWN TEMPLATE -->
+            <ng-container *ngTemplateOutlet="dropdownContent"></ng-container>
+        </al2-form-group>
+    </ng-container>
+</div>
+
+<!-- DROPDOWN AREA -->
+<ng-template #dropdownContent>
+    <div *ngIf="optionsVisible" class="ald-dropdown__content" [ngClass]="[customButton ? 'w-80' : 'w-full']">
+
+        <ng-content></ng-content>
+        
+    </div>
+</ng-template>

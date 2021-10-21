@@ -1,0 +1,117 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.al-exposure-mini-card {
+    margin: 0px 0px 12px 0px;
+    -webkit-box-shadow: 0 1px 4px al-color($al-gray,200);
+    box-shadow: 0 1px 4px al-color($al-gray,200);
+    background: white;
+
+    &.expanded{
+        margin: 0 -3px 10px -3px;
+    }
+
+    &.card-border {
+        border: 2px solid al-color($al-smokeBlue, 500)
+    }
+
+    .body-title {
+        padding: 15px;
+
+        .expandable-icon {
+            cursor: pointer;
+            text-align: right;
+            i {
+                font-size: 1.5em;
+            }
+        }
+        .icon {
+            i {
+                font-size: 1.3em;
+            }
+        }
+        .header {
+            text-align: left;
+            font-size: 1.3em;
+        }
+    }
+
+    .card-background-color {
+        background-color: al-color($al-smokeBlue, 500); // #57a0d7
+        background:al-color($al-smokeBlue, 500);
+        color:white
+    }
+         
+    .card-expandable {
+        cursor: pointer;
+
+        &:hover {
+            background-color: #cbe2f2;
+        }
+    }
+
+    .card-expandable-header {
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+
+    .card-expandable-content {
+
+        p {
+            margin: 0;
+        }
+
+        .title {
+            font-size: 1em;
+            color: al-color($al-gray, 300);
+            margin-top: 12px;
+        }
+
+        .desc {
+            padding-top: 0;
+            word-wrap: break-word;
+            word-break: break-word;
+        }
+    }
+
+    .card-expandable-bottom {
+        background: #F6F6F6;
+        padding: 15px;
+    }
+
+    .border-bottom {
+        border-bottom: 2px solid al-color($al-gray, 50);
+    }
+
+    .details-icon-title {
+        padding-right: 12px;
+        font-size: 15px;
+    }
+
+    .padding-left-desc {
+        padding-left: 46px;
+        padding-right: 10px;
+    }
+
+    .padding-right-10 {
+        padding-right: 10px;
+    }
+
+    .padding-top-10 {
+        padding-top: 10px;
+    }
+
+    .padding-left-15 {
+        padding-left: 15px;
+    }
+
+    .padding-20 {
+        padding: 20px;
+    }
+
+    .link{
+        cursor: pointer;
+    }
+}
+.tool-tip-width .p-tooltip-text {
+    width: 200px;
+}

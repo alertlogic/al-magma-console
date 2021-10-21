@@ -1,0 +1,29 @@
+<h1>Incidents</h1>
+<button pButton type="button" label="Create Incident" class="primaryAction" (click)="open()"></button>
+
+<al-bottom-sheet
+    [headerOptions]="headerOptions"
+    (onPrimaryAction)="save()"
+    (onSecondaryAction)="cancel()">
+    <!-- Content Projection -->
+    <div class="body-content">
+        <div class="grid grid-nogutter ui-fluid input-row top">
+            <div class="col-12">
+                <p>Cillum anim in amet laboris reprehenderit do deserunt consectetur nisi duis. Pariatur duis qui veniam eiusmod deserunt nostrud occaecat tempor minim officia consequat culpa aliquip velit. Occaecat id qui fugiat non quis sint nostrud adipisicing exercitation reprehenderit amet id. Do occaecat commodo do occaecat mollit laborum id eu laborum voluptate deserunt.</p>
+            </div>
+
+            <div class="col-4">
+                <span class="md-inputfield" style="margin-top: 12px;">
+                    <input type="text" pInputText>
+                    <label>Name</label>
+                </span>
+            </div>
+            <div class="col-8">
+                <span class="ui-float-label" style="margin-top: 12px;">
+                    <textarea pInputTextarea autoResize="autoResize" rows="1" id="description" class="ui-inputtext"></textarea>
+                    <label for="description">Description</label>
+                </span>
+            </div>
+        </div>
+    </div>
+</al-bottom-sheet>

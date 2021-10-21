@@ -1,0 +1,24 @@
+<div class="grid grid-nogutter" *ngIf="item.entity.state=='disposed' || item.entity.state=='concluded'">
+    <div class="col-6">
+        <div class="al-cardstack-content-label">Assessment</div>
+        <div class="assessedby">
+            <i class="material-icons icon-bottom">{{ item.entity.state=="disposed" ? 'block': 'check' }}</i>
+            <span>{{item.entity.state | titlecase }} at {{ item.entity.modified_on | date:'HH:mm'}} on {{ item.entity.modified_on | date:'yyyy-MM-dd'}}</span>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="al-cardstack-content-label">Assessed By</div>
+        <div class="desc">{{usersMap[item.entity.user_id]?.name}}</div>
+    </div>
+</div>
+<div class="grid grid-nogutter" *ngIf="item.entity.state=='disposed'">
+    <div class="col-6">
+        <div class="al-cardstack-content-label">Assessment Type</div>
+        <div class="desc">{{item.properties.reason | titlecase }}</div>
+    </div>
+    <div class="col-6">
+        <div class="al-cardstack-content-label">Expires On</div>
+        <div *ngIf="item?.entity?.expires" class="desc">{{ item.entity.expires | date:'yyyy-MM-dd'}}</div>
+        <div *ngIf="!item?.entity?.expires" class="desc">Never</div>
+    </div>
+</div>

@@ -1,0 +1,193 @@
+[
+    {
+        "version": 11,
+        "status": {
+            "updated": 1552426673,
+            "status": "ok"
+        },
+        "scope": {
+            "include": [
+                {
+                    "type": "deployment",
+                    "policy": {
+                        "id": "A8E8B104-8F45-411D-A240-A30EA5FE25B0"
+                    },
+                    "key": "/al/134282856/deployment/aws/AF7C6E45-4929-47CB-B27F-EA13C47B5518"
+                },
+                {
+                    "type": "vpc",
+                    "policy": {
+                        "id": "D12D5E67-166C-474F-87AA-6F86FC9FB9BC"
+                    },
+                    "key": "/aws/us-east-1/vpc/vpc-d047f2aa"
+                },
+                {
+                    "type": "vpc",
+                    "policy": {
+                        "id": "D12D5E67-166C-474F-87AA-6F86FC9FB9BC"
+                    },
+                    "key": "/aws/us-west-2/vpc/vpc-799d4e01"
+                }
+            ],
+            "exclude": []
+        },
+        "scan": true,
+        "platform": {
+            "type": "aws",
+            "monitor": {
+                "enabled": true,
+                "ct_install_region": "us-east-1"
+            },
+            "id": "032445859993"
+        },
+        "name": "SIEMless Upgrade Demo AWS Deployments",
+        "modified": {
+            "by": "cloud_explorer",
+            "at": 1551970165
+        },
+        "mode": "manual",
+        "id": "AF7C6E45-4929-47CB-B27F-EA13C47B5518",
+        "enabled": true,
+        "discover": true,
+        "credentials": [
+            {
+                "version": "2019-02-27",
+                "purpose": "discover",
+                "id": "4D9A8D18-3A6F-4189-A197-5135875C223B"
+            },
+            {
+                "version": "2016-09-20",
+                "purpose": "x-account-monitor",
+                "id": "4D9A8D18-3A6F-4189-A197-5135875C223B"
+            }
+        ],
+        "created": {
+            "by": "CE3F9270-3BCD-4D7A-BEEA-F93B6EF1D834",
+            "at": 1551916655
+        },
+        "cloud_defender": {
+            "location_id": "defender-us-ashburn",
+            "enabled": false
+        },
+        "account_id": "134282856"
+    },
+    {
+        "version": 53,
+        "status": {
+            "updated": 1552513443,
+            "status": "ok"
+        },
+        "scope": {
+            "include": [
+                {
+                    "type": "deployment",
+                    "policy": {
+                        "id": "A8E8B104-8F45-411D-A240-A30EA5FE25B0"
+                    },
+                    "key": "/al/134282856/deployment/azure/F1A29B99-4B01-4C12-9337-1892F8268330"
+                },
+                {
+                    "type": "vpc",
+                    "policy": {
+                        "id": "D12D5E67-166C-474F-87AA-6F86FC9FB9BC"
+                    },
+                    "key": "/subscriptions/e7f3c15e-c13a-40b0-aaa2-3c17e2c98963/resourceGroups/aldemo4res/providers/Microsoft.Network/virtualNetworks/aldemo4net"
+                },
+                {
+                    "type": "vpc",
+                    "policy": {
+                        "id": "D12D5E67-166C-474F-87AA-6F86FC9FB9BC"
+                    },
+                    "key": "/subscriptions/e7f3c15e-c13a-40b0-aaa2-3c17e2c98963/resourceGroups/cenaldemo4res/providers/Microsoft.Network/virtualNetworks/cenaldemo4net"
+                }
+            ],
+            "exclude": []
+        },
+        "scan": true,
+        "platform": {
+            "type": "azure",
+            "id": "E7F3C15E-C13A-40B0-AAA2-3C17E2C98963"
+        },
+        "name": "SIEMless Upgrade Demo Azure Deployments",
+        "modified": {
+            "by": "instigator",
+            "at": 1551970163
+        },
+        "mode": "manual",
+        "id": "F1A29B99-4B01-4C12-9337-1892F8268330",
+        "enabled": true,
+        "discover": true,
+        "credentials": [
+            {
+                "purpose": "discover",
+                "id": "1BCBD774-6E33-4156-ACB0-B99A3C722FD2"
+            }
+        ],
+        "created": {
+            "by": "CE3F9270-3BCD-4D7A-BEEA-F93B6EF1D834",
+            "at": 1551916655
+        },
+        "cloud_defender": {
+            "location_id": "defender-us-ashburn",
+            "enabled": false
+        },
+        "account_id": "134282856"
+    },
+    {
+        "version": 2,
+        "status": {
+            "updated": 1551916552,
+            "status": "new"
+        },
+        "scope": {
+            "include": [
+                {
+                    "type": "deployment",
+                    "policy": {
+                        "id": "A8E8B104-8F45-411D-A240-A30EA5FE25B0"
+                    },
+                    "key": "/deployment/F4FA35AD-30DD-4755-B042-1E9CA972C830"
+                },
+                {
+                    "type": "vpc",
+                    "policy": {
+                        "id": "D12D5E67-166C-474F-87AA-6F86FC9FB9BC"
+                    },
+                    "key": "/dc/dc-default-1/vpc/A2FD7632-8375-1005-AC00-005056AB1986"
+                },
+                {
+                    "type": "vpc",
+                    "policy": {
+                        "id": "D12D5E67-166C-474F-87AA-6F86FC9FB9BC"
+                    },
+                    "key": "/dc/dc-default-1/vpc/B1FA543F-8375-1005-AC00-005056AB1986"
+                }
+            ],
+            "exclude": []
+        },
+        "scan": false,
+        "platform": {
+            "type": "datacenter",
+            "default": true
+        },
+        "name": "Default Datacenter Deployment",
+        "modified": {
+            "by": "instigator",
+            "at": 1551970163
+        },
+        "mode": "none",
+        "id": "F4FA35AD-30DD-4755-B042-1E9CA972C830",
+        "enabled": true,
+        "discover": true,
+        "credentials": [],
+        "created": {
+            "by": "5F02337B-4A84-47CD-AF43-F6C11D0BD864",
+            "at": 1551916552
+        },
+        "cloud_defender": {
+          "location_id": "x",
+            "enabled": false
+        },
+        "account_id": "134282856"
+    }
+]

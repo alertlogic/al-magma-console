@@ -1,0 +1,8 @@
+<p-autoComplete [suggestions]="filteredTimeZoneOptions"
+                [dropdown]="true"
+                field="label"
+                [size]="40"
+                [(ngModel)]="selectedTimeZone"
+                (onSelect)="onSelectTimezone($event)"
+                (completeMethod)="searchTimezone($event)">
+</p-autoComplete>

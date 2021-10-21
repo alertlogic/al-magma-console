@@ -1,0 +1,17 @@
+<div *ngIf="aboveContentCrosslink">
+    {{aboveContentCrosslink.caption}}
+    <button icon="ui-icon-chevron-right" iconPos="right" label="Go" type="button" pButton (click)="aboveContentCrosslink.dispatch()"></button>
+</div>
+<ng-container *ngIf="contentVisible === true">
+    <ng-content></ng-content>
+</ng-container>
+<div *ngIf="contentVisible === false">
+    <ng-container *ngIf="unavailableZeroState">
+        <al-zero-state>
+            <i [ngClass]="unavailableZeroState.iconClass" zero-state-icon>{{unavailableZeroState.iconText}}</i>
+            <span zero-state-title>{{unavailableZeroState.title}}</span>
+            <p zero-state-description>{{unavailableZeroState.description}}</p>
+        </al-zero-state>
+    </ng-container>
+    <ng-content select="[unavailable]"></ng-content>
+</div>

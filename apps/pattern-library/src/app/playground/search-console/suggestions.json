@@ -1,0 +1,14 @@
+{
+	"suggestions": [
+		{"type": "message-type", "name": "Windows Application Configured"},
+		{"type": "message-type", "name": "Windows Application Error"},
+		{"type": "message-type", "name": "Windows Application Impact Telemetry Disabled"},
+		{"type": "message-type", "name": "Windows Application Installed"},
+		{"type": "message-type", "name": "Windows Application License Status Check"},
+		{"type": "field", "name": "User"},
+		{"type": "field", "name": "User ARN"},
+		{"type": "field", "name": "User License"},
+		{"type": "field", "name": "User Logged In"},
+		{"type": "field", "name": "User Name"}
+	]
+}

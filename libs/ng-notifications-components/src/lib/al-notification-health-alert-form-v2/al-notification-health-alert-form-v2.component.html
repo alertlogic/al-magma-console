@@ -1,0 +1,179 @@
+<div class="create-incident-alert">
+    <al-bottom-sheet #alBottomSheet
+                     [headerOptions]="headerOptions"
+                     (onPrimaryAction)="onPrimaryAction()"
+                     (onSecondaryAction)="onSecondaryAction()">
+        <div class="body-content">
+            <al-view-helper [loading]="loading"></al-view-helper>
+            <!-- Notifications -->
+            <al-notification-panel #notificationPanel
+                [alertSource]="notificationsEmitterPopup"
+                (onButtonClicked)="flushNotifications()">
+            </al-notification-panel>
+            <al-wizard-stepper #alWizard
+                               [hidden]="loading">
+                <al-step stepTitle="First step">
+                    <div class="details-column grid p-dir-col">
+                        <div class="col">
+                            <h1 class="columnHeader">Details 1</h1>
+                        </div>
+                        <div class="col input-name">
+                            <span class="md-inputfield">
+                                <input type="text"
+                                       class="col-12"
+                                       name="formData.subscriptionName"
+                                       [(ngModel)]="formData.subscriptionName"
+                                       (ngModelChange)="editMode ? validateAllSteps() : validateStep(0)"
+                                       pInputText
+                                       required />
+                                <label for="float-input">Name *</label>
+                            </span>
+                        </div>
+                        <div class="col">
+                            <p-inputSwitch [(ngModel)]="formData.isActive"
+                                           name="formData.isActive"></p-inputSwitch>
+                            <span class="padding-left-10">Notification Is {{ formData.isActive ? 'Active' : 'Inactive'
+                                }}</span>
+                        </div>
+                        <div class="col">
+                            <h1 class="columnHeader">Health Exposure Type</h1>
+                            <span class="col section-title no-padding">
+                                Choose exposure type *
+                            </span>
+                        </div>
+                        <div class="col">
+                            <div class="p-field-radiobutton">
+                                <p-radioButton name="agentStatus"
+                                               value="agent"
+                                               [disabled]="editMode"
+                                               [(ngModel)]="formData.exposureType"
+                                               (ngModelChange)="validateStep(0)"
+                                               inputId="status1"></p-radioButton>
+                                <label for="status1">Agent Status</label>
+                            </div>
+                            <div class="p-field-radiobutton">
+                                <p-radioButton name="applianceStatus"
+                                               value="appliance"
+                                               [disabled]="editMode"
+                                               [(ngModel)]="formData.exposureType"
+                                               (ngModelChange)="validateStep(0)"
+                                               inputId="status2"></p-radioButton>
+                                <label for="status2">Appliance Status</label>
+                            </div>
+                            <div class="p-field-radiobutton">
+                                <p-radioButton name="collectorStatus"
+                                               value="collector"
+                                               [disabled]="editMode"
+                                               [(ngModel)]="formData.exposureType"
+                                               (ngModelChange)="validateStep(0)"
+                                               inputId="status3"></p-radioButton>
+                                <label for="status3">Collector Status</label>
+                            </div>
+                        </div>
+                    </div>
+                </al-step>
+
+                <al-step stepTitle="Second step">
+                    <div class="grid grid-nogutter">
+                        <div class="col-12">
+                            <h1 class="columnHeader">Details 2</h1>
+                        </div>
+
+                        <div class="col-6 grid-nogutter pad-right">
+                            <div class="col"
+                                 *ngIf="formData.exposureType === 'agent'">
+                                <h5>Agent Status *</h5>
+                                <div class="selector-option">
+                                    <al-multiselect-list [options]="agentStatusOptions"
+                                                         [readonly]="false"
+                                                         placeholder="Select agent status"
+                                                         [(ngModel)]="formData.selectedStatuses"
+                                                         (onSelectionChanged)="statusChanged($event)">
+                                    </al-multiselect-list>
+                                </div>
+                            </div>
+
+                            <div class="col"
+                                 *ngIf="formData.exposureType === 'appliance'">
+                                <h5>Appliance Status *</h5>
+                                <div class="selector-option">
+                                    <al-multiselect-list [options]="applianceStatusOptions"
+                                                         [readonly]="false"
+                                                         [(ngModel)]="formData.selectedStatuses"
+                                                         placeholder="Select appliance status"
+                                                         (onSelectionChanged)="statusChanged($event)">
+                                    </al-multiselect-list>
+                                </div>
+                            </div>
+
+                            <div class="col"
+                                 *ngIf="formData.exposureType === 'collector'">
+                                <h5>Collector Status *</h5>
+                                <div class="selector-option">
+                                    <al-multiselect-list [options]="collectorStatusOptions"
+                                                         [readonly]="false"
+                                                         [(ngModel)]="formData.selectedStatuses"
+                                                         placeholder="Select collector status"
+                                                         (onSelectionChanged)="statusChanged($event)">
+                                    </al-multiselect-list>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 grid-nogutter">
+                            <div class="col"
+                                 *ngIf="formData.exposureType !== 'collector'">
+                                <h5>Assets Scope</h5>
+                                <div class="health-notification-options">
+                                    <al-multiselect-list [options]="assetsOptions"
+                                                         [readonly]="false"
+                                                         placeholder="Select assets"
+                                                         [(ngModel)]="formData.selectedAssets"
+                                                         (onSelectionChanged)="scopeChanged($event)">
+                                    </al-multiselect-list>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </al-step>
+
+                <al-step stepTitle="Third step">
+                    <al-notification-form [loading]="loading"
+                                          [accountId]="accountId"
+                                          [showAttach]="false"
+                                          [editMode]="editMode"
+                                          type="health/alerts"
+                                          (onChanged)="onSubscribersChanged()">
+                        <div class="grid p-dir-col">
+                            <div class="col-12">
+                                <h1 class="columnHeader">Notification Delay</h1>
+                            </div>
+                            <div class="col-12">
+                                <h5>Delay between health exposure and alert trigger</h5>
+                                <div class="col section-title no-padding">Health exposures that are resolved before the set delay will not send the notification.</div>
+                                <div class="selector-option">
+                                    <p-dropdown
+                                        [options]="policyOptions"
+                                        [(ngModel)]="healthPolicySelected"
+                                        optionLabel="title">
+                                    </p-dropdown>
+                                </div>
+                                <div class="col-12">
+                                    <h5>Delay between health exposure and notification trigger - (Governance)</h5>
+                                </div>
+                                <div class="selector-option">
+                                    <p-dropdown
+                                        [options]="governanceOptions"
+                                        [(ngModel)]="healthGovernanceSelected"
+                                        optionLabel="title">
+                                    </p-dropdown>
+                                </div>
+                            </div>
+                        </div>
+                    </al-notification-form>
+                </al-step>
+            </al-wizard-stepper>
+        </div>
+    </al-bottom-sheet>
+</div>

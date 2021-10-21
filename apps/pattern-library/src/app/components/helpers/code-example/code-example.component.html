@@ -1,0 +1,16 @@
+<ng-content select="[before]"></ng-content>
+
+<ng-content select="code"></ng-content>
+<ng-content select="pre"></ng-content>
+
+<div class="container">
+    <pre *ngIf="sanitizedCode"
+          [innerHTML]="sanitizedCode"
+          [ngClass]="'language-'+language"
+          pCode></pre>
+    <div class="overlay" [ngClass]="hovering ? 'active' : 'inactive'" (mouseenter)="hoverStart($event)" (mouseleave)="hoverEnd($event)">
+        <button type="button" icon="pi pi-copy" class="primary" pButton (click)="copyToClipboard($event)"></button>
+    </div>
+</div>
+
+<ng-content select="[after]"></ng-content>

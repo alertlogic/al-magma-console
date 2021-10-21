@@ -1,0 +1,54 @@
+<div class="user-info-summary">
+  <div class="al-header-logo" (click)="redirectToDashboards()"></div>
+  <div class="user-menus-container" *ngIf="authenticated && ready">
+    <p-menubar [model]="userMenuItems" styleClass="app-user-menu"></p-menubar>
+    <span class="user-selected-separator"></span>
+    <ng-select #accountSelector
+          [items]="managedAccounts"
+          [virtualScroll]="true"
+          bindLabel="name"
+          bindValue="id"
+          [dropdownPosition]="'bottom'"
+          [searchable]="false"
+          [(ngModel)]="actingAccountId"
+          [searchFn]="accountSearchFn"
+          (change)="onAccountChanged()"
+          class="al-account-selector"
+          (open)="onOpenAccountSelector()"
+          [clearable]="false">
+        <ng-template ng-header-tmp>
+          <div style="display:flex;">
+              <input #filterInput pInputText class="filter-input" type="text" (input)="filterAccounts( accountSelector, $event )" placeholder="Search by account id or name..." />
+          </div>
+          <div pTooltip="Loading" *ngIf="loadingManagedAccounts" id="accounts-loading-indicator"><p-progressSpinner></p-progressSpinner> <i>Loading...</i></div>
+        </ng-template>
+        <ng-template ng-notfound-tmp let-searchTerm="searchTerm">
+          <div class="ng-option disabled" [style.display]="loadingManagedAccounts ? 'none' : 'block'">
+            No matches found for "{{searchTerm}}"
+          </div>
+        </ng-template>
+        <ng-template ng-option-tmp let-account="item" let-index="index">
+          <div class="account-selector-option" title="{{account.name}}"><b>({{account.id}})</b> - {{account.name}}</div>
+        </ng-template>
+    </ng-select>
+    <span class="separator">|</span>
+    <ng-container *ngIf="datacenter && datacenter.locationsAvailable > 0">
+      <p-menu
+          #menux
+          class="region-menu" [popup]="true" [model]="datacenter.selectableRegions" [style]="{'width':'180px'}"
+          (onHide)="expandedDatacenterMenu = false" (onShow)="expandedDatacenterMenu = true"
+      ></p-menu>
+      <div class="menu-trigger" (click)="menux.toggle($event)">
+          <div class="account-icon-space">
+              <div class="dco-flag" *ngIf="datacenter.currentResidency==='US'">
+                  {{datacenter.currentRegion}} (US)
+              </div>
+              <div class="dco-flag" *ngIf="datacenter.currentResidency==='EMEA'">
+                  {{datacenter.currentRegion}} (UK)
+              </div>
+              <span><i [ngClass]="expandedDatacenterMenu ? 'pi pi-caret-up' : 'pi pi-caret-down'"></i></span>
+          </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

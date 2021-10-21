@@ -1,0 +1,323 @@
+<div class="risk critical">
+    <b>Note that these components are still under development - Do not use in production applications yet!</b>
+</div>
+
+<div class="card-content">
+    <embedded-markdown resourceId="readme/new-components/README"></embedded-markdown>
+</div>
+
+<form [formGroup]="form">
+    <div class="card card-w-title">
+        <h1>Form Inputs</h1>
+        <div class="card-content">
+            <p-tabView class="user-guide">
+                <p-tabPanel header="Style Guide">
+                    <div class="grid">
+                        <div class="col-6">
+                            <al2-fieldset legend="Simple Text Input" legendLarge="true">
+                                <al2-input
+                                    type="text"
+                                    label="Text Input">
+                                </al2-input>
+                            </al2-fieldset>
+
+                            <al2-fieldset legend="With Hint Text" legendLarge="true">
+                                <al2-input
+                                    type="text"
+                                    label="Text Input"
+                                    hint="Give extra information here">
+                                </al2-input>
+                            </al2-fieldset>
+
+                            <al2-fieldset legend="With Tooltip" legendLarge="true">
+                                <al2-input
+                                    type="text"
+                                    label="Text Input"
+                                    tip="Give extra information here">
+                                </al2-input>
+                            </al2-fieldset>
+
+                            <al2-fieldset legend="Required Indicator" legendLarge="true">
+                                <al2-input
+                                    type="text"
+                                    label="Required Text Input"
+                                    required="true">
+                                </al2-input>
+                            </al2-fieldset>
+
+                            <al2-fieldset legend="Required Input with Hint and Tooltip" legendLarge="true">
+                                <al2-input
+                                    type="text"
+                                    label="Required Text Input"
+                                    hint="Give extra information here"
+                                    tip="Give extra information here"
+                                    required="true">
+                                </al2-input>
+                            </al2-fieldset>
+
+                            <al2-fieldset legend="Disabled Input" legendLarge="true">
+                                <al2-input
+                                    type="text"
+                                    label="A Disabled Field"
+                                    disabled="true">
+                                </al2-input>
+                            </al2-fieldset>
+
+                            <al2-fieldset legend="Search Input" legendLarge="true">
+                                <al2-input
+                                    type="search"
+                                    label="Search">
+                                </al2-input>
+                            </al2-fieldset>
+
+                            <al2-fieldset legend="Number Input" legendLarge="true">
+                                <al2-input
+                                    type="number"
+                                    label="Your Age"
+                                    minValue="1"
+                                    maxValue="100">
+                                </al2-input>
+                            </al2-fieldset>
+                        </div>
+                    </div>
+
+                </p-tabPanel>
+                <p-tabPanel header="Usage Guide">
+                    <div class="card card-w-title">
+                        <h1>Usage Guide</h1>
+                        <div class="card-content">
+                            <embedded-markdown resourceId="readme/new-components/al-input/README"></embedded-markdown>
+                        </div>
+                    </div>
+                </p-tabPanel>
+            </p-tabView>
+        </div>
+    </div>
+
+    <div class="card card-w-title">
+        <h1>Text Area</h1>
+        <div class="card-content">
+            <p-tabView class="user-guide">
+                <p-tabPanel header="Style Guide">
+                    <div class="grid">
+                        <div class="col-6">
+                            <al2-fieldset legend="Basic Usage" legendLarge="true">
+                                <al2-textarea
+                                    label="Description"
+                                    rows="5">
+                                </al2-textarea>
+                            </al2-fieldset>
+                            <al2-fieldset legend="With Hint Text" legendLarge="true">
+                                <al2-textarea
+                                    label="Description"
+                                    rows="5"
+                                    hint="Give extra information here">
+                                </al2-textarea>
+                            </al2-fieldset>
+                            <al2-fieldset legend="With Tooltip" legendLarge="true">
+                                <al2-textarea
+                                    label="Description"
+                                    rows="5"
+                                    hint="Give extra information here"
+                                    tip="Extra help can go here">
+                                </al2-textarea>
+                            </al2-fieldset>
+                            <al2-fieldset legend="Required Indicator" legendLarge="true">
+                                <al2-textarea
+                                    label="Description"
+                                    rows="5"
+                                    required="true">
+                                </al2-textarea>
+                            </al2-fieldset>
+                            <al2-fieldset legend="Disabled State" legendLarge="true">
+                                <al2-textarea
+                                    label="Description"
+                                    rows="5"
+                                    disabled="true">
+                                </al2-textarea>
+                            </al2-fieldset>
+                        </div>
+                    </div>
+                </p-tabPanel>
+                <p-tabPanel header="Usage Guide">
+                    <div class="card card-w-title">
+                        <h1>Usage Guide</h1>
+                        <div class="card-content">
+                            <embedded-markdown resourceId="readme/new-components/al-textarea/README"></embedded-markdown>
+                        </div>
+                    </div>
+                </p-tabPanel>
+            </p-tabView>
+        </div>
+    </div>
+
+    <div class="card card-w-title">
+        <h1>Checkboxes</h1>
+        <div class="card-content">
+            <p-tabView class="user-guide">
+                <p-tabPanel header="Style Guide">
+                    <div class="grid">
+                        <div class="col-6">
+                            <al2-checkbox
+                                label="Is Friendly"
+                                [verticalSpace]="true"
+                                (onCheckedChange)="onCheckBoxChange($event)">
+                            </al2-checkbox>
+
+                            <al2-checkbox-group
+                                label="Select Option"
+                                [options]="checkboxGroup"
+                                (onSelectionChange)="checkboxGroupChange($event)">
+                            </al2-checkbox-group>
+                        </div>
+                    </div>
+                </p-tabPanel>
+                <p-tabPanel header="Usage Guide">
+                    <div class="card card-w-title">
+                        <h1>Usage Guide</h1>
+                        <div class="card-content">
+                            <embedded-markdown resourceId="readme/new-components/al-checkbox/README"></embedded-markdown>
+                        </div>
+                    </div>
+                </p-tabPanel>
+            </p-tabView>
+        </div>
+    </div>
+
+    <div class="card card-w-title">
+        <h1>Radio Buttons</h1>
+        <div class="card-content">
+            <p-tabView class="user-guide">
+                <p-tabPanel header="Style Guide">
+                    <div class="grid">
+                        <div class="col-6">
+                            <al2-radio *ngFor="let item of radioOptions"
+                                name="radioOptions"
+                                [value]="item.value"
+                                [label]="item.label"
+                                [disabled]="item.disabled">
+                            </al2-radio>
+                        </div>
+                    </div>
+                </p-tabPanel>
+                <p-tabPanel header="Usage Guide">
+                    <div class="card card-w-title">
+                        <h1>Usage Guide</h1>
+                        <div class="card-content">
+                            <embedded-markdown resourceId="readme/new-components/al-radio/README"></embedded-markdown>
+                        </div>
+                    </div>
+                </p-tabPanel>
+            </p-tabView>
+        </div>
+    </div>
+
+    <div class="card card-w-title">
+        <h1>Select</h1>
+        <div class="card-content">
+            <p-tabView class="user-guide">
+                <p-tabPanel header="Style Guide">
+                    <div class="grid">
+                        <div class="col-6">
+                            <al2-fieldset legend="Basic Usage" legendLarge="true">
+                                <al2-select label="Select Option" [options]="radioOptions"></al2-select>
+                            </al2-fieldset>
+                            <al2-fieldset legend="With Hint Text" legendLarge="true">
+                                <al2-select
+                                    label="Description"
+                                    [options]="radioOptions"
+                                    hint="Give extra information here">
+                                </al2-select>
+                            </al2-fieldset>
+                            <al2-fieldset legend="With Tooltip" legendLarge="true">
+                                <al2-select
+                                    label="Select Option"
+                                    [options]="radioOptions"
+                                    hint="Give extra information here"
+                                    tip="Extra help can go here">
+                                </al2-select>
+                            </al2-fieldset>
+                            <al2-fieldset legend="Required Indicator" legendLarge="true">
+                                <al2-select
+                                    label="Select Option"
+                                    [options]="radioOptions"
+                                    required="true">
+                                </al2-select>
+                            </al2-fieldset>
+                            <al2-fieldset legend="Disabled State" legendLarge="true">
+                                <al2-select
+                                    label="Select Option"
+                                    [options]="radioOptions"
+                                    disabled="true">
+                                </al2-select>
+                            </al2-fieldset>
+                        </div>
+                    </div>
+                </p-tabPanel>
+                <p-tabPanel header="Usage Guide">
+                    <div class="card card-w-title">
+                        <h1>Usage Guide</h1>
+                        <div class="card-content">
+                            <embedded-markdown resourceId="readme/new-components/al-select/README"></embedded-markdown>
+                        </div>
+                    </div>
+                </p-tabPanel>
+            </p-tabView>
+        </div>
+    </div>
+
+    <div class="card card-w-title">
+        <h1>Fieldset</h1>
+        <div class="card-content">
+            <p-tabView class="user-guide">
+                <p-tabPanel header="Style Guide">
+                    <div class="grid">
+                        <div class="col-6">
+                            <al2-fieldset legend="Address">
+                                <al2-input type="text" label="Address Line 1"></al2-input>
+                                <al2-input type="text" label="Address Line 2"></al2-input>
+                            </al2-fieldset>
+                            <al2-fieldset legend="Address (Large legend heading)" [legendLarge]="true">
+                                <al2-input type="text" label="Address Line 1"></al2-input>
+                                <al2-input type="text" label="Address Line 2"></al2-input>
+                            </al2-fieldset>
+                            <al2-fieldset legend="Address (with tooltip and hint)" [legendLarge]="true" hint="I am a hint" tip="I am a tooltip">
+                                <al2-input type="text" label="Address Line 1"></al2-input>
+                                <al2-input type="text" label="Address Line 2"></al2-input>
+                            </al2-fieldset>
+                        </div>
+                    </div>
+                </p-tabPanel>
+                <p-tabPanel header="Usage Guide">
+                    <div class="card card-w-title">
+                        <h1>Usage Guide</h1>
+                        <div class="card-content">
+                            <embedded-markdown resourceId="readme/new-components/al-fieldset/README"></embedded-markdown>
+                        </div>
+                    </div>
+                </p-tabPanel>
+            </p-tabView>
+        </div>
+    </div>
+
+    <div class="card card-w-title">
+        <h1>Angular Forms Integration</h1>
+        <div class="card-content">
+            The input examples above can be integrated with Angular Forms using the standard <code>[(ngModel)]</code>, <code>formControlName</code> or <code>formControl</code> directives with a parent `formGroup` directive.
+
+            <al2-input
+                type='text'
+                label="Monster Name"
+                [required]="true"
+                patternError="Name can only contain letters"
+                maxLength="50"
+                tip="Give it a name!"
+                hint="This is a hint"
+                formControlName="monster">
+            </al2-input>
+            <code-example language="markup" resourceId="sample/new-pattern-library/al-inputs/ngformsusage"></code-example>
+
+        </div>
+    </div>
+
+</form>

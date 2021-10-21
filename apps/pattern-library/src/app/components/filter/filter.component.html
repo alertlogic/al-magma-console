@@ -1,0 +1,5 @@
+<al-view-helper #viewHelper></al-view-helper>
+<al-filter2 [filters]="loadedFilters"
+            (addedFilter)="onAddFilter($event)"
+            (removedFilter)="onRemoveFilter($event)"
+            (changed)="onFiltersChanged($event)"></al-filter2>

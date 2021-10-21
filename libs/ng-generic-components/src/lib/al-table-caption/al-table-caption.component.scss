@@ -1,0 +1,53 @@
+.table-caption {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    .left-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        
+        .column-selector {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+    
+            .p-multiselect-trigger {
+                float: left;
+            }
+    
+            i {
+                color: #a8a8a8;
+                font-size: 14px;
+                margin-right: 2px;
+                cursor: pointer;
+    
+                &.reset-columns {
+                    font-size: 16px;
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    
+        .download-icon{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #535353;
+            margin-left: 10px;
+            cursor: pointer;
+    
+            &:hover{
+                opacity: 0.8;
+            }
+        }
+    }
+
+    .search{
+        margin-right: 15px;
+    }
+}

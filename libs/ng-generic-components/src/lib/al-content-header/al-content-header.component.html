@@ -1,0 +1,78 @@
+<div class="al-content-header">
+    <div class="al-content-header-title">
+        <span *ngIf="showAddButton"
+              class="plus-button">
+            <button type="button"
+                    icon="ui-icon-add"
+                    class="primaryAction fab"
+                    pButton
+                    (click)=onClickAddButton($event)></button>
+        </span>
+        <i *ngIf="icon"
+           [class]="icon"
+           aria-hidden="true"
+           [style.margin-left]="showAddButton ? '75px' : '5px'"></i>
+        <i *ngIf="iconConfig"
+           [ngClass]="iconConfig?.cssClasses">
+            {{ iconConfig?.name }}
+        </i>
+        <span [style.margin-left]="showAddButton && !icon ? '75px' : '5px'">{{ title }}</span>
+    </div>
+    <div *ngIf="!!showCalendar"
+         class="al-calender">
+        <p-calendar #datePicker
+                    *ngIf="showCalendar !== 'al-date-range-selector'"
+                    selectionMode="{{showCalendar}}"
+                    [(ngModel)]="dateRange"
+                    [placeholder]="dateTimePlaceholder"
+                    (onFocus)="toggleSelectorVisibility()"
+                    (onClose)="toggleSelectorVisibility()"
+                    (onSelect)="selectedSingleDate()"
+                    [showIcon]="true"
+                    [icon]="showDateSelector ? 'pi pi-chevron-up' : 'pi pi-chevron-down'"
+                    dateFormat="d M yy"
+                    [showTime]="showTime"
+                    hourFormat="24">
+            <p-footer>
+                <div class="btnGroupRight">
+                    <button pButton
+                            type="button"
+                            label="Cancel"
+                            class="btnSmall flat"
+                            (click)="close()">
+                    </button>
+
+                    <button pButton
+                            type="button"
+                            label="Apply"
+                            class="btnSmall primaryAction"
+                            (click)="selectedDateRange()">
+                    </button>
+                </div>
+            </p-footer>
+        </p-calendar>
+        <span class="al-calender-clear-btn">
+            <i class="material-icons"
+               *ngIf="dateRange"
+               (click)="clear()">close</i>
+        </span>
+        <al-date-range-selector #alDateSelector
+            *ngIf="showCalendar === 'al-date-range-selector'"
+            [fixedRanges]="defaultFixedRanges"
+            [showTimePicker]="true"
+            [returnTimeFrame]="returnTimeFrame"
+            [placeholder]="placeholder"
+            [selectorTitle]="selectorTitle"
+            [customRangeTitle]="customRangeTitle"
+            [calendarMaxDate]="calendarMaxDate"
+            [calendarMinDate]="calendarMinDate"
+            (onDateSelected)="dateRangeSelectedFromAlDateRangeSelector($event)"
+            (onClosedCalendar)="closedAlDateRangeSelector($event)"
+            (onShowCalendar)="showAlDateRangeSelector($event)"
+            (onSelectFixedRange)="selectFixedRangeAlDateRangeSelector($event)">
+        </al-date-range-selector>
+    </div>
+</div>
+<div class="description"
+     *ngIf="descriptionHeader"
+     [innerHTML]="descriptionHeader"></div>

@@ -1,0 +1,128 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.al-identity-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    font-family: 'Open Sans',Arial,serif;
+
+    .al-identity-icon-space {
+        display: flex;
+    }
+
+    .identity-icon {
+        height: 35px;
+        width: 35px;
+        margin-right: 3px;
+        padding: 0;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.circular {
+            border-radius: 50%;
+        }
+    }
+
+    .identity-icon-small {
+        height: 16px;
+        width: 16px;
+        margin-right: 3px;
+        padding: 0;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.circular {
+            border-radius: 50%;
+        }
+    }
+
+    .colored-initials-small {
+        color: white;
+        font-size: .7em;
+    }
+
+    .colored-initials {
+        color: white;
+        font-size: 1.4em;
+    }
+
+    .colored-initials-selected {
+        color: al-color($al-gray,2);
+        font-size: 1.5em;
+    }
+
+    .color-selected {
+        background-color: white;
+    }
+
+    .color-corporate {
+        background-color: al-color($al-gray,1);
+    }
+
+    .colored-square-container-small {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .color1 {
+        background-color: #FF7F00;
+    }
+
+    .color2 {
+        background-color: #5498b5;
+    }
+
+    .color3 {
+        background-color: #8FC183;
+    }
+
+    .color4 {
+        background-color: #A8CCDB;
+    }
+
+    .color5 {
+        background-color: #f8bb2c;
+    }
+
+    .color6 {
+        background-color: #e20010;
+    }
+
+    .color7 {
+        background-color: #6C6C6C;
+    }
+
+    .color8 {
+        background-color: #8ebcd0;
+    }
+
+    .color9 {
+        background-color: #E53935;
+    }
+
+    .color10 {
+        background-color: #aed2a5;
+    }
+
+    .color11 {
+        background-color: #9f9f9f;
+    }
+
+    .color12 {
+        background-color: #9eacac;
+    }
+
+    .color13 {
+        background-color: #9999FF;
+    }
+
+    &.linkable {
+        cursor: pointer;
+        color: transparent;
+    }
+}
+

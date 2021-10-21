@@ -1,0 +1,11 @@
+<div class="p-col-12">
+    <h2 class="form-h2">Required Input Field</h2>
+</div>
+<div class="p-col-[set this] input-row">
+    <span class="md-inputfield">
+        <input type="text" pInputText class="ng-dirty ng-invalid" placeholder="Invalid">
+        <div class="ui-message ui-messages-error ui-corner-all">
+            This field is required
+        </div>
+    </span>
+</div>

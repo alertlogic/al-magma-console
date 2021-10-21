@@ -1,0 +1,50 @@
+@import "@al/ng-generic-components/styles/utility";
+
+:host {
+    position: relative;
+}
+
+.al-task-palette{
+    position: absolute;
+    padding-bottom: 3px;
+    z-index: 2;
+}
+
+.vendor-label-padding-left{
+    padding-left: 6px;
+}
+.vendor-icon{
+    display: flex;
+    justify-content: center;
+}
+.palette-container{
+    width: 380px;
+    background: white;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 3px 3px -2px, rgba(0, 0, 0, 0.2) 0px 1px 8px 0px;
+    overflow: visible;
+    z-index: 3;
+
+    .palette-container-top{
+        padding: 6px;
+    }
+
+    .title{
+        color: al-color($al-gray, 200);
+    }
+
+    .close-icon{
+        cursor: pointer;
+        font-size: 12px;
+
+        &:hover{
+            color: al-color($al-gray, 700);
+        }
+    }
+
+    .list{
+        overflow: scroll;
+        max-height: 420px;
+        min-height: 420px;
+    }
+}

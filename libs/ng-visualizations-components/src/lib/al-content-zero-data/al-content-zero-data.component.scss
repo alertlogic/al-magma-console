@@ -1,0 +1,40 @@
+@import "@al/ng-generic-components/styles/utility";
+
+@mixin center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.full-height {
+  height: 100%;
+}
+
+.no-chart {
+  @include center();
+  flex-direction: column;
+  h1 {
+    font-weight: normal;
+    color: al-color($al-gray, 100);
+    text-align: center;
+  }
+  i {
+    font-size: 100px;
+    color: al-color($al-gray, 200);
+  }
+
+}
+
+.tree-map {
+  @include center();
+  div {
+    @include center();
+    background-color: al-color($al-gray, 50);
+    width: 80%;
+    height: 80%;
+    span {
+      display: inline-block;
+      font-weight: bold;
+    }
+  }
+}

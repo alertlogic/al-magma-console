@@ -1,0 +1,85 @@
+@import "@al/ng-generic-components/styles/utility";
+
+::ng-deep .calendar-container.with-time {
+    .p-datepicker {
+        width: 370px;
+    }
+
+    .p-datepicker-timeonly {
+        width: 178px;
+        border: 0px solid;
+
+        .p-timepicker {
+            padding: 0px;
+            border: 0px solid;
+        }
+    }
+}
+
+.date-range-selector-container {
+
+    min-height: 63px;
+
+    .label {
+        color: al-color($al-gray, 200);
+        margin-bottom: 0;
+        padding-left: 0;
+        font-weight: normal;
+    }
+
+    .calendar-container {
+        min-width: 230px;;
+        padding-left: 24px;
+        flex-direction: column;
+
+        .timepicker-container {
+            font-size: .8em;
+        }
+
+        .calendar-label {
+            line-height: 2;
+            padding-right: 12px;
+        }
+
+        .calendar-input {
+            padding: 0px;
+
+            ::ng-deep .p-calendar {
+                margin-top: 11px;
+            }
+        }
+
+        .time-range-label {
+            font-size: .8em;
+            padding: 0px;
+            padding-left: 6px;
+        }
+    }
+}
+
+.timepicker-container {
+    padding: 6px;
+
+    .divider {
+        background-color: al-color($al-gray, 50);
+        min-height: 100%;
+        width: 1px;
+    }
+
+    .timepicker-title {
+        margin-left: .5em;
+    }
+
+    .time-zone-offset {
+        text-align: center;
+    }
+
+    ::ng-deep .p-widget-header {
+        border: none;
+        padding: 0 12px 0 0;
+    }
+
+    ::ng-deep .p-widget-content {
+        border: none;
+    }
+}

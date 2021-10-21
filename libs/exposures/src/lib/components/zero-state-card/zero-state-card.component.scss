@@ -1,0 +1,37 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.zero-state-card {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+    background: #f6f6f6;
+    min-height: calc(100vh - 170px);
+
+    ::ng-deep {
+        .shadowCard {
+            width: 100%;
+            color: #a8a8a8;
+
+            .al-zero-state-icon i {
+                font-size: 90px;
+            }
+
+            .al-zero-state-body {
+                .primaryText {
+                    font-size: 24px !important;
+                    padding-top: 20px;
+                    text-align: center;
+                }
+                .secondaryText {
+                    padding-top: 32px;
+                    text-align: initial;
+                }
+
+                .zeroStateActionButton {
+                    text-align: center;
+                    padding-top: 20px;
+                }
+            }
+        }
+    }
+}

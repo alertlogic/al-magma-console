@@ -1,0 +1,142 @@
+<div class="card card-w-title">
+    <h1>Examples</h1>
+    <div class="grid grid-nogutter ui-fluid card-content user-guide">
+        <div class="col-12">
+            <h2 class="form-h2 first">Default Input Field</h2>
+        </div>
+        <div class="col-12">
+            <div class="input-row top">
+                <span class="md-inputfield">
+                    <input type="text" pInputText placeholder="helper text">
+                    <label>Name</label>
+                </span>
+            </div>
+        </div>
+        <div class="col-12">
+            <p>Add the .top class when the input needs extra top padding.</p>
+            <code-example language="markup" resourceId="sample/components/inputs-textareas/3">
+            </code-example>
+        </div>
+        <div class="col-12">
+            <h2 class="form-h2">Disabled Input Field</h2>
+        </div>
+        <div class="col-12 input-row top">
+            <input type="text" pInputText placeholder="Disabled" disabled="disabled">
+        </div>
+        <div class="col-12">
+            <code-example language="markup" resourceId="sample/components/inputs-textareas/6">
+            </code-example>
+        </div>
+        <div class="col-12">
+            <h2 class="form-h2">Password Input Field</h2>
+        </div>
+        <div class="col-12 input-row top">
+            <span class="md-inputfield">
+                <input pInputText type="password">
+                <label>Password</label>
+            </span>
+        </div>
+        <div class="col-12">
+            <code-example language="markup" resourceId="sample/components/inputs-textareas/4">
+            </code-example>
+        </div>
+        <div class="col-12">
+            <h2 class="form-h2">Required Input Field</h2>
+        </div>
+        <div class="col-12 input-row">
+            <span class="md-inputfield">
+                <input type="text" pInputText class="ng-dirty ng-invalid" placeholder="Invalid">
+                <div class="ui-message ui-messages-error ui-corner-all">
+                    This field is required
+                </div>
+            </span>
+        </div>
+        <div class="col-12">
+            <code-example language="markup" resourceId="sample/components/inputs-textareas/5">
+            </code-example>
+        </div>
+        <div class="col-12">
+            <h2 class="form-h2">Textarea Input Field</h2>
+        </div>
+        <div class="col-12">
+            <textarea [rows]="5" [cols]="30" pInputTextarea autoResize="autoResize" class="ui-inputtext"></textarea>
+        </div>
+    </div>
+</div>
+
+<div class="card card-w-title">
+    <h1>Input in card and body content, no header.</h1>
+    <div class="card-content user-guide">
+        <div class="grid grid-nogutter ui-fluid input-row top">
+            <div class="col-12">
+                <span class="md-inputfield">
+                    <input type="text" pInputText>
+                    <label>Happy Little Input Field</label>
+                    <div class="ui-message ui-messages-default ui-corner-all">
+                        This class creates more top padding for the input float label.
+                    </div>
+                </span>
+            </div>
+            <div class="col-12">
+                <p>The default is <code class="language-css" pCode>.form-row</code> for bottom padding. Use <code class="language-css" pCode>.form-row-top</code> if you need
+                    top padding, specifically at the top of cards without an <code class="language-css" pCode>h2</code>.</p>
+                <code-example language="markup" resourceId="sample/components/inputs-textareas/1">
+                </code-example>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card card-w-title">
+    <h1>Input in card and body content, with headers.</h1>
+
+    <div class="card-content user-guide">
+        <div class="grid grid-nogutter">
+            <div class="col-12">
+                <h2 class="form-h2 first">Title with input field directly below</h2>
+            </div>
+            <div class="col-12 grid-nogutter ui-fluid">
+                <div class="form-row-top">
+                    <span class="md-inputfield">
+                        <input type="text" pInputText>
+                        <label>Input Field</label>
+                        <div class="ui-message ui-messages-default ui-corner-all">
+                            This class creates more top padding for the input float label.
+                        </div>
+                    </span>
+                </div>
+                <p>For the first header in the card, use <code class="language-css" pCode>.form-h2</code> and
+                    <code class="language-css" pCode>.first</code> in the h2 tag when you have an input field
+                    directly below it.</p>
+                <code-example language="markup" resourceId="sample/components/inputs-textareas/2">
+                </code-example>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="card card-w-title">
+    <h1>AutoComplete</h1>
+    <div class="grid ui-fluid card-content">
+        <div class="col-6">
+            <h2 class="first">Simple</h2>
+            <p-autoComplete [(ngModel)]="countries" [suggestions]="filteredCountriesMultiple"
+                (completeMethod)="filterCountryMultiple($event)" styleClass="wid100" [minLength]="1"
+                placeholder="Countries" field="name" [multiple]="true">
+            </p-autoComplete>
+        </div>
+        <div class="col-6">
+            <h2 class="first">Advanced</h2>
+            <p-autoComplete id="acAdvanced" [(ngModel)]="selectedBrands" [suggestions]="filteredBrands"
+                (completeMethod)="filterBrands($event)" [size]="30" [minLength]="1" placeholder="Hint: type 'v' or 'f'"
+                [dropdown]="true" (onDropdownClick)="handleACDropdownClick($event)" [multiple]="true">
+                <ng-template let-brand pTemplate="item">
+                    <div class="ui-helper-clearfix">
+                        {{brand}}
+                    </div>
+                </ng-template>
+            </p-autoComplete>
+        </div>
+    </div>
+</div>

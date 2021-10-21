@@ -1,0 +1,4 @@
+<h5>Vertical: {{val5}}</h5>
+<p-slider [(ngModel)]="val5" [style]="{'height':'14em'}" orientation="vertical"></p-slider>
+
+Typescript: val5: number;

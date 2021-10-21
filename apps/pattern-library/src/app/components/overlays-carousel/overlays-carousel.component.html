@@ -1,0 +1,21 @@
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>Onboarding Carousel</h1>
+            <div class="grid">
+                <div class="col-12 card-content">
+                    <al-beta-get-started #tutorial></al-beta-get-started>
+                    <button type="text" (click)="showTutorial()" pButton label="Show Tutorial"></button>
+                </div>
+            </div>
+        </div>
+    </p-tabPanel>
+    <!-- <p-tabPanel header="Usage Guide">
+        <div class="card card-w-title">
+            <h1>Usage Guide</h1>
+            <div class="card-content">
+                <embedded-markdown resourceId="readme/al-dialog-carousel/README"></embedded-markdown>
+            </div>
+        </div>
+    </p-tabPanel> -->
+</p-tabView>

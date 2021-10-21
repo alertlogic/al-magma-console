@@ -1,0 +1,21 @@
+{
+    "templates":[
+       {
+          "account_id":"2",
+          "created":{
+             "at":1593012097,
+             "by":"F166F8F8-8666-4A8E-8DD2-2679F9ED5E42"
+          },
+          "data_type":"fimdata",
+          "deleted":false,
+          "group_id":null,
+          "id":"523C76D3-921B-4DCA-812E-16EA48901DC3",
+          "modified":{
+             "at":1593537875,
+             "by":"F166F8F8-8666-4A8E-8DD2-2679F9ED5E42"
+          },
+          "name":"Test EM FIMDATA template",
+          "search_request":"SELECT * FROM fimdata WHERE EXISTS(ts)"
+       }
+    ]
+ }

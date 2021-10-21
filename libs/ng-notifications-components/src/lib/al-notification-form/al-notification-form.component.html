@@ -1,0 +1,105 @@
+<div class="al-notification-form ui-fluid">
+    <div *ngIf="!loading" class="grid">
+        <div class="col-12 form-description" *ngIf="formDescription">
+            {{formDescription}}
+        </div>
+        <div class="col-4">
+            <!-- Left content column goes here -->
+            <ng-content></ng-content>
+        </div>
+        <div class="col-4">
+            <div class="grid p-dir-col">
+                <div class="col-12">
+                    <h1 class="columnHeader">Recipients</h1>
+                </div>
+                <span *ngIf="type !== 'search_v2'" class="col section-title">
+                    Subscribe yourself, other users, or a connector to receive this notification.
+                </span>
+                <span *ngIf="type === 'search_v2'" class="col section-title">
+                    Subscribe yourself or other users to receive this notification.
+                </span>
+
+                <al-menu-list
+                    [options]="subscribersMenu"
+                    [selectedItem]="selectedItemMenu"
+                    (onItemSelected)="onSelectSubcriptionType($event)"></al-menu-list>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="grid p-dir-col">
+                <div class="col-12">
+                    <h1 class="columnHeader">Notification Delivery</h1>
+                </div>
+                <div class="col-12">
+                    <div class="usersDiv" *ngIf="subscriptionType==='users'">
+                        <al-multiselect-list
+                            placeholder="Select User(s)"
+                            name="selectedUsers"
+                            [(ngModel)]="selectedUsers"
+                            (ngModelChange)="onSelectedUser($event)"
+                            class="col-12 multiselect-users"
+                            [options]="allSelectableUsers"></al-multiselect-list>
+                    </div>
+                    <div class="usersDiv" *ngIf="subscriptionType==='integrations'">
+                        <div class="col-12">
+                            <p-dropdown
+                                name="integration"
+                                [options]="allSelectableIntegrations"
+                                [(ngModel)]="selectedIntegration"
+                                (ngModelChange)="onSelectedIntegration($event)"
+                                [placeholder]="'Select Connector'"
+                                [showClear]="true"
+                                class="col multiselect-users"></p-dropdown>
+                        </div>
+                        <div class="col-12">
+                            <p for="float-input" *ngIf="webhookPayloadFormat || samples">Sample</p>
+                            <ng-container *ngIf="samples; then tplSample; else default"></ng-container>
+                            <ng-template #tplSample >
+                                <ng-container *ngFor="let sample of samples">
+                                    <p>{{sample.title}}</p>
+                                    <pre *ngIf="sample.type === 'json'">{{ sample.content | json }}</pre>
+                                    <p *ngIf="sample.type !== 'json'">{{sample.content}}</p>
+                                </ng-container>
+                            </ng-template>
+                            <ng-template #default>
+                                <pre *ngIf="webhookPayloadFormat">{{webhookPayloadFormat | json}}</pre>
+                            </ng-template>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" *ngIf="subscriptionType==='users'">
+                    <span class="md-inputfield">
+                        <input
+                            type="text"
+                            class="col-12"
+                            name="emailSubject"
+                            [(ngModel)]="emailSubject"
+                            (ngModelChange)="onChanged.emit()"
+                            pInputText
+                            required/>
+                        <label for="float-input">Email Subject</label>
+                    </span>
+                </div>
+                <div class="col" *ngIf="showAttach">
+                    <div class="label-title">Options</div>
+                    <span class="md-inputfield">
+                        <p-checkbox
+                            [(ngModel)]="includeAttachments"
+                            (onChange)="onChanged.emit()"
+                            [binary]="true">
+                        </p-checkbox>
+                        <span class="padding-left-10">Attach {{ (type === 'search_v2')? 'CSV' : 'PDF' }} File</span>
+                    </span>
+                    <span class="md-inputfield" *ngIf="type === 'search_v2'">
+                        <p-checkbox
+                            [(ngModel)]="receiveEmpty"
+                            (onChange)="onNotifyBehaviorChanged($event)"
+                            [binary]="true">
+                        </p-checkbox>
+                        <span class="padding-left-10">Receive a notification even if the scheduled search yields no results</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

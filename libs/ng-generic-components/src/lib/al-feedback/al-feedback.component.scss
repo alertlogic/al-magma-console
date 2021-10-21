@@ -1,0 +1,23 @@
+.feedback-dropdown-container {
+    margin: 0px 20px 20px 20px;
+}
+
+.feedback-textarea-container {
+    height: 180px;
+    margin: 20px;
+    textarea {
+        width: 100%;
+    }
+}
+
+.feedback-button {
+    position: fixed;
+    top: 90%;
+    left: 83%;
+    border-radius: 50px;
+    height: 41px;
+    width: auto;
+    p {
+        margin: 11px;
+    }
+}

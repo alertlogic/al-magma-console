@@ -1,0 +1,447 @@
+.p-button,
+.p-togglebutton {
+    border: 0;
+    border-radius: var(--ald-g-radius-default);
+    cursor: pointer;
+    font-size: var(--ald-g-text-sm);
+    font-weight: 500;
+    line-height: var(--ald-g-leading-sm);
+    // min-height: var(--ald-g-space-9);
+    padding: var(--ald-g-space-2) var(--ald-g-space-4);
+    transition: box-shadow .12s linear, background-color .12s linear;
+    margin-right: .5rem;
+
+    &:focus,
+    &:active {
+        outline: 0 none;
+        outline-offset: 0;
+    }
+
+    /* Translate animation */
+
+    &:active {
+        transform: translateY(1px);
+    }
+
+    &.fab,
+    &.round {
+        border-radius: var(--ald-g-radius-full);
+        padding: var(--ald-g-space-2);
+    }
+
+    &.p-highlight {
+        background-color: var(--ald-g-slate-700);
+        box-shadow: none;
+        color: white;
+    }
+
+    .p-button-icon-left {
+        margin-right: 0.5rem;
+    }
+
+    .p-button-icon-right {
+        margin-left: 0.5rem;
+    }
+
+    .p-button-icon-bottom {
+        margin-top: 0.5rem;
+    }
+
+    .p-button-icon-top {
+        margin-bottom: 0.5rem;
+    }
+
+    .p-badge {
+        margin-left: 0.5rem;
+        min-width: 1rem;
+        height: 1rem;
+        line-height: 1rem;
+        background-color: var(--ald-g-gray-700);
+        color: #fff;
+    }
+
+    // Old styles
+    &.primaryAction {
+        background-color: var(--btn-primary-bg);
+        color: white;
+    }
+
+    &.accent {
+        background-color: transparent;
+        color: var(--btn-primary-bg);
+        box-shadow: inset 0 0 0 1px var(--btn-primary-bg);
+    }
+
+    &.lightGray {
+        background-color: var(--btn-default-bg-light);
+        color: inherit;
+    }
+
+    &.success,
+    &.p-button-success {
+        background-color: var(--ald-g-success);
+        color: white;
+    }
+
+    &.danger,
+    &.p-button-danger {
+        background-color: var(--ald-g-danger);
+        color: white;
+
+    }
+
+    &.cardBtn {
+        width: 72px;
+        height: 72px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .p-button-icon-left {
+            margin-right: 0;
+        }
+        .p-button-icon-right {
+            margin-left: 0;
+        }
+
+        &.p-button-text-icon-left,
+        &.p-button-text-icon-right {
+            padding-left: 0;
+            padding-right: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--ald-g-text-2xl);
+
+            .p-button-text {
+                padding: 0;
+                font-size: var(--ald-g-text-xs);
+                line-height: 16px;
+                text-transform: uppercase;
+            }
+
+            .p-button-icon-left,
+            .p-button-icon-right {
+                position: initial;
+                top: auto;
+                margin-top: 0;
+                height: auto;
+            }
+        }
+
+        .p-button-label {
+            font-size: var(--ald-g-text-xxs);
+        }
+    }
+}
+
+.p-button-icon-only {
+    padding: var(--ald-g-space-2);
+}
+
+// card button groups
+.btnGroup {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &.left:not(th):not(td) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 6px;
+        margin-left: 0;
+    }
+
+    &.right:not(th):not(td) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 6px;
+        margin-right: 0;
+    }
+}
+
+.btnGroupRight {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.btnGroupLeft {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+// outline
+.p-buttonset {
+    padding: var(--ald-g-space-1);
+    display: inline-flex;
+
+
+    .p-button:first-of-type {
+        border-bottom-right-radius: var(--ald-g-radius-default) !important;
+        border-top-right-radius: var(--ald-g-radius-default) !important;
+    }
+
+    .p-button:not(:last-child) {
+        border-right: var(--ald-g-radius-default) !important;
+    }
+
+    .p-button:not(:first-of-type):not(:last-of-type) {
+        border-radius: var(--ald-g-radius-default) !important;
+    }
+
+    .p-button:last-of-type {
+        border-bottom-left-radius: var(--ald-g-radius-default) !important;
+        border-top-left-radius: var(--ald-g-radius-default) !important;
+    }
+}
+
+.p-button-outlined,
+.p-buttonset {
+    box-shadow: inset 0 0 0 1px var(--btn-default-border);
+    background-color: transparent;
+    border-radius: var(--ald-g-radius-default);
+    cursor: pointer;
+    font-size: var(--ald-g-text-sm);
+    font-weight: 500;
+    line-height: var(--ald-g-leading-sm);
+    transition: box-shadow .12s linear, background-color .12s linear;
+
+    &:enabled {
+        &:hover {
+            box-shadow: inset 0 0 0 1px inherit;
+
+        }
+
+        &:active {
+            box-shadow: inset 0 0 0 2px var(--btn-default-border-dark);
+        }
+    }
+
+    &.primaryAction {
+        @include flat();
+        color: var(--btn-primary-bg);
+        box-shadow: inset 0 0 0 1px var(--btn-primary-bg);
+
+        &:hover,
+        &:focus {
+            box-shadow: inset 0 0 0 1px var(--btn-primary-bg);
+        }
+
+    }
+
+    &.accent {
+        background-color: transparent;
+        color: var(--btn-primary-bg);
+        box-shadow: inset 0 0 0 1px var(--btn-primary-bg);
+    }
+
+    &.lightGray {
+        background-color: var(--btn-default-bg-light);
+        color: white;
+    }
+
+    &.success {
+        background-color: var(--ald-g-success);
+        color: white;
+    }
+
+    &.danger {
+        background-color: var(--ald-g-danger);
+        color: white;
+
+    }
+}
+
+// flat and ghost
+.p-button-outlined {
+    box-shadow: inset 0 0 0 1px inherit;
+}
+
+.flat {
+    box-shadow: none;
+}
+
+.flat,
+.ghost {
+    background-color: transparent;
+
+    &.primaryAction {
+        @include flat();
+        color: var(--btn-primary-bg);
+
+    }
+}
+
+// plain and button-text
+.p-button-plain,
+.p-button-text,
+.p-button-plain.p-button-text {
+    background-color: transparent;
+    color: var(--btn-default-text);
+
+    &:enabled {
+        &:hover {
+            background-color: transparent;
+        }
+
+        &:active {
+            transform: translateY(1px);
+        }
+    }
+
+    &.primaryAction,
+    &.p-button-secondary {
+        background-color: transparent;
+        color: var(--btn-primary-bg)
+    }
+
+    &.accent {
+        background-color: transparent;
+        color: var(--btn-accent);
+    }
+
+    &.success,
+    &.p-button-success {
+        background-color: transparent;
+        color: var(--ald-g-success);
+    }
+
+    &.danger,
+    &.p-button-danger {
+        background-color: transparent;
+        color: var(--ald-g-danger);
+
+    }
+}
+
+
+// card button groups
+.btnGroup {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &.left:not(th):not(td) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 6px;
+        margin-left: 0;
+    }
+
+    &.right:not(th):not(td) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 6px;
+        margin-right: 0;
+    }
+}
+
+.btnGroupRight {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.btnGroupLeft {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.p-button-label {
+    flex: inherit;
+    padding: 0;
+    text-transform: uppercase;
+}
+
+.p-splitbutton {
+        
+    .p-splitbutton-defaultbutton {
+        margin-right: 1px;
+    }
+}
+
+// .p-button.p-button-raised {
+//     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+// }
+
+// .p-button.p-button-rounded {
+//     border-radius: 2rem;
+// }
+
+// .p-button.p-button-icon-only {
+//     width: 2.357rem;
+//     padding: 0.5rem 0;
+
+//     .p-button-icon-left {
+//         margin: 0;
+//     }
+
+//     .p-button-icon-right {
+//         margin: 0;
+//     }
+// }
+
+// .p-button-icon-only.p-button-rounded {
+//     border-radius: 50%;
+//     height: 2.357rem;
+// }
+
+// .p-button-sm {
+//     font-size: 0.875rem;
+//     padding: 0.4375rem 0.875rem;
+
+//     .p-button-icon {
+//         font-size: 0.875rem;
+//     }
+// }
+
+// .p-button-lg {
+//     font-size: 1.25rem;
+//     padding: 0.625rem 1.25rem;
+
+//     .p-button-icon {
+//         font-size: 1.25rem;
+//     }
+// }
+
+// .p-button-loading-label-only {
+//     .p-button-label {
+//         margin-left: 0.5rem;
+//     }
+
+//     .p-button-loading-icon {
+//         margin-right: 0;
+//     }
+// }
+
+// .p-fluid {
+//     .p-button {
+//         width: 100%;
+//     }
+
+//     .p-button-icon-only {
+//         width: 2.357rem;
+//     }
+
+//     .p-buttonset {
+//         display: flex;
+
+//         .p-button {
+//             flex: 1;
+//         }
+//     }
+// }
+
+.p-button-secondary {
+    background-color: var(--btn-primary-bg);
+    color: var(--btn-white-text);
+    border: 1px solid var(--btn-primary-color);
+}

@@ -1,0 +1,155 @@
+{
+    "triggers": [
+        {
+            "title": "Incidents",
+            "iconClass": "material-icons",
+            "icon": "whatshot"
+        },
+        {
+            "title": "Exposures",
+            "iconClass": "material-icons",
+            "icon": "whatshot"
+        },
+        {
+            "title": "Health",
+            "iconClass": "material-icons",
+            "icon": "security"
+        },
+        {
+            "title": "Search Correlation",
+            "iconClass": "material-icons",
+            "icon": "search"
+        }
+    ],
+    "playbookActions": [
+        {
+            "iconClass": "al",
+            "icon": "al-windows",
+            "title": "Post Message in Teams",
+            "expanded": false,
+            "config": [
+                {"label": "Client ID", "value": "6731de76-14a6-49ae-97bc-6eba6914391e"},
+                {"label": "Access Token", "value": "JqQX2PNo9bpM0uEihUPzyrh"},
+                {"label": "Message", "value": ""}
+            ],
+            "validConfig": true
+        },
+        {
+            "iconClass": "material-icons",
+            "icon": "hot_tub",
+            "title": "Post Message in Slack",
+            "expanded": false,
+            "config": [
+                {"label": "API", "value": ""},
+                {"label": "API Key", "value": ""},
+                {"label": "Message", "value": ""}
+            ]
+        },
+        {
+            "iconClass": "al",
+            "icon": "al-email",
+            "title": "Send Email Notification",
+            "expanded": false,
+            "config": [
+                {"label": "email address", "value": ""},
+                {"label": "Title", "value": ""},
+                {"label": "Body", "value": ""}
+            ],
+            "validConfig": true
+        },
+        {
+            "iconClass": "al",
+            "icon": "al-pagerduty",
+            "title": "Send PagerDuty Notification",
+            "expanded": false,
+            "config": [
+                {"label": "API", "value": ""},
+                {"label": "API Key", "value": ""},
+                {"label": "Message", "value": ""}
+            ]
+        },
+        {
+            "iconClass": "material-icons",
+            "icon": "message",
+            "title": "Send SMS Notification",
+            "expanded": false,
+            "config": [
+                {"label": "phone number", "value": ""},
+                {"label": "Message", "value": ""}
+            ],
+            "validConfig": true
+        },
+        {
+            "iconClass": "al",
+            "icon": "al-aws",
+            "title": "Disable IAM User",
+            "expanded": false,
+            "config": [
+                {"label": "ARN", "value": ""},
+                {"label": "IAM role", "value": ""}
+            ]
+        },
+        {
+            "iconClass": "al",
+            "icon": "al-firewall",
+            "title": "Block IP",
+            "expanded": false,
+            "config": [
+                {"label": "API", "value": ""},
+                {"label": "API Key", "value": ""},
+                {"label": "IP Address", "value": "{{attacker.ip_address}}"}
+            ]
+        },
+        {
+            "iconClass": "al",
+            "icon": "al-host",
+            "title": "Quarantine Host",
+            "expanded": false,
+            "config": [
+                {"label": "API", "value": ""},
+                {"label": "API Key", "value": ""}
+            ]
+        },
+        {
+            "iconClass": "al",
+            "icon": "al-service-now",
+            "title": "Open Incident in Service Now",
+            "expanded": false,
+            "config": [
+                {"label": "API", "value": ""},
+                {"label": "API Key", "value": ""}
+            ]
+        },
+        {
+            "iconClass": "al",
+            "icon": "al-service-now",
+            "title": "Close Incident in Service Now",
+            "expanded": false,
+            "config": [
+                {"label": "API", "value": ""},
+                {"label": "API Key", "value": ""}
+            ]
+        },
+        {
+            "iconClass": "al",
+            "icon": "al-logo",
+            "title": "Create Alert Logic Incident",
+            "expanded": false,
+            "config": [
+                {"label": "Threat Level", "value": "High"},
+                {"label": "Classification", "value": "Automated Response"}
+            ],
+            "validConfig": true
+        },
+        {
+            "iconClass": "al",
+            "icon": "al-logo",
+            "title": "Close Alert Logic Incident",
+            "expanded": false,
+            "config": [
+                {"label": "Incident ID", "value": "{{incident.id}}"}
+            ],
+            "validConfig": true
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>Snackbar Select Actions</h1>
+            <div class="card-content">
+                <button (click)="actionSnackbarVisible = !actionSnackbarVisible" pButton label="Toggle"></button>
+                <al-action-snackbar [text]="actionSnackbarText" [visible]="actionSnackbarVisible"
+                    [elements]="actionSnackbarButtons" (onElementPressed)="actionSnackbarEvent($event)">
+                </al-action-snackbar>
+                <p>Event: {{actionSnackbarSelectedOption}}</p>
+                <h5>Component Name:</h5>
+                <code class="language-css" pCode>al-action-snackbar</code>
+            </div>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Usage Guide">
+        <div class="card card-w-title">
+            <h1>Usage Guide</h1>
+            <div class="card-content">
+                <embedded-markdown resourceId="readme/al-action-snackbar/README"></embedded-markdown>
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>    

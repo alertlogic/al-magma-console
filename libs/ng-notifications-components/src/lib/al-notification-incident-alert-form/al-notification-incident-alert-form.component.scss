@@ -1,0 +1,83 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.create-incident-alert {
+    width: 100%;
+}
+
+.alert-layout {
+    width: 100%;
+    display: flex;
+}
+
+.expanded-input {
+    width: 100%;
+}
+
+.form-row {
+    margin-top: 24px;
+}
+
+.modal-internal-title {
+    line-height: normal;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #cbcbcb;
+}
+
+.vertical-space {
+    padding-top: 10px;
+}
+
+.padding-left-10 {
+    padding-left: 10px;
+}
+
+.columnHeader {
+    font-size: 20px;
+    color: al-color($al-gray, 500);
+    padding-bottom: 6px;
+    border-bottom: 1px solid al-color($al-gray, 50);
+}
+
+.pi-info-circle {
+    font-size: 18px;
+    vertical-align: bottom;
+    color: al-color($al-gray, 100);
+}
+
+.p-dir-col {
+    margin-left: 0px;
+}
+
+.section-title {
+    font-size: 14px;
+    color: al-color($al-gray, 700);
+}
+
+.multiselect-users {
+    margin-top: 9px;
+}
+
+.follow-criteria {
+    margin: 1px 0px 2px 0px;
+}
+
+.input-name {
+    margin-bottom: 8px;
+}
+
+.filtersDropdown {
+    padding: 5px;
+}
+
+.usersDiv {
+    padding-bottom: 30px;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+.p-dropdown-label.p-inputtext {
+    font-family: "Open Sans", Arial, sans-serif;
+    color: al-color($al-gray, 200);
+}

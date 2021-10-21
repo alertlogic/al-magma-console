@@ -1,0 +1,26 @@
+<div class="al-identity-icon" ng-class="{linkable: false}">
+	<div class="al-identity-icon-space" *ngIf="display === 'big'">
+		<span [ngClass]="classes">
+		    <font class="colored-initials">
+		        <span>
+		        	{{initials}}
+		        </span>
+		    </font>
+		</span>
+		<div *ngIf="withLegend === true">
+			<small class="center-block">{{name}}</small>
+		</div>
+	</div>
+	<div *ngIf="display === 'small'" class="colored-square-container-small">
+		<div [ngClass]="classes">
+			<font class="colored-initials-small">
+				<span>
+					{{initials}}
+				</span>
+			</font>
+		</div>
+		<div *ngIf="withLegend === true">
+			<strong class="center-block"> {{name}}</strong>
+		</div>
+	</div>
+</div>

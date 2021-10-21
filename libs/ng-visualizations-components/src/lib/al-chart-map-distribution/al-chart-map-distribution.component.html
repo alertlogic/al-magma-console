@@ -1,0 +1,9 @@
+<div class="container">
+  <div #chartContainer class="map-distribution-container" [ngClass]="containerClasses()"></div>
+  <div *ngIf="seriesNames.length" class="map-legend">
+    <div *ngFor="let series of seriesData; index as idx" (click)="onClickLegend(idx)">
+      <div class="series-color backgroundColor" [ngClass]="legendColor(idx)"></div>
+      <span [ngClass]="legendTextColor(idx)">{{seriesNames[idx]}}</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,127 @@
+<div class="al-filter-search" [hidden]="!filterConfig.showSearch || filters.length <= 0">
+    <input type="text" #searchFilterKey pInputText class="ui-inputtext ui-corner-all ui-state-default ui-widget"
+        placeholder="search filters" />
+    <i class="pi pi-search mx"></i>
+</div>
+
+<div *ngIf="filterConfig.showClearFilter" [ngClass]="clearFilter ? 'show' : 'hide'" class="al-filter-clear"
+    (click)="clearAllFilters()">
+    <span>CLEAR ALL FILTERS</span>
+    <i class="material-icons">close</i>
+</div>
+<p-accordion [multiple]="true" *ngFor="let filter of filters; trackBy: filterTrackByFn" class="al-filter"
+    (onOpen)="onFilterOpened(filter)">
+    <p-accordionTab [selected]="true" header="{{ filter.caption }}">
+        <ng-container *ngTemplateOutlet="filter.children && filter.children.length > 0 ? nested : normal; context: { $implicit: filter }"></ng-container>
+        <ng-template #nested
+                     let-list>
+            <ng-container *ngFor="let f of list.children; trackBy: filterTrackByFn">
+                <p class="subtitle">{{f.caption}}</p>
+                <ng-container *ngTemplateOutlet="normal; context: { $implicit: f }"></ng-container>
+            </ng-container>
+        </ng-template>
+        <ng-template #normal let-list>
+            <ng-container *ngFor="
+                        let vDescr of list.values |filterListBySearchPipe:searchFilterKey.value
+                            | slice: 0:list.shown | sort:'sort':'asc'; trackBy: filterItemTrackByFn
+                    ">
+                <div class="grid grid-nogutter align-items-center filter-option"
+                     [ngClass]="{'highlight-filter': (filterConfig?.highlight && vDescr.activeFilter)}" (click)="selectedFilter(vDescr, $event)">
+                    <i [ngClass]="{'ui-icon-check-box': filterConfig.activeIcon && vDescr.activeFilter, 'ui-icon-check-box-outline-blank': filterConfig.activeIcon && !vDescr.activeFilter}"
+                       class="check-icon"></i>
+                    <li [ngClass]="vDescr.cssClasses"
+                        class="col">
+                        {{ vDescr.caption}}
+                        <ng-container *ngIf="vDescr.total; then total else count"></ng-container>
+                        <ng-template #total>
+                            <span *ngIf="filterConfig.showFiltersCount && !filterConfig.showToolTip">
+                                <b>{{vDescr.count | alPrefixMultiplier}}</b>/{{ vDescr.total | alPrefixMultiplier}}</span>
+                            <span *ngIf="filterConfig.showFiltersCount && filterConfig.showToolTip"
+                                  pTooltip="{{vDescr.count}} {{filterConfig.toolTipText}}"
+                                  tooltipStyleClass="tool-tip"><b>{{vDescr.count | alPrefixMultiplier}}</b>/{{ vDescr.total | alPrefixMultiplier}}</span>
+                        </ng-template>
+                        <ng-template #count>
+                            <span *ngIf="filterConfig.showFiltersCount && !filterConfig.showToolTip">{{ vDescr.count
+                                |alPrefixMultiplier}}</span>
+                            <span *ngIf="filterConfig.showFiltersCount && filterConfig.showToolTip"
+                                  pTooltip="{{vDescr.count}} {{filterConfig.toolTipText}}"
+                                  tooltipStyleClass="tool-tip">{{ vDescr.count |alPrefixMultiplier}}</span>
+                        </ng-template>
+                    </li>
+                </div>
+            </ng-container>
+            <li *ngIf="filterConfig.showMoreType==='plain' && list.shown < list.values.length"
+                (click)="showMoreFilterValues(list)"
+                class="symbolic">
+                <em>Show More...</em>
+            </li>
+
+            <li *ngIf="filterConfig.showMoreType==='popover' && list.shown < list.values.length"
+                (click)="popoverModal.show($event,list)"
+                class="symbolic">
+                <em>Show More...</em>
+            </li>
+            <p-accordion #accordionTemplate *ngIf="filterConfig.showMoreType==='accordion' && list.shown < list.values.length" class="accordion show-more">
+                <p-accordionTab [header]="accordionTemplate?.tabs && accordionTemplate?.tabs.length > 0 && accordionTemplate?.tabs[0].selected ? 'Show Less...' : 'Show More...'">
+                    <al-search-bar width="100%"
+                            [placeholder]="'Search filters'"
+                            [autofocus]="true"
+                            class="search-bar"
+                            (onSearchChanged)="applyShowMoreSearchFilter($event)"></al-search-bar>
+                    <div class="scrollable" [ngClass]="list.activeFilter ? 'al-h-bold' : ''">
+                        <ng-container *ngFor="let vDescr of list.values | slice: list.shown | filterListBySearchPipe:searchShowMorekey | sort:'sort':'asc'">
+                            <div class="grid grid-nogutter align-items-center filter-option-popover"
+                                [ngClass]="{'highlight-filter': (filterConfig?.highlight && vDescr.activeFilter)}" (click)="selectedFilter(vDescr, $event)">
+                                <i [ngClass]="{'ui-icon-check-box': filterConfig.activeIcon && vDescr.activeFilter, 'ui-icon-check-box-outline-blank': filterConfig.activeIcon && !vDescr.activeFilter}"
+                                class="check-icon"></i>
+                                <li [ngClass]="vDescr.cssClasses"
+                                    class="col">
+                                    {{ vDescr.caption}}
+                                    <span
+                                        *ngIf="filterConfig.showFiltersCount && !filterConfig.showToolTip">{{ vDescr.count |alPrefixMultiplier}}</span>
+                                    <span *ngIf="filterConfig.showFiltersCount && filterConfig.showToolTip"
+                                        pTooltip="{{vDescr.count}} {{filterConfig.toolTipText}}"
+                                        tooltipStyleClass="tool-tip">{{ vDescr.count |alPrefixMultiplier}}</span>
+                                </li>
+                            </div>
+                        </ng-container>
+                    </div>
+                </p-accordionTab>
+            </p-accordion>
+
+            <p-overlayPanel #popoverModal [showCloseIcon]="true" class="popover" *ngIf="filterConfig.showMoreType==='popover' && list.shown < list.values.length">
+                <div class="custom-modal-title"> {{ list.caption }}</div>
+                <al-search-bar width="280px"
+                               [placeholder]="'search filters'"
+                               [autofocus]="true"
+                               class="search-bar"
+                               (onSearchChanged)="applyShowMoreSearchFilter($event)"></al-search-bar>
+                <div class="scrollable">
+                    <ng-container *ngFor="
+                            let vDescr of list.values | filterListBySearchPipe:searchShowMorekey | slice: list.shown; trackBy: filterItemTrackByFn
+                        ">
+                        <div class="grid grid-nogutter align-items-center filter-option-popover"
+                             [ngClass]="{'highlight-filter': (filterConfig?.highlight && vDescr.activeFilter)}" (click)="selectedFilter(vDescr, $event)">
+                            <i [ngClass]="{'ui-icon-check-box': filterConfig.activeIcon && vDescr.activeFilter, 'ui-icon-check-box-outline-blank': filterConfig.activeIcon && !vDescr.activeFilter}"
+                               class="check-icon"></i>
+                            <li [ngClass]="vDescr.cssClasses"
+                                class="col">
+                                {{ vDescr.caption}}
+                                <span
+                                      *ngIf="filterConfig.showFiltersCount && !filterConfig.showToolTip">{{ vDescr.count |alPrefixMultiplier}}</span>
+                                <span *ngIf="filterConfig.showFiltersCount && filterConfig.showToolTip"
+                                      pTooltip="{{vDescr.count}} {{filterConfig.toolTipText}}"
+                                      tooltipStyleClass="tool-tip">{{ vDescr.count |alPrefixMultiplier}}</span>
+                            </li>
+                        </div>
+                    </ng-container>
+                </div>
+            </p-overlayPanel>
+        </ng-template>
+    </p-accordionTab>
+</p-accordion>
+<div *ngIf="filterConfig?.showHelpText" class="show-help-text">
+    <div class="description">
+        {{filterConfig?.helpText}}
+    </div>
+</div>

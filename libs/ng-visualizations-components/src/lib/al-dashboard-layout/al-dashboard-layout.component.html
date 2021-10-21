@@ -1,0 +1,61 @@
+<div #dashboardLayout class="dashboard-layout" *ngIf="!isLoading" [ngClass]="{'noGrid': poorGridSupport, 'no-pack-4': layoutFormat == 'no-pack-4'}">
+    <al-dashboard-widget
+        *ngFor="let configItem of config"
+        [ngClass]="{'w2': configItem.metrics.width === 2, 'h2': configItem.metrics.height === 2, 'w4': configItem.metrics.width === 4, 'w3': configItem.metrics.width === 3}"
+        [config]="configItem">
+      <div class="interior" [ngClass]="{'noFooter': !hasActions(configItem) && !ignoreFooter(configItem)}" *ngIf="configItem.content && configItem.content.data && !configItem.content.data.nodata">
+          <al-highchart-semi-circle
+            *ngIf="configItem.content.type === contentType.SemiCircle"
+            [config]="configItem.content.data"></al-highchart-semi-circle>
+          <al-highchart-column
+            *ngIf="configItem.content.type === contentType.Column"
+            [config]="configItem.content.data"></al-highchart-column>
+          <al-detailed-table-list
+            *ngIf="configItem.content.type === contentType.TableListSummary"
+            [config]="configItem.content.data"></al-detailed-table-list>
+          <al-highchart-activity-gauge
+            *ngIf="configItem.content.type === contentType.ActivityGauge"
+            [config]="configItem.content.data"></al-highchart-activity-gauge>
+          <al-highchart-treemap
+            *ngIf="configItem.content.type === contentType.TreeMap"
+            [config]="configItem.content.data"></al-highchart-treemap>
+          <al-highchart-heatmap
+            *ngIf="configItem.content.type === contentType.HeatMap"
+            [presentation]="configItem.content.presentation" [data]="configItem.content.data"></al-highchart-heatmap>
+          <al-count-summary
+            *ngIf="configItem.content.type === contentType.Count"
+            [presentation]="configItem.content.presentation" [data]="configItem.content.data"></al-count-summary>
+          <al-highchart-bar
+            *ngIf="configItem.content.type === contentType.Bar"
+            [config]="configItem.content.data"></al-highchart-bar>
+          <al-highchart-area-graph
+            *ngIf="configItem.content.type === contentType.Area"
+            [config]="configItem.content.data"></al-highchart-area-graph>
+          <al-highchart-bubble
+            *ngIf="configItem.content.type === contentType.Bubble"
+            [config]="configItem.content.data"></al-highchart-bubble>
+          <al-highchart-doughnut
+            *ngIf="configItem.content.type === contentType.Doughnut"
+            [config]="configItem.content.data"></al-highchart-doughnut>
+          <al-highmap-chart
+            *ngIf="configItem.content.type === contentType.Map"
+            [config]="configItem.content.data"></al-highmap-chart>
+          <al-chart-map-distribution
+            *ngIf="configItem.content.type === contentType.MapCountryDistribution"
+            [presentation]="configItem.content.presentation" [data]="configItem.content.data"></al-chart-map-distribution>
+          <al-highchart-line
+            *ngIf="configItem.content.type === contentType.Line"
+            [config]="configItem.content.data"></al-highchart-line>
+          <al-highchart-funnel
+            *ngIf="configItem.content.type === contentType.Funnel"
+            [config]="configItem.content.data"></al-highchart-funnel>
+          <al-highchart-multi-trend
+            *ngIf="configItem.content.type === contentType.MultiTrend"
+            [config]="configItem.content.data"></al-highchart-multi-trend>
+      </div>
+      <div class="interior" *ngIf="configItem.content && configItem.content.data && configItem.content.data.nodata">
+        <al-content-zero-data [contentType]="configItem.content.type" [config]="configItem.content.data"></al-content-zero-data>
+      </div>
+    </al-dashboard-widget>
+</div>
+

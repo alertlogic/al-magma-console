@@ -1,0 +1,10 @@
+{
+  "bundlerOptions": {
+    "entryFile": "./libs/ng-visualizations-components/src/styles/styles.scss",
+    "outFile": "./dist/libs/ng-visualizations-components/styles.scss",
+    "includePaths": [
+      ".aliases",
+      ".node_modules"
+  ]
+  }
+}

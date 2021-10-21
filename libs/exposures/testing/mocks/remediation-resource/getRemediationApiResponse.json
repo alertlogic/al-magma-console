@@ -1,0 +1,8 @@
+{
+    "description": "It is recommended that users restrict access to IP addresses that are not required. Users should set the suffix to /32, to restrict access to a specific IP address.",
+    "id": "f75b10b903065bff6643efe67953cddd",
+    "name": "It is recommended that users restrict outbound access to IP addresses that are not required.",
+    "vulnerability_ids": [
+        "56853334dfaa8d197bfb731b3abfc2d3"
+    ]
+}

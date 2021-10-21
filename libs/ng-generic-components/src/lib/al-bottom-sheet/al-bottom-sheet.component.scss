@@ -1,0 +1,78 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.p-sidebar-bottom-center {
+    width: 95%;
+    left: 50%;
+    margin-left: -47.5%; // half of the width
+}
+
+.header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    z-index: 1000;
+    padding: 15px 40px 15px 40px;
+    border-bottom: 1px solid al-color($al-gray, 100);
+    background-color: white;
+    margin: 0px;
+    p {
+        font-size: 28px;
+        margin: 5px 0px 5px 12px;
+        letter-spacing: 0;
+        color: al-color($al-gray, 500);
+    }
+
+    button{
+        margin-left: 12px;
+    }
+}
+
+.p-sidebar {
+    padding: 0px 0px;
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+}
+
+.title-clickable {
+    cursor: pointer;
+}
+
+.container {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 86vh;
+    padding: 30px;    
+}
+
+.secundary-action {
+    margin-right: 0.5em;
+}
+
+.footer-container {
+    border-top: 1px solid al-color($al-gray, 100);
+    background: white;
+}
+
+.footer-action-buttons {
+    display: flex;
+    position: absolute !important;
+    width: 100%;
+    min-height: 56px;
+    align-items: center;
+    bottom: 0;
+    justify-content: space-between;
+    padding: 0 50px;
+}
+
+.primary-footer-action {
+    justify-content: flex-end;
+}
+
+.secondary-footer-action {
+    display: flex;
+    align-items: center;
+    i {
+        cursor: pointer;
+        font-size: 18px;
+    }
+}

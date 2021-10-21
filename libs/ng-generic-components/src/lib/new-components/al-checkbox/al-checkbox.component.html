@@ -1,0 +1,24 @@
+<label
+    [for]="id"
+    class="ald-checkbox"
+	[ngClass]="[disabled ? 'ald-checkbox--disabled' : '' , verticalSpace ? 'ald-form-group--spaced' : '' ]">
+    <input
+        type="checkbox"
+        [id]="id"
+        [name]="name"
+        class=""
+        [(ngModel)]="checked"
+        [disabled]="disabled"
+        [indeterminate]="indeterminate"
+        (ngModelChange)="onValueChange($event)">
+
+        <div class="ald-checkbox__box">            
+            <svg *ngIf="indeterminate" class="ald-checkbox__icon" viewBox="0 0 20 20"><rect x="2" y="8" width="16" height="4" shape-rendering="crispEdges"/></svg>
+            <svg *ngIf="!indeterminate" class="ald-checkbox__icon" viewBox="0 0 20 20"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"/></svg>
+        </div>
+
+    <div *ngIf="label" class="ald-checkbox__label">
+        {{ label }}
+    </div>
+
+</label>

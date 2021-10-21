@@ -1,0 +1,11 @@
+@import "@al/ng-generic-components/styles/utility";
+
+:host {
+    margin-top: 16px;
+}
+.scheduled-params{
+    align-items: flex-end;
+    > * {
+        margin-right: 8px;
+    }
+}

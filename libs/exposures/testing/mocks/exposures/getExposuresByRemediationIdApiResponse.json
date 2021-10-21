@@ -1,0 +1,303 @@
+{
+    "summary": {
+        "severities": {
+            "medium": 0,
+            "low": 0,
+            "info": 0,
+            "high": 5,
+            "all": 5
+        }
+    },
+    "filters": [],
+    "exposures": {
+        "rows": 1,
+        "assets": [
+            {
+                "vulnerability_id": "489a02c4d2022eb7c2550801df621be4",
+                "vinstances_count": 5,
+                "vinstances": [
+                    {
+                        "threatiness": 8.0,
+                        "target": {
+                            "type": "host",
+                            "threatiness": 16.0,
+                            "threat_level": 3,
+                            "tags": {
+                                "mgr": "sysops-manager",
+                                "base-stack-name": "global-integration",
+                                "base-stack-id": "arn:aws:cloudformation:us-east-1:948063967832:stack/global-integration/8518e240-d9b4-11e6-9d86-500c524058f2",
+                                "aws:ec2launchtemplate:version": "1",
+                                "aws:ec2launchtemplate:id": "lt-02ff91176f7e68bb5",
+                                "aws:cloudformation:stack-name": "global-integration-cfnStackElasticsearch-69OCASPOSRAJ",
+                                "aws:cloudformation:stack-id": "arn:aws:cloudformation:us-east-1:948063967832:stack/global-integration-cfnStackElasticsearch-69OCASPOSRAJ/0ec4d110-0a3a-11e7-a1b3-500c28b4e461",
+                                "aws:cloudformation:logical-id": "asgElasticsearch",
+                                "aws:autoscaling:groupName": "global-integration-cfnStackElasticsearch-69OCASPOSRAJ-asgElasticsearch-WT78P7YQIA7J",
+                                "Network": "Private",
+                                "Name": "Elasticsearch"
+                            },
+                            "public_ipv6_addresses": [],
+                            "public_ipv4_addresses": [],
+                            "public_ip_addresses": [],
+                            "private_ipv6_addresses": [],
+                            "private_ipv4_addresses": [
+                                "10.252.0.251"
+                            ],
+                            "private_ip_addresses": [
+                                "10.252.0.251"
+                            ],
+                            "private_ip_address": "10.252.0.251",
+                            "private_dns_name": "ip-10-252-0-251.ec2.internal",
+                            "name": "Elasticsearch",
+                            "key": "/aws/us-east-1/host/i-0c4e6de4c599e7ff1",
+                            "ip_address": "",
+                            "instance_name": "Elasticsearch",
+                            "instance_id": "i-0c4e6de4c599e7ff1",
+                            "dns_name": "",
+                            "deployment_id": "7D5E66BE-98C6-40A2-8B09-5DC4C0FEE677",
+                            "alertlogic_appliance": false,
+                            "account_id": "134249236"
+                        },
+                        "modified_on": 1581079717672,
+                        "key": "/aws/us-east-1/host/i-0c4e6de4c599e7ff1/vulnerability/fbfd50aa180091eee78761c07d62f93f",
+                        "disposed": false,
+                        "details": "The host does not have an agent installed",
+                        "concluded": false,
+                        "categories": [
+                            "configuration"
+                        ]
+                    },
+                    {
+                        "threatiness": 8.0,
+                        "target": {
+                            "type": "host",
+                            "threatiness": 16.0,
+                            "threat_level": 3,
+                            "tags": {
+                                "mgr": "paul-fisher",
+                                "base-stack-name": "global-integration",
+                                "base-stack-id": "arn:aws:cloudformation:eu-west-1:948063967832:stack/global-integration/3c8f08c0-d940-11e6-a899-500c42421e36",
+                                "aws:cloudformation:stack-name": "global-integration-cfnStackAnalyticsEnginesEcsCluster-CLIN1GIIUZM0",
+                                "aws:cloudformation:stack-id": "arn:aws:cloudformation:eu-west-1:948063967832:stack/global-integration-cfnStackAnalyticsEnginesEcsCluster-CLIN1GIIUZM0/d2e78ba0-70cc-11e9-ba13-0a4e84363f34",
+                                "aws:cloudformation:logical-id": "ecsAutoScalingGroup",
+                                "aws:autoscaling:groupName": "global-integration-cfnStackAnalyticsEnginesEcsCluster-CLIN1GIIUZM0-ecsAutoScalingGroup-1EJ6XRKV01E9P",
+                                "Network": "Private",
+                                "Name": "ECS-AE"
+                            },
+                            "public_ipv6_addresses": [],
+                            "public_ipv4_addresses": [],
+                            "public_ip_addresses": [],
+                            "private_ipv6_addresses": [],
+                            "private_ipv4_addresses": [
+                                "10.250.0.119"
+                            ],
+                            "private_ip_addresses": [
+                                "10.250.0.119"
+                            ],
+                            "private_ip_address": "10.250.0.119",
+                            "private_dns_name": "ip-10-250-0-119.eu-west-1.compute.internal",
+                            "name": "ECS-AE",
+                            "key": "/aws/eu-west-1/host/i-012459109b93e50d4",
+                            "ip_address": "",
+                            "instance_name": "ECS-AE",
+                            "instance_id": "i-012459109b93e50d4",
+                            "dns_name": "",
+                            "deployment_id": "7D5E66BE-98C6-40A2-8B09-5DC4C0FEE677",
+                            "alertlogic_appliance": false,
+                            "account_id": "134249236"
+                        },
+                        "modified_on": 1583903974121,
+                        "key": "/aws/eu-west-1/host/i-012459109b93e50d4/vulnerability/fbfd50aa180091eee78761c07d62f93f",
+                        "disposed": false,
+                        "details": "The host does not have an agent installed",
+                        "concluded": false,
+                        "categories": [
+                            "configuration"
+                        ]
+                    },
+                    {
+                        "threatiness": 8.0,
+                        "target": {
+                            "type": "host",
+                            "threatiness": 16.0,
+                            "threat_level": 3,
+                            "tags": {
+                                "mgr": "sysops-manager",
+                                "base-stack-name": "global-integration",
+                                "base-stack-id": "arn:aws:cloudformation:eu-west-1:948063967832:stack/global-integration/3c8f08c0-d940-11e6-a899-500c42421e36",
+                                "aws:ec2launchtemplate:version": "1",
+                                "aws:ec2launchtemplate:id": "lt-0669cbd21fb85ddc0",
+                                "aws:cloudformation:stack-name": "global-integration-cfnStackElasticsearch-O26GZD516FU2",
+                                "aws:cloudformation:stack-id": "arn:aws:cloudformation:eu-west-1:948063967832:stack/global-integration-cfnStackElasticsearch-O26GZD516FU2/6b98fea0-0afa-11e7-b3e9-500c4267f899",
+                                "aws:cloudformation:logical-id": "asgElasticsearch",
+                                "aws:autoscaling:groupName": "global-integration-cfnStackElasticsearch-O26GZD516FU2-asgElasticsearch-1GSFUWZCOI9GN",
+                                "Network": "Private",
+                                "Name": "Elasticsearch"
+                            },
+                            "public_ipv6_addresses": [],
+                            "public_ipv4_addresses": [],
+                            "public_ip_addresses": [],
+                            "private_ipv6_addresses": [],
+                            "private_ipv4_addresses": [
+                                "10.250.0.166"
+                            ],
+                            "private_ip_addresses": [
+                                "10.250.0.166"
+                            ],
+                            "private_ip_address": "10.250.0.166",
+                            "private_dns_name": "ip-10-250-0-166.eu-west-1.compute.internal",
+                            "name": "Elasticsearch",
+                            "key": "/aws/eu-west-1/host/i-0e731660ef7904ae6",
+                            "ip_address": "",
+                            "instance_name": "Elasticsearch",
+                            "instance_id": "i-0e731660ef7904ae6",
+                            "dns_name": "",
+                            "deployment_id": "7D5E66BE-98C6-40A2-8B09-5DC4C0FEE677",
+                            "alertlogic_appliance": false,
+                            "account_id": "134249236"
+                        },
+                        "modified_on": 1581079717105,
+                        "key": "/aws/eu-west-1/host/i-0e731660ef7904ae6/vulnerability/fbfd50aa180091eee78761c07d62f93f",
+                        "disposed": false,
+                        "details": "The host does not have an agent installed",
+                        "concluded": false,
+                        "categories": [
+                            "configuration"
+                        ]
+                    },
+                    {
+                        "threatiness": 8.0,
+                        "target": {
+                            "type": "host",
+                            "threatiness": 16.0,
+                            "threat_level": 3,
+                            "tags": {
+                                "mgr": "kevin-mitchell",
+                                "base-stack-name": "integration",
+                                "base-stack-id": "arn:aws:cloudformation:us-east-1:948063967832:stack/integration/0dae91f0-6705-11e5-9fac-500150b34cb4",
+                                "aws:cloudformation:stack-name": "integration-cfnStackScanScheduler-QKNP5S6NI4Z5",
+                                "aws:cloudformation:stack-id": "arn:aws:cloudformation:us-east-1:948063967832:stack/integration-cfnStackScanScheduler-QKNP5S6NI4Z5/c8603b50-6707-11e5-9fac-500150b34cb4",
+                                "aws:cloudformation:logical-id": "asgScanSchedulerServer",
+                                "aws:autoscaling:groupName": "integration-cfnStackScanScheduler-QKNP5S6NI4Z5-asgScanSchedulerServer-Q2B4LQ0YCYT",
+                                "Name": "ScanScheduler"
+                            },
+                            "public_ipv6_addresses": [],
+                            "public_ipv4_addresses": [],
+                            "public_ip_addresses": [],
+                            "private_ipv6_addresses": [],
+                            "private_ipv4_addresses": [
+                                "10.0.3.230"
+                            ],
+                            "private_ip_addresses": [
+                                "10.0.3.230"
+                            ],
+                            "private_ip_address": "10.0.3.230",
+                            "private_dns_name": "ip-10-0-3-230.ec2.internal",
+                            "name": "ScanScheduler",
+                            "key": "/aws/us-east-1/host/i-0fc7d5675cd97f469",
+                            "ip_address": "",
+                            "instance_name": "ScanScheduler",
+                            "instance_id": "i-0fc7d5675cd97f469",
+                            "dns_name": "",
+                            "deployment_id": "7D5E66BE-98C6-40A2-8B09-5DC4C0FEE677",
+                            "alertlogic_appliance": false,
+                            "account_id": "134249236"
+                        },
+                        "modified_on": 1584011384148,
+                        "key": "/aws/us-east-1/host/i-0fc7d5675cd97f469/vulnerability/fbfd50aa180091eee78761c07d62f93f",
+                        "disposed": false,
+                        "details": "The host does not have an agent installed",
+                        "concluded": false,
+                        "categories": [
+                            "configuration"
+                        ]
+                    },
+                    {
+                        "threatiness": 8.0,
+                        "target": {
+                            "type": "host",
+                            "threatiness": 16.0,
+                            "threat_level": 3,
+                            "tags": {
+                                "mgr": "sysops-manager",
+                                "base-stack-name": "global-integration",
+                                "base-stack-id": "arn:aws:cloudformation:eu-west-1:948063967832:stack/global-integration/3c8f08c0-d940-11e6-a899-500c42421e36",
+                                "aws:ec2launchtemplate:version": "1",
+                                "aws:ec2launchtemplate:id": "lt-0669cbd21fb85ddc0",
+                                "aws:cloudformation:stack-name": "global-integration-cfnStackElasticsearch-O26GZD516FU2",
+                                "aws:cloudformation:stack-id": "arn:aws:cloudformation:eu-west-1:948063967832:stack/global-integration-cfnStackElasticsearch-O26GZD516FU2/6b98fea0-0afa-11e7-b3e9-500c4267f899",
+                                "aws:cloudformation:logical-id": "asgElasticsearch",
+                                "aws:autoscaling:groupName": "global-integration-cfnStackElasticsearch-O26GZD516FU2-asgElasticsearch-1GSFUWZCOI9GN",
+                                "Network": "Private",
+                                "Name": "Elasticsearch"
+                            },
+                            "public_ipv6_addresses": [],
+                            "public_ipv4_addresses": [],
+                            "public_ip_addresses": [],
+                            "private_ipv6_addresses": [],
+                            "private_ipv4_addresses": [
+                                "10.250.3.5"
+                            ],
+                            "private_ip_addresses": [
+                                "10.250.3.5"
+                            ],
+                            "private_ip_address": "10.250.3.5",
+                            "private_dns_name": "ip-10-250-3-5.eu-west-1.compute.internal",
+                            "name": "Elasticsearch",
+                            "key": "/aws/eu-west-1/host/i-07f2574f344942e67",
+                            "ip_address": "",
+                            "instance_name": "Elasticsearch",
+                            "instance_id": "i-07f2574f344942e67",
+                            "dns_name": "",
+                            "deployment_id": "7D5E66BE-98C6-40A2-8B09-5DC4C0FEE677",
+                            "alertlogic_appliance": false,
+                            "account_id": "134249236"
+                        },
+                        "modified_on": 1581079716822,
+                        "key": "/aws/eu-west-1/host/i-07f2574f344942e67/vulnerability/fbfd50aa180091eee78761c07d62f93f",
+                        "disposed": false,
+                        "details": "The host does not have an agent installed",
+                        "concluded": false,
+                        "categories": [
+                            "configuration"
+                        ]
+                    }
+                ],
+                "type": "vulnerability",
+                "threatiness": 1336.0,
+                "threat_vector": "AV:N/AC:L/Au:N/C:C/I:C/A:C/PL:A/EM:A",
+                "threat_score": 10.0,
+                "threat_pct": 100.0,
+                "threat_level": 3,
+                "tags": {},
+                "severity": "high",
+                "remediations": [
+                    {
+                        "type": "remediation",
+                        "threatiness": 0.0,
+                        "threat_level": 0,
+                        "target_asset_type": "host",
+                        "tags": {},
+                        "remediation_id": "agent_install_agent",
+                        "name": "Alert Logic recommends that you add an Alert Logic agent to this host.",
+                        "account_id": "134249236"
+                    }
+                ],
+                "remediation_id": "agent_install_agent",
+                "remediation_count": 1,
+                "name": "Host Without Alert Logic Agent",
+                "external": false,
+                "deployment_ids": [
+                    "7D5E66BE-98C6-40A2-8B09-5DC4C0FEE677",
+                    "9969EC98-F3DD-4040-86C5-6A9019E2F07E"
+                ],
+                "cvss_vector": "AV:N/AC:L/Au:N/C:C/I:C/A:C/PL:A/EM:A",
+                "cvss_score": 10.0,
+                "categories": [
+                    "configuration"
+                ],
+                "asset_count": 5,
+                "account_id": "134249236"
+            }
+        ]
+    }
+}

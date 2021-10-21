@@ -1,0 +1,27 @@
+// markup
+<form [formGroup]="form">
+    <al-input
+        type='text'
+        label="Monster Name"
+        [value]="monsterName"
+        [required]="true"
+        tip="Give it a name!"
+        hint="This is a hint"
+        formControlName="monster">
+    </al-input>
+</form>
+
+// code
+
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+export class AlInputExamplesComponent implements OnInit {
+    monsterName: string = '';
+    form: FormGroup;
+
+    ngOnInit() {
+        this.form = new FormGroup({
+            monster: new FormControl(this.monsterName, [Validators.required, Validators.minLength(3), Validators.maxLength(50)])
+        });
+    }
+}

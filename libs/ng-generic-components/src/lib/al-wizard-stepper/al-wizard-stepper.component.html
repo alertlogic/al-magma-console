@@ -1,0 +1,38 @@
+<div class="al-wizard-stepper-header">
+    <div *ngIf="headerOptions" class="p-grid p-align-center title-header">
+        <i class="material-icons" *ngIf="headerOptions?.icon" [ngStyle]="headerOptions?.iconStyle ? headerOptions?.iconStyle : {}">{{headerOptions.icon}}</i>
+        <i class="class-icon" *ngIf="headerOptions?.classIcon" [ngClass]="headerOptions.classIcon" [ngStyle]="headerOptions?.iconStyle ? headerOptions?.iconStyle : {}"></i>
+        <p *ngIf="headerOptions?.title !== ''">
+            {{headerOptions.title}}
+        </p>
+        <span class="p-col"></span>
+        <button *ngIf="headerOptions?.secondaryAction"
+            pButton
+            class="flat"
+            type="button"
+            [label]="headerOptions?.secondaryAction?.text"
+            [disabled]="headerOptions?.secondaryAction?.disabled"
+            (click)="onCancelButton.emit()">
+        </button>
+    </div>
+    <div class="flex-col w-full">
+        <div class="margin-top-12 steps-group">
+            <div *ngFor="let step of steps; index as i; last as isLast" class="step"
+                [ngClass]="{'complete': step.complete, 'active': step.active}"
+                [class.disabled]="!step.complete && !step.active"
+                (click)="onJumpStep(step)">
+                <div *ngIf="!step.complete || (step.complete && step.active)" class="step-no">{{ i+1 }}</div>
+                <div *ngIf="step.complete && !step.active" class="step-no check-icon"><i class="material-icons">check</i></div>
+                <div class="step-title">{{ step.stepTitle }}</div>
+                <div *ngIf="!isLast" class="step-separator"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="stepper-content">
+    <al-view-helper [loading]="loading"></al-view-helper>
+    <div class="step-content" [hidden]="loading">
+        <ng-content></ng-content>
+    </div>
+</div>

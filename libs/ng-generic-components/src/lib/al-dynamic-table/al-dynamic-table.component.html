@@ -1,0 +1,91 @@
+<div class="al-dynamic-table" [ngClass]="{'hidden': !isVisible}">
+    <p-table class="table" [columns]="visibleColumns" [value]="rows" [reorderableColumns]="true" [(selection)]="selectedRows" [dataKey]="dataKey" [scrollable]="true" scrollHeight="1000px" [rows]="10" [lazy]="true" [rowHover]="true"
+        [virtualScroll]="true" [virtualRowHeight]="100" [resizableColumns]="true" [customSort]="true" (onLazyLoad)="loadItemsLazy($event)"
+        (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)" (onHeaderCheckboxToggle)="onHeaderCheckboxToggle($event)" (onSort)="customSort($event)">
+        <ng-template pTemplate="caption">
+            <div class="table-caption">
+                <div class="column-selector">
+                    <i class="material-icons">settings</i> <p-multiSelect [options]="columns" [(ngModel)]="visibleColumns" optionLabel="header"
+                selectedItemsLabel="Showing {0} columns of {{columns.length}}" placeholder="Choose Columns" [maxSelectedLabels]="0"></p-multiSelect>
+                </div>
+                <div class="search">
+                    <al-search-bar #alSearchBar
+                        [width]="'400px'"
+                        [placeholder]="'Search'"
+                        [maxSearchLength]="150"
+                        [searchIcon]="'header'"
+                        (onSearchChanged)="onSearchChanged($event)">
+                    </al-search-bar>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="colgroup" let-columns>
+            <colgroup>
+                 <col *ngFor="let col of columns" [style.width]="col.width">
+            </colgroup>
+        </ng-template>
+        <ng-template pTemplate="header" let-columns>
+            <tr class="table-header">
+                <th pReorderableColumnDisabled style="width: 48px">
+                    <p-tableHeaderCheckbox pTooltip="Select All" tooltipPosition="top"></p-tableHeaderCheckbox>
+                </th>
+                <th pReorderableColumnDisabled style="width: 46px">
+                    <div class="download-icon"><i pTooltip="Download All" tooltipPosition="top" (click)="downloadAll()" class="material-icons">get_app</i></div>
+                </th>
+                <th *ngFor="let col of columns" pResizableColumn pReorderableColumn>
+                    <p-sortIcon [pSortableColumn]="col.field" [field]="col.field"></p-sortIcon>
+                    {{col.header}}
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr (mouseenter)="onMouseEnter(rowData)" (mouseleave)="onMouseLeave()" style="height:100px" [pSelectableRow]="rowData">
+                <td style="width: 48px">
+                    <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+                </td>
+                <td class="open-button-cell" style="width: 36px">
+                    <div class="open-button" (click)=openItem(rowData)>
+                        <div class="icon" pTooltip="Open" tooltipPosition="top" >
+                            <i class="material-icons">chevron_right</i>
+                        </div>
+                    </div>
+                </td>
+                <td *ngFor="let col of columns" class="table-cell ui-resizable-column" [ngClass]="rowData[col.field].class ? rowData[col.field].class : null">
+                    <span *ngIf="rowData[col.field].icon" class="property-icon"><i [ngClass]="rowData[col.field].icon"></i></span>
+                    {{rowData[col.field].value}}
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="loadingbody" let-columns="columns">
+            <tr style="height:100px">
+                <td *ngFor="let col of columns">
+                    <div class="loading-text"></div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+<h5>Regular</h5>
+<p-panel header="Header">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</p-panel>
+
+<h5>Advanced</h5>
+<p-panel header="Header"  [toggleable]="true">
+    <ng-template pTemplate="icons">
+            <button pButton class="p-panel-header-icon p-link" (click)="menu.toggle($event)">
+                <span class="pi pi-cog"></span>
+            </button>
+            <p-menu #menu id="config_menu" [model]="items" [popup]="true"></p-menu>
+    </ng-template>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</p-panel>
+
+<p-toast></p-toast>

@@ -1,0 +1,63 @@
+<div class="authentication-container" [ngClass]="{ overlay: accessAllowed === false }">
+    <al-integrated-authentication></al-integrated-authentication>
+</div>
+
+<ng-template #mainContent>
+    <al-archipeligo17-tertiary-menu [visible]="!disableTertiaryMenu"
+                                    [menu]="sidenavMenu"
+                                    [contentRef]="sidenavContentRef"
+                                    [renderCustomSidenav]="isCustomSidenav"
+                                    [showQuaternaryMenu]="experience !== 'beta'">
+        <al-archipeligo19-content-menu [menu]="contentMenu" *ngIf="showContentMenu"></al-archipeligo19-content-menu>
+        <ng-content *ngIf="accessAllowed !== false"></ng-content>
+    </al-archipeligo17-tertiary-menu>
+</ng-template>
+
+<section class="navigation-frame-container">
+    <div *ngIf="!experience || disableNavigationHeader">
+        <al-archipeligo17-header *ngIf="showLoginLogo && !disableNavigationHeader">
+        </al-archipeligo17-header>
+        <ng-container *ngTemplateOutlet="mainContent"></ng-container>
+    </div>
+    <div *ngIf="experience === 'default' && !disableNavigationHeader" class="default-exp">
+        <!-- CIE-plus "Universal" Navigation -->
+        <div class="mat-sidenav-container">     <!-- this should be a p-sidebar -->
+            <al-archipeligo17-header>
+                <div class="user-menu-item" *ngIf="!disablePrimaryMenu">
+                    <al-archipeligo17-user-menu [menu]="userMenu"></al-archipeligo17-user-menu>
+                </div>
+                <div class="application-menu" *ngIf="!disablePrimaryMenu">
+                    <al-archipeligo17-primary-menu [menu]="primaryMenu"></al-archipeligo17-primary-menu>
+                </div>
+            </al-archipeligo17-header>
+            <ng-container *ngTemplateOutlet="mainContent"></ng-container>
+        </div>
+    </div>
+
+    <div *ngIf="experience === 'beta' && !disableNavigationHeader" class="beta-exp">
+        <div class="nav-container">
+            <al-archipeligo19-app-header></al-archipeligo19-app-header>
+            <al-archipeligo19-nav-header (toggleButtonClick)="toggleNav()"
+                                        [menu]="primaryMenu"
+                                        [userMenu]="userMenu"
+                                        [breadcrumbs]="breadcrumbs"
+                                        [headerActionsMenus]="headerActionsMenus"
+                                        [addendumToNavTitle]="addendumToNavTitle"
+                                        [allowUnauthenticatedMenus]="true"></al-archipeligo19-nav-header>
+            <al-archipeligo19-sidenav   *ngIf="!disablePrimaryMenu"
+                                        [menu]="primaryMenu"
+                                        (onHide)="displayNav=false"
+                                        [(displayNav)]="displayNav">
+               
+            </al-archipeligo19-sidenav>
+        </div>
+        <div class="mainContent">
+            <ng-container *ngTemplateOutlet="mainContent"></ng-container>
+        </div>
+    </div>
+
+    <al-defender-session-link></al-defender-session-link>
+
+
+</section>
+<al-navigation-overlays></al-navigation-overlays>

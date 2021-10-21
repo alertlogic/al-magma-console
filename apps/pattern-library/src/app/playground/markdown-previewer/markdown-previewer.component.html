@@ -1,0 +1,28 @@
+<al-protected-content-ex [authentication]="true">
+    <div class="markdown-previewer">
+        <h1>Markdown Previewer</h1>
+        <textarea [(ngModel)]="markdownText" rows="18"></textarea>
+        <h2>UI Preview</h2>
+        <div class="summary">
+            <div class="recommendations markdown-styling" [innerHTML]='markdownText | MarkdownToHtml' ></div>
+        </div>
+        <h2 *ngIf="markdownText">Download IRIS HTML File</h2>
+        <div *ngIf="markdownText" class="notification">
+            <button type="button" icon="pi pi-download" (click)="sendEmailNotification()" pButton label="Download File"></button>
+        </div>
+        <h2 style="display: none;">Notification Preview</h2>
+        <div class="notification" style="display: none;">
+            <span class="ui-float-label">
+                <input pInputText name="email" type="text" [(ngModel)]="email" style="width: 300px;"/>
+                <label for="email">Email: </label>
+            </span>
+            <button type="button" icon="pi pi-envelope" (click)="sendEmailNotification()" pButton label="Send Notification"></button>
+        </div>
+        <al-view-helper [empty]="false"
+                        [notifyPanel]="true">
+        </al-view-helper>
+    </div>
+    <div unavailable>
+        You need a valid AIMS session to see this page. Go and login to the ALConsole first access the <a [routerLink]="['/login']" [queryParams]="{ resumeUrl: '/playground/markdown-previewer' }" routerLinkActive="active">Login page</a>.
+    </div>
+</al-protected-content-ex>

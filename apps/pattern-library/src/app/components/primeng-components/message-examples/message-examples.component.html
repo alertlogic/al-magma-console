@@ -1,0 +1,78 @@
+<div class="card card-w-title">
+  <h1>Toast</h1>
+  <a href="https://www.primefaces.org/primeng/#/toast" target="_blank">Official API Docs</a>
+  <h3>Examples</h3>
+  <p>Click on the buttons below to see the different styles of toast messages appear.</p>
+  <div>
+    <p-toast key="tst"></p-toast>
+    <button type="button" pButton (click)="showInfoViaToast()" label="Info" class="ui-button-info"></button>
+    <button type="button" pButton (click)="showSuccessViaToast()" label="Success" class="ui-button-success"></button>
+    <button type="button" pButton (click)="showWarnViaToast()" label="Warn" class="ui-button-warning"></button>
+    <button type="button" pButton (click)="showErrorViaToast()" label="Error" class="ui-button-danger"></button>
+    <button type="button" pButton (click)="showMultipleViaToast()" label="Multiple"></button>
+  </div>
+  <h3>Code</h3>
+  <p>Example showcasing how the Info toast is achieved:</p>
+  <b>Markup</b>
+  <pre>
+    <code class="language-markup" pCode>
+  &lt;p-toast key="tst"&gt;&lt;/p-toast&gt;
+  &lt;button type="button" pButton (click)="showInfoViaToast()" label="Info" class="ui-button-info"&gt;&lt;/button&gt;
+    </code>
+  </pre>
+  <br/>
+  <b>MessageService Usage</b>
+  <pre>
+    <code class="language-ts" pCode>
+  import &#123; MessageService &#125; from 'primeng/api';
+
+  export class MessageExamplesComponent &#123;
+    constructor(
+      private service: MessageService
+    )
+
+    showInfo() &#123;
+      this.messageService.add(&#123;key: 'tst', severity:'info', summary: 'Info Message', detail:'PrimeNG rocks'&#125;);
+      &#125;
+  &#125;
+    </code>
+  </pre>
+</div>
+
+  <div class="col-12">
+      <div class="card no-margin">
+          <h1>Messages</h1>
+          <button type="button" pButton (click)="showInfoViaMessages()" label="Info" class="ui-button-info"></button>
+          <button type="button" pButton (click)="showSuccessViaMessages()" label="Success" class="ui-button-success"></button>
+          <button type="button" pButton (click)="showWarnViaMessages()" label="Warn" class="ui-button-warning"></button>
+          <button type="button" pButton (click)="showErrorViaMessages()" label="Error" class="ui-button-danger"></button>
+          <button type="button" pButton (click)="showMultipleViaMessages()" label="Multiple"></button>
+
+          <p-messages [value]="msgs"></p-messages>
+      </div>
+  </div>
+
+  <div class="col-12">
+      <div class="card no-margin">
+          <h1>Inline Message</h1>
+          <div>
+              <p-message severity="info" text="PrimeNG Rocks" [style]="{marginLeft: 0}"></p-message>
+              <p-message severity="success" text="Record Saved"></p-message>
+              <p-message severity="warn" text="Are you sure?"></p-message>
+              <p-message severity="error" text="Field is required"></p-message>
+          </div>
+
+          <div style="margin-top:30px">
+              <input type="text" pInputText placeholder="Username" class="ng-dirty ng-invalid">
+              <p-message severity="error" text="Field is required"></p-message>
+          </div>
+
+          <div style="margin-top:30px">
+              <input type="text" pInputText placeholder="Email" class="ng-dirty ng-invalid">
+              <p-message severity="error"></p-message>
+          </div>
+      </div>
+  </div>
+
+
+

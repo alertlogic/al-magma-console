@@ -1,0 +1,46 @@
+@import "@al/ng-generic-components/styles/utility";
+
+al-notification-content {
+
+    .list-container {
+        max-height: 300px;
+        overflow: auto;
+    }
+
+    .error-container {
+        display: flex;
+        justify-content: space-between;
+        background-color: al-color($al-red, 500);
+        align-items: center;
+        color: #fff;
+        padding: 15px;
+        margin: 10px;
+
+        .error-message {
+            text-align: left;
+            width: 100%;
+
+        }
+
+        .close-error {
+            height: 24px;
+            cursor: pointer;
+        }
+    }
+
+    .and-condition{
+        padding: 5px;
+    }
+
+    al-aggregation-filter-content{
+        .p-grid{
+            padding-top: 12px;
+        }
+    }
+
+    .assets-container-list {
+        max-width: 700px;
+        max-height: 175px;
+        overflow-y: auto;
+    }
+}

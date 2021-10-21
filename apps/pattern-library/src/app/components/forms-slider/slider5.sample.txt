@@ -1,0 +1,4 @@
+<h5>Range: {{rangeValues[0] + ' - ' + rangeValues[1]}}</h5>
+<p-slider [(ngModel)]="rangeValues" [range]="true"></p-slider>
+
+Typescript: rangeValues: number[] = [20,80];

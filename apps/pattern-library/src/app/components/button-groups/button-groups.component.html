@@ -1,0 +1,23 @@
+<div class="card card-w-title user-guide">
+    <h1>Button Groups and Toggles</h1>
+    <div class="card-content">
+        <p>These elements can be found in the <a href="https://primefaces.org/primeng/#/selectbutton"
+                target="_blank">PrimeNG component library</a>.</p>
+
+        <h2 class="first">Text Buttons</h2>
+        <p-selectButton [options]="textSelectButtons" [(ngModel)]="selectedType"></p-selectButton>
+        <h5>Code Snippet:</h5>
+        <code-example language="markup" resourceId="sample/components/button-groups/buttonGroup1"></code-example>
+
+        <h2 class="first">Single Select/Toggle</h2>
+        <p-selectButton [options]="assetTypes" [(ngModel)]="selectedType"></p-selectButton>
+        <h5>Code Snippet:</h5>
+        <code-example language="markup" resourceId="sample/components/button-groups/buttonGroup2"></code-example>
+
+        <h2>Multiple Select</h2>
+        <p-selectButton [options]="assetTypes" [(ngModel)]="selectedTypes" [multiple]="true">
+        </p-selectButton>
+        <h5>Code Snippet:</h5>
+        <code-example language="markup" resourceId="sample/components/button-groups/buttonGroup3"></code-example>
+    </div>
+</div>

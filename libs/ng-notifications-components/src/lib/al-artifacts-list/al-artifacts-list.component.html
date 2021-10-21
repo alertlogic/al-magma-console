@@ -1,0 +1,92 @@
+<ng-template #reportCardCompact
+             let-characteristics="characteristics">
+    <!--
+    <div>
+        This is the template for a compact card of type {{characteristics.entity.caption}}.
+        Right now it's bound to the AlCardstackView entity, but it should get bound to an individual data row!
+    </div>
+    -->
+</ng-template>
+<ng-template #reportCardExpanded
+             let-cardItem>
+    <al-base-card [config]="configAlBaseCard"
+                  [item]="cardItem"
+                  [iconFunction]="$any(iconCardFunction)"
+                  [checked]="cardItem.checked"
+                  (onChangeChecked)="changeSimpleSelection($event)"
+                  >
+        <ng-template alBaseCardBodyContent>
+        </ng-template>
+        <ng-template alBaseCardHeaderRight>
+            <div class="col-1 al-cardstack-icon pointer" *ngIf="type === 'scheduled_search'" (click)="goToSearch(cardItem)">
+                <i class="material-icons">pageview</i>
+                <div class="al-cardstack-icon-label">SEARCH</div>
+            </div>
+            <div class="col-1 al-cardstack-icon pointer" *ngIf="type === 'scheduled_search'" (click)="goToSchedule(cardItem)">
+                <i class="material-icons">event</i>
+                <div class="al-cardstack-icon-label">SCHEDULE</div>
+            </div>
+            <div [ngClass]="'col-1 al-cardstack-icon ' + ( cardItem.properties.downloading ? 'downloading' : 'pointer' )" (click)="artifactDownload(cardItem)">
+                <ng-container *ngIf="!cardItem.properties.downloading">
+                    <i class="material-icons">get_app</i>
+                    <div class="al-cardstack-icon-label">DOWNLOAD</div>
+                </ng-container>
+                <ng-container *ngIf="cardItem.properties.downloading">
+                    <p-progressSpinner></p-progressSpinner>
+                    <div class="al-cardstack-icon-label">DOWNLOADING</div>
+                </ng-container>
+            </div>
+        </ng-template>
+    </al-base-card>
+</ng-template>
+
+<al-cardstack #alCardstack
+              [view]="artifactsCardstack"
+              [cardExpanded]="reportCardExpanded"
+              (onCheckAll)="changeAllSelection($event)"
+              (onScrollDown)="changeAllSelection()">
+    <div class="zero-state" >
+        <al-zero-state [ngSwitch]="type" >
+            <i zero-state-icon
+               class="material-icons">picture_as_pdf</i>
+            <div zero-state-title>
+                <span *ngSwitchCase="'scheduled_search'">No scheduled searches were found.</span>
+                <span *ngSwitchCase="'artifacts'">No scheduled report downloads were found.</span>
+            </div>
+            <div zero-state-description>
+                <span *ngSwitchCase="'scheduled_search'">
+                    You have not yet conducted any scheduled searches, or your search did not match any existing ones.
+                    If you have conducted scheduled searches, enter a search result ID that was emailed to you in the search bar, and try again.
+                </span>
+                <span *ngSwitchCase="'artifacts'">
+                    You have not yet scheduled a report or your search did not match any existing ones.
+                    Add your first report schedule or try your search again.
+                    To schedule a report, access the report you want to schedule, set up the report criteria, and then click "SCHEDULE THIS REPORT."
+                </span>
+            </div>
+        </al-zero-state>
+    </div>
+</al-cardstack>
+
+<p-confirmDialog #confirmationDelete
+                 header="Delete Report?">
+    <p-footer>
+        <button type="button"
+                pButton
+                label="Cancel"
+                (click)="confirmationDelete.reject()"></button>
+        <button type="button"
+                pButton
+                class="primaryAction"
+                label="Delete"
+                (click)="confirmationDelete.accept()"></button>
+    </p-footer>
+</p-confirmDialog>
+
+<al-toast key="notifications"></al-toast>
+
+<al-action-snackbar [text]="actionSnackbarText"
+                    [visible]="actionSnackbarVisible"
+                    [elements]="actionSnackbarButtons"
+                    (onElementPressed)="actionSnackbarEvent($event)">
+</al-action-snackbar>

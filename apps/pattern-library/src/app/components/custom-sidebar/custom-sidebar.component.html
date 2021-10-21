@@ -1,0 +1,15 @@
+<div class="card card-w-title">
+    <p>
+        This is a custom sidebar.
+        It is implemented outside of the navigation module, but is assigned to an internal content slot
+        by assigning its <code>ngTemplateOutlet</code> to this component's <code>TemplateRef</code>.
+        This is triggered in response to the activation of a specific route in the menu hierarchy.
+    </p>
+    <p>
+        So, now you know.
+    </p>
+</div>
+<ng-template #customUsageSidenav>
+    <app-custom-sidebar></app-custom-sidebar>
+</ng-template>
+<ng-container alNavigationCustomSidenav [contentRef]="customUsageSidenav"></ng-container>

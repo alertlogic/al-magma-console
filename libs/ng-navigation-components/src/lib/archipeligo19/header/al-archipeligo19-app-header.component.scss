@@ -1,0 +1,480 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.user-info-summary {
+  height: 40px;
+  background: al-color($al-gray, 700);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 24px;
+  padding-right: 24px;
+  font-size: 12px; //This is different to UX spec which was 10px but seems a bit too small?
+
+  .user-menus-container {
+    display: flex;
+    align-items: center;
+    .user-selected-separator {
+      background: #dcdcdc;
+      width: 7px;
+      height: 12px;
+      margin-top: 2px;
+    }
+  }
+}
+
+
+
+::ng-deep {
+  .p-menubar.p-widget.p-widget-content.p-corner-all {
+    background-color: al-color($al-gray, 700);
+    color: white;
+    border: none;
+    .p-submenu-icon {
+      background-color: al-color($al-gray, 700);
+      color: white;
+      &:before{
+        content: "arrow_drop_down";
+        display: inline-block;
+        font-family: 'Material Icons';
+        font-size: inherit;
+      }
+    }
+    .p-menuitem-active {
+      .p-submenu-icon::before {
+        transform: rotate(180deg);
+      }
+    }
+    .p-submenu {
+      > ul {
+        border-top: 2px solid al-color($al-smokeBlue, 500);
+        box-shadow: 0px 2px 4px #0000007F;
+      }
+    }
+  }
+
+  .app-user-menu.p-menubar {
+    .p-menubar-root-list > .p-menuitem {
+        > .p-menuitem-link {
+            padding-right: 0;
+            color: white;
+            &:hover {
+                background-color: al-color($al-gray, 700);
+                color: al-color($al-gray, 100);
+            }
+
+        }
+        &.p-menuitem-active {
+            > .p-menuitem-link {
+                background-color: al-color($al-gray, 700);
+            }
+        }
+    }
+
+  }
+
+  .p-menubar .p-menuitem-link {
+    color: unset;
+  }
+
+  .separator {
+    color: white;
+  }
+
+  .ng-clear-wrapper {
+    display: none;
+  }
+
+  ng-select.ng-select {
+    padding-bottom: 0;
+  }
+
+  .ng-select .ng-arrow-wrapper .ng-arrow {
+      display: none !important; // nepal-dashboard will show black arrow if !imp
+  }
+
+  .ng-select span.ng-arrow-wrapper:before {
+      content: "arrow_drop_down";
+      display: inline-block;
+      font-family: 'Material Icons';
+      font-size: inherit;
+      text-rendering: auto;
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      margin-top: 5px;
+  }
+
+  .ng-select.ng-select-opened>.ng-select-container span.ng-arrow-wrapper:before {
+    transform: rotate(180deg);
+  }
+
+  .ng-select-opened {
+    .ng-select span.ng-arrow-wrapper {
+      transform: rotate(180deg);
+    }
+  }
+
+  .ng-select.ng-select-focused:not(.ng-select-opened)>.ng-select-container {
+    border: none;
+    box-shadow: none;
+  }
+
+  // Only needed because of conflict style applied by material theme css in o3-apps
+  .ng-select {
+    padding-bottom: unset;
+    .ng-select-container {
+      &::after {
+        border-bottom: 0;
+      }
+      .ng-value-container {
+        padding-left: 10px !important; //o3-remediations need this
+        align-items: center !important;
+      }
+    }
+  }
+
+  .filter-input {
+    width: 100%;
+
+  }
+
+//   .p-inputtext {
+//     padding-left: 5px;
+//     padding-bottom: 4px;
+//     .p-inputtext.p-state-focus {
+//       background-size: 100% 1px, 100% 1px;
+//       padding-bottom: 4px;
+//     }
+//     &:focus {
+//       background-size: 100% 1px, 100% 1px;
+//       padding-bottom: 4px;
+//     }
+//   }
+}
+
+.al-account-selector ::ng-deep {
+  .ng-select-container {
+    background-color: unset;
+    color: white;
+    border: none;
+    width: fit-content;
+    &:hover {
+      color: al-color($al-gray, 100);
+      cursor: pointer;
+    }
+  }
+
+  .ng-select.ng-select-opened>.ng-select-container {
+    background-color: unset;
+  }
+
+  .ng-select.ng-select-focused:not(.ng-select-opened)>.ng-select-container {
+    border: none;
+    box-shadow: none;
+  }
+
+  .ng-dropdown-panel {
+    margin-left: 4px;
+    top: 36px;
+    width: 300px;
+    background-color: #fff;
+    border-top: 2px solid al-color($al-smokeBlue, 500);
+    box-shadow: 0px 2px 4px #0000007F;
+    border-radius: 0px 0px 2px 2px;
+    right: 0;
+    left:unset;
+    .ng-dropdown-header {
+      border-bottom: 1px solid al-color($al-gray, 50);
+      padding: 12px;
+    }
+    .ng-select-bottom {
+      top: 100%;
+      border-bottom-right-radius: 4px;
+      border-bottom-left-radius: 4px;
+      border-top-color: #e6e6e6;
+      margin-top: -1px;
+    }
+  }
+  .ng-dropdown-panel-items {
+    .ng-option {
+      color: al-color($al-gray, 700);
+      padding: 12px;
+      line-height: unset;
+      &.ng-option-marked {
+        background-color: al-color($al-gray, 50);
+      }
+      &.ng-option-selected {
+        background-color: al-color($al-smokeBlue, 500);
+        color: white;
+      }
+      .account-selector-option {
+        width: 250px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
+
+.al-header-logo {
+  background: url('al-logo.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 25px;
+  height: 39px;
+  min-height: 39px;
+  cursor: pointer;
+}
+
+:host ::ng-deep {
+  .ng-select.ng-select-single .ng-select-container .ng-arrow-wrapper {
+      bottom: 5px;
+  }
+  p-menu {
+      .p-menu {
+          padding: 8px 0;
+          border-top: 2px solid al-color($al-smokeBlue, 500);
+          box-shadow: 0px 2px 4px #0000007F;
+          top: 40px!important; //needs this important unfortunately
+          .p-menuitem {
+              text-transform: uppercase;
+              &.active {
+                  background-color: al-color($al-smokeBlue, 500);
+                  pointer-events: none;
+                  font-weight: 700;
+                  > a {
+                    color: #fff;
+                  }
+              }
+              .p-menuitem-link {
+                  padding-left: 24px;
+              }
+          }
+          li {
+              display: flex;
+              align-items: center;
+              padding-left: 16px;
+              a:hover {
+                  background-color: inherit;
+                  color: inherit;
+              }
+          }
+          .p-menuitem:hover {
+              background-color: al-color($al-gray, 50);
+              color: #000000;
+          }
+          .p-submenu-header {
+              color: al-color($al-gray, 200);
+              background-color: white;
+              font-size: 12px;
+          }
+        }
+  }
+  .menu-trigger {
+      .account-icon-space {
+        color: #fff;
+        text-transform: uppercase;
+        padding-left: 10px;
+
+        display: flex;
+        padding-top: 10px;
+
+        &:hover {
+          color: al-color($al-gray, 100);
+          cursor: pointer;
+        }
+        .pi-angle-down, .pi-angle-up {
+          font-size: 14px;
+          margin-top: 3px;
+          margin-left: 5px;
+        }
+      }
+  }
+  #accounts-loading-indicator {
+    .p-progress-spinner {
+      position: relative;
+      top: 4px;
+      width: 20px;
+      height: 18px;
+      display: inline-block;
+      margin-right: 6px;
+    }
+  }
+}
+
+:host-context(.darkMode) {
+    .user-info-summary {
+        background-color: al-color($al-gray, 900) ;
+        .app-user-menu {
+            background-color: al-color($al-gray, 900) ;
+        }
+    }
+    ::ng-deep {
+        .p-menubar.p-widget.p-widget-content.p-corner-all {
+            background-color: al-color($al-gray, 900);
+            .p-menubar-root-list > li {
+                > a {
+                    background-color: al-color($al-gray, 900);
+                    .p-submenu-icon {
+                        background-color: al-color($al-gray, 900);
+                    }
+                    &:hover {
+                        background-color: al-color($al-gray, 900);
+                    }
+                }
+            }
+        }
+        .p-submenu-list {
+            background-color: al-color($al-gray, 700);
+            .p-menuitem-link {
+              background-color: al-color($al-gray, 700);
+              color: white;
+              .p-menuitem-icon {
+                    color: white;
+              }
+              &:hover {
+                    background-color: al-color($al-gray, 500);
+                    color: white;
+              }
+            }
+        }
+
+    }
+
+    .al-account-selector ::ng-deep {
+        .ng-dropdown-panel {
+            background-color: al-color($al-gray, 700);
+            .filter-input {
+                color: white;
+            }
+        }
+        .ng-dropdown-panel-items {
+            .ng-option {
+                color: white;
+                &.ng-option-marked:not(.ng-option-selected) {
+                    background-color: al-color($al-gray, 500);
+                }
+              .account-selector-option {
+                width: 250px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+            }
+        }
+    }
+    ::ng-deep {
+        p-menu {
+            .p-menu {
+                background-color: al-color($al-gray, 700);
+                .p-menuitem {
+                    background-color: al-color($al-gray, 700);
+                    .p-menuitem-link {
+                        color: white;
+                        &:hover {
+                            background-color: al-color($al-gray, 500);
+                        }
+                    }
+                    &:hover {
+                        background-color: al-color($al-gray, 500);
+                    }
+                    &.active {
+                        background-color: al-color($al-smokeBlue, 500);
+                    }
+                }
+                .p-submenu-header {
+                    background-color: al-color($al-gray, 700);
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+:host-context(.blueMode) {
+    .user-info-summary {
+        background-color: #1E2B38 ;
+        .app-user-menu {
+            background-color: #1E2B38;
+        }
+    }
+    ::ng-deep {
+        .p-menubar.p-widget.p-widget-content.p-corner-all {
+            background-color: al-color($db-slate, 800);
+            .p-menubar-root-list > li {
+                > a {
+                    background-color: al-color($db-slate, 800);
+                    .p-submenu-icon {
+                        background-color: al-color($db-slate, 800);
+                    }
+                    &:hover {
+                        background-color: al-color($db-slate, 800);
+                    }
+                }
+            }
+        }
+        .p-submenu-list {
+            background-color: al-color($db-slate, 800);
+            .p-menuitem-link {
+                background-color: al-color($db-slate, 800);
+                color: white;
+                .p-menuitem-icon {
+                    color: white;
+                }
+                &:hover {
+                    background-color: al-color($db-slate, 600);
+                    color: white;
+                }
+            }
+        }
+    }
+    .al-account-selector ::ng-deep {
+        .ng-dropdown-panel {
+            background-color: al-color($db-slate, 800);
+            .filter-input {
+            color: white;
+            }
+        }
+        .ng-dropdown-panel-items {
+            .ng-option {
+                color: white;
+                &.ng-option-marked:not(.ng-option-selected)  {
+                    background-color: al-color($db-slate, 600);
+                }
+              .account-selector-option {
+                width: 250px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+            }
+        }
+    }
+    ::ng-deep {
+        p-menu {
+            .p-menu {
+            background-color: al-color($db-slate, 800);
+            .p-menuitem {
+                background-color: al-color($db-slate, 800);
+                .p-menuitem-link {
+                color: white;
+                &:hover {
+                    background-color: al-color($db-slate, 600);
+                }
+                }
+                &:hover {
+                background-color: al-color($db-slate, 600);
+                }
+                &.active {
+                background-color: al-color($al-smokeBlue, 500);
+                }
+            }
+            .p-submenu-header {
+                background-color: al-color($db-slate, 800);
+                color: white;
+            }
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+<al-protected-content-ex [entitlements]="entitlements"
+                         [primaryEntitlements]="primaryEntitlements"
+                         [environments]="environments"
+                         experienceId="login.landingPage#overview-default"
+                         [verbose]="true"
+                         (onDisallowed)="contentUnavailable($event)">
+    <p-card header="Protected View">
+      <div class="ui-card-content">
+          You can see this content because you match all of the visibility criteria.
+      </div>
+    </p-card>
+    <div unavailable>
+        <h3>Not Available</h3>
+        <p>You can't see this content because your current navigation context does not meet the necessary criteria.</p>
+        <h4>Conditions:</h4>
+        <pre>{{conditionsJson}}</pre>
+    </div>
+</al-protected-content-ex>

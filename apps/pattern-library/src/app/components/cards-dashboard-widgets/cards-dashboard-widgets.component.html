@@ -1,0 +1,34 @@
+<div class="card card-w-title user-guide">
+    <h1>Dashboard Widgets</h1>
+    <div class="card-content">
+        <p>The dashboard widget cards are part of the dashboard grid layout so are not "cards". Expamples of
+            this can be found in <a href="#/dashboards/dashboard-example">dashboard-example</a>.</p>
+        <h5>Component Name:</h5>
+        <code class="language-css" pCode>al-dashboard-layout</code>
+        <h5>Example:</h5>
+        <div class="grid">
+            <div class="col-4">
+                <div class="widget">
+                    <div class="card card-w-title">
+                        <h2 class="widget-header">
+                            Widget Title
+                            <div class="btnGroupRight">
+                                <p-menu #menu [popup]="true" [model]="items"></p-menu>
+                                <button type="button" class="flat round right" icon="ui-icon-settings" pButton (click)="menu.toggle($event)"></button>
+                            </div>
+                        </h2>
+                        <div class="card-content"></div>
+                        <div class="card-footer">
+                            <div class="btnGroupRight">
+                                <button type="button" class="flat right" label="Button" pButton></button>
+                                <button type="button" class="right" label="Button" pButton></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h5>Code Snippet:</h5>
+        <code-example language="markup" resourceId="sample/components/cards-dashboard-widgets/card"></code-example>
+    </div>
+</div>

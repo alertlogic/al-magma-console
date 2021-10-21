@@ -1,0 +1,14 @@
+<div class="card card-w-title">
+    <h1 class="azure"><i class="al al-azure"></i>Microsoft Azure</h1>
+    <div class="card-content">
+        <div class="subtitle">September 21, 2019</div>
+        <div class="deployment-name">My Azure Deployment</div>
+    </div>
+    <div class="card-footer">
+        <div class="btnGroupRight">
+            <button type="button" class="flat right" label="Delete" pButton></button>
+            <button type="button" class="flat primaryAction right" label="Edit"
+                pButton></button>
+        </div>
+    </div>
+</div>

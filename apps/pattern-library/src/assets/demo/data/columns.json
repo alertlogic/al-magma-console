@@ -1,0 +1,54 @@
+[
+   {
+      "field":"incident.summary",
+      "header":"Title"
+   },
+   {
+      "field":"detection_source",
+      "header":"Detection Source"
+   },
+   {
+      "field":"customer",
+      "header":"Account"
+   },
+   {
+      "field":"correlation_name",
+      "header":"Correlation Name"
+   },
+   {
+      "field":"note_count",
+      "header":"Incident Note Count"
+   },
+   {
+      "field":"note_last_update",
+      "header":"Last Note time"
+   },
+   {
+      "field":"customer_status_status",
+      "header":"Status"
+   },
+   {
+      "field":"incident.threatRating",
+      "header":"Threat Level"
+   },
+   {
+      "field":"incident.attackClassId_str",
+      "header":"Classification"
+   },
+   {
+      "field":"assets.al__deployment",
+      "header":"Deployment"
+   },
+   {
+      "field":"createTime",
+      "header":"Date"
+   },
+   {
+      "field":"attacker_any",
+      "header":"Attacker"
+   },
+   {
+      "field":"victim_any",
+      "header":"Target"
+   }
+]

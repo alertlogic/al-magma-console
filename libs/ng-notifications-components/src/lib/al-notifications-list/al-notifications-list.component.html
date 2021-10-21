@@ -1,0 +1,118 @@
+<ng-template #reportCardCompact
+             let-characteristics="characteristics">
+    <!--
+    <div>
+        This is the template for a compact card of type {{characteristics.entity.caption}}.
+        Right now it's bound to the AlCardstackView entity, but it should get bound to an individual data row!
+    </div>
+    -->
+</ng-template>
+<ng-template #reportCardExpanded
+             let-cardItem>
+    <al-base-card [config]="configAlBaseCard"
+                  [item]="cardItem"
+                  [iconFunction]="$any(iconCardFunction)"
+                  [footerFunction]="$any(functionFooterActions)"
+                  [checked]="cardItem.checked"
+                  (onChangeChecked)="changeSimpleSelection($event)"
+                  (onFooterAction)="actionFooterEvent($event)"
+                  (onExpand)="itemExpanded($any($event))">
+        <ng-template alBaseCardBodyContent>
+            <al-notification-content [item]="cardItem" [accountId]="accountId">
+            </al-notification-content>
+        </ng-template>
+        <ng-template *ngIf="cardItem.properties?.recipientsTotal"
+                     alBaseCardHeaderRight>
+            <div class="col-1">
+                <div class="al-cardstack-icon"
+                     (click)="cardItem.expanded = true && configAlBaseCard.toggleable">
+                    <div class="ui-panel-title">{{ cardItem.properties?.recipientsTotal}}</div>
+                    <div class="al-cardstack-icon-label">Recipients</div>
+                </div>
+            </div>
+        </ng-template>
+    </al-base-card>
+</ng-template>
+
+<al-cardstack #alCardstack
+              [view]="alertNotificationCardstack"
+              [cardExpanded]="reportCardExpanded"
+              (onCheckAll)="changeAllSelection($event)"
+              (onScrollDown)="changeAllSelection()"
+              (onAddButton)="addButtonClicked($event)"
+              (onAlFilterChanged)="alFilterChanged($event)"
+              [description]="description">
+    <div class="zero-state">
+        <al-zero-state>
+            <i zero-state-icon
+               class="material-icons">{{zeroStateConfig[viewName||'default'].icon}}</i>
+            <div zero-state-title
+                >
+                No {{zeroStateConfig[viewName||'default'].entityNamePlural}} were found.
+            </div>
+            <div zero-state-description
+                >
+                You have not yet {{zeroStateConfig[viewName||'default'].requiredAction}} or your search did not match any existing ones.
+                Add your first {{zeroStateConfig[viewName||'default'].entityName}} or try your search again.
+                <span *ngIf="zeroStateConfig[viewName||'default'].instructions">
+                    To schedule a report, access the report you want to schedule,
+                    set up the report criteria, and then click "SCHEDULE THIS REPORT."
+                </span>
+            </div>
+        </al-zero-state>
+    </div>
+</al-cardstack>
+
+<p-confirmDialog
+    #confirmDialog
+    [acceptButtonStyleClass]="'primaryAction'"
+    [style]="{'width':'500px'}"
+    >
+    <p-footer>
+            <p-button type="button"
+                      class="reject-button"
+                      [label]="confirmDialogLabels.rejectLabel"
+                      (click)="confirmDialog.reject()"></p-button>
+            <p-button type="button"
+                      styleClass="primaryAction"
+                      [label]="confirmDialogLabels.acceptLabel"
+                (click)="confirmDialog.accept()"></p-button>
+    </p-footer>
+</p-confirmDialog>
+
+<al-toast key="notifications"></al-toast>
+
+<al-action-snackbar [text]="actionSnackbarText"
+                    [visible]="actionSnackbarVisible"
+                    [elements]="actionSnackbarButtons"
+                    (onElementPressed)="actionSnackbarEvent($event)">
+</al-action-snackbar>
+
+<al-notification-incident-alert-form
+        #createIncidentAlert
+        [accountId]="accountId"
+        (onSuccess)="onCreateIncidentAlertSuccess($event)"
+        (onError)="onCreateIncidentAlertError($event)"></al-notification-incident-alert-form>
+
+<al-notification-report-schedule-form
+        #reportScheduleForm
+        [accountId]="accountId"
+        (onSuccess)="onCreateReportScheduleSuccess($event)"
+        (onError)="onCreateReportScheduleError($event)"></al-notification-report-schedule-form>
+
+<al-notification-health-alert-form
+        #createHealthAlert
+        [accountId]="accountId"
+        (onSuccess)="onCreateIncidentAlertSuccess($event)"
+        (onError)="onCreateIncidentAlertError($event)">
+</al-notification-health-alert-form>
+
+<p-slideMenu
+    *ngIf="addMenuItems.length > 0"
+    #addMenu
+    [model]="addMenuItems"
+    [popup]="true"
+    [viewportHeight]="200"
+    [menuWidth]="210"
+    [style]="{'width':'210px'}"
+></p-slideMenu>

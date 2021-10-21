@@ -1,0 +1,23 @@
+{
+    "id": "4000-0200-010101A",
+    "name": "McDongle",
+    "created": {
+        "bye": "1234858585",
+        "at": "21348901235"
+    },
+    "modified": {
+        "by": "1234123455",
+        "at": "1234812355"
+    },
+    "locked": "yes, it is locked",
+    "linked_assets": [
+        {
+            "type": "subnet",
+            "key": "/some/fake/subnet/key"
+        },
+        {
+            "type": "subnette",
+            "key": 12345678
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+<div class="static-chips">
+    <i class="al al-vpc"></i>
+    <div class="title">VPC-123ABC</div>
+    <div class="subtitle">VPC</div>
+    <div class="close material-icons">cancel</div>
+</div>

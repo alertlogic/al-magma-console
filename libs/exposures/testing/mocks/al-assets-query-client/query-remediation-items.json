@@ -1,0 +1,416 @@
+{
+    "filters": [],
+    "remediation-items": {
+        "assets": [
+            {
+                "exposures": [
+                    {
+                        "vulnerability_id": "46001174687b58b75fc2bcdf30af9b12",
+                        "vinstances_count": 7,
+                        "vinstances": [
+                            {
+                                "threatiness": 8.0,
+                                "target": {
+                                    "type": "host",
+                                    "threatiness": 8.0,
+                                    "threat_level": 3,
+                                    "tags": {
+                                        "mgr": "michael-wiggin",
+                                        "aws:autoscaling:groupName": "AlertLogic IDS Security Autoscaling Group 134261429/70940EEC-9B14-4E0E-A7D3-DFDA23C7A2B6/vpc-6d01fe0a",
+                                        "Name": "AlertLogic IDS Security Appliance",
+                                        "Managed-By": "Terraform",
+                                        "Alertlogic IDS Manual Mode Template Version": "v1.0.8",
+                                        "AlertLogic-EnvironmentID": "70940EEC-9B14-4E0E-A7D3-DFDA23C7A2B6",
+                                        "AlertLogic-AccountID": "134261429",
+                                        "AlertLogic": "Security"
+                                    },
+                                    "state": "running",
+                                    "public_ipv6_addresses": [],
+                                    "public_ipv4_addresses": [],
+                                    "public_ip_addresses": [],
+                                    "private_ipv6_addresses": [],
+                                    "private_ipv4_addresses": [
+                                        "10.0.3.115"
+                                    ],
+                                    "private_ip_addresses": [
+                                        "10.0.3.115"
+                                    ],
+                                    "private_ip_address": "10.0.3.115",
+                                    "private_dns_name": "ip-10-0-3-115.ec2.internal",
+                                    "name": "AlertLogic IDS Security Appliance",
+                                    "modified_on": 1594263445408,
+                                    "launch_time": 1591230270,
+                                    "key": "/aws/us-east-1/host/i-0e92702168cde027c",
+                                    "ip_address": "",
+                                    "instance_type": "c5.large",
+                                    "instance_name": "AlertLogic IDS Security Appliance",
+                                    "instance_id": "i-0e92702168cde027c",
+                                    "dns_name": "",
+                                    "deployment_id": "7D5E66BE-98C6-40A2-8B09-5DC4C0FEE677",
+                                    "created_on": 1591231147582,
+                                    "availability_zone": "us-east-1c",
+                                    "architecture": "x86_64",
+                                    "alertlogic_appliance": false,
+                                    "account_id": "134249236"
+                                },
+                                "modified_on": 1591233181151,
+                                "key": "/aws/us-east-1/host/i-0e92702168cde027c/vulnerability/a9d7583daa69fe6808ee1a0daba47726",
+                                "disposed": false,
+                                "details": "External connections: outbound [TCP to 206.222.167.0/26 port 443].",
+                                "concluded": true,
+                                "categories": [
+                                    "configuration"
+                                ]
+                            },
+                            {
+                                "threatiness": 8.0,
+                                "target": {
+                                    "type": "host",
+                                    "threatiness": 8.0,
+                                    "threat_level": 3,
+                                    "tags": {
+                                        "mgr": "michael-wiggin",
+                                        "aws:autoscaling:groupName": "AlertLogic IDS Security Autoscaling Group 134261429/70940EEC-9B14-4E0E-A7D3-DFDA23C7A2B6/vpc-314f9f55",
+                                        "Name": "AlertLogic IDS Security Appliance",
+                                        "Managed-By": "Terraform",
+                                        "Alertlogic IDS Manual Mode Template Version": "v1.0.8",
+                                        "AlertLogic-EnvironmentID": "70940EEC-9B14-4E0E-A7D3-DFDA23C7A2B6",
+                                        "AlertLogic-AccountID": "134261429",
+                                        "AlertLogic": "Security"
+                                    },
+                                    "state": "running",
+                                    "public_ipv6_addresses": [],
+                                    "public_ipv4_addresses": [],
+                                    "public_ip_addresses": [],
+                                    "private_ipv6_addresses": [],
+                                    "private_ipv4_addresses": [
+                                        "10.0.3.90"
+                                    ],
+                                    "private_ip_addresses": [
+                                        "10.0.3.90"
+                                    ],
+                                    "private_ip_address": "10.0.3.90",
+                                    "private_dns_name": "ip-10-0-3-90.ec2.internal",
+                                    "name": "AlertLogic IDS Security Appliance",
+                                    "modified_on": 1594263434823,
+                                    "launch_time": 1591230254,
+                                    "key": "/aws/us-east-1/host/i-0a4a43c7698621f8a",
+                                    "ip_address": "",
+                                    "instance_type": "c5.xlarge",
+                                    "instance_name": "AlertLogic IDS Security Appliance",
+                                    "instance_id": "i-0a4a43c7698621f8a",
+                                    "dns_name": "",
+                                    "deployment_id": "7D5E66BE-98C6-40A2-8B09-5DC4C0FEE677",
+                                    "created_on": 1591231147058,
+                                    "availability_zone": "us-east-1c",
+                                    "architecture": "x86_64",
+                                    "alertlogic_appliance": false,
+                                    "account_id": "134249236"
+                                },
+                                "modified_on": 1591233180667,
+                                "key": "/aws/us-east-1/host/i-0a4a43c7698621f8a/vulnerability/a9d7583daa69fe6808ee1a0daba47726",
+                                "disposed": false,
+                                "details": "External connections: outbound [TCP to 206.222.167.0/26 port 443].",
+                                "concluded": true,
+                                "categories": [
+                                    "configuration"
+                                ]
+                            },
+                            {
+                                "threatiness": 8.0,
+                                "target": {
+                                    "type": "host",
+                                    "threatiness": 8.0,
+                                    "threat_level": 3,
+                                    "tags": {
+                                        "mgr": "michael-wiggin",
+                                        "aws:autoscaling:groupName": "AlertLogic IDS Security Autoscaling Group 134261429/70940EEC-9B14-4E0E-A7D3-DFDA23C7A2B6/vpc-314f9f55",
+                                        "Name": "AlertLogic IDS Security Appliance",
+                                        "Managed-By": "Terraform",
+                                        "Alertlogic IDS Manual Mode Template Version": "v1.0.8",
+                                        "AlertLogic-EnvironmentID": "70940EEC-9B14-4E0E-A7D3-DFDA23C7A2B6",
+                                        "AlertLogic-AccountID": "134261429",
+                                        "AlertLogic": "Security"
+                                    },
+                                    "state": "running",
+                                    "public_ipv6_addresses": [],
+                                    "public_ipv4_addresses": [],
+                                    "public_ip_addresses": [],
+                                    "private_ipv6_addresses": [],
+                                    "private_ipv4_addresses": [
+                                        "10.0.0.192"
+                                    ],
+                                    "private_ip_addresses": [
+                                        "10.0.0.192"
+                                    ],
+                                    "private_ip_address": "10.0.0.192",
+                                    "private_dns_name": "ip-10-0-0-192.ec2.internal",
+                                    "name": "AlertLogic IDS Security Appliance",
+                                    "modified_on": 1594263432658,
+                                    "launch_time": 1591230254,
+                                    "key": "/aws/us-east-1/host/i-079ff75a2168b91e0",
+                                    "ip_address": "",
+                                    "instance_type": "c5.xlarge",
+                                    "instance_name": "AlertLogic IDS Security Appliance",
+                                    "instance_id": "i-079ff75a2168b91e0",
+                                    "dns_name": "",
+                                    "deployment_id": "7D5E66BE-98C6-40A2-8B09-5DC4C0FEE677",
+                                    "created_on": 1591231147346,
+                                    "availability_zone": "us-east-1a",
+                                    "architecture": "x86_64",
+                                    "alertlogic_appliance": false,
+                                    "account_id": "134249236"
+                                },
+                                "modified_on": 1591233180503,
+                                "key": "/aws/us-east-1/host/i-079ff75a2168b91e0/vulnerability/a9d7583daa69fe6808ee1a0daba47726",
+                                "disposed": false,
+                                "details": "External connections: outbound [TCP to 206.222.167.0/26 port 443].",
+                                "concluded": true,
+                                "categories": [
+                                    "configuration"
+                                ]
+                            },
+                            {
+                                "threatiness": 8.0,
+                                "target": {
+                                    "type": "host",
+                                    "threatiness": 8.0,
+                                    "threat_level": 3,
+                                    "tags": {
+                                        "mgr": "michael-wiggin",
+                                        "aws:autoscaling:groupName": "AlertLogic IDS Security Autoscaling Group 134261429/70940EEC-9B14-4E0E-A7D3-DFDA23C7A2B6/vpc-151ea773",
+                                        "Name": "AlertLogic IDS Security Appliance",
+                                        "Managed-By": "Terraform",
+                                        "Alertlogic IDS Manual Mode Template Version": "v1.0.8",
+                                        "AlertLogic-EnvironmentID": "70940EEC-9B14-4E0E-A7D3-DFDA23C7A2B6",
+                                        "AlertLogic-AccountID": "134261429",
+                                        "AlertLogic": "Security"
+                                    },
+                                    "state": "running",
+                                    "public_ipv6_addresses": [],
+                                    "public_ipv4_addresses": [],
+                                    "public_ip_addresses": [],
+                                    "private_ipv6_addresses": [],
+                                    "private_ipv4_addresses": [
+                                        "10.252.3.8"
+                                    ],
+                                    "private_ip_addresses": [
+                                        "10.252.3.8"
+                                    ],
+                                    "private_ip_address": "10.252.3.8",
+                                    "private_dns_name": "ip-10-252-3-8.ec2.internal",
+                                    "name": "AlertLogic IDS Security Appliance",
+                                    "modified_on": 1594263432137,
+                                    "launch_time": 1591230270,
+                                    "key": "/aws/us-east-1/host/i-0689cef12e997d070",
+                                    "ip_address": "",
+                                    "instance_type": "c5.xlarge",
+                                    "instance_name": "AlertLogic IDS Security Appliance",
+                                    "instance_id": "i-0689cef12e997d070",
+                                    "dns_name": "",
+                                    "deployment_id": "7D5E66BE-98C6-40A2-8B09-5DC4C0FEE677",
+                                    "created_on": 1591231148063,
+                                    "availability_zone": "us-east-1c",
+                                    "architecture": "x86_64",
+                                    "alertlogic_appliance": false,
+                                    "account_id": "134249236"
+                                },
+                                "modified_on": 1591233180344,
+                                "key": "/aws/us-east-1/host/i-0689cef12e997d070/vulnerability/a9d7583daa69fe6808ee1a0daba47726",
+                                "disposed": false,
+                                "details": "External connections: outbound [TCP to 206.222.167.0/26 port 443].",
+                                "concluded": true,
+                                "categories": [
+                                    "configuration"
+                                ]
+                            },
+                            {
+                                "threatiness": 8.0,
+                                "target": {
+                                    "type": "host",
+                                    "threatiness": 8.0,
+                                    "threat_level": 3,
+                                    "tags": {
+                                        "mgr": "michael-wiggin",
+                                        "aws:autoscaling:groupName": "AlertLogic IDS Security Autoscaling Group 134261429/70940EEC-9B14-4E0E-A7D3-DFDA23C7A2B6/vpc-151ea773",
+                                        "Name": "AlertLogic IDS Security Appliance",
+                                        "Managed-By": "Terraform",
+                                        "Alertlogic IDS Manual Mode Template Version": "v1.0.8",
+                                        "AlertLogic-EnvironmentID": "70940EEC-9B14-4E0E-A7D3-DFDA23C7A2B6",
+                                        "AlertLogic-AccountID": "134261429",
+                                        "AlertLogic": "Security"
+                                    },
+                                    "state": "running",
+                                    "public_ipv6_addresses": [],
+                                    "public_ipv4_addresses": [],
+                                    "public_ip_addresses": [],
+                                    "private_ipv6_addresses": [],
+                                    "private_ipv4_addresses": [
+                                        "10.252.0.17"
+                                    ],
+                                    "private_ip_addresses": [
+                                        "10.252.0.17"
+                                    ],
+                                    "private_ip_address": "10.252.0.17",
+                                    "private_dns_name": "ip-10-252-0-17.ec2.internal",
+                                    "name": "AlertLogic IDS Security Appliance",
+                                    "modified_on": 1594263431446,
+                                    "launch_time": 1591230270,
+                                    "key": "/aws/us-east-1/host/i-0601953bb06220a7b",
+                                    "ip_address": "",
+                                    "instance_type": "c5.xlarge",
+                                    "instance_name": "AlertLogic IDS Security Appliance",
+                                    "instance_id": "i-0601953bb06220a7b",
+                                    "dns_name": "",
+                                    "deployment_id": "7D5E66BE-98C6-40A2-8B09-5DC4C0FEE677",
+                                    "created_on": 1591231147817,
+                                    "availability_zone": "us-east-1a",
+                                    "architecture": "x86_64",
+                                    "alertlogic_appliance": false,
+                                    "account_id": "134249236"
+                                },
+                                "modified_on": 1591233181296,
+                                "key": "/aws/us-east-1/host/i-0601953bb06220a7b/vulnerability/a9d7583daa69fe6808ee1a0daba47726",
+                                "disposed": false,
+                                "details": "External connections: outbound [TCP to 206.222.167.0/26 port 443].",
+                                "concluded": true,
+                                "categories": [
+                                    "configuration"
+                                ]
+                            },
+                            {
+                                "threatiness": 8.0,
+                                "target": {
+                                    "type": "host",
+                                    "threatiness": 8.0,
+                                    "threat_level": 3,
+                                    "tags": {
+                                        "mgr": "michael-wiggin",
+                                        "aws:autoscaling:groupName": "AlertLogic IDS Security Autoscaling Group 134261429/70940EEC-9B14-4E0E-A7D3-DFDA23C7A2B6/vpc-76496c12",
+                                        "Owner-Name": "corpsec-manager",
+                                        "Name": "AlertLogic IDS Security Appliance",
+                                        "Managed-By": "Terraform",
+                                        "Alertlogic IDS Manual Mode Template Version": "v1.0.8",
+                                        "AlertLogic-EnvironmentID": "70940EEC-9B14-4E0E-A7D3-DFDA23C7A2B6",
+                                        "AlertLogic-AccountID": "134261429",
+                                        "AlertLogic": "Security"
+                                    },
+                                    "state": "running",
+                                    "public_ipv6_addresses": [],
+                                    "public_ipv4_addresses": [],
+                                    "public_ip_addresses": [],
+                                    "private_ipv6_addresses": [],
+                                    "private_ipv4_addresses": [
+                                        "10.250.3.247"
+                                    ],
+                                    "private_ip_addresses": [
+                                        "10.250.3.247"
+                                    ],
+                                    "private_ip_address": "10.250.3.247",
+                                    "private_dns_name": "ip-10-250-3-247.eu-west-1.compute.internal",
+                                    "name": "AlertLogic IDS Security Appliance",
+                                    "modified_on": 1594263261631,
+                                    "launch_time": 1591230254,
+                                    "key": "/aws/eu-west-1/host/i-0e3db6959c548b7dc",
+                                    "ip_address": "",
+                                    "instance_type": "c5.xlarge",
+                                    "instance_name": "AlertLogic IDS Security Appliance",
+                                    "instance_id": "i-0e3db6959c548b7dc",
+                                    "dns_name": "",
+                                    "deployment_id": "7D5E66BE-98C6-40A2-8B09-5DC4C0FEE677",
+                                    "created_on": 1591231413206,
+                                    "availability_zone": "eu-west-1b",
+                                    "architecture": "x86_64",
+                                    "alertlogic_appliance": false,
+                                    "account_id": "134249236"
+                                },
+                                "modified_on": 1591233181054,
+                                "key": "/aws/eu-west-1/host/i-0e3db6959c548b7dc/vulnerability/a9d7583daa69fe6808ee1a0daba47726",
+                                "disposed": false,
+                                "details": "External connections: outbound [TCP to 206.222.167.0/26 port 443].",
+                                "concluded": true,
+                                "categories": [
+                                    "configuration"
+                                ]
+                            },
+                            {
+                                "threatiness": 8.0,
+                                "target": {
+                                    "type": "host",
+                                    "threatiness": 8.0,
+                                    "threat_level": 3,
+                                    "tags": {
+                                        "mgr": "michael-wiggin",
+                                        "aws:autoscaling:groupName": "AlertLogic IDS Security Autoscaling Group 134261429/70940EEC-9B14-4E0E-A7D3-DFDA23C7A2B6/vpc-76496c12",
+                                        "Owner-Name": "corpsec-manager",
+                                        "Name": "AlertLogic IDS Security Appliance",
+                                        "Managed-By": "Terraform",
+                                        "Alertlogic IDS Manual Mode Template Version": "v1.0.8",
+                                        "AlertLogic-EnvironmentID": "70940EEC-9B14-4E0E-A7D3-DFDA23C7A2B6",
+                                        "AlertLogic-AccountID": "134261429",
+                                        "AlertLogic": "Security"
+                                    },
+                                    "state": "running",
+                                    "public_ipv6_addresses": [],
+                                    "public_ipv4_addresses": [],
+                                    "public_ip_addresses": [],
+                                    "private_ipv6_addresses": [],
+                                    "private_ipv4_addresses": [
+                                        "10.250.0.186"
+                                    ],
+                                    "private_ip_addresses": [
+                                        "10.250.0.186"
+                                    ],
+                                    "private_ip_address": "10.250.0.186",
+                                    "private_dns_name": "ip-10-250-0-186.eu-west-1.compute.internal",
+                                    "name": "AlertLogic IDS Security Appliance",
+                                    "modified_on": 1594263258485,
+                                    "launch_time": 1591230255,
+                                    "key": "/aws/eu-west-1/host/i-06734e6f63ecca424",
+                                    "ip_address": "",
+                                    "instance_type": "c5.xlarge",
+                                    "instance_name": "AlertLogic IDS Security Appliance",
+                                    "instance_id": "i-06734e6f63ecca424",
+                                    "dns_name": "",
+                                    "deployment_id": "7D5E66BE-98C6-40A2-8B09-5DC4C0FEE677",
+                                    "created_on": 1591231413671,
+                                    "availability_zone": "eu-west-1a",
+                                    "architecture": "x86_64",
+                                    "alertlogic_appliance": false,
+                                    "account_id": "134249236"
+                                },
+                                "modified_on": 1591233181648,
+                                "key": "/aws/eu-west-1/host/i-06734e6f63ecca424/vulnerability/a9d7583daa69fe6808ee1a0daba47726",
+                                "disposed": false,
+                                "details": "External connections: outbound [TCP to 206.222.167.0/26 port 443].",
+                                "concluded": true,
+                                "categories": [
+                                    "configuration"
+                                ]
+                            }
+                        ],
+                        "type": "vulnerability",
+                        "threatiness": 56.0,
+                        "threat_vector": "AV:N/AC:L/Au:N/C:C/I:C/A:C/PL:A/EM:A",
+                        "threat_score": 10.0,
+                        "threat_level": 3,
+                        "tags": {},
+                        "severity": "high",
+                        "remediation_id": "connectivity_update_sg_rules",
+                        "name": "Security Groups blocking agent external connections required for Alert Logic IDS functionality",
+                        "modified_on": 1591233181151,
+                        "external": false,
+                        "cvss_vector": "AV:N/AC:L/Au:N/C:C/I:C/A:C/PL:A/EM:A",
+                        "cvss_score": 10.0,
+                        "created_on": 1591233181151,
+                        "categories": [
+                            "configuration"
+                        ],
+                        "asset_count": 7,
+                        "account_id": "134249236"
+                    }
+                ]
+            }
+        ]
+    }
+}

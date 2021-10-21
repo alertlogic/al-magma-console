@@ -1,0 +1,72 @@
+.login-page-body {
+    flex-direction: row;
+    box-sizing: border-box;
+    display: flex;
+    place-content: center;
+    align-items: center;
+    padding: 36px 40px;
+    background-color: white;
+
+    .card {
+        box-shadow: none;
+        padding: 12px;
+
+        .header {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            width: 100%;
+            flex-direction: row;
+            height: 60px;
+            border-bottom: none;
+
+            .circle-logo{
+                display: flex;
+                justify-content: center;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                background-color: #474747;
+    
+                .icon-logo {
+                    font-size: 20pt;
+                    margin-top: 6px;
+                    color: #fff;
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+
+            h1 {
+                border-bottom: none;
+                font-weight: 300;
+                text-align: left;
+                margin: 0 0 0 24px;
+                padding: 0;
+            }
+        }
+    }
+
+    .login-form {
+        width: 300px;
+        padding: 0;
+        display: flex;
+        flex-direction: column; 
+
+        .p-g{
+            
+            &.form-group {
+                margin-top: 12px;
+
+                &>div {
+                    padding: 1em 0;
+                    margin: 6px 0;
+                }
+            }
+        }
+
+        button {
+            height: 36px;
+        }
+    }
+}

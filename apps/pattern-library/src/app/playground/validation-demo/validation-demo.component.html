@@ -1,0 +1,16 @@
+<div class="card card-w-title">
+    <h1>Dongle Validator</h1>
+    <div class="card-content">
+        <div class="ui-fluid">
+            <span class="md-inputfield">
+                <input type="text" pInputText [(ngModel)]="resourceId" (change)="loadView()"/>
+                <label>Resource</label>
+            </span>
+        </div>
+    </div>
+    <div class="card-content" *ngIf="loadedData">
+        <h1>Content</h1>
+        <al-json-viewer [json]="loadedData" [expanded]="true"></al-json-viewer>
+    </div>
+    <al-view-helper #viewHelper></al-view-helper>
+</div>

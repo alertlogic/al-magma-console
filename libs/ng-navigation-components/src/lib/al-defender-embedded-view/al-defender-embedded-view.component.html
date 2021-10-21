@@ -1,0 +1,6 @@
+<div>
+    <div class="loading-spinner" *ngIf="loading">
+        <p-progressSpinner></p-progressSpinner>
+    </div>
+    <iframe #iframe [height]="height" frameborder="0" allowfullscreen [src]="resourceUrl" [width]="width"></iframe>
+</div>

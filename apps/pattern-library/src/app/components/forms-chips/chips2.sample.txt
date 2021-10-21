@@ -1,0 +1,5 @@
+<p-chips>
+    <i class="al al-vpc"></i> 
+    <div class="title">title</div> 
+    <div class="subtitle">subtitle</div> 
+</p-chips>

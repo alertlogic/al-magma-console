@@ -1,0 +1,29 @@
+@import "@al/ng-generic-components/styles/utility";
+
+@mixin center-flex() {
+  display: flex;
+  align-items: center;
+}
+
+::ng-deep {
+  i.ui-icon-vertical-align-top, i.ui-icon-dashboard, i.ui-icon-contacts  {
+    font-size: 1em;
+    font-weight: bold;
+  }
+  label.p-dropdown-label {
+    @include center-flex();
+  }
+  .item-subtext {
+    color: al-color($al-gray, 200);
+    font-size: 10px;
+    margin-left: 4px;
+  }
+  li.p-dropdown-item {
+
+    &.p-state-highlight {
+      .item-subtext {
+        color: unset;
+      }
+    }
+  }
+}

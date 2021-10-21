@@ -1,0 +1,48 @@
+{
+  "name": "@al/ng-generic-components",
+  "version": "12.0.0-beta.1",
+  "license": "MIT",
+  "description": "Alert Logic Component Library for Angular projects",
+  "author": {
+    "name": "Alert Logic UI Team",
+    "email": "ui@alertlogic.com"
+  },
+  "keywords": [
+    "Alert Logic",
+    "Component Library"
+  ],
+  "maintainers": [
+    {
+      "name": "Alert Logic UI Team",
+      "email": "ui@alertlogic.com"
+    },
+    {
+      "name": "Alert Logic NPM Team",
+      "email": "npm@alertlogic.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alertlogic/al-magma-console"
+  },
+  "peerDependencies": {
+    "@al/core": "^1.0.155",
+    "@al/scan-scheduler": "^1.0.20",
+    "@angular/common": "^12.2.0",
+    "@angular/core": "^12.2.0",
+    "@angular/forms": "^12.2.0",
+    "@angular/platform-browser": "^12.2.0",
+    "@angular/animations": "^12.2.0",
+    "@angular/router": "^12.2.0",
+    "primeng": "^12.1.1"
+  },
+  "dependencies": {
+    "@al/scan-scheduler": "^1.0.15",
+    "showdown": "^1.9.0"
+  },
+  "devDependencies": {
+    "scss-bundle": "^3.1.2",
+    "@types/showdown": "^1.9.3",
+    "tslib": "^2.3.0"
+  }
+}

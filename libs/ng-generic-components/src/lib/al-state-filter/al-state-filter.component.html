@@ -1,0 +1,26 @@
+<p-listbox [options]="stateFilters" [(ngModel)]="selectedState" (onChange)="selectState($event)">
+    <ng-template let-item let-i="index" pTemplate="item">
+        <div class="grid grid-nogutter align-items-center item-content">
+            <i *ngIf="item.value.iconClass==='material-icons'"
+                class="icon"
+                [ngClass]="item.value.iconClass"
+                [ngStyle]="{ 'font-size': item.value.iconSize ? item.value.iconSize : null }">
+                {{ item.value.icon }}
+            </i>
+            <i *ngIf="item.value.iconClass!=='material-icons'"
+                class="icon {{ item.value.iconClass }} {{ item.value.icon }}"
+                [ngStyle]="{ 'font-size': item.value.iconSize ? item.value.iconSize : null }">
+            </i>
+            <span class="col" [ngClass]="{'item-active': selectedState.label === item.value.label}">{{ item.value.label }}</span>
+            <div *ngIf="item.value.showTotal" class="align-self-end">
+                <ng-container *ngIf="!item.value.showToolTip">
+                <span *ngIf="item.value.totalShowing !== undefined" class="total-showing">{{ item.value.totalShowing |alPrefixMultiplier}}</span><span *ngIf="item.value.totalShowing !== undefined">/</span><span class="show-total">{{ item.value.total |alPrefixMultiplier }}</span>
+                </ng-container>
+                <ng-container *ngIf="item.value.showToolTip">
+                    <span *ngIf="item.value.totalShowing !== undefined" class="total-showing" pTooltip="{{item.value.totalShowing}} {{item.value.totalShowingText}}" tooltipStyleClass="tool-tip">{{ item.value.totalShowing |alPrefixMultiplier}}</span>
+                    <span *ngIf="item.value.totalShowing !== undefined">/</span><span class="show-total" pTooltip="{{item.value.total}} {{item.value.totalText}}" tooltipStyleClass="tool-tip">{{ item.value.total |alPrefixMultiplier }}</span>
+                </ng-container>
+            </div>
+        </div>
+    </ng-template>
+</p-listbox>

@@ -1,0 +1,148 @@
+<div class="grid">
+    <div class="col-12">
+        <h1>DataTable</h1>
+        <div class="card-content">
+            <p-table #dt [value]="customers"
+                [(selection)]="selectedCustomers"
+                dataKey="id"
+                styleClass="ui-table-customers"
+                [rowHover]="true"
+                [rows]="10"
+                [columns]="customerColumnsSelected"
+                [showCurrentPageReport]="true"
+                [rowsPerPageOptions]="[10,25,50]" [loading]="loading" [paginator]="true"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                [filterDelay]="0"
+                [globalFilterFields]="['name','country.name','representative.name','status']">
+                <ng-template pTemplate="caption">
+                    <al-table-caption-v2
+                        [cols]="customerColumns"
+                        [defaultColumns]="customerColumns"
+                        [showColumnsSelector]="showColumnsSelector"
+                        [showSearch]="showSearch"
+                        (onChangeColumns)="changeColumns($event)"
+                        >
+                    </al-table-caption-v2>
+                </ng-template>
+                <ng-template pTemplate="header" let-columns>
+
+                    <tr class="table-header">
+                        <th></th>
+                        <th *ngFor="let col of columns"
+                            [class]="col.class ? col.class : ''"
+                            [pSortableColumn]="col.sortableColumn">
+                            {{col.header}}
+                            <ng-container *ngIf="col.sortableColumn">
+                                <p-sortIcon [field]="col.sortableColumn"></p-sortIcon>
+                            </ng-container>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th><p-tableHeaderCheckbox></p-tableHeaderCheckbox></th>
+                        <th *ngFor="let col of columns">
+                            <input *ngIf="col.sortableColumn === 'name'" pInputText type="text" (input)="dt.filter($any($event).target.value, 'name', 'startsWith')"
+                                placeholder="Search by Name" class="ui-column-filter">
+                            <input *ngIf="col.sortableColumn === 'country.name'" pInputText type="text"
+                                (input)="dt.filter($any($event).target.value, 'country.name', 'contains')"
+                                placeholder="Search by Country" class="ui-column-filter">
+                            <p-multiSelect *ngIf="col.sortableColumn === 'representative.name'" [options]="representatives" placeholder="All" width="'400px'"
+                                (onChange)="onRepresentativeChange($event)" styleClass="ui-column-filter"
+                                optionLabel="name">
+                                <ng-template let-option pTemplate="item">
+                                    <div class="ui-multiselect-representative-option">
+                                        <img [alt]="option.label" src="assets/demo/images/avatar/{{option.value.image}}"
+                                            width="32" />
+                                        <span>{{option.label}}</span>
+                                    </div>
+                                </ng-template>
+                            </p-multiSelect>
+                            <p-calendar *ngIf="col.sortableColumn === 'date'" (onSelect)="onDateSelect($event)"
+                                (onClearClick)="dt.filter('', 'date', 'equals')" [showButtonBar]="true"
+                                styleClass="ui-column-filter" placeholder="Registration Date" [readonlyInput]="true"
+                                dateFormat="yy-mm-dd"></p-calendar>
+                            <p-dropdown *ngIf="col.sortableColumn === 'status'" [options]="statuses" (onChange)="dt.filter($event.value, 'status', 'equals')"
+                                styleClass="ui-column-filter" placeholder="Select a Status" [showClear]="true">
+                                <ng-template let-option pTemplate="item">
+                                    <span [class]="'badge risk-' + option.value">{{option.label}}</span>
+                                </ng-template>
+                            </p-dropdown>
+                            <input *ngIf="col.sortableColumn === 'activity'" pInputText type="text" (input)="onActivityChange($event)" placeholder="Minimum"
+                                class="ui-column-filter">
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-customer let-rowData let-columns="columns">
+                    <tr class="ui-selectable-row" [pSelectableRow]="rowData">
+                        <td>
+                            <p-tableCheckbox [value]="customer"></p-tableCheckbox>
+                        </td>
+                        <td *ngFor="let col of columns">
+                            <div *ngIf="col.sortableColumn === 'name'">
+                                <!-- <span class="ui-column-title">Name</span> -->
+                                {{customer.name}}
+                            </div>
+                            <div *ngIf="col.sortableColumn === 'country.name'">
+                                <!-- <span class="ui-column-title">Country</span> -->
+                                <span [class]="'flag flag-' + customer.country.code"></span>
+                                <span style="vertical-align: middle; margin-left: .5em">{{customer.country.name}}</span>
+                            </div>
+                            <div *ngIf="col.sortableColumn === 'representative.name'">
+                                <!-- <span class="ui-column-title">Representative</span> -->
+                                <img [alt]="customer.representative.name"
+                                    src="assets/demo/images/avatar/{{customer.representative.image}}" width="32"
+                                    style="vertical-align: middle" />
+                                <span
+                                    style="vertical-align: middle; margin-left: .5em">{{customer.representative.name}}</span>
+                            </div>
+                            <div *ngIf="col.sortableColumn === 'date'">
+                                <!-- <span class="ui-column-title">Country</span> -->
+                                {{customer.date}}
+                            </div>
+                            <div *ngIf="col.sortableColumn === 'status'">
+                                <!-- <span class="ui-column-title">Status</span> -->
+                                <span [class]="'badge risk-' + customer.status">{{customer.status}}</span>
+                            </div>
+                            <div *ngIf="col.sortableColumn === 'activity'">
+                                <!-- <span class="ui-column-title">Activity</span> -->
+                                <p-progressBar [value]="customer.activity" [showValue]="true"></p-progressBar>
+                            </div>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td colspan="8" style="text-align:left">No customers found.</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+    <div class="col-12">
+        <h1>Tree Table</h1>
+        <div class="card-content">
+            <p-treeTable [value]="files4"
+                [columns]="cols2" selectionMode="checkbox" [rowHover]="true"
+                [(selection)]="selectedNode3">
+                <ng-template pTemplate="caption">
+                    FileSystem
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Name</th>
+                        <th>Size</th>
+                        <th>Type</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowNode let-rowData="rowData" let-columns="columns">
+                    <tr>
+                        <td *ngFor="let col of columns; let i = index">
+                            <p-treeTableToggler [rowNode]="rowNode" *ngIf="i == 0"></p-treeTableToggler>
+                            <p-treeTableCheckbox [value]="rowNode" *ngIf="i == 0"></p-treeTableCheckbox>
+                            <span style="vertical-align: middle">{{rowData[col.field]}}</span>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-treeTable>
+        </div>
+    </div>
+</div>

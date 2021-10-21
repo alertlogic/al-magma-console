@@ -1,0 +1,35 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.content-title {
+    border-bottom: 2px solid al-color($al-gray, 50);
+    padding-bottom: 6px;
+    padding-top: 24px;
+}
+
+.expand {
+    width: 100%;
+}
+
+.badget {
+    background-color:al-color($al-gray, 500);
+    padding-left: 8px;
+    padding-right: 8px;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+}
+
+.badget-gray {
+    background: al-color($al-gray, 300);
+    padding-left: 8px;
+    padding-right: 8px;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 14px;
+}
+.extra-vulns {
+    color: #a8a8a8;
+    padding-left: 25px;
+    padding-top: 5px;
+}

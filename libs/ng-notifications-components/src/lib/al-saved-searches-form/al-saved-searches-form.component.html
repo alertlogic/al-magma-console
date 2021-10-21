@@ -1,0 +1,105 @@
+<div class="saved-searches-form">
+    <al-bottom-sheet #alBottomSheet [headerOptions]="headerOptions" (onPrimaryAction)="save()"
+        (onSecondaryAction)="cancel()">
+        <al-view-helper [loading]="loading"></al-view-helper>
+
+        <div class="al-saved-search-form-content ui-fluid" *ngIf="!loading">
+            <div class="grid">
+                <div class="col-4">
+                    <div class="grid p-dir-col">
+                        <div class="col-12">
+                            <h1 class="columnHeader">Saved Search Details</h1>
+                        </div>
+                        <div class="col input-report-name">
+                            <span class="md-inputfield">
+                                <input type="text" #ctrl="ngModel" class="col-12"
+                                    [ngClass]="{'ng-dirty ng-invalid': !savedSearchProperties.name && ctrl.touched}"
+                                    name="name" [(ngModel)]="savedSearchProperties.name"
+                                    (ngModelChange)="validateForm()" pInputText />
+                                <label for="float-input">Name *</label>
+                            </span>
+                        </div>
+                        <br>
+                        <div class="col input-report-name">
+                            <span class="md-inputfield">
+                                <input type="text" #ctrl="ngModel" class="col-12"
+                                    name="description" [(ngModel)]="savedSearchProperties.description"
+                                    (ngModelChange)="validateForm()" pInputText />
+                                <label for="float-input">Description</label>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="grid p-dir-col">
+                        <div class="col-12">
+                            <h1 class="columnHeader">Add Tags</h1>
+                            <span class="col-12 section-title">
+                                Optionally add existing tags or create new tags to organize your saved searches.
+                            </span>
+                        </div>
+                        <div class="col">
+                            <p-autoComplete
+                                [(ngModel)]="savedSearchProperties.tags"
+                                [suggestions]="suggestedTags"
+                                (completeMethod)="setSuggestedTags($event)"
+                                (onKeyUp)="onKeyUpTags($event)"
+                                placeholder="Search or add tags"
+                                [multiple]="true"
+                            ></p-autoComplete>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="grid p-dir-col">
+                        <div class="col-12">
+                            <h1 class="columnHeader">Schedule Search</h1>
+                            <span class="col-12 section-title">
+                                Optionally create schedules for the search query to run automatically
+                            </span>
+                        </div>
+                        <div class="col-12">
+                            <div class="col">
+                                <p-inputSwitch
+                                    (onChange)="validateForm(); updateSaveButton()"
+                                    [(ngModel)]="savedSearchProperties.createScheduledSearch"
+                                    name="createScheduledSearch">
+                                </p-inputSwitch>
+                                <span class="padding-left-10">Create Scheduled Search (in next step)</span>
+                            </div>
+                            <div class="col">
+                                <p-chips class="chips-edit-saved-search" [(ngModel)]="scheduleCadence" [disabled]="true">
+                                    <ng-template let-item pTemplate="item">
+                                        <span><strong>{{item}}</strong>&nbsp;Scheduled Search&nbsp;</span>
+                                    </ng-template>
+                                </p-chips>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="query-column col-12">
+                <div class="grid p-dir-col">
+                    <div class="col-12">
+                        <h1 class="columnHeader">Search Query</h1>
+                        <ngx-monaco-editor #editor
+                            [options]="editorOptions"
+                            [(ngModel)]="savedSearchProperties.search_request"
+                            (init)="onMonacoEditorInit($event)">
+                        </ngx-monaco-editor>
+                        <button
+                            *ngIf="editMode"
+                            pButton type="button"
+                            class="search-button"
+                            label="EDIT IN SEARCH"
+                            icon="ui-icon-chevron-right"
+                            iconPos="right"
+                            (click)="editInSearch()">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </al-bottom-sheet>
+</div>

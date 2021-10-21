@@ -1,0 +1,32 @@
+
+-- additive (OR) included assets
+OR (region.key = '/aws/us-west-1', vpc.key = '/aws/us-west-1/vpc/vpc-5izt3o3s', subnet.name = 'deathstar-laser-power-system-1')
+
+-- Simple, group all assets with tag: production: compliance in all AWS deployments 
+deployment.type = 'aws' AND tag.key = 'production' AND tag.key = 'compliance'
+
+
+-- Inclusive Only Expressions
+OR (
+    (deployment.name = 'MyAWSome deployment' AND region.key = '/aws/us-west-1'), 
+    (deployment.name = 'MyAWSome deployment' AND vpc.key IN ('/aws/us-west-2/vpc/vpc-if29z6td', '/aws/us-west-2/vpc/vpc-k7zwjtfr')),
+    (deployment.name = 'Another AWS deployment' AND vpc.key = '/aws/us-west-1/vpc/vpc-5izt3o3s'),
+    (subnet.name = 'deathstar-laser-power-system-1'),
+    (region.key = '/aws/us/west-2' AND subnet.name = 'deathstar-laser-control-system'),
+    (host.key = 'host:/aws/us-west-2/host/i-m75ks5aqgqqzqyb5'),
+    (tag.key = 'production'),
+    (tag.key = 'compliance' AND tag.value = 'pci'),
+    (deployment.name = 'MyAWSome deployment' AND vpc.key = '/aws/us-west-1/vpc/vpc-5izt3o3s' AND host.scope_aws_image_id = 'ami-01ab03cd04ef'),
+    (deployment.name = 'MyAWSome deployment' AND host.os_type = 'unix'),
+    (host.webserver = 'iis')
+)
+
+
+-- Example with exclusions;
+-- exclude us-west-1 region and 2 subnets by name from "MyAWSome deployment" 
+-- exclude the tag key from (all) deployments
+OR (
+    (deployment.name = 'MyAWSome deployment' AND region.key NOT '/aws/us-west-1'), 
+    (deployment.name = 'MyAWSome deployment' AND subnet.name NOT IN ('deathstar-laser-control-system', 'deathstar-laser-power-system-1')),
+    (tag.key NOT 'ignore_this_asset')
+)

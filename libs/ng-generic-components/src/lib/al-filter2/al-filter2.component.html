@@ -1,0 +1,59 @@
+<ng-container *ngIf="filters" >
+	<div class="al-filter2">
+
+        <div class="al-filter2__header" *ngIf="appliedFilterCount > 0">
+            <h1 class="al-filter2__title">Applied filters ({{ appliedFilterCount }})</h1>
+			<a href="" class (click)="clearFilters($event)">Clear all</a>
+		</div>
+
+
+		<div *ngIf="appliedFilterCount > 0" class="al-filter2__chips">
+
+			<!-- CHIP LIST -->
+			<ng-container *ngFor="let chip of chips; let index = index">
+				<span class="al-filter2__chip" (click)="clickChip( chip )">
+					<ng-container *ngTemplateOutlet="chipTemplate; context: {chipDetail: chip}"></ng-container>
+				</span>
+			</ng-container>
+
+		</div>
+
+	    <div *ngFor="let filter of filters;" class="al-filter2__category">
+
+			<div class="al-filter2__category-title" (click)="onClickFilterHeader( filter, $event )">
+				{{filter.title}}
+			</div>
+
+	        <div *ngIf="!filter.collapsed">
+
+	            <div *ngFor="let value of filter.values; let index = index" class="al-filter2__row">
+                    <ng-container *ngIf="index < filter.value_limit">
+                        <al-checkbox [label]='value.title'
+                                     [checked]="value.selected || false"
+                                     [disabled]="value.disabled || false"
+                                     (changed)="onFilterValueChanged( filter, value, $event )"
+                                     class='al-checkbox--full-width'></al-checkbox>
+
+                        <div class="al-filter2__count" *ngIf="value.count">{{value.count}}</div>
+                    </ng-container>
+	            </div>
+
+				<div *ngIf="filter.value_limit < filter.values.length">
+					<a href="" (click)="toggleFilterValueExpansion( filter, $event )">Show all {{ filter.values.length }}</a>
+				</div>
+				<div *ngIf="filter.value_limit === filter.values.length">
+					<a href="" (click)="toggleFilterValueExpansion( filter, $event )">Show less</a>
+				</div>
+	        </div>
+	    </div>
+
+	</div>
+</ng-container>
+
+<!-- CHIP TEMPLATE -->
+<ng-template #chipTemplate let-chip="chipDetail">
+	<button type="button" class="filter-chips" [ngClass]="chip.class ? 'filter-chips--' + chip.class : 'filter-chips--primary'">
+		<div class="filter-chips__title">{{ chip.title }}</div>
+		<div *ngIf="chip.icon" class="filter-chips__icon close material-icons">close</div>
+	</button>
+</ng-template>

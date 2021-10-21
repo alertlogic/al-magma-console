@@ -1,0 +1,42 @@
+<div class="primary-navigation">
+  <section class="navigation-bar" *ngIf="viewReady">
+    <aside>
+      <nav class="mainNav" *ngIf="menu && menu.visible && primaryItems.length">
+        <ul>
+          <ng-template ngFor let-menuItem [ngForOf]="primaryItems">
+            <li *ngIf="menuItem.visible"
+                [ngClass]="menuItem.properties.consolidated_css_classes"
+                (click)="onClick(menuItem,$event)"
+                (mouseover)="onHoverStart(menuItem,$event)">
+                <a [ngClass]="{'active':menuItem.activated}"
+                    [href]="menuItem.href || ''"
+                    (click)="onClick(menuItem,$event)">{{menuItem.caption}}</a>
+            </li>
+          </ng-template>
+        </ul>
+      </nav>
+      <nav class="subNav" *ngIf="menu && menu.visible && secondaryItems.length">
+        <ul>
+            <ng-template ngFor let-menuItem [ngForOf]="secondaryItems">
+                <li *ngIf="menuItem.visible"
+                    (click)="onClick(menuItem,$event)"
+                    [ngClass]="menuItem.properties.consolidated_css_classes"
+                    (mouseover)="onHoverStart(menuItem,$event)">
+                  <a [ngClass]="{'active': menuItem.activated}"
+                      [href]="menuItem.href || ''"
+                      [target]="menuItem.properties.target || ''"
+                      (click)="onClick(menuItem,$event)">{{menuItem.caption}} <i *ngIf="menuItem.properties.target === '_blank'" class="material-icons">launch</i></a>
+              </li>
+            </ng-template>
+            <li *ngIf="experienceToggle !== undefined" class="experience-toggle">
+              <span [pTooltip]="experienceToggle.tooltip" tooltipPosition="bottom"
+                    (click)="experienceToggle.callback()">
+                <p-inputSwitch [ngModel]="experienceToggle.checked"></p-inputSwitch>
+                <span class="col col-align-center">{{experienceToggle.label}}</span>
+              </span>
+            </li>
+        </ul>
+      </nav>
+    </aside>
+  </section>
+</div>

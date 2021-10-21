@@ -1,0 +1,24 @@
+<div class="dashboard-widget" id="db-widget-${{config.id}}">
+    <header>
+        <div class="title">
+          <span title="{{config.title}}">{{config.title}}</span>
+        </div>
+        <div *ngIf="config?.content?.presentation?.contentDescriptor?.text" class="title-description">
+          <span [pTooltip]="config?.content?.presentation?.contentDescriptor?.text" [escape]="false" appendTo="body" tooltipStyleClass="info-tooltip" tooltipposition="top"><i class="pi pi-info-circle"></i></span>
+        </div>
+        <!-- <div> -->
+        <!--   TODO - - PUT BACK IN WHEN SETTINGS HAS BEEN DEFINED <a *ngIf="!config.hideSettings === true" (click)="settingsClicked()" class="link"><i class="pi pi-cog"></i></a> -->
+        <!-- </div> -->
+    </header>
+    <div class="content" [class.auto-scroll]="config.content?.type === contentType.TableListSummary" (data-element-clicked)="dataElementClicked($event)">
+        <ng-content></ng-content>
+    </div>
+    <footer *ngIf="hasActions">
+        <button pButton (click)="link2Clicked($event)" *ngIf="config.actions.link2" label="{{config.actions.link2.name}}" class="flat ui-button"></button>
+        <button pButton (click)="link1Clicked($event)" *ngIf="config.actions.link1" label="{{config.actions.link1.name}}" class="flat ui-button"></button>
+        <ng-template [ngIf]="config.actions.primary && config.actions.primary.action">
+          <button pButton (click)="primaryClicked($event)" *ngIf="!config.actions.primary.action.url" label="{{config.actions.primary.name}}"></button>
+          <a pButton href="{{config.actions.primary.action.url}}" *ngIf="config.actions.primary.action.url">{{config.actions.primary.name}}</a>
+        </ng-template>
+    </footer>
+</div>

@@ -1,0 +1,6 @@
+<div class="p-col-12">
+    <h2 class="form-h2">Disabled Input Field</h2>
+</div>
+<div class="p-col-[set this] input-row">
+    <input type="text" pInputText placeholder="Disabled" disabled="disabled">
+</div>

@@ -1,0 +1,99 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.al-checkbox {
+	position: relative;
+	display: inline-flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin-bottom: 8px;
+	cursor: pointer;
+
+	&__label {
+		@include font-size(sm);
+		padding-left: 8px;
+		cursor: pointer;
+	}
+
+	&__input {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 20px;
+		height: 20px;
+		margin: 0;
+		border: 0;
+		opacity: 0;
+		cursor: pointer;
+	}
+
+	&__box {
+		display: flex;
+		flex-shrink: 0;
+		justify-content: center;
+		align-items: center;
+		width: 20px;
+		height: 20px;
+		background-color: white;
+		cursor: pointer;
+		box-shadow: inset 0px 0px 0px 1px al-color($al-gray, 200);
+
+		border-radius: 3px;
+		transition: all;
+		transition-duration: 250ms;
+	}
+
+	&__icon {
+		fill: currentColor;
+		width: 12px;
+		height: 12px;
+		color: white;
+		pointer-events: none;
+	}
+
+}
+
+// States
+
+.al-checkbox--disabled {
+	.al-checkbox__input,
+	.al-checkbox__box,
+	.al-checkbox__label {
+		cursor: not-allowed;
+	}
+}
+
+.al-checkbox__input:checked + .al-checkbox__box  {
+	background-color: al-color($al-blue, 900);
+	box-shadow: none;
+}
+
+.al-checkbox__input:focus + .al-checkbox__box  {
+	box-shadow: inset
+		0 0 0 1px al-color($al-blue, 900),
+		0px 0px 0px 2px #FFFFFF,
+		0px 0px 0px 4px al-color($al-blue, 900);
+}
+
+.al-checkbox__input:disabled + .al-checkbox__box {
+	background-color: al-color($al-gray, 25);
+	box-shadow: none;
+}
+
+.al-checkbox__input:checked:disabled + .al-checkbox__box .al-checkbox__icon  {
+	color: al-color($al-gray, 100)
+}
+.al-checkbox__input:not(:checked):disabled + .al-checkbox__box  .al-checkbox__icon {
+	color: transparent;
+}
+
+// Modifiers
+
+:host.al-checkbox--full-width {
+	width: 100%;
+	.al-checkbox {
+		width: 100%;
+	}
+	.al-checkbox__label {
+		width: 100%;
+	}
+}

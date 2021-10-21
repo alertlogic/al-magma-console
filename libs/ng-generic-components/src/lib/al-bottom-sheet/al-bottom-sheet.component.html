@@ -1,0 +1,86 @@
+<div #container [ngClass]="{'ui-sidebar ui-widget ui-widget-content ui-shadow': true,
+                            'ui-sidebar-active': visible,
+                            'ui-sidebar-bottom ui-sidebar-bottom-center': true,
+                            'ui-sidebar-full': fullScreen}"
+                [@panelState]="state === 'opened' || state === 'collapsed' ? 'visible' : 'hidden'"
+                [ngStyle]="style"
+                [class]="styleClass">
+    <a  [ngClass]="{'ui-sidebar-close ui-corner-all':true}"
+        *ngIf="showCloseIcon"
+        tabindex="0" role="button"
+        (click)="close($event)"
+        (keydown.enter)="close($event)">
+            <span class="pi pi-times"></span>
+    </a>
+    <ng-container *ngIf="headerOptions || headerTemplate?.templateRef">
+        <ng-container *ngTemplateOutlet="headerTemplate?.templateRef || defaultHeaderTemplate; context: { $implicit: target }"></ng-container>
+    </ng-container>
+    <ng-template #defaultHeaderTemplate>
+        <div class="grid align-items-center header">
+            <i class="material-icons" *ngIf="headerOptions?.icon" [ngStyle]="headerOptions?.iconStyle ? headerOptions?.iconStyle : {}">{{headerOptions.icon}}</i>
+            <i class="class-icon" *ngIf="headerOptions?.classIcon" [ngClass]="headerOptions.classIcon" [ngStyle]="headerOptions?.iconStyle ? headerOptions?.iconStyle : {}"></i>
+            <p  *ngIf="headerOptions?.title !== ''"
+                [ngStyle]="headerOptions?.titleStyle ? headerOptions?.titleStyle : {}"
+                [ngClass]="{ 'title-clickable': headerOptions?.collapsibleFromTitle }"
+                (click)="toggle(headerOptions?.collapsibleFromTitle ? headerOptions?.collapsibleFromTitle : false)">
+                {{headerOptions.title}}
+            </p>
+            <span class="col"></span>
+            <button *ngIf="headerOptions?.tertiaryAction"
+                    pButton
+                    class="flat"
+                    type="button"
+                    [label]="headerOptions?.tertiaryAction?.text"
+                    [disabled]="headerOptions?.tertiaryAction?.disabled"
+                    (click)="onTertiaryAction.emit(target)">
+            </button>
+            <button *ngIf="headerOptions?.secondaryAction"
+                    pButton
+                    class="flat secundary-action"
+                    type="button"
+                    [label]="headerOptions?.secondaryAction?.text"
+                    [disabled]="headerOptions?.secondaryAction?.disabled"
+                    (click)="onSecondaryAction.emit(target)">
+            </button>
+            <p-button *ngIf="headerOptions?.primaryAction"
+                    class="primaryAction"
+                    styleClass="primaryAction"
+                    [label]="headerOptions?.primaryAction?.text"
+                    [disabled]="headerOptions?.primaryAction?.disabled"
+                    (onClick)="onPrimaryAction.emit(target)">
+            </p-button>
+        </div>
+    </ng-template>
+    <div class="container" *ngIf="allowContent">
+        <ng-content></ng-content>
+    </div>
+    <ng-container *ngIf="footerOptions || footerTemplate?.templateRef">
+        <ng-container *ngTemplateOutlet="footerTemplate?.templateRef || defaultFooterTemplate; context: { $implicit: target }"></ng-container>
+    </ng-container>
+    <ng-template #defaultFooterTemplate>
+        <div class="footer-action-buttons footer-container" *ngIf="!loading">
+            <div class="secondary-footer-action">
+                <button *ngIf="footerOptions?.secondaryAction"
+                    [hidden]="footerOptions?.secondaryAction?.hidden"
+                    pButton
+                    class="flat secundary-action"
+                    type="button"
+                    icon="ui-icon-chevron-left"
+                    [label]="footerOptions?.secondaryAction?.text"
+                    [disabled]="footerOptions?.secondaryAction?.disabled"
+                    (click)="onSecondaryFooterAction.emit(target)">
+                </button>
+            </div>
+            <div class="primary-footer-action">
+                <p-button *ngIf="footerOptions?.primaryAction"
+                    [hidden]="footerOptions?.primaryAction?.hidden"
+                    class="primaryAction"
+                    styleClass="primaryAction"
+                    [label]="footerOptions?.primaryAction?.text"
+                    [disabled]="footerOptions?.primaryAction?.disabled"
+                    (onClick)="onPrimaryFooterAction.emit(target)">
+                </p-button>
+            </div>
+        </div>
+    </ng-template>
+</div>

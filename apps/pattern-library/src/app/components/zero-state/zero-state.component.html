@@ -1,0 +1,90 @@
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>Default Zero State</h1>
+            <div class="grid">
+                <div class="col-12 card-content gray">
+                    <p>This is the default zero state and displays on the page background. <code class="language-css"
+                            pCode>flavor="default"</code></p>
+                    <al-zero-state flavor="default">
+                        <span zero-state-title>Top level text for a zero state condition goes here.</span>
+                        <div zero-state-description>
+                            <p>Secondary text for a zero-state condition goes here. This section can also contain any
+                                action
+                                buttons available in this zero state.</p>
+                        </div>
+                        <i zero-state-icon class="material-icons">info</i>
+                    </al-zero-state>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-w-title">
+            <h1>Zero State on White Background</h1>
+            <div class="grid">
+                <div class="col-12 card-content">
+                    <p>This zero state is used when it is placed on a white background. <code class="language-css"
+                            pCode>flavor="whiteBg"</code></p>
+                    <al-zero-state flavor="whiteBg">
+                        <span zero-state-title>Top level text for a zero state condition goes here.</span>
+                        <div zero-state-description>
+                            <p>Secondary text for a zero-state condition goes here. This section can also contain any
+                                action
+                                buttons available in this zero state.</p>
+                        </div>
+                        <i zero-state-icon class="material-icons">info</i>
+                    </al-zero-state>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-w-title">
+            <h1>Empty Console Zero State</h1>
+            <div class="grid">
+                <div class="col-12 card-content">
+                    <p>This zero state is used on empty consoles and has a CTA. <code class="language-css"
+                            pCode>flavor="shadowCard"</code></p>
+                    <al-zero-state flavor="shadowCard">
+                        <span zero-state-title>Top level text for a zero state condition goes here.</span>
+                        <div zero-state-description>
+                            <p>Secondary text for a zero-state condition goes here. This section can also contain any
+                                action
+                                buttons available in this zero state.</p>
+                            <button pButton type="button" class="primaryAction" (click)="buttonClick($event)"
+                                label="Create Something"></button>
+                        </div>
+                        <i zero-state-icon class="material-icons">info</i>
+                    </al-zero-state>
+                    <al-toast key="zero"></al-toast>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-w-title">
+            <h1>Error State</h1>
+            <div class="grid">
+                <div class="col-12 card-content">
+                    <p>This zero state can be used to indicate a load failure or other general error condition which
+                        prevents view readiness.  It can be used to expose specific error details if a well-formed <code>Error</code>
+                        object or an <code>AxiosResponse</code> object is provided to <code>&lt;al-view-helper&gt;</code>'s <code>[error]</code> input
+                        (rather than merely a string, although either will work).  In the case where a detailed error object is provided, those details
+                        will be exposed via an expandable/collapsible &quot;Show Details&quot; div.</p>
+
+                    <p>The error state also supports retry functionality -- provide a callable to the component's <code>[retryHandler]</code> input, and the
+                        error screen will display a &quot;Retry&quot; button that will let you fire up the view initialization code again.</p>
+
+                    <al-view-helper [error]="viewError" [retryHandler]="resetViewError"></al-view-helper>
+                </div>
+            </div>
+        </div>
+
+    </p-tabPanel>
+    <p-tabPanel header="Usage Guide">
+        <div class="card card-w-title">
+            <h1>Usage Guide</h1>
+            <div class="card-content">
+                <embedded-markdown resourceId="readme/al-view-helper/README"></embedded-markdown>
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>

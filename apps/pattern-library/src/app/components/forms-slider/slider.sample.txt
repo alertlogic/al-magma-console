@@ -1,0 +1,4 @@
+<h5 class="first">Basic: {{val1}}</h5>
+<p-slider [(ngModel)]="val1"></p-slider>
+
+Typescript: val1: number;

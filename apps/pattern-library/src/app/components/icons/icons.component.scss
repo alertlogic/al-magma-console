@@ -1,0 +1,81 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.al-icons {
+    padding: 20px;
+
+    div.card {
+        margin: 20px;
+
+        h2 {
+            font-weight: normal;
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+
+        p {
+            font-size: 0.857em;
+            color: al-color($al-gray, 300);
+            margin: 5px 0 0 0;
+        }
+
+        code {
+            background: al-color($al-gray, 50);
+            padding: 3px 5px;
+            font-size: 0.857em;
+            color: al-color($al-gray, 400);
+        }
+    }
+
+    .tile-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        margin-top: 40px;
+    }
+
+    .tile {
+        display: flex;
+        flex: 1 0 10%;
+        align-self: stretch;
+        min-height: 100px;
+        min-width: 100px;
+        margin: 5px;
+        background: white;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+
+        i {
+            text-align: center;
+            font-size: 2em;
+            color: al-color($al-gray, 500);
+        }
+
+        h4 {
+            text-align: center;
+            font-size: 0.75em;
+            margin: 10px 0;
+            color: al-color($al-gray, 300);
+        }
+    }
+
+    al-deprecated-bottom-sheet {
+        & > .bottom-sheet {
+            padding: 0 20px;
+        }
+
+        i {
+            font-size: 2em;
+            color: al-color($al-gray, 500);
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+    }
+
+    @media screen and(max-width:500px) {
+        .tile {
+            flex-basis: 100%;
+            max-width: 100%;
+        }
+    }
+}

@@ -1,0 +1,48 @@
+<div class="nav-header-bar" *ngIf="authenticated||allowUnauthenticatedMenus">
+  <div class="nav-header-content">
+    <i class="material-icons menu-toggle" (click)="toggleClick()">menu</i>
+    <i *ngIf="displayIconName.length > 0" class="material-icons">{{displayIconName}}</i>
+    <span *ngIf="breadcrumbs && breadcrumbs.length" class="breadcrumbs">
+    <ng-container *ngFor="let breadcrumb of breadcrumbs; let i = index">
+      <ng-container *ngIf="i < 2">
+        <span *ngIf="i > 0" class="breadcrumb-separator"> | </span>
+        <span class="breadcrumb" [ngClass]="breadcrumb.caption">
+          <a *ngIf="breadcrumb.href" [href]="breadcrumb.href"
+            (click)="dispatch(breadcrumb,$event)">{{breadcrumb.properties?.breadcrumbTitle ? breadcrumb.properties?.breadcrumbTitle : breadcrumb.caption}}</a>
+          <ng-container *ngIf="!breadcrumb.href" (click)="dispatch(breadcrumb, $event)">{{breadcrumb.properties?.breadcrumbTitle ? breadcrumb.properties?.breadcrumbTitle : breadcrumb.caption}}
+          </ng-container>
+        </span>
+      </ng-container>
+    </ng-container>
+    <ng-container>
+      <span *ngIf="addendumToNavTitle" class="breadcrumb-separator"> | </span> {{addendumToNavTitle}}
+    </ng-container>
+    </span>
+  </div>
+  <div class="nav-header-actions">
+    <div class="header-actions">
+      <span *ngIf="experienceToggle !== undefined"
+            [pTooltip]="experienceToggle.tooltip" tooltipPosition="bottom"
+            [ngClass]="{ 'custom-menu': true, 'items-margin': true }"
+            (click)="experienceToggle.callback()">
+        <p-inputSwitch [ngModel]="experienceToggle.checked"></p-inputSwitch>
+        <span class="col col-align-center">{{experienceToggle.label}}</span>
+      </span>
+      <ng-container *ngFor="let headerActionMenu of headerActionsMenus; let i = index; let last = last;">
+          <p-menu styleClass="custom-p-menu"
+                  *ngIf="headerActionMenu.visible && headerActionMenu.children?.length > 0"
+                  #headerActionsItemMenus
+                  [popup]="true"
+                  [model]="headerActionMenu.children | transformToMenu">
+          </p-menu>
+          <span *ngIf="headerActionMenu.visible"
+                class="{{headerActionMenu.caption}}"
+                [ngClass]="{ 'custom-menu': true, 'items-margin': !last }"
+                (click)="dispatch(headerActionMenu, $event, headerActionMenu.children?.length > 0 )">
+            <i *ngIf="headerActionMenu.properties?.iconClass"
+               [ngClass]="[headerActionMenu.properties.iconClass ? 'material-icons header-actions-icons' : '']">{{headerActionMenu.properties.iconClass}}</i>
+            <span class="col col-align-center">{{headerActionMenu.caption}}</span></span>
+      </ng-container>
+    </div>
+  </div>
+</div>

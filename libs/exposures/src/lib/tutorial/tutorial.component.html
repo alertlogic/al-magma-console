@@ -1,0 +1,181 @@
+TODO - Nepalize this component!!!
+<!-- <div mat-dialog-title *ngIf="!showSkip">
+    <div class="close-button">
+        <button mat-dialog-close mat-icon-button>
+            <mat-icon i18n>close</mat-icon>
+        </button>
+    </div>
+</div>
+<div mat-dialog-content>
+    <div class="tutorial-content">
+        <div class="box" *ngIf="showSkip">
+            <al-alert-box boxColor="gray">
+                <div class="icon">
+                    <i class="material-icons">help</i>
+                </div>
+                <div class="text" i18n>
+                    Welcome to the Exposures page. If you do not want to view this tutorial, click SKIP.
+                    You can view this tutorial at any time by clicking "Tutorial" in the Exposures menu bar.
+                </div>
+                <div class="alert-button">
+                    <button class="mat-button" mat-button (click)="closeTutorial()" i18n>
+                        SKIP
+                    </button>
+                </div>
+            </al-alert-box>
+        </div>
+        <h1 class="title-underline">
+            <i class="material-icons">build</i>
+            <span i18n>Exposures Tutorial</span>
+        </h1>
+        <div>
+            <p i18n>
+                This tutorial displays information about exposures found in your account, and how to view details,
+                take action to resolve exposures, and address remediations.
+                <br>
+            </p>
+            <div class="content-padding">
+                <h2 i18n class="title-underline">
+                    Threat Levels
+                </h2>
+                <p i18n>
+                    The Exposures page uses colors and icons to help you easily identify the threat levels of exposures
+                    in your environment. Threat levels are color coded as red (high), orange (medium), yellow (low), and gray (information).
+                </p>
+                <div class="threat-colors-conventions">
+                    <div class="threat-section">
+                        <div class="section-title"> colors </div>
+                        <div class="threat-icons">
+                            <i class="fa fa-circle risk-critical icons-size"></i>
+                            <i class="fa fa-circle risk-high icons-size"></i>
+                            <i class="fa fa-circle risk-medium icons-size"></i>
+                            <i class="fa fa-circle risk-low icons-size"></i>
+                        </div>
+                    </div>
+                    <div class="icon-arrow">
+                        <i class="fa fa-long-arrow-right"></i>
+                    </div>
+                    <div class="threat-section">
+                        <div i18n class="section-title"> icons </div>
+                        <div class="threat-icons">
+                            <div class="threat-icon-container">
+                                <i class="fa fa-circle risk-critical icons-size"></i>
+                                <div i18n class="threat-desc">high</div>
+                            </div>
+                            <div class="threat-icon-container">
+                                <i class="fa fa-adjust risk-high icons-size"></i>
+                                <div i18n class="threat-desc">medium</div>
+                            </div>
+                            <div class="threat-icon-container">
+                                <i class="fa fa-circle-o risk-medium icons-size"></i>
+                                <div i18n class="threat-desc">low</div>
+                            </div>
+                            <div class="threat-icon-container">
+                                <i class="fa fa-info-circle risk-low icons-size"></i>
+                                <div i18n class="threat-desc">info</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-padding">
+                <h2 i18n class="title-underline">
+                    Filters
+                </h2>
+                <p i18n>
+                    On the left side of the List page, you can apply filters to organize the list by risk level, category, deployment,
+                    and platform.
+                </p>
+            </div>
+            <div class="content-padding">
+                <h2 i18n class="title-underline">
+                    Organize by
+                </h2>
+                <p i18n>
+                    You can organize the List page to view either individual exposures or remediations that recommend actions to
+                    resolve one or multiple exposures.
+                </p>
+                <h2 i18n class="title-underline">
+                    Exposures
+                </h2>
+                <p i18n>
+                    The List page is by default organized by individual, open exposures. One exposure can affect multiple assets,
+                    and multiple exposures can be associated with one remediation.
+                </p>
+                <h2 i18n class="title-underline">
+                    Remediations
+                </h2>
+                <p i18n>
+                    Remediations provide recommended actions to resolve one exposure or a set of exposures. Addressing a remediation
+                    can usually resolve multiple exposures.
+                </p>
+            </div>
+            <div class="content-padding">
+                <div>
+                    <h2 i18n class="title-underline">
+                        Recommended Exposure Workflow
+                    </h2>
+                    <p i18n>
+                        You can select one or more open items in the List tab to address or resolve, and then dispose or conclude the items.
+                    </p>
+                    <div class="actions-conventions">
+                        <div class="action-container action-underline">
+                            <div class="action-icon">
+                                <i class="material-icons icons-size">touch_app</i>
+                            </div>
+                            <div>
+                                <div i18n class="action-title">
+                                    Apply other affected assets to resolve or address an item
+                                </div>
+                                <div i18n class="action-desc">
+                                    Click "Open" to view more details that help you resolve the exposure(s). You can also apply filters
+                                    to see other affected assets, and resolve them all at once.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="action-container action-underline">
+                            <div class="action-icon">
+                                <i class="material-icons icons-size">block</i>
+                            </div>
+                            <div>
+                                <div i18n class="action-title">
+                                    Dispose the exposure
+                                </div>
+                                <div i18n class="action-desc">
+                                    Dispose marks the item, or set of items, as assessed for the assets you applied to address.
+                                    The item can reappear if you do not address all of the affected assets. You can also set a disposal period, and the item will reappear after the disposal period expires.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="action-container action-underline">
+                            <div class="action-icon">
+                                <i class="material-icons icons-size">check</i>
+                            </div>
+                            <div>
+                                <div i18n class="action-title">
+                                    Conclude the exposure
+                                </div>
+                                <div i18n class="action-desc">
+                                    Conclude marks an item, or set of items, as resolved for the assets you applied to address. The item can reappear if you did not resolve the exposure(s) on all the affected assets, or if the exposure becomes an issue again.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="action-container action-underline">
+                            <div class="action-icon">
+                                <i class="material-icons icons-size">restore</i>
+                            </div>
+                            <div>
+                                <div i18n class="action-title">
+                                    Restore
+                                </div>
+                                <div i18n class="action-desc">
+                                    You can restore an item that has been disposed or concluded, which returns it to the list of Open Exposures.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

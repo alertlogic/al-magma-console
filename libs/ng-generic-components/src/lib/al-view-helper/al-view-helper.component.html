@@ -1,0 +1,34 @@
+<div class="view-helper">
+    <div class="top-notification-panel" *ngIf="notifyPanel">
+        <al-notification-panel [alertSource]="notifications" [displayMaximum]="3">
+        </al-notification-panel>
+    </div>
+    <al-loading-spinner *ngIf="loading"></al-loading-spinner>
+    <al-zero-state [flavor]="zeroStateFlavor" *ngIf="empty">
+        <span zero-state-title>
+            <ng-content select="[zero-state-title]"></ng-content>
+        </span>
+        <span zero-state-description>
+            <ng-content select="[zero-state-description]"></ng-content>
+        </span>
+        <div zero-state-icon>
+            <ng-content select="[zero-state-icon]"></ng-content>
+        </div>
+    </al-zero-state>
+    <al-zero-state [flavor]="zeroStateFlavor" *ngIf="showError">
+        <span zero-state-icon><i class="material-icons">report_problem</i></span>
+        <span zero-state-title>{{errorTitle}}</span>
+        <div zero-state-description>
+            <p>{{errorDescription}}</p>
+            <p>
+                <button pButton type="button" class="primaryAction" (click)="attemptReload($event)" label="Try Again" *ngIf="retryHandler"></button>
+                &nbsp;
+                <button pButton type="button" class="secondaryAction" (click)="showErrorDetails = true;" label="Details" icon="ui-icon-keyboard-arrow-down" iconPos="right" *ngIf="errorDetails && ! showErrorDetails"></button>
+                <button pButton type="button" class="secondaryAction" (click)="showErrorDetails = false;" label="Details" icon="ui-icon-keyboard-arrow-up" iconPos="right" *ngIf="errorDetails && showErrorDetails"></button>
+            </p>
+            <code class="error-details" *ngIf="showErrorDetails">
+                {{errorDetails}}
+            </code>
+        </div>
+    </al-zero-state>
+</div>

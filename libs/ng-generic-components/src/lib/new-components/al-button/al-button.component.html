@@ -1,0 +1,16 @@
+<button type="button"
+    [ngClass]="[
+        label ? 'ald-btn' : 'ald-btn-icon',          
+        (icon && label) ? 'ald-btn--with-icon ald-btn--with-icon-' + iconPos : '',
+        disabled ? 'ald-btn--disabled' : '',
+        'ald-btn--' + type,
+        size == 'sm' ? 'ald-btn--sm' : ''
+    ]"
+    [disabled]="disabled">
+
+    <div *ngIf="icon" class="ald-btn-icon__wrapper">
+        <al2-icon [icon]="icon" [iconClass]="iconClass" [size]="iconPos == 'top' ? 'md' : 'sm'"></al2-icon>
+    </div>
+    
+    {{ label | titlecase }}
+</button>

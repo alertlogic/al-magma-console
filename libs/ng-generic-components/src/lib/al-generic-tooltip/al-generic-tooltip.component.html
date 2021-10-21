@@ -1,0 +1,12 @@
+<div class="al-generic-tooltip">
+    <div class="bubble-wrap bottom"
+        [ngStyle]="{
+        'opacity': containerStyles.opacity,
+        'display': containerStyles.display,
+        'top': containerStyles.top,
+        'left': containerStyles.left
+        }">
+        <div class="header"><ng-content select="header"></ng-content></div>
+        <div class="content"><ng-content select=".content"></ng-content></div>
+    </div>
+</div>

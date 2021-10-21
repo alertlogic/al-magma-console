@@ -1,0 +1,122 @@
+@import "@al/ng-generic-components/styles/utility.scss";
+.dynamic-form {
+    .info-icon-form {
+        font-size: 14px;
+        color: #CBCBCB;
+        opacity: 1;
+    }
+
+    .info-icon-input-position {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+    }
+
+    .info-icon-input-position-responder {
+        position: absolute;
+        top: 40px;
+        right: 0px;
+    }
+
+    .inputfield-responder{
+        position: relative;
+    }
+
+    .input-field, .input-textarea, input, textarea {
+        width: 100%;
+    }
+    input, textarea {
+        padding-left: 5px;
+    }
+
+    input:focus ~ label {
+        color: al-color($al-smokeBlue, 500);
+    }
+
+    .textarea-field {
+        padding-top: 10px;
+    }
+
+    .textarea-label, .radio-label, .dropdown-label, .dynamic-label {
+        padding-right: 6px;
+    }
+
+    .checkbox-header, .radio-header, .dropdown-header {
+        padding-bottom: 6px;
+    }
+
+    .switch-label{
+        padding-left: 10px;
+    }
+
+    .aboveDescription{
+        padding-bottom: 24px;
+    }
+
+    .aboveDescriptionPlain{
+        padding-bottom: 6px;
+    }
+
+    .belowDescriptionPlain{
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+
+    ngx-monaco-editor {
+        height: 150px;
+    }
+
+    .form-content-title{
+        color: al-color($al-gray, 500);
+        border-bottom: 1px solid al-color($al-gray, 50);
+        padding-bottom: 6px;
+        padding-top: 24px;
+        font-size: 18px;
+        margin-bottom: 24px;
+    }
+
+    .title {
+        padding: 0 0 6px;
+        margin: 24px 0;
+    }
+
+    .title-dynamic {
+       margin-bottom: 0px;
+       padding-bottom: 0px; 
+    }
+
+    .title-boder {
+        border-bottom: 1px solid #ededed;
+    }
+
+    .title-icon {
+        margin-left: 5px;
+        margin-top: 28px;
+    }
+
+    .aboveDescription {
+        padding-bottom: 24px;
+    }
+
+    .aboveDescriptionPlain {
+        padding-bottom: 6px;
+        // align text markdown list
+        ::ng-deep { 
+            ol {
+                margin-left: -22px 
+            }
+        }
+    }
+
+    .belowDescriptionPlain {
+        padding-top: 6px;
+        padding-bottom: 6px;
+        // align text markdown list
+        ::ng-deep { 
+            ol {
+                margin-left: -22px 
+            }
+        }
+    }
+
+}

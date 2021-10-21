@@ -1,0 +1,20 @@
+<div class="al-initials" (mouseenter)="onHoverStart()" (mouseleave)="onHoverEnd()"
+    [ngClass]="{'selected': selected, 'hoverClass': hovering}" (click)="toggleSelection()">
+    <div class="icon-square" fxLayout="row" fxLayoutAlign="space-around center">
+        <span class="colored-square" [ngClass]="classes" *ngIf="!hovering&&!selected">
+            <font class="colored-initials" *ngIf="!selected">
+                <span>
+                    {{letters}}
+                </span>
+            </font>
+        </span>
+        <span *ngIf="hovering||selected" class="colored-square">
+            <i class="material-icons" *ngIf="selected">check_box</i>
+            <i class="material-icons" *ngIf="!selected">check_box_outline_blank</i>
+        </span>
+    </div>
+    <div class="account-info" fxLayout="column" fxLayoutAlign="space-around none">
+        <span *ngIf="labelled" class="label">{{name}}</span>
+        <span *ngIf="labelled && subname" class="subname">{{subname}}</span>
+    </div>
+</div>

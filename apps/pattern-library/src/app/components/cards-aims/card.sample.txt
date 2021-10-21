@@ -1,0 +1,16 @@
+<div class="user-tile" role="button" (click)="onUserSelectedEvent(userReference)">
+    <div class="nameColoredSquare">
+        <div class="al-identity-icon">
+            <div class="al-identity-icon-space">
+                <div class="identity-icon color1">
+                    <div class="colored-initials">AL</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="info">
+        <div class="acc-name">Alert Logic</div>
+        <div class="acc-email">person@alertlogic.com</div>
+    </div>
+    <button pButton type="button" label="VIEW" class="primary flat"></button>
+</div>

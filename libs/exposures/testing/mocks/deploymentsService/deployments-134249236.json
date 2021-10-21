@@ -1,0 +1,414 @@
+{
+    "result": {
+    "deployments": [
+      {
+        "discover": false,
+        "status": {
+          "status": "new",
+          "message": null,
+          "timestamp": null
+        },
+        "cloud_defender": {
+          "enabled": true,
+          "location_id": "defender-us-denver"
+        },
+        "enabled": true,
+        "credentials": [],
+        "platform": {
+          "type": "aws",
+          "id": "352283894008",
+          "monitor": {
+            "enabled": false,
+            "ct_install_region": "us-east-1"
+          }
+        },
+        "scan": false,
+        "created": {
+          "by": "dc_explorer",
+          "at": 1558518964
+        },
+        "modified": {
+          "by": "aims",
+          "at": 1558725126
+        },
+        "scope": {
+          "include": [],
+          "exclude": []
+        },
+        "version": 52,
+        "mode": "none",
+        "account_id": "2",
+        "name": "Deployment for AWS account 352283894008",
+        "id": "45D09502-85E6-4C56-8FEF-F661A3DC3328"
+      },
+      {
+        "discover": false,
+        "status": {
+          "status": "new",
+          "message": null,
+          "timestamp": null
+        },
+        "cloud_defender": {
+          "enabled": true,
+          "location_id": "defender-us-denver"
+        },
+        "enabled": true,
+        "credentials": [],
+        "platform": {
+          "type": "aws",
+          "id": "966236963857",
+          "monitor": {
+            "enabled": false,
+            "ct_install_region": "us-east-1"
+          }
+        },
+        "scan": false,
+        "created": {
+          "by": "dc_explorer",
+          "at": 1558654353
+        },
+        "modified": {
+          "by": "aims",
+          "at": 1558725126
+        },
+        "scope": {
+          "include": [],
+          "exclude": []
+        },
+        "version": 47,
+        "mode": "none",
+        "account_id": "2",
+        "name": "Deployment for AWS account 966236963857",
+        "id": "4BFA155E-FB7E-4B81-90EB-B0A0126A957A"
+      },
+      {
+        "discover": true,
+        "status": {
+          "status": "ok",
+          "message": null,
+          "timestamp": null
+        },
+        "cloud_defender": {
+          "enabled": false,
+          "location_id": ""
+        },
+        "enabled": true,
+        "credentials": [
+          {
+            "id": "F6D33944-A30D-448A-8E50-B55380D13491",
+            "purpose": "discover",
+            "version": "2019-07-04"
+          }
+        ],
+        "platform": {
+          "type": "aws",
+          "id": "352283894008",
+          "monitor": {
+            "enabled": true,
+            "ct_install_region": "us-east-1"
+          }
+        },
+        "scan": true,
+        "created": {
+          "by": "834BF002-EDE0-413D-B6E2-5AAA6B46B282",
+          "at": 1564325171
+        },
+        "modified": {
+          "by": "834BF002-EDE0-413D-B6E2-5AAA6B46B282",
+          "at": 1568870331
+        },
+        "scope": {
+          "include": [],
+          "exclude": []
+        },
+        "version": 113,
+        "mode": "automatic",
+        "account_id": "2",
+        "name": "test-mv",
+        "id": "6D0B2E60-DFB2-4B27-9157-FF78BAF0A29B"
+      },
+      {
+        "discover": true,
+        "status": {
+          "status": "ok",
+          "message": null,
+          "timestamp": null
+        },
+        "cloud_defender": {
+          "enabled": true,
+          "location_id": "defender-us-denver"
+        },
+        "enabled": true,
+        "credentials": [
+          {
+            "id": "32FEC9FD-3180-4FAD-B0E0-94EE51A92A57",
+            "purpose": "discover",
+            "version": "2016-04-26"
+          }
+        ],
+        "platform": {
+          "type": "aws",
+          "id": "560601773276",
+          "monitor": {
+            "enabled": true,
+            "ct_install_region": "us-east-1"
+          }
+        },
+        "scan": true,
+        "created": {
+          "by": "C57BA0FD-7FA7-4736-956D-74C555657996",
+          "at": 1521498949
+        },
+        "modified": {
+          "by": "cloud_explorer",
+          "at": 1570141516
+        },
+        "scope": {
+          "include": [],
+          "exclude": []
+        },
+        "version": 296,
+        "mode": "automatic",
+        "account_id": "2",
+        "name": "Tech SME Cloud Defender",
+        "id": "71B0F87C-E015-4368-9672-6A5863B7AAD9"
+      },
+      {
+        "discover": false,
+        "status": {
+          "status": "new",
+          "message": null,
+          "timestamp": null
+        },
+        "cloud_defender": {
+          "enabled": true,
+          "location_id": "defender-us-denver"
+        },
+        "enabled": true,
+        "credentials": [],
+        "platform": {
+          "type": "aws",
+          "id": "387845583819",
+          "monitor": {
+            "enabled": false,
+            "ct_install_region": "us-east-1"
+          }
+        },
+        "scan": false,
+        "created": {
+          "by": "5F02337B-4A84-47CD-AF43-F6C11D0BD864",
+          "at": 1561587636
+        },
+        "modified": {
+          "by": "aims",
+          "at": 1561998371
+        },
+        "scope": {
+          "include": [],
+          "exclude": []
+        },
+        "version": 46,
+        "mode": "none",
+        "account_id": "2",
+        "name": "Deployment for AWS account 387845583819",
+        "id": "A4DC5BED-5D29-4CDF-822E-2B847486FF4C"
+      },
+      {
+        "discover": true,
+        "status": {
+          "status": "error",
+          "message": "Environment error due to permission error.",
+          "timestamp": null
+        },
+        "cloud_defender": {
+          "enabled": false,
+          "location_id": ""
+        },
+        "enabled": true,
+        "credentials": [
+          {
+            "id": "359F06AE-2677-4CE2-B746-615B987AC757",
+            "purpose": "discover"
+          }
+        ],
+        "platform": {
+          "type": "aws",
+          "id": "808209222772",
+          "monitor": {
+            "enabled": true,
+            "ct_install_region": "us-east-1"
+          }
+        },
+        "scan": true,
+        "created": {
+          "by": "F5C02D78-06C3-4474-BC43-B51BA6FD7327",
+          "at": 1523470824
+        },
+        "modified": {
+          "by": "2F1F951C-1FE1-4753-BC06-5C3E36E0ECEA",
+          "at": 1546005241
+        },
+        "scope": {
+          "include": [
+            {
+              "type": "region",
+              "key": "/aws/us-east-1",
+              "policy": {
+                "id": ""
+              }
+            },
+            {
+              "type": "region",
+              "key": "/aws/us-west-2",
+              "policy": {
+                "id": ""
+              }
+            }
+          ],
+          "exclude": []
+        },
+        "version": 577,
+        "mode": "none",
+        "account_id": "2",
+        "name": "CIS Benchmark Test",
+        "id": "BEBBEB17-C64D-40CC-BC29-6A28BFEAD462"
+      },
+      {
+        "discover": true,
+        "status": {
+          "status": "ok",
+          "message": null,
+          "timestamp": null
+        },
+        "cloud_defender": {
+          "enabled": false,
+          "location_id": ""
+        },
+        "enabled": true,
+        "credentials": [
+          {
+            "id": "EE176229-1C9C-4C9F-BA7C-30B717FA3539",
+            "purpose": "discover",
+            "version": "2019-07-04"
+          },
+          {
+            "id": "C7C63AE4-89A7-4127-A12C-119BAB01B8A4",
+            "purpose": "x-account-monitor",
+            "version": "2016-09-20"
+          }
+        ],
+        "platform": {
+          "type": "aws",
+          "id": "352283894008",
+          "monitor": {
+            "enabled": true,
+            "ct_install_region": "us-east-1"
+          }
+        },
+        "scan": true,
+        "created": {
+          "by": "095AD337-DE5E-4819-8A76-210A94018D4C",
+          "at": 1562317319
+        },
+        "modified": {
+          "by": "cloud_explorer",
+          "at": 1563445066
+        },
+        "scope": {
+          "include": [],
+          "exclude": []
+        },
+        "version": 131,
+        "mode": "automatic",
+        "account_id": "2",
+        "name": "kk-full-insight",
+        "id": "D1A3C35B-FA65-475E-894A-617E82C05645"
+      },
+      {
+        "discover": true,
+        "status": {
+          "status": "error",
+          "message": "permission_error",
+          "timestamp": null
+        },
+        "cloud_defender": {
+          "enabled": true,
+          "location_id": "defender-us-ashburn"
+        },
+        "enabled": true,
+        "credentials": [
+          {
+            "id": "3C93C03D-20FA-46EF-966E-F9CA21FFAEA6",
+            "purpose": "discover"
+          }
+        ],
+        "platform": {
+          "type": "azure",
+          "id": "05DCD414-C680-4F2C-8716-058CD058974B",
+          "monitor": {
+            "enabled": true,
+            "ct_install_region": "us-east-1"
+          }
+        },
+        "scan": true,
+        "created": {
+          "by": "27692F50-B489-49B0-9804-432BE9DDEAEA",
+          "at": 1562340327
+        },
+        "modified": {
+          "by": "deployments",
+          "at": 1565686573
+        },
+        "scope": {
+          "include": [],
+          "exclude": []
+        },
+        "version": 297,
+        "mode": "manual",
+        "account_id": "2",
+        "name": "TestAzureDeployment-Bryan",
+        "id": "D9AD7F0A-8322-41EA-9A33-D3EECB03B131"
+      },
+      {
+        "discover": true,
+        "status": {
+          "status": "new",
+          "message": null,
+          "timestamp": null
+        },
+        "cloud_defender": {
+          "enabled": false,
+          "location_id": ""
+        },
+        "enabled": true,
+        "credentials": [],
+        "platform": {
+          "type": "datacenter",
+          "id": null,
+          "monitor": {
+            "enabled": true,
+            "ct_install_region": "us-east-1"
+          }
+        },
+        "scan": false,
+        "created": {
+          "by": "dc_explorer",
+          "at": 1565685908
+        },
+        "modified": {
+          "by": "aims",
+          "at": 1565911038
+        },
+        "scope": {
+          "include": [],
+          "exclude": []
+        },
+        "version": 2,
+        "mode": "manual",
+        "account_id": "2",
+        "name": "Default Datacenter Deployment",
+        "id": "E1F8EFCC-B9C9-4D56-9FAF-25F50784A078"
+      }
+    ]
+  }
+}

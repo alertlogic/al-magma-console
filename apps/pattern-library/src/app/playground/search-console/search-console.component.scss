@@ -1,0 +1,274 @@
+@import "@al/ng-generic-components/styles/utility";
+
+
+.chicklet {
+    display: inline-flex;
+    align-items: center;
+    padding: 1px 1px 1px 12px;
+    margin: 6px 6px;
+    background-color: al-color($al-gray, 50);
+    border-radius: 24px;
+    border: none;
+    justify-content: space-between;
+
+    // display: flex;
+    // flex-flow: row wrap;
+    // justify-content: flex-start;
+
+    &.time {
+        background-color: al-color($al-gray, 100);
+        .p-button {
+            background-color: al-color($al-gray, 100);
+            color: al-color($al-gray, 500);
+        }
+    }
+
+    &.message {
+        background-color: al-color($al-purple, 100);
+        .p-button {
+            background-color: al-color($al-purple, 100);
+            color: al-color($al-gray, 500);
+        }
+    }
+
+    &.message-type {
+        background-color: al-color($al-gray, 50);
+        .p-button {
+            background-color: al-color($al-gray, 50);
+            color: al-color($al-gray, 500);
+        }
+    }
+
+    &.field {
+        background-color: al-color($al-green, 100);
+        .p-button {
+            background-color: al-color($al-green, 100);
+            color: al-color($al-gray, 500);
+        }
+    }
+
+    .operator {
+        text-transform: uppercase;
+
+    }
+    .aggregation {
+        text-transform: uppercase;
+        padding: 0 6px;
+    }
+
+    .value {
+        align-items: center;
+    }
+
+    .content {
+        display: inline-flex;
+		align-items: center;
+		justify-content: space-between;
+		min-height: 31px;
+    }
+
+    .label {
+        margin: 0 6px;
+    }
+
+    .dropdown {
+        margin: 0 6px;
+
+        ::ng-deep .p-dropdown {
+            background-image: none;
+            padding-bottom: 0;
+        }
+        
+        ::ng-deep .p-inputtext {
+            padding-bottom: 0;
+        }
+    }
+
+    .autocomplete {
+        background-color: white;
+        height: 24px;
+		display: inline-flex;
+		flex-wrap: wrap;
+        align-items: center;
+        padding: 0 0 0 6px;
+		margin: 3px 6px;
+		
+
+        ::ng-deep .p-inputtext {
+            background-image: none;
+		}
+    }
+
+    .material-icons {
+        font-size: 17px;
+        color: al-color($al-gray, 300);
+    }
+
+    .close-chicklet {
+        display: flex;
+        align-self: stretch;
+    }
+
+    .add-chicklet {
+        display: flex;
+        align-self: stretch;
+    }
+
+    .close {
+        width: 30px;
+        height: 100%;
+        border-radius: 0 24px 24px 0;
+        padding-right: 0;
+        cursor: pointer;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        &:hover {
+            color: al-color($al-gray, 900);
+            background-color: #ffffff;
+            opacity: 0.5;
+        }
+    }
+
+    .add {
+        width: 30px;
+        height: 100%;
+        border-radius: 0;
+        padding-right: 3px;
+        cursor: pointer;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        &:hover {
+            color: al-color($al-gray, 900);
+            background-color: #ffffff;
+            opacity: 0.5;
+        }
+    }
+
+    .remove {
+        width: 30px;
+        height: 100%;
+        border-radius: 0;
+        padding-right: 3px;
+        cursor: pointer;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        &:hover {
+            color: al-color($al-gray, 900);
+            background-color: al-color($al-gray, 100);
+            opacity: 0.5;
+        }
+    }
+}
+
+button.continue-search {
+    width: 25px;
+    height: 25px;
+}
+
+.search-queue-area {
+
+    margin-bottom: 24px;
+
+    .queued-search {
+        padding: 12px 0 0 0;
+        margin: 0;
+        
+        .search-details {
+            color: al-color($al-gray, 100);
+            cursor: pointer;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+
+            &:hover {
+                color: al-color($al-gray, 700);
+            }
+        }
+
+        .actions {
+            width: 72px;   
+            .material-icons {
+                font-size: 17px;
+                float: right;
+                color: al-color($al-gray, 200);
+                text-align: center;
+                cursor: pointer;
+                &:hover {
+                    color: al-color($al-gray, 700);
+                }
+            }
+        }
+
+        .add-search {
+            padding: 0 12px;
+        }
+
+        .search-progress {
+            height: 4px;
+            margin: 6px 0 0 0;
+            width: 100%;
+            background-color: al-color($al-gray, 50);
+        
+            .search-completedness {
+                height: 4px;
+                background-color: al-color($al-green, 200);
+            }
+        
+            .search-completedness-done {
+                height: 4px;
+                background-color: al-color($al-green, 200);
+            }
+
+            .search-progress {
+                background-color: al-color($al-gray, 100);
+
+                .search-completedness {
+                    background-color: al-color($al-smokeBlue, 500);
+                }
+
+                .search-completedness-done {
+                    background-color: al-color($al-smokeBlue, 700);
+                }
+            }
+            
+        }
+
+        &.search-selected {
+            background-color: al-color($al-gray, 50);
+            //border-bottom: solid 1px al-color($al-gray, 500);
+
+            .search-details {
+                color: al-color($al-gray, 700);
+                padding-bottom: 6px;
+                //font-weight: 600;
+            }
+            .actions {
+                .material-icons {
+                    color: al-color($al-gray, 500);
+                }
+            }
+
+            .search-progress {
+                background-color: al-color($al-gray, 100);
+
+                .search-completedness {
+                    background-color: al-color($al-smokeBlue, 500);
+                }
+
+                .search-completedness-done {
+                    background-color: al-color($al-smokeBlue, 700);
+                }
+            }
+            
+        }
+    }
+}
+
+
+

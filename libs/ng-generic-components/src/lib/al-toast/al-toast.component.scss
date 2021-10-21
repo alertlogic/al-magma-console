@@ -1,0 +1,68 @@
+@import "@al/ng-generic-components/styles/utility";
+
+:host ::ng-deep .custom-toast {
+
+    .p-toast-message {
+        // color: #ffffff;
+        // background: al-color($al-gray, 500);
+        // padding: 12px 15px;
+    }
+
+    .p-toast-content {
+    //     margin: 0 10px;
+
+    //     .p-toast-message-html {
+    //         a {
+    //             cursor: pointer;
+    //             color: al-color($al-amber, 500);
+    //         }
+    //         .material-icons {
+    //             vertical-align: bottom;
+    //         }
+    //     }
+    }
+
+    // .p-toast-icon {
+    //     position: inherit;
+    // }
+
+    &.p-toast {
+        width: 50%;
+    }
+
+    // &.p-toast-bottom-center {
+    //     margin-left: -25%;
+    // }
+
+    .toast-buttons {
+        margin-top: 24px;
+
+        .button-container {
+            padding: 5px 10px;
+            a {
+                cursor: pointer;
+                color: al-color($al-amber, 500);
+                font-weight: 600;
+                padding: 0;
+            }
+
+            &.secondaryButton {
+                a {
+                    color: al-color($al-gray, 300);
+                }
+            }
+
+            &.tertiaryButton {
+                a {
+                    color: al-color($al-gray, 50);
+                }
+            }
+
+        }
+    }
+
+    // .toast-icon {
+    //     font-size: 24px;
+    //     padding: 0;
+    // }
+}

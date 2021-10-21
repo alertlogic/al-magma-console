@@ -1,0 +1,73 @@
+<p-dialog header="Why would a graph be showing as empty?" [(visible)]="displayEmptyGraphDlg" styleClass="empty-reason-dialog">
+    <div class="section-container">
+      <span class="section-1">
+        <i class="ui-icon-check"></i>
+        <p>This may be a good thing - having no exposures for example, whilst extremely unlikely, isn’t beyond the realms of possibility.</p>
+      </span>
+      <span class="section-2">
+        <i class="ui-icon-warning"></i>
+        <p>Something may be misconfigured. Check if you have any configuration issues and see if there’s any action to be taken.</p>
+      </span>
+      <span class="section-3">
+          <i class="ui-icon-blur-on"></i>
+          <p>If all looks good elsewhere, we could be working behind the scenes. Your data may be being processed by our advanced analytics engine.</p>
+      </span>
+    </div>
+  </p-dialog>
+
+  <div #container class="al-view-container" [hidden]="dashboardFilters.length === 0">
+    <div class="dropdowns">
+      <div>
+        <al-dropdown-filter [filterOptions]="dashboardFilters" [selectedOption]="selectedDashboardFilter" (onFilterSelection)="selectDashboard($event)"></al-dropdown-filter>
+        <div *ngIf="showDateControls" class="date-controls-container">
+          <al-selector #dateRangeSelector
+              [title]="'Data for the last:'"
+              [selectors]="selections"
+              (selected)="dateRangeSelectorOnChange($event)"
+              [hidden]="!showDateSelectionOptions">
+          </al-selector>
+          <div class="date-picker-container">
+            <span *ngIf="datePickerSelectionMode!=='single'">Custom range:</span>
+            <p-calendar [(ngModel)]="selectedDateRange"
+                [selectionMode]="datePickerSelectionMode"
+                (onSelect)="selectDate()"
+                [dateFormat]="datePickerInputFormat"
+                [showIcon]="true"
+                [disabled]="datePickerSelectionMode==='single'"
+                [maxDate]="datePickerMaxDate"
+                [minDate]="datePickerMinDate"
+                >
+            </p-calendar>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p-menu #menu [popup]="true" [model]="presentationItems"></p-menu>
+        <button id="presentation-button" type="button" pButton class="ui-button-icon" icon="ui-icon-camera" class="flat" (click)="menu.toggle($event)"></button>
+      </div>
+    </div>
+    <!-- Element added to handle a click event and force the highcharts to update the data after changing account -->
+    <div id="refresh" (click)="refresh(false)" style='display: none;'></div>
+    <al-dashboard-layout *ngIf="layoutConfig"
+      [layoutFormat]="layoutFormatToClassName(layoutFormat)"
+      [config]='layoutConfig'
+      (resizeStart)='resizeStart()'
+      (resizeEnd)='resizeEnd()'
+      (button-clicked)='widgetButtonActionHandler($event)'
+      (view-filtered-records)='viewFilteredRecords($event)'>
+    </al-dashboard-layout>
+    <al-download-queue
+      queuePosition="fixed-bottom"
+      (onDownloadResults)="exportData($event)"
+      (onDeleteSearch)="deleteFileName($event)"
+      [getResults]="false"
+      [showPlusButton]="false"></al-download-queue>
+
+  </div>
+  <div [hidden]="!showNoDashboardsMsg" class="inaccessible">
+    <div>
+      <i class="ui-icon-dashboard"></i>
+      <h1>Insufficient Access</h1>
+      <p>Sorry but it seems this account is not enabled to view dashboards</p>
+    </div>
+  </div>

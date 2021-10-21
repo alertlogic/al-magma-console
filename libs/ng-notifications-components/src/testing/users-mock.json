@@ -1,0 +1,1337 @@
+{
+    "users": [
+        {
+        "id": "4C29BCA5-42E3-48E0-A928-484CD140CE87",
+        "account_id": "2",
+        "name": "A123 Test",
+        "email": "atest@alertlogic.com",
+        "active": true,
+        "locked": false,
+        "version": 10,
+        "linked_users": [
+            {
+            "user_id": 1106,
+            "location": "defender-us-denver"
+            },
+            {
+            "user_id": 1106,
+            "location": "defender-uk-newport"
+            },
+            {
+            "user_id": 1106,
+            "location": "defender-us-ashburn"
+            }
+        ],
+        "legacy_permissions": [],
+        "created": {
+            "at": 1499895571,
+            "by": "92D64CDB-B2F6-4A28-A7EE-93ED375822E1"
+        },
+        "modified": {
+            "at": 1501702858,
+            "by": "EF41BEBF-B3DD-4130-8300-229AE7DB8863"
+        }
+        },
+        {
+        "id": "39EB5627-93CA-4354-8076-4CFC850AE82D",
+        "account_id": "2",
+        "name": "Abby Kincer",
+        "email": "abigail.kincer@alertlogic.com",
+        "active": true,
+        "locked": false,
+        "version": 3,
+        "linked_users": [
+            {
+            "user_id": 2100004588,
+            "location": "defender-us-denver"
+            },
+            {
+            "user_id": 2100004588,
+            "location": "defender-us-ashburn"
+            },
+            {
+            "user_id": 2100004588,
+            "location": "defender-uk-newport"
+            }
+        ],
+        "legacy_permissions": [],
+        "created": {
+            "at": 1519397602,
+            "by": "CC4A9A5F-27EF-497E-A4DA-C788328647D9"
+        },
+        "modified": {
+            "at": 1519397604,
+            "by": "CC4A9A5F-27EF-497E-A4DA-C788328647D9"
+        }
+        },
+        {
+        "id": "B17B7242-DCAB-407C-B418-4CAA8F16F271",
+        "account_id": "2",
+        "name": "ACZ cd integration",
+        "email": "acz@cdintegration.alertlogic.com",
+        "active": true,
+        "locked": false,
+        "version": 4,
+        "linked_users": [
+            {
+            "user_id": 158,
+            "location": "defender-us-denver"
+            },
+            {
+            "user_id": 158,
+            "location": "defender-uk-newport"
+            },
+            {
+            "user_id": 158,
+            "location": "defender-us-ashburn"
+            }
+        ],
+        "legacy_permissions": [
+            "ADDUSER",
+            "ADDUSER_OOB",
+            "DELUSER",
+            "DELUSER_OOB",
+            "LOCKUSER",
+            "LOCKUSER_OOB",
+            "MODUSER",
+            "MODUSER_OOB",
+            "VIEW_CHILD",
+            "MOD_INCIDENT",
+            "CONTAIN",
+            "MOD_SIGNATURE",
+            "MOD_GLOBALCONFIG",
+            "VIEW_PAYLOAD",
+            "MOD_CUSTBRANDING",
+            "MOD_GLOBALCONFIG_OOB",
+            "MANAGE_SCAN",
+            "MANAGE_SCAN_CHILD",
+            "VALIDATE_PCI_DATA",
+            "MANAGE_PROPERTIES",
+            "MANAGE_PROPERTIES_CHILD",
+            "MANAGE_LOG_POLICIES",
+            "MANAGE_LOG_POLICIES_CHILD",
+            "MANAGE_META_EVENT_POLICIES",
+            "MANAGE_META_EVENT_POLICIES_CHILD",
+            "API_ACCESS",
+            "API_IMPERSONATION",
+            "VIEW_LOG_CREDENTIALS",
+            "VIEW_LOG_COLLECTION_STATUS",
+            "VIEW_LOG_COLLECTION_STATUS_CHILD",
+            "MANAGE_CUSTOM_PARSER_RULES",
+            "MANAGE_CUSTOM_PARSER_RULES_OOB",
+            "HIDE_VULNERABILITIES",
+            "VIEW_MANAGEMENT_TAB",
+            "MOD_CASES",
+            "MOD_HOST",
+            "MOD_CASE_STATUSES",
+            "CLOSE_CASES",
+            "VIEW_WSM_CONFIG",
+            "VIEW_WSM_CONFIG_CHILD",
+            "MODIFY_WSM_CONFIG",
+            "MODIFY_WSM_CONFIG_CHILD",
+            "VIEW_CERT_CONFIG",
+            "VIEW_CERT_CONFIG_CHILD",
+            "VIEW_IDS_WHITELIST_CONFIG",
+            "VIEW_IDS_WHITELIST_CONFIG_CHILD",
+            "MANAGE_NOTIFICATIONS"
+        ],
+        "created": {
+            "at": 1496764419,
+            "by": "CBE203A9-168D-4E8D-8B73-5E20F38B47A1"
+        },
+        "modified": {
+            "at": 1496791148,
+            "by": "CBE203A9-168D-4E8D-8B73-5E20F38B47A1"
+        }
+        },
+        {
+        "id": "6BB7F108-16BE-467F-89CB-B44156812F71",
+        "account_id": "2",
+        "name": "Adam Keeton",
+        "email": "akeeton@alertlogic.com",
+        "active": true,
+        "locked": false,
+        "version": 4,
+        "linked_users": [
+            {
+            "user_id": 803,
+            "location": "defender-us-denver"
+            },
+            {
+            "user_id": 803,
+            "location": "defender-us-ashburn"
+            },
+            {
+            "user_id": 803,
+            "location": "defender-uk-newport"
+            }
+        ],
+        "legacy_permissions": [
+            "VIEW_IDS_WHITELIST_CONFIG_CHILD",
+            "VIEW_IDS_WHITELIST_CONFIG",
+            "VIEW_CERT_CONFIG_CHILD",
+            "VIEW_CERT_CONFIG",
+            "MODIFY_WSM_CONFIG_CHILD",
+            "MODIFY_WSM_CONFIG",
+            "VIEW_WSM_CONFIG_CHILD",
+            "VIEW_WSM_CONFIG",
+            "CLOSE_CASES",
+            "MOD_CASE_STATUSES",
+            "MOD_HOST",
+            "MOD_CASES",
+            "VIEW_MANAGEMENT_TAB",
+            "HIDE_VULNERABILITIES",
+            "MANAGE_CUSTOM_PARSER_RULES_OOB",
+            "MANAGE_CUSTOM_PARSER_RULES",
+            "VIEW_LOG_COLLECTION_STATUS_CHILD",
+            "VIEW_LOG_COLLECTION_STATUS",
+            "VIEW_LOG_CREDENTIALS",
+            "API_IMPERSONATION",
+            "API_ACCESS",
+            "MANAGE_META_EVENT_POLICIES_CHILD",
+            "MANAGE_META_EVENT_POLICIES",
+            "MANAGE_LOG_POLICIES_CHILD",
+            "MANAGE_LOG_POLICIES",
+            "MANAGE_PROPERTIES_CHILD",
+            "MANAGE_PROPERTIES",
+            "VALIDATE_PCI_DATA",
+            "MANAGE_SCAN_CHILD",
+            "MANAGE_SCAN",
+            "MOD_GLOBALCONFIG_OOB",
+            "MOD_CUSTBRANDING",
+            "VIEW_PAYLOAD",
+            "MOD_GLOBALCONFIG",
+            "MOD_SIGNATURE",
+            "CONTAIN",
+            "MOD_INCIDENT",
+            "VIEW_CHILD",
+            "MODUSER_OOB",
+            "MODUSER",
+            "LOCKUSER_OOB",
+            "LOCKUSER",
+            "DELUSER_OOB",
+            "DELUSER",
+            "ADDUSER_OOB",
+            "ADDUSER"
+        ],
+        "created": {
+            "at": 1497913153,
+            "by": "577EA8D8-0E89-4F72-9C26-076AC8A431E2"
+        },
+        "modified": {
+            "at": 1497913304,
+            "by": "EF41BEBF-B3DD-4130-8300-229AE7DB8863"
+        }
+        },
+        {
+        "id": "C6E42F49-806D-48FA-BC20-06E77FBF055B",
+        "account_id": "2",
+        "name": "Adam Leyshon",
+        "email": "aleyshon@alertlogic.com",
+        "active": true,
+        "locked": false,
+        "version": 6,
+        "linked_users": [
+            {
+            "user_id": 2100004582,
+            "location": "defender-us-denver"
+            },
+            {
+            "user_id": 2100004582,
+            "location": "defender-us-ashburn"
+            },
+            {
+            "user_id": 2100004582,
+            "location": "defender-uk-newport"
+            }
+        ],
+        "legacy_permissions": [],
+        "created": {
+            "at": 1519337494,
+            "by": "CC4A9A5F-27EF-497E-A4DA-C788328647D9"
+        },
+        "modified": {
+            "at": 1519337496,
+            "by": "CC4A9A5F-27EF-497E-A4DA-C788328647D9"
+        }
+        },
+        {
+        "id": "ED9E490F-F21F-49F4-A3AC-D7924E39086D",
+        "account_id": "2",
+        "name": "Admin user",
+        "email": "admin@company.com",
+        "active": true,
+        "locked": false,
+        "version": 8,
+        "linked_users": [
+            {
+            "user_id": 777,
+            "location": "defender-us-denver"
+            },
+            {
+            "user_id": 777,
+            "location": "defender-us-ashburn"
+            },
+            {
+            "user_id": 777,
+            "location": "defender-uk-newport"
+            }
+        ],
+        "legacy_permissions": [],
+        "created": {
+            "at": 1493039151,
+            "by": "CBE203A9-168D-4E8D-8B73-5E20F38B47A1"
+        },
+        "modified": {
+            "at": 1501018472,
+            "by": "CBE203A9-168D-4E8D-8B73-5E20F38B47A1"
+        }
+        },
+        {
+        "id": "CBF75FF4-FF33-4F52-9F26-7BFF5A4A2072",
+        "account_id": "2",
+        "name": "Admin user 2",
+        "email": "admin_@company.com",
+        "active": true,
+        "locked": false,
+        "version": 4,
+        "linked_users": [
+            {
+            "user_id": 754,
+            "location": "defender-us-denver"
+            },
+            {
+            "user_id": 754,
+            "location": "defender-us-ashburn"
+            },
+            {
+            "user_id": 754,
+            "location": "defender-uk-newport"
+            }
+        ],
+        "legacy_permissions": [],
+        "created": {
+            "at": 1486476055,
+            "by": "CBE203A9-168D-4E8D-8B73-5E20F38B47A1"
+        },
+        "modified": {
+            "at": 1496791172,
+            "by": "CBE203A9-168D-4E8D-8B73-5E20F38B47A1"
+        }
+        },
+        {
+        "id": "5AE51C02-2DEE-4AE2-B146-E48B90EE4ABE",
+        "account_id": "2",
+        "name": "Ahmeen Muhammad",
+        "email": "ahmeen.muhammad@alertlogic.com",
+        "active": true,
+        "locked": false,
+        "version": 3,
+        "linked_users": [
+            {
+            "user_id": 2100004556,
+            "location": "defender-us-denver"
+            },
+            {
+            "user_id": 2100004556,
+            "location": "defender-us-ashburn"
+            },
+            {
+            "user_id": 2100004556,
+            "location": "defender-uk-newport"
+            }
+        ],
+        "legacy_permissions": [],
+        "created": {
+            "at": 1519320018,
+            "by": "CC4A9A5F-27EF-497E-A4DA-C788328647D9"
+        },
+        "modified": {
+            "at": 1519320020,
+            "by": "CC4A9A5F-27EF-497E-A4DA-C788328647D9"
+        }
+        },
+        {
+        "id": "7ADBAAAD-CB6F-4B8C-8874-E6BC50DAC06B",
+        "account_id": "2",
+        "name": "AJ Adade",
+        "email": "aadade@alertlogic.com",
+        "active": true,
+        "locked": false,
+        "version": 2,
+        "linked_users": [
+            {
+            "user_id": 2100000126,
+            "location": "defender-us-denver"
+            },
+            {
+            "user_id": 2100000126,
+            "location": "defender-us-ashburn"
+            },
+            {
+            "user_id": 2100000126,
+            "location": "defender-uk-newport"
+            }
+        ],
+        "legacy_permissions": [],
+        "created": {
+            "at": 1503623213,
+            "by": "5D4E0BC7-05EB-4252-A2BB-BBE922346E50"
+        },
+        "modified": {
+            "at": 1503623215,
+            "by": "5D4E0BC7-05EB-4252-A2BB-BBE922346E50"
+        }
+        },
+        {
+        "id": "EB7AC19A-1F55-42DB-9A47-91B9E1CAA159",
+        "account_id": "2",
+        "name": "Al Robot",
+        "email": "altestrobot@gmail.com",
+        "active": true,
+        "locked": false,
+        "version": 4,
+        "linked_users": [
+            {
+            "user_id": 1133,
+            "location": "defender-us-denver"
+            },
+            {
+            "user_id": 1133,
+            "location": "defender-us-ashburn"
+            },
+            {
+            "user_id": 1133,
+            "location": "defender-uk-newport"
+            }
+        ],
+        "legacy_permissions": [],
+        "created": {
+            "at": 1500675030,
+            "by": "9E431986-BF9E-4DB9-911B-D16E06B9420E"
+        },
+        "modified": {
+            "at": 1500686494,
+            "by": "CBE203A9-168D-4E8D-8B73-5E20F38B47A1"
+        }
+        },
+        {
+        "id": "009DF38E-169F-4988-9D66-856F4F1E0184",
+        "account_id": "2",
+        "name": "AL Support",
+        "email": "al_support@alertlogic.com",
+        "active": true,
+        "locked": false,
+        "version": 3,
+        "linked_users": [
+            {
+            "user_id": 2100000137,
+            "location": "defender-us-denver"
+            },
+            {
+            "user_id": 2100000137,
+            "location": "defender-us-ashburn"
+            },
+            {
+            "user_id": 2100000137,
+            "location": "defender-uk-newport"
+            }
+        ],
+        "legacy_permissions": [
+            "MANAGE_NOTIFICATIONS",
+            "VIEW_IDS_WHITELIST_CONFIG_CHILD",
+            "VIEW_IDS_WHITELIST_CONFIG",
+            "VIEW_CERT_CONFIG_CHILD",
+            "VIEW_CERT_CONFIG",
+            "MODIFY_WSM_CONFIG_CHILD",
+            "MODIFY_WSM_CONFIG",
+            "VIEW_WSM_CONFIG_CHILD",
+            "VIEW_WSM_CONFIG",
+            "CLOSE_CASES",
+            "MOD_CASE_STATUSES",
+            "MOD_HOST",
+            "MOD_CASES",
+            "VIEW_MANAGEMENT_TAB",
+            "HIDE_VULNERABILITIES",
+            "MANAGE_CUSTOM_PARSER_RULES_OOB",
+            "MANAGE_CUSTOM_PARSER_RULES",
+            "VIEW_LOG_COLLECTION_STATUS_CHILD",
+            "VIEW_LOG_COLLECTION_STATUS",
+            "VIEW_LOG_CREDENTIALS",
+            "API_IMPERSONATION",
+            "API_ACCESS",
+            "MANAGE_META_EVENT_POLICIES_CHILD",
+            "MANAGE_META_EVENT_POLICIES",
+            "MANAGE_LOG_POLICIES_CHILD",
+            "MANAGE_LOG_POLICIES",
+            "MANAGE_PROPERTIES_CHILD",
+            "MANAGE_PROPERTIES",
+            "VALIDATE_PCI_DATA",
+            "MANAGE_SCAN_CHILD",
+            "MANAGE_SCAN",
+            "MOD_GLOBALCONFIG_OOB",
+            "MOD_CUSTBRANDING",
+            "VIEW_PAYLOAD",
+            "MOD_GLOBALCONFIG",
+            "MOD_SIGNATURE",
+            "CONTAIN",
+            "MOD_INCIDENT",
+            "VIEW_CHILD",
+            "MODUSER_OOB",
+            "MODUSER",
+            "LOCKUSER_OOB",
+            "LOCKUSER",
+            "DELUSER_OOB",
+            "DELUSER",
+            "ADDUSER_OOB",
+            "ADDUSER"
+        ],
+        "created": {
+            "at": 1503933020,
+            "by": "EF41BEBF-B3DD-4130-8300-229AE7DB8863"
+        },
+        "modified": {
+            "at": 1518646207,
+            "by": "EF41BEBF-B3DD-4130-8300-229AE7DB8863"
+        }
+        },
+        {
+        "id": "9DE580B0-5360-4DB0-8556-1B9DD07220B8",
+        "account_id": "2",
+        "name": "Alberto Bruno",
+        "email": "abruno@alertlogic.com",
+        "active": true,
+        "locked": false,
+        "version": 2,
+        "linked_users": [
+            {
+            "user_id": 2100000170,
+            "location": "defender-us-denver"
+            },
+            {
+            "user_id": 2100000170,
+            "location": "defender-us-ashburn"
+            },
+            {
+            "user_id": 2100000170,
+            "location": "defender-uk-newport"
+            }
+        ],
+        "legacy_permissions": [
+            "VIEW_IDS_WHITELIST_CONFIG_CHILD",
+            "VIEW_IDS_WHITELIST_CONFIG",
+            "CLOSE_CASES",
+            "MOD_CASE_STATUSES",
+            "MOD_HOST",
+            "MOD_CASES",
+            "VIEW_MANAGEMENT_TAB",
+            "HIDE_VULNERABILITIES",
+            "MANAGE_CUSTOM_PARSER_RULES_OOB",
+            "MANAGE_CUSTOM_PARSER_RULES",
+            "VIEW_LOG_COLLECTION_STATUS_CHILD",
+            "VIEW_LOG_COLLECTION_STATUS",
+            "API_IMPERSONATION",
+            "API_ACCESS",
+            "MANAGE_PROPERTIES_CHILD",
+            "MANAGE_PROPERTIES",
+            "VALIDATE_PCI_DATA",
+            "MANAGE_SCAN_CHILD",
+            "MANAGE_SCAN",
+            "MOD_GLOBALCONFIG_OOB",
+            "VIEW_PAYLOAD",
+            "MOD_GLOBALCONFIG",
+            "MOD_SIGNATURE",
+            "CONTAIN",
+            "MOD_INCIDENT",
+            "VIEW_CHILD"
+        ],
+        "created": {
+            "at": 1506021693,
+            "by": "EF41BEBF-B3DD-4130-8300-229AE7DB8863"
+        },
+        "modified": {
+            "at": 1506021695,
+            "by": "EF41BEBF-B3DD-4130-8300-229AE7DB8863"
+        }
+        },
+        {
+        "id": "52F2243D-9F52-46A7-80C5-8E9F886CB5EA",
+        "account_id": "2",
+        "name": "Aled Evans UAT",
+        "email": "aevans@cdia.alertlogic.com",
+        "active": true,
+        "locked": false,
+        "version": 5,
+        "linked_users": [
+            {
+            "user_id": 2100004408,
+            "location": "defender-uk-newport"
+            },
+            {
+            "user_id": 558,
+            "location": "defender-us-ashburn"
+            },
+            {
+            "user_id": 558,
+            "location": "defender-us-denver"
+            }
+        ],
+        "legacy_permissions": [
+            "ADDUSER",
+            "ADDUSER_OOB",
+            "DELUSER",
+            "DELUSER_OOB",
+            "LOCKUSER",
+            "LOCKUSER_OOB",
+            "MODUSER",
+            "MODUSER_OOB",
+            "VIEW_CHILD",
+            "MOD_INCIDENT",
+            "CONTAIN",
+            "MOD_SIGNATURE",
+            "MOD_GLOBALCONFIG",
+            "VIEW_PAYLOAD",
+            "MOD_CUSTBRANDING",
+            "MOD_GLOBALCONFIG_OOB",
+            "MANAGE_SCAN",
+            "MANAGE_SCAN_CHILD",
+            "VALIDATE_PCI_DATA",
+            "MANAGE_PROPERTIES",
+            "MANAGE_PROPERTIES_CHILD",
+            "MANAGE_LOG_POLICIES",
+            "MANAGE_LOG_POLICIES_CHILD",
+            "MANAGE_META_EVENT_POLICIES",
+            "MANAGE_META_EVENT_POLICIES_CHILD",
+            "API_ACCESS",
+            "API_IMPERSONATION",
+            "VIEW_LOG_CREDENTIALS",
+            "VIEW_LOG_COLLECTION_STATUS",
+            "VIEW_LOG_COLLECTION_STATUS_CHILD",
+            "MANAGE_CUSTOM_PARSER_RULES",
+            "MANAGE_CUSTOM_PARSER_RULES_OOB",
+            "HIDE_VULNERABILITIES",
+            "VIEW_MANAGEMENT_TAB",
+            "MOD_CASES",
+            "MOD_HOST",
+            "MOD_CASE_STATUSES",
+            "CLOSE_CASES",
+            "VIEW_WSM_CONFIG",
+            "VIEW_WSM_CONFIG_CHILD",
+            "MODIFY_WSM_CONFIG",
+            "MODIFY_WSM_CONFIG_CHILD",
+            "VIEW_CERT_CONFIG",
+            "VIEW_CERT_CONFIG_CHILD",
+            "VIEW_IDS_WHITELIST_CONFIG",
+            "VIEW_IDS_WHITELIST_CONFIG_CHILD"
+        ],
+        "created": {
+            "at": 1496764420,
+            "by": "CBE203A9-168D-4E8D-8B73-5E20F38B47A1"
+        },
+        "modified": {
+            "at": 1510269289,
+            "by": "CBE203A9-168D-4E8D-8B73-5E20F38B47A1"
+        }
+        },
+        {
+        "id": "D4A3CEFA-0B14-4687-A924-58053D7C13A5",
+        "account_id": "2",
+        "name": "Aleksei Osin",
+        "email": "aosin@alertlogic.com",
+        "active": true,
+        "locked": false,
+        "version": 2,
+        "linked_users": [
+            {
+            "user_id": 2100004690,
+            "location": "defender-us-denver"
+            },
+            {
+            "user_id": 2100004690,
+            "location": "defender-us-ashburn"
+            },
+            {
+            "user_id": 2100004690,
+            "location": "defender-uk-newport"
+            }
+        ],
+        "legacy_permissions": [],
+        "created": {
+            "at": 1521488722,
+            "by": "2C764831-DE5A-4A1F-BEBC-EBBC7E0BCF24"
+        },
+        "modified": {
+            "at": 1521488724,
+            "by": "2C764831-DE5A-4A1F-BEBC-EBBC7E0BCF24"
+        }
+        },
+        {
+        "id": "7A212CA8-152B-4F14-884E-77A8D3FFBEE3",
+        "account_id": "2",
+        "name": "AlertLogic Support",
+        "email": "al_support_2@alertlogic.com",
+        "active": true,
+        "locked": false,
+        "version": 2,
+        "linked_users": [
+            {
+            "user_id": 2100004499,
+            "location": "defender-us-denver"
+            },
+            {
+            "user_id": 2100004499,
+            "location": "defender-us-ashburn"
+            },
+            {
+            "user_id": 2100004499,
+            "location": "defender-uk-newport"
+            }
+        ],
+        "legacy_permissions": [
+            "MANAGE_NOTIFICATIONS",
+            "VIEW_IDS_WHITELIST_CONFIG_CHILD",
+            "VIEW_IDS_WHITELIST_CONFIG",
+            "VIEW_CERT_CONFIG_CHILD",
+            "VIEW_CERT_CONFIG",
+            "MODIFY_WSM_CONFIG_CHILD",
+            "MODIFY_WSM_CONFIG",
+            "VIEW_WSM_CONFIG_CHILD",
+            "VIEW_WSM_CONFIG",
+            "CLOSE_CASES",
+            "MOD_CASE_STATUSES",
+            "MOD_HOST",
+            "MOD_CASES",
+            "VIEW_MANAGEMENT_TAB",
+            "HIDE_VULNERABILITIES",
+            "MANAGE_CUSTOM_PARSER_RULES_OOB",
+            "MANAGE_CUSTOM_PARSER_RULES",
+            "VIEW_LOG_COLLECTION_STATUS_CHILD",
+            "VIEW_LOG_COLLECTION_STATUS",
+            "VIEW_LOG_CREDENTIALS",
+            "API_IMPERSONATION",
+            "API_ACCESS",
+            "MANAGE_META_EVENT_POLICIES_CHILD",
+            "MANAGE_META_EVENT_POLICIES",
+            "MANAGE_LOG_POLICIES_CHILD",
+            "MANAGE_LOG_POLICIES",
+            "MANAGE_PROPERTIES_CHILD",
+            "MANAGE_PROPERTIES",
+            "VALIDATE_PCI_DATA",
+            "MANAGE_SCAN_CHILD",
+            "MANAGE_SCAN",
+            "MOD_GLOBALCONFIG_OOB",
+            "VIEW_PAYLOAD",
+            "MOD_GLOBALCONFIG",
+            "MOD_SIGNATURE",
+            "CONTAIN",
+            "MOD_INCIDENT",
+            "VIEW_CHILD",
+            "MODUSER_OOB",
+            "MODUSER",
+            "LOCKUSER_OOB",
+            "LOCKUSER",
+            "DELUSER_OOB",
+            "DELUSER",
+            "ADDUSER_OOB",
+            "ADDUSER"
+        ],
+        "created": {
+            "at": 1516809952,
+            "by": "EF41BEBF-B3DD-4130-8300-229AE7DB8863"
+        },
+        "modified": {
+            "at": 1516809954,
+            "by": "EF41BEBF-B3DD-4130-8300-229AE7DB8863"
+        }
+        },
+        {
+        "id": "B8B7C7C1-8D58-4616-A845-E1A127307195",
+        "account_id": "2",
+        "name": "Alex Turkin",
+        "email": "aturkin@alertlogic.com",
+        "active": true,
+        "locked": false,
+        "version": 6,
+        "linked_users": [
+            {
+            "user_id": 741,
+            "location": "defender-us-denver"
+            },
+            {
+            "user_id": 741,
+            "location": "defender-us-ashburn"
+            },
+            {
+            "user_id": 741,
+            "location": "defender-uk-newport"
+            }
+        ],
+        "legacy_permissions": [],
+        "created": {
+            "at": 1443696160,
+            "by": "97B01036-FAFA-4C70-BDCC-A0900ACD1C84"
+        },
+        "modified": {
+            "at": 1496791154,
+            "by": "CBE203A9-168D-4E8D-8B73-5E20F38B47A1"
+        }
+        },
+        {
+        "id": "11A28C61-72E7-4999-9985-18006F83A892",
+        "account_id": "2",
+        "name": "Alexander Prikhodko",
+        "email": "alexander.prikhodko@alertlogic.com",
+        "active": true,
+        "locked": false,
+        "version": 6,
+        "linked_users": [
+            {
+            "user_id": 642,
+            "location": "defender-us-denver"
+            },
+            {
+            "user_id": 642,
+            "location": "defender-us-ashburn"
+            },
+            {
+            "user_id": 642,
+            "location": "defender-uk-newport"
+            }
+        ],
+        "legacy_permissions": [],
+        "created": {
+            "at": 1488543102,
+            "by": "B92ED90F-0F65-45A9-BD94-6357A15F5B49"
+        },
+        "modified": {
+            "at": 1496791028,
+            "by": "CBE203A9-168D-4E8D-8B73-5E20F38B47A1"
+        }
+        },
+        {
+        "id": "12734939-54CD-43C4-A004-17B4ECFEB814",
+        "account_id": "2",
+        "name": "Alexey Zverev",
+        "email": "azverev@alertlogic.com",
+        "active": true,
+        "locked": false,
+        "version": 9,
+        "linked_users": [
+            {
+            "user_id": 610,
+            "location": "defender-us-denver"
+            },
+            {
+            "user_id": 610,
+            "location": "defender-uk-newport"
+            },
+            {
+            "user_id": 610,
+            "location": "defender-us-ashburn"
+            }
+        ],
+        "legacy_permissions": [],
+        "created": {
+            "at": 1443692271,
+            "by": "97B01036-FAFA-4C70-BDCC-A0900ACD1C84"
+        },
+        "modified": {
+            "at": 1496791028,
+            "by": "CBE203A9-168D-4E8D-8B73-5E20F38B47A1"
+        }
+        },
+        {
+        "id": "FDBBB7BB-06D3-4770-BD6C-FBF2054FCFB4",
+        "account_id": "2",
+        "name": "Alma Mata",
+        "email": "amata@alertlogic.com",
+        "active": true,
+        "locked": false,
+        "version": 3,
+        "linked_users": [
+            {
+            "user_id": 2100004640,
+            "location": "defender-us-denver"
+            },
+            {
+            "user_id": 2100004640,
+            "location": "defender-us-ashburn"
+            },
+            {
+            "user_id": 2100004640,
+            "location": "defender-uk-newport"
+            }
+        ],
+        "legacy_permissions": [],
+        "created": {
+            "at": 1520617687,
+            "by": "AAB04883-1721-4BDE-B297-2F072CAF96C5"
+        },
+        "modified": {
+            "at": 1520617690,
+            "by": "AAB04883-1721-4BDE-B297-2F072CAF96C5"
+        }
+        },
+        {
+        "id": "48E5EC03-B270-46B5-9852-A9930A87FA4C",
+        "account_id": "2",
+        "name": "Aly jones UAT",
+        "email": "alyson.jones@cdia.alertlogic.com",
+        "active": true,
+        "locked": false,
+        "version": 4,
+        "linked_users": [
+            {
+            "user_id": 557,
+            "location": "defender-us-denver"
+            },
+            {
+            "user_id": 557,
+            "location": "defender-uk-newport"
+            },
+            {
+            "user_id": 557,
+            "location": "defender-us-ashburn"
+            }
+        ],
+        "legacy_permissions": [
+            "ADDUSER",
+            "ADDUSER_OOB",
+            "DELUSER",
+            "DELUSER_OOB",
+            "LOCKUSER",
+            "LOCKUSER_OOB",
+            "MODUSER",
+            "MODUSER_OOB",
+            "VIEW_CHILD",
+            "MOD_INCIDENT",
+            "CONTAIN",
+            "MOD_SIGNATURE",
+            "MOD_GLOBALCONFIG",
+            "VIEW_PAYLOAD",
+            "MOD_CUSTBRANDING",
+            "MOD_GLOBALCONFIG_OOB",
+            "MANAGE_SCAN",
+            "MANAGE_SCAN_CHILD",
+            "VALIDATE_PCI_DATA",
+            "MANAGE_PROPERTIES",
+            "MANAGE_PROPERTIES_CHILD",
+            "MANAGE_LOG_POLICIES",
+            "MANAGE_LOG_POLICIES_CHILD",
+            "MANAGE_META_EVENT_POLICIES",
+            "MANAGE_META_EVENT_POLICIES_CHILD",
+            "API_ACCESS",
+            "API_IMPERSONATION",
+            "VIEW_LOG_CREDENTIALS",
+            "VIEW_LOG_COLLECTION_STATUS",
+            "VIEW_LOG_COLLECTION_STATUS_CHILD",
+            "MANAGE_CUSTOM_PARSER_RULES",
+            "MANAGE_CUSTOM_PARSER_RULES_OOB",
+            "HIDE_VULNERABILITIES",
+            "VIEW_MANAGEMENT_TAB",
+            "MOD_CASES",
+            "MOD_HOST",
+            "MOD_CASE_STATUSES",
+            "CLOSE_CASES",
+            "VIEW_WSM_CONFIG",
+            "VIEW_WSM_CONFIG_CHILD",
+            "MODIFY_WSM_CONFIG",
+            "MODIFY_WSM_CONFIG_CHILD",
+            "VIEW_CERT_CONFIG",
+            "VIEW_CERT_CONFIG_CHILD",
+            "VIEW_IDS_WHITELIST_CONFIG",
+            "VIEW_IDS_WHITELIST_CONFIG_CHILD"
+        ],
+        "created": {
+            "at": 1496784932,
+            "by": "CBE203A9-168D-4E8D-8B73-5E20F38B47A1"
+        },
+        "modified": {
+            "at": 1496791074,
+            "by": "CBE203A9-168D-4E8D-8B73-5E20F38B47A1"
+        }
+        },
+        {
+        "id": "E0899348-7E23-4A2D-83C5-9930936DE08F",
+        "account_id": "2",
+        "name": "Alysa Flores",
+        "email": "alysa.flores@alertlogic.com",
+        "active": true,
+        "locked": false,
+        "version": 3,
+        "linked_users": [
+            {
+            "user_id": 2100004557,
+            "location": "defender-us-denver"
+            },
+            {
+            "user_id": 2100004557,
+            "location": "defender-us-ashburn"
+            },
+            {
+            "user_id": 2100004557,
+            "location": "defender-uk-newport"
+            }
+        ],
+        "legacy_permissions": [],
+        "created": {
+            "at": 1519320044,
+            "by": "CC4A9A5F-27EF-497E-A4DA-C788328647D9"
+        },
+        "modified": {
+            "at": 1519320046,
+            "by": "CC4A9A5F-27EF-497E-A4DA-C788328647D9"
+        }
+        },
+        {
+        "id": "C57BA0FD-7FA7-4736-956D-74C555657996",
+        "account_id": "2",
+        "name": "Amy Allen",
+        "email": "wallen@alertlogic.com",
+        "active": true,
+        "locked": false,
+        "version": 6,
+        "linked_users": [
+            {
+            "user_id": 2100004419,
+            "location": "defender-uk-newport"
+            },
+            {
+            "user_id": 615,
+            "location": "defender-us-ashburn"
+            },
+            {
+            "user_id": 615,
+            "location": "defender-us-denver"
+            }
+        ],
+        "legacy_permissions": [],
+        "created": {
+            "at": 1470333934,
+            "by": "91D37FA3-1D62-4BEF-83A2-C0141254974C"
+        },
+        "modified": {
+            "at": 1510269309,
+            "by": "CBE203A9-168D-4E8D-8B73-5E20F38B47A1"
+        }
+        },
+        {
+        "id": "DFEBB040-474F-4DDF-BC89-0FC57E53874A",
+        "account_id": "2",
+        "name": "Analytics Platform",
+        "email": "analyticsplatform@alertlogic.com",
+        "active": true,
+        "locked": false,
+        "version": 63,
+        "linked_users": [
+            {
+            "user_id": 768,
+            "location": "defender-us-denver"
+            },
+            {
+            "user_id": 768,
+            "location": "defender-us-ashburn"
+            },
+            {
+            "user_id": 768,
+            "location": "defender-uk-newport"
+            }
+        ],
+        "legacy_permissions": [],
+        "created": {
+            "at": 1480718681,
+            "by": "74A850C0-D12A-4E03-BC30-EFF805E6407D"
+        },
+        "modified": {
+            "at": 1496791186,
+            "by": "CBE203A9-168D-4E8D-8B73-5E20F38B47A1"
+        }
+        },
+        {
+        "id": "67CAA243-1961-43FC-80FD-F823E57E205C",
+        "account_id": "2",
+        "name": "Andre de Castro Zorzo",
+        "email": "acz@alertlogic.com",
+        "active": true,
+        "locked": false,
+        "version": 2,
+        "linked_users": [
+            {
+            "user_id": 1107,
+            "location": "defender-us-denver"
+            },
+            {
+            "user_id": 1107,
+            "location": "defender-us-ashburn"
+            },
+            {
+            "user_id": 1107,
+            "location": "defender-uk-newport"
+            }
+        ],
+        "legacy_permissions": [],
+        "created": {
+            "at": 1499975885,
+            "by": "9E431986-BF9E-4DB9-911B-D16E06B9420E"
+        },
+        "modified": {
+            "at": 1499975894,
+            "by": "9E431986-BF9E-4DB9-911B-D16E06B9420E"
+        }
+        },
+        {
+        "id": "5D38954E-1003-4988-8585-BD31D69B221E",
+        "account_id": "2",
+        "name": "Andres Artunduaga",
+        "email": "andres.artunduaga@alertlogic.com",
+        "active": true,
+        "locked": false,
+        "version": 10,
+        "linked_users": [
+            {
+            "user_id": 261,
+            "location": "defender-us-denver"
+            },
+            {
+            "user_id": 261,
+            "location": "defender-us-ashburn"
+            },
+            {
+            "user_id": 261,
+            "location": "defender-uk-newport"
+            }
+        ],
+        "legacy_permissions": [
+            "ADDUSER",
+            "ADDUSER_OOB",
+            "DELUSER",
+            "DELUSER_OOB",
+            "LOCKUSER",
+            "LOCKUSER_OOB",
+            "MODUSER",
+            "MODUSER_OOB",
+            "VIEW_CHILD",
+            "MOD_INCIDENT",
+            "CONTAIN",
+            "MOD_SIGNATURE",
+            "MOD_GLOBALCONFIG",
+            "VIEW_PAYLOAD",
+            "MOD_CUSTBRANDING",
+            "MOD_GLOBALCONFIG_OOB",
+            "MANAGE_SCAN",
+            "MANAGE_SCAN_CHILD",
+            "VALIDATE_PCI_DATA",
+            "MANAGE_PROPERTIES",
+            "MANAGE_PROPERTIES_CHILD",
+            "MANAGE_LOG_POLICIES",
+            "MANAGE_LOG_POLICIES_CHILD",
+            "MANAGE_META_EVENT_POLICIES",
+            "MANAGE_META_EVENT_POLICIES_CHILD",
+            "API_ACCESS",
+            "API_IMPERSONATION",
+            "VIEW_LOG_CREDENTIALS",
+            "VIEW_LOG_COLLECTION_STATUS",
+            "VIEW_LOG_COLLECTION_STATUS_CHILD",
+            "MANAGE_CUSTOM_PARSER_RULES",
+            "MANAGE_CUSTOM_PARSER_RULES_OOB",
+            "HIDE_VULNERABILITIES",
+            "VIEW_MANAGEMENT_TAB",
+            "MOD_CASES",
+            "MOD_HOST",
+            "MOD_CASE_STATUSES",
+            "CLOSE_CASES",
+            "VIEW_WSM_CONFIG",
+            "VIEW_WSM_CONFIG_CHILD",
+            "MODIFY_WSM_CONFIG",
+            "MODIFY_WSM_CONFIG_CHILD",
+            "VIEW_CERT_CONFIG",
+            "VIEW_CERT_CONFIG_CHILD",
+            "VIEW_IDS_WHITELIST_CONFIG",
+            "VIEW_IDS_WHITELIST_CONFIG_CHILD"
+        ],
+        "created": {
+            "at": 1470166655,
+            "by": "E242A1BB-FF39-48C6-89BD-EE9E9B354E84"
+        },
+        "modified": {
+            "at": 1496791088,
+            "by": "CBE203A9-168D-4E8D-8B73-5E20F38B47A1"
+        }
+        },
+        {
+            "id": "7D8EABE0-A406-46E5-8917-B19B5648E36A",
+            "account_id": "2",
+            "name": "Gisler Garces",
+            "email": "ggarces+5@alertlogic.com",
+            "active": true,
+            "locked": false,
+            "version": 9,
+            "linked_users": [
+              {
+                "user_id": 2100004536,
+                "location": "defender-us-denver"
+              },
+              {
+                "user_id": 2100004536,
+                "location": "defender-us-ashburn"
+              },
+              {
+                "user_id": 2100004536,
+                "location": "defender-uk-newport"
+              }
+            ],
+            "legacy_permissions": [],
+            "created": {
+              "at": 1517956273,
+              "by": "E242A1BB-FF39-48C6-89BD-EE9E9B354E84"
+            },
+            "modified": {
+              "at": 1518125213,
+              "by": "E242A1BB-FF39-48C6-89BD-EE9E9B354E84"
+            }
+          },
+          {
+            "id": "CD945645-64DE-4445-9D58-4480BDF8C40F",
+            "account_id": "2",
+            "name": "Goldie Liu",
+            "email": "goldie.liu@alertlogic.com",
+            "active": true,
+            "locked": false,
+            "version": 7,
+            "linked_users": [
+              {
+                "user_id": 758,
+                "location": "defender-us-denver"
+              },
+              {
+                "user_id": 758,
+                "location": "defender-us-ashburn"
+              },
+              {
+                "user_id": 758,
+                "location": "defender-uk-newport"
+              }
+            ],
+            "legacy_permissions": [],
+            "created": {
+              "at": 1468527168,
+              "by": "060CE2FB-0F5B-4687-929F-01CD7640F06E"
+            },
+            "modified": {
+              "at": 1496791175,
+              "by": "CBE203A9-168D-4E8D-8B73-5E20F38B47A1"
+            }
+          },
+          {
+            "id": "89CC58E7-74AD-474F-A875-96E8203223AF",
+            "account_id": "2",
+            "name": "Greg Wolf UAT",
+            "email": "greg.wolf@cdia.alertlogic.com",
+            "active": true,
+            "locked": false,
+            "version": 4,
+            "linked_users": [
+              {
+                "user_id": 523,
+                "location": "defender-us-denver"
+              },
+              {
+                "user_id": 523,
+                "location": "defender-us-ashburn"
+              },
+              {
+                "user_id": 523,
+                "location": "defender-uk-newport"
+              }
+            ],
+            "legacy_permissions": [
+              "ADDUSER",
+              "ADDUSER_OOB",
+              "DELUSER",
+              "DELUSER_OOB",
+              "LOCKUSER",
+              "LOCKUSER_OOB",
+              "MODUSER",
+              "MODUSER_OOB",
+              "VIEW_CHILD",
+              "MOD_INCIDENT",
+              "CONTAIN",
+              "MOD_SIGNATURE",
+              "MOD_GLOBALCONFIG",
+              "VIEW_PAYLOAD",
+              "MOD_CUSTBRANDING",
+              "MOD_GLOBALCONFIG_OOB",
+              "MANAGE_SCAN",
+              "MANAGE_SCAN_CHILD",
+              "VALIDATE_PCI_DATA",
+              "MANAGE_PROPERTIES",
+              "MANAGE_PROPERTIES_CHILD",
+              "MANAGE_LOG_POLICIES",
+              "MANAGE_LOG_POLICIES_CHILD",
+              "MANAGE_META_EVENT_POLICIES",
+              "MANAGE_META_EVENT_POLICIES_CHILD",
+              "API_ACCESS",
+              "API_IMPERSONATION",
+              "VIEW_LOG_CREDENTIALS",
+              "VIEW_LOG_COLLECTION_STATUS",
+              "VIEW_LOG_COLLECTION_STATUS_CHILD",
+              "MANAGE_CUSTOM_PARSER_RULES",
+              "MANAGE_CUSTOM_PARSER_RULES_OOB",
+              "HIDE_VULNERABILITIES",
+              "VIEW_MANAGEMENT_TAB",
+              "MOD_CASES",
+              "MOD_HOST",
+              "MOD_CASE_STATUSES",
+              "CLOSE_CASES",
+              "VIEW_WSM_CONFIG",
+              "VIEW_WSM_CONFIG_CHILD",
+              "MODIFY_WSM_CONFIG",
+              "MODIFY_WSM_CONFIG_CHILD",
+              "VIEW_CERT_CONFIG",
+              "VIEW_CERT_CONFIG_CHILD",
+              "VIEW_IDS_WHITELIST_CONFIG",
+              "VIEW_IDS_WHITELIST_CONFIG_CHILD"
+            ],
+            "created": {
+              "at": 1496764425,
+              "by": "CBE203A9-168D-4E8D-8B73-5E20F38B47A1"
+            },
+            "modified": {
+              "at": 1496791120,
+              "by": "CBE203A9-168D-4E8D-8B73-5E20F38B47A1"
+            }
+          },
+          {
+            "id": "3B1732D8-91C4-4B9B-9137-1BAD224F4B39",
+            "account_id": "2",
+            "name": "Gregg Ward",
+            "email": "gregg.ward@alertlogic.com",
+            "active": true,
+            "locked": false,
+            "version": 2,
+            "linked_users": [
+              {
+                "user_id": 2100004494,
+                "location": "defender-us-denver"
+              },
+              {
+                "user_id": 2100004494,
+                "location": "defender-us-ashburn"
+              },
+              {
+                "user_id": 2100004494,
+                "location": "defender-uk-newport"
+              }
+            ],
+            "legacy_permissions": [],
+            "created": {
+              "at": 1516287932,
+              "by": "67CAA243-1961-43FC-80FD-F823E57E205C"
+            },
+            "modified": {
+              "at": 1516287934,
+              "by": "67CAA243-1961-43FC-80FD-F823E57E205C"
+            }
+        }
+    ]
+}

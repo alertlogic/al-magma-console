@@ -1,0 +1,137 @@
+@import "@al/ng-generic-components/styles/utility";
+
+@function al-contrast($palette, $hue) {
+    @return map-get(map-get($palette, contrast), $hue);
+}
+.al-left-panel-detail {
+    ::ng-deep .underlineTwo {
+        border-bottom: 2px solid al-color($al-gray, 50);
+    }
+
+    .header {
+        color: al-color($al-gray, 600);
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        .icon {
+            font-size: 1.8em;
+            padding-left: 20px;
+        }
+
+        .description {
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+
+        &.exposure-high {
+            font-weight: lighter;
+            background-color: al-color($al-red, 600);
+            color: al-contrast($al-red, 600);
+        }
+
+        &.exposure-medium {
+            font-weight: lighter;
+            background-color: al-color($al-orange, 500);
+            color: al-contrast($al-orange, 500);
+        }
+
+        &.exposure-low {
+            font-weight: lighter;
+            background-color: al-color($al-yellow, 600);
+            color: al-contrast($al-yellow, 600);
+        }
+
+        &.exposure-info {
+            font-weight: lighter;
+            background-color: al-color($al-gray, 300);
+            color: al-contrast($al-gray, 300);
+        }
+
+        &.remediation {
+            font-weight: bold;
+        }
+    }
+
+    .simple-panel {
+        color: al-color($al-gray, 600);
+        padding: 20px;
+        padding-left: 40px;
+    }
+
+    .assessment-header {
+        color: al-color($al-gray, 600);
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 5px;
+
+        .subtitle {
+            padding-left: 35px;
+            font-size: 12px;
+            color: al-color($al-gray, 200);
+        }
+        .status {
+            i {
+                padding: 2px;
+                font-size: 1.2em;
+            }
+            padding-left: 14px;
+            font-weight: bold;
+        }
+        .date {
+            padding-left: 35px;
+            padding-bottom: 10px;
+        }
+        .subtitle-data {
+            padding-left: 35px;
+        }
+    }
+
+    .assessment-body {
+        .subtitle {
+            padding-top: 20px;
+            padding-left: 35px;
+            font-size: 12px;
+            color: al-color($al-gray, 200);
+        }
+
+        .filter-title{
+            padding-left: 35px;
+            padding-top: 10px;
+            padding-bottom: 5px;
+        }
+        .element{
+            padding: 10px 10px 10px 45px;
+            i{
+                font-size: 1.8em;
+                padding-right: 10px;
+            }
+            span {
+                word-break: normal;
+            }
+            word-break: break-all;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        .underlineOne {
+            border-bottom: 1px solid al-color($al-gray, 50);
+        }
+        .asset-group {
+            color: al-color($al-gray, 600);
+            padding-left: 35px;
+            .group-name {
+                padding-top: 10px;
+                padding-bottom: 5px;
+            }
+            .asset-item {
+                i {
+                    font-size: 1.8em;
+                    padding-right: 10px;
+                }
+                padding: 10px;
+            }
+        }
+
+
+    }
+
+}

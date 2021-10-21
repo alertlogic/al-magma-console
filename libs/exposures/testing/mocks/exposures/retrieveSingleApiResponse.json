@@ -1,0 +1,100 @@
+{
+    "rows": 1,
+    "assets": [
+        [
+            {
+                "scope_aws_private_ip_address": "10.252.0.251",
+                "instance_type": "r5.2xlarge",
+                "private_ipv4_addresses": [
+                    "10.252.0.251"
+                ],
+                "private_ip_address": "10.252.0.251",
+                "private_dns_name": "ip-10-252-0-251.ec2.internal",
+                "key": "/aws/us-east-1/host/i-0c4e6de4c599e7ff1",
+                "scope_aws_architecture": "x86_64",
+                "instance_id": "i-0c4e6de4c599e7ff1",
+                "private_ipv6_addresses": [],
+                "scope_aws_instance_id": "i-0c4e6de4c599e7ff1",
+                "scope_aws_native_id": "arn:aws:ec2:us-east-1:948063967832:instance/i-0c4e6de4c599e7ff1",
+                "scope_aws_vpc_id": "vpc-151ea773",
+                "alertlogic_appliance": false,
+                "dns_name": "",
+                "path": [
+                    "deployment:7D5E66BE-98C6-40A2-8B09-5DC4C0FEE677",
+                    "region:/aws/us-east-1",
+                    "vpc:/aws/us-east-1/vpc/vpc-151ea773",
+                    "subnet:/aws/us-east-1/subnet/subnet-4d422916"
+                ],
+                "scope_aws_dns_name": "",
+                "type": "host",
+                "public_ipv4_addresses": [],
+                "scope_aws_root_device_name": "/dev/xvda",
+                "scope_aws_state": "running",
+                "private_ip_addresses": [
+                    "10.252.0.251"
+                ],
+                "scope_aws_ip_address": "",
+                "scope_aws_monitoring_enabled": false,
+                "scope_aws_launch_time": 1581074966,
+                "version": 3261,
+                "deleted_on": 0,
+                "scope_aws_key_name": "route105-infra-internal",
+                "scope_aws_iam_instance_profile": "arn:aws:iam::948063967832:instance-profile/global-integration-cfnStackElasticsearch-69OCASPOSRAJ-iamInstanceProfileElasticsearch-SW7XE19R6BW4",
+                "threat_level": 3,
+                "state": "running",
+                "name": "Elasticsearch",
+                "in_scope": true,
+                "threatiness": 16.0,
+                "scope_scan_scheduler_sla_interval": 86400,
+                "deployment_id": "7D5E66BE-98C6-40A2-8B09-5DC4C0FEE677",
+                "scope_aws_subnet_id": "subnet-4d422916",
+                "tag_keys": {
+                    "mgr": "/aws/us-east-1/tag/key/mgr/value/sysops-manager",
+                    "base-stack-name": "/aws/us-east-1/tag/key/base-stack-name/value/global-integration",
+                    "base-stack-id": "/aws/us-east-1/tag/key/base-stack-id/value/arn:aws:cloudformation:us-east-1:948063967832:stack/global-integration/8518e240-d9b4-11e6-9d86-500c524058f2",
+                    "aws:ec2launchtemplate:version": "/aws/us-east-1/tag/key/aws:ec2launchtemplate:version/value/1",
+                    "aws:ec2launchtemplate:id": "/aws/us-east-1/tag/key/aws:ec2launchtemplate:id/value/lt-02ff91176f7e68bb5",
+                    "aws:cloudformation:stack-name": "/aws/us-east-1/tag/key/aws:cloudformation:stack-name/value/global-integration-cfnStackElasticsearch-69OCASPOSRAJ",
+                    "aws:cloudformation:stack-id": "/aws/us-east-1/tag/key/aws:cloudformation:stack-id/value/arn:aws:cloudformation:us-east-1:948063967832:stack/global-integration-cfnStackElasticsearch-69OCASPOSRAJ/0ec4d110-0a3a-11e7-a1b3-500c28b4e461",
+                    "aws:cloudformation:logical-id": "/aws/us-east-1/tag/key/aws:cloudformation:logical-id/value/asgElasticsearch",
+                    "aws:autoscaling:groupName": "/aws/us-east-1/tag/key/aws:autoscaling:groupName/value/global-integration-cfnStackElasticsearch-69OCASPOSRAJ-asgElasticsearch-WT78P7YQIA7J",
+                    "Network": "/aws/us-east-1/tag/key/Network/value/Private",
+                    "Name": "/aws/us-east-1/tag/key/Name/value/Elasticsearch"
+                },
+                "scope_aws_root_device_type": "ebs",
+                "public_ip_addresses": [],
+                "modified_on": 1585639823163,
+                "scope_aws_image_id": "ami-0c3d0bf56c597d0e6",
+                "scope_aws_instance_type": "r5.2xlarge",
+                "native_type": "host",
+                "ip_address": "",
+                "created_on": 1581077366898,
+                "scope_aws_spot_instance_request_id": "none",
+                "scope_aws_instance_lifecycle": "none",
+                "instance_name": "Elasticsearch",
+                "scope_aws_instance_name": "Elasticsearch",
+                "scope_aws_availability_zone": "us-east-1a",
+                "account_id": "134249236",
+                "scope_aws_kernel_id": "",
+                "public_ipv6_addresses": [],
+                "declared": true,
+                "scope_aws_private_dns_name": "ip-10-252-0-251.ec2.internal",
+                "scope_aws_region": "us-east-1",
+                "tags": {
+                    "mgr": "sysops-manager",
+                    "base-stack-name": "global-integration",
+                    "base-stack-id": "arn:aws:cloudformation:us-east-1:948063967832:stack/global-integration/8518e240-d9b4-11e6-9d86-500c524058f2",
+                    "aws:ec2launchtemplate:version": "1",
+                    "aws:ec2launchtemplate:id": "lt-02ff91176f7e68bb5",
+                    "aws:cloudformation:stack-name": "global-integration-cfnStackElasticsearch-69OCASPOSRAJ",
+                    "aws:cloudformation:stack-id": "arn:aws:cloudformation:us-east-1:948063967832:stack/global-integration-cfnStackElasticsearch-69OCASPOSRAJ/0ec4d110-0a3a-11e7-a1b3-500c28b4e461",
+                    "aws:cloudformation:logical-id": "asgElasticsearch",
+                    "aws:autoscaling:groupName": "global-integration-cfnStackElasticsearch-69OCASPOSRAJ-asgElasticsearch-WT78P7YQIA7J",
+                    "Network": "Private",
+                    "Name": "Elasticsearch"
+                },
+                "architecture": "x86_64"
+            }
+        ]
+    ]
+}

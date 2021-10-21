@@ -1,0 +1,174 @@
+<div class="body-content">
+    <al-view-helper [loading]="isLoading"></al-view-helper>
+    <al-wizard-stepper #alWizard *ngIf="!isLoading" (onStepSelected)="onStepSelected($event)">
+        <al-step stepTitle="Trigger">
+            <div class="grid grid-nogutter input-row top">
+                <div class="col-12 form-row input-row top" style="margin-bottom: 0;">
+                    <span class="md-inputfield">
+                        <input id="trigger_name" type="text" pInputText [(ngModel)]="trigger.name" required
+                            #trigger_name="ngModel" (keyup)="onValidateTrigger()">
+                        <label>Name *</label>
+                        <div class="ui-message ui-messages-error ui-corner-all"
+                            *ngIf="trigger_name.invalid && (trigger_name.dirty || trigger_name.touched) && trigger_name.errors?.required">
+                            Name is required.</div>
+                    </span>
+                </div>
+                <div class="col-12 form-row">
+                    <p-inputSwitch [(ngModel)]="trigger.enabled"></p-inputSwitch><span>Trigger Enabled?</span>
+                </div>
+                <div class="form-row">
+                    <label>Trigger Method</label>
+                </div>
+                <div class="col-12 form-row">
+                    <p-radioButton name="trigger-method" value="conditional" label="Conditional"
+                        [(ngModel)]="triggerMethod" (onClick)="onTriggerMethodClick()" [disabled]="editingTrigger"></p-radioButton>
+                </div>
+                <div class="col-12 form-row">
+                    <p-radioButton name="trigger-method" value="interval" label="Interval" [(ngModel)]="trigger.type"
+                        (onClick)="onTriggerTypeClick()" [disabled]="editingTrigger"></p-radioButton>
+                </div>
+                <div class="col-12 form-row">
+                    <p-radioButton name="trigger-method" value="datetime" label="Run Once" [(ngModel)]="trigger.type"
+                        (onClick)="onTriggerTypeClick()" [disabled]="editingTrigger"></p-radioButton>
+                </div>
+                <div class="col-12 form-row">
+                    <p-radioButton name="trigger-method" value="cron" label="Schedule" [(ngModel)]="trigger.type"
+                        (onClick)="onTriggerTypeClick()" [disabled]="editingTrigger"></p-radioButton>
+                </div>
+                <div class="col-12" *ngIf="triggerMethod==='conditional'">
+                    <div class="form-row">
+                        <label>Trigger Type</label>
+                    </div>
+                    <div class="col-12 form-row">
+                        <p-radioButton name="trigger-type" value="incident" label="Incident" [(ngModel)]="trigger.type"
+                            (onClick)="onTriggerTypeClick()" [disabled]="editingTrigger"></p-radioButton>
+                    </div>
+                    <div class="col-12 form-row">
+                        <p-radioButton name="trigger-type" value="observation" label="Observation"
+                            [(ngModel)]="trigger.type" (onClick)="onTriggerTypeClick()" [disabled]="editingTrigger"></p-radioButton>
+                    </div>
+                    <div *ngIf="trigger.type === 'incident'" class="col-6">
+                        <div class="col-12 form-row" *ngIf="isIncidentTrigger(trigger)">
+                            <div class="form-row">
+                                <label>Threat Levels</label>
+                            </div>
+                            <p-multiSelect [showHeader]="false" [options]="threatLevels"
+                                [(ngModel)]="trigger.threat_levels" selectedItemsLabel="Any" [maxSelectedLabels]="4">
+                            </p-multiSelect>
+                        </div>
+                        <div class="col-12 form-row" *ngIf="isIncidentTrigger(trigger)">
+                            <p-inputSwitch [(ngModel)]="trigger.escalated"></p-inputSwitch><span>Include
+                                Escalated?</span>
+                        </div>
+                        <div *ngIf="assetGroups.length > 0">
+                            <div class="form-row">
+                                <label>Asset Groups</label>
+                            </div>
+                            <p-multiSelect [options]="assetGroups" [(ngModel)]="selectedAssetGroups"
+                                (onChange)="onAssetGroupsSelected($event)" defaultLabel="Select Asset Groups (Optional)"
+                                selectedItemsLabel="Asset Groups ({0} Selected)">
+                            </p-multiSelect>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12" *ngIf="triggerMethod==='scheduled'">
+                    <div *ngIf="trigger.type === 'interval' && isIntervalSchedule(trigger)" class="col-6">
+                        <div class="col-12 form-row">
+                            <div>
+                                <label>Repeat Every</label>
+                            </div>
+                            <div class="grid grid-nogutter scheduled-params">
+                                <input  type="number" pInputText [(ngModel)]="trigger.delta" [min]="1">
+                                <p-dropdown [options]="units" [(ngModel)]="trigger.unit"></p-dropdown>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="trigger.type === 'datetime'" class="col-6">
+                        <div class="col-12 form-row">
+                            <div>
+                                <label>Run On</label>
+                            </div>
+                            <div class="grid grid-nogutter scheduled-params">
+                                <p-calendar (onSelect)="onDateTimeSelect($event)" [(ngModel)]="selectedDateTime"
+                                    [showTime]="true" appendTo="body" dateFormat="dd M yy" placeholder="Choose...">
+                                </p-calendar>
+                                <p-dropdown *ngIf="hasTimezone(trigger)" [options]="timezones" [(ngModel)]="trigger.timezone"></p-dropdown>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="trigger.type === 'cron'" class="cron-scheduler">
+                        <al-trigger-cron-scheduler [trigger]="trigger" [timezones]="timezones"
+                            (onValidateTriggerSchedule)="onValidateTrigger($event)">
+                        </al-trigger-cron-scheduler>
+                    </div>
+                </div>
+            </div>
+
+        </al-step>
+        <al-step stepTitle="Response">
+            <div class="grid grid-nogutter input-row top">
+                <div class="col-12 input-row">
+                    <div class="grid">
+                        <div class="col-6">
+                            <h4>Run Playbooks</h4>
+                            <p-multiSelect [showHeader]="false"
+                                [options]="playbooks"
+                                [(ngModel)]="trigger.playbooks"
+                                (onChange)="onValidateTrigger()">
+                            </p-multiSelect>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6"
+                    *ngIf="trigger.type !== 'incident' && trigger.type !== 'observation'">
+                    <h4>Actions</h4>
+                    <div *ngFor="let action of trigger.actions"
+                        (click)="onSelectTriggerAction(actionsLookup[action.ref])"
+                        class="grid grid-nogutter trigger-action"
+                        [class.active]="selectedTriggerAction && selectedTriggerAction.ref === action.ref">
+                        <al-task-palette-item [item]="actionsLookup[action.ref]"
+                            [removeable]="true"
+                            (onRemoveClick)="removeTriggerAction($event)"
+                            [hasError]="currentTriggerActionsValidity[action.ref] === false"
+                            errorTooltipMessage="Action parameter values are invalid">
+                        </al-task-palette-item>
+                    </div>
+                    <button type="button"
+                        pButton
+                        class="flat"
+                        iconPos="right"
+                        icon="ui-icon-chevron-down"
+                        label="Add Action"
+                        (click)="showTaskPalette = !showTaskPalette">
+                    </button>
+                    <al-task-palette
+                        *ngIf="showTaskPalette"
+                        title="Add Action"
+                        [listOptions]="availableActions"
+                        (selected)="onAddAction($event)"
+                        (closePalette)="showTaskPalette = false;">
+                    </al-task-palette>
+                </div>
+                <div class="col-6 form-row">
+                    <div *ngIf="selectedActionRef !== ''">
+                        <h4>{{selectedActionDisplayName}}</h4>
+                        <div>
+                            <al-view-helper [loading]="loadingFormParams"></al-view-helper>
+                            <al-dynamic-form #actionParamsForm
+                                *ngIf="generalElements.length > 0"
+                                [elements]="generalElements"
+                                (isValid)="isTriggerActionParamsValid($event)"
+                                (onChanges)="onTriggerActionParamChanges($event)">
+                            </al-dynamic-form>
+                            <div *ngIf="!loadingFormParams && generalElements.length === 0">
+                                This action requires no additional parameters to be configured.
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </al-step>
+    </al-wizard-stepper>
+</div>

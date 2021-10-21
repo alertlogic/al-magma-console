@@ -1,0 +1,6 @@
+<div *ngIf="contentVisible">
+    <ng-content></ng-content>
+</div>
+<div *ngIf="contentVisible === false">
+    <ng-content select=".inaccessible"></ng-content>
+</div>

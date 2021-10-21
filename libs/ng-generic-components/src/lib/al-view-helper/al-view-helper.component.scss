@@ -1,0 +1,48 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.view-helper {
+    display: block;
+    position: relative;
+
+    .zero-state {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px 40px;
+        margin: 24px 0;
+        background: al-color($al-gray, 50);
+
+        i {
+            color: al-color($al-gray, 200);
+            font-size: 3em;
+        }
+    }
+
+    .zero-state-body {
+        padding-bottom: 0;
+        text-align: center;
+
+        & > .primaryText {
+            font-size: 1.286em;
+            color: al-color($al-gray, 300);
+        }
+
+        & > .secondaryText {
+            font-size: 1em;
+            color: al-color($al-gray, 200);
+        }
+    }
+
+    code.error-details {
+        display: flex;
+        flex-direction: column;
+        max-width: 800px;
+        line-height: 1em;
+        font-size: 0.8em;
+        color: al-color($al-gray, 200 );
+        text-align: left;
+        white-space: pre-wrap;
+        overflow-x: hidden;
+        padding: 20px;
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "type": "tableau",
+    "schedule": {
+      "monthly": {
+        "minute": 29,
+        "hour": 20,
+        "day": 1
+      }
+    },
+    "notify_behavior": "always",
+    "name": "ConfigurationRemediationTrends, only sre test",
+    "modified": {
+      "by": "27692F50-B489-4940-9804-432BE9DDEAEA",
+      "at": 1588019374
+    },
+    "latest_schedule": null,
+    "is_active": true,
+    "id": "92BCA6A0-A44B-1005-8001-0242AC11000B",
+    "delete_empty_result": false,
+    "definition": {
+      "workbook_id": "00dffec9-2be8-4c80-90f8-04de50e149fd",
+      "view_id": "5d72bd5b-8325-46c0-a8f1-c24d7ab7ac16",
+      "site_id": "d741e65f-4498-48e8-b5ae-6ea3b270654e",
+      "format": "pdf",
+      "filter_values": {
+        "Customer Account": [
+          "Site Reliability Engineering (SRE)"
+        ]
+      }
+    },
+    "created": {
+      "by": "27692F50-B489-49B0-9804-432BE1DDEAEA",
+      "at": 1588019374
+    },
+    "account_id": "2"
+}

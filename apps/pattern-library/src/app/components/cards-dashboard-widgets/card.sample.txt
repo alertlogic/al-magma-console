@@ -1,0 +1,17 @@
+<div class="widget">
+    <div class="card card-w-title">
+        <h2 class="widget-header">
+            Widget Title
+            <div class="btnGroupRight">
+                <button type="button" class="flat round right" icon="ui-icon-settings" pButton></button>
+            </div>
+        </h2>
+        <div class="card-content"></div>
+        <div class="card-footer">
+            <div class="btnGroupRight">
+                <button type="button" class="flat right" label="Button" pButton></button>
+                <button type="button" class="right" label="Button" pButton></button>
+            </div>
+        </div>
+    </div>
+</div>

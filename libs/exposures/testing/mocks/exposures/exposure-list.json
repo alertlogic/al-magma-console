@@ -1,0 +1,92 @@
+{
+    "filters": [
+        {
+            "key": "security",
+            "threat_level": 3,
+            "threatiness": 93.3,
+            "type": "category"
+        },
+        {
+            "account_id": "12345678",
+            "deployment_id": "814C2911-09BB-1005-9916-7831C1BAC182",
+            "deployment_name": "Test Deployment 1",
+            "key": "814C2911-09BB-1005-9916-7831C1BAC182",
+            "name": "Test Deployment 1",
+            "threat_level": 3,
+            "threatiness": 93.3,
+            "type": "deployment_id"
+        }
+    ],
+    "exposures": {
+        "assets": [
+            {
+                "categories": [
+                    "security"
+                ],
+                "count": 1,
+                "name": "ELB Listener Security (1 of 4)",
+                "remediations": [
+                    {
+                        "account_id": "12345678",
+                        "asset_count": 2,
+                        "categories": [
+                            "security"
+                        ],
+                        "name": "It is recommended that users use the most current predefined security policy.",
+                        "remediation_id": "7d4d31c20d895bfb79581fde5814eb8d",
+                        "remediation_items": {},
+                        "severities": {
+                            "high": 2,
+                            "info": 0,
+                            "low": 0,
+                            "medium": 0
+                        },
+                        "tags": {},
+                        "target_asset_type": "load-balancer",
+                        "threat_level": 2,
+                        "threatiness": 24,
+                        "type": "remediation"
+                    }
+                ],
+                "remediation_count": 1,
+                "severity": "high",
+                "threat_score": 10,
+                "threatiness": 24,
+                "vinstances": [
+                    {
+                        "categories": [
+                            "security"
+                        ],
+                        "details": "{\"evidence\":{\"type\":\"elb_with_insecure_protocol\",\"key\":\"/aws/us-east-1/load-balancer/my-test-elb\",\"affected-listeners\":[{\"listener\":{\"key\":\"/aws/us-east-1/listener/my-test-elb/80\",\"port\":80,\"protocol\":\"tcp\"}},{\"listener\":{\"key\":\"/aws/us-east-1/listener/my-test-elb/443\",\"port\":443,\"protocol\":\"tcp\"}}]}}",
+                        "disposed": false,
+                        "key": "/aws/us-east-1/load-balancer/my-test-elb/vulnerability/eca86a6ac47cb34a554ab76a714d847f",
+                        "modified_on": 1560954506756,
+                        "target": {
+                            "account_id": "12345678",
+                            "deployment_id": "814C2911-09BB-1005-9916-7831C1BAC182",
+                            "dns_name": "my-test-elb-1864329672.us-east-1.elb.amazonaws.com",
+                            "key": "/aws/us-east-1/load-balancer/my-test-elb",
+                            "name": "my-test-elb",
+                            "scheme": "internet-facing",
+                            "tags": {},
+                            "threat_level": 3,
+                            "threatiness": 12.0347,
+                            "type": "load-balancer"
+                        },
+                        "threatiness": 8
+                    }
+                ],
+                "vulnerability_id": "cda9dc8fdf5fcb8775b6217f9ad62f04"
+            }
+        ],
+        "rows": 1
+    },
+    "summary": {
+        "severities": {
+            "high": 1,
+            "info": 0,
+            "low": 0,
+            "medium": 0
+        }
+    }
+}

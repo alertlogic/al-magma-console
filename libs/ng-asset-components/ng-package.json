@@ -1,0 +1,38 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/libs/ng-asset-components",
+  "lib": {
+    "cssUrl"      : "inline",
+    "entryFile"   : "src/index.ts",
+    "styleIncludePaths": [ "../../.aliases" ],
+    "umdModuleIds": {
+      "@al/aecoral"                 : "@al/aecoral",
+      "@al/core"                    : "@al/core",
+      "@al/cargo"                   : "@al/cargo",
+      "@al/gestalt"                 : "@al/gestalt",
+      "@al/herald"                  : "@al/herald",
+      "@al/vr-test-helper"          : "@al/vr-test-helper",
+      "@al/ng-cardstack-components" : "@al/ng-cardstack-components",
+      "@al/ng-generic-components"   : "@al/ng-generic-components",
+      "@al/ng-navigation-components": "@al/ng-navigation-components",
+      "date-fns"                    : "date-fns",
+      "primeng/api"                 : "primeng/api",
+      "primeng/calendar"            : "primeng/calendar",
+      "primeng/checkbox"            : "primeng/checkbox",
+      "primeng/confirmdialog"       : "primeng/confirmdialog",
+      "primeng/dropdown"            : "primeng/dropdown",
+      "primeng/inputswitch"         : "primeng/inputswitch",
+      "primeng/inputtext"           : "primeng/inputtext",
+      "primeng/panel"               : "primeng/panel",
+      "primeng/radiobutton"         : "primeng/radiobutton",
+      "primeng/slidemenu"           : "primeng/slidemenu",
+      "primeng/tooltip"             : "primeng/tooltip"
+    }
+  },
+  "allowedNonPeerDependencies": [
+    "@al/ng-generic-components",
+    "@al/ng-cardstack-components",
+    "@al/ng-navigation-components",
+    "date-fns"
+  ]
+}

@@ -1,0 +1,192 @@
+$min-width: 384px;
+$default-dimension: 384px;
+$footer-height: 60px;
+
+.dashboard-layout {
+
+  al-dashboard-widget {
+    div.interior {
+      height: 286px;
+      width: 100%;
+      &.noFooter {
+        height: calc(286px + #{$footer-height} - 5px);
+      }
+    }
+  }
+
+  &.noGrid {
+    al-dashboard-widget {
+      width: 367px;
+      height: 384px;
+      display: inline-block;
+      margin: 0 20px 20px 0;
+      &.w2 {
+        width: 754px;
+      }
+      &.w3 {
+        width: 1101px;
+      }
+      &.w4 {
+        width: 1528px;
+      }
+      &.h2 {
+        div.interior {
+          height: 690px;
+          &.noFooter {
+            height: calc(600px + #{$footer-height} - 5px);
+          }
+        }
+      }
+    }
+  }
+
+  /* No packing for Partner Layouts */
+  &:not(.noGrid):not(.no-pack-4) {
+    grid-auto-flow: dense;
+  }
+
+  &:not(.noGrid) {
+    display: grid;
+    grid-gap: 20px;
+    grid-auto-rows: $default-dimension;
+    al-dashboard-widget {
+      &.w2 {
+        grid-column: span 2;
+      }
+      &.w3 {
+        grid-column: span 3;
+      }
+      &.w4 {
+        grid-column: span 4;
+      }
+      &.h2 {
+        grid-row: span 2;
+        div.interior {
+          height: 690px;
+          &.noFooter {
+            height: calc(600px + #{$footer-height} - 5px);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .dashboard-layout {
+    &:not(.noGrid) {
+      grid-template-columns: repeat(1, 1fr);
+      al-dashboard-widget {
+        &.w2 {
+          grid-column: span 1;
+        }
+        &.w3 {
+          grid-column: span 1;
+        }
+        &.w4 {
+          grid-column: span 1;
+        }
+      }
+    }
+    &.noGrid {
+      al-dashboard-widget {
+        &.w2 {
+          width: 367px;
+        }
+        &.w3 {
+          width: 367px;
+        }
+        &.w4 {
+          width: 367px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .dashboard-layout {
+    &:not(.noGrid) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    &.no-pack-4 {
+      al-dashboard-widget {
+        &.w2 {
+          grid-column: span 2;
+        }
+        &.w3 {
+          grid-column: span 1;
+        }
+        &.w4 {
+          grid-column: span 2;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .dashboard-layout {
+    &:not(.noGrid):not(.no-pack-4) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    &.no-pack-4 {
+      grid-template-columns: repeat(2, 1fr);
+      al-dashboard-widget {
+        &.w2 {
+          grid-column: span 2;
+        }
+        &.w3 {
+          grid-column: span 1;
+        }
+        &.w4 {
+          grid-column: span 2;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .dashboard-layout {
+    &:not(.noGrid) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    &.no-pack-4 {
+      al-dashboard-widget {
+        &.w2 {
+          grid-column: span 2;
+        }
+        &.w3 {
+          grid-column: span 3;
+        }
+        &.w4 {
+          grid-column: span 4;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .dashboard-layout {
+    &:not(.noGrid):not(.no-pack-4) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+    &.no-pack-4 {
+      grid-template-columns: repeat(4, 1fr);
+      al-dashboard-widget {
+        &.w2 {
+          grid-column: span 2;
+        }
+        &.w3 {
+          grid-column: span 3;
+        }
+        &.w4 {
+          grid-column: span 4;
+        }
+      }
+    }
+  }
+}
+

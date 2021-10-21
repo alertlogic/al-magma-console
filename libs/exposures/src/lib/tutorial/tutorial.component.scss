@@ -1,0 +1,241 @@
+// TODO - Nepalize this component!!!
+
+// @import "@o3/design/styles/component";
+
+// .close-button {
+// 	position: relative;
+// 	top: 0px;
+// 	right: 6px;
+// 	text-align: end;
+// }
+
+// .tutorial-content {
+// 	padding-top: 24px;
+// 	height: 58vh;
+// 	color: map-get($al-gray, 500);
+
+// 	p {
+// 		padding-bottom: 20px;
+// 	}
+// 	.box {
+// 		padding-bottom: 20px;
+// 	}
+// 	.content-padding {
+// 		padding-right: 24px;
+// 		padding-left: 24px;
+// 		padding-bottom: 24px;
+
+// 		@media (max-width: 1000px) {
+// 			padding-right: 10px;
+// 			padding-left: 10px;
+// 		}
+
+//         ul {
+//             li {
+//                 margin-bottom: 15px;
+//             }
+//         }
+//         .icon-item {
+//             color: map-get($al-gray, 600);
+//             .icon.icon-container i {
+//                 font-size: 3.5em;
+//             }
+//         }
+//         .action-title{
+//             display: flex;
+//             font-size: 1.7em;
+
+//             .stack{
+//                 display: inline-block;
+//                 line-height: 0.7em;
+//                 padding: 0 5px;
+//                 text-align: center;
+//                 color: map-get($al-gray, 600);
+//                 .stack-top{
+//                     display: block;
+//                     font-size: 2em;
+
+//                     i{
+//                         margin-bottom: -10px;
+//                         margin-top: 10px;
+//                         font-size: 2em;
+//                         padding: 0;
+//                     }
+//                 }
+//                 .stack-bottom{
+//                         display: block;
+//                         font-size: 0.5em;
+//                 }
+//             }
+// 		}
+
+//         .icon-list {
+//             display: flex;
+//             flex-direction: row;
+//             flex-wrap: wrap;
+//             justify-content: space-between;
+//             align-items: flex-start;
+//             align-content: space-between;
+
+//             .icon-item {
+//                 flex: 1 1 15%;
+//                 height: 120px;
+//                 margin-bottom: 30px;
+//                 display: flex;
+//                 flex-direction: column;
+//                 align-items: center;
+//                 align-content: center;
+
+//                 span{
+//                     flex: 1 1 100%;
+//                 }
+//             }
+//         }
+// 	}
+// 	.title-underline {
+// 		border-bottom: 2px solid map-get($al-gray, 50);
+//         line-height: normal;
+//         span {
+//             padding-left: 10px;
+//         }
+// 	}
+// 	.padding-left-div{
+// 		padding-left: 77px;
+// 	}
+// 	.icons-size {
+// 		font-size: 3em;
+// 	}
+// 	.icon-radius50 {
+// 		border-radius: 50%;
+// 	}
+// 	.threat-colors-conventions {
+// 		display: -webkit-box;
+// 		display: -ms-flexbox;
+// 		display: flex;
+// 		-webkit-box-orient: horizontal;
+// 		-webkit-box-direction: normal;
+// 		-ms-flex-direction: row;
+// 		flex-direction: row;
+// 		-webkit-box-pack: justify;
+// 		-ms-flex-pack: justify;
+// 		justify-content: space-between;
+// 		.icon-arrow {
+// 			font-size: 3em;
+// 			color: map-get($al-gray, 100);
+// 			-ms-flex-item-align: center;
+// 			-ms-grid-row-align: center;
+// 			align-self: center;
+// 			-ms-flex-preferred-size: 8%;
+// 			flex-basis: 8%;
+// 		}
+// 		.threat-section {
+// 			-ms-flex-preferred-size: 25%;
+// 			flex-basis: 25%;
+// 			color: map-get($al-gray, 500);
+// 		}
+// 		.section-title {
+// 			text-align: center;
+// 			padding-bottom: 5px;
+// 		}
+// 		.threat-icons {
+// 			display: -webkit-box;
+// 			display: -ms-flexbox;
+// 			display: flex;
+// 			-webkit-box-orient: horizontal;
+// 			-webkit-box-direction: normal;
+// 			-ms-flex-direction: row;
+// 			flex-direction: row;
+// 			-ms-flex-pack: distribute;
+// 			justify-content: space-around;
+// 			.threat-icon-container {
+// 				display: -webkit-box;
+// 				display: -ms-flexbox;
+// 				display: flex;
+// 				-webkit-box-orient: vertical;
+// 				-webkit-box-direction: normal;
+// 				-ms-flex-direction: column;
+// 				flex-direction: column;
+// 				.threat-desc {
+// 					text-align: center;
+// 					font-size: 10px;
+// 				}
+// 			}
+// 		}
+// 		.sort-icons {
+// 			.sort-item {
+// 				border-bottom: 3px solid map-get($al-gray, 100);
+// 				padding-bottom: 0;
+// 				padding-left: 15px;
+// 				line-height: 1em;
+// 				margin-bottom: 5px;
+// 				&:before {
+// 					display: block;
+// 					content: '';
+// 					height: 20px;
+// 					width: 8px;
+// 					margin-top: 0;
+// 					margin-left: -26px;
+// 				}
+// 			}
+// 			.item-critical {
+// 				&:before {
+// 					background: map-get($al-red, 600);
+// 					margin-bottom: -2px;
+// 				}
+// 			}
+// 			.item-high {
+// 				&:before {
+// 					background: map-get($al-orange, 500);
+// 					margin-bottom: -2px;
+// 				}
+// 			}
+// 			.item-medium {
+// 				&:before {
+// 					background: map-get($al-yellow, 200);
+// 					margin-bottom: -2px;
+// 				}
+// 			}
+// 			.item-low {
+// 				&:before {
+// 					background: map-get($al-gray, 300);
+// 					margin-bottom: -2px;
+// 				}
+// 			}
+// 		}
+// 	}
+// 	.actions-conventions {
+// 		color: map-get($al-gray, 500);
+// 		.action-container {
+// 			display: -webkit-box;
+// 			display: -ms-flexbox;
+// 			display: flex;
+// 			-webkit-box-orient: horizontal;
+// 			-webkit-box-direction: normal;
+// 			-ms-flex-direction: row;
+// 			flex-direction: row;
+// 			padding-bottom: 15px;
+// 			padding-top: 15px;
+// 			padding-right: 3em;
+// 		}
+// 		.action-underline {
+// 			border-bottom: 1px solid map-get($al-gray, 50);
+// 		}
+// 		.action-title {
+// 			font-weight: bold;
+//             font-size: 1.2em;
+//             margin-left: 15px;
+// 		}
+// 		.action-icon {
+// 			padding-right: 10px;
+// 			padding-left: 10px;
+// 		}
+// 		.action-desc {
+// 			text-align: justify;
+//             margin-left: 15px;
+
+//             h5 {
+//                 font-weight: bold;
+//             }
+// 		}
+// 	}
+// }

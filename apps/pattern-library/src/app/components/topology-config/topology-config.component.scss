@@ -1,0 +1,64 @@
+@import "@al/ng-generic-components/styles/utility";
+
+topology-config {
+    width: 100%;
+    height: 800px;
+
+    al-environment-topology svg {
+        width: 100% !important;
+        min-height: 800px;
+        height: 100%;
+
+        path {
+            fill: white;
+            stroke: none;
+        }
+
+        line {
+            stroke: al-color($al-gray, 100);
+            stroke-width: 1;
+
+            &.selected {
+                stroke-width: 1.5;
+            }
+            &.match {
+                stroke: al-color($al-gray, 500);
+            }
+        }
+
+        g.topology.default {
+            g.node {
+                path {
+                    fill: white;
+                }
+                circle {
+                    fill: al-color($al-gray, 100);
+                    stroke-width: 0;
+                    &.halo {
+                        stroke: al-color($al-gray, 100);
+                    }
+                }
+                cursor: pointer;
+            }
+            g.node.matched {
+                &.default {
+                    circle {
+                        fill: al-color($al-gray, 500);
+                        stroke-width: 0;
+                        &.halo {
+                            stroke: al-color($al-gray, 500);
+                        }
+                    }
+                }
+            }
+            g.node.selected {
+                &.default {
+                    circle.halo {
+                        fill: white !important;
+                        stroke-width: 2;
+                    }
+                }
+            }
+        }
+    }
+}

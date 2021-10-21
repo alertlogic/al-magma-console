@@ -1,0 +1,113 @@
+{
+    "remediations": {
+        "rows": 1,
+        "assets": [
+            {
+                "vinstances_count": 1,
+                "type": "remediation",
+                "target_asset_type": "host",
+                "remediation_id": "ids_upgrade_hardware",
+                "name": "Alert Logic recommends provisioning the appliance so that it meets the minimum CPU and memory requirements for IDS functionality.",
+                "exposures_count": 1,
+                "exposures": [
+                    {
+                        "vulnerability_id": "f094ed697c59e1059f7e2a2d5e664e46",
+                        "vinstances_count": 1,
+                        "vinstances": [
+                            {
+                                "threatiness": 0.0,
+                                "target": {
+                                    "type": "host",
+                                    "state": "running",
+                                    "private_ipv6_addresses": [
+                                        "fe80::250:56ff:feab:4388"
+                                    ],
+                                    "private_ipv4_addresses": [
+                                        "10.10.214.224"
+                                    ],
+                                    "private_ip_addresses": [
+                                        "10.10.214.224",
+                                        "fe80::250:56ff:feab:4388"
+                                    ],
+                                    "private_ip_address": "10.10.214.224",
+                                    "private_dns_name": "kontsevoy-siemless-test-2",
+                                    "os_type": "unix",
+                                    "os_details": "Linux; 2.6.32-754.el6.x86_64; #1 SMP Tue Jun 19 21:26:04 UTC 2018; x86_64",
+                                    "name": "kontsevoy-siemless-test-2",
+                                    "local_ipv6": [
+                                        "fe80::250:56ff:feab:4388"
+                                    ],
+                                    "local_ipv4": [
+                                        "10.10.214.224"
+                                    ],
+                                    "local_hostname": "kontsevoy-siemless-test-2",
+                                    "last_discovery_ts": 1594640990,
+                                    "deployment_id": "9A4A67CF-C2FC-404C-BFC8-FFE78DAC0154",
+                                    "alertlogic_appliance_features": [
+                                        "ids",
+                                        "scan"
+                                    ],
+                                    "alertlogic_appliance": true,
+                                    "account_id": "134278880"
+                                },
+                                 "details": "Alert Logic appliance /dc/host/3E2B1BE4-7C2F-49AE-8234-E8F7DEBE272F has 4 cores and 3944MB of memory, which does not meet the minimum recommended hardware requirements for IDS functionality.",
+                                "concluded": false,
+                                "categories": [
+                                    "configuration"
+                                ]
+                            }
+                        ],
+                        "type": "vulnerability",
+                        "severity": "info",
+                        "remediation_id": "ids_upgrade_hardware",
+                        "name": "Alert Logic Appliance with insufficient hardware",
+                        "external": false,
+                        "cvss_vector": "AV:N/AC:L/Au:N/C:C/I:C/A:C/PL:A/EM:A",
+                        "cvss_score": 0.0,
+                        "categories": [
+                            "configuration"
+                        ],
+                        "asset_count": 1,
+                        "account_id": "134278880"
+                    }
+                ],
+                "deployment_ids": [
+                    "9A4A67CF-C2FC-404C-BFC8-FFE78DAC0154"
+                ],
+                "created_on": 1586314297664,
+                "categories": [
+                    "configuration"
+                ],
+                "asset_count": 1,
+                "account_id": "134278880"
+            }
+        ]
+    },
+    "filters": [
+        {
+            "vinstances_count": 1,
+            "type": "category",
+            "key": "configuration"
+        },
+        {
+            "vinstances_count": 1,
+            "type": "deployment_id",
+            "name": "SIEMless reclaim test 7",
+            "key": "9A4A67CF-C2FC-404C-BFC8-FFE78DAC0154",
+            "deployment_type": "datacenter",
+            "deployment_name": "SIEMless reclaim test 7",
+            "deployment_id": "9A4A67CF-C2FC-404C-BFC8-FFE78DAC0154",
+            "account_id": "134278880"
+        },
+        {
+            "vinstances_count": 1,
+            "type": "deployment_type",
+            "key": "datacenter"
+        },
+        {
+            "vinstances_count": 1,
+            "type": "severity",
+            "key": "info"
+        }
+    ]
+}

@@ -1,0 +1,105 @@
+{
+    "sections": {
+        "featured": {
+            "items": [
+                {
+                    "title": "File Integrity Monitoring",
+                    "subtitle": "Understand when critical files have been modified or removed",
+                    "url": "https://docs.alertlogic.com/fim-landing.htm"
+                },
+                {
+                    "title": "Web Log Analytics",
+                    "subtitle": "Solve the security blind spot issues in web applications",
+                    "url": "https://docs.alertlogic.com/web-log-landing.htm"
+                },
+                {
+                    "title": "Expert-Enhanced Machine Learning Log Review",
+                    "subtitle": "Detect log-based incidents based on your organization’s trends and patterns at the account, user, and host levels",
+                    "url": "https://docs.alertlogic.com/log-review-landing.htm"
+                },
+                {
+                    "title": "Software Developer Portal",
+                    "subtitle": "Build automation and integrations that you can use to embed and extend Alert Logic functionality",
+                    "url": "https://docs.alertlogic.com/developer-landing.htm"
+                },
+                {
+                    "title": "Enhanced Scan Scheduling",
+                    "subtitle": "Schedule multiple scans at different intervals and duration windows, stop in-progress scans, and adjust scan intensity",
+                    "url": "https://docs.alertlogic.com/scans-landing.htm"
+                }
+            ]
+        },
+        "tutorials": {
+            "items": [
+                {
+                    "label": "About Deployment Type",
+                    "url": "https://docs.alertlogic.com/get-started/about-deployment-types.htm"
+                },
+                {
+                    "label": "Get Started with the Alert Logic Console",
+                    "url": "https://docs.alertlogic.com/get-started/get-started-console.htm"
+                },
+                {
+                    "label": "Get Started with Scans",
+                    "url": "https://docs.alertlogic.com/get-started/get-started-scans.htm"
+                },
+                {
+                    "label": "Get Started with PCI Scans",
+                    "url": "https://docs.alertlogic.com/get-started/pci-scans.htm"
+                }
+            ]
+        },
+        "resources": {
+            "items": [
+                {
+                    "label": "Software Developer Portal",
+                    "url": "https://developer.alertlogic.com/"
+                },
+                {
+                    "label": "Cybersecurity Webinars",
+                    "url": "https://www.alertlogic.com/resources/webinars/"
+                }
+            ]
+        },
+        "innovations": {
+            "items": [
+                {
+                    "label": "Recently released new features and capabilities",
+                    "url": "https://www.alertlogic.com/resources/latest-features-and-capabilities/"
+                }
+            ]
+        },
+        "videos": {
+            "items": [
+                {
+                    "label": "The Value of Threat Intelligence",
+                    "url": "https://www.youtube.com/watch?v=F_VVxSZPT00"
+                },
+                {
+                    "label": "MDR Concierge Success Manager",
+                    "url": "https://www.youtube.com/watch?v=s-r9rMyhlFQ"
+                },
+                {
+                    "label": "Enterprise Analyst",
+                    "url": "https://www.youtube.com/watch?v=KGIcD12bLkU"
+                },
+                {
+                    "label": "Security Researcher",
+                    "url": "https://www.youtube.com/watch?v=id4uKTc-R0c"
+                },
+                {
+                    "label": "Project Manager",
+                    "url": "https://www.youtube.com/watch?v=TulHU7TvYcA"
+                },
+                {
+                    "label": "Threat Hunter",
+                    "url": "https://www.youtube.com/watch?v=4ZBvEk0STok"
+                },
+                {
+                    "label": "WAF Expert Tuner",
+                    "url": "https://www.youtube.com/watch?v=rH3Vs5UOHUY"
+                }
+            ]
+        }
+    }
+}

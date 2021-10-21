@@ -1,0 +1,17 @@
+<div class="schedule-options">
+    <div class="label-title">Starting</div>
+    <p-radioButton (onClick)="handleScheduleWithDelay()" [value]="false" label="As soon as possible" [(ngModel)]="scheduleWithDelay"></p-radioButton>
+    <p-radioButton (onClick)="handleScheduleWithDelay()" [value]="true" label="Delay for a set amount of time" [(ngModel)]="scheduleWithDelay"></p-radioButton>
+    <div class="schedule-with-delay" *ngIf="scheduleWithDelay">
+        <div class="label-title">Specify delay (hours)</div>
+        <p-inputNumber (ngModelChange)="handleScheduleWithDelay()" [(ngModel)]="scheduleDelayHours" [min]="1" [max]="frequency.amount"></p-inputNumber>
+    </div>
+    <div class="schedule-with-delay-info grid">
+        <i class="pi pi-clock"></i>
+        <span class="title">Schedule</span>
+        <div class="next-run-text col-12">
+            Repeat every {{frequency.amount}} {{frequency.unit}}.
+            Next schedule begins at {{hour?.toLocaleString(undefined, {minimumIntegerDigits: 2})}}:{{min?.toLocaleString(undefined, {minimumIntegerDigits: 2})}} {{isGMT? 'GMT':''}}
+        </div>
+    </div>
+</div>

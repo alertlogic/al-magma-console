@@ -1,0 +1,1 @@
+<p-selectButton [options]="assetTypes" [(ngModel)]="selectedTypes" multiple="multiple"></p-selectButton>

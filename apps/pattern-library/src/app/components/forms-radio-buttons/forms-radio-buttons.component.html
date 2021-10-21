@@ -1,0 +1,47 @@
+<div class="card card-w-title user-guide">
+    <h1>Radio Buttons</h1>
+    <div class="card-content">
+        <p>These components can be found in the <a href="https://primefaces.org/primeng/#/radiobutton"
+                target="_blank">PrimeNG component library</a>.</p>
+        <div class="grid grid-nogutter" style="width:250px;margin-bottom:10px">
+            <div class="col-12 form-row">
+                <p-radioButton name="group1" value="Option 1" label="Option 1" [(ngModel)]="val1" inputId="opt1">
+                </p-radioButton>
+            </div>
+            <div class="col-12 form-row">
+                <p-radioButton name="group1" value="Option 2" label="Option 2" [(ngModel)]="val1" inputId="opt2">
+                </p-radioButton>
+            </div>
+            <div class="col-12 form-row">
+                <p-radioButton name="group1" value="Option 3" label="Option 3" [(ngModel)]="val1" inputId="opt3">
+                </p-radioButton>
+            </div>
+        </div>
+        Selected Value = {{val1||'none'}}
+
+        <div class="col-12">
+            <code-example language="markup" resourceId="sample/components/forms-radio-buttons/radio">
+            </code-example>
+        </div>
+    </div>
+</div>
+<div class="card card-w-title">
+    <h1>Preselection</h1>
+    <div class="card-content">
+        <div class="grid grid-nogutter" style="width:250px;margin-bottom:10px">
+            <div class="col-12 form-row">
+                <p-radioButton name="group2" value="Option 1" label="Option 1" [(ngModel)]="val2" inputId="preopt1">
+                </p-radioButton>
+            </div>
+            <div class="col-12 form-row">
+                <p-radioButton name="group2" value="Option 2" label="Option 2" [(ngModel)]="val2" inputId="preopt2">
+                </p-radioButton>
+            </div>
+            <div class="col-12 form-row">
+                <p-radioButton name="group2" value="Option 3" label="Option 3" [(ngModel)]="val2" inputId="preopt3">
+                </p-radioButton>
+            </div>
+        </div>
+        Selected Value = {{val2||'none'}}
+    </div>
+</div>

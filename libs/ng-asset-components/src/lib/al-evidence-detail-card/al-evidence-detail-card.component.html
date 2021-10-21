@@ -1,0 +1,16 @@
+<al-exposure-mini-card
+    [expanded]="expanded"
+    (onExpand)="toggleEvidenceDetails($event)"
+    [cardBorder]="evidence.cardBorder">
+    <div class="card-expandable-header">
+        <i class="details-icon-title fa fa-info-circle"></i>
+        <span>
+            {{ (evidence.evidence ? evidence.evidence: 'No evidence detail') | slice:0:50 }}...
+        </span>
+    </div>
+    <div class="card-expandable-content">
+        <div class="desc padding-20" >
+            {{ (evidence.evidence ? evidence.evidence: 'No evidence detail')}}
+        </div>
+    </div>
+</al-exposure-mini-card>

@@ -1,0 +1,685 @@
+<div class="grid ui-fluid">
+    <div class="col-12 ">
+        <!-- Left Side -->
+        <div class="card card-w-title">
+            <h1>InputText</h1>
+            <div class="card-content">
+                <div class="grid form-group">
+                    <div class="col-12">
+                        <label>Name</label>
+                        <input type="text" pInputText class="ald-input">
+                    </div>
+                    <div class="col-12">
+                        <label>Email</label>
+                        <input type="text" pInputText>
+                    </div>
+                    <div class="col-12">
+                        <label>Phone</label>
+                        <input type="text" pInputText>
+                    </div>
+                    <div class="col-12">
+                        <label>Disabled</label>
+                        <input type="text" pInputText disabled="disabled">
+                    </div>
+                    <div class="col-12">
+                        <label>Password</label>
+                        <input pInputText type="password">
+                    </div>
+                    <div class="col-12">
+                        <label>Invalid</label>
+                        <input type="text" id="inputtext" pInputText class="ng-invalid ng-dirty"
+                            placeholder="InputText">
+                        <small id="help">Hint Text</small>
+                    </div>
+                    <div class="col-12">
+                        <label>Icon Left</label>
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input type="text" pInputText placeholder="Search">
+                        </span>
+                    </div>
+                    <div class="col-12">
+                            <label>Icon Right</label>
+                        <span class="p-input-icon-right">
+                            <i class="pi pi-search"></i>
+                            <input type="text" pInputText>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-w-title">
+            <h1>TextArea</h1>
+            <div class="card-content">
+                <label>Text Area</label>
+                <textarea [rows]="5" [cols]="30" pInputTextarea placeholder="Your Message"
+                    autoResize="autoResize"></textarea>
+            </div>
+        </div>
+
+        <div class="card card-w-title">
+            <h1>AutoComplete</h1>
+            <div class="card-content">
+                <div>
+                    <label for="acSimple">Simple</label>
+                </div>
+                <div>
+                    <p-autoComplete id="acSimple" [(ngModel)]="country" [suggestions]="filteredCountries"
+                        (completeMethod)="filterCountry()" field="name" [size]="30" placeholder="Countries"
+                        [minLength]="1">
+                    </p-autoComplete>
+                </div>
+
+                <div>
+                    <label for="acAdvanced">Advanced</label>
+                </div>
+                <div >
+                    <p-autoComplete id="acAdvanced" [(ngModel)]="selectedBrands" [suggestions]="filteredBrands"
+                        (completeMethod)="filterBrands($event)" [size]="30" [minLength]="1"
+                        placeholder="Hint: type 'v' or 'f'" [dropdown]="true"
+                        (onDropdownClick)="handleACDropdownClick($event)" [multiple]="true">
+                        <ng-template let-brand pTemplate="item">
+                            <div class="ui-helper-clearfix">
+                                {{brand}}
+                            </div>
+                        </ng-template>
+                    </p-autoComplete>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-w-title">
+            <h1>MultiSelect</h1>
+            <div class="card-content">
+                <p-multiSelect [options]="carOptions" [(ngModel)]="selectedMultiSelectCars"></p-multiSelect>
+            </div>
+        </div>
+
+        <div class="card card-w-title">
+            <h1>MultiSelect with List</h1>
+            <div class="card-content">
+                <al-multiselect-list [(ngModel)]="selectedValues" (ngModelChange)="changeAlMultiselectList($event)"
+                    placeholder="Choose a user" [options]="checkboxes" [filter]="false" [inline]="true"
+                    (onSelectionChanged)="selectOption($event)">
+                </al-multiselect-list>
+            </div>
+        </div>
+        <div class="card card-w-title">
+            <h1>Dropdown with List</h1>
+            <div class="card-content">
+                <al-dropdown-list placeholder="Choose a filter" [(ngModel)]="selectedValues2" [options]="checkboxes"
+                    (ngModelChange)="selectOption($event)"></al-dropdown-list>
+            </div>
+        </div>
+        <div class="card card-w-title">
+            <h1>Menu List</h1>
+            <div class="card-content">
+                <al-menu-list [options]="checkboxes" [selectedItem]="selectedItemMenu"
+                    (onItemSelected)="selectOption($event)"></al-menu-list>
+            </div>
+        </div>
+
+
+        <div class="card card-w-title">
+            <h1>Calendar</h1>
+            <div class="card-content">
+                <p-calendar [inline]="true"></p-calendar>
+
+                <div class="grid form-group-m" style="margin-top:20px">
+                    <div class="col-12">
+                        <p-calendar placeholder="Popup" [showButtonBar]="false"></p-calendar>
+                    </div>
+                    <div class="col-12">
+                        <p-calendar dateFormat="mm/dd/yy" [showTime]="true" placeholder="DateTime" [minDate]="yesterday">
+                        </p-calendar>
+                    </div>
+                    <div class="col-12">
+                        <p-calendar [showTime]="true" [timeOnly]="true" placeholder="Time"></p-calendar>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 ">
+        <!-- Right Side -->
+        <div class="card card-w-title">
+            <h1>Checkboxes</h1>
+            <div class="card-content">
+                <div class="grid">
+                    <div class="col-12 ">
+                        <p-checkbox name="cg" value="Ultima" label="Ultima" [(ngModel)]="checkboxValues"></p-checkbox>
+                    </div>
+                    <div class="col-12 ">
+                        <p-checkbox name="cg" value="Icarus" label="Icarus" [(ngModel)]="checkboxValues"></p-checkbox>
+                    </div>
+                    <div class="col-12 ">
+                        <p-checkbox name="cg" value="Omega" label="Omega" [(ngModel)]="checkboxValues"></p-checkbox>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-w-title">
+            <h1>RadioButtons</h1>
+            <div class="card-content">
+                <div class="grid">
+                    <div class="col-12 ">
+                        <p-radioButton name="rg" value="Ultima" label="Ultima" [(ngModel)]="radioValue"></p-radioButton>
+                    </div>
+                    <div class="col-12 ">
+                        <p-radioButton name="rg" value="Icarus" label="Icarus" [(ngModel)]="radioValue"></p-radioButton>
+                    </div>
+                    <div class="col-12 ">
+                        <p-radioButton name="rg" value="Omega" label="Omega" [(ngModel)]="radioValue"></p-radioButton>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-w-title">
+            <h1>InputSwitch</h1>
+            <div class="card-content">
+                <p-inputSwitch [(ngModel)]="switchChecked"></p-inputSwitch>
+            </div>
+        </div>
+
+        <div class="card card-w-title">
+            <h1>Dropdown</h1>
+            <div class="card-content">
+                <p-dropdown [options]="cities" [(ngModel)]="selectedCity1"></p-dropdown>
+            </div>
+        </div>
+
+        <div class="card card-w-title">
+            <h1>Spinner</h1>
+            <div class="card-content">
+                <p-spinner></p-spinner>
+            </div>
+        </div>
+
+        <div class="card card-w-title">
+            <h1>Slider</h1>
+            <div class="card-content">
+                <p></p>
+                <p-slider [(ngModel)]="rangeValues" [range]="true"></p-slider>
+            </div>
+        </div>
+
+        <div class="card card-w-title">
+            <h1>Listbox</h1>
+            <div class="card-content">
+                <p-listbox [options]="citiesListbox" [(ngModel)]="selectedCity2" [filter]="true"></p-listbox>
+            </div>
+        </div>
+        <div class="card card-w-title">
+            <h1>Chips</h1>
+            <p-chips></p-chips>
+        </div>
+
+        <div class="card card-w-title">
+            <h1>Toggle Buttons</h1>
+            <div class="card-content">
+                <div class="grid">
+                    <div class="col-12">
+                        <p-selectButton [options]="types" [(ngModel)]="selectedType"></p-selectButton>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-w-title">
+            <h1>Icon Buttons</h1>
+            <div class="grid">
+                <div class="col-12">
+                    <h3>Icon Only</h3>
+                    <button type="button" icon="ui-icon-search" class="primaryAction" pButton></button>
+                    <button type="button" icon="ui-icon-search" class="primary" pButton></button>
+                    <button type="button" icon="ui-icon-search" class="accent" pButton></button>
+                    <button type="button" icon="ui-icon-search" class="lightGray" pButton></button>
+
+                    <div class="col-12">
+                        <h3>Icon with Labels</h3>
+                        <div class="btnGroup">
+                            <div class="btnGroupLeft">
+                                <button type="button" class="primary cardBtn flat left material-icons" label="Incidents"
+                                    icon="ui-icon-whatshot" pButton></button>
+                                <button type="button" class="primary cardBtn flat left material-icons" label="Label"
+                                    icon="ui-icon-open-in-browser" pButton></button>
+                            </div>
+                            <div class="btnGroupRight">
+                                <button type="button" icon="ui-icon-delete" class="primary cardBtn flat right"
+                                    label="Delete" pButton></button>
+                                <button type="button" icon="ui-icon-edit" class="primary cardBtn flat right"
+                                    label="Edit" pButton></button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-12">
+                    <h3>FAB</h3>
+                    <button type="button" icon="ui-icon-add" class="primaryAction fab" pButton></button>
+                    <button type="button" icon="ui-icon-add" class="primaryAction round" pButton></button>
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col-12">
+                <div class="card card-w-title">
+                    <h1>Icon block With material Icon</h1>
+                    <div class="btnGroupLeft">
+                        <al-icon-block [matIcon]="'block'" [label]="'Dispose'"></al-icon-block>
+                        <al-icon-block [iconClass]="'material-icons'" [matIcon]="'check'" [label]="'CLOSE'">
+                        </al-icon-block>
+                    </div>
+                    <h1>Icon block using FontAwesome classes</h1>
+                    <al-icon-block [iconClass]="'fa fa-bug'" [label]="'bug'"></al-icon-block>
+                    <h1>Disable icon-block</h1>
+                    <al-icon-block [iconClass]="'fa fa-bug'" [label]="'sample'" [disabled]="true"></al-icon-block>
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col-12">
+                <div class="card">
+                    <h1>State filter</h1>
+                    <al-state-filter [selectedState]="selectedState" [stateFilters]="stateFilters"></al-state-filter>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="grid">
+    <div class="col-12">
+        <div class="card card-w-title">
+            <h1>Bootens</h1>
+            <div class="card-content">
+                <div class="grid ui-fluid">
+                    <div class="col-12 ">
+                        <!-- Primary Button - for primary actions only -->
+                        <div class="col-12 ">
+                            <button pButton class="p-button-primary" type="button" label="Primary Action Filled"></button>
+                        </div>
+                        <div class="col-12 ">
+                            <button pButton class="p-button-primary-outline" type="button"
+                                label="Primary Action Outlined"></button>
+                        </div>
+
+                        <div class="col-12 ">
+                            <button pButton class="p-button-primary-ghost" type="button"
+                                label="Primary Action Ghost"></button>
+                        </div>
+                    </div>
+
+                    <div class="col-12 ">
+                        <!-- Default Button -->
+                        <div class="col-12 ">
+                            <button pButton type="button" label="Default Filled" class="p-button-default"></button>
+                        </div>
+                        <div class="col-12 ">
+                            <button pButton type="button" label="Default Outlined" class="p-button-default-outline"></button>
+                        </div>
+                        <div class="col-12 ">
+                            <button pButton type="button" label="Default Ghost" class="p-button-default-ghost"></button>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 u-bg-gray-900">
+                        <!-- Default Button -->
+                        <div class="col-12 ">
+                            <button pButton type="button" label="Light Filled" class="p-button-light"></button>
+                        </div>
+                        <div class="col-12 ">
+                            <button pButton type="button" label="Light Outlined" class="p-button-light-outline"></button>
+                        </div>
+                        <div class="col-12 ">
+                            <button pButton type="button" label="Light Ghost" class="p-button-light-ghost"></button>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12">
+                        <!-- Success and Warning Button -->
+                        <div class="col-12 ">
+                            <button pButton type="button" label="Success" class="p-button-success"></button>
+                        </div>
+                        <div class="col-12 ">
+                            <button pButton type="button" label="Danger" class="p-button-danger"></button>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-12">
+                        <!-- Disabled Button -->
+                        <div class="col-12 ">
+                            <button pButton type="button" label="Disabled"  disabled="disabled"></button>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-w-title no-shadow">
+            <h1>AccordionPanel</h1>
+            <p-accordion>
+                <p-accordionTab header="" [selected]="true">
+                    <p-header>
+                        <span class="left">
+                            <i class="material-icons">accessibility</i>
+                            Title with Icon
+                        </span>
+                    </p-header>
+                    The story begins as Don Vito Corleone, the head of a New York Mafia family, overseeshis daughter's
+                    wedding.
+                    His beloved son ichael has just come home from the war, but does not intend to become part of his
+                    father's
+                    business. T hrough Michael's life the nature of the family business becomes clear. The business of
+                    the family
+                    is just like the head of the family, kind and benevolent to those who give respect, but given to
+                    ruthless
+                    violence whenever anything stands against the good of the family.
+                </p-accordionTab>
+                <p-accordionTab header="Godfather II">
+                    Francis Ford Coppola's legendary continuation and sequel to his landmark 1972 film, The_Godfather
+                    parallels
+                    the young Vito Corleone's rise with his son Michael's spiritual fall, deepening The_Godfather's
+                    depiction of
+                    the dark side of the American dream. In the early 1900s, the child Vito flees his Sicilian village
+                    for America
+                    after the local Mafia kills his family. Vito struggles to make a living, legally or illegally, for
+                    his wife
+                    and growing brood in Little Italy, killing the local Black Hand Fanucci after he demands his
+                    customary cut of
+                    the tyro's business. With Fanucci gone, Vito's communal stature grows.
+                </p-accordionTab>
+                <p-accordionTab header="Godfather III">
+                    After a break of more than 15 years, director Francis Ford Coppola and writer Mario Puzo returned to
+                    the well
+                    for this third and final story of the fictional Corleone crime family. Two decades have passed, and
+                    crime
+                    kingpin Michael Corleone, now divorced from his wife Kay has nearly succeeded in keeping his promise
+                    that his
+                    family would one day be completely legitimate.
+                </p-accordionTab>
+            </p-accordion>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card card-w-title no-shadow">
+            <h1>Panel</h1>
+            <p-panel [toggleable]="true">
+                <p-header>
+                    Panel Header Title
+                </p-header>
+                The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's
+                wedding.
+                His beloved son Michael has just come home from the war, but does not intend to become part of his
+                father's
+                business.
+                Through Michael's life the nature of the family business becomes clear. The business of the family is
+                just like
+                the head of the family,
+                kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands
+                against
+                the good ofe
+                <p-footer>
+                    <div class="btnGroup">
+                        <div class="btnGroupLeft">
+                            <button type="button" class="primary cardBtn flat left material-icons" label="Incidents"
+                                icon="ui-icon-whatshot" pButton></button>
+                            <button type="button" class="primary cardBtn flat left material-icons" label="Label"
+                                icon="ui-icon-open-in-browser" pButton></button>
+                        </div>
+                        <div class="btnGroupRight">
+                            <button type="button" icon="ui-icon-delete" class="primary cardBtn flat right"
+                                label="Delete" pButton></button>
+                            <button type="button" icon="ui-icon-edit" class="primary cardBtn flat right" label="Edit"
+                                pButton></button>
+                        </div>
+                    </div>
+                </p-footer>
+            </p-panel>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card card-w-title">
+            <h1>TabView</h1>
+            <p-tabView>
+                <p-tabPanel header="Godfather I">
+                    The story begins as Don Vito Corleone, the head of a New York Mafia family, overseeshis daughter's
+                    wedding.
+                    His beloved son ichael has just come home from the war, but does not intend to become part of his
+                    father's
+                    business. T hrough Michael's life the nature of the family business becomes clear. The business of
+                    the family
+                    is just like the head of the family, kind and benevolent to those who give respect, but given to
+                    ruthless
+                    violence whenever anything stands against the good of the family.
+                </p-tabPanel>
+                <p-tabPanel header="Godfather II">
+                    Francis Ford Coppola's legendary continuation and sequel to his landmark 1972 film, The_Godfather
+                    parallels
+                    the young Vito Corleone's rise with his son Michael's spiritual fall, deepening The_Godfather's
+                    depiction of
+                    the dark side of the American dream. In the early 1900s, the child Vito flees his Sicilian village
+                    for America
+                    after the local Mafia kills his family. Vito struggles to make a living, legally or illegally, for
+                    his wife
+                    and growing brood in Little Italy, killing the local Black Hand Fanucci after he demands his
+                    customary cut of
+                    the tyro's business. With Fanucci gone, Vito's communal stature grows.
+                </p-tabPanel>
+                <p-tabPanel header="Godfather III">
+                    After a break of more than 15 years, director Francis Ford Coppola and writer Mario Puzo returned to
+                    the well
+                    for this third and final story of the fictional Corleone crime family. Two decades have passed, and
+                    crime
+                    kingpin Michael Corleone, now divorced from his wife Kay has nearly succeeded in keeping his promise
+                    that his
+                    family would one day be completely legitimate.
+                </p-tabPanel>
+            </p-tabView>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card card-w-title no-shadow">
+            <h1>Fieldset</h1>
+            <p-fieldset legend="Toggleable" [toggleable]="true">
+                The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's
+                wedding.
+                His beloved son Michael has just come home from the war, but does not intend to become part of his
+                father's
+                business.
+                Through Michael's life the nature of the family business becomes clear. The business of the family is
+                just like
+                the head of the family,
+                kind and benevolent to those who give respect,
+                but given to ruthless violence whenever anything stands against the good of the family.
+            </p-fieldset>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card card-w-title no-shadow">
+            <h1>Toolbar</h1>
+            <p-toolbar>
+                <div class="ui-toolbar-group-left">
+                    <button pButton type="button" label="New" icon="ui-icon-add" class="primary"></button>
+                    <button pButton type="button" label="Update" icon="ui-icon-update" class="primary"></button>
+
+                    <i class="material-icons" style="vertical-align:middle">dehaze</i>
+
+                    <button pButton type="button" icon="ui-icon-save" class="primary"></button>
+                    <button pButton type="button" icon="ui-icon-delete" class="primary"></button>
+                    <button pButton type="button" icon="ui-icon-print" class="primary"></button>
+                </div>
+
+                <div class="ui-toolbar-group-right primaryAction">
+                    <p-splitButton label="Save" icon="pi pi-check"></p-splitButton>
+                </div>
+            </p-toolbar>
+        </div>
+    </div>
+
+    <div class="col-12 ">
+        <div class="card card-w-title">
+            <h1>Default Button</h1>
+            <div class="card-content">
+                <p>Default Button</p>
+                <div class="grid ">
+                    <div class="col-12 ">
+                        <!-- Default Button -->
+                        <button pButton type="button" label="Default Button"></button>
+                    </div>
+                </div>
+                <h5>Code Snippet:</h5>
+                <code-example language="markup">
+                    <code>
+                        <button pButton type="button" label="Default Button"></button>
+                    </code>
+                </code-example>
+                <p>Add a class to change the button color. Classes can be found on the <b>Button Colors</b> card below.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-12  ">
+        <div class="card card-w-title">
+            <h1>Fluid Button</h1>
+            <div class="card-content">
+                <p>The fluid buttons justifies to fill up the container. To justify the button, add <code
+                        class="language-css" pCode>class="ui-fluid"</code> in the wrapper of the button element.</p>
+                <div class="grid ">
+                    <div class="col-12  ui-fluid">
+                        <!-- Fluid Button -->
+                        <button pButton type="button" label="Default Fluid Button"></button>
+                    </div>
+                </div>
+                <h5>Code Snippet:</h5>
+                <code-example language="markup">
+                    <code>
+                        <button pButton type="button" label="Default Fluid Button"></button>
+                    </code>
+                </code-example>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 ">
+        <div class="card card-w-title">
+            <h1>Text Button with Icons</h1>
+            <div class="grid">
+                <div class="col-6 card-content">
+                    <h2>Text Button with Left Icon</h2>
+                    <button pButton type="button" icon="ui-icon-add" label="Icon Left Button"></button>
+                    <h5>Code Snippet:</h5>
+                    <code-example language="markup">
+                        <code>
+                            <button pButton type="button" icon="ui-icon-add" label="Icon Left Button"></button>
+                        </code>
+                    </code-example>
+                </div>
+                <div class="col-6 card-content">
+                    <h2>Text Button with Right Icon</h2>
+                    <button pButton type="button" icon="ui-icon-chevron-right" iconPos="right" label="Icon Right Button"></button>
+                    <p>To set the icon to the right, add <code class="language-css" pCode>iconPos="right"</code> to the
+                        button element</p>
+                    <h5>Code Snippet:</h5>
+                    <code-example language="markup">
+                        <code>
+                            <button pButton type="button" icon="ui-icon-chevron-right" iconPos="right" label="Icon Right Button"></button>
+                        </code>
+                    </code-example>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 ">
+        <div class="card card-w-title">
+            <h1>Bootens</h1>
+            <div class="card-content">
+                <div class="grid ui-fluid">
+                    <div class="col-12 ">
+                        <!-- Primary Button - for primary actions only -->
+                        <div class="col-12 ">
+                            <button pButton class="primaryAction" type="button" label="Primary Action Filled"></button>
+                        </div>
+                        <div class="col-12 ">
+                            <button pButton class="primaryAction flat" type="button" label="Primary Action Outlined"></button>
+                        </div>
+
+                        <div class="col-12 ">
+                            <button pButton class="primaryAction ghost" type="button" label="Primary Action Ghost"></button>
+                        </div>
+                    </div>
+
+                    <div class="col-12 ">
+                        <!-- Default Button -->
+                        <div class="col-12 ">
+                            <button pButton type="button" label="Default Filled"></button>
+                        </div>
+                        <div class="col-12 ">
+                            <button pButton type="button" label="Default Outlined" class="flat"></button>
+                        </div>
+                        <div class="col-12 ">
+                            <button pButton type="button" label="Default Ghost" class="ghost"></button>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <!-- Success Button -->
+                        <div class="col-12 ">
+                            <button pButton class="primary" type="button" label="Success Filled"
+                            class="success"></button>
+                        </div>
+                        <div class="col-12 ">
+                            <button pButton class="primary flat" type="button" label="Success Outlined" class="success"></button>
+                        </div>
+                        <div class="col-12 ">
+                            <button pButton class="success ghost" type="button" label="Success Ghost"></button>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <!-- Danger Button -->
+                        <div class="col-12 ">
+                            <button pButton type="button" label="Danger Filled" class="danger"></button>
+                        </div>
+                        <div class="col-12 ">
+                            <button pButton type="button" label="Danger Outlined" class="danger flat"></button>
+                        </div>
+                        <div class="col-12 ">
+                            <button pButton type="button" label="Danger Button" class="danger ghost"></button>
+                        </div>
+                    </div>
+
+                    <div class="col-12  accent">
+                        <!-- Accent Button -->
+                        <div class="col-12 ">
+                            <button pButton class="accent" type="button" label="Accent Filled"></button>
+                        </div>
+                        <div class="col-12 ">
+                            <button pButton class="accent flat" type="button" label="Accent Outlined"></button>
+                        </div>
+                        <div class="col-12 ">
+                            <button pButton class="accent ghost" type="button" label="Accent Ghost"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

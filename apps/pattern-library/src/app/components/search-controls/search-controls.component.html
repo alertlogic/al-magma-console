@@ -1,0 +1,65 @@
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>Search Controls</h1>
+            <div class="card-content">
+                <h5>Component Name:</h5>
+                <code class="language-css" pCode>al-search-bar</code>
+
+                <h4>Al Search bar with autofocus</h4>
+                <al-search-bar placeholder="Search"
+                    [maxSearchLength]=5
+                    [width]="'400px'"
+                    [autofocus]="true"
+                    (onSearchChanged)="getData($event)">
+                </al-search-bar>
+                <p class="pad-top">Add <code class="language-css" pCode>[autofocus]="true"</code> to the component to autofocus on that input field.</p>
+
+                <h4>Header search with larger icon</h4>
+                <al-search-bar #alSearchBar
+                    [width]="'400px'"
+                    [placeholder]="'search for something'"
+                    [maxSearchLength]="150"
+                    [searchIcon]="'header'">
+                </al-search-bar>
+                <p class="pad-top">Add <code class="language-css" pCode>[searchIcon]="'header'"</code> to the component for a larger search icon.</p>
+
+                <h4>Al Search bar with label</h4>
+                <al-search-bar placeholder="Search"
+                    [maxSearchLength]=5
+                    [width]="'400px'"
+                    [showLabel]="true"
+                    (onSearchChanged)="getData($event)">
+                </al-search-bar>
+                <p class="pad-top">Add <code class="language-css" pCode>[showLabel]="true"</code> to the component for the float label.</p>
+
+                <h4>Al Search bar without label</h4>
+                <al-search-bar placeholder="Perform Search"
+                    [autofocus]="false"
+                    [showLabel]="false"
+                    [width]="'400px'">
+                </al-search-bar>
+
+                <h4>Al Search bar with regex input validation</h4>
+                <al-search-bar placeholder="Perform Search"
+                    [autofocus]="false"
+                    [showLabel]="false"
+                    [width]="'400px'"
+                    regexPattern="^[a-zA-Z0-9\.]*"
+                    invalidPatternText="Search term can only contain letters and numbers"
+                    [maxSearchLength]=5>
+                </al-search-bar>
+                <p class="pad-top">Add <code class="language-css" pCode>regexPattern="YOUR_REGEX_HERE"</code> to the component for the regex validation to be enabled.</p>
+                <p class="pad-top">Add <code class="language-css" pCode>invalidPatternText="YOUR_MESSAGE_GOES_HERE"</code> to the component to customise the error message.</p>
+            </div>
+        </div>
+    </p-tabPanel>
+    <!-- <p-tabPanel header="Usage Guide">
+        <div class="card card-w-title">
+            <h1>Usage Guide</h1>
+            <div class="card-content">
+                <embedded-markdown resourceId="readme/al-search-bar/README"></embedded-markdown>
+            </div>
+        </div>
+    </p-tabPanel> -->
+</p-tabView>

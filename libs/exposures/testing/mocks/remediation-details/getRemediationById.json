@@ -1,0 +1,8 @@
+{
+    "description": "Alert Logic recommends that you add an Alert Logic agent to this host. See https://docs.alertlogic.com/home.htm for information on how to install the agent for the appropriate platform.",
+    "id": "agent_install_agent",
+    "name": "Alert Logic recommends that you add an Alert Logic agent to this host.",
+    "vulnerability_ids": [
+        "489a02c4d2022eb7c2550801df621be4"
+    ]
+}

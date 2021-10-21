@@ -1,0 +1,77 @@
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>Calendar</h1>
+            <div class="card-content">
+                <p-calendar [inline]="true"></p-calendar>
+                <div class="grid form-group-m" style="margin-top:20px">
+                    <div class="col-12">
+                        <p-calendar placeholder="Popup" [showButtonBar]="false"></p-calendar>
+                    </div>
+                    <!-- <div class="col-12">
+                            <p-calendar dateFormat="mm/dd/yy" showTime="true" placeholder="DateTime"
+                                [minDate]="yesterday">
+                            </p-calendar>
+                        </div>
+                        <div class="col-12">
+                            <p-calendar showTime="true" [timeOnly]="true" placeholder="Time"></p-calendar>
+                        </div> -->
+                </div>
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>Date Range</h1>
+            <div class="card-content">
+                <p style="margin-bottom: 36px;">This component and the usage guide can be found in the <a
+                        href="https://www.primefaces.org/primeng/showcase/#/calendar" target="_blank">PrimeNG component
+                        library</a>.</p>
+                <p-calendar [(ngModel)]="rangeDates" placeholder="Select a Date Range" selectionMode="range"
+                    [readonlyInput]="true" width="100%"></p-calendar>
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>Date Picker with defaults (Dashboards)</h1>
+            <div class="card-content">
+                <al-date-range-selector [fixedRanges]="defaultFixedRanges"
+                                        (onDateSelected)="dateSelected($event)">
+                </al-date-range-selector>
+            </div>
+            <h1>Date Picker with time selector (Search)</h1>
+            <div class="card-content">
+                <al-date-range-selector [fixedRanges]="searchFixedRanges"
+                                        [showTimePicker]="true"
+                                        [returnTimeFrame]="true"
+                                        (onDateSelected)="dateSelected($event)">
+                </al-date-range-selector>
+            </div>
+            <h1>Date Picker with ALL option</h1>
+            <div class="card-content">
+                <al-date-range-selector [fixedRanges]="fixedRangesWithAll"
+                                        [showTimePicker]="true"
+                                        [returnTimeFrame]="true"
+                                        (onDateSelected)="dateSelected($event)">
+                </al-date-range-selector>
+            </div>
+            <h1>Time selector</h1>
+            <div class="card-content" style="width: 200px;">
+                <al-time-selector [time]="startTime"
+                                  (onTimeSelected)="timeSelected($event)">
+                </al-time-selector>
+            </div>
+            <div class="card-content">
+                <h5>Component Name:</h5>
+                <code class="language-css" pCode>al-date-range-selector</code><br>
+                <code class="language-css" pCode>al-time-selector</code>
+            </div>
+        </div>
+
+    </p-tabPanel>
+</p-tabView>

@@ -1,0 +1,34 @@
+<div class="grid">
+    <div class="col-12">
+        <div class="card card-w-title">
+            <h1>Dynamic</h1>
+            <div class="card-content">
+                <div class="form-row-top">
+                    <al-dynamic-form #alDynamicFormComponent [elements]="elements" (isValid)="onDynamicFormChanges($event)"></al-dynamic-form>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-w-title">
+            <h1>Dynamic with below and above text</h1>
+            <div class="card-content">
+                <div class="form-row-top">
+                    <al-dynamic-form [elements]="elementsWithMoreData" (isValid)="onDynamicFormChanges($event)">
+                    </al-dynamic-form>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-w-title">
+            <h1>Dynamic with below and above text</h1>
+            <div class="card-content">
+               <div class="grid grid-nogutter">
+                   <div class="col-4 ui-fluid">
+                    <p-multiSelect [options]="cities" [(ngModel)]="selectedCities"></p-multiSelect>
+                   </div>
+
+               </div>
+            </div>
+        </div>
+    </div>
+</div>

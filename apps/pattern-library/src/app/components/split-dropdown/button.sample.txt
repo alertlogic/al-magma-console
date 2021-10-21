@@ -1,0 +1,1 @@
+<p-splitButton [model]="splitButtonItems" label="Search" [model]="items"></p-splitButton>

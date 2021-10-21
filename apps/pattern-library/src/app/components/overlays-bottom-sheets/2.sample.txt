@@ -1,0 +1,4 @@
+<div class="p-col-[set this]">
+    <div class="label">Label</div>
+    <div class="desc">Description</div>
+</div>

@@ -1,0 +1,891 @@
+{
+    "name": "Navigation Schema",
+    "description": "This is a generated document compiled from navigation-schemas/usage-guide/main.json.",
+    "menus": {
+        "primary": {
+            "caption": "primary",
+            "children": [
+                {
+                    "caption": "Home",
+                    "properties": {
+                        "iconClass": "home"
+                    },
+                    "action": {
+                        "type": "link",
+                        "location": "usage-guide",
+                        "path": "/#/"
+                    }
+                },
+                {
+                    "caption": "Global Styles",
+                    "properties": {
+                        "iconClass": "palette"
+                    },
+                    "action": {
+                        "type": "link",
+                        "location": "usage-guide",
+                        "path": "/#/patterns/global/colors"
+                    },
+                    "children": [
+                        {
+                            "caption": "Color Guide",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/global/colors"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Color Palette",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/global/palette"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Icons",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/global/icons"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Typography",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/global/typography"
+                            },
+                            "bubble": true
+                        }
+                    ]
+                },
+                {
+                    "caption": "Global Components",
+                    "properties": {
+                        "iconClass": "category"
+                    },
+                    "action": {
+                        "type": "link",
+                        "location": "usage-guide",
+                        "path": "/#/patterns/global/alerts"
+                    },
+                    "children": [
+                        {
+                            "caption": "Alert Boxes",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/global/alert-boxes"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Collapsible Layout",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/global/collapsible-layout"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Loading Indicators",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/global/loading-indicators"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Panels",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/global/panels"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Progress Indicators",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/global/progress-indicators"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Tabs",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/global/tabs"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Zero States",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/global/zero-states"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Filter",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/global/filter"
+                            },
+                            "bubble": true
+                        }
+                    ]
+                },
+                {
+                    "caption": "Buttons",
+                    "properties": {
+                        "iconClass": "edit_attributes"
+                    },
+                    "action": {
+                        "type": "link",
+                        "location": "usage-guide",
+                        "path": "/#/buttons/global-buttons"
+                    },
+                    "children": [
+                        {
+                            "caption": "Global Buttons",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/buttons/global-buttons"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Button Groups",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/buttons/button-groups"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Card Buttons",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/buttons/card-buttons"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Icon Buttons",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/buttons/icon-buttons"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Spit Dropdown Button",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/buttons/split-dropdown"
+                            },
+                            "bubble": true
+                        }
+                    ]
+                },
+                {
+                    "caption": "Cards",
+                    "properties": {
+                        "iconClass": "view_day"
+                    },
+                    "action": {
+                        "type": "link",
+                        "location": "usage-guide",
+                        "path": "/#/patterns/form/buttons"
+                    },
+                    "children": [
+                        {
+                            "caption": "Base Card",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/cards/base-card"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "AIMS",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/cards/aims"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Asset Cards",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/cards/asset-card-examples"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Dashboard Widget",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/cards/dashboard-widget"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Deployment Card",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/cards/deployment"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Reports Card",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/cards/reports"
+                            },
+                            "bubble": true
+                        }
+                    ]
+                },
+                {
+                    "caption": "Card Stack",
+                    "properties": {
+                        "iconClass": "money"
+                    },
+                    "action": {
+                        "type": "link",
+                        "location": "usage-guide",
+                        "path": "/#/patterns/cardstack"
+                    },
+                    "children": [
+                        {
+                            "caption": "Example",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/common-elements/cardstack-1"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Filters",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/cardstack/filters"
+                            },
+                            "bubble": true
+                        }
+                    ]
+                },
+                {
+                    "caption": "Form Elements",
+                    "properties": {
+                        "iconClass": "check_box"
+                    },
+                    "action": {
+                        "type": "link",
+                        "location": "usage-guide",
+                        "path": "/#/patterns/form/checkboxes"
+                    },
+                    "children": [
+						{
+                            "caption": "Checkboxes",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/form/check-box"
+                            },
+                            "bubble": true
+                        },
+						{
+                            "caption": "Checkbox",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/form/checkbox"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Chips & Badges",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/form/chips"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Date Pickers",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/form/date-pickers"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Dropdowns",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/form/dropdowns"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Dynamic Forms",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/form/dynamic"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Complex Selectors",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/form/complex-selectors"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Login/Auth Control",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/login"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Radio Buttons",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/form/radio-buttons"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Sliders",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/form/sliders"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Switch",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/form/switch"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Wizzard Stepper",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/form/wizzard-stepper"
+                            },
+                            "bubble": true
+                        }
+                    ]
+                },
+                {
+                    "caption": "Overlays",
+                    "properties": {
+                        "iconClass": "call_to_action"
+                    },
+                    "action": {
+                        "type": "link",
+                        "location": "usage-guide",
+                        "path": "/#/patterns/overlays/bottom-sheets"
+                    },
+                    "children": [
+                        {
+                            "caption": "Action Snackbar",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/overlays/action-snackbar"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Preview",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/overlays/preview"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Bottom Sheets",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/overlays/bottom-sheets"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Dialog Box",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/overlays/dialog-box"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Drawers",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/overlays/drawers"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Download Queue",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/overlays/download-queue"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Onboarding Carousel",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/overlays/onboarding"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Toast",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/overlays/toast"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Tooltips",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/overlays/tooltips"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Welcome Dialog",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/overlays/welcome-dialog"
+                            },
+                            "bubble": true
+                        }
+                    ]
+                },
+                {
+                    "caption": "Page Headers",
+                    "properties": {
+                        "iconClass": "drag_handle"
+                    },
+                    "action": {
+                        "type": "link",
+                        "location": "usage-guide",
+                        "path": "/#/patterns/headers/default"
+                    },
+                    "children": [
+                        {
+                            "caption": "Global Headers",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/headers/default"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Header with FAB",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/headers/fab-header"
+                            },
+                            "bubble": true
+                        }
+                    ]
+                },
+                {
+                    "caption": "Search Controls",
+                    "properties": {
+                        "iconClass": "pageview"
+                    },
+                    "action": {
+                        "type": "link",
+                        "location": "usage-guide",
+                        "path": "/#/patterns/searches/page-search"
+                    },
+                    "children": [
+                        {
+                            "caption": "Search",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/searches/page-search"
+                            },
+                            "bubble": true
+                        }
+                    ]
+                },
+                {
+                    "caption": "Tables",
+                    "properties": {
+                        "iconClass": "table_chart"
+                    },
+                    "action": {
+                        "type": "link",
+                        "location": "usage-guide",
+                        "path": "/#/patterns/tables/tables"
+                    },
+                    "children": [
+                        {
+                            "caption": "Tables",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/tables/tables"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Dynamic Table",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/tables/dynamic-table"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Table Caption",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/tables/table-caption"
+                            },
+                            "bubble": true
+                        }
+                    ]
+                },
+                {
+                    "caption": "Topology",
+                    "properties": {
+                        "iconClass": "bubble_chart"
+                    },
+                    "action": {
+                        "type": "link",
+                        "location": "usage-guide",
+                        "path": "/#/patterns/topology/topology-config"
+                    },
+                    "children": [
+                        {
+                            "caption": "Configuration",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/topology/topology-config"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Incidents",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/topology/topology-incident"
+                            },
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Topology Console",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/topology/topology-console"
+                            },
+                            "bubble": true
+                        }
+                    ]
+                },
+                {
+                    "caption": "Dashboard Widgets",
+                    "properties": {
+                        "iconClass": "dashboard"
+                    },
+                    "action": {
+                        "type": "link",
+                        "location": "usage-guide",
+                        "path": "/#/dashboards/highcharts"
+                    },
+                    "children": [
+                        {
+                            "caption": "Highcharts",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/dashboards/highcharts"
+                            }
+                        },
+                        {
+                            "caption": "Table Charts",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/dashboards/table-charts"
+                            }
+                        },
+                        {
+                            "caption": "Dashboard Examples",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/dashboards/dashboard-examples"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "caption": "PrimeNG Examples",
+                    "properties": {
+                        "iconClass": "compare"
+                    },
+                    "action": {
+                        "type": "link",
+                        "location": "usage-guide",
+                        "path": "/#/patterns/primeng/form-examples"
+                    },
+                    "children": [
+                        {
+                            "caption": "Data",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/primeng/data-examples"
+                            }
+                        },
+                        {
+                            "caption": "Form",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/primeng/form-examples"
+                            }
+                        },
+                        {
+                            "caption": "Message",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/primeng/message-examples"
+                            }
+                        },
+                        {
+                            "caption": "Overlay",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/primeng/overlay-examples"
+                            }
+                        },
+                        {
+                            "caption": "Panel",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/primeng/panel-examples"
+                            }
+                        },
+                        {
+                            "caption": "Utilities",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "usage-guide",
+                                "path": "/#/patterns/primeng/utilities"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "caption": "Markdown Previewer",
+                    "action": {
+                        "type": "link",
+                        "location": "usage-guide",
+                        "path": "/#/playground/markdown-previewer"
+                    },
+                    "properties": {
+                        "iconClass": "wysiwyg"
+                    }
+                },
+                {
+                  "caption": "Pattern Library (BETA)",
+                  "action": {
+                      "type": "link",
+                      "location": "usage-guide",
+                      "path": "/#/patterns/new-pattern-library"
+                  },
+                  "children": [
+                    {
+                        "caption": "Form Inputs",
+                        "properties": {},
+                        "action": {
+                            "type": "link",
+                            "location": "usage-guide",
+                            "path": "/#/patterns/new-pattern-library/al-inputs"
+                        }
+                    },
+                    {
+                        "caption": "Buttons",
+                        "properties": {},
+                        "action": {
+                            "type": "link",
+                            "location": "usage-guide",
+                            "path": "/#/patterns/new-pattern-library/buttons"
+                        }
+                    },
+                    {
+                      "caption": "Utilities",
+                      "properties": {},
+                      "action": {
+                        "type": "link",
+                        "location": "usage-guide",
+                        "path": "/#/patterns/new-pattern-library/utilities"
+                      }
+                    }
+                  ],
+                  "properties": {
+                      "iconClass": "campaign"
+                  }
+              }
+            ],
+            "isPublic": null
+        },
+        "user": {
+            "caption": "user",
+            "children": [],
+            "isPublic": null
+        }
+    },
+    "namedRoutes": {},
+    "conditions": {}
+}

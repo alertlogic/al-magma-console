@@ -1,0 +1,17 @@
+<div class="al-header">
+  <div class="header-container">
+    <div class="navbar-left">
+      <a href="/#/" >
+        <span class="logo"></span>
+      </a>
+      <ng-content select="h1" class="header-title"></ng-content>
+    </div>
+    <div>
+      <ng-content select=".user-menu-item"></ng-content>
+    </div>
+  </div>
+
+  <div class="menu">
+    <ng-content select=".application-menu"></ng-content>
+  </div>
+</div>

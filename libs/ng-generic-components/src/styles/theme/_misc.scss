@@ -1,0 +1,65 @@
+body {
+    .p-draggable-dragging.p-state-default {
+        padding: $headerPadding ;
+        background-color: $primaryColor;
+    }
+
+    .p-progressbar {
+        height: 1.5em;
+        padding: 0;
+        overflow: hidden;
+        border-color: transparent;
+        background-color: $primaryLightestColor;
+
+        .p-progressbar-value {
+            height: 1.5em;
+            border: none;
+            background-color: $accentColor;
+        }
+
+        .p-progressbar-label {
+            color: $primaryColor;
+            display: none ;
+        }
+    }
+
+    .p-progressbar-indeterminate {
+        .p-progressbar-value {
+            background-color: $primaryLightestColor;
+            &::before {
+                background-color: $accentColor;
+            }
+        }
+    }
+
+    .p-galleria {
+        padding: 0;
+
+        .p-galleria-nav-prev {
+            left: 0;
+            margin-bottom: -.4em;
+        }
+
+        .p-galleria-nav-next {
+            right: 0;
+            margin-bottom: -.4em;
+        }
+    }
+
+    .p-inplace {
+        .p-inplace-display {
+            @include transition(background-color .3s);
+            @include border-radius(3px);
+
+            &:hover {
+                background-color: $hoverBgColor;
+            }
+        }
+    }
+
+    .p-terminal {
+        .p-terminal-input {
+            font-size: $fontSize;
+        }
+    }
+}

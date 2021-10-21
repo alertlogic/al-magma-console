@@ -1,0 +1,30 @@
+<div class="card-container">
+    <p-card>
+    <al-detailed-table-list
+            [config]="config1"
+       ></al-detailed-table-list>
+    </p-card>
+</div>
+
+<div class="card-container">
+    <p-card>
+        <al-detailed-table-list
+            [config]="config2"
+        ></al-detailed-table-list>
+    </p-card>
+</div>
+
+Table below showcases how to handle content in cells with varying lengths, wrapping onto two lines maximum.
+
+<p>
+  This makes use of the <code pCode>multiline-content</code> css class applied to table cells with the content wrapped in div elements
+</p>
+
+<div class="summary-card-container">
+    <p-card>
+        <al-detailed-table-list
+            [config]="config3"
+        ></al-detailed-table-list>
+    </p-card>
+</div>
+

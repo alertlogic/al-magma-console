@@ -1,0 +1,18 @@
+<al2-form-group
+    [label]="label"
+    [tip]="tip"
+    [hint]="hint">
+
+    <div class="ald-checkbox-group" [ngClass]="[inline ? 'ald-checkbox-group--inline' : 'ald-checkbox-group--stacked']">
+        <div *ngFor="let item of options; let last = last;" class="ald-checkbox-group__row" >
+            <al2-checkbox
+                [id]="item.id.toString()"
+                [label]="item.label"
+                [checked]="item.selected"
+                [disabled]="item.disabled"
+                [verticalSpace]="false"
+                (onCheckedChange)="onChange(item, $event)">
+            </al2-checkbox>
+        </div>
+    </div>
+</al2-form-group>

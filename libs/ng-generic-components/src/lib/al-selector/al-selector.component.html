@@ -1,0 +1,15 @@
+<div #container class="selector-container">
+  <fieldset>
+    <legend>{{title}}</legend>
+    <ng-template ngFor let-item [ngForOf]="selectors" let-i="index">
+      <input
+        type="radio"
+        id="{{uniqueID(i)}}"
+        name="{{uniqueName()}}"
+        value="{{item.value}}"
+        (change)="handleChange($event)"
+        [checked]="item.selected === true">
+      <label for="{{uniqueID(i)}}">{{item.name}}</label>
+    </ng-template>
+  </fieldset>
+</div>

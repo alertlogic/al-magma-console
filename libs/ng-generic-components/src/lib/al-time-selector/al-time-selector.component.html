@@ -1,0 +1,22 @@
+<div class="time-selector-container grid">
+    <div class="col time-selector-input">
+        <p-inputNumber (ngModelChange)="timeChange()" [(ngModel)]="timeParts.hours" [showButtons]="true" buttonLayout="vertical" spinnerMode="vertical"
+            decrementButtonClass="ui-button-secondary" incrementButtonClass="ui-button-secondary"
+            incrementButtonIcon="pi pi-chevron-up" decrementButtonIcon="pi pi-chevron-down" [min]="0" [max]="23">
+        </p-inputNumber>
+    </div>
+    <span class="time-selector-separator">:</span>
+    <div class="col time-selector-input">
+        <p-inputNumber (ngModelChange)="timeChange()" [(ngModel)]="timeParts.minutes" [showButtons]="true" buttonLayout="vertical" spinnerMode="vertical"
+            decrementButtonClass="ui-button-secondary" incrementButtonClass="ui-button-secondary"
+            incrementButtonIcon="pi pi-chevron-up" decrementButtonIcon="pi pi-chevron-down" [min]="0" [max]="59" (onChange)="timeChange()">
+        </p-inputNumber>
+    </div>
+    <span class="time-selector-separator">:</span>
+    <div class="col time-selector-input">
+        <p-inputNumber (ngModelChange)="timeChange()" [(ngModel)]="timeParts.seconds" [showButtons]="true" buttonLayout="vertical" spinnerMode="vertical"
+            decrementButtonClass="ui-button-secondary" incrementButtonClass="ui-button-secondary"
+            incrementButtonIcon="pi pi-chevron-up" decrementButtonIcon="pi pi-chevron-down" [min]="0" [max]="59">
+        </p-inputNumber>
+    </div>
+</div>

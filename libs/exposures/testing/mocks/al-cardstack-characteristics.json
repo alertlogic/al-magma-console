@@ -1,0 +1,18 @@
+{
+    "groupableBy": [],
+    "sortableBy": [],
+    "filterableBy": [],
+    "greedyConsumer": false,
+    "filterValueIncrement": 1,
+    "filterValueLimit": 1,
+    "hideEmptyFilterValues": false,
+    "localPagination": true,
+    "remoteSearch": false,
+    "definitions": {},
+    "entity": {
+        "property": "",
+        "caption": "",
+        "values": [],
+        "metadata": {}
+    }
+}

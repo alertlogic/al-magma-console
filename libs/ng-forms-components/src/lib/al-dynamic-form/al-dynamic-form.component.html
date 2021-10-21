@@ -1,0 +1,9 @@
+<div *ngIf="form">
+    <form (ngSubmit)="onSubmit()" [formGroup]="form" class="grid dynamic-form">
+        <ng-container *ngFor="let element of elements">
+            <div [ngClass]="element.cssClass ? element.cssClass : 'col-12'">
+                <al-dynamic-form-element [element]="element" [form]="form"></al-dynamic-form-element>
+            </div>
+        </ng-container>
+    </form>
+</div>

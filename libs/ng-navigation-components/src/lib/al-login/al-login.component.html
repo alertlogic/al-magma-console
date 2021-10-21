@@ -1,0 +1,53 @@
+<div class="login-page-body">
+    <div class="login grid ui-fluid">
+        <div class="login-form card card-w-title" *ngIf="phase==='credentials'">
+            <div class="header">
+                <div class="circle-logo"><i class="icon-logo al al-logo"></i></div>
+                <div class="title">
+                    <h1>Log In</h1>
+                </div>
+            </div>
+            <div class="grid form-group">
+                <div class="col-12 ">
+                    <span class="md-inputfield">
+                        <input type="text" [(ngModel)]="email" pInputText>
+                        <label>email address</label>
+                    </span>
+                </div>
+                <div class="col-12 ">
+                    <span class="md-inputfield">
+                        <input type="password" [(ngModel)]="password" (keyup.enter)="doAuthenticate()" pInputText>
+                        <label>password</label>
+                    </span>
+                </div>
+                <div class="col-12 ">
+                    <button type="button" pButton (click)="doAuthenticate()" label="Authenticate" class="ui-button-primary primaryAction" [disabled]="authenticating">
+                        <p-progressSpinner *ngIf="authenticating"></p-progressSpinner>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <div class="login-form card card-w-title" *ngIf="phase==='mfa'">
+            <div class="header">
+                <div class="circle-logo"><i class="icon-logo al al-logo"></i></div>
+                <div class="title">
+                    <h1>Log In</h1>
+                </div>
+            </div>
+            <div class="grid form-group">
+                <div class="col-12 ">
+                    <span class="md-inputfield">
+                        <input type="text" [(ngModel)]="mfaCode" (keyup.enter)="doValidateMfaCode()" pInputText>
+                        <label>MFA Code</label>
+                    </span>
+                </div>
+                <div class="col-12 ">
+                    <button type="button" pButton (click)="doValidateMfaCode()" label="Verify" class="ui-button-info primaryAction" [disabled]="authenticating">
+                        <p-progressSpinner *ngIf="authenticating"></p-progressSpinner>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

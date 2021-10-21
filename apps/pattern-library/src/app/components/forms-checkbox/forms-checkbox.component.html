@@ -1,0 +1,55 @@
+<div class="card card-w-title user-guide">
+    <h1>Checkboxes</h1>
+    <div class="card-content">
+        <p>These components can be found in the <a href="https://primefaces.org/primeng/#/checkbox"
+                target="_blank">PrimeNG component library</a>.</p>
+        <h2>Boolean - {{checked}}</h2>
+        <p-checkbox [(ngModel)]="checked" [binary]="true"></p-checkbox>
+
+        <h2 style="margin-top: 36px;">Basic</h2>
+        <div class="grid grid-nogutter">
+            <div class="col-12 form-row">
+                <p-checkbox name="group1" value="New York" label="New York" [(ngModel)]="selectedCities" inputId="ny">
+                </p-checkbox>
+            </div>
+            <div class="col-12 form-row">
+                <p-checkbox name="group1" value="San Francisco" label="San Francisco" [(ngModel)]="selectedCities"
+                    inputId="sf"></p-checkbox>
+            </div>
+            <div class="col-12 form-row">
+                <p-checkbox name="group1" value="Los Angeles" label="Los Angeles" [(ngModel)]="selectedCities"
+                    inputId="la"></p-checkbox>
+            </div>
+            <div class="col-12">
+                <code-example language="markup" resourceId="sample/components/forms-checkbox/checkbox1">
+                </code-example>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card card-w-title">
+    <h1>Preselection</h1>
+    <div class="card-content">
+        <div class="grid grid-nogutter">
+            <div class="col-12 form-row">
+                <p-checkbox name="group2" value="Technology" label="Technology" [(ngModel)]="selectedCategories"
+                    inputId="technology"></p-checkbox>
+            </div>
+            <div class="col-12 form-row">
+                <p-checkbox name="group2" value="Finance" label="Finance" [(ngModel)]="selectedCategories"
+                    inputId="finance"></p-checkbox>
+            </div>
+            <div class="col-12 form-row">
+                <p-checkbox name="group2" value="Sports" label="Sports" [(ngModel)]="selectedCategories"
+                    inputId="sports"></p-checkbox>
+            </div>
+            <div class="col-12 form-row">
+                <p-checkbox name="group2" value="Entertainment" label="Entertainment" [(ngModel)]="selectedCategories"
+                    inputId="entertainment"></p-checkbox>
+            </div>
+        </div>
+        Selected Categories: <span *ngFor="let cat of selectedCategories" style="margin-right:10px">{{cat}}
+        </span>
+    </div>
+</div>

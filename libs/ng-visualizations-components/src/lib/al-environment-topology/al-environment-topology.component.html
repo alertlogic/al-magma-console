@@ -1,0 +1,53 @@
+<div class="environment-graph">
+    <div class="dropdown"
+         *ngIf="shouldDisplayNetworkSelector()"
+         [style.transform]="getTransformForSelector()">
+        <ng-select #networkSelector
+                   [placeholder]="selectorConfig['placeholder']"
+                   [items]="selectorConfig['items']"
+                   [bindLabel]="selectorConfig['labelToBind']"
+                   [bindValue]="selectorConfig['valueToBind']"
+                   [groupBy]="selectorConfig['groupBy']"
+                   (change)="onNetworkSelect($event)"
+                   [(ngModel)]="selectorConfig['selectedItems']"
+                   [clearable]="false">
+            <ng-template ng-option-tmp
+                         let-item="item"
+                         let-index="index"
+                         let-search="searchTerm">
+                <div *ngIf="item.hasVpcId"
+                     class="custom-template-with-vpc-id">
+                    <span class="name"> {{item.name}} </span>
+                    <span class="id"> {{item.properties.vpc_id}} </span>
+                </div>
+                <div *ngIf="!item.hasVpcId"
+                     class="custom-template-with-no-vpc-id">
+                    <span class="name"> {{item.name}} </span>
+                </div>
+            </ng-template>
+        </ng-select>
+    </div>
+    <div class="action-buttons"
+         *ngIf="topology && topology.regions.length > 0">
+        <div class="button-stack">
+            <ul>
+                <li class="stack-horizontal">
+                    <button type="button"
+                            (click)="toggleFullScreen()">
+                        <i [ngClass]="fullScreen ? 'al al-shrink' : 'al al-enlarge'"></i>
+                    </button>
+                </li>
+                <li class="stack-vertical">
+                    <button type="button"
+                            (click)="zoomIn()">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                    <button type="button"
+                            (click)="zoomOut()">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.list-option{
+    cursor: pointer;
+    align-items: center;
+    .list-icon{
+        color:white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 52px;
+    }
+
+    .list-text{
+        padding: 6px;
+        overflow: hidden;
+    }
+
+    .hide-overflow{
+        overflow: hidden;
+    }
+
+    &:hover{
+        background: al-color($al-gray, 50);
+    }
+}
+

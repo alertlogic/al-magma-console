@@ -1,0 +1,163 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.login-page {
+    width: 300px;
+    padding: 36px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .circle-logo {
+        display: flex;
+        justify-content: center;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+            background-color: al-color($al-gray, 600);
+
+        .icon-logo {
+            font-size: 20pt;
+            margin-top: 6px;
+            color: white;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    .form-div {
+        width: 100%;
+        display: table
+    }
+
+    .row-div {
+        display: table-row;
+    }
+
+    .cell-div {
+        display: table-cell;
+    }
+
+    .inner-form {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .show-toggle {
+        position: absolute;
+        right: 0;
+        top: 0;
+        text-align: right;
+        font-size:10pt;
+        color: al-color($al-gray, 200);
+    }
+
+    .show-toggle:hover {
+        cursor: pointer;
+        cursor: hand;
+        color: al-color($al-smokeBlue, 500);
+    }
+
+    .password-policy {
+        font-size: 10pt;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        font-weight: 300;
+        text-align: left;
+        margin-left: 26px;
+    }
+
+    .login-fields {
+        text-align: justify;
+        text-justify: inter-word;
+        margin: 20px 0 20px 0;
+        .mat-form-field-infix {
+            width: 100%;
+        }
+    }
+
+    .page-buttons {
+        text-align: center;
+    }
+
+    .input-text-field {
+        width:300px;
+        height: 20px;
+        resize: none;
+    }
+
+    .button-width {
+        width:300px;
+    }
+
+    .reset-text {
+        text-align: justify;
+        text-justify: inter-word;
+        margin: 30px 0 30px 0;
+    }
+
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width:100%;
+        flex-direction: row;
+
+        .title {
+            width: 250px;
+        }
+    }
+
+    mat-card.loginErrorPanel{
+        background: #FF5252;
+        color: #FFF;
+        margin-left: 0;
+        margin-right: 0;
+        mat-card-content{
+            margin-bottom: 0 !important;
+            text-align: center;
+            font-size: medium;
+            margin-right: 8px;
+        }
+    }
+
+
+    .material-icons{
+        margin: auto;
+        cursor: default;
+    }
+
+    .gray-text {
+        color: #A6A6A6;
+        font-size:8pt;
+        text-decoration:none;
+    }
+
+    .page-bottom {
+        margin-top: 10px;
+        text-align: center;
+    }
+
+
+}
+.api-doc {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  padding: 20px;
+}
+.api-doc-link:link, .api-doc-link:visited  {
+  color: #ff9800;
+  padding: 10px;
+}
+.api-doc-link:hover, .api-doc-link:active {
+  color: #A6A6A6;
+  text-decoration: underline;
+  padding: 10px;
+}
+al-tertiary-menu, app-root, .conduit-container {
+    background-color: white;
+}

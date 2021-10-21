@@ -1,0 +1,95 @@
+@import "@al/ng-generic-components/styles/utility";
+
+al-saved-searches-content {
+
+    .list-container {
+        max-height: 300px;
+        overflow: auto;
+    }
+
+    ngx-monaco-editor {
+        height: 120px;
+    }
+
+    .error-container {
+        display: flex;
+        justify-content: space-between;
+        background-color: al-color($al-red, 500);
+        align-items: center;
+        color: #fff;
+        padding: 15px;
+        margin: 10px;
+
+        .error-message {
+            text-align: left;
+            width: 100%;
+
+        }
+
+        .close-error {
+            height: 24px;
+            cursor: pointer;
+        }
+    }
+
+    .and-condition{
+        padding: 5px;
+    }
+
+    al-aggregation-filter-content{
+        .p-grid{
+            padding-top: 12px;
+        }
+    }
+
+    .chips {
+        .p-state-disabled {
+            opacity: 1 !important;
+            background-image: none;
+            overflow: unset;
+        }
+
+        .p-inputtext.p-state-disabled {
+            border-bottom: none;
+            background-image: none;
+            overflow: unset;
+        }
+
+        .p-chips-token {
+            height: 28px !important;
+        }
+    }
+
+    .al-schedule-action-item {
+        color: al-color($al-gray, 500);
+        border-bottom: 2px solid al-color($al-gray, 50);
+        padding-bottom: 6px;
+        padding-top: 10px;
+
+        .text {
+            vertical-align: super;
+            padding-left: 7px;
+        }
+
+        .right-icons {
+            float: right;
+            height: 35px;
+            display: flex;
+
+            .schedule-button {
+                border-radius: 0;
+                margin-right: 10px;
+                width: 40px;
+                height: 35px;
+            }
+
+            .p-button-label {
+                line-height: normal;
+            }
+        }
+    }
+
+    .not-first-row {
+        padding-top: 12px !important;
+    }
+}

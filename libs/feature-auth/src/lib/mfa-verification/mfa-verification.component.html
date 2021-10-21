@@ -1,0 +1,44 @@
+<div fxLayout="row" class="padding-content" fxLayoutAlign="center center">
+    <div class="page-form">
+        <div class="header">
+            <circle-al-logo></circle-al-logo>
+            <div class="title"><h2>Multi-Factor Authentication</h2></div>
+        </div>
+        <div class="form-div">
+            <al-view-helper  #alViewHelper [loading]="loading" [notifyPanel]="true"></al-view-helper>
+            <form #authenticationCodeForm="ngForm"  (ngSubmit)="onSubmitAuthenticateCode()">
+                <div class="row-div">
+                    <div class="cell-div">
+                        <div class="inner-form">
+                            <div class="inner-form-div">
+                                <div class="header-text">Please provide your authentication code below:</div>
+                                <mat-form-field class="input-authentication-code">
+                                    <!-- Code input -->
+                                    <input
+                                        matInput
+                                        autocomplete="one-time-code"
+                                        type="text"
+                                        name="authenticationCode"
+                                        [(ngModel)]="authenticationCode"
+                                        placeholder="Authentication code"
+                                        #authenticationCodeField="ngModel"
+                                        autofocus
+                                        required
+                                    />
+                                    <!-- End of Code input -->
+                                    <mat-error [hidden]="false">You must enter an authentication code.</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="form-section">
+                                <button type="submit" mat-raised-button color="primary" class="button-width" [disabled]="!authenticationCodeForm.form.valid">AUTHENTICATE</button>
+                            </div>
+                            <div class="form-section-bottom">
+                                Problem setting up MFA? Contact your account Administrator for help.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

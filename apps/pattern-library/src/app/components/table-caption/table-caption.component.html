@@ -1,0 +1,38 @@
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>Al Table Caption</h1>
+            <div class="card-content">
+                <h5>Component Name:</h5>
+                <code class="language-css" pCode>al-table-caption-v2</code>
+                <div class="pad-top">
+                    <al-table-caption-v2
+                        [cols]="columns"
+                        [defaultColumns]="columns"
+                        [storageKey]="storageKey"
+                        [showColumnsSelector]="showColumnsSelector"
+                        [showSearch]="showSearch"
+                        [showDownload]="showDownload"
+                        [donwloadLabel]="donwloadLabel"
+                        [useLocalStorage]="false"
+                        (onSearched)="searchTable($event)"
+                        (onChangeColumns)="changeColumns($event)"
+                        (onDownload)="download($event)"
+                        >
+                    </al-table-caption-v2>
+                </div>
+                <h5>Notes:</h5>
+                <p class="pad-top">If you want to see this component on action, please go to "Tables/Tables" in the usage guide menu</p>
+                <p class="pad-top">Please take a look at your console to se the behaviour of the outputs</p>
+            </div>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Usage Guide">
+        <div class="card card-w-title">
+            <h1>Usage Guide</h1>
+            <div class="card-content">
+                <embedded-markdown resourceId="readme/al-table-caption-v2/README"></embedded-markdown>
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>

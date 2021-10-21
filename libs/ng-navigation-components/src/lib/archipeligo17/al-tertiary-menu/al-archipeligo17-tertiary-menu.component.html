@@ -1,0 +1,44 @@
+<div class="embedded-layout">
+    <div class="tertiary-navigation-left" [ngClass]="{'open': sidenavOpen }" *ngIf="visible">
+      <section class="tertiary-navigation-bar">
+        <aside>
+          <nav class="sideNav">
+            <ul *ngIf="menu">
+              <ng-template ngFor let-menuItem [ngForOf]="menu.children">
+                <li *ngIf="menuItem.visible"
+                    [ngClass]="{'active': menuItem.activated}"
+                    (click)="onClick(menuItem,$event)"
+                    (mouseover)="onHoverStart(menuItem, $event)">
+                    <a [ngClass]="{'active':menuItem.activated}"
+                        [href]="menuItem.href || ''"
+                        (click)="onClick(menuItem,$event)">{{menuItem.caption}}</a>
+                </li>
+              </ng-template>
+            </ul>
+            <ng-container  *ngIf="renderCustomSidenav">
+              <ng-content select=".custom-tertiary" *ngTemplateOutlet="contentRef"></ng-content>
+            </ng-container>
+          </nav>
+        </aside>
+      </section>
+    </div>
+    <div class="tertiary-content" [ngClass]="alNavigation.tertiaryContentClass$ | async">
+        <section class="navigation-tabs" *ngIf="showQuaternaryMenu && activeTabs && activeTabs.children.length > 1">
+            <div class="tab-container">
+                <ng-template ngFor let-tab [ngForOf]="activeTabs.children">
+                    <div    *ngIf="tab.visible"
+                            [ngClass]="tab.properties.consolidated_css_classes"
+                            (click)="onClick(tab,$event)"
+                            (mouseover)="onHoverStart(tab, $event)">
+                        <a [ngClass]="{'active':tab.activated,'disabled': ! tab.enabled}"
+                            [href]="tab.href || ''"
+                            (click)="onClick(tab,$event)">{{tab.caption}}</a>
+                    </div>
+                </ng-template>
+            </div>
+        </section>
+        <section>
+            <ng-content></ng-content>
+        </section>
+    </div>
+</div>

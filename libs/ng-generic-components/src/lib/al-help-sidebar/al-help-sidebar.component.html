@@ -1,0 +1,15 @@
+<p-sidebar class="help-sidebar" [(visible)]="visible" [style]="{width:'30em'}" position="right" [showCloseIcon]="false" [modal]="false">
+    <div class="box">
+        <div class="row content" *ngIf="iframeSafeResourceUrl">
+            <iframe height="100%" frameborder="0" [src]="iframeSafeResourceUrl" width="100%"></iframe>
+        </div>
+        <div class="row footer">
+            <div class="actions">
+                <p-button class="close" label="CLOSE" (onClick)="close()"></p-button>
+                <a href="{{learnMoreUrl}}" target="_blank">
+                    <p-button class="link" label="LEARN MORE"></p-button>
+                </a>
+            </div>
+        </div>
+    </div>
+</p-sidebar>

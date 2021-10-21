@@ -1,0 +1,53 @@
+@import "@al/ng-generic-components/styles/utility";
+
+h1 {
+    margin: 12px 0 6px 0;
+    padding-bottom: 6px;
+    border-bottom: 1px solid al-color($al-gray, 50);
+    font-size: 24px;
+}
+
+.card {
+    padding: 0;
+
+    h2 {
+        padding: 12px;
+        margin: 0;
+        font-size: 1.2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        i {
+            font-size: 1.5em;
+            margin-right: 12px;
+        }
+    }
+
+    .content {
+        padding: 12px;
+        min-height: 80px;
+        font-size: 0.875em;
+
+        &.short {
+            min-height: 30px;
+        }
+
+        p {
+            display: flex;
+            margin: 6px 0;
+
+            i {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                color: al-color($al-gray, 100);
+                margin-right: 12px;
+            }
+        }
+    }
+}
+
+.hover {
+    background-color: al-color($al-smokeBlue, 100);
+}

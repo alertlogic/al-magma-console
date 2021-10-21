@@ -1,0 +1,39 @@
+<div *ngIf="!expanded">
+    <div class="current-account-div" (click)="expandMenu()">
+        <al-identity-icon  [circular]="true" [name]="activeAccountName"></al-identity-icon>
+        <span>{{activeAccountName}}</span>
+    </div>
+</div>
+<div class="account-container" *ngIf="expanded">
+    <div class="account-selection-container grid">
+        <div class="account-icon-container col-fixed">
+            <al-identity-icon [circular]="true" [name]="activeAccountName"></al-identity-icon>
+        </div>
+        <p-dropdown class="col"
+                    (onBlur)="focusOutFunction($event)"
+                    (onChange)="onChange($event)"
+                    (keyup)="onSearchChanged($event)"
+                    [editable]="true"
+                    [options]="accountList"
+                    optionLabel="name"
+                    [(ngModel)]="item"
+                    [virtualScroll]="true"
+                    [itemSize]="31"
+                    [filter]="false"
+                    [style]="{'width':'250px'}"
+                    [scrollHeight]="scrollHeight"
+                    dropdownIcon="pi pi-search">
+            <ng-template let-item pTemplate="selectedItem">
+                <span>{{item.label}}</span>
+            </ng-template>
+            <ng-template let-item pTemplate="item">
+                <div class="account-item-container grid align-items-center grid-nogutter" [ngClass]="{'account-item-container-current': item.id === activeAccountID}">
+                    <al-identity-icon *ngIf="!item.isEmpty" [circular]="true" [name]="item.label"></al-identity-icon>
+                    <div class="account-name col-fixed item">
+                        {{item.label}}
+                    </div>
+                </div>
+            </ng-template>
+        </p-dropdown>
+    </div>
+</div>

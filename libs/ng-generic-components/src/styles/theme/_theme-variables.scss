@@ -1,0 +1,145 @@
+@import "@al/ng-generic-components/styles/utility";
+
+// Primary Color
+$primaryColor:al-color($al-gray, 500);
+$primaryDarkColor:al-color($al-gray, 700);
+$primaryDarkerColor:al-color($al-gray, 800);
+$primaryLightColor:al-color($al-gray, 200);
+$primaryLighterColor:al-color($al-gray, 100);
+$primaryLightestColor:al-color($al-gray, 50);
+$primaryTextColor:#FFF;
+
+// Accent Color
+$accentColor:al-color($al-smokeBlue, 500);
+$accentDarkColor:al-color($al-smokeBlue, 700);
+$accentDarkerColor:al-color($al-smokeBlue, 800);
+$accentLightColor:al-color($al-smokeBlue, 300);
+$accentLightestColor:al-color($al-smokeBlue, 50);
+$accentTextColor:#FFF;
+
+// Action Colors = primaryAction
+$primaryActionColor:al-color($al-amber, 500);
+$primaryActionDarkColor:al-color($al-amber, 700);
+$primaryActionDarkerColor:al-color($al-amber, 800);
+$primaryActionLightColor:al-color($al-amber, 300);
+$primaryActionLightestColor:al-color($al-amber, 50);
+$primaryActionTextColor:#FFF;
+
+// Success
+$successColor:al-color($al-green, 500);
+$successDarkColor:al-color($al-green, 700);
+$successDarkerColor:al-color($al-green, 800);
+$successLightColor:al-color($al-green, 300);
+$successLightestColor:al-color($al-green, 50);
+$successTextColor:#FFF;
+
+// Danger
+$dangerColor:al-color($al-red, 500);
+$dangerDarkColor:al-color($al-red, 700);
+$dangerDarkerColor:al-color($al-red, 800);
+$dangerLightColor:al-color($al-red, 300);
+$dangerLightestColor:al-color($al-red, 50);
+$dangerTextColor:#FFF;
+
+// Deployments 
+$aws: al-color($al-orange, 500);
+$azure: al-color($al-blue, 500);
+$dataCenter: al-color($al-purple, 500);
+
+/******************************/
+/*           Common           */
+/******************************/
+$fontSize:16px;
+$fontSizeTable:14px;
+$fontFamily: var(--ald-g-font-stack);
+$textColor:al-color($al-gray, 700);
+$textSecondaryColor:al-color($al-gray, 500);
+$lineHeight:18px;
+$borderRadius:2px;
+$dividerColor:al-color($al-gray, 50);
+$dividerLightColor:al-color($al-gray, 50);
+$transitionDuration:.3s;
+$iconWidth:24px;
+$iconHeight:24px;
+$iconFontSize:24px;
+$iconRoundFontSize:20px;
+$hoverBgColor:al-color($al-gray, 50);
+$hoverTextColor:al-color($al-gray, 700);
+$iconPrefix: 'ui-icon';
+
+
+$headerPadding:var(--ald-g-space-2) var(--ald-g-space-3);
+$headerTextColor:al-color($al-gray, 500);
+$headerFontWeight:normal;
+
+$bodyPadding:var(--ald-g-space-6) var(--ald-g-space-10);
+$contentPadding:var(--ald-g-space-6) ;
+$contentBorderColor:al-color($al-gray, 100);
+$contentBgColor:#fff;
+
+$inputBorderColor:al-color($al-gray, 100);
+$inputInvalidBorderColor:al-color($al-red, 600);
+$inputBgColor:#fff;
+$inputErrorTextColor:al-color($al-red, 600);
+$inputHeaderPadding:.714em 1em;
+$inputBorderErrorColor:al-color($al-red, 600);
+$inputFieldLabelTextColor:al-color($al-gray, 200);
+$inputFieldBoxBgColor:#fff;
+$inputFieldFillBgColor:#fff;
+$inputAutoFillBorderColor:#fff;
+$textboxBgColor:#fff;
+
+$headerTextColor:#fff;
+
+// inputs with lists
+$inputListPadding: .5em 0;
+
+// groups
+$inputGroupBorderColor:$primaryLighterColor;
+$inputGroupBgColor:transparent;
+$inputGroupTextColor:$textColor;
+$inputGroupIconColor:$primaryColor;
+$inputGroupAddonMinWidth:2*$fontSize;
+$checkboxWidth:18px;
+$checkboxHeight:18px;
+$inputGroupPadding:2px 2px 1px 2px;
+$inputGroupIconFontSize: 1.5em;
+
+// panels
+$accordioHeaderText: 18px;
+$accordionHeaderPadding:var(--ald-g-space-2) var(--ald-g-space-3);
+$accordionHeaderBgColor:#fff;
+$accordionHeaderTextColor:$primaryColor;
+$accordionHeaderHoverBgColor:$hoverBgColor;
+$accordionHeaderHoverTextColor:$hoverTextColor;
+
+$panelHeaderPadding:var(--ald-g-space-2) var(--ald-g-space-3);
+$panelContentLineHeight:24px;
+$panelHeaderText: 18px;
+
+$footerPadding:0;
+
+$buttonTextColor:$primaryActionTextColor;
+
+$listItemPadding:var(--ald-g-space-1) var(--ald-g-space-3);
+
+$errorMessageFontSize:11px;
+$errorMessageIconFontSize:13px;
+
+// data
+$dataTableHeaderPadding:.857em;
+$dataTableCellPadding:var(--ald-g-space-1) var(--ald-g-space-3);
+$dataBorderColor:al-color($al-gray, 100);
+$dataTableRowBgColorEven:white;
+
+// paginator
+$paginatorPadding:.714em 1em;
+
+// menus
+$menuitemPadding:.571em .857em;
+$menuListPadding: .5em 0;
+
+// widgets
+$widgetHeaderBackground: white;
+$widgetHeaderText:$primaryColor;
+

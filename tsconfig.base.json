@@ -1,0 +1,46 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "strictPropertyInitialization": false,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": false,
+    "noImplicitThis": false,
+    "strictNullChecks": false,
+    "baseUrl": ".",
+    "resolveJsonModule": true,
+    "paths": {
+      "@al/ng-asset-components": ["libs/ng-asset-components/src/index.ts"],
+      "@al/ng-cardstack-components": [
+        "libs/ng-cardstack-components/src/index.ts"
+      ],
+      "@al/ng-forms-components": ["libs/ng-forms-components/src/index.ts"],
+      "@al/ng-generic-components": ["libs/ng-generic-components/src/index.ts"],
+      "@al/ng-navigation-components*": [
+        "libs/ng-navigation-components/src/index.ts"
+      ],
+      "@al/ng-notifications-components": [
+        "libs/ng-notifications-components/src/index.ts"
+      ],
+      "@al/ng-visualizations-components": [
+        "libs/ng-visualizations-components/src/index.ts"
+      ],
+      "@feature/auth": ["libs/feature-auth/src/index.ts"],
+      "@feature/dashboards": ["libs/dashboards/src/index.ts"],
+      "@feature/exposures": ["libs/exposures/src/index.ts"],
+      "@magma/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

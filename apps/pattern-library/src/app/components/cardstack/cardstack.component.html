@@ -1,0 +1,31 @@
+<p-tabView class="user-guide">
+    <p-tabPanel header="Overview &amp; Demo">
+        <div class="card card-w-title">
+            <h1>Don't Be Afraid of Cardstack</h1>
+            <div class="card-content">
+                <p>
+                    Cardstack is a just a collection of components to make lists of filtered, sorted, grouped, searchable cards
+                    behave in a standardized way.  It's easy and <em>fun</em>!  Well, not entirely easy -- it takes a little extra
+                    configuration and abstraction than an ad-hoc implementation.
+                </p>
+                <h3>Example Cardstack</h3>
+
+                <ng-template #candyCard let-cardItem>
+                    {{cardItem.caption}} ({{cardItem.id}})
+                </ng-template>
+
+                <al-cardstack [view]="view"
+                              [cardExpanded]="candyCard" >
+                </al-cardstack>
+            </div>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Usage Guide">
+        <div class="card card-w-title">
+            <h1>Usage Guide</h1>
+            <div class="card-content">
+                <embedded-markdown resourceId="readme/al-cardstack/README"></embedded-markdown>
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>

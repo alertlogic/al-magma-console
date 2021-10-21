@@ -1,0 +1,33 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/libs/ng-forms-components",
+  "lib": {
+    "cssUrl"      : "inline",
+    "entryFile"   : "src/index.ts",
+    "styleIncludePaths": [ "../../.aliases" ],
+    "umdModuleIds": {
+      "@al/ng-generic-components": "@al/ng-generic-components",
+      "@al/core": "@al/core",
+      "primeng/api": "primeng/api",
+      "primeng/checkbox": "primeng/checkbox",
+      "primeng/dropdown": "primeng/dropdown",
+      "primeng/inputmask": "primeng/inputmask",
+      "primeng/inputswitch": "primeng/inputswitch",
+      "primeng/inputtext": "primeng/inputtext",
+      "primeng/inputtextarea": "primeng/inputtextarea",
+      "primeng/button": "primeng/button",
+      "primeng/multiselect": "primeng/multiselect",
+      "primeng/orderlist": "primeng/orderlist",
+      "primeng/password": "primeng/password",
+      "primeng/radiobutton": "primeng/radiobutton",
+      "primeng/tooltip": "primeng/tooltip"
+    }
+  },
+  "allowedNonPeerDependencies": [
+    "@al/ng-generic-components",
+    "@al/responder",
+    "@materia-ui/ngx-monaco-editor",
+    "ngx-markdown",
+    "@vvo/tzdb"
+  ]
+}

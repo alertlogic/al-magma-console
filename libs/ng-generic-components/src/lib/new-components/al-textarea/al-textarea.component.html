@@ -1,0 +1,28 @@
+<al2-form-group [id]="id"
+    [label]="label"
+    [tip]="tip"
+    [hint]="hint"
+    [required]="required">
+    <textarea
+        class="ald-text-area"
+        [class.ald-input__element--error]="control?.errors && (control?.dirty || control?.touched)"
+        [class.ald-text-area__select--disabled]="disabled"
+        [name]="name"
+        [disabled]="disabled"
+        [required]="required"
+        [autofocus]="autofocus"
+        [cols]="cols"
+        [rows]="rows"
+        [placeholder]="placeholder"
+        (change)="onValueChange(value)"
+        (keyup)="onValueChange(value)"
+        [(ngModel)]="value">
+    </textarea>
+
+    <al2-form-group-errors
+            [control]="control"
+            [label]="label"
+            [requiredError]="requiredError"
+        >
+        </al2-form-group-errors>
+</al2-form-group>

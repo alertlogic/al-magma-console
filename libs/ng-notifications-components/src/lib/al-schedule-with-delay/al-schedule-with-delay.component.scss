@@ -1,0 +1,35 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.schedule-options {
+    margin-top: 10px;
+
+    p-radioButton {
+        margin-top: 10px;
+    }
+
+    .schedule-with-delay {
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+
+    .schedule-with-delay-info {
+        background-color: al-color($al-gray, 50);
+        color: al-color($al-gray, 500);
+        margin: 30px 0 0;
+        padding: 10px;
+
+        i {
+            font-size: 2em;
+        }
+
+        .title {
+            font-size: 1.1em;
+            margin-top: 5px;
+        }
+
+        .next-run-text {
+            padding-top: 5px;
+            margin-left: 15px;
+        }
+    }
+}

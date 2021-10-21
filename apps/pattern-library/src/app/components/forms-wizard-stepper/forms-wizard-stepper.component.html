@@ -1,0 +1,16 @@
+<div class="card card-w-title">
+    <h1>Wizard stepper</h1>
+    <div class="card-content">
+        <al-wizard-stepper #alWizard>
+            <al-step stepTitle="Step 1">Step 1 content</al-step>
+            <al-step stepTitle="Step 2">Step 2 content</al-step>
+            <al-step stepTitle="Step 3">Step 3 content</al-step>
+        </al-wizard-stepper>
+        <div style="margin-top: 20px;">
+            <button pButton type="button" label="Step back" (click)="alWizard.stepBack()"></button>
+            <button pButton type="button" label="Step forward" (click)="alWizard.stepForward()"></button>
+        </div>
+        <h5>Code Snippet:</h5>
+        <code-example language="markup" resourceId="sample/components/forms-wizard-stepper/wizard"></code-example>
+    </div>
+</div>

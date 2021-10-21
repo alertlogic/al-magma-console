@@ -1,0 +1,29 @@
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>Style Guide</h1>
+            <div class="card-content">
+                <!-- Place Component Here -->
+                <h1>Under Construction</h1>
+                <img src="assets/images/construction.gif" />
+                <h3>Constructive Quotation</h3>
+                <div *ngIf="selectedQuotation">
+                    <blockquote>{{selectedQuotation.text}}</blockquote>
+                    <p class="attribution">-- {{selectedQuotation.attribution}}</p>
+                </div>
+                <button label="Default Button" pButton class="primaryAction" type="button"></button>
+                <h5>Component Name:</h5>
+                <code class="language-css" pCode>al-[component-name]</code>
+            </div>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Usage Guide">
+        <div class="card card-w-title">
+            <h1>Usage Guide</h1>
+            <div class="card-content">
+                <h1>Under Construction</h1>
+                <img src="assets/images/construction.gif" />
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>

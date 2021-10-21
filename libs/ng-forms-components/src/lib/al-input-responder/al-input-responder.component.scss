@@ -1,0 +1,68 @@
+@import "@al/ng-generic-components/styles/utility.scss";
+
+input, textarea {
+    width: 100%;
+}
+
+input{
+    padding-right: 15px;
+}
+
+textarea{
+    padding-top: 10px;
+}
+
+.info-icon-form {
+    font-size: 14px;
+    color: #CBCBCB;
+    opacity: 1;
+}
+
+.suggestion-container{
+    position: relative;
+    width: 100%;
+    margin-bottom: 6px;
+
+    .suggestion-list{
+        position: absolute;
+        right: 2px;
+        margin-bottom: 2px;
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12), 0 1px 5px 0 rgba(0,0,0,.2);
+        border-width: 1px;
+        z-index: 3;
+        background: #FFFFFF;
+        opacity: 1;
+
+        .search{
+            padding: 6px 12px 6px 12px;
+        }
+
+        .list-container{
+            overflow: scroll;
+            max-height: 360px;
+        }
+
+        .list-group{
+            padding: 6px 12px 6px 12px;
+
+            .list-item{
+                padding: 6px 12px 6px 12px;
+                cursor: pointer;
+
+                &:hover{
+                    background: al-color($al-smokeBlue, 100);
+                }
+            }
+
+        }
+    }
+}
+
+::ng-deep .responder-tooltip .p-tooltip-text {
+    min-width: 200px;
+    overflow-wrap: break-word;
+}
+
+::ng-deep .p-dropdown-label-container{
+    min-width: 100%;
+}

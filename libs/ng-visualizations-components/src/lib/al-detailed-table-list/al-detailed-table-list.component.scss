@@ -1,0 +1,466 @@
+@import "@al/ng-generic-components/styles/utility";
+@import "../../styles/utilities";
+
+.table-container {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+:host ::ng-deep .p-datatable {
+
+    table {
+        table-layout: unset;
+    }
+
+    .p-datatable-thead>tr>th,
+    .p-datatable-tbody>tr>td,
+    .p-datatable-tfoot>tr>td {
+        border-style: none;
+        border-top: 1px solid al-color($al-gray, 50);
+        border-bottom: 1px solid al-color($al-gray, 50);
+        text-align: left;
+        font-family: "Open Sans", Arial, sans-serif;
+        font-size: 0.8em;
+    }
+
+    .p-datatable-thead>tr> th {
+        position: sticky;
+        position: -webkit-sticky;
+        top: 0;
+        border-top: 0;
+        font-weight: bold;
+        font-size: 0.8em;
+        color: al-color($al-gray, 200);
+        z-index: 1;
+        background-color: white;
+        &:hover {
+            cursor: default;
+        }
+        &.heading0 {
+            border-right: al-color($al-gray, 50) 1px solid;
+        }
+        &.heading1 {
+            text-align: center;
+        }
+        &.heading3 {
+            text-align: right;
+        }
+        &.count {
+            text-align: right;
+            border-left: al-color($al-gray, 50) 1px solid;
+        }
+        &.right {
+            text-align: right;
+            border-left: none;
+        }
+        &.status {
+            text-align: left;
+        }
+        &.align-center {
+            text-align: center;
+        }
+        // These sets of ui-sortable-column rules need to eventually be moved to our main serenity theme
+        // since these are specific to our p-datatable usage
+        &.p-sortable-column {
+            &:not(.p-state-highlight) {
+                .p-sortable-column-icon {
+                    font-size: 14px;
+                    &:before {
+                        content: "";
+                    }
+                }
+                &:hover {
+                    background-color: #ffffff;
+                    .p-sortable-column-icon {
+                        background-color: #ffffff;
+                        color: #707070;
+                        &:before {
+                            content: "arrow_upward";
+                            display: inline-block;
+                            font-family: 'Material Icons';
+                        }
+                    }
+                }
+            }
+            &.p-state-highlight {
+                background-color: #ffffff;
+                color: #000;
+                .p-sortable-column-icon {
+                    font-size: 14px;
+                    color: #000;
+                    &.pi-sort-down {
+                        &:before {
+                            content: "arrow_upward";
+                            display: inline-block;
+                            font-family: 'Material Icons';
+                        }
+                    }
+                    &.pi-sort-up {
+                        &:before {
+                            content: "arrow_upward";
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .p-datatable-tbody {
+        > tr {
+            border: none;
+            &:nth-child(odd),&:nth-child(even) {
+                background-color: white;
+            }
+            &.clickable:hover {
+                background-color: al-color($al-smokeBlue, 100);
+                cursor: pointer;
+            }
+            td {
+                &.count, &.right {
+                    text-align: right;
+                    border-left: al-color($al-gray, 50) 1px solid;
+                    &.right {
+                        text-align: right;
+                        font-weight: bold;
+                        border-left: none;
+                    }
+                }
+                &.status {
+                    text-align: left;
+                    font-weight: 600;
+                    text-transform: capitalize;
+
+                    &.critical, &.high {
+                        color: al-color($al-red, 600);
+                    }
+                    &.medium {
+                        color: al-color($al-orange, 500);
+                    }
+                    &.low {
+                        color: al-color($al-yellow, 500);
+                    }
+                    &.info {
+                        color: al-color($al-gray, 300);
+                    }
+                }
+                &.align-center {
+                    text-align: center;
+                }
+                &.nowrap {
+                    white-space: nowrap;
+                }
+                &.multiline-content {
+                    > div {
+                        @include multiLineEllipsis($lineHeight: 1.4em, $lineCount: 2, $bgColor: white);
+                    }
+                }
+                &.highlight {
+                    font-weight: 600;
+                    &.critical,
+                    &.high {
+                        background: al-color($al-red, 50);
+                        color: al-color($al-red, 600);
+                        &:hover {
+                            background: al-color($al-red, 50);
+                        }
+                    }
+                    &.medium {
+                        background: al-color($al-orange, 50);
+                        color: al-color($al-orange, 700);
+                        &:hover {
+                            background: al-color($al-orange, 100);
+                        }
+                    }
+                    &.low {
+                        color: al-color($al-gray, 300);
+                    }
+                    &.acceptable {
+                        color: al-color($al-green, 500);
+                        &:hover {
+                            background: al-color($al-green, 50);
+                        }
+                    }
+                    &.default {
+                        color: al-color($al-gray, 700);
+                    }
+                    &.risk-critical {
+                        background: al-color($al-red, 50);
+                        color: al-color($al-red, 600);
+                        &:hover {
+                            background: al-color($al-red, 100);
+                        }
+                    }
+                    &.risk-high {
+                        background: al-color($al-orange, 50);
+                        color: al-color($al-orange, 700);
+                        &:hover {
+                            background: al-color($al-orange, 100);
+                        }
+                    }
+                    &.risk-medium {
+                        background: al-color($al-yellow, 100);
+                        color: #c39914;
+                        &:hover {
+                            background: al-color($al-yellow, 200);
+                        }
+                    }
+                    &.risk-low {
+                        background: al-color($al-gray, 50);
+                        color: #3b3b3b;
+                        &:hover {
+                            background: al-color($al-gray, 100);
+                        }
+                    }
+                }
+                &.clickable:hover {
+                    cursor: pointer;
+                }
+                &.percentage > div:after {
+                    content: "%";
+                }
+                &.multiline-content:hover > div {
+                    &:after {
+                        background-color: al-color($al-smokeBlue, 100);
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+:host-context(.darkMode) ::ng-deep .p-datatable {
+    .p-datatable-thead > tr> th {
+        &.p-sortable-column {
+            &:not(.p-state-highlight) {
+                background-color: #3C3C3C;
+                color: al-color($al-gray, 50);
+                > .p-sortable-column-icon {
+                    color: al-color($al-gray, 50);
+                }
+                &:hover {
+                    background-color: #3C3C3C;
+                    .p-sortable-column-icon {
+                        background-color: #3C3C3C;
+                        color: al-color($al-gray, 50);
+                    }
+                }
+            }
+            &.p-state-highlight {
+                background-color: #3C3C3C;
+                color: al-color($al-gray, 50);
+                .p-sortable-column-icon {
+                    color: al-color($al-gray, 50);
+                }
+            }
+        }
+    }
+    .p-datatable-tbody {
+        > tr {
+            &:nth-child(odd),&:nth-child(even) {
+                background-color: #3C3C3C;
+                color: al-color($al-gray, 50);
+            }
+            &.clickable:hover {
+                background-color: al-color($al-gray, 400);
+                cursor: pointer;
+                td {
+                    background-color: al-color($al-gray, 400);
+                    &.multiline-content > div {
+                        @include multiLineEllipsis($lineHeight: 1.4em, $lineCount: 2, $bgColor: al-color($al-gray, 400));
+                    }
+                }
+            }
+            td {
+                &.highlight {
+                    &.critical,
+                    &.high {
+                        background: al-color($al-red, 600, .5);
+                        color: unset;
+                        &:hover {
+                            background: al-color($al-red, 600, .75);
+                        }
+                    }
+                    &.medium {
+                        background: al-color($al-orange, 600, .5);
+                        color: unset;
+                        &:hover {
+                            background: al-color($al-orange, 500, .75);
+                        }
+                    }
+                    &.acceptable {
+                        background: al-color($al-gray, 700);
+                        &:hover {
+                            background: al-color($al-gray, 400);
+                        }
+                    }
+                    &.risk-critical {
+                        background: al-color($al-red, 600, .5);
+                        color: #FFF;
+                        &:hover {
+                            background: al-color($al-red, 600, .75);
+                        }
+                    }
+                    &.risk-high {
+                        background: al-color($al-orange, 500, .5);
+                        color: #FFF;
+                        &:hover {
+                            background: al-color($al-orange, 500, .75);
+                        }
+                    }
+                    &.risk-medium {
+                        background: al-color($al-yellow, 500, .5);
+                        color: #FFF;
+                        &:hover {
+                            background: al-color($al-yellow, 500, .75);
+                        }
+                    }
+                    &.risk-low {
+                        background: al-color($al-gray, 400, .5);
+                        color: #FFF;
+                        &:hover {
+                            background: al-color($al-gray, 400, .75);
+                        }
+                    }
+                    &.risk-low {
+                        background: al-color($al-gray, 300, .5);
+                        color: #FFF;
+                        &:hover {
+                            background: al-color($al-gray, 300, .75);
+                        }
+                    }
+                }
+                &.multiline-content > div {
+                    @include multiLineEllipsis($lineHeight: 1.4em, $lineCount: 2, $bgColor: #3C3C3C);
+                }
+            }
+        }
+    }
+}
+
+:host-context(.blueMode) ::ng-deep .p-datatable {
+    .p-datatable-thead > tr> th {
+        &.p-sortable-column {
+            &:not(.p-state-highlight) {
+                background-color: al-color($db-slate, 700);
+                color: al-color($al-gray, 50);
+                > .p-sortable-column-icon {
+                    color: al-color($al-gray, 50);
+                }
+                &:hover {
+                    background-color: al-color($db-slate, 700);
+                    .p-sortable-column-icon {
+                        background-color: al-color($db-slate, 700);
+                        color: al-color($al-gray, 50);
+                    }
+                }
+            }
+            &.p-state-highlight {
+                background-color: al-color($db-slate, 700);
+                color: al-color($al-gray, 50);
+                .p-sortable-column-icon {
+                    color: al-color($al-gray, 50);
+                }
+            }
+        }
+    }
+    .p-datatable-tbody {
+        > tr {
+            &:nth-child(odd),&:nth-child(even) {
+                background-color: al-color($db-slate, 700);
+                color: al-color($al-gray, 50);
+            }
+            &.clickable:hover {
+                background-color: al-color($al-smokeBlue, 100);
+                cursor: pointer;
+                td {
+                    background-color: #6883A4;
+                    &.multiline-content > div {
+                        @include multiLineEllipsis($lineHeight: 1.4em, $lineCount: 2, $bgColor: #6883A4);
+                    }
+                }
+            }
+            td {
+                &.highlight {
+                    &.critical,
+                    &.high {
+                        background: al-color($al-red, 600, .5);
+                        color: unset;
+                        &:hover {
+                            background: al-color($al-red, 600, .75);
+                        }
+                    }
+                    &.medium {
+                        background: al-color($al-orange, 600, .5);
+                        color: unset;
+                        &:hover {
+                            background: al-color($al-orange, 500, .75);
+                        }
+                    }
+                    &.acceptable {
+                        &:hover {
+                            background: al-color($al-gray, 400);
+                        }
+                    }
+                    &.risk-critical {
+                        background: al-color($al-red, 600, .5);
+                        color: #FFF;
+                        &:hover {
+                            background: al-color($al-red, 600, .75);
+                        }
+                    }
+                    &.risk-high {
+                        background: al-color($al-orange, 500, .5);
+                        color: #FFF;
+                        &:hover {
+                            background: al-color($al-orange, 500, .75);
+                        }
+                    }
+                    &.risk-medium {
+                        background: al-color($al-yellow, 500, .5);
+                        color: #FFF;
+                        &:hover {
+                            background: al-color($al-yellow, 500, .75);
+                        }
+                    }
+                    &.risk-low {
+                        background: al-color($al-gray, 400, .5);
+                        color: #FFF;
+                        &:hover {
+                            background: al-color($al-gray, 400, .75);
+                        }
+                    }
+                    &.risk-low {
+                        background: al-color($al-gray, 300, .5);
+                        color: #FFF;
+                        &:hover {
+                            background: al-color($al-gray, 300, .75);
+                        }
+                    }
+                }
+                &.multiline-content > div {
+                    @include multiLineEllipsis($lineHeight: 1.4em, $lineCount: 2, $bgColor: al-color($db-slate, 700));
+                }
+            }
+        }
+    }
+}
+
+:host ::ng-deep .tablecell-tooltip {
+    box-shadow: 2px 1px 3px 2px rgba(0, 0, 0, 0.3);
+    opacity: 0.9;
+    .p-overlaypanel-content {
+        max-width: 400px;
+        font-family: "Open Sans", Arial, sans-serif;
+        font-size: 12px;
+        opacity: 0.9;
+    }
+    &.p-overlaypanel {
+        &:before {
+            border-width: 8px;
+        }
+        &:after {
+            border-width: 6px;
+        }
+    }
+}

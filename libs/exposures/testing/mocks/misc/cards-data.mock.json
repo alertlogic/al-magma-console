@@ -1,0 +1,699 @@
+[
+    {
+      "properties": {
+        "id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:appliance:/appliance/6E4BE28D-1A03-1363-31C5-2F48460D561C",
+        "caption": "i-0b6af062e0eb58a74",
+        "subtitle": "AWS E2E (DO NOT DELETE) 🍙 | eksctl-eks-elastic-cluster-cluster/VPC",
+        "appliance": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:appliance:/appliance/6E4BE28D-1A03-1363-31C5-2F48460D561C",
+        "deployment": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+        "deployment_type": "aws",
+        "vpc": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:vpc:/aws/us-west-2/vpc/vpc-08fba7ce8ab4c4294",
+        "unhealthiness": 0,
+        "health_level": 0,
+        "remediation_keys": [],
+        "host": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:host:/aws/us-west-2/host/i-0b6af062e0eb58a74",
+        "protection_policy_id": "EC735B49-2517-4D98-BB9D-BEBC1E75D56D",
+        "stats_graphs": [],
+        "assetHost": {
+          "local_hostname": "ip-192-168-192-23.us-west-2.compute.internal",
+          "instance_type": "c5.large",
+          "private_ipv4_addresses": [
+            "192.168.192.23"
+          ],
+          "private_ip_address": "192.168.192.23",
+          "launch_time": 1588906999,
+          "local_ipv6": [
+            "fe80::c15:afff:fe70:7ee2"
+          ],
+          "private_dns_name": "ip-192-168-192-23.us-west-2.compute.internal",
+          "key": "/aws/us-west-2/host/i-0b6af062e0eb58a74",
+          "public_ipv4": [
+            "44.228.129.170"
+          ],
+          "alertlogic_appliance_features": [
+            "ids"
+          ],
+          "local_ipv4": [
+            "192.168.192.23"
+          ],
+          "instance_id": "i-0b6af062e0eb58a74",
+          "private_ipv6_addresses": [
+            "fe80::c15:afff:fe70:7ee2"
+          ],
+          "alertlogic_appliance": true,
+          "dns_name": "ec2-44-228-129-170.us-west-2.compute.amazonaws.com",
+          "health_level": 0,
+          "type": "host",
+          "public_ipv4_addresses": [
+            "44.228.129.170"
+          ],
+          "host_uuid": "6E4BE28D-1A03-1363-31C5-2F48460D561C",
+          "private_ip_addresses": [
+            "192.168.192.23",
+            "fe80::c15:afff:fe70:7ee2"
+          ],
+          "threat_level": 0,
+          "state": "running",
+          "name": "AlertLogic IDS Security Appliance",
+          "threatiness": 0,
+          "deployment_id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+          "availability_zone": "us-west-2d",
+          "os_details": "Linux; 2.6.32-696.23.1.el6.x86_64; #1 SMP Tue Mar 13 22:44:18 UTC 2018; x86_64",
+          "public_ip_addresses": [
+            "44.228.129.170"
+          ],
+          "public_dns_name": "ec2-44-228-129-170.us-west-2.compute.amazonaws.com",
+          "modified_on": 1594918596753,
+          "os_type": "unix",
+          "ip_address": "44.228.129.170",
+          "created_on": 1588907412423,
+          "instance_name": "AlertLogic IDS Security Appliance",
+          "unhealthiness": 0,
+          "account_id": "134249236",
+          "public_ipv6_addresses": [],
+          "tags": {
+            "aws:autoscaling:groupName": "AlertLogic IDS Security Autoscaling Group 134249236/9969EC98-F3DD-4040-86C5-6A9019E2F07E/us-west-2d/vpc-08fba7ce8ab4c4294",
+            "Name": "AlertLogic IDS Security Appliance",
+            "AlertLogic-EnvironmentID": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+            "AlertLogic-AccountID": "134249236",
+            "AlertLogic": "Security"
+          },
+          "architecture": "x86_64"
+        },
+        "assetAppliance": {
+          "type": "appliance",
+          "threatiness": 0,
+          "threat_level": 0,
+          "tags": {},
+          "statuses": {
+            "tmappliance_ids_status": {
+              "type": "tmappliance",
+              "timestamp": 1594913934193,
+              "stream": "status",
+              "reasons": [],
+              "condition": "ok",
+              "application": "ids"
+            },
+            "master_offline_status": {
+              "type": "master",
+              "timestamp": 1594398403138,
+              "stream": "status",
+              "reasons": [],
+              "condition": "ok",
+              "application": "offline"
+            }
+          },
+          "status_updated": 1594913934193,
+          "status": "ok",
+          "name": "i-0b6af062e0eb58a74",
+          "modified_on": 1594924622530,
+          "key": "/appliance/6E4BE28D-1A03-1363-31C5-2F48460D561C",
+          "host_uuid": "6E4BE28D-1A03-1363-31C5-2F48460D561C",
+          "deployment_id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+          "created_on": 1588908690258,
+          "appliance_name": "i-0b6af062e0eb58a74",
+          "account_id": "134249236"
+        },
+        "assetDeployment": {
+          "environment_name": "AWS E2E (DO NOT DELETE) 🍙",
+          "daily_tri_trend_1w": 0.03,
+          "deployment_type": "aws",
+          "scope_internal_deployment_type": "aws",
+          "scope_scores_daily_tri_last_updated": 20200716,
+          "scope_scores_daily_tri_asset_count": 733,
+          "scope_aws_native_account_id": "948063967832",
+          "key": "/al/134249236/deployment/aws/9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+          "scope_aws_last_discover_ts": 1594916434,
+          "scope_internal_deployment_id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+          "daily_tri_pctile_all": 16,
+          "scope_aws_environment_name": "AWS E2E (DO NOT DELETE) 🍙",
+          "scope_scores_daily_tri": 1.46,
+          "scope_scores_daily_tri_trend_1w": 0.03,
+          "path": [
+            "deployment:9969EC98-F3DD-4040-86C5-6A9019E2F07E"
+          ],
+          "type": "deployment",
+          "scope_scores_daily_tri_pctile_segment": 16,
+          "native_account_id": "948063967832",
+          "daily_tri_severity": 1,
+          "scope_aws_last_discover_attempt_ts": 1594916434,
+          "daily_tri_asset_count": 733,
+          "scope_scores_daily_tri_trend_13w": -0.06,
+          "version": 3822,
+          "deleted_on": 0,
+          "threat_level": 3,
+          "environment_type": "aws",
+          "scope_scores_daily_tri_pctile_all": 16,
+          "name": "AWS E2E (DO NOT DELETE) 🍙",
+          "threatiness": 89.37430000000005,
+          "deployment_id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+          "scope_scores_daily_tri_trend_4w": 0.03,
+          "tag_keys": {},
+          "daily_tri_last_updated": 20200716,
+          "modified_on": 1594916434139,
+          "deployment_name": "AWS E2E (DO NOT DELETE) 🍙",
+          "native_type": "deployment",
+          "scope_internal_environment_type": "aws",
+          "created_on": 1566934553131,
+          "scope_internal_environment_id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+          "scope_inquisitor_last_scan_time": 1594880222,
+          "scope_scores_daily_tri_severity": 1,
+          "daily_tri_trend_13w": -0.06,
+          "account_id": "134249236",
+          "daily_tri_trend_4w": 0.03,
+          "declared": true,
+          "daily_tri_pctile_segment": 16,
+          "tags": {},
+          "daily_tri": 1.46
+        },
+        "assetVPC": {
+          "vpc_name": "eksctl-eks-elastic-cluster-cluster/VPC",
+          "vpc_id": "vpc-08fba7ce8ab4c4294",
+          "type": "vpc",
+          "threatiness": 22.516299999999998,
+          "threat_level": 3,
+          "tags": {
+            "kubernetes.io/cluster/eks-elastic-cluster": "shared",
+            "eksctl.cluster.k8s.io/v1alpha1/cluster-name": "eks-elastic-cluster",
+            "aws:cloudformation:stack-name": "eksctl-eks-elastic-cluster-cluster",
+            "aws:cloudformation:stack-id": "arn:aws:cloudformation:us-west-2:948063967832:stack/eksctl-eks-elastic-cluster-cluster/7eeda270-90b3-11ea-98f9-067aa3cae1e0",
+            "aws:cloudformation:logical-id": "VPC",
+            "alpha.eksctl.io/cluster-name": "eks-elastic-cluster",
+            "Name": "eksctl-eks-elastic-cluster-cluster/VPC"
+          },
+          "state": "available",
+          "network_uuid": "D65BB50C-BD51-8326-7AFC-05C22F80F1B7",
+          "name": "eksctl-eks-elastic-cluster-cluster/VPC",
+          "modified_on": 1594915851050,
+          "key": "/aws/us-west-2/vpc/vpc-08fba7ce8ab4c4294",
+          "deployment_id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+          "created_on": 1588904898633,
+          "cidr_ranges": [
+            "192.168.0.0/16"
+          ],
+          "account_id": "134249236"
+        },
+        "exposuresByRemediations": [],
+        "exposureCategories": "",
+        "subnet_id": "subnet-0504383d07cfb461f",
+        "toptitle": "",
+        "countItems": [],
+        "icon": {
+          "name": "check_circle"
+        }
+      },
+      "entity": {
+        "vpc": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:vpc:/aws/us-west-2/vpc/vpc-08fba7ce8ab4c4294",
+        "unhealthiness": 0,
+        "subnet": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:subnet:/aws/us-west-2/subnet/subnet-0504383d07cfb461f",
+        "remediations_filters": [
+          "category:configuration,connection",
+          "deployment_id:9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+          "host:/aws/us-west-2/host/i-0b6af062e0eb58a74"
+        ],
+        "remediations_count": 0,
+        "remediations": [],
+        "region": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:region:/aws/us-west-2",
+        "protection_policy_id": "EC735B49-2517-4D98-BB9D-BEBC1E75D56D",
+        "image": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:image:/aws/us-west-2/image/ami-08262eced8dcbd1a9",
+        "host": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:host:/aws/us-west-2/host/i-0b6af062e0eb58a74",
+        "health_level": 0,
+        "exposures_count": 0,
+        "exposures_by_remediation": {},
+        "exposures": [],
+        "deployment": "deployment:9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+        "appliance": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:appliance:/appliance/6E4BE28D-1A03-1363-31C5-2F48460D561C"
+      },
+      "id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:appliance:/appliance/6E4BE28D-1A03-1363-31C5-2F48460D561C",
+      "caption": "i-0b6af062e0eb58a74",
+      "visible": true,
+      "toptitle": "",
+      "countItems": [],
+      "icon": {
+        "name": "check_circle"
+      },
+      "checked": true
+    },
+    {
+      "properties": {
+        "id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:appliance:/appliance/03E9DABC-22F0-B2E6-ED81-486DF6A556A3",
+        "caption": "i-00a245a19a78897be",
+        "subtitle": "AWS E2E (DO NOT DELETE) 🍙 | eksctl-eks-elastic-cluster-cluster/VPC",
+        "appliance": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:appliance:/appliance/03E9DABC-22F0-B2E6-ED81-486DF6A556A3",
+        "deployment": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+        "deployment_type": "aws",
+        "vpc": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:vpc:/aws/us-west-2/vpc/vpc-08fba7ce8ab4c4294",
+        "unhealthiness": 0,
+        "health_level": 0,
+        "remediation_keys": [],
+        "host": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:host:/aws/us-west-2/host/i-00a245a19a78897be",
+        "protection_policy_id": "EC735B49-2517-4D98-BB9D-BEBC1E75D56D",
+        "stats_graphs": [],
+        "assetHost": {
+          "local_hostname": "ip-192-168-192-40.us-west-2.compute.internal",
+          "instance_type": "c5.large",
+          "private_ipv4_addresses": [
+            "192.168.192.40"
+          ],
+          "private_ip_address": "192.168.192.40",
+          "launch_time": 1588907002,
+          "local_ipv6": [
+            "fe80::439:2ff:fe49:48d0"
+          ],
+          "private_dns_name": "ip-192-168-192-40.us-west-2.compute.internal",
+          "key": "/aws/us-west-2/host/i-00a245a19a78897be",
+          "public_ipv4": [
+            "35.161.73.164"
+          ],
+          "alertlogic_appliance_features": [
+            "ids"
+          ],
+          "local_ipv4": [
+            "192.168.192.40"
+          ],
+          "instance_id": "i-00a245a19a78897be",
+          "private_ipv6_addresses": [
+            "fe80::439:2ff:fe49:48d0"
+          ],
+          "alertlogic_appliance": true,
+          "dns_name": "ec2-35-161-73-164.us-west-2.compute.amazonaws.com",
+          "health_level": 0,
+          "type": "host",
+          "public_ipv4_addresses": [
+            "35.161.73.164"
+          ],
+          "host_uuid": "03E9DABC-22F0-B2E6-ED81-486DF6A556A3",
+          "private_ip_addresses": [
+            "192.168.192.40",
+            "fe80::439:2ff:fe49:48d0"
+          ],
+          "threat_level": 0,
+          "state": "running",
+          "name": "AlertLogic IDS Security Appliance",
+          "threatiness": 0,
+          "deployment_id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+          "availability_zone": "us-west-2a",
+          "os_details": "Linux; 2.6.32-696.23.1.el6.x86_64; #1 SMP Tue Mar 13 22:44:18 UTC 2018; x86_64",
+          "public_ip_addresses": [
+            "35.161.73.164"
+          ],
+          "public_dns_name": "ec2-35-161-73-164.us-west-2.compute.amazonaws.com",
+          "modified_on": 1594924074519,
+          "os_type": "unix",
+          "ip_address": "35.161.73.164",
+          "created_on": 1588907413666,
+          "instance_name": "AlertLogic IDS Security Appliance",
+          "unhealthiness": 0,
+          "account_id": "134249236",
+          "public_ipv6_addresses": [],
+          "tags": {
+            "aws:autoscaling:groupName": "AlertLogic IDS Security Autoscaling Group 134249236/9969EC98-F3DD-4040-86C5-6A9019E2F07E/us-west-2a/vpc-08fba7ce8ab4c4294",
+            "Name": "AlertLogic IDS Security Appliance",
+            "AlertLogic-EnvironmentID": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+            "AlertLogic-AccountID": "134249236",
+            "AlertLogic": "Security"
+          },
+          "architecture": "x86_64"
+        },
+        "assetAppliance": {
+          "type": "appliance",
+          "threatiness": 0,
+          "threat_level": 0,
+          "tags": {},
+          "statuses": {
+            "tmappliance_ids_status": {
+              "type": "tmappliance",
+              "timestamp": 1594913823175,
+              "stream": "status",
+              "reasons": [],
+              "condition": "ok",
+              "application": "ids"
+            },
+            "master_offline_status": {
+              "type": "master",
+              "timestamp": 1594398393135,
+              "stream": "status",
+              "reasons": [],
+              "condition": "ok",
+              "application": "offline"
+            }
+          },
+          "status_updated": 1594913823175,
+          "status": "ok",
+          "name": "i-00a245a19a78897be",
+          "modified_on": 1594924588479,
+          "key": "/appliance/03E9DABC-22F0-B2E6-ED81-486DF6A556A3",
+          "host_uuid": "03E9DABC-22F0-B2E6-ED81-486DF6A556A3",
+          "deployment_id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+          "created_on": 1588908373415,
+          "appliance_name": "i-00a245a19a78897be",
+          "account_id": "134249236"
+        },
+        "assetDeployment": {
+          "environment_name": "AWS E2E (DO NOT DELETE) 🍙",
+          "daily_tri_trend_1w": 0.03,
+          "deployment_type": "aws",
+          "scope_internal_deployment_type": "aws",
+          "scope_scores_daily_tri_last_updated": 20200716,
+          "scope_scores_daily_tri_asset_count": 733,
+          "scope_aws_native_account_id": "948063967832",
+          "key": "/al/134249236/deployment/aws/9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+          "scope_aws_last_discover_ts": 1594916434,
+          "scope_internal_deployment_id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+          "daily_tri_pctile_all": 16,
+          "scope_aws_environment_name": "AWS E2E (DO NOT DELETE) 🍙",
+          "scope_scores_daily_tri": 1.46,
+          "scope_scores_daily_tri_trend_1w": 0.03,
+          "path": [
+            "deployment:9969EC98-F3DD-4040-86C5-6A9019E2F07E"
+          ],
+          "type": "deployment",
+          "scope_scores_daily_tri_pctile_segment": 16,
+          "native_account_id": "948063967832",
+          "daily_tri_severity": 1,
+          "scope_aws_last_discover_attempt_ts": 1594916434,
+          "daily_tri_asset_count": 733,
+          "scope_scores_daily_tri_trend_13w": -0.06,
+          "version": 3822,
+          "deleted_on": 0,
+          "threat_level": 3,
+          "environment_type": "aws",
+          "scope_scores_daily_tri_pctile_all": 16,
+          "name": "AWS E2E (DO NOT DELETE) 🍙",
+          "threatiness": 89.37430000000005,
+          "deployment_id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+          "scope_scores_daily_tri_trend_4w": 0.03,
+          "tag_keys": {},
+          "daily_tri_last_updated": 20200716,
+          "modified_on": 1594916434139,
+          "deployment_name": "AWS E2E (DO NOT DELETE) 🍙",
+          "native_type": "deployment",
+          "scope_internal_environment_type": "aws",
+          "created_on": 1566934553131,
+          "scope_internal_environment_id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+          "scope_inquisitor_last_scan_time": 1594880222,
+          "scope_scores_daily_tri_severity": 1,
+          "daily_tri_trend_13w": -0.06,
+          "account_id": "134249236",
+          "daily_tri_trend_4w": 0.03,
+          "declared": true,
+          "daily_tri_pctile_segment": 16,
+          "tags": {},
+          "daily_tri": 1.46
+        },
+        "assetVPC": {
+          "vpc_name": "eksctl-eks-elastic-cluster-cluster/VPC",
+          "vpc_id": "vpc-08fba7ce8ab4c4294",
+          "type": "vpc",
+          "threatiness": 22.516299999999998,
+          "threat_level": 3,
+          "tags": {
+            "kubernetes.io/cluster/eks-elastic-cluster": "shared",
+            "eksctl.cluster.k8s.io/v1alpha1/cluster-name": "eks-elastic-cluster",
+            "aws:cloudformation:stack-name": "eksctl-eks-elastic-cluster-cluster",
+            "aws:cloudformation:stack-id": "arn:aws:cloudformation:us-west-2:948063967832:stack/eksctl-eks-elastic-cluster-cluster/7eeda270-90b3-11ea-98f9-067aa3cae1e0",
+            "aws:cloudformation:logical-id": "VPC",
+            "alpha.eksctl.io/cluster-name": "eks-elastic-cluster",
+            "Name": "eksctl-eks-elastic-cluster-cluster/VPC"
+          },
+          "state": "available",
+          "network_uuid": "D65BB50C-BD51-8326-7AFC-05C22F80F1B7",
+          "name": "eksctl-eks-elastic-cluster-cluster/VPC",
+          "modified_on": 1594915851050,
+          "key": "/aws/us-west-2/vpc/vpc-08fba7ce8ab4c4294",
+          "deployment_id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+          "created_on": 1588904898633,
+          "cidr_ranges": [
+            "192.168.0.0/16"
+          ],
+          "account_id": "134249236"
+        },
+        "exposuresByRemediations": [],
+        "exposureCategories": "",
+        "subnet_id": "subnet-032a6db5d9d345342",
+        "toptitle": "",
+        "countItems": [],
+        "icon": {
+          "name": "check_circle"
+        }
+      },
+      "entity": {
+        "vpc": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:vpc:/aws/us-west-2/vpc/vpc-08fba7ce8ab4c4294",
+        "unhealthiness": 0,
+        "subnet": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:subnet:/aws/us-west-2/subnet/subnet-032a6db5d9d345342",
+        "remediations_filters": [
+          "category:configuration,connection",
+          "deployment_id:9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+          "host:/aws/us-west-2/host/i-00a245a19a78897be"
+        ],
+        "remediations_count": 0,
+        "remediations": [],
+        "region": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:region:/aws/us-west-2",
+        "protection_policy_id": "EC735B49-2517-4D98-BB9D-BEBC1E75D56D",
+        "image": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:image:/aws/us-west-2/image/ami-08262eced8dcbd1a9",
+        "host": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:host:/aws/us-west-2/host/i-00a245a19a78897be",
+        "health_level": 0,
+        "exposures_count": 0,
+        "exposures_by_remediation": {},
+        "exposures": [],
+        "deployment": "deployment:9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+        "appliance": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:appliance:/appliance/03E9DABC-22F0-B2E6-ED81-486DF6A556A3"
+      },
+      "id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:appliance:/appliance/03E9DABC-22F0-B2E6-ED81-486DF6A556A3",
+      "caption": "i-00a245a19a78897be",
+      "visible": true,
+      "toptitle": "",
+      "countItems": [],
+      "icon": {
+        "name": "check_circle"
+      },
+      "checked": true
+    },
+    {
+      "properties": {
+        "id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:appliance:/appliance/766D9659-6108-4261-4D42-0A62F1306D5C",
+        "caption": "i-0e6866fc6fd07b929",
+        "subtitle": "AWS E2E (DO NOT DELETE) 🍙 | eksctl-eks-elastic-cluster-cluster/VPC",
+        "appliance": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:appliance:/appliance/766D9659-6108-4261-4D42-0A62F1306D5C",
+        "deployment": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+        "deployment_type": "aws",
+        "vpc": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:vpc:/aws/us-west-2/vpc/vpc-08fba7ce8ab4c4294",
+        "unhealthiness": 0,
+        "health_level": 0,
+        "remediation_keys": [],
+        "host": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:host:/aws/us-west-2/host/i-0e6866fc6fd07b929",
+        "protection_policy_id": "EC735B49-2517-4D98-BB9D-BEBC1E75D56D",
+        "stats_graphs": [],
+        "assetHost": {
+          "local_hostname": "ip-192-168-192-52.us-west-2.compute.internal",
+          "instance_type": "c5.large",
+          "private_ipv4_addresses": [
+            "192.168.192.52"
+          ],
+          "private_ip_address": "192.168.192.52",
+          "launch_time": 1588907002,
+          "local_ipv6": [
+            "fe80::87b:15ff:fe03:933c"
+          ],
+          "private_dns_name": "ip-192-168-192-52.us-west-2.compute.internal",
+          "key": "/aws/us-west-2/host/i-0e6866fc6fd07b929",
+          "public_ipv4": [
+            "18.237.135.137"
+          ],
+          "alertlogic_appliance_features": [
+            "ids"
+          ],
+          "local_ipv4": [
+            "192.168.192.52"
+          ],
+          "instance_id": "i-0e6866fc6fd07b929",
+          "private_ipv6_addresses": [
+            "fe80::87b:15ff:fe03:933c"
+          ],
+          "alertlogic_appliance": true,
+          "dns_name": "ec2-18-237-135-137.us-west-2.compute.amazonaws.com",
+          "health_level": 0,
+          "type": "host",
+          "public_ipv4_addresses": [
+            "18.237.135.137"
+          ],
+          "host_uuid": "766D9659-6108-4261-4D42-0A62F1306D5C",
+          "private_ip_addresses": [
+            "192.168.192.52",
+            "fe80::87b:15ff:fe03:933c"
+          ],
+          "threat_level": 0,
+          "state": "running",
+          "name": "AlertLogic IDS Security Appliance",
+          "threatiness": 0,
+          "deployment_id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+          "availability_zone": "us-west-2c",
+          "os_details": "Linux; 2.6.32-696.23.1.el6.x86_64; #1 SMP Tue Mar 13 22:44:18 UTC 2018; x86_64",
+          "public_ip_addresses": [
+            "18.237.135.137"
+          ],
+          "public_dns_name": "ec2-18-237-135-137.us-west-2.compute.amazonaws.com",
+          "modified_on": 1594918283692,
+          "os_type": "unix",
+          "ip_address": "18.237.135.137",
+          "created_on": 1588907416663,
+          "instance_name": "AlertLogic IDS Security Appliance",
+          "unhealthiness": 0,
+          "account_id": "134249236",
+          "public_ipv6_addresses": [],
+          "tags": {
+            "aws:autoscaling:groupName": "AlertLogic IDS Security Autoscaling Group 134249236/9969EC98-F3DD-4040-86C5-6A9019E2F07E/us-west-2c/vpc-08fba7ce8ab4c4294",
+            "Name": "AlertLogic IDS Security Appliance",
+            "AlertLogic-EnvironmentID": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+            "AlertLogic-AccountID": "134249236",
+            "AlertLogic": "Security"
+          },
+          "architecture": "x86_64"
+        },
+        "assetAppliance": {
+          "type": "appliance",
+          "threatiness": 0,
+          "threat_level": 0,
+          "tags": {},
+          "statuses": {
+            "tmappliance_ids_status": {
+              "type": "tmappliance",
+              "timestamp": 1594885645262,
+              "stream": "status",
+              "reasons": [],
+              "condition": "ok",
+              "application": "ids"
+            }
+          },
+          "status_updated": 1594885645262,
+          "status": "ok",
+          "name": "i-0e6866fc6fd07b929",
+          "modified_on": 1594924616520,
+          "key": "/appliance/766D9659-6108-4261-4D42-0A62F1306D5C",
+          "host_uuid": "766D9659-6108-4261-4D42-0A62F1306D5C",
+          "deployment_id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+          "created_on": 1588908393310,
+          "appliance_name": "i-0e6866fc6fd07b929",
+          "account_id": "134249236"
+        },
+        "assetDeployment": {
+          "environment_name": "AWS E2E (DO NOT DELETE) 🍙",
+          "daily_tri_trend_1w": 0.03,
+          "deployment_type": "aws",
+          "scope_internal_deployment_type": "aws",
+          "scope_scores_daily_tri_last_updated": 20200716,
+          "scope_scores_daily_tri_asset_count": 733,
+          "scope_aws_native_account_id": "948063967832",
+          "key": "/al/134249236/deployment/aws/9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+          "scope_aws_last_discover_ts": 1594916434,
+          "scope_internal_deployment_id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+          "daily_tri_pctile_all": 16,
+          "scope_aws_environment_name": "AWS E2E (DO NOT DELETE) 🍙",
+          "scope_scores_daily_tri": 1.46,
+          "scope_scores_daily_tri_trend_1w": 0.03,
+          "path": [
+            "deployment:9969EC98-F3DD-4040-86C5-6A9019E2F07E"
+          ],
+          "type": "deployment",
+          "scope_scores_daily_tri_pctile_segment": 16,
+          "native_account_id": "948063967832",
+          "daily_tri_severity": 1,
+          "scope_aws_last_discover_attempt_ts": 1594916434,
+          "daily_tri_asset_count": 733,
+          "scope_scores_daily_tri_trend_13w": -0.06,
+          "version": 3822,
+          "deleted_on": 0,
+          "threat_level": 3,
+          "environment_type": "aws",
+          "scope_scores_daily_tri_pctile_all": 16,
+          "name": "AWS E2E (DO NOT DELETE) 🍙",
+          "threatiness": 89.37430000000005,
+          "deployment_id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+          "scope_scores_daily_tri_trend_4w": 0.03,
+          "tag_keys": {},
+          "daily_tri_last_updated": 20200716,
+          "modified_on": 1594916434139,
+          "deployment_name": "AWS E2E (DO NOT DELETE) 🍙",
+          "native_type": "deployment",
+          "scope_internal_environment_type": "aws",
+          "created_on": 1566934553131,
+          "scope_internal_environment_id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+          "scope_inquisitor_last_scan_time": 1594880222,
+          "scope_scores_daily_tri_severity": 1,
+          "daily_tri_trend_13w": -0.06,
+          "account_id": "134249236",
+          "daily_tri_trend_4w": 0.03,
+          "declared": true,
+          "daily_tri_pctile_segment": 16,
+          "tags": {},
+          "daily_tri": 1.46
+        },
+        "assetVPC": {
+          "vpc_name": "eksctl-eks-elastic-cluster-cluster/VPC",
+          "vpc_id": "vpc-08fba7ce8ab4c4294",
+          "type": "vpc",
+          "threatiness": 22.516299999999998,
+          "threat_level": 3,
+          "tags": {
+            "kubernetes.io/cluster/eks-elastic-cluster": "shared",
+            "eksctl.cluster.k8s.io/v1alpha1/cluster-name": "eks-elastic-cluster",
+            "aws:cloudformation:stack-name": "eksctl-eks-elastic-cluster-cluster",
+            "aws:cloudformation:stack-id": "arn:aws:cloudformation:us-west-2:948063967832:stack/eksctl-eks-elastic-cluster-cluster/7eeda270-90b3-11ea-98f9-067aa3cae1e0",
+            "aws:cloudformation:logical-id": "VPC",
+            "alpha.eksctl.io/cluster-name": "eks-elastic-cluster",
+            "Name": "eksctl-eks-elastic-cluster-cluster/VPC"
+          },
+          "state": "available",
+          "network_uuid": "D65BB50C-BD51-8326-7AFC-05C22F80F1B7",
+          "name": "eksctl-eks-elastic-cluster-cluster/VPC",
+          "modified_on": 1594915851050,
+          "key": "/aws/us-west-2/vpc/vpc-08fba7ce8ab4c4294",
+          "deployment_id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+          "created_on": 1588904898633,
+          "cidr_ranges": [
+            "192.168.0.0/16"
+          ],
+          "account_id": "134249236"
+        },
+        "exposuresByRemediations": [],
+        "exposureCategories": "",
+        "subnet_id": "subnet-09c25e5b9f4d118fa",
+        "toptitle": "",
+        "countItems": [],
+        "icon": {
+          "name": "check_circle"
+        }
+      },
+      "entity": {
+        "vpc": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:vpc:/aws/us-west-2/vpc/vpc-08fba7ce8ab4c4294",
+        "unhealthiness": 0,
+        "subnet": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:subnet:/aws/us-west-2/subnet/subnet-09c25e5b9f4d118fa",
+        "remediations_filters": [
+          "category:configuration,connection",
+          "deployment_id:9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+          "host:/aws/us-west-2/host/i-0e6866fc6fd07b929"
+        ],
+        "remediations_count": 0,
+        "remediations": [],
+        "region": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:region:/aws/us-west-2",
+        "protection_policy_id": "EC735B49-2517-4D98-BB9D-BEBC1E75D56D",
+        "image": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:image:/aws/us-west-2/image/ami-08262eced8dcbd1a9",
+        "host": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:host:/aws/us-west-2/host/i-0e6866fc6fd07b929",
+        "health_level": 0,
+        "exposures_count": 0,
+        "exposures_by_remediation": {},
+        "exposures": [],
+        "deployment": "deployment:9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+        "appliance": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:appliance:/appliance/766D9659-6108-4261-4D42-0A62F1306D5C"
+      },
+      "id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E:appliance:/appliance/766D9659-6108-4261-4D42-0A62F1306D5C",
+      "caption": "i-0e6866fc6fd07b929",
+      "visible": true,
+      "toptitle": "",
+      "countItems": [],
+      "icon": {
+        "name": "check_circle"
+      },
+      "checked": true
+    }
+]

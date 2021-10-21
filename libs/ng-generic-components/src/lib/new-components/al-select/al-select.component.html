@@ -1,0 +1,30 @@
+<al2-form-group [id]="id"
+    [label]="label"
+    [tip]="tip"
+    [hint]="hint"
+    [required]="required">
+
+    <div class="ald-select">
+        <select
+            class="ald-select__element"
+            [class.ald-select__select--disabled]="disabled"
+            [disabled]="disabled"
+            [required]="required"
+            [multiple]="multiple"
+            [size]="size"
+            [name]="name"
+            [(ngModel)]="value"
+            (ngModelChange)="onValueChange($event)">
+            <option *ngFor="let default of defaultOptions" [value]="default.value">{{ default.label }}</option>
+            <option *ngFor="let item of options" [value]="item.value">{{ item.label }}</option>
+        </select>
+
+        <div
+			[ngClass]="[disabled ? 'ald-select__icon--disabled' : '']"
+            class="ald-select__icon">
+            <i class="material-icons md-18">keyboard_arrow_down</i>
+        </div>
+    </div>
+
+
+</al2-form-group>

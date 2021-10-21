@@ -1,0 +1,48 @@
+<h1>Card List View</h1>
+
+<al-base-card [config]="alBaseCardConfigIcon" [item]="$any(alBaseCardIconItem)"
+    (onFooterAction)="alBaseCardFooterAction($event)">
+    <ng-template alBaseCardBodyContent>
+        <div class="grid grid-nogutter">
+            <div class="col-12">
+                <h2 class="first">Section Title for 4 Columns</h2>
+            </div>
+            <div class="col-3">
+                <div class="label">Label</div>
+                <div class="desc">Description</div>
+            </div>
+            <div class="col-3">
+                <div class="label">Label</div>
+                <div class="desc">Description</div>
+            </div>
+            <div class="col-3">
+                <div class="label">Label</div>
+                <div class="desc">Glorious baklava ex librus hup hey ad infinitum. Non sequitur
+                    condominium facile et geranium incognito.</div>
+            </div>
+            <div class="col-3">
+                <div class="label">Label</div>
+                <div class="desc">Description</div>
+            </div>
+        </div>
+    </ng-template>
+</al-base-card>
+
+
+<div class="card-list">
+    <div class="card" *ngFor="let item of data">
+        <div class="icon"></div>
+        <div class="header">{{item.id}}</div>
+        <div class="title">{{item.summary}}</div>
+        <div class="footer">{{item.class}}</div>
+        <div class="actions">
+            <div class="btnGroupRight">
+                <button type="button" icon="ui-icon-edit" class="cardBtn flat right" label="Edit" pButton></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p-panel>
+
+</p-panel>

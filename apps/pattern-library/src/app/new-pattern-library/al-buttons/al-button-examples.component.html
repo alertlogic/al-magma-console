@@ -1,0 +1,101 @@
+<div class="risk critical">
+    <b>Note that these components are still under development - Do not use in production applications yet!</b>
+</div>
+
+<div class="card card-w-title">
+    <h1>Basic Buttons</h1>
+    <div class="card-content">
+        
+        <div class="u-mb-2">
+            <al2-button-group>
+                <al2-button type="default" label="Default"></al2-button>
+                <al2-button type="default-outline" label="Default Outline"></al2-button>
+                <al2-button type="default-ghost" label="Default Ghost"></al2-button>
+            </al2-button-group>
+        </div>
+        
+        <div class="u-mb-2">
+            <al2-button-group>
+                <al2-button type="primary" label="Primary"></al2-button>
+                <al2-button type="primary-outline" label="Primary Outline"></al2-button>
+                <al2-button type="primary-ghost" label="Primary Ghost"></al2-button>
+            </al2-button-group>
+        </div>
+        
+    </div>
+</div>
+
+<div class="card card-w-title">
+    <h1>Button Icons</h1>
+    <div class="card-content">
+        
+        <h5>Icon Only</h5>
+        <div class="u-mb-2">
+            <al2-button-group>
+                <al2-button type="default" icon="whatshot"></al2-button>
+                <al2-button type="default-outline" icon="whatshot"></al2-button>
+                <al2-button type="default-ghost" icon="whatshot"></al2-button>
+            </al2-button-group>
+        </div>
+        
+        <div class="u-mb-2">
+            <al2-button-group>
+                <al2-button type="primary" icon="whatshot"></al2-button>
+                <al2-button type="primary-outline" icon="whatshot"></al2-button>
+                <al2-button type="primary-ghost" icon="whatshot"></al2-button>
+            </al2-button-group>
+        </div>
+
+        <h5>Icon And Label</h5>
+        <div class="u-mb-2">
+            <al2-button-group>
+                <al2-button type="default" icon="whatshot" label="Default" iconPos="left"></al2-button>
+                <al2-button type="default" icon="whatshot" label="Icon Position Right" iconPos="right"></al2-button>
+                <al2-button type="default" icon="whatshot" label="Icon Position Top" iconPos="top"></al2-button>
+            </al2-button-group>
+        </div>
+                    
+    </div>
+</div>
+
+<div class="card card-w-title">
+    <h1>Button Size</h1>
+    <div class="card-content">
+        <div class="u-mb-2">
+            <al2-button-group>
+                <al2-button type="default" icon="whatshot" size="sm"></al2-button>
+                <al2-button type="default" label="Small Button" size="sm"></al2-button>
+                <al2-button type="default" label="Small Button with Icon" icon="whatshot" size="sm"></al2-button>
+            </al2-button-group>
+        </div>
+       
+        <div class="u-mb-2">
+            <al2-button-group>
+                <al2-button type="default" icon="whatshot" size="md"></al2-button>
+                <al2-button type="default" label="Default Medium Button" size="md"></al2-button>
+                <al2-button type="default" label="Default Medium Button with Icon" icon="whatshot" size="md"></al2-button>
+            </al2-button-group>
+        </div>
+        
+    </div>
+</div>
+
+<div class="card card-w-title">
+    <h1>Button Group</h1>
+    <div class="card-content">
+        <div class="u-mb-2">
+            <al2-button-group>
+                <al2-button type="default" label="Default"></al2-button>
+                <al2-button type="default-outline" label="Default Outline"></al2-button>
+                <al2-button type="default-ghost" label="Default Ghost"></al2-button>
+            </al2-button-group>
+        </div>
+
+        <div class="u-mb-2">
+            <al2-button-group
+                [multiSelect]="false" 
+                [buttonGroup]="[{label: 'One', icon: 'whatshot', selected: true}, {label: 'Two'}, {label: 'Three'}]">
+            </al2-button-group>
+        </div>
+    </div>
+</div>

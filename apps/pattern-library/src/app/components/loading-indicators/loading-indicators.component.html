@@ -1,0 +1,23 @@
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>Loading Indicators</h1>
+            <div class="card-content">
+                <al-view-helper [loading]="true"
+                    [empty]="false"
+                    [notifyPanel]="false">
+                </al-view-helper>
+                <h5>Component Name: al-view-helper</h5>
+                <p>This component also consists of Zero States and Alert Notifications.</p>
+            </div>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Usage Guide">
+        <div class="card card-w-title">
+            <h1>Usage Guide</h1>
+            <div class="card-content">
+                <embedded-markdown resourceId="readme/al-view-helper/README"></embedded-markdown>
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>

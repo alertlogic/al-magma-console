@@ -1,0 +1,18 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.filter-value {
+    max-height: 110px;
+    overflow-y: auto;
+}
+
+.values{
+    padding-bottom: 5px;
+}
+
+.al-aggregation-filter-content-label {
+    color: al-color($al-gray, 200);
+}
+
+.al-aggregation-filter-content-right-padding {
+    padding-right: 24px;
+}

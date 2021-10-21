@@ -1,0 +1,42 @@
+
+@import "@al/ng-generic-components/styles/utility";
+
+.input-field, .input-textarea, input, textarea {
+    width: 100%;
+}
+
+input:focus ~ label {
+    color: al-color($al-smokeBlue, 500);
+}
+
+.schedule-dropdown {
+    margin-top: 17px;
+}
+
+.label-title {
+    color: al-color($al-gray, 200);
+}
+
+.info-label{
+    color: al-color($al-gray, 200);
+    font-size: 12px;
+}
+
+.schedule-date-range-selector-label {
+    margin-top: 10px;
+}
+
+.schedule-date-range-selector {
+    margin-top: 10px;
+    margin-left: 10px;
+
+    ::ng-deep .date-range-selector {
+        .fixed-range-selector-container {
+            padding-right: 24px !important;
+        }
+        .calendar-container {
+            padding-left: 0px !important;
+            width: 200px !important;
+        }
+    }
+}

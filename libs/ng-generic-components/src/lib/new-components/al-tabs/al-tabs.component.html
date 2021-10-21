@@ -1,0 +1,11 @@
+<div class="ald-tabs">
+    <div role="tablist" class="ald-tabs__list">
+        <al2-wrapper>
+            <button role="tab" *ngFor="let tab of tabs" class="ald-tabs__button" [attr.aria-selected]="[tab.active ? 'true' : 'false' ]" (click)="selectTab(tab)">
+                {{ tab.name | titlecase }}
+            </button>
+        </al2-wrapper>
+    </div>
+</div>
+
+<ng-content></ng-content>

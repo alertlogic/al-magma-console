@@ -1,0 +1,82 @@
+<ng-template #headerContainer let-data="header">
+    <div fxLayout="row" class="header" [ngClass]="{'exposure-high' : (data.type === 'exposure' && data.icon.label === 'High'),
+    'exposure-medium' : (data.type === 'exposure' && data.icon.label === 'Medium'),
+    'exposure-low' : (data.type === 'exposure' && data.icon.label === 'Low'),
+    'exposure-info' : (data.type === 'exposure' && data.icon.label === 'Info'),
+    'remediation':(data.type === 'remediation'), 'underlineTwo':(data.type === 'remediation') }">
+        <div class="icon" fxLayout="column" fxLayoutAlign="center center">
+            <i class="{{data.icon.iconClass}}">{{ data.icon.icon }}</i>
+        </div>
+        <div class="description">
+            {{data.title}}
+        </div>
+    </div>
+</ng-template>
+
+<!-- This is a simple panel with a title and a description -->
+<ng-template #simplePanelContainer let-data="simplePanel">
+    <div fxLayout="column" class="simple-panel underlineTwo">
+        <p class="description">{{data.description}}</p>
+    </div>
+</ng-template>
+
+<!-- Assessmen header -->
+<ng-template #assessmentHeaderContainer>
+    <div *ngIf="remediationItemData" fxLayout="column" class="assessment-header underlineTwo">
+        <div class="subtitle" i18n> Assessment </div>
+        <div fxLayout="row" fxLayoutAlign="start center" class="status">
+            <i class="{{remediationItemData.icon.iconClass}}"> {{remediationItemData.icon.icon}} </i>
+            <span> {{ remediationItemData.state | titlecase }} </span>
+            <span *ngIf="remediationItemData.assessment && state !== 'concluded' "> :
+                {{ remediationItemData.assessment }} </span>
+        </div>
+        <div class="date">
+            at {{ remediationItemData.modifyOn | date:'HH:mm'}} on {{ remediationItemData.modifyOn | date:'yyyy-MM-dd'}}
+        </div>
+        <div *ngIf="state === 'disposed'">
+            <div class="subtitle" i18n> Expires on </div>
+            <div class="subtitle-data" *ngIf="remediationItemData.expires">{{ remediationItemData.expires | date:'yyyy-MM-dd'}} </div>
+            <div class="subtitle-data" *ngIf="!remediationItemData?.expires"> Never</div>
+        </div>
+        <div class="subtitle" i18n> Assessed by </div>
+        <div class="subtitle-data"> {{ remediationItemData.assessedBy }} </div>
+        <div class="subtitle" i18n *ngIf="remediationItemData.comments"> Notes </div>
+        <div class="subtitle-data" *ngIf="remediationItemData.comments"> {{ remediationItemData.comments }} </div>
+    </div>
+</ng-template>
+
+
+<ng-template #assessmentBodyContainer>
+    <div *ngIf="descriptor.readOnlyFilter.length > 0" fxLayout="column" class="assessment-body underlineTwo">
+        <div class="subtitle" i18n> Assessment applied to assets below:</div>
+        <ng-container *ngFor="let filter of descriptor.readOnlyFilter">
+            <div class="underlineOne">
+                <div class="filter-title" i18n>{{filter.title}}</div>
+                <ng-container *ngFor="let element of filter.elements">
+                    <div fxLayout="row" fxLayoutAlign="start center" class="element">
+                        <i [ngClass]="element.icon">{{element.iconMt}}</i>
+                        <span>{{ element.title }}</span>
+                    </div>
+                </ng-container>
+            </div>
+        </ng-container>
+    </div>
+</ng-template>
+
+
+<!-- [ MAIN ] -->
+<div class="al-left-panel-detail">
+    <ng-container *ngTemplateOutlet="headerContainer; context: descriptor"></ng-container>
+
+    <ng-template [ngIf]="state === 'open'">
+        <ng-container *ngTemplateOutlet="simplePanelContainer; context: descriptor"></ng-container>
+    </ng-template>
+
+    <ng-template [ngIf]="state === 'concluded' || state === 'disposed'">
+        <ng-container *ngTemplateOutlet="assessmentHeaderContainer; context: remediationItemData"></ng-container>
+        <ng-container
+            *ngTemplateOutlet="assessmentBodyContainer; context: descriptor">
+        </ng-container>
+    </ng-template>
+
+</div>

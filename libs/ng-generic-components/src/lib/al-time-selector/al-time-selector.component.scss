@@ -1,0 +1,27 @@
+@import "@al/ng-generic-components/styles/utility";
+
+::ng-deep .time-selector-container {
+    .p-inputnumber {
+        .p-inputnumber-button, .p-inputnumber-button:hover {
+            background-color: transparent;
+
+            .p-button-icon-left, .p-button-icon-left:hover {
+                padding-top: 5px;
+                padding-left: 1px;
+                color: al-color($al-gray, 500);
+            }
+        }
+        .p-inputnumber-input {
+        }
+    }
+}
+
+.time-selector-container {
+    .time-selector-separator {
+        display: inline-flex;
+        align-items: center;
+    }
+    .time-selector-input {
+        text-align: center;
+    }
+}

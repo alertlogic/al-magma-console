@@ -1,0 +1,88 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.al-initials {
+
+    padding: 5px;
+    width: 100%;
+    display: inline-flex;
+
+    &.selected {
+        background-color: al-color($al-smokeBlue, 200);
+        .colored-square i {
+            color: al-color($al-smokeBlue, 500);
+        }
+    }
+
+    .colored-square {
+        display: inline-flex;
+        height:35px;
+        width:35px;
+        padding: 0;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+        i {
+            color: al-color($al-gray, 500 );
+        }
+    }
+    span.label {
+        display: block;
+        padding-left: 10px;
+        font-size: 1em;
+        align-items: center;
+    }
+
+    span.subname {
+      font-size: 0.9em;
+      padding-left: 10px;
+    }
+
+    .account-color-1 {
+      background-color: #FF7F00;
+    }
+    .account-color-2 {
+      background-color: #5498b5;
+    }
+    .account-color-3 {
+      background-color: #8FC183;
+    }
+    .account-color-4 {
+      background-color: #A8CCDB;
+    }
+    .account-color-5 {
+      background-color: #f8bb2c;
+    }
+    .account-color-6 {
+      background-color: #e20010;
+    }
+    .account-color-7 {
+      background-color: #6C6C6C;
+    }
+    .account-color-8 {
+      background-color: #8ebcd0;
+    }
+    .account-color-9 {
+      background-color: #E53935;
+    }
+    .account-color-10 {
+      background-color: #aed2a5;
+    }
+    .account-color-11 {
+      background-color: #9f9f9f;
+    }
+    .account-color-12 {
+      background-color: #9eacac;
+    }
+    .account-color-13 {
+      background-color: #9999FF;
+    }
+
+    .circular {
+        border-radius:50%;
+    }
+}
+.hoverClass {
+    background-color: al-color($al-smokeBlue, 50);
+}

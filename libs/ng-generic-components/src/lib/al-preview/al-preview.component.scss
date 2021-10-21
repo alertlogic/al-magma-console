@@ -1,0 +1,80 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.al-preview{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 130px;
+    overflow-y: auto;
+    max-height: 100vh;
+    padding: 12px 0;
+
+    h2 {
+        border-bottom: none;
+        color: #3c3c3c;
+        font-size: 14px;
+        font-weight: 700;
+        margin: 12px 0 0 0;
+        padding: 0;
+    }
+
+    h3 {
+        font-size: 12px;
+        font-weight: 400;
+        color: #a8a8a8;
+        margin: 12px 0 0;
+        padding-bottom: 0;
+        text-transform: capitalize;
+    }
+
+    .property-value {
+        margin-bottom: 12px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+
+        .property-icon{
+            font-size: 24px;
+
+            i {
+                margin-right: 6px;
+            }
+        }
+        // The below should not be required since our global theme should style links already
+        // But we have cases where apps are pulling in o3/design stylesheets and our compatible.scss which is overriding our default
+        // theme (ngcc one) so this rule needs to remain for now
+        a {
+            color: al-color($al-smokeBlue, 500);
+            text-decoration: underline;
+        }
+
+    }
+
+    .dont-break-out {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        -ms-word-break: break-all;
+        word-break: break-word;
+        -ms-hyphens: auto;
+        -moz-hyphens: auto;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+    }
+
+}
+
+$smallfontSize: 12px;
+@media only screen and (max-width: 1024px) {
+    .al-preview{
+        font-size: $smallfontSize;
+
+        h3 {
+            font-size: $smallfontSize;
+        }
+
+        .property-value {
+            font-size: $smallfontSize;
+        }
+
+    }
+
+}

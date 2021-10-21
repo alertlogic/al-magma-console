@@ -1,0 +1,123 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.p-sidebar {
+    .al-saved-search-form-content {
+        .saved-searches-form {
+            width: 100%;
+        }
+
+        .al-saved-search-form {
+            width: 96%;
+        }
+
+        .alert-layout {
+            width: 100%;
+            display: flex;
+        }
+
+        .expanded-input {
+            width: 100%;
+        }
+
+        .form-row {
+            margin-top: 20px;
+        }
+
+        .modal-internal-title {
+            line-height: normal;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #cbcbcb;
+        }
+
+        .vertical-space {
+            padding-top: 10px;
+        }
+
+        .padding-left-10 {
+            padding-left: 10px;
+        }
+
+        .columnHeader {
+            font-size: 20px;
+            color: al-color($al-gray, 500);
+            padding-bottom: 6px;
+            border-bottom: 1px solid al-color($al-gray, 50);
+        }
+
+        .pi-info-circle {
+            font-size: 18px;
+            vertical-align: bottom;
+            color: al-color($al-gray, 100);
+        }
+
+        .p-dir-col {
+            margin-left: 0px;
+        }
+
+        .col-4 {
+            padding-left: 3%;
+        }
+
+        .p-col {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 14px;
+            color: al-color($al-gray, 700);
+        }
+
+        .multiselect-users {
+            margin-top: 9px;
+        }
+
+        .usersDiv {
+            padding-bottom: 30px;
+        }
+
+        pre {
+            white-space: pre-wrap;
+        }
+
+        .p-dropdown-label.p-inputtext {
+            font-family: "Open Sans", Arial, sans-serif;
+            color: al-color($al-gray, 200);
+        }
+
+        .label-title {
+            color: al-color($al-gray, 200);
+        }
+
+        #editor, .query-column {
+            width: 96%;
+            padding-left: 2%;
+        }
+
+        .search-button {
+            float: right;
+            margin-top: 20px;
+        }
+
+        .chips-edit-saved-search {
+            .p-state-disabled {
+                opacity: 1 !important;
+                background-image: none;
+                overflow: unset;
+            }
+
+            .p-inputtext.p-state-disabled {
+                border-bottom: none;
+                background-image: none;
+                overflow: unset;
+            }
+
+            .p-chips-token {
+                height: 28px !important;
+            }
+        }
+    }
+
+    ngx-monaco-editor {
+        height: 120px;
+    }
+}

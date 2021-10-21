@@ -1,0 +1,12 @@
+<fieldset class="ald-fieldset ald-form-group" [ngClass]="{'ald-form-group--spaced': verticalSpace}">
+
+    <div class="ald-form-group__header" [ngClass]="[tip ? 'ald-form-group__header--multicol' : '']">
+        <legend [ngClass]="legendLarge ? 'ald-legend--large' : ''" class="ald-legend">{{ legend }}</legend>
+        <al2-tip *ngIf="tip" [tip]="tip"></al2-tip>
+    </div>
+
+    <al2-hint *ngIf="hint" [hint]="hint"></al2-hint>
+
+    <ng-content></ng-content>
+
+</fieldset>

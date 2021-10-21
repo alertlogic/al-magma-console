@@ -1,0 +1,4 @@
+<h5>Step: {{val4}}</h5>
+<p-slider [(ngModel)]="val4" [step]="5"></p-slider>
+
+Typescript: val4: number;

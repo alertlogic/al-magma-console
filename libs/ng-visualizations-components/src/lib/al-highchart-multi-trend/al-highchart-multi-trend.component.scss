@@ -1,0 +1,23 @@
+.multi-trend-container {
+  padding: 16px;
+}
+
+:host ::ng-deep {
+  .highcharts-title {
+    font-size: 14px;
+  }
+  .highcharts-tooltip-box {
+    stroke: none;
+    fill: none;
+  }
+  g.highcharts-label {
+    font-weight: 600;
+  }
+  .highcharts-crosshair-category {
+    stroke-width: unset;
+    stroke: black;
+  }
+  .highcharts-area {
+    opacity: 0.8;
+  }
+}

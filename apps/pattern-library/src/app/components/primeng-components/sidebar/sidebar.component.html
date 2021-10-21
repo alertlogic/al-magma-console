@@ -1,0 +1,78 @@
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>Right Drawers</h1>
+            <div class="card-content">
+                <div>
+                    <button (click)="showSideBar = !showSideBar"
+                        type="button" pButton
+                        label="Show Al Sidebar"
+                        class="primaryAction ui-button-raised ui-button-rounded" >
+                    </button>
+
+                    <button (click)="notification()"
+                        type="button" pButton
+                        label="Trigger Notification"
+                        class="ui-button-raised ui-button-rounded" >
+                    </button>
+
+                    <button (click)="openExposureConclude()"
+                        type="button" pButton
+                        label="Show Conclude Sidebar"
+                        class="accent ui-button-raised ui-button-rounded" >
+                    </button>
+
+                    <button (click)="openExposureDispose()"
+                        type="button" pButton
+                        label="Show Dispose Sidebar"
+                        class="accent ui-button-raised ui-button-rounded" >
+                    </button>
+                </div>
+                <div style="margin-top: 8px;">
+                    <button (click)="showSideBarB = !showSideBarB"
+                        type="button" pButton
+                        label="Show Al Sidebar"
+                        class="primaryAction ui-button-raised ui-button-rounded" >
+                    </button> (Full sized, non expandable)
+                </div>
+
+
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>
+
+<al-sidebar [visible]="showSideBar"
+            [config]="config"
+            (onSaved)="onSaved()" >
+    This is text content...
+</al-sidebar>
+
+<al-sidebar [visible]="showSideBarB"
+            [config]="configB"
+            (onSaved)="onSaved()" >
+    This is another al-sidebar, configured to be non-expandable but size to be a fully expanded state - a full size sizebar
+</al-sidebar>
+
+<al-exposure-conclude #concludeExposure
+    [page]="'exposures'"
+    [filter]="filter"
+    [itemIds]="itemIds"
+    [deploymentIds]="deploymentIds"
+    [accountId]="accountId"
+    (onClosed)="onClosed()"
+    (onConcludeSuccess)="onConcludeSuccess()"
+    (onConcludeFailure)="onConcludeFailure()" >
+</al-exposure-conclude>
+
+
+<al-exposure-dispose #disposeExposure
+    [page]="'remediations'"
+    [filter]="filter"
+    [itemIds]="itemIds"
+    [deploymentIds]="deploymentIds"
+    [accountId]="accountId"
+    (onClosed)="onClosed()"
+    (onDisposeSuccess)="onDisposeSuccess()"
+    (onDisposeFailure)="onDisposeFailure()" >
+</al-exposure-dispose>

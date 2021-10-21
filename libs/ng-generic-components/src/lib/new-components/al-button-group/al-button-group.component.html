@@ -1,0 +1,16 @@
+<div class="ald-btn-group" [ngClass]="[fullWidth ? 'ald-btn-group--full-width' : '', buttonGroup.length ? 'ald-btn-group--toggle' : '']">
+
+    <ng-container *ngIf="buttonGroup.length; else content">
+        <al2-button
+            *ngFor="let button of buttonGroup; let index = index"
+            [type]="setBtnType(button)"
+            [label]="button.label"
+            (click)="selectButton(index)">
+        </al2-button>
+    </ng-container>
+
+</div>
+
+<ng-template #content>
+    <ng-content></ng-content>
+</ng-template>

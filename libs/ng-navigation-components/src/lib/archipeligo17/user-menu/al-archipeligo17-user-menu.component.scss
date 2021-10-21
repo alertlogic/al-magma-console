@@ -1,0 +1,260 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.user-navigation {
+    font-family: 'Open Sans', Arial, sans-serif;
+
+    display: flex;
+    flex-direction: column;
+
+    section {
+        text-align: right;
+    }
+    section.user-menu-container {
+
+        i {
+            margin-top: 0;
+        }
+
+        label {
+            text-transform: uppercase;
+            color: al-color($al-gray, 500);
+            display: flex;
+            align-items: center;
+            margin-bottom: 0;
+        }
+
+        .entity-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-left:16px;
+
+            &.textual-label {
+
+                div.account-icon-space {
+                    color: al-color( $al-gray, 500 );
+                    font-weight: 400;
+                    font-size: 12.6px;
+                    margin-right: 10px;
+                    white-space: nowrap;
+                    width: auto;
+                    display: flex;
+                    align-items: center;
+
+                    al-name-colored-square {
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+
+        .user-menu-block {
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            > div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            }
+            &.inactive {
+                cursor: default;
+                > div.menu-trigger {
+                    pointer-events: none;
+                }
+            }
+
+        }
+
+
+        .separator-content {
+            display: flex;
+            margin: 0 6px;
+        }
+
+        .separator-line {
+            border-left: 2px solid #ccc;
+            height: 14px;
+        }
+
+        .account-icon-space {
+            width: 100%;
+            display: flex;
+        }
+
+        .userinfo {
+            font-size: 0.72em;
+            display: flex;
+        }
+
+        button {
+            & :disabled {
+                cursor: not-allowed;
+            }
+        }
+        .dco-flag {
+            .dco-flag {
+                font-size: 23pt;
+            }
+            display:inline-block;
+            vertical-align: top;
+        }
+    }
+    section.below {
+        position: relative;
+        div {
+            position: absolute;
+            right: 0;
+            top: 30px;
+            font-weight: 600;
+            font-size: 90%;
+            color: al-color($al-gray,500);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+
+            i.active {
+                cursor: pointer;
+            }
+        }
+    }
+}
+:host ::ng-deep p-menu {
+    &.elipsis-menu{
+        .p-menu {
+            width: 220px ;
+
+            .p-menuitem {
+                height: 48px;
+
+                .p-menuitem-link .p-menuitem-icon {
+                    font-size: 1.5em;
+                    margin-right: 12px;
+                    color: al-color($al-gray, 500);
+                }
+            }
+        }
+    }
+}
+// this is to fix the top menu heigh, before value: 48px;
+.user-dropdown-menu {
+    .mat-menu-item {
+      padding: 0 12px
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+        text-decoration: none ;
+
+        &.atTheEnd {
+          border-top: 1px solid al-color($al-gray,50);
+        }
+
+        .user-menu-li {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          & > i {
+              font-size: 1.5em;
+              color: al-color($al-gray,500);
+              display: flex;
+              justify-content: center;
+              margin-right: 12px;
+
+              & > span {
+                display: flex;
+                align-items: center;
+                width: 100%;
+              }
+          }
+        }
+    }
+}
+
+ul.location-dropdown-menu {
+
+    list-style-type: none;
+    padding-left: 0;
+
+    li {
+
+        color: al-color($al-gray, 500);
+        height: 36px;
+        display: flex;
+        align-items: center;
+        padding-left: 16px;
+
+        &.active {
+            background-color: al-color($al-smokeBlue, 100);
+            pointer-events: none;
+            > a {
+                font-weight: bold;
+                pointer-events: none;
+            }
+        }
+
+        &.dropdown-header {
+            font-size:11pt;
+            color: al-color($al-gray, 200);
+        }
+        > a {
+            padding: 0 24px; // Indent datacenter options
+            vertical-align: middle;
+            text-decoration: none;
+            color: al-color($al-gray, 500);
+            text-transform: none ;
+
+            &:hover {
+                background-color: #57A0D7; // al-smokeBlue 500 (Unified coloring with o3-design)
+            }
+        }
+    }
+}
+:host ::ng-deep p-menu {
+    &.region-menu {
+        text-align: left;
+        .p-menu {
+            padding: 8px 0;
+            .ui.p-submenu-header{
+                height: 36px;
+            }
+            .p-menuitem {
+                height: 48px;
+                font-size: 14px;
+                text-transform: uppercase;
+                &.active {
+                    background-color: #cbe2f2;
+                    pointer-events: none;
+                    font-weight: 700;
+                }
+                .p-menuitem-link {
+                    padding-left: 24px;
+                }
+            }
+            li {
+                display: flex;
+                align-items: center;
+                padding-left: 16px;
+                a:hover {
+                    background-color: inherit;
+                    color: inherit;
+                }
+            }
+            .p-menuitem:hover {
+                background-color: #e8e8e8;
+                color: #000000;
+            }
+            .p-submenu-header {
+                font-size: 11pt;
+                color: #a8a8a8;
+                background-color: white;
+            }
+        }
+    }
+}

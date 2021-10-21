@@ -1,0 +1,20 @@
+<div class="toggle-select" *ngIf="options && options.length > 0 && !readonly && allowSelectAll">
+    <p-checkbox name="toggle-select" label="Select All" (click)="toggleCheckAll()" [(ngModel)]="allChecked" [binary]="true"></p-checkbox>
+    <div *ngIf="!readonly && hasSelectedItems && allowRemoval" class="close-sign"><i class="material-icons" (click)="removeSelectedItems()">clear</i></div>
+</div>
+<div class="options-container">
+    <div *ngFor="let option of options">
+        <div class="item">
+            <div>
+                <p-checkbox [disabled]="readonly" name="items" [value]="option.value" [(ngModel)]="option.checked" [binary]="true" (click)="toggleCheck()"></p-checkbox>
+                <span class="selectable-title">
+                    <i *ngIf="option.isMaterialIcon" class="material-icons" [pTooltip]="option.label" tooltipPosition="left">{{option.icon}}</i>
+                    <i *ngIf="!option.isMaterialIcon" [ngClass]="option.icon" [pTooltip]="option.label" tooltipPosition="left"></i>
+                    {{option.title}}
+                </span>
+                <span class="subtitle"> {{option.subtitle}}</span>
+            </div>
+            <div *ngIf="!readonly && allowRemoval" class="close-sign"><i class="material-icons" (click)="removeItem(option)">clear</i></div>
+        </div>
+    </div>
+</div>

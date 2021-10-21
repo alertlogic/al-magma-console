@@ -1,0 +1,9 @@
+<div class="btnGroup">
+    <div class="btnGroupLeft">
+        <button type="button" class="cardBtn flat left" label="Label"
+            icon="ui-icon-open-in-browser" pButton></button>
+    </div>
+    <div class="btnGroupRight">
+        <button type="button" icon="ui-icon-edit" class="cardBtn flat right" label="Edit" pButton></button>
+    </div>
+</div>

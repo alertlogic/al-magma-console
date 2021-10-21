@@ -1,0 +1,45 @@
+<div #container class="count-container">
+
+  <!-- MAIN PRIMARY COUNT -->
+  <div class="primaryCount">
+
+    <!-- COUNT -->
+    <span [innerHTML]="compactCount(data.primaryCount)" [ngStyle]="{'font-size.px': presentation.primaryFontSize}" pTooltip="{{data.primaryCount}}" tooltipPosition="top" tooltipStyleClass="count-tooltip" appendTo="body"></span>
+
+    <!-- CHANGE DIRECTION GRAPHIC -->
+    <svg *ngIf="changeDirection === 0 && data.changeCount" xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24">
+      <path [ngClass]="changeColor(data.changeType)"  d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+      <path d="M0 0h24v24H0z" fill="none"/>
+    </svg>
+    <svg *ngIf="changeDirection === 1 && data.changeCount" xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24">
+      <path [ngClass]="changeColor(data.changeType)"  d="M16 18l2.29-2.29-4.88-4.88-4 4L2 7.41 3.41 6l6 6 4-4 6.3 6.29L22 12v6z"/>
+      <path d="M0 0h24v24H0z" fill="none"/>
+    </svg>
+    <svg *ngIf="changeDirection === 2 && data.changeCount === 0" xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24">
+      <path [ngClass]="changeColor(data.changeType)" d="M22 12l-4-4v3H3v2h15v3z"/>
+      <path d="M0 0h24v24H0z" fill="none"/>
+    </svg>
+  </div>
+
+  <!-- CHANGE VALUES -->
+  <div class="changes" *ngIf="data.hasOwnProperty('changeCount')">
+    <div>
+      <div [ngClass]="['color', changeColor(data.changeType)]" [innerHTML]="compactCount(data.changeCount)"></div>
+      <div [innerHTML]="presentation.changeAmountLabel"></div>
+    </div>
+    <div *ngIf="presentation.showPercentage">
+      <div [ngClass]="['color', changeColor(data.changeType)]">{{percentageChange(data.primaryCount, data.changeCount)}}</div>
+      <div [innerHTML]="presentation.percentageAmountLabel"></div>
+    </div>
+  </div>
+
+  <!-- ADDITIONAL VALUES META -->
+  <div class="meta" *ngIf="data.hasOwnProperty('additionalMeta')">
+    <div class="additional-meta" *ngFor="let meta of data.additionalMeta">
+      <div [ngClass]="['border-color', meta.color || '']">{{ meta.value }}</div>
+      <div>{{ meta.title }}</div>
+    </div>
+  </div>
+
+</div>
+

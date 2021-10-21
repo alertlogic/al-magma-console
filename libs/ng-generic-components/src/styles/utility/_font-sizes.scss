@@ -1,0 +1,26 @@
+//font sizes
+$font-sizes: (
+	xs:   12px,
+	sm:   14px,
+	base: 16px,
+	lg:   18px,
+	xl:   20px,
+	2xl:  24px,
+	3xl:  28px
+);
+
+//line heights
+$line-heights: (
+	xs:   16px,
+	sm:   20px,
+	base: 24px,
+	lg:   24px,
+	xl:   24px,
+	2xl:  28px,
+	3xl:  32px
+);
+
+@mixin font-size($label) {
+  font-size: map-get($font-sizes, $label);
+  line-height: map-get($line-heights, $label);
+}

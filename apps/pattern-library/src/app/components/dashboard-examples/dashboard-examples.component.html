@@ -1,0 +1,8 @@
+<h1>Dashboard Examples</h1>
+
+
+<button pButton type="button" label="Click" (click)="updateData()"></button>
+
+
+<p>Items on a dashboard are indivually held within a Dashboard Widget Container <em>AlDashboardWidgetContainer [al-dashboard-widget]</em></p>
+<al-dashboard-layout [config]='configs' (button-clicked)='buttonClicked($event)' (view-filtered-records)='viewRecordDetails($event)'></al-dashboard-layout>

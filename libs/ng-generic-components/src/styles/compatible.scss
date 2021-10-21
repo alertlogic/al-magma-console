@@ -1,0 +1,380 @@
+// // This compatible file will make override changes to alertlogic-theme so that
+// // existing o3-apps maintain their existing look and feel
+
+// body {
+//     background-color: #fff;
+// }
+// body {
+//     font-family: "Open Sans", Arial, sans-serif;
+//     font-size: 14px;
+//     -webkit-font-smoothing: unset;
+// }
+// body .material-icons {
+//     font-size: 24px;
+// }
+
+// body .p-chkbox .p-chkbox-box {
+//     border: 0;
+//     width: 25px;
+//     height: 25px;
+//     font-size: 24px;
+// }
+// body .p-chkbox .p-chkbox-box .p-chkbox-icon {
+//     align-items: center;
+// }
+// body .p-accordion .p-accordion-content {
+//     padding: 36px 24px;
+//     line-height: 18px;
+//     border: 0;
+//     border-bottom: 1px solid #ededed;
+// }
+// // this .tertiary-content need to be overrriden into alertlogic theme
+// .tertiary-content {
+//     padding: 0;
+// }
+// p-checkbox {
+//     margin-right: 0;
+// }
+
+// .p-accordion {
+//     box-shadow: none;
+// }
+// .p-button.p-button-icon-only,
+// .p-datepicker-buttonpane > button.p-button-icon-only {
+//     border-radius: 50%;
+// }
+// a {
+//     text-decoration: none;
+// }
+
+// body .p-panel .p-panel-footer {
+//     padding: 12px 24px;
+//     border: 0 none;
+//     border-top: 1px solid #ededed;
+//     margin: 0;
+// }
+
+// //alertlogic default h1-h5 property overridden to support old o3-ui
+// h1 {
+//     padding-bottom: 0;
+//     margin-block-start: 1em;
+//     margin-block-end: 1em;
+// }
+// h2 {
+//     padding-bottom: 0;
+//     margin-block-start: 0.83em;
+//     margin-block-end: 0.83em;
+// }
+// h3 {
+//     padding-bottom: 0;
+//     margin-block-start: 1em;
+//     margin-block-end: 1em;
+// }
+// h4 {
+//     padding-bottom: 0;
+//     margin-block-start: 1.33em;
+//     margin-block-end: 1.33em;
+// }
+// h5 {
+//     padding-bottom: 0;
+//     margin-block-start: 1em;
+//     margin-block-end: 1em;
+// }
+// .p-widget-content {
+//     border: unset;
+// }
+// body .p-widget-overlay {
+//     background-color: rgba(0, 0, 0, 0.4);
+// }
+// body .md-inputfield input.p-state-filled ~ labeL {
+//     color: #a8a8a8;
+// }
+// body .p-panel .p-panel-content {
+//     padding: 24px 40px;
+//     line-height: normal;
+// }
+// body .p-listbox .p-listbox-item {
+//     font-size: 1em;
+//     padding: 0.625em 1em;
+//     margin: 0;
+//     position: relative;
+//     overflow: hidden;
+//     transition: background-color 0.3s;
+//     border-radius: 0;
+// }
+
+// body .p-accordion .p-accordion-header {
+//     transition: background-color 0.3s;
+//     background-color: #fff;
+//     border-bottom: 1px solid #ededed;
+//     padding: 6px 24px;
+//     margin-top: 0;
+//     color: #535353;
+//     font-size: 18px;
+//     transition: background-color 0.3s;
+// }
+// .p-accordion .p-accordion-header {
+//     cursor: pointer;
+//     position: relative;
+//     margin-top: 1px;
+//     zoom: 1;
+// }
+
+// //new primeng overrriden
+// body .p-accordion .p-accordion-header > a {
+//     padding: 0;
+// }
+// .p-accordion .p-accordion-header.p-state-active .p-accordion-toggle-icon::before {
+//     content: "keyboard_arrow_down";
+// }
+// .p-accordion .p-accordion-header a .p-accordion-toggle-icon::before {
+//     content: "chevron_right";
+// }
+// body .p-button .p-button-label,
+// body .p-datepicker-buttonpane > button .p-button-text {
+//     padding: 0;
+//     line-height: 2.25em;
+
+//     /* changes for o3-configuration -applications-registry*/
+//     text-transform: inherit;
+// }
+
+// body .p-button,
+// body .p-datepicker-buttonpane > button {
+//     overflow: hidden;
+//     background-color: #57a0d7;
+//     color: #fff;
+//     font-size: 1em;
+//     height: 2.25em;
+//     padding: 0 1em;
+//     border: 0 none;
+//     -moz-box-shadow: 0 1px 2.5px 0 rgba(0, 0, 0, 0.26), 0 1px 5px 0 rgba(0, 0, 0, 0.16);
+//     -webkit-box-shadow: 0 1px 2.5px 0 rgba(0, 0, 0, 0.26), 0 1px 5px 0 rgba(0, 0, 0, 0.16);
+//     box-shadow: 0 1px 2.5px 0 rgba(0, 0, 0, 0.26), 0 1px 5px 0 rgba(0, 0, 0, 0.16);
+//     -moz-transition: background-color 0.3s;
+//     -o-transition: background-color 0.3s;
+//     -webkit-transition: background-color 0.3s;
+//     transition: background-color 0.3s;
+// }
+// body .p-button,
+// body .p-datepicker-buttonpane > button {
+//     overflow: hidden;
+//     background-color: #57a0d7;
+//     color: #fff;
+//     font-size: 1em;
+//     height: 2.25em;
+//     padding: 0 1em;
+//     border: 0 none;
+// }
+// body .p-button,
+// body .p-datepicker-buttonpane > button {
+//     background-color: #535353;
+//     color: #fff;
+//     font-size: 1em;
+//     text-transform: uppercase;
+//     font-weight: 600;
+//     box-shadow: none;
+//     -webkit-box-shadow: none;
+//     -moz-box-shadow: none;
+//     /* PRIMARY Button */
+//     /* ACCENT Button */
+// }
+// body .p-corner-all {
+//     -moz-border-radius: 2px;
+//     -webkit-border-radius: 2px;
+//     border-radius: 2px;
+// }
+
+// // ***************************
+
+// // this is for o3-exposure app
+
+// .p-menubar-root-list > li > a,
+// .p-menubar-root-list > li > a:hover {
+//     background-color: inherit !important;
+//     color: #fff !important;
+// }
+// .p-menubar-root-list > li > a:hover {
+//     color: #cbcbcb !important;
+// }
+
+// .p-inputtext {
+//     background-image: inherit;
+// }
+
+// // o3-health app
+// // o3-search tutorial
+// .green,
+// .orange,
+// .red,
+// .yellow,
+// .blue {
+//     background-color: inherit;
+// }
+
+// .left {
+//     display: inline;
+//     margin-right: 0px;
+// }
+
+// // *************************************
+
+// /* changes for o3-configuration -applications-registry*/
+// .p-button.p-button-text-icon-right .p-button-text {
+//     padding: 0px;
+// }
+
+// body .p-inputtext {
+//     background: transparent no-repeat;
+//     background-image: linear-gradient(to bottom, #57a0d7, #57a0d7), linear-gradient(to bottom, #cbcbcb, #cbcbcb);
+//     background-size: 0 1px, 100% 1px;
+//     background-position: 50% 100%, 50% 100%;
+//     transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+//     border-width: 0;
+//     padding: 2px;
+//     font-size: 1em;
+//     -moz-border-radius: 0px;
+//     -webkit-border-radius: 0px;
+//     border-radius: 0px;
+// }
+// body .p-inputtext:focus,
+// body .p-inputtext.p-state-focus {
+//     border-width: 0;
+//     background-size: 100% 1px, 100% 1px;
+//     outline: none;
+//     padding-bottom: 2px;
+// }
+// body .p-inputtext:disabled {
+//     border-bottom: 1px dotted;
+// }
+// body .p-inputtext.p-widget-content {
+//     border-width: 1px;
+//     background: transparent;
+//     background-image: none;
+// }
+// body .p-inputtext.p-state-error {
+//     border-color: #ef534f;
+// }
+
+// /* compatibility with o3 design */
+// .al-light-theme {
+//     color: #3c3c3c;
+//     font-family: 'Open Sans', Arial, sans-serif;
+//     font-size: 14px;
+// }
+
+// html,body{
+//     font-family: 'Open Sans', Arial, sans-serif;;
+//     font-weight:normal;
+//     line-height:20px;
+//     font-size:14px;
+//     color:rgba(0,0,0, 0.87);
+// }
+
+// body{
+//     display:block;
+//     margin:0;
+//     padding:0;
+//     width:100%;
+//     min-height:100vh;
+
+//     & > app-root{
+//         display:flex;
+//         min-height:100vh;
+//         flex-direction:column;
+
+//         a{
+//             color:#57A0D7;
+//         }
+
+//         & > main{
+//             flex:1;
+//         }
+//         input:-webkit-autofill {
+//             -webkit-box-shadow: 0 0 0px 1000px white inset;
+//         }
+//     }
+// }
+
+// h1 {
+//     font-size: 2em;
+//     font-weight: 400;
+// }
+
+// h2 {
+//     font-size: 1.714em;
+//     font-weight: 400;
+// }
+
+// h3 {
+//     font-size: 1.5em;
+//     font-weight: 400;
+// }
+
+// h4 {
+//     font-size: 1.286em;
+//     font-weight: 400;
+// }
+
+// h5 {
+//     font-size: 1.143em;
+//     font-weight: 400;
+// }
+
+// h6 {
+//     font-size: 1em;
+//     font-weight: 900;
+// }
+
+// small {
+//     font-size: 0.833em;
+// }
+
+// p {
+//     font-size: 1em;
+//     margin: 0 0 1em;
+// }
+
+
+// @media all and (-ms-high-contrast:none){
+//     // styles for ie11
+//     al-archipeligo19-app-header {
+//         .ng-select-container {
+//             background-color: unset;
+//             color: white;
+//             border: none;
+//             min-width: 150px;
+//             &:hover {
+//                 cursor: pointer;
+//             }
+//         }
+//     }
+
+//     al-archipeligo17-account-selector{
+//         .account-selection-container {
+//             p-dropdown {
+//                 margin-top: 17px;
+//                 .p-dropdown-trigger {
+//                     top: -5px;
+//                 }
+//                 .p-dropdown-label {
+//                     margin-bottom: 5px;
+//                 }
+//                 .p-dropdown-item {
+//                     padding: 0;
+//                 }
+//                 .p-dropdown-panel {
+//                     left: unset ;
+//                     right: 0;
+//                     width: 317px;
+//                     box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12)
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// .tool-tip .p-tooltip-text {
+//     width: 120%;
+//     white-space: nowrap;
+// }

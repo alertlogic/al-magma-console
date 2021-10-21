@@ -1,0 +1,45 @@
+$al-orange: (
+  500: #1592E6,
+   50: #5C3A49,
+  100: #793C49,
+  200: #A13E48,
+  300: #C84049,
+  400: #F04349,
+  600: #1688D6,
+  700: #187FC6,
+  800: #1A76B6,
+  900: #1F6597,
+  contrast: (
+     50: $al-contrastLight,
+    100: $al-contrastLight,
+    200: $al-contrastLight,
+    300: $al-contrastLight,
+    400: $al-contrastLight,
+    500: $al-contrastLight,
+    600: $al-contrastLight,
+    700: $al-contrastLight,
+    800: $al-contrastLight,
+    900: $al-contrastLight
+    )
+);
+
+$paletteMap: (
+  'al-orange':$al-orange,
+  'al-amber':$al-amber,
+  'al-yellow':$al-yellow,
+  'al-smokeBlue':$al-smokeBlue,
+  'al-blue':$al-blue,
+  'al-purple':$al-purple,
+  'al-green':$al-green,
+  'al-red':$al-red,
+  'al-gray':$al-gray,
+  'db-slate':$db-slate,
+  'db-blue': $db-blue,
+  'db-charts': $db-charts,
+  'al-essentials':$al-essentials,
+  'al-professional':$al-professional,
+  'al-enterprise':$al-enterprise
+);
+
+$primaryColor: var(--ald-g-primary);
+$accentColor: var(--ald-g-accent);

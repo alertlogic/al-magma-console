@@ -1,0 +1,25 @@
+<div class="al-preview">
+    <h2 class="dont-break-out">{{data.title}}</h2>
+    <div class="subtitle dont-break-out">{{data.subtitle}}</div>
+    <div *ngFor="let prop of data.properties">
+        <h3 class="property-name dont-break-out">{{prop.key}}</h3>
+        <!-- chore(kjn): fix types -->
+        <!--
+        <div *ngIf="!prop.isTemplate">
+            <div class="property-value dont-break-out" *ngFor="let valueDef of prop.value">
+                <span *ngIf="valueDef.icon || prop.icon" class="property-icon">
+                    <i [ngClass]="valueDef.icon || prop.icon"></i>
+                </span>
+                <div *ngIf="valueDef.action;else noAction">
+                    <a href="#" (click)="valueDef.action()">{{valueDef.label}}</a>
+                </div>
+                <ng-template #noAction>{{valueDef.label}}</ng-template>
+                TODO: fix types in this component's template
+            </div>
+        </div>
+        <div *ngIf="prop.isTemplate">
+            <ng-container *ngTemplateOutlet="prop.value[0].label; context:{ $implicit: prop.templateData }"></ng-container>
+        </div>
+        -->
+    </div>
+</div>

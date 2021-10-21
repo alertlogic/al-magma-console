@@ -1,0 +1,17 @@
+{
+    "features": [
+        {
+            "featureId": "simple-mode-search",
+            "customers": [
+                "2"
+            ]
+        },
+        {
+            "featureId": "simple-mode-search",
+            "availableAt": "2030-08-01",
+            "conditions": {
+                "entitlements": [ "TBD" ]
+            }
+        }
+    ]    
+}

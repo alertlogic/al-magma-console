@@ -1,0 +1,22 @@
+@import "@al/ng-generic-components/styles/utility";
+
+html,
+body {
+  font-family: $fontFamily;
+  font-weight: normal;
+  font-size: $fontSize;
+  margin: 0;
+  color: al-color($al-gray, 700);
+  background-color: #f5f5f5;
+
+  a {
+    color: al-color($al-smokeBlue, 500);
+  }
+}
+// i {
+//   color: al-color($al-gray, 500);
+
+//   &.info {
+//       color: al-color($al-gray, 100);
+//   }
+// }

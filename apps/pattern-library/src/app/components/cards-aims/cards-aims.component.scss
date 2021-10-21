@@ -1,0 +1,263 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.user-tile {
+    cursor: pointer;
+    display: flex;
+    height: 60px;
+    background-color: #ededed;
+    color: #000;
+    text-align: center;
+    margin: 10px;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    text-align: left;
+    -ms-flex: 1;
+    max-width: 100%;
+    flex: 1;
+}
+
+.nameColoredSquare {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 12px;
+}
+
+.user-tile button.mat-button {
+    background-color: #fff;
+    margin-right: 12px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.account-tile-listing {
+    display: flex;
+    flex: 1;
+}
+
+.acc-tile {
+    cursor: pointer;
+    position: relative;
+    display: table;
+    width: 150px;
+    height: 150px;
+    background-color: orange;
+    color: white;
+    text-align: center;
+
+    .acc-title {
+        position: relative;
+        display: table-cell;
+        height: 100%;
+        width: 100%;
+        vertical-align: middle;
+
+        .acc-name {
+            line-height: 1.2em;
+            padding: 2px;
+            font-size: .9em;
+            overflow-x: hidden;
+            width: 150px;
+        }
+    }
+
+    .date {
+        position: absolute;
+        width: 100%;
+        bottom: .5em;
+        text-align: center;
+        font-size: .8em;
+    }
+}
+
+.nameColoredSquare {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    font-family: 'Open Sans', Arial, serif;
+
+    .colored-square {
+        height: 35px;
+        width: 35px;
+        margin-right: 3px;
+        padding: 0;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .colored-square-small {
+        height: 16px;
+        width: 16px;
+        margin-right: 3px;
+        padding: 0;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .colored-initials-small {
+        color: white;
+        font-size: .7em;
+    }
+
+    .colored-initials {
+        color: white;
+        font-size: 1.4em;
+    }
+
+    .colored-initials-selected {
+        color: al-color($al-gray, 200);
+        font-size: 1.5em;
+    }
+
+    
+}
+
+.al-identity-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    font-family: 'Open Sans',Arial,serif;
+
+    .al-identity-icon-space {
+        display: flex;
+    }
+
+    .identity-icon {
+        height: 35px;
+        width: 35px;
+        margin-right: 3px;
+        padding: 0;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.circular {
+            border-radius: 50%;
+        }
+    }
+
+    .identity-icon-small {
+        height: 16px;
+        width: 16px;
+        margin-right: 3px;
+        padding: 0;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.circular {
+            border-radius: 50%;
+        }
+    }
+
+    .colored-initials-small {
+        color: white;
+        font-size: .7em;
+    }
+
+    .colored-initials {
+        color: white;
+        font-size: 1.4em;
+    }
+
+    .colored-initials-selected {
+        color: al-color($al-gray,2);
+        font-size: 1.5em;
+    }
+
+    .color-selected {
+        background-color: white;
+    }
+
+    .color-corporate {
+        background-color: al-color($al-gray,1);
+    }
+
+    .colored-square-container-small {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .color1 {
+        background-color: #FF7F00;
+    }
+
+    .color2 {
+        background-color: #5498b5;
+    }
+
+    .color3 {
+        background-color: #8FC183;
+    }
+
+    .color4 {
+        background-color: #A8CCDB;
+    }
+
+    .color5 {
+        background-color: #f8bb2c;
+    }
+
+    .color6 {
+        background-color: #e20010;
+    }
+
+    .color7 {
+        background-color: #6C6C6C;
+    }
+
+    .color8 {
+        background-color: #8ebcd0;
+    }
+
+    .color9 {
+        background-color: #E53935;
+    }
+
+    .color10 {
+        background-color: #aed2a5;
+    }
+
+    .color11 {
+        background-color: #9f9f9f;
+    }
+
+    .color12 {
+        background-color: #9eacac;
+    }
+
+    .color13 {
+        background-color: #9999FF;
+    }
+
+    &.linkable {
+        cursor: pointer;
+        color: transparent;
+    }
+}
+button {
+    margin-right: 12px;
+
+    &.primary {
+        background-color: white;
+        color: al-color($al-gray, 500);
+
+        &:enabled:not(:focus):hover {
+            background-color: white;
+        }
+
+    }
+}

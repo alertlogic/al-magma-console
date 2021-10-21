@@ -1,0 +1,143 @@
+<div class="al-base-card"
+     [ngClass]="{'card-expanded': item.expanded, 'card-collapsed': !item.expanded, 'card-checked': item.checked, 'al-base-card-plain': config?.style === 'plain'}">
+    <p-panel [toggleable]="config.toggleable"
+             [collapsed]="!item.expanded"
+             (click)="emitExpand(item);">
+        <p-header>
+            <div class="grid grid-nogutter align-items-center card-header">
+                <ng-container
+                              *ngTemplateOutlet="alBaseCardHeader?.template || defaultBaseCardHeader; context: { $implicit: item }">
+                </ng-container>
+                <ng-template #defaultBaseCardHeader>
+                    <ng-container *ngIf="config.hasIcon">
+                        <div class="col-fix grid-nogutter center-text"
+                             style="width:72px"
+                             [ngClass]="{'hidden-icon': (hiddenIcon || item.checked) ,'pointer': config.checkable !== undefined ? config.checkable : true}"
+                             (mouseover)="hiddenIcon = config.checkable !== undefined ? config.checkable : true"
+                             (mouseout)="hiddenIcon = false">
+                            <ng-container *ngTemplateOutlet="alBaseCardIcon?.template || defaultIcon; context: { $implicit: item }">
+                            </ng-container>
+                            <ng-template #defaultIcon>
+                                <div class="al-cardstack-icon">
+                                    <i *ngIf="item.icon?.name" class="material-icons initial-icon pointer" [ngClass]="item.icon?.cssClasses">
+                                        {{ item.icon?.name }}
+                                    </i>
+                                    <i *ngIf="!item.icon?.name && item.icon?.cssClasses" class="initial-icon pointer {{item.icon?.cssClasses}}">
+                                    </i>
+                                    <div *ngIf="item.icon?.text" class="al-cardstack-icon-label">{{ item.icon?.text }}</div>
+                                </div>
+                            </ng-template>
+                        </div>
+                        <div class="col-fix grid-nogutter pointer center-text"
+                             style="width:72px"
+                             [ngClass]="{'hidden-icon': !hiddenIcon && !item.checked}"
+                             (mouseover)="hiddenIcon = true"
+                             (mouseout)="hiddenIcon = false">
+                            <p-checkbox class="pointer"
+                                        [binary]="true"
+                                        [(ngModel)]="item.checked"
+                                        (ngModelChange)="toggleCheck($event)"></p-checkbox>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="!config.hasIcon && config.checkable">
+                        <div class="col-fix grid-nogutter pointer center-text"
+                             style="width:72px">
+                            <p-checkbox class="pointer"
+                                        [binary]="true"
+                                        [(ngModel)]="item.checked"
+                                        (ngModelChange)="toggleCheck($event)"></p-checkbox>
+                        </div>
+                    </ng-container>
+                    <div class="col grid-nogutter"
+                         [ngClass]="{'header-left-space': !config.hasIcon && !config.checkable}"
+                         (click)="item.expanded = !item.expanded && config.toggleable">
+                        <div class="al-cardstack-subtitle-top-txt">
+                            <ng-container
+                                *ngTemplateOutlet="alBaseCardTitle?.template || defaultTitle; context: { $implicit: item }">
+                            </ng-container>
+                            <ng-template #defaultTitle>
+                                <span class="toptitle">{{ item.toptitle || (item.properties ? item.properties.toptitle : '') }}</span>
+                            </ng-template>
+                        </div>
+                        <div class="ui-panel-title">
+                            <ng-container *ngTemplateOutlet="alBaseCardContent?.template || defaultContent; context: { $implicit: item }">
+                            </ng-container>
+                            <ng-template #defaultContent>
+                                <span class="caption">{{ item.caption || (item.properties ? item.properties.caption : '') }}</span>
+                            </ng-template>
+                        </div>
+                        <div class="al-cardstack-subtitle-txt">
+                            <ng-container *ngTemplateOutlet="alBaseCardSubtitle?.template || defaultSubtitle; context: { $implicit: item }">
+                            </ng-container>
+                            <ng-template #defaultSubtitle>
+                                <span class="subtitle">{{ item.subtitle || (item.properties ? item.properties.subtitle : '') }}</span>
+                            </ng-template>
+                        </div>
+                    </div>
+                    <ng-container *ngTemplateOutlet="alBaseCardHeaderExtraContent?.template; context: { $implicit: item }">
+                    </ng-container>
+                    <div class="col-1"
+                         *ngFor="let itemCount of item.countItems; trackBy: itemCountTackByFn">
+                        <div class="al-cardstack-icon divider"
+                             (click)="item.expanded = !item.expanded && config.toggleable">
+                            <div class="ui-panel-title">{{ itemCount.number }}</div>
+                            <div class="al-cardstack-icon-label">{{ itemCount.text }}</div>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-container *ngTemplateOutlet="alBaseCardHeaderRight?.template; context: { $implicit: item }">
+                </ng-container>
+                <div *ngIf="config.toggleableButton" class="col-1 pointer toggle">
+                    <div *ngIf="!item.expanded && config.toggleableButton"
+                         class="al-cardstack-icon e2e-al-base-card-toggle"
+                         (click)="item.expanded = true && config.toggleable">
+                        <i class="pi pi-chevron-down"></i>
+                        <div class="al-cardstack-icon-label">View</div>
+                    </div>
+                    <div *ngIf="item.expanded && config.toggleableButton"
+                         class="al-cardstack-icon e2e-al-base-card-toggle"
+                         (click)="item.expanded = false">
+                        <i class="pi pi-chevron-up"></i>
+                        <div class="al-cardstack-icon-label">Hide</div>
+                    </div>
+                </div>
+            </div>
+        </p-header>
+        <ng-container *ngTemplateOutlet="alBaseCardBodyContent?.template; context: { $implicit: item }"></ng-container>
+        <p-footer *ngIf="alBaseCardFooter || (item.footerActions)">
+            <ng-container *ngTemplateOutlet="alBaseCardFooter?.template; context: { $implicit: item }"></ng-container>
+            <ng-container *ngIf="!alBaseCardFooter && item.footerActions">
+                <div class="footer"
+                    [ngClass]="{'btnGroup': item.footerActions.left &&
+                                            item.footerActions.right &&
+                                            item.footerActions.left.length > 0 &&
+                                            item.footerActions.right.length > 0}">
+                    <div class="btnGroupLeft" *ngIf="item.footerActions.left && item.footerActions.left.length > 0">
+                        <div *ngFor="let action of item.footerActions.left; trackBy: actionTrackByFn">
+                            <button
+                                *ngIf="action.visible"
+                                type="button"
+                                [icon]="action.icon"
+                                (click)="footerAction(action.event, item)"
+                                class="cardBtn flat left e2e-base-card-footer-action-{{action.event}}"
+                                [label]="action.text" pButton>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="btnGroupRight"  *ngIf="item.footerActions.right && item.footerActions.right.length > 0">
+                        <div *ngFor="let action of item.footerActions.right; trackBy: actionTrackByFn">
+                            <button
+                                *ngIf="action.visible"
+                                type="button"
+                                [icon]="action.icon"
+                                (click)="footerAction(action.event, item)"
+                                class="cardBtn flat right e2e-base-card-footer-action-{{action.event}}"
+                                [label]="action.text" pButton>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </p-footer>
+    </p-panel>
+</div>

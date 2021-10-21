@@ -1,0 +1,61 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.exposures-details {
+    height: 100%;
+    min-height: calc(100vh);
+}
+
+.content {
+    padding: 40px;
+}
+
+h2 {
+    font-size: 24px;
+    margin: 36px 0 12px 0;
+    border-bottom: 1px solid al-color($al-gray, 50);
+    padding-bottom: 6px;
+}
+
+h4 {
+    font-size: 18px;
+    font-weight: 400;
+    margin: 12px 0;
+}
+
+.description-title {
+    padding-top: 30px;
+    border-bottom: 1px solid al-color($al-gray, 50);
+}
+.description-content {
+    .description-item {
+        padding-bottom: 12px;
+        padding-top: 12px;
+        p {
+            color: al-color($al-gray, 200);
+            font-size: 12px;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.al-side-filter {
+    background: white;
+    padding: 0px;
+    width: 280px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.counts {
+    float: right;
+}
+
+.allAffectedAssetCheckbox {
+    margin:9px;
+}
+
+.allFutureAssetTitle{
+    margin-left: 60px;
+}

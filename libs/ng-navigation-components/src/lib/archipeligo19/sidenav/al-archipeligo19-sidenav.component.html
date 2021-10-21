@@ -1,0 +1,48 @@
+<!-- We change the "modal" property to true so that the dismissible property works correctly.
+    Please check the SCSS _overlay.scss in ng-generic-components -->
+<p-sidebar #navSideBar [(visible)]="menu && menu.visible && displayNav"
+           (onHide)="hideSideBar()"
+           styleClass="al-sidenav"
+           [modal]="true"
+           [showCloseIcon]="false"
+           [baseZIndex]="1000"
+           [autoZIndex]="false"
+           [dismissible]="true">
+    <div class="sidenav-container">
+        <div class="sidenav-items" *ngIf="menu && menu.visible">
+            <div class="top-items">
+                <ng-template ngFor let-menuItem [ngForOf]="menu.children">
+                    <div class="menu-item-container" *ngIf="menuItem.visible && !menuItem.properties.atEndSideNav && !menuItem.properties.isHeaderAction">
+                        <div class="menu-item-parent" [class.highlight]="menuItem.caption === 'Dashboards'" (click)="dispatchParent(menuItem,$event);">
+                            <i class="material-icons">{{menuItem.properties.iconClass}}</i>
+                            <span [class.active]="menuItem.activated">
+                                <div *ngIf="!menuItem.href">{{menuItem.caption}}</div>
+                                <a *ngIf="menuItem.href" [href]="menuItem.href">{{menuItem.caption}}</a>
+                            </span>
+                        </div>
+                        <div class="menu-item-children-container" [hidden]="!menuItem.properties.expanded" *ngIf="menuItem.children">
+                            <ng-template ngFor let-childItem [ngForOf]="menuItem.children">
+                                <div class="menu-item-child" *ngIf="childItem.visible && !childItem.properties.isHeaderAction" [class.active]="childItem.activated">
+                                    <span (click)="dispatch(childItem,$event)">
+                                        <a [href]="childItem.href" [target]="childItem.properties.target ? childItem.properties.target : ''">{{childItem.caption}}</a>
+                                    </span>
+                                </div>
+                            </ng-template>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+            <div class="bottom-elements grid p-dir-col grid-nogutter">
+                <ng-template ngFor let-menuItem [ngForOf]="menu.children">
+                    <div class="menu-item-parent" *ngIf="menuItem.visible && menuItem.properties.atEndSideNav">
+                        <i class="material-icons">{{menuItem.properties.iconClass}}</i>
+                        <span [class.active]="menuItem.activated" (click)="dispatch(menuItem,$event,true)">
+                            <ng-template  *ngIf="!menuItem.href">{{menuItem.caption}}</ng-template>
+                            <a *ngIf="menuItem.href" [href]="menuItem.href">{{menuItem.caption}}</a>
+                        </span>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</p-sidebar>

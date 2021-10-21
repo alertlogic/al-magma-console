@@ -1,0 +1,2970 @@
+{
+    "name": "Navigation Schema",
+    "description": "Compiled from navigation-schemas/cie-plus2/main.json on Thu Sep 19 2019 20:21:04 GMT-0700 (Pacific Daylight Time)",
+    "menus": {
+        "user": {
+            "caption": "user",
+            "children": [
+                {
+                    "caption": "Support Information",
+                    "properties": {
+                        "iconClass": "material-icons",
+                        "iconText": "live_help"
+                    },
+                    "action": {
+                        "type": "link",
+                        "location": "cd17:accounts",
+                        "path": "/#/support/home"
+                    },
+                    "matches": [
+                        "/#/support/.*"
+                    ],
+                    "children": [
+                        {
+                            "caption": "Details",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd17:accounts",
+                                "path": "/#/support/home"
+                            },
+                            "matches": [
+                                "/#/support/home/.*"
+                            ]
+                        },
+                        {
+                            "caption": "Install Guides & Downloads",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd17:accounts",
+                                "path": "/#/support/install-and-downloads/tm"
+                            },
+                            "matches": [
+                                "/#/support/install-and-downloads/.*"
+                            ],
+                            "visible": {
+                                "entitlements": "log_manager|threat_manager|web_security_manager|cloud_defender"
+                            }
+                        },
+                        {
+                            "caption": "Support Center",
+                            "properties": {
+                                "iconClass": "material-icons",
+                                "iconText": "launch",
+                                "target": "_blank"
+                            },
+                            "action": {
+                                "type": "link",
+                                "location": "cd14:support",
+                                "path": "/hc/en-us"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "caption": "Integrations",
+                    "properties": {
+                        "iconClass": "al al-logo",
+                        "iconText": ""
+                    },
+                    "action": {
+                        "type": "link",
+                        "location": "cd17:accounts",
+                        "path": "/users/developer/index.html#/"
+                    },
+                    "matches": [
+                        "/users/developer/index.html#/*"
+                    ]
+                },
+                {
+                    "caption": "Users",
+                    "properties": {
+                        "iconClass": "material-icons",
+                        "iconText": "group"
+                    },
+                    "action": {
+                        "type": "link",
+                        "location": "cd17:accounts",
+                        "path": "/#/aims/users"
+                    }
+                },
+                {
+                    "caption": "Notifications",
+                    "properties": {
+                        "iconClass": "material-icons",
+                        "iconText": "announcement"
+                    },
+                    "action": {
+                        "type": "link",
+                        "location": "cd17:accounts",
+                        "path": "/#/notifications/subscriptions/incidents"
+                    },
+                    "matches": [
+                        "/#/notifications.*"
+                    ],
+                    "visible": {
+                        "entitlements": "legacy:customer_facing_incidents"
+                    },
+                    "children": [
+                        {
+                            "caption": "My Subscriptions",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd17:accounts",
+                                "path": "/#/notifications/subscriptions/incidents"
+                            },
+                            "children": [
+                                {
+                                    "caption": "Incidents",
+                                    "properties": {},
+                                    "action": {
+                                        "type": "link",
+                                        "location": "cd17:accounts",
+                                        "path": "/#/notifications/subscriptions/incidents"
+                                    }
+                                },
+                                {
+                                    "caption": "Remediations",
+                                    "properties": {},
+                                    "action": "cd17:accounts:subs-remediations"
+                                },
+                                {
+                                    "caption": "Health",
+                                    "properties": {},
+                                    "action": "cd17:accounts:subscriptions-health",
+                                    "visible": {
+                                        "entitlements": "assess|detect|respond|phoenix_migrated"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "caption": "Manage Subscriptions of Others",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd17:accounts",
+                                "path": "/#/notifications/allsubscriptions/incidents"
+                            },
+                            "children": [
+                                {
+                                    "caption": "Incidents",
+                                    "properties": {},
+                                    "action": {
+                                        "type": "link",
+                                        "location": "cd17:accounts",
+                                        "path": "/#/notifications/allsubscriptions/incidents"
+                                    }
+                                },
+                                {
+                                    "caption": "Remediations",
+                                    "properties": {},
+                                    "action": "cd17:accounts:all-subs-remediations"
+                                },
+                                {
+                                    "caption": "Health",
+                                    "properties": {},
+                                    "action": "cd17:accounts:all-subs-health",
+                                    "visible": {
+                                        "entitlements": "assess|detect|respond|phoenix_migrated"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "caption": "FINO",
+                    "properties": {
+                        "iconClass": "material-icons",
+                        "iconText": "insert_drive_file",
+                        "target": "_blank"
+                    },
+                    "action": {
+                        "type": "link",
+                        "location": "cd14:ui",
+                        "path": "/fino.php"
+                    },
+                    "visible": {
+                        "entitlements": "al_internal_user"
+                    }
+                },
+                {
+                    "caption": "Security Content Center",
+                    "properties": {
+                        "iconClass": "material-icons",
+                        "iconText": "security",
+                        "target": "_blank"
+                    },
+                    "action": {
+                        "type": "link",
+                        "location": "cd14:ui",
+                        "path": "/scc.php"
+                    },
+                    "visible": {
+                        "entitlements": "threat_manager|cloud_defender"
+                    }
+                },
+                {
+                    "caption": "Scan Disputes",
+                    "properties": {
+                        "iconClass": "material-icons",
+                        "iconText": "forum",
+                        "target": "_blank"
+                    },
+                    "action": {
+                        "type": "link",
+                        "location": "cd14:ui",
+                        "path": "/scan-dispute/#/"
+                    },
+                    "visible": {
+                        "entitlements": "threat_manager|cloud_defender"
+                    }
+                },
+                {
+                    "caption": "Service Status",
+                    "properties": {
+                        "iconClass": "material-icons",
+                        "iconText": "signal_wifi_4_bar",
+                        "target": "_blank"
+                    },
+                    "action": {
+                        "type": "link",
+                        "url": "https://status.alertlogic.com"
+                    }
+                },
+                {
+                    "caption": "Vulnerability Library",
+                    "properties": {
+                        "iconClass": "al al-vulnerability-library",
+                        "iconText": ""
+                    },
+                    "action": {
+                        "type": "link",
+                        "location": "cd17:landscape",
+                        "path": "/#/vulnerabilities"
+                    }
+                },
+                {
+                    "caption": "PCI Scanning",
+                    "properties": {
+                        "iconClass": "al al-pci",
+                        "iconText": ""
+                    },
+                    "action": {
+                        "type": "link",
+                        "location": "cd17:config",
+                        "path": "/#/pci/scanning/:accountId"
+                    },
+                    "matches": [
+                        "/#/pci/scanning/.*"
+                    ],
+                    "visible": {
+                        "rule": "all",
+                        "conditions": [
+                            {
+                                "parameters": [
+                                    "accountId"
+                                ]
+                            },
+                            {
+                                "entitlements": "assess|detect|respond"
+                            }
+                        ]
+                    },
+                    "children": [
+                        {
+                            "caption": "PCI Scanning for Resource",
+                            "properties": {},
+                            "action": "cd17:config:pci-scanning",
+                            "bubble": true
+                        }
+                    ]
+                },
+                {
+                    "caption": "Legacy Scan Results",
+                    "properties": {
+                        "iconClass": "al al-scan",
+                        "iconText": ""
+                    },
+                    "action": {
+                        "type": "link",
+                        "location": "cd17:config",
+                        "path": "/#/pci/legacy-scanning/:accountId"
+                    },
+                    "matches": [
+                        "/#/pci/legacy-scanning/.*"
+                    ],
+                    "visible": {
+                        "rule": "all",
+                        "conditions": [
+                            {
+                                "parameters": [
+                                    "accountId"
+                                ]
+                            },
+                            {
+                                "entitlements": "phoenix_migrated"
+                            }
+                        ]
+                    },
+                    "children": [
+                        {
+                            "caption": "PCI Scanning for Resource",
+                            "properties": {},
+                            "action": "cd17:config:legacy-pci-scanning",
+                            "bubble": true
+                        }
+                    ]
+                },
+                {
+                    "caption": "PCI Scan Disputes",
+                    "properties": {
+                        "iconClass": "material-icons",
+                        "iconText": "forum",
+                        "target": "_blank"
+                    },
+                    "action": {
+                        "type": "link",
+                        "location": "cd14:ui",
+                        "path": "/scan-dispute/#/"
+                    },
+                    "visible": {
+                        "entitlements": "assess|detect|respond"
+                    }
+                },
+                {
+                    "caption": "Sign Out",
+                    "properties": {
+                        "css_class": "atTheEnd",
+                        "iconClass": "material-icons",
+                        "iconText": "reply"
+                    },
+                    "action": "user:signout"
+                }
+            ]
+        },
+        "primary": {
+            "caption": "primary",
+            "children": [
+                {
+                    "caption": "Overview",
+                    "properties": {},
+                    "action": "cd17:overview",
+                    "matches": [
+                        "/#/.*",
+                        "/topology/index.html#/.*"
+                    ],
+                    "children": [
+                        {
+                            "caption": "Dashboards",
+                            "properties": {},
+                            "action": "cd17:overview:dashboards",
+                            "matches": [
+                                "/#/remediations-scan-status.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "!assess|detect|respond"
+                                    }
+                                ]
+                            },
+                            "children": [
+                                {
+                                    "caption": "Incidents",
+                                    "properties": {},
+                                    "action": "cd17:incidents:overview:summary",
+                                    "matches": [
+                                        "/#/overview/summary/.*"
+                                    ],
+                                    "visible": {
+                                        "rule": "all",
+                                        "conditions": [
+                                            {
+                                                "parameters": [
+                                                    "accountId"
+                                                ]
+                                            },
+                                            {
+                                                "entitlements": "cloud_insight&!web_application_firewall|web_security_manager|cloud_defender|threat_manager|log_manager"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "caption": "Remediations & Continuous Scan",
+                                    "properties": {},
+                                    "action": "cd17:overview:remediationsScanStatus",
+                                    "matches": [
+                                        "/#/remediations-scan-status/.*"
+                                    ],
+                                    "visible": {
+                                        "rule": "all",
+                                        "conditions": [
+                                            {
+                                                "parameters": [
+                                                    "accountId"
+                                                ]
+                                            },
+                                            {
+                                                "entitlements": "cloud_insight|cloud_defender"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "caption": "Network IDS",
+                                    "properties": {},
+                                    "action": "cd17:overview:networksIDS",
+                                    "matches": [
+                                        "/#/network-ids/.*"
+                                    ],
+                                    "visible": {
+                                        "rule": "all",
+                                        "conditions": [
+                                            {
+                                                "parameters": [
+                                                    "accountId"
+                                                ]
+                                            },
+                                            {
+                                                "entitlements": "threat_manager|cloud_defender"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "caption": "Log Management",
+                                    "properties": {},
+                                    "action": "cd17:overview:logManagement",
+                                    "matches": [
+                                        "/#/log-management/.*"
+                                    ],
+                                    "visible": {
+                                        "rule": "all",
+                                        "conditions": [
+                                            {
+                                                "parameters": [
+                                                    "accountId"
+                                                ]
+                                            },
+                                            {
+                                                "entitlements": "log_manager|cloud_defender"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "caption": "WAF",
+                                    "properties": {},
+                                    "action": "cd17:overview:waf",
+                                    "matches": [
+                                        "/#/waf/.*"
+                                    ],
+                                    "visible": {
+                                        "rule": "all",
+                                        "conditions": [
+                                            {
+                                                "parameters": [
+                                                    "accountId"
+                                                ]
+                                            },
+                                            {
+                                                "entitlements": "web_application_firewall"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "caption": "Web App IDS",
+                                    "properties": {},
+                                    "action": "cd17:overview:webSecurity",
+                                    "matches": [
+                                        "/#/web-app-ids/.*"
+                                    ],
+                                    "visible": {
+                                        "rule": "all",
+                                        "conditions": [
+                                            {
+                                                "parameters": [
+                                                    "accountId"
+                                                ]
+                                            },
+                                            {
+                                                "entitlements": "web_security_manager|cloud_defender"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "caption": "Scans",
+                                    "properties": {},
+                                    "action": "cd17:config:exposures",
+                                    "matches": [
+                                        "/#/exposures/scans/.*"
+                                    ],
+                                    "visible": {
+                                        "rule": "all",
+                                        "conditions": [
+                                            {
+                                                "parameters": [
+                                                    "accountId"
+                                                ]
+                                            },
+                                            {
+                                                "entitlements": "threat_manager|cloud_defender"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "caption": "Security Posture",
+                            "properties": {},
+                            "action": "cd17:overview:security",
+                            "matches": [
+                                "/#/security-postures/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "assess|detect|respond"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Topology",
+                            "properties": {},
+                            "action": "cd17:topology",
+                            "matches": [
+                                "/topology/index.html#/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "cloud_insight|cloud_defender"
+                                    }
+                                ]
+                            },
+                            "children": [
+                                {
+                                    "caption": "Topology for specific accountId/deploymentId",
+                                    "properties": {},
+                                    "action": {
+                                        "type": "link",
+                                        "location": "cd17:overview",
+                                        "path": "/topology/index.html#/:accountId/:deploymentId"
+                                    },
+                                    "bubble": true
+                                }
+                            ]
+                        },
+                        {
+                            "caption": "Topology",
+                            "properties": {},
+                            "action": "cd17:topology-phoenix",
+                            "matches": [
+                                "/#/topology/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "assess|detect|respond"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Topology for specific accountId/deploymentId",
+                            "properties": {},
+                            "action": "cd17:topology-phoenix:deployment"
+                        },
+                        {
+                            "caption": "Topology for specific accountId/deploymentId",
+                            "properties": {},
+                            "action": "cd17:topology-phoenix:deployment:asset"
+                        },
+                        {
+                            "caption": "Tutorial",
+                            "properties": {
+                                "css_class": "atTheEnd"
+                            },
+                            "action": {
+                                "type": "trigger",
+                                "trigger": "Navigation.Open.Tutorial"
+                            },
+                            "matches": [
+                                "/#/tutorial.*"
+                            ],
+                            "visible": {
+                                "entitlements": "assess|detect|respond"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "caption": "Incidents",
+                    "properties": {},
+                    "action": "cd17:incidents",
+                    "matches": [
+                        "/#/monitor/.*",
+                        "/#/summary/.*",
+                        "/#/incidents/.*",
+                        "/#/tutorial.*"
+                    ],
+                    "visible": {
+                        "entitlements": "cloud_insight|cloud_defender|threat_manager|log_manager|detect|respond"
+                    },
+                    "children": [
+                        {
+                            "caption": "List",
+                            "properties": {},
+                            "action": "cd17:incidents:list",
+                            "matches": [
+                                "/#/monitor/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "threat_manager|log_manager|cloud_defender&!legacy:customer_facing_incidents"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Summary",
+                            "properties": {},
+                            "action": "cd17:incidents:summary",
+                            "matches": [
+                                "/#/summary/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "cloud_insight&!web_application_firewall|web_security_manager|cloud_defender|threat_manager|log_manager|legacy:customer_facing_incidents"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Summary",
+                            "properties": {},
+                            "action": "cd17:incidents:summaryV2",
+                            "matches": [
+                                "/#/summary/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "legacy:customer_facing_incidents|respond|detect"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Guardduty",
+                            "properties": {},
+                            "action": "cd17:incidents:guardduty",
+                            "matches": [
+                                "/#/incidents/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "cloud_insight|cloud_defender&web_application_firewall|web_security_manager|cloud_defender|threat_manager|log_manager&!legacy:customer_facing_incidents"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "List",
+                            "properties": {},
+                            "action": "cd17:incidents:guarddutyV2",
+                            "matches": [
+                                "/#/incidents/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "legacy:customer_facing_incidents|respond|detect"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "List",
+                            "properties": {},
+                            "action": "cd17:incidents:guarddutyCIOnly",
+                            "matches": [
+                                "/#/incidents/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "cloud_insight&!web_application_firewall|web_security_manager|cloud_defender|threat_manager|log_manager|legacy:customer_facing_incidents"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Notifications",
+                            "properties": {},
+                            "action": "cd17:incidents:notifications",
+                            "visible": {
+                                "entitlements": "legacy:customer_facing_incidents|respond|detect"
+                            }
+                        },
+                        {
+                            "caption": "Tutorial",
+                            "properties": {
+                                "css_class": "atTheEnd"
+                            },
+                            "action": {
+                                "type": "trigger",
+                                "trigger": "Navigation.Open.Tutorial"
+                            },
+                            "matches": [
+                                "/#/tutorial.*"
+                            ],
+                            "visible": {
+                                "entitlements": "cloud_insight|cloud_defender|threat_manager|log_manager|detect|respond"
+                            }
+                        },
+                        {
+                            "caption": "Retrieves the UI url for a specific incident.",
+                            "properties": {},
+                            "action": "cd17:incidents:investigation_view_by_id"
+                        }
+                    ]
+                },
+                {
+                    "caption": "Exposures",
+                    "properties": {},
+                    "action": "cd17:exposures",
+                    "visible": {
+                        "rule": "all",
+                        "conditions": [
+                            {
+                                "parameters": [
+                                    "accountId"
+                                ]
+                            },
+                            {
+                                "entitlements": "assess|detect|respond|lmpro|tmpro"
+                            }
+                        ]
+                    },
+                    "children": [
+                        {
+                            "caption": "Summary",
+                            "properties": {},
+                            "action": "cd17:exposures:summary",
+                            "matches": [
+                                "/#/summary/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "assess|detect|respond|lmpro|tmpro"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "List",
+                            "properties": {},
+                            "action": "cd17:exposures:exposures-open",
+                            "matches": [
+                                "/#/exposures|remediations/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "assess|detect|respond|lmpro|tmpro"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Tutorial",
+                            "properties": {
+                                "css_class": "atTheEnd"
+                            },
+                            "action": "cd17:exposures:tutorial",
+                            "visible": {
+                                "entitlements": "cloud_insight|cloud_defender|assess|detect|respond"
+                            }
+                        },
+                        {
+                            "caption": "List",
+                            "properties": {},
+                            "action": "cd17:exposures:exposures-disposed",
+                            "visible": false
+                        },
+                        {
+                            "caption": "List",
+                            "properties": {},
+                            "action": "cd17:exposures:exposures-concluded",
+                            "visible": false
+                        },
+                        {
+                            "caption": "List",
+                            "properties": {},
+                            "action": "cd17:exposures:remediations-open",
+                            "visible": false
+                        },
+                        {
+                            "caption": "List",
+                            "properties": {},
+                            "action": "cd17:exposures:remediations-disposed",
+                            "visible": false
+                        },
+                        {
+                            "caption": "List",
+                            "properties": {},
+                            "action": "cd17:exposures:remediations-concluded",
+                            "visible": false
+                        }
+                    ]
+                },
+                {
+                    "caption": "Remediations",
+                    "properties": {},
+                    "action": "cd17:remediations",
+                    "visible": {
+                        "rule": "all",
+                        "conditions": [
+                            {
+                                "parameters": [
+                                    "accountId"
+                                ]
+                            },
+                            {
+                                "entitlements": "cloud_insight|cloud_defender|assess|detect|respond"
+                            }
+                        ]
+                    },
+                    "children": [
+                        {
+                            "caption": "Summary",
+                            "properties": {},
+                            "action": "cd17:remediations:summary",
+                            "matches": [
+                                "/#/summary/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "cloud_insight|cloud_defender|assess|detect|respond"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "List",
+                            "properties": {},
+                            "action": "cd17:remediations:list",
+                            "matches": [
+                                "/#/remediations|myplan|disposed|completed/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "cloud_insight|cloud_defender|assess|detect|respond"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Tutorial",
+                            "properties": {
+                                "css_class": "atTheEnd"
+                            },
+                            "action": {
+                                "type": "trigger",
+                                "trigger": "Navigation.Open.Tutorial"
+                            },
+                            "visible": {
+                                "entitlements": "cloud_insight|cloud_defender|assess|detect|respond"
+                            }
+                        },
+                        {
+                            "caption": "Remediations By Deployment",
+                            "properties": {},
+                            "action": "cd17:remediations:remediationsByDeployment"
+                        },
+                        {
+                            "caption": "Remediations By Saved Filter",
+                            "properties": {},
+                            "action": "cd17:remediations:remediationsByFilter"
+                        },
+                        {
+                            "caption": "Remediations By Asset",
+                            "properties": {},
+                            "action": "cd17:remediations:remediationsByAsset"
+                        }
+                    ]
+                },
+                {
+                    "caption": "Search",
+                    "properties": {},
+                    "action": "cd17:search",
+                    "matches": [
+                        "/#/.*"
+                    ],
+                    "visible": {
+                        "entitlements": "web_application_firewall|web_security_manager|cloud_defender|threat_manager|log_manager|detect|respond"
+                    },
+                    "children": [
+                        {
+                            "caption": "Log Messages",
+                            "properties": {},
+                            "action": "cd17:search:log-messages",
+                            "matches": [
+                                "/#/log-messages/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "cloud_defender|log_manager|web_security_manager|web_application_manager|web_application_firewall&!detect|respond"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Log Search",
+                            "properties": {},
+                            "action": "cd17:search:search",
+                            "matches": [
+                                "/#/search/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "assess|detect|respond"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Log Search BETA",
+                            "properties": {},
+                            "action": "cd17:search:search-beta",
+                            "matches": [
+                                "/#/search/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "cloud_defender|log_manager|web_security_manager|web_application_manager|web_application_firewall&!detect|respond"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Events",
+                            "properties": {},
+                            "action": "cd17:search:events",
+                            "matches": [
+                                "/#/(events|signature)/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "threat_manager|cloud_defender|detect|respond"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Blocks",
+                            "properties": {},
+                            "action": "cd17:search:blocks",
+                            "matches": [
+                                "/#/blocks/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "threat_manager|cloud_defender"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Cases",
+                            "properties": {},
+                            "action": "cd17:search:cases",
+                            "matches": [
+                                "/#/(cases|activeResult)/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "web_application_firewall|web_security_manager|cloud_defender|threat_manager|log_manager"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Deny Logs",
+                            "properties": {},
+                            "action": "cd17:search:deny-logs",
+                            "matches": [
+                                "/#/deny-logs/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "web_application_firewall"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Tutorial",
+                            "properties": {
+                                "css_class": "atTheEnd"
+                            },
+                            "action": {
+                                "type": "trigger",
+                                "trigger": "Navigation.Open.Tutorial"
+                            },
+                            "visible": {
+                                "path_matches": "/#/search.*"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "caption": "Endpoint Protection",
+                    "properties": {},
+                    "action": {
+                        "type": "link",
+                        "location": "cd19:endpoints",
+                        "path": "/#/"
+                    },
+                    "matches": [
+                        "/#/.*"
+                    ],
+                    "visible": {
+                        "entitlements": "endpoints_enabled"
+                    },
+                    "children": [
+                        {
+                            "caption": "Summary",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd19:endpoints",
+                                "path": "/#/dashboard/:accountId"
+                            },
+                            "matches": [
+                                "/#/dashboard.*"
+                            ],
+                            "bubble": true
+                        },
+                        {
+                            "caption": "Events",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd19:endpoints",
+                                "path": "/#/incidents/:accountId"
+                            },
+                            "matches": [
+                                "/#/incidents.*"
+                            ]
+                        },
+                        {
+                            "caption": "Endpoints",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd19:endpoints",
+                                "path": "/#/endpoints/:accountId"
+                            },
+                            "matches": [
+                                "/#/endpoints.*"
+                            ]
+                        },
+                        {
+                            "caption": "Overrides",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd19:endpoints",
+                                "path": "/#/settings/overrides"
+                            }
+                        },
+                        {
+                            "caption": "Notifications",
+                            "properties": {},
+                            "action": {
+                                "type": "trigger",
+                                "trigger": "Endpoints.Notifications.Panel"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "caption": "Reports",
+                    "properties": {},
+                    "action": "cd17:intelligence",
+                    "matches": [
+                        "/#/.*"
+                    ],
+                    "visible": {
+                        "entitlements": "cloud_insight|web_application_firewall|web_security_manager|cloud_defender|threat_manager|log_manager|detect|respond|assess"
+                    },
+                    "children": [
+                        {
+                            "caption": "Risk",
+                            "properties": {},
+                            "action": "cd17:intelligence:listRisk",
+                            "matches": [
+                                "/#/dashboard/.*/Risk/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "assess|detect|respond"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Threats",
+                            "properties": {},
+                            "action": "cd17:intelligence:listThreats",
+                            "matches": [
+                                "/#/dashboard/.*/Threats/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "detect|respond|cloud_insight|threat_manager|log_manager|web_security_manager|cloud_defender"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Vulnerabilities",
+                            "properties": {},
+                            "action": "cd17:intelligence:listVulnerabilities",
+                            "matches": [
+                                "/#/dashboard/.*/Vulnerability/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "assess|detect|respond|cloud_insight|cloud_defender"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Remediations",
+                            "properties": {},
+                            "action": "cd17:intelligence:listRemediations",
+                            "matches": [
+                                "/#/dashboard/.*/Remediations/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "assess|detect|respond|cloud_insight|cloud_defender"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Compliance",
+                            "properties": {},
+                            "action": "cd17:intelligence:listCompliance",
+                            "matches": [
+                                "/#/dashboard/.*/Compliance/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "assess|detect|respond|cloud_insight|log_manager|log_review|web_application_firewall|web_security_manager|cloud_defender"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Service",
+                            "properties": {},
+                            "action": "cd17:intelligence:listService",
+                            "matches": [
+                                "/#/dashboard/.*/Service/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "detect|respond|cloud_insight|threat_manager|log_manager|log_review|web_security_manager|cloud_defender"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Scheduled",
+                            "properties": {},
+                            "action": "cd17:intelligence:legacyReports",
+                            "matches": [
+                                "/#/legacy-reports/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "log_manager|threat_manager|web_security_manager|cloud_defender|phoenix_migrated"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Usage",
+                            "properties": {},
+                            "action": "cd17:intelligence:legacyUsage",
+                            "matches": [
+                                "/#/legacy-usage/*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "threat_manager|log_manager|cloud_defender"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "WAF",
+                            "properties": {},
+                            "action": "cd17:intelligence:legacyWAF",
+                            "matches": [
+                                "/#/legacy-waf/activity/:accountId.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "web_application_firewall|managed_waf"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "caption": "Configuration",
+                    "properties": {},
+                    "action": "cd17:config-phoenix",
+                    "matches": [
+                        "/#/deployments-adr/.*"
+                    ],
+                    "visible": {
+                        "rule": "all",
+                        "conditions": [
+                            {
+                                "parameters": [
+                                    "accountId"
+                                ]
+                            },
+                            {
+                                "entitlements": "assess|detect|respond"
+                            }
+                        ]
+                    },
+                    "children": [
+                        {
+                            "caption": "Deployments",
+                            "properties": {},
+                            "action": "cd17:phoenix:deployments",
+                            "matches": [
+                                "/#/deployments-adr/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "assess|detect|respond"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Deployments edition",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd17:config",
+                                "path": "/#/deployments-adr/aws/:accountId/:deploymentId"
+                            }
+                        },
+                        {
+                            "caption": "Deployments edition",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd17:config",
+                                "path": "/#/deployments-adr/azure/:accountId/:deploymentId"
+                            }
+                        },
+                        {
+                            "caption": "Deployments edition",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd17:config",
+                                "path": "/#/deployments-adr/datacenter/:accountId/:deploymentId"
+                            }
+                        },
+                        {
+                            "caption": "Log Management",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd17:config",
+                                "path": "/#/log-management/policies-adr/flat-file/:accountId"
+                            },
+                            "matches": [
+                                "/#/log-management/policies-adr/flat-file/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "detect|respond"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Certificates and Keys",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd17:config",
+                                "path": "/#/certificates-adr/:accountId"
+                            },
+                            "matches": [
+                                "/#/certificates-adr/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "detect|respond"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Tutorial",
+                            "properties": {
+                                "css_class": "atTheEnd"
+                            },
+                            "action": {
+                                "type": "trigger",
+                                "trigger": "Navigation.Open.PhoenixTutorial"
+                            },
+                            "matches": [
+                                "/#/tutorial.*"
+                            ]
+                        },
+                        {
+                            "caption": "WAF",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd17:config",
+                                "path": "/#/waf/websites-adr/:accountId"
+                            },
+                            "matches": [
+                                "/#/waf/websites-adr/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "respond|managed_waf"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "caption": "Configuration",
+                    "properties": {},
+                    "action": "cd17:config",
+                    "matches": [
+                        "/#/deployments/.*"
+                    ],
+                    "visible": {
+                        "rule": "all",
+                        "conditions": [
+                            {
+                                "parameters": [
+                                    "accountId"
+                                ]
+                            },
+                            {
+                                "entitlements": "!assess|detect|respond"
+                            }
+                        ]
+                    },
+                    "children": [
+                        {
+                            "caption": "Deployments",
+                            "properties": {},
+                            "action": "cd17:config:deployments",
+                            "matches": [
+                                "/#/deployments/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "cloud_insight|web_security_manager|cloud_defender|threat_manager|log_manager"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Network IDS",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd17:config",
+                                "path": "/#/network-ids/policies/protected-hosts/:accountId"
+                            },
+                            "matches": [
+                                "/#/network-ids/policies/protected-hosts/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "threat_manager|cloud_defender"
+                                    }
+                                ]
+                            },
+                            "children": [
+                                {
+                                    "caption": "Policies",
+                                    "properties": {},
+                                    "action": {
+                                        "type": "link",
+                                        "location": "cd17:config",
+                                        "path": "/#/network-ids/policies/protected-hosts/:accountId"
+                                    },
+                                    "matches": [
+                                        "/#/network-ids/policies/protected-hosts/.*"
+                                    ],
+                                    "id": "cd17:network-ids:policies",
+                                    "children": [
+                                        {
+                                            "caption": "Protected Hosts",
+                                            "properties": {},
+                                            "action": {
+                                                "type": "link",
+                                                "location": "cd17:config",
+                                                "path": "/#/network-ids/policies/protected-hosts/:accountId"
+                                            },
+                                            "matches": [
+                                                "/#/network-ids/policies/protected-hosts/.*"
+                                            ],
+                                            "id": "cd17:network-ids:policies:protected-hosts"
+                                        },
+                                        {
+                                            "caption": "Assignment",
+                                            "properties": {},
+                                            "action": {
+                                                "type": "link",
+                                                "location": "cd17:config",
+                                                "path": "/#/network-ids/policies/assignment/:accountId"
+                                            },
+                                            "matches": [
+                                                "/#/network-ids/policies/assignment/.*"
+                                            ],
+                                            "id": "cd17:network-ids:policies:assignment"
+                                        },
+                                        {
+                                            "caption": "Whitelist",
+                                            "properties": {},
+                                            "action": {
+                                                "type": "link",
+                                                "location": "cd17:config",
+                                                "path": "/#/network-ids/policies/whitelist/:accountId"
+                                            },
+                                            "matches": [
+                                                "/#/network-ids/policies/whitelist/.*"
+                                            ],
+                                            "id": "cd17:network-ids:policies:whitelist"
+                                        },
+                                        {
+                                            "caption": "Monitoring",
+                                            "properties": {},
+                                            "action": {
+                                                "type": "link",
+                                                "location": "cd17:config",
+                                                "path": "/#/network-ids/policies/monitoring/:accountId"
+                                            },
+                                            "matches": [
+                                                "/#/network-ids/policies/monitoring/.*"
+                                            ],
+                                            "id": "cd17:network-ids:policies:monitoring"
+                                        },
+                                        {
+                                            "caption": "Updates",
+                                            "properties": {},
+                                            "action": {
+                                                "type": "link",
+                                                "location": "cd17:config",
+                                                "path": "/#/network-ids/policies/updates/:accountId"
+                                            },
+                                            "matches": [
+                                                "/#/network-ids/policies/updates/.*"
+                                            ],
+                                            "id": "cd17:network-ids:policies:updates"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "caption": "Certificates and Keys",
+                                    "properties": {},
+                                    "action": {
+                                        "type": "link",
+                                        "location": "cd17:config",
+                                        "path": "/#/network-ids/certificates/:accountId"
+                                    },
+                                    "matches": [
+                                        "/#/network-ids/certificates/.*"
+                                    ],
+                                    "id": "cd17:network-ids:certificates"
+                                },
+                                {
+                                    "caption": "Alert Rules",
+                                    "properties": {},
+                                    "action": {
+                                        "type": "link",
+                                        "location": "cd17:config",
+                                        "path": "/#/network-ids/alertrules/collection/:accountId"
+                                    },
+                                    "matches": [
+                                        "/#/network-ids/alertrules/collection/.*"
+                                    ],
+                                    "id": "cd17:network-ids:alertrules"
+                                },
+                                {
+                                    "caption": "Blocking Configuration",
+                                    "properties": {},
+                                    "action": {
+                                        "type": "link",
+                                        "location": "cd17:config",
+                                        "path": "/#/network-ids/blocking-configuration/:accountId"
+                                    },
+                                    "matches": [
+                                        "/#/network-ids/blocking-configuration/.*"
+                                    ],
+                                    "id": "cd17:network-ids:blocking-configuration"
+                                },
+                                {
+                                    "caption": "Browse Devices",
+                                    "properties": {},
+                                    "action": {
+                                        "type": "link",
+                                        "location": "cd17:config",
+                                        "path": "/#/network-ids/legacy/devices/:accountId"
+                                    },
+                                    "matches": [
+                                        "/#/network-ids/legacy/devices/.*"
+                                    ],
+                                    "visible": {
+                                        "rule": "all",
+                                        "conditions": [
+                                            {
+                                                "parameters": [
+                                                    "accountId"
+                                                ]
+                                            },
+                                            {
+                                                "entitlements": "threat_manager|cloud_defender"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "caption": "Manage Sensors",
+                                    "properties": {},
+                                    "action": {
+                                        "type": "link",
+                                        "location": "cd17:config",
+                                        "path": "/#/network-ids/legacy/appliances/:accountId"
+                                    },
+                                    "matches": [
+                                        "/#/network-ids/legacy/appliances/.*"
+                                    ],
+                                    "visible": {
+                                        "rule": "all",
+                                        "conditions": [
+                                            {
+                                                "parameters": [
+                                                    "accountId"
+                                                ]
+                                            },
+                                            {
+                                                "entitlements": "legacy:legacy_managment|legacy:legacy_management"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "caption": "Log Management",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd17:config",
+                                "path": "/#/log-management/policies/correlation/:accountId"
+                            },
+                            "matches": [
+                                "/#/log-management/policies/correlation/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "log_manager|cloud_defender"
+                                    }
+                                ]
+                            },
+                            "children": [
+                                {
+                                    "caption": "Policies",
+                                    "properties": {},
+                                    "action": {
+                                        "type": "link",
+                                        "location": "cd17:config",
+                                        "path": "/#/log-management/policies/correlation/:accountId"
+                                    },
+                                    "matches": [
+                                        "/#/log-management/policies/correlation/.*"
+                                    ],
+                                    "id": "cd17:log-management:policies",
+                                    "children": [
+                                        {
+                                            "caption": "Correlation",
+                                            "properties": {},
+                                            "action": {
+                                                "type": "link",
+                                                "location": "cd17:config",
+                                                "path": "/#/log-management/policies/correlation/:accountId"
+                                            },
+                                            "matches": [
+                                                "/#/log-management/policies/correlation/.*"
+                                            ],
+                                            "id": "cd17:log-management:policies:correlation"
+                                        },
+                                        {
+                                            "caption": "Flat File",
+                                            "properties": {},
+                                            "action": {
+                                                "type": "link",
+                                                "location": "cd17:config",
+                                                "path": "/#/log-management/policies/flat-file/:accountId"
+                                            },
+                                            "matches": [
+                                                "/#/log-management/policies/flat-file/.*"
+                                            ],
+                                            "id": "cd17:log-management:policies:flat-file"
+                                        },
+                                        {
+                                            "caption": "Syslog",
+                                            "properties": {},
+                                            "action": {
+                                                "type": "link",
+                                                "location": "cd17:config",
+                                                "path": "/#/log-management/policies/syslog/:accountId"
+                                            },
+                                            "matches": [
+                                                "/#/log-management/policies/syslog/.*"
+                                            ],
+                                            "id": "cd17:log-management:policies:syslog"
+                                        },
+                                        {
+                                            "caption": "Windows Event Log",
+                                            "properties": {},
+                                            "action": {
+                                                "type": "link",
+                                                "location": "cd17:config",
+                                                "path": "/#/log-management/policies/window-event-log/:accountId"
+                                            },
+                                            "matches": [
+                                                "/#/log-management/policies/window-event-log/.*"
+                                            ],
+                                            "id": "cd17:log-management:policies:window-event-log"
+                                        },
+                                        {
+                                            "caption": "S3",
+                                            "properties": {},
+                                            "action": {
+                                                "type": "link",
+                                                "location": "cd17:config",
+                                                "path": "/#/log-management/policies/s3/:accountId"
+                                            },
+                                            "matches": [
+                                                "/#/log-management/policies/s3/.*"
+                                            ],
+                                            "id": "cd17:log-management:policies:s3"
+                                        },
+                                        {
+                                            "caption": "Updates",
+                                            "properties": {},
+                                            "action": {
+                                                "type": "link",
+                                                "location": "cd17:config",
+                                                "path": "/#/log-management/policies/updates/:accountId"
+                                            },
+                                            "matches": [
+                                                "/#/log-management/policies/updates/.*"
+                                            ],
+                                            "id": "cd17:log-management:policies:updates"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "caption": "Credentials",
+                                    "properties": {},
+                                    "action": {
+                                        "type": "link",
+                                        "location": "cd17:config",
+                                        "path": "/#/log-management/credentials/:accountId"
+                                    },
+                                    "matches": [
+                                        "/#/log-management/credentials/.*"
+                                    ],
+                                    "id": "cd17:log-management:credentials"
+                                },
+                                {
+                                    "caption": "Schedules",
+                                    "properties": {},
+                                    "action": {
+                                        "type": "link",
+                                        "location": "cd17:config",
+                                        "path": "/#/log-management/schedules/:accountId"
+                                    },
+                                    "matches": [
+                                        "/#/log-management/schedules/.*"
+                                    ],
+                                    "id": "cd17:log-management:schedules"
+                                },
+                                {
+                                    "caption": "Alert Rules",
+                                    "properties": {},
+                                    "action": {
+                                        "type": "link",
+                                        "location": "cd17:config",
+                                        "path": "/#/log-management/alertrules/collection/:accountId"
+                                    },
+                                    "matches": [
+                                        "/#/log-management/alertrules/collection/.*"
+                                    ],
+                                    "id": "cd17:log-management:alertrules:collection",
+                                    "children": [
+                                        {
+                                            "caption": "Collection",
+                                            "properties": {},
+                                            "action": {
+                                                "type": "link",
+                                                "location": "cd17:config",
+                                                "path": "/#/log-management/alertrules/collection/:accountId"
+                                            },
+                                            "matches": [
+                                                "/#/log-management/alertrules/collection/.*"
+                                            ],
+                                            "id": "cd17:log-management:policies:alertrules:collection"
+                                        },
+                                        {
+                                            "caption": "Correlation",
+                                            "properties": {},
+                                            "action": {
+                                                "type": "link",
+                                                "location": "cd17:config",
+                                                "path": "/#/log-management/alertrules/correlation/:accountId"
+                                            },
+                                            "matches": [
+                                                "/#/log-management/alertrules/correlation/.*"
+                                            ],
+                                            "id": "cd17:log-management:alertrules:correlation"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "caption": "WAF",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd17:config",
+                                "path": "/#/waf/websites/:accountId"
+                            },
+                            "matches": [
+                                "/#/waf/websites/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "web_application_firewall"
+                                    }
+                                ]
+                            },
+                            "children": [
+                                {
+                                    "caption": "Websites",
+                                    "properties": {},
+                                    "action": {
+                                        "type": "link",
+                                        "location": "cd17:config",
+                                        "path": "/#/waf/websites/:accountId"
+                                    },
+                                    "matches": [
+                                        "/#/waf/websites/.*"
+                                    ],
+                                    "id": "cd17:waf:websites"
+                                },
+                                {
+                                    "caption": "Appliances",
+                                    "properties": {},
+                                    "action": {
+                                        "type": "link",
+                                        "location": "cd17:config",
+                                        "path": "/#/waf/appliances/:accountId"
+                                    },
+                                    "matches": [
+                                        "/#/waf/appliances/.*"
+                                    ],
+                                    "id": "cd17:waf:appliances"
+                                },
+                                {
+                                    "caption": "Certificates",
+                                    "properties": {},
+                                    "action": {
+                                        "type": "link",
+                                        "location": "cd17:config",
+                                        "path": "/#/waf/certificates/:accountId"
+                                    },
+                                    "matches": [
+                                        "/#/waf/certificates/.*"
+                                    ],
+                                    "id": "cd17:waf:certificates"
+                                }
+                            ]
+                        },
+                        {
+                            "caption": "Web App IDS",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd17:config",
+                                "path": "/#/web-app-ids/appliances/:accountId"
+                            },
+                            "matches": [
+                                "/#/web-app-ids/appliances/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "web_security_manager|cloud_defender"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Notifications",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd17:config",
+                                "path": "/#/notifications/policies/:accountId"
+                            },
+                            "matches": [
+                                "/#/notifications/policies/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "log_manager|threat_manager|web_security_manager|cloud_defender"
+                                    }
+                                ]
+                            },
+                            "children": [
+                                {
+                                    "caption": "Policies",
+                                    "properties": {},
+                                    "action": {
+                                        "type": "link",
+                                        "location": "cd17:config",
+                                        "path": "/#/notifications/policies/:accountId"
+                                    },
+                                    "matches": [
+                                        "/#/notifications/webspoliciesites/.*"
+                                    ],
+                                    "id": "cd17:notifications:policies"
+                                },
+                                {
+                                    "caption": "Contacts & Groups",
+                                    "properties": {},
+                                    "action": {
+                                        "type": "link",
+                                        "location": "cd17:config",
+                                        "path": "/#/notifications/contacts-and-groups/:accountId"
+                                    },
+                                    "matches": [
+                                        "/#/notifications/contacts-and-groups/.*"
+                                    ],
+                                    "id": "cd17:notifications:contactsandgroups"
+                                },
+                                {
+                                    "caption": "WebHooks",
+                                    "properties": {},
+                                    "action": {
+                                        "type": "link",
+                                        "location": "cd17:config",
+                                        "path": "/#/notifications/webhooks/:accountId"
+                                    },
+                                    "matches": [
+                                        "/#/notifications/webhooks/.*"
+                                    ],
+                                    "id": "cd17:notifications:webhooks"
+                                },
+                                {
+                                    "caption": "History",
+                                    "properties": {},
+                                    "action": {
+                                        "type": "link",
+                                        "location": "cd17:config",
+                                        "path": "/#/notifications/history/:accountId"
+                                    },
+                                    "matches": [
+                                        "/#/notifications/history/.*"
+                                    ],
+                                    "id": "cd17:notifications:history"
+                                },
+                                {
+                                    "caption": "Options",
+                                    "properties": {},
+                                    "action": {
+                                        "type": "link",
+                                        "location": "cd17:config",
+                                        "path": "/#/notifications/options/:accountId"
+                                    },
+                                    "matches": [
+                                        "/#/notifications/options/.*"
+                                    ],
+                                    "id": "cd17:notifications:options"
+                                },
+                                {
+                                    "caption": "Incidents",
+                                    "properties": {},
+                                    "action": {
+                                        "type": "link",
+                                        "location": "cd17:config",
+                                        "path": "/#/notifications/incidents/:accountId"
+                                    },
+                                    "matches": [
+                                        "/#/notifications/incidents/.*"
+                                    ],
+                                    "id": "cd17:notifications:incidents"
+                                },
+                                {
+                                    "caption": "Events",
+                                    "properties": {},
+                                    "action": {
+                                        "type": "link",
+                                        "location": "cd17:config",
+                                        "path": "/#/notifications/events/:accountId"
+                                    },
+                                    "matches": [
+                                        "/#/notifications/events/.*"
+                                    ],
+                                    "id": "cd17:notifications:events"
+                                },
+                                {
+                                    "caption": "Cases",
+                                    "properties": {},
+                                    "action": {
+                                        "type": "link",
+                                        "location": "cd17:config",
+                                        "path": "/#/notifications/cases/:accountId"
+                                    },
+                                    "matches": [
+                                        "/#/notifications/cases/.*"
+                                    ],
+                                    "id": "cd17:notifications:cases"
+                                },
+                                {
+                                    "caption": "Defenses",
+                                    "properties": {},
+                                    "action": {
+                                        "type": "link",
+                                        "location": "cd17:config",
+                                        "path": "/#/notifications/defenses/:accountId"
+                                    },
+                                    "matches": [
+                                        "/#/notifications/defenses/.*"
+                                    ],
+                                    "id": "cd17:notifications:defenses"
+                                }
+                            ]
+                        },
+                        {
+                            "caption": "Tutorial",
+                            "properties": {
+                                "css_class": "atTheEnd"
+                            },
+                            "action": {
+                                "type": "trigger",
+                                "trigger": "Navigation.Open.Tutorial"
+                            },
+                            "matches": [
+                                "/#/tutorial.*"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "caption": "Health",
+                    "properties": {},
+                    "action": "cd17:health",
+                    "matches": [
+                        "/#/summary/.*"
+                    ],
+                    "visible": {
+                        "entitlements": "assess|detect|respond"
+                    },
+                    "children": [
+                        {
+                            "caption": "Summary",
+                            "properties": {},
+                            "action": "cd17:health:summary",
+                            "matches": [
+                                "/#/summary/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "assess|detect|respond"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Networks",
+                            "properties": {},
+                            "action": "cd17:health:networks",
+                            "matches": [
+                                "/#/networks/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "assess|detect|respond"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Appliances and Agents",
+                            "properties": {},
+                            "action": "cd17:health:appliances",
+                            "matches": [
+                                "/#/appliances/.*",
+                                "/#/agents/.*",
+                                "/#/hosts/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "assess|detect|respond"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "caption": "Notifications",
+                            "properties": {},
+                            "action": "cd17:health:notifications",
+                            "matches": [
+                                "/#/notifications/.*"
+                            ],
+                            "visible": {
+                                "rule": "all",
+                                "conditions": [
+                                    {
+                                        "parameters": [
+                                            "accountId"
+                                        ]
+                                    },
+                                    {
+                                        "entitlements": "assess|detect|respond"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "initials": {
+            "caption": "initials",
+            "children": [
+                {
+                    "caption": "Sign Out",
+                    "properties": {
+                        "iconClass": "material-icons",
+                        "iconText": "reply"
+                    },
+                    "action": {
+                        "type": "trigger",
+                        "trigger": "Navigation.User.Signout"
+                    }
+                }
+            ]
+        }
+    },
+    "namedRoutes": {
+        "cd17:accounts:subs-remediations": {
+            "caption": "Remediations",
+            "action": {
+                "type": "link",
+                "location": "cd17:accounts",
+                "path": "/#/notifications/subscriptions/remediations"
+            }
+        },
+        "cd17:accounts:subscriptions-health": {
+            "caption": "Health",
+            "action": {
+                "type": "link",
+                "location": "cd17:accounts",
+                "path": "/#/notifications/subscriptions/health"
+            }
+        },
+        "cd17:accounts:all-subs-remediations": {
+            "caption": "Remediations",
+            "action": {
+                "type": "link",
+                "location": "cd17:accounts",
+                "path": "/#/notifications/allsubscriptions/remediations"
+            }
+        },
+        "cd17:accounts:all-subs-health": {
+            "caption": "Health",
+            "action": {
+                "type": "link",
+                "location": "cd17:accounts",
+                "path": "/#/notifications/allsubscriptions/health"
+            }
+        },
+        "cd17:config:pci-scanning": {
+            "caption": "PCI Scanning for Resource",
+            "action": {
+                "type": "link",
+                "location": "cd17:config",
+                "path": "/#/pci/scanning/:accountId/:resourceKey"
+            }
+        },
+        "cd17:config:legacy-pci-scanning": {
+            "caption": "PCI Scanning for Resource",
+            "action": {
+                "type": "link",
+                "location": "cd17:config",
+                "path": "/#/pci/scanning/:accountId/:resourceKey"
+            }
+        },
+        "user:signout": {
+            "caption": "Sign Out",
+            "action": {
+                "type": "trigger",
+                "trigger": "Navigation.User.Signout"
+            }
+        },
+        "cd17:overview": {
+            "caption": "Overview",
+            "action": {
+                "type": "link",
+                "location": "cd17:overview",
+                "path": "/#/"
+            }
+        },
+        "cd17:overview:dashboards": {
+            "caption": "Dashboards",
+            "action": {
+                "type": "link",
+                "location": "cd17:overview",
+                "path": "/#/remediations-scan-status/:accountId"
+            }
+        },
+        "cd17:incidents:overview:summary": {
+            "caption": "Incidents",
+            "action": {
+                "type": "link",
+                "location": "cd17:incidents",
+                "path": "/#/overview/summary/:accountId"
+            }
+        },
+        "cd17:overview:remediationsScanStatus": {
+            "caption": "Remediations & Continuous Scan",
+            "action": {
+                "type": "link",
+                "location": "cd17:overview",
+                "path": "/#/remediations-scan-status/:accountId"
+            }
+        },
+        "cd17:overview:networksIDS": {
+            "caption": "Network IDS",
+            "action": {
+                "type": "link",
+                "location": "cd17:overview",
+                "path": "/#/network-ids/:accountId"
+            }
+        },
+        "cd17:overview:logManagement": {
+            "caption": "Log Management",
+            "action": {
+                "type": "link",
+                "location": "cd17:overview",
+                "path": "/#/log-management/:accountId"
+            }
+        },
+        "cd17:overview:waf": {
+            "caption": "WAF",
+            "action": {
+                "type": "link",
+                "location": "cd17:overview",
+                "path": "/#/waf/:accountId"
+            }
+        },
+        "cd17:overview:webSecurity": {
+            "caption": "Web App IDS",
+            "action": {
+                "type": "link",
+                "location": "cd17:overview",
+                "path": "/#/web-app-ids/:accountId"
+            }
+        },
+        "cd17:config:exposures": {
+            "caption": "Scans",
+            "action": {
+                "type": "link",
+                "location": "cd17:overview",
+                "path": "/#/exposures/scans/:accountId"
+            }
+        },
+        "cd17:overview:security": {
+            "caption": "Security Posture",
+            "action": {
+                "type": "link",
+                "location": "cd17:overview",
+                "path": "/#/security-postures/:accountId"
+            }
+        },
+        "cd17:topology": {
+            "caption": "Topology",
+            "action": {
+                "type": "link",
+                "location": "cd17:overview",
+                "path": "/topology/index.html#/:accountId"
+            }
+        },
+        "cd17:topology-phoenix": {
+            "caption": "Topology",
+            "action": {
+                "type": "link",
+                "location": "cd17:overview",
+                "path": "/#/topology/:accountId"
+            }
+        },
+        "cd17:topology-phoenix:deployment": {
+            "caption": "Topology for specific accountId/deploymentId",
+            "action": {
+                "type": "link",
+                "location": "cd17:overview",
+                "path": "/#/topology/:accountId/:deploymentId"
+            }
+        },
+        "cd17:topology-phoenix:deployment:asset": {
+            "caption": "Topology for specific accountId/deploymentId",
+            "action": {
+                "type": "link",
+                "location": "cd17:overview",
+                "path": "/#/topology/:accountId/:deploymentId/asset/:assetType/:assetKey"
+            }
+        },
+        "cd17:incidents": {
+            "caption": "Incidents",
+            "action": {
+                "type": "link",
+                "location": "cd17:incidents",
+                "path": "/#/"
+            }
+        },
+        "cd17:incidents:list": {
+            "caption": "List",
+            "action": {
+                "type": "link",
+                "location": "cd17:incidents",
+                "path": "/#/monitor/:accountId"
+            }
+        },
+        "cd17:incidents:summary": {
+            "caption": "Summary",
+            "action": {
+                "type": "link",
+                "location": "cd17:incidents",
+                "path": "/#/summary/:accountId"
+            }
+        },
+        "cd17:incidents:summaryV2": {
+            "caption": "Summary",
+            "action": {
+                "type": "link",
+                "location": "cd17:incidents",
+                "path": "/#/summary/:accountId"
+            }
+        },
+        "cd17:incidents:guardduty": {
+            "caption": "Guardduty",
+            "action": {
+                "type": "link",
+                "location": "cd17:incidents",
+                "path": "/#/incidents/:accountId/open"
+            }
+        },
+        "cd17:incidents:guarddutyV2": {
+            "caption": "List",
+            "action": {
+                "type": "link",
+                "location": "cd17:incidents",
+                "path": "/#/incidents/:accountId/open"
+            }
+        },
+        "cd17:incidents:guarddutyCIOnly": {
+            "caption": "List",
+            "action": {
+                "type": "link",
+                "location": "cd17:incidents",
+                "path": "/#/incidents/:accountId/open"
+            }
+        },
+        "cd17:incidents:notifications": {
+            "caption": "Notifications",
+            "action": {
+                "type": "trigger",
+                "trigger": "Incidents.Notifications.Panel"
+            }
+        },
+        "cd17:incidents:investigation_view_by_id": {
+            "caption": "Retrieves the UI url for a specific incident.",
+            "action": {
+                "type": "link",
+                "location": "cd17:incidents",
+                "path": "/#/incidents/:accountId/:incidentId/investigation"
+            }
+        },
+        "cd17:exposures": {
+            "caption": "Exposures",
+            "action": {
+                "type": "link",
+                "location": "cd17:exposures",
+                "path": "/#/summary/:accountId"
+            }
+        },
+        "cd17:exposures:summary": {
+            "caption": "Summary",
+            "action": {
+                "type": "link",
+                "location": "cd17:exposures",
+                "path": "/#/summary/:accountId"
+            }
+        },
+        "cd17:exposures:exposures-open": {
+            "caption": "List",
+            "action": {
+                "type": "link",
+                "location": "cd17:exposures",
+                "path": "/#/exposures/open/:accountId"
+            }
+        },
+        "cd17:exposures:tutorial": {
+            "caption": "Tutorial",
+            "action": {
+                "type": "trigger",
+                "trigger": "Navigation.Open.Tutorial"
+            }
+        },
+        "cd17:exposures:exposures-disposed": {
+            "caption": "List",
+            "action": {
+                "type": "link",
+                "location": "cd17:exposures",
+                "path": "/#/exposures/disposed/:accountId"
+            }
+        },
+        "cd17:exposures:exposures-concluded": {
+            "caption": "List",
+            "action": {
+                "type": "link",
+                "location": "cd17:exposures",
+                "path": "/#/exposures/concluded/:accountId"
+            }
+        },
+        "cd17:exposures:remediations-open": {
+            "caption": "List",
+            "action": {
+                "type": "link",
+                "location": "cd17:exposures",
+                "path": "/#/remediations/open/:accountId"
+            }
+        },
+        "cd17:exposures:remediations-disposed": {
+            "caption": "List",
+            "action": {
+                "type": "link",
+                "location": "cd17:exposures",
+                "path": "/#/remediations/disposed/:accountId"
+            }
+        },
+        "cd17:exposures:remediations-concluded": {
+            "caption": "List",
+            "action": {
+                "type": "link",
+                "location": "cd17:exposures",
+                "path": "/#/remediations/concluded/:accountId"
+            }
+        },
+        "cd17:remediations": {
+            "caption": "Remediations",
+            "action": {
+                "type": "link",
+                "location": "cd17:remediations",
+                "path": "/#/summary/:accountId"
+            }
+        },
+        "cd17:remediations:summary": {
+            "caption": "Summary",
+            "action": {
+                "type": "link",
+                "location": "cd17:remediations",
+                "path": "/#/summary/:accountId"
+            }
+        },
+        "cd17:remediations:list": {
+            "caption": "List",
+            "action": {
+                "type": "link",
+                "location": "cd17:remediations",
+                "path": "/#/remediations/:accountId"
+            }
+        },
+        "cd17:remediations:remediationsByDeployment": {
+            "caption": "Remediations By Deployment",
+            "action": {
+                "type": "link",
+                "location": "cd17:remediations",
+                "path": "/#/remediations/:accountId/:deploymentId"
+            }
+        },
+        "cd17:remediations:remediationsByFilter": {
+            "caption": "Remediations By Saved Filter",
+            "action": {
+                "type": "link",
+                "location": "cd17:remediations",
+                "path": "/#/remediations/:accountId/:deploymentId/filter/:filterId"
+            }
+        },
+        "cd17:remediations:remediationsByAsset": {
+            "caption": "Remediations By Asset",
+            "action": {
+                "type": "link",
+                "location": "cd17:remediations",
+                "path": "/#/remediations/:accountId/:deploymentId/asset/:assetType/:assetKey"
+            }
+        },
+        "cd17:search": {
+            "caption": "Search",
+            "action": {
+                "type": "link",
+                "location": "cd17:search",
+                "path": "/#/"
+            }
+        },
+        "cd17:search:log-messages": {
+            "caption": "Log Messages",
+            "action": {
+                "type": "link",
+                "location": "cd17:search",
+                "path": "/#/log-messages/:accountId"
+            }
+        },
+        "cd17:search:search": {
+            "caption": "Log Search",
+            "action": {
+                "type": "link",
+                "location": "cd17:search",
+                "path": "/#/search/:accountId"
+            }
+        },
+        "cd17:search:search-beta": {
+            "caption": "Log Search BETA",
+            "action": {
+                "type": "link",
+                "location": "cd17:search",
+                "path": "/#/search/:accountId"
+            }
+        },
+        "cd17:search:events": {
+            "caption": "Events",
+            "action": {
+                "type": "link",
+                "location": "cd17:search",
+                "path": "/#/events/:accountId"
+            }
+        },
+        "cd17:search:blocks": {
+            "caption": "Blocks",
+            "action": {
+                "type": "link",
+                "location": "cd17:search",
+                "path": "/#/blocks/:accountId"
+            }
+        },
+        "cd17:search:cases": {
+            "caption": "Cases",
+            "action": {
+                "type": "link",
+                "location": "cd17:search",
+                "path": "/#/cases/:accountId"
+            }
+        },
+        "cd17:search:deny-logs": {
+            "caption": "Deny Logs",
+            "action": {
+                "type": "link",
+                "location": "cd17:search",
+                "path": "/#/deny-logs/:accountId"
+            }
+        },
+        "cd17:intelligence": {
+            "caption": "Reports",
+            "action": {
+                "type": "link",
+                "location": "cd17:intelligence",
+                "path": "/#/"
+            }
+        },
+        "cd17:intelligence:listRisk": {
+            "caption": "Risk",
+            "action": {
+                "type": "link",
+                "location": "cd17:intelligence",
+                "path": "/#/dashboard/:accountId/Risk"
+            }
+        },
+        "cd17:intelligence:listThreats": {
+            "caption": "Threats",
+            "action": {
+                "type": "link",
+                "location": "cd17:intelligence",
+                "path": "/#/dashboard/:accountId/Threats"
+            }
+        },
+        "cd17:intelligence:listVulnerabilities": {
+            "caption": "Vulnerabilities",
+            "action": {
+                "type": "link",
+                "location": "cd17:intelligence",
+                "path": "/#/dashboard/:accountId/Vulnerability"
+            }
+        },
+        "cd17:intelligence:listRemediations": {
+            "caption": "Remediations",
+            "action": {
+                "type": "link",
+                "location": "cd17:intelligence",
+                "path": "/#/dashboard/:accountId/Remediations"
+            }
+        },
+        "cd17:intelligence:listCompliance": {
+            "caption": "Compliance",
+            "action": {
+                "type": "link",
+                "location": "cd17:intelligence",
+                "path": "/#/dashboard/:accountId/Compliance"
+            }
+        },
+        "cd17:intelligence:listService": {
+            "caption": "Service",
+            "action": {
+                "type": "link",
+                "location": "cd17:intelligence",
+                "path": "/#/dashboard/:accountId/Service"
+            }
+        },
+        "cd17:intelligence:legacyReports": {
+            "caption": "Scheduled",
+            "action": {
+                "type": "link",
+                "location": "cd17:intelligence",
+                "path": "/#/legacy-reports/dashboard/:accountId"
+            }
+        },
+        "cd17:intelligence:legacyUsage": {
+            "caption": "Usage",
+            "action": {
+                "type": "link",
+                "location": "cd17:intelligence",
+                "path": "/#/legacy-usage/:accountId"
+            }
+        },
+        "cd17:intelligence:legacyWAF": {
+            "caption": "WAF",
+            "action": {
+                "type": "link",
+                "location": "cd17:intelligence",
+                "path": "/#/legacy-waf/activity/:accountId"
+            }
+        },
+        "cd17:config-phoenix": {
+            "caption": "Configuration",
+            "action": {
+                "type": "link",
+                "location": "cd17:config",
+                "path": "/#/deployments-adr/:accountId"
+            }
+        },
+        "cd17:phoenix:deployments": {
+            "caption": "Deployments",
+            "action": {
+                "type": "link",
+                "location": "cd17:config",
+                "path": "/#/deployments-adr/:accountId"
+            }
+        },
+        "cd17:config": {
+            "caption": "Configuration",
+            "action": {
+                "type": "link",
+                "location": "cd17:config",
+                "path": "/#/deployments/:accountId"
+            }
+        },
+        "cd17:config:deployments": {
+            "caption": "Deployments",
+            "action": {
+                "type": "link",
+                "location": "cd17:config",
+                "path": "/#/deployments/:accountId"
+            }
+        },
+        "cd17:health": {
+            "caption": "Health",
+            "action": {
+                "type": "link",
+                "location": "cd17:health",
+                "path": "/#/"
+            }
+        },
+        "cd17:health:summary": {
+            "caption": "Summary",
+            "action": {
+                "type": "link",
+                "location": "cd17:health",
+                "path": "/#/summary/:accountId"
+            }
+        },
+        "cd17:health:networks": {
+            "caption": "Networks",
+            "action": {
+                "type": "link",
+                "location": "cd17:health",
+                "path": "/#/networks/:accountId"
+            }
+        },
+        "cd17:health:appliances": {
+            "caption": "Appliances and Agents",
+            "action": {
+                "type": "link",
+                "location": "cd17:health",
+                "path": "/#/appliances/:accountId"
+            }
+        },
+        "cd17:health:notifications": {
+            "caption": "Notifications",
+            "action": {
+                "type": "link",
+                "location": "cd17:health",
+                "path": "/#/notifications/:accountId"
+            }
+        }
+    }
+}

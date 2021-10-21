@@ -1,0 +1,251 @@
+body {
+    .p-component-overlay {
+        background-color: rgba(0, 0, 0, 0.4);
+        // necessary for remove the mask in the main menu in archipeligo19-sidenav
+        &.p-sidebar-mask{
+            background-color: transparent;
+            // https://github.com/primefaces/primeng/search?q=p-component-overlay-leave
+            // See references to this class used in primeng themes above, we must define an animation for this in order
+            // for the mask element to be removed from DOM, e.g. user clicks off the sidenav area
+            // otherwise mask remains and blocks any futher interaction
+            &.p-component-overlay-leave {
+              animation: p-component-overlay-leave-animation 150ms forwards;
+            }
+        }
+        // custom for al-bottom-sheet
+        // &.al-bottom-sheet-mask{
+        //     background-color: rgba(0, 0, 0, 0.4);
+        // }
+    }
+
+    .p-dialog {
+        @include overlay-content-shadow();
+        background-color: white;
+
+        .p-dialog-header {
+            background-color: white;
+            color: var(--ald-g-gray-700);
+            padding: 12px 24px;
+
+            .p-dialog-title {
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 32px;
+                margin: 0;
+            }
+
+            .p-dialog-titlebar-icon {
+                display: flex;
+                padding: 0;
+                margin-top: .4em;
+                @include border-radius(50%);
+                @include transition(background-color $transitionDuration);
+
+                &:hover, &:focus {
+                    background-color: $primaryLightestColor;
+                }
+
+                .pi {
+                    color: $textColor;
+                    display: inline-block;
+                }
+
+                .pi-window-maximize {
+                    @include icon_override('fullscreen');
+                }
+
+                .pi-window-minimize {
+                    @include icon_override('fullscreen_exit');
+                }
+            }
+        }
+
+        .p-dialog-content {
+            padding: 12px 24px;
+
+            p:first-child {
+                padding-top: 0;
+                margin: 0;
+            }
+        }
+
+        .p-dialog-footer {
+            text-align: right;
+            padding: 24px 24px;
+            border: 0 none;
+
+            .p-button {
+                width: auto;
+                margin-right: .5em;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        .p-confirm-dialog-severity {
+            margin: 0px .75em;
+        }
+
+        p {
+            line-height: $panelContentLineHeight;
+        }
+    }
+
+    .p-sidebar {
+        .p-sidebar-close {
+            &:hover {
+                padding: 1px;
+            }
+        }
+
+        .p-button {
+            width: auto;
+        }
+    }
+
+    .p-lightbox {
+        &.p-shadow {
+            @include overlay-content-shadow();
+        }
+
+        .p-lightbox-caption {
+            padding: $headerPadding;
+
+            .p-lightbox-caption-text {
+                margin: 0;
+            }
+
+            .p-lightbox-close {
+                @include border-radius(50%);
+                @include transition(background-color $transitionDuration);
+                padding: 0;
+                margin: 0;
+                width: $iconWidth;
+                height: $iconHeight;
+
+                &:hover {
+                    @include hover-element-primary();
+                    padding: 0;
+                }
+            }
+        }
+
+        .p-lightbox-content-wrapper {
+            .p-lightbox-nav-right, .p-lightbox-nav-left {
+                top: 40%;
+
+                .pi {
+                    @include transition(color $transitionDuration);
+                    font-size: 48px;
+                    color: $primaryLightColor;
+                }
+
+                &:hover {
+                    .pi {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+
+    .p-overlaypanel {
+        &.p-shadow {
+            @include overlay-content-shadow();
+        }
+
+        &:after {
+            border-color: rgba($contentBgColor, 0);
+            border-bottom-color: $contentBgColor;
+        }
+
+        &:before {
+            border-color: rgba($dividerColor, 0);
+            border-bottom-color: $dividerColor;
+        }
+
+        &.p-overlaypanel-flipped {
+            &:after {
+                border-top-color: $contentBgColor;
+            }
+
+            &:before {
+                border-top-color: $dividerColor;
+            }
+        }
+
+        .p-overlaypanel-close {
+            background-color: $accentColor;
+            @include border-radius(50%);
+            @include transition(background-color $transitionDuration);
+            right: -16px;
+            top: -16px;
+            width: 2em;
+            height: 2em;
+            line-height: 2em;
+            text-align: center;
+            @include content-shadow();
+
+            span {
+                color: $accentTextColor;
+                line-height: inherit;
+            }
+
+            &:hover {
+                background-color: $accentDarkColor;
+            }
+        }
+    }
+
+    .p-tooltip {
+        @include opacity(.9);
+        font-size: var(--ald-g-text-xs);
+
+        .p-tooltip-text {
+            background-color: $primaryColor;
+            @include overlay-content-shadow();
+            padding: 4px 8px;
+            border-radius: $borderRadius;
+            width: fit-content;
+            color: white;
+        }
+
+        &.p-tooltip-top {
+            .p-tooltip-arrow {
+                bottom: 1px;
+                border-top-color: transparent;
+            }
+        }
+
+        &.p-tooltip-bottom {
+            .p-tooltip-arrow {
+                top: 1px;
+                border-bottom-color: transparent;
+            }
+        }
+
+        &.p-tooltip-left {
+            .p-tooltip-arrow {
+                border-left-color: transparent;
+            }
+        }
+
+        &.p-tooltip-right {
+            .p-tooltip-arrow {
+                left: 1px;
+                border-right-color: transparent;
+            }
+        }
+    }
+}
+
+@keyframes p-component-overlay-leave-animation {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: transparent;
+  }
+}

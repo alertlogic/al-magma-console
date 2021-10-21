@@ -1,0 +1,16 @@
+<div class="grid grid-nogutter">
+    <ng-container *ngFor="let filter of filtersToShow; trackBy:keyValueTrackBy">
+        <div class="col-{{columns}} grid-nogutter al-aggregation-filter-content-righ-padding">
+            <div class="al-aggregation-filter-content-label"
+                   >{{ filter.key }}</div>
+            <ng-container *ngIf="filter.values && filter.values.length">
+                <div class="filter-value">
+                    <div class="values" *ngFor="let value of filter.values; trackBy:stringTrackBy">
+                        {{ value }}
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </ng-container>
+</div>
+

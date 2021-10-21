@@ -1,0 +1,23 @@
+<p-dropdown [options]="filterOptions"
+    dropdownIcon="ui-icon-arrow-drop-down"
+    (onChange)="clickEvent($event.value)"
+    [style]="{'width': defaultWidth }"
+    [(ngModel)]="selectedOption"
+    optionLabel="label">
+
+    <ng-template let-selectedItem pTemplate="selectedItem">
+        <div class="grid grid-nogutter align-items-center">
+          <i *ngIf="selectedItem.icon !== ''|| undefined" [class]="selectedItem.icon"></i>
+          <span style="padding-left:10px">{{selectedItem.label}}</span>
+        </div>
+    </ng-template>
+
+    <ng-template let-item pTemplate="item">
+        <div class="grid grid-nogutter align-items-center">
+          <i *ngIf="item.icon !== ''|| undefined" [class]="item.icon"></i>
+          <span style="padding-left:10px">{{item.label}}</span><span *ngIf="item.value.subtext" class="item-subtext"> - {{item.value.subtext}}</span>
+        </div>
+    </ng-template>
+
+</p-dropdown>
+

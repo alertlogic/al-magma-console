@@ -1,0 +1,46 @@
+<div class="table-caption-v2">
+    <div class="left-content">
+        <div *ngIf="showColumnsSelector" class="column-selector">
+            <i
+                class="material-icons reset-columns"
+                (click)="resetToDefaultColumns()"
+                pTooltip="Reset to default columns"
+                tooltipPosition="top"
+                >refresh
+            </i>
+            <span>
+                <i class="material-icons" (click)="openMultiselect($event)">settings</i>
+                <p-multiSelect
+                    [options]="cols"
+                    [(ngModel)]="selectedColumns"
+                    (onChange)="onChangeSelectedColumns($event)"
+                    dataKey="field"
+                    optionLabel="header"
+                    selectedItemsLabel="Choose Columns ({0} of {{ cols.length }} Shown)"
+                    placeholder="Choose Columns"
+                    [maxSelectedLabels]="0">
+                </p-multiSelect>
+            </span>
+        </div>
+        <div *ngIf="showDownload" class="download-icon" (click)="onDownloadAll()">
+            <i pTooltip="{{donwloadLabel}}" tooltipPosition="top" class="material-icons">
+                get_app
+            </i>
+             {{donwloadLabel}}
+        </div>
+    </div>
+
+    <div *ngIf="showSearch" class="search">
+        <al-search-bar
+            #alSearchBar
+            [width]="'200px'"
+            [placeholder]="'search'"
+            [maxSearchLength]="150"
+            [searchIcon]="'header'"
+            [searchPatternRegex]="searchPatternRegex"
+            [invalidSearchPatternText]="invalidSearchPatternText"
+            (onSearchChanged)="onSearchChanged($event)"
+            (onInvalidSearchPattern)="onInvalidSearchPattern.emit($event)"
+        ></al-search-bar>
+    </div>
+</div>

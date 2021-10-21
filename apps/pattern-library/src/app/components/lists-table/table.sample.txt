@@ -1,0 +1,1 @@
+<p-radioButton name="group1" value="Option 1" label="Option 1" [(ngModel)]="val1" inputId="opt1"></p-radioButton>

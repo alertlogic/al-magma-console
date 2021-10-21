@@ -1,0 +1,90 @@
+<div *ngIf="!invisibleMode" class="grid" [ngClass]="'search-queue-area ' + queuePosition">
+    <div class="queued-search grid p-justify-between"
+         *ngFor="let search of searchQueue let index = index"
+         [ngClass]="{'search-selected': search.selected, 'col-3':searchQueue.length <= 3, 'col-2':searchQueue.length > 3}"
+         (click)="viewResults(index)">
+
+        <div class="search-details col">
+            <span *ngIf="search.isOnError"
+                  pTooltip="{{search.errorMessage}}"
+                  tooltipPosition="top">
+                    {{search.name}}
+            </span>
+            <ng-container *ngIf="!search.isOnError">
+                <span *ngIf="!search.status || search.status === 'pending' || search.isDownloading"
+                    pTooltip="{{search.nResults | number:'1.0-0'}} Results/{{search.remaining}} {{search.nResults/search.remaining*100 | number:'1.0-0'}}%"
+                    tooltipPosition="top">
+                        {{search.name}}
+                </span>
+                <span *ngIf="search.status === 'canceled'"
+                    pTooltip="Search canceled before completion"
+                    tooltipPosition="top">
+                        {{search.name}}
+                </span>
+                <span *ngIf="search.status === 'complete' && !search.isDownloading"
+                        pTooltip="{{search.nResults | number:'1.0-0'}} results"
+                        tooltipPosition="top">
+                        {{search.nResults | number:'1.0-0'}} results found
+                </span>
+
+                <span *ngIf="search.status === 'suspended'"
+                        pTooltip="{{search.nResults | number:'1.0-0'}} results of estimated {{search.remaining}}"
+                        tooltipPosition="top">
+                        {{search.nResults | number:'1.0-0'}} results of about {{search.remaining | number:'1.0-0'}}
+                </span>
+            </ng-container>
+        </div>
+        <div class="actions col-fixed">
+            <div class="material-icons"
+                (click)="cancelSearch($event, index)"
+                pTooltip="Close"
+                tooltipPosition="top">
+                    close
+            </div>
+            <div class="material-icons"
+                    *ngIf="showPauseButton"
+                    (click)="pauseSearch($event, search)"
+                    pTooltip="Pause"
+                    tooltipPosition="top">
+                    pause
+            </div>
+            <div class="material-icons"
+                    *ngIf="search.status === 'suspended'"
+                    (click)="continueSearch($event, search)"
+                    pTooltip="Continue Searching"
+                    tooltipPosition="top">
+                    play_arrow
+            </div>
+            <div class="material-icons"
+                    *ngIf="search.nResults > 0 && !search.isDownloading"
+                    (click)="downloadResults($event, search)"
+                    pTooltip="Download"
+                    tooltipPosition="top">
+                    get_app
+            </div>
+            <div class="material-icons" *ngIf="getResults && search.selected  && (search.status === 'complete' || search.status === 'suspended')"
+                (click)="shareMenu.toggle($event)"
+                pTooltip="Share"
+                tooltipPosition="top">
+                    share
+            </div>
+        </div>
+        <div class="search-progress">
+            <div class="search-completedness"
+                    [ngClass]="{'search-completedness-done': search.status === 'complete' || search.status === 'suspended', 'error': search.isOnError}"
+                    [ngStyle]="{'width': search.progress + '%'}">
+            </div>
+        </div>
+    </div>
+    <div class="queued-search col-1"
+         *ngIf="showPlusButton && searchQueue.length > 0 && searchQueue.length < 6">
+        <div class="add-search">
+            <button type="button" icon="ui-icon-add" pButton class="primary flat" (click)="addSearch()"></button>
+        </div>
+    </div>
+    <p-menu #shareMenu
+        appendTo="body"
+        [model]="shareMenuItems"
+        [popup]="true">
+    </p-menu>
+</div>

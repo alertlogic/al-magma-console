@@ -1,0 +1,3 @@
+<div class="btnGroupRight">
+    <button type="button" class="cardBtn flat right" label="Edit" icon="ui-icon-edit" pButton></button>
+</div>

@@ -1,0 +1,71 @@
+<div class="slider user-guide">
+    <div class="card card-w-title">
+        <h1>Horizontal Slider</h1>
+        <div class="card-content">
+            <p-slider [(ngModel)]="val1" orientation="horizontal"></p-slider>
+            <!-- <h5>Code Snippet:</h5>
+            <code-example language="markup" resourceId="sample/components/forms-slider/slider"></code-example> -->
+        </div>
+    </div>
+    <div class="card card-w-title">
+        <h1>Vertical Slider</h1>
+        <div class="card-content">
+            <p-slider [(ngModel)]="val1a" orientation="vertical"></p-slider>
+            <!-- <h5>Code Snippet:</h5>
+            <code-example language="markup" resourceId="sample/components/forms-slider/slider"></code-example> -->
+        </div>
+    </div>
+    <div class="card card-w-title">
+        <h1>Input Slider</h1>
+        <div class="card-content">
+            <div class="slider">
+                <input type="text" pInputText [(ngModel)]="val2" />
+                <p-slider [(ngModel)]="val2"></p-slider>
+                <div class="labels">
+                    <div class="item left">Low</div>
+                    <div class="item mid">Normal</div>
+                    <div class="item right">High</div>
+                </div>
+            </div>
+            <h5>Code Snippet:</h5>
+            <code-example language="markup" resourceId="sample/components/forms-slider/slider2"></code-example>
+        </div>
+    </div>
+    <div class="card card-w-title">
+        <h1>Animate Slider</h1>
+        <div class="card-content">
+            <p>When enabled, displays an animation on click of the slider bar.</p>
+            <h5>Animate: {{val3}}</h5>
+            <p-slider [(ngModel)]="val3" [animate]="true"></p-slider>
+            <h5>Code Snippet:</h5>
+            <code-example language="markup" resourceId="sample/components/forms-slider/slider3"></code-example>
+        </div>
+    </div>
+    <div class="card card-w-title">
+        <h1>Step Slider</h1>
+        <div class="card-content">
+            <h5>Step: {{val4}}</h5>
+            <p-slider [(ngModel)]="val4" [step]="5"></p-slider>
+            <h5>Code Snippet:</h5>
+            <code-example language="markup" resourceId="sample/components/forms-slider/slider4"></code-example>
+        </div>
+    </div>
+    <div class="card card-w-title">
+        <h1>Range Slider</h1>
+        <div class="card-content">
+            <h5>Range: {{rangeValues[0] + ' - ' + rangeValues[1]}}</h5>
+            <p-slider [(ngModel)]="rangeValues" [range]="true"></p-slider>
+            <h5>Code Snippet:</h5>
+            <code-example language="markup" resourceId="sample/components/forms-slider/slider5"></code-example>
+        </div>
+    </div>
+    <div class="card card-w-title">
+        <h1>Vetical Slider</h1>
+        <div class="card-content">
+            <h5>Vertical: {{val5}}</h5>
+            <p-slider [(ngModel)]="val5" [style]="{'height':'14em'}" orientation="vertical"></p-slider>
+            <h5>Code Snippet:</h5>
+            <code-example language="markup" resourceId="sample/components/forms-slider/slider6"></code-example>
+        </div>
+    </div>
+</div>

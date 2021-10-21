@@ -1,0 +1,9 @@
+<div class="p-col-12">
+    <h2 class="form-h2">Password Input Field</h2>
+</div>
+<div class="p-col-[set this] input-row">
+    <span class="md-inputfield">
+        <input pInputText type="password">
+        <label>Password</label>
+    </span>
+</div>

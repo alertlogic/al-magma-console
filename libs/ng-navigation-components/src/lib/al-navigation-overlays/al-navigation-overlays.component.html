@@ -1,0 +1,50 @@
+<al-toast key="global-toast"></al-toast>
+<al-toast key="ie-toast" position="top-center"></al-toast>
+<p-confirmDialog #cd key="confirmation" class="confirmation-dialog">
+    <p-footer>
+        <button pButton type="button" [label]="cd.rejectLabel" (click)="cd.reject()"></button>
+        <button pButton type="button" [label]="cd.acceptLabel" (click)="cd.accept()" class="accept"></button>
+    </p-footer>
+</p-confirmDialog>
+<al-welcome-dialog></al-welcome-dialog>
+<p-dialog header="Session Expiration"
+            [(visible)]="inReauthentication"
+            [modal]="true"
+            [closable]="false">
+    <p>
+        Hi {{userDisplayName}}, your session will expire in {{expiration}}.  If you want to continue working, please provide your password and reauthenticate below.
+    </p>
+    <div>
+                <form #loginForm="ngForm">
+                    <input type="hidden"
+                        pInputText
+                        class="input-text-field"
+                        [(ngModel)]="userName"
+                        autocomplete="username"
+                        name="email"
+                        pattern="^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+                        placeholder="Email address"
+                        required
+                        [alForceFocus]="true"
+                    />
+                    <div class="grid form-group">
+                        <div class="">
+                            <input [type]="showPassword ? 'text' : 'password'"
+                                pInputText
+                                (keydown)="onKeyDown($event)"
+                                [(ngModel)]="passPhrase"
+                                autocomplete="current-password"
+                                class="input-text-field"
+                                name="password"
+                                placeholder="Password"
+                                required
+                            />
+                            <div class="show-toggle"(click)="toggleShowPassword()">SHOW</div>
+                        </div>
+                        <div class="page-buttons">
+                            <button pButton class="primaryAction full-width-button" type="button" [disabled]="!loginForm.form.valid" (click)="reauthenticate()" label="REAUTHENTICATE"></button>
+                        </div>
+                    </div>
+                </form>
+    </div>
+</p-dialog>

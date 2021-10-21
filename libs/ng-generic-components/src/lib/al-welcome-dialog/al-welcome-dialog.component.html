@@ -1,0 +1,62 @@
+<p-dialog
+    [(visible)]="display"
+    [styleClass]="'welcome-dialog'"
+    [draggable]="false"
+    [modal]="true"
+    [blockScroll]="true"
+    [transitionOptions]="'250ms'">
+    <p-header>
+        <div class="dialog-title">
+            <img class="al-header-logo" [src]="logoUrl" alt="AL logo">
+            <div class="welcome-label">What's New</div>
+        </div>
+        <div *ngIf="manifest && manifest.introContentId" [alExternalHtml]="manifest.introContentId"></div>
+    </p-header>
+    <div class="grid">
+        <div class="galleria-innovations">
+            <p-galleria
+                [value]="galleriaItems"
+                [containerStyle]="{'max-width': '100%'}"
+                [autoPlay]="true"
+                [circular]="true"
+                [transitionInterval]="6000"
+                [showThumbnailNavigators]="false"
+                [(activeIndex)]="indexGalleria">
+                <ng-template pTemplate="item" let-item>
+                    <div class="galleria-slide" (click)="openURL(item.url)" [style.background]="galleriaUrls[indexGalleria]">
+                        <div class="title-slide">{{ item.title }}</div>
+                        <div class="subtitle-slide">{{ item.subtitle }}</div>
+                    </div>
+                </ng-template>
+            </p-galleria>
+            <div class="indicator-gallery">
+                <div class="indicator" *ngFor="let galleriaItem of galleriaItems; let i = index" (click)="changeIndex(i)">
+                    <i class="material-icons" [ngClass]="{'active-item-galleria': indexGalleria === i}">brightness_1</i>
+                </div>
+            </div>
+            <div class="innovations-section">
+                <div class="subtitle">Alert Logic Innovations</div>
+                <div *ngFor="let item of innovations">
+                    <div class="info-item">
+                        <span class="material-icons">east</span>
+                        <div class="label-item" (click)="openURL(item.url)">{{ item.title }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="video-tutorials-section">
+            <div class="subtitle">Video Tutorials</div>
+            <div class="video-list">
+                <div class="video-item" *ngFor="let videoItem of videoTutorials; let i = index" (click)="openURL(videoItem.url)">
+                    <img [src]="videosUrls[i]" alt="Preview Video">
+                    <div class="video-label">{{ videoItem.title }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- TODO: Uncomment this after BETA mode -->
+    <!-- <div class="col-12 hide-option">
+        <input type="checkbox" [(ngModel)]="hideDialog" (change)="welcomeDisplayChanged($event)"/>
+        <div class="hide-label">Hide until next update</div>
+    </div> -->
+</p-dialog>

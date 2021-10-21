@@ -1,0 +1,66 @@
+<div class="user-guide">
+    <div class="card card-w-title">
+        <h1>Chips</h1>
+        <div class="card-content">
+            <p>This chip has a class for 
+                <code class="language-css" pCode>i .title .subtitle</code> 
+            </p>
+    
+            <p-chips [(ngModel)]="values2" placeholder="Start Typing">
+                <ng-template let-item pTemplate="item">
+                    <i class="al al-vpc"></i> 
+                    <div class="title">{{item}} - (active)</div> 
+                    <div class="subtitle">{{item}}</div> 
+                </ng-template>
+            </p-chips>
+    
+            <h5>Sample:</h5>
+            <div class="ui-chips ui-widget">
+                <ul class="ui-inputtext ui-state-default ui-corner-all">
+                    <div class="ui-chips-token ui-state-highlight ui-corner-all"><span
+                            class="ui-chips-token-icon pi pi-fw pi-times"></span>
+                        <i class="al al-vpc"></i>
+                        <div class="title">VPC-123ABC</div>
+                        <div class="subtitle">VPC</div>
+                    </div>
+                </ul>
+            </div>
+            <h5>Code Snippet:</h5>
+            <code-example language="markup" resourceId="sample/components/forms-chips/chips2"></code-example>
+        </div>
+    </div> 
+    
+    <div class="card card-w-title">
+        <h1>Static Chips</h1>
+        <div class="card-content">
+            <div class="static-chips">
+                <i class="al al-vpc"></i>
+                <div class="title">VPC-123ABC</div>
+                <div class="subtitle">VPC</div>
+                <div class="close material-icons">cancel</div>
+            </div>
+    
+            <h5>Code Snippet:</h5>
+            <code-example language="markup" resourceId="sample/components/forms-chips/chips3"></code-example>
+        </div>
+    </div> 
+
+    <div class="card card-w-title">
+        <h1>Badges</h1>
+        <div class="card-content">
+            <div class="badge">In Progress</div>
+            <div class="badge success">Success</div>
+            <div class="badge error">Oh Crap!</div>
+
+            <div class="badge risk-critical">Critical</div>
+            <div class="badge risk-high">High</div>
+            <div class="badge risk-medium">Medium</div>
+            <div class="badge risk-low">Low/Info</div>
+    
+            <h5>Code Snippet:</h5>
+            <code-example language="markup" resourceId="sample/components/forms-chips/badge"></code-example>
+        </div>
+    </div> 
+</div>
+
+

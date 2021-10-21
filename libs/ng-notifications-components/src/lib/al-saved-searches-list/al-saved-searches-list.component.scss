@@ -1,0 +1,63 @@
+@import "@al/ng-generic-components/styles/utility";
+
+// *************** In order to render the checboxes in IE11 ******************
+:host ::ng-deep .p-chkbox .p-chkbox-box.p-state-default {
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        border: 2px solid al-color($al-gray, 500);
+        width: 19px;
+        height: 19px;
+    }
+}
+
+:host ::ng-deep .p-chkbox .p-chkbox-box.p-state-active {
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        border: 0;
+    }
+}
+// ***************************************************************************
+
+al-saved-searches-list {
+    .card-header {
+        height: 63px;
+    }
+
+    .p-panel-title {
+        display: flex;
+        height: 30px;
+    }
+
+    .inline-card-btn {
+        font-weight: normal;
+        padding-top: 6px;
+    }
+
+    .al-cardstack-subtitle-top-txt {
+        display: none;
+    }
+
+    .al-cardstack-subtitle-txt {
+        padding-top: 0px !important;
+    }
+
+    .chips {
+        .p-chips {
+            height: 38px;
+        }
+
+        .p-state-disabled {
+            opacity: 1 !important;
+            background-image: none;
+            overflow: unset;
+        }
+
+        .p-inputtext.p-state-disabled {
+            border-bottom: none;
+            background-image: none;
+            overflow: unset;
+        }
+
+        .p-chips-token {
+            height: 28px !important;
+        }
+    }
+}

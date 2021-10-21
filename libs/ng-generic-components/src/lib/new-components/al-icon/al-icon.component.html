@@ -1,0 +1,9 @@
+<div class="ald-icon" [ngClass]="'ald-icon--' + size">
+
+	<i [ngClass]="[
+        this.iconClass ? this.iconClass : 'material-icons',
+        this.color ? this.color : ''
+    ]">
+        {{ icon }}
+    </i>
+</div>

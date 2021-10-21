@@ -1,0 +1,1 @@
+<p-inputSwitch [(ngModel)]="checked2"></p-inputSwitch>

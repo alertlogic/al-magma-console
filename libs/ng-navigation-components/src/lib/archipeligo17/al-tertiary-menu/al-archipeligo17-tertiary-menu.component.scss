@@ -1,0 +1,177 @@
+@import "@al/ng-generic-components/styles/utility";
+
+:host ::ng-deep {
+  $line-height: 20px;
+
+  div.embedded-layout {
+    display: flex;
+
+    div.tertiary-navigation-left {
+      width: 0;
+      transform: scaleX(0); // we need this to collapse the projected content of the nav as well.
+
+      &.open {
+        width: 280px;
+        min-width: 280px;
+        transform: scaleX(1);
+      }
+
+      flex-flow: column;
+      display: flex;
+      justify-content: stretch;
+
+      h2 {
+        margin: 0;
+        font-size: 1em;
+        align-items: center;
+        display: flex;
+        color: white;
+        padding: 7px 35px;
+
+        &>i {
+          font-size: 2.571em;
+          display: flex;
+          margin-right: 10px;
+        }
+      }
+
+      section.tertiary-navigation-bar {
+        display: flex;
+        flex-flow: column;
+
+        .title {
+          display: flex;
+          flex-flow: column;
+          padding-top: 24px;
+          padding-bottom: 24px;
+          border-bottom: 1px solid al-color($al-gray, 50);
+
+          &>h3 {
+            height: ($line-height * 3);
+            padding: 2px;
+            margin: 0;
+            font-size: 1em;
+            display: flex;
+            margin: 0 30px;
+            font-weight: bold;
+            word-wrap: break-word;
+            overflow: hidden;
+          }
+        }
+
+        nav {
+          @mixin active() {
+            background-color: al-color($al-gray, 500);
+            color: white;
+            font-weight: bold;
+
+            &:hover {
+              background: al-color($al-gray, 500);
+            }
+          }
+
+          .active {
+            @include active;
+          }
+
+          >ul,
+          .left-nav ul {
+            display: flex;
+            flex-flow: column;
+            margin: 0;
+            width: 100%;
+            list-style: none;
+            padding: 0;
+            text-align: left;
+
+            &>ul>li {
+              padding-left: 60px;
+            }
+
+            >li {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 9px 20px 10px 40px;
+              cursor: pointer;
+
+              >a {
+                font-weight: normal;
+                color: al-color($al-gray, 900);
+                text-decoration: none;
+
+                &.active {
+                  @include active;
+                }
+              }
+
+              &:hover {
+                background: al-color($al-gray, 50);
+
+                &.active {
+                  @include active;
+                }
+              }
+            }
+
+            .optionLabel {
+              margin-left: 10px;
+            }
+          }
+
+          // this because the user topology is setting path fill atribute in white in general
+          // brokeing the checkbox styles for the filtes
+          path {
+            fill: none;
+          }
+        }
+      }
+    }
+
+    div.tertiary-content {
+      width: 100%;
+      box-sizing: border-box;
+
+      &.with-padding {
+        padding: 36px 40px;
+      }
+
+      section.navigation-tabs {
+        display: block;
+        margin: 36px 40px 10px;
+        border-bottom: 3px solid al-color($al-gray, 50);
+
+        div.tab-container {
+          display: flex;
+          flex-direction: columns;
+
+          div.cuarto-tab {
+            padding: 5px 15px;
+            margin-bottom: -3px;
+
+            &.active {
+              font-weight: bold;
+              border-bottom: 3px solid al-color($al-amber, 500);
+
+              &>a {
+                color: al-color($al-gray, 500);
+              }
+            }
+
+            a {
+              text-decoration: none;
+              color:al-color($al-gray, 200);
+            }
+          }
+        }
+      }
+
+      section.content {
+        display: flex;
+        flex: 1 1;
+        min-height: 200px;
+      }
+    }
+  }
+}
+

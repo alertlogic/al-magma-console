@@ -1,0 +1,215 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.al-card-stack,
+.cardstack-sidenav {
+    color: al-color($al-gray, 900);
+    width: 100%;
+    height: 100%;
+    min-height: calc(100vh);
+    margin-top: 0px;
+    background: #f6f6f6;
+
+    .al-list {
+        margin: 0px 0px;
+        padding-top: 24px;
+    }
+
+    .al-list .al-loading {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        font-size: 2.5em;
+        color: al-color($al-amber, 500);
+
+        .al-loading-txt {
+            color: al-color($al-gray, 700);
+            font-size: 0.5em;
+            padding: 24px 0px;
+        }
+    }
+
+    .fa-fw {
+        width: inherit;
+    }
+
+    .al-sort {
+        margin: 0px 15px;
+        cursor: pointer;
+    }
+
+    .zero-state-body,
+    .error-state-body {
+        margin: 0;
+        background: transparent;
+        padding: 0;
+        text-align: center;
+    }
+
+    .error-state-body {
+        width: 100%;
+    }
+
+    .primaryText {
+        font-size: 1.286em;
+        color: al-color($al-gray, 300);
+    }
+
+    .al-side-filter {
+        background: white;
+        height: 100%;
+        min-height: calc(100vh);
+        // box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+        padding: 0px;
+    }
+
+    .al-head-list {
+        padding: 30px 30px;
+        .description {
+            margin-bottom: 30px;
+        }
+
+        al-content-header {
+            .description {
+                padding-top: 24px;
+            }
+        }
+    }
+
+    .remaining {
+        margin: 5px 0px;
+        height: 20px;
+        width: 100%;
+        text-align: right;
+    }
+
+    /* Card generic styles */
+    .al-cardstack-subtitle-txt {
+        color: al-color($al-gray, 200);
+        font-size: 0.75em;
+    }
+
+    .al-cardstack-icon {
+        align-items: center;
+        text-align: center;
+        .pi {
+            color: al-color($al-gray, 500);
+        }
+    }
+    .al-cardstack-icon-label {
+        font-size: 0.714em;
+        line-height: normal;
+    }
+    .al-cardstack-icon-label-paded {
+        padding: 5px;
+        font-size: 0.714em;
+        line-height: normal;
+    }
+
+    .al-cardstack-content-label {
+        color: al-color($al-gray, 200);
+    }
+
+    .al-cardstack-content-title {
+        color: al-color($al-gray, 500);
+        border-bottom: 2px solid al-color($al-gray, 50);
+        padding-bottom: 12px;
+        padding-top: 24px;
+        font-size: 18px;
+    }
+
+    .al-cardstack-content-title-no-top-padding {
+        padding-top: 0px;
+    }
+
+    .al-cardstack-black-icon {
+        color: black;
+    }
+
+    .al-cardstack-chips-rounded {
+        border-radius: 15px;
+        background: al-color($al-gray, 50);
+        color: al-color($al-gray, 700);
+        padding: 6px 12px 6px 12px;
+        margin-right: 6px;
+
+        .bold {
+            color: al-color($al-gray, 600);
+            font-weight: 700;
+        }
+    }
+
+    .card {
+        padding: 0px;
+
+        .p-panel-titlebar {
+            padding: 24px 0px 24px;
+        }
+
+        .p-panel-titlebar-toggler {
+            display: none;
+        }
+
+        &.card-checked {
+            .p-panel-titlebar {
+                background-color: al-color($al-smokeBlue, 500);
+                color: white;
+
+                .al-cardstack-subtitle-txt {
+                    color: white;
+                }
+            }
+
+            .p-chkbox .p-chkbox-box .pi.pi-check:before {
+                color: white;
+            }
+
+            .al-cardstack-icon {
+                .pi {
+                    color: white;
+                }
+            }
+        }
+
+        &.card-expanded {
+            margin-bottom: 11px;
+            margin-top: 11px;
+            margin-right: -18px;
+            margin-left: -18px;
+        }
+
+        &.card-collapsed {
+            margin-bottom: 0px;
+
+            .p-panel-titlebar {
+                border-bottom: 0px;
+            }
+        }
+    }
+
+    .card:not(.card-checked) {
+        .p-panel-titlebar:not(.p-state-active):hover {
+            background-color: al-color($al-smokeBlue, 100);
+        }
+    }
+
+    .active {
+        display: block;
+    }
+    .deactive:not(.al-bold) {
+        display: none;
+    }
+
+    .show {
+        display: block;
+    }
+    .hide {
+        /* opacity: 0.3; */
+        /* text-decoration: line-through; */
+        display: none;
+    }
+
+    .filter-panel {
+        width: 280px;
+        border-right: 1px solid lightgray;
+    }
+}

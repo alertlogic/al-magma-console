@@ -1,0 +1,15 @@
+:host ::ng-deep {
+
+    .p-listbox-item{
+        border-bottom: 1px solid #EDEDED;
+    }
+
+    .item-container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+
+    }
+
+}

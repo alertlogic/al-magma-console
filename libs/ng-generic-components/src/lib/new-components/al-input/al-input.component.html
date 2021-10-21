@@ -1,0 +1,38 @@
+<al2-form-group [id]="id"
+    [label]="label"
+    [tip]="tip"
+    [hint]="hint"
+    [required]="required"
+    [verticalSpace]="verticalSpace">
+    <div class="ald-input">
+        <span *ngIf="type === 'search'" class="ald-input__icon">
+            <i class="material-icons md-18">search</i>
+        </span>
+        <input
+            [type]="type"
+            class="ald-input__element"
+            [class.ald-input__element--error]="control?.errors && (control?.dirty || control?.touched)"
+            [class.ald-input__element--disabled]="disabled"
+            [name]="name"
+            [value]="value"
+            [disabled]="disabled"
+            [required]="required"
+            [placeholder]="placeholder"
+            [autofocus]="autofocus"
+            [pattern]="validationPattern"
+            [min]="minValue"
+            [max]="maxValue"
+            (input)="onValueChange($event)"/>
+        <al2-form-group-errors
+            [control]="control"
+            [label]="label"
+            [requiredError]="requiredError"
+            [validationPattern]="validationPattern"
+            [patternError]="patternError"
+            [minLength]="minLength"
+            [maxLength]="maxLength"
+            [minValue]="minValue"
+            [maxValue]="maxValue">
+        </al2-form-group-errors>
+    </div>
+</al2-form-group>

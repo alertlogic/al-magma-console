@@ -1,0 +1,326 @@
+<!-- PAGE HEADER -->
+<al-content-header
+  [showAddButton]="true"
+  [title]="'Assets Groups'"
+  (onButtonClicked)="toggle()">
+</al-content-header>
+
+<!-- ZERO STATE -->
+<al-view-helper
+  [loading]=""
+  [empty]="!assetGroups.length"
+  [notifyPanel]="false">
+  <span zero-state-title>There are no asset groups here</span>
+  <span zero-state-description>Get started by making your first Asset Group</span>
+  <button pButton type="button" label="Create Something" class="primaryAction"></button>
+  <i zero-state-icon class="material-icons">info</i>
+</al-view-helper>
+
+<!-- CARDS LIST -->
+<al-base-card *ngFor="let assetGroup of assetGroups" [item]="$any(assetGroup)" [config]="AlBaseCardConfig">
+  <ng-template alBaseCardBodyContent>
+    <div class="grid grid-nogutter">
+      <div class="col-12">
+        <h2 class="first">Asset Group Details</h2>
+      </div>
+      <div class="col-3">
+        <div class="label">Asset Group Name</div>
+        <div class="desc">{{ assetGroup.properties.name }}</div>
+
+        <div class="label">Created</div>
+        <div class="desc">{{ $any(assetGroup.properties).created | date }}</div>
+      </div>
+      <div class="col-3">
+        <div class="label">Asset Groups</div>
+        <div class="desc">
+          <ul>
+            <li *ngFor="let group of $any(assetGroup.properties).selectedGroups">
+                <i class="ui-icon-group-work" pTooltip="Asset Group"></i>
+                {{ group.caption }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="label">Assets</div>
+        <div class="desc">
+          <ul>
+            <li *ngFor="let asset of $any(assetGroup.properties).selectedAssets">
+              <i class="al" *ngIf="asset.type"
+              pTooltip="{{asset.type}}"
+              tooltipPosition="top"
+              [ngClass]="{'al-topology-region-1': asset.type === 'region',
+              'al-vpc': asset.type === 'vpc',
+              'al-subnet': asset.type === 'subnet',
+              'al-host': asset.type === 'host'}">
+              </i>
+              {{ asset.name }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="label">Tags</div>
+        <div class="desc">
+          <ul>
+            <li *ngFor="let tag of $any(assetGroup.properties).selectedTags">
+              <i class="al al-tag" pTooltip="Tag"></i>
+              {{ tag.key }}: {{ tag.value }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</al-base-card>
+
+<!-- BOTTOM SHEET -->
+<al-bottom-sheet
+  [headerOptions]="headerOptions"
+  (onPrimaryAction)="save()"
+  (onSecondaryAction)="cancel()">
+  <div class="body-content ui-fluid">
+    <div class="grid grid-nogutter input-row top">
+
+      <!-- FIELDS -->
+        <div class="col-4">
+          <span class="md-inputfield">
+            <input type="text" pInputText [(ngModel)]="groupName">
+            <label>Name</label>
+          </span>
+        </div>
+
+        <div class="col-4">
+          <span class="md-inputfield">
+            <input type="number" pInputText [(ngModel)]="criticality" [min]="0">
+            <label>Criticality</label>
+            <div class="ui-message ui-messages-default">Levels 0 to n (Low to High)</div>
+          </span>
+        </div>
+
+        <div class="col-4">
+          <span class="ui-float-label">
+            <textarea pInputTextarea [(ngModel)]="description" autoResize="autoResize" rows="1" id="description" class="ui-inputtext"></textarea>
+            <label for="description">Description</label>
+          </span>
+        </div>
+    </div>
+
+    <!-- TABS AREA 8-cols | DETAILS AREA 4-cols -->
+    <div class="grid grid-nogutter">
+      <div class="col-8">
+
+        <!-- TAB VIEWS -->
+        <p-tabView>
+
+          <!-- ASSETS TAB -->
+          <p-tabPanel header="Assets">
+
+            <!-- ASSETS TREE -->
+            <p-treeTable #tt
+                [value]="assets"
+                [columns]="assetTableCols"
+                selectionMode="single"
+                [rowHover]="true"
+                [(selection)]="selectedNodes"
+                (onNodeSelect)="nodeSelect($event.node)"
+                (onNodeUnselect)="nodeUnselect($event.node)"
+                dataKey="key"
+                [globalFilterFields]="['name', 'key', 'groups', 'tags.key', 'tags.value']">
+
+              <!-- TREE VIEW HEADER -->
+              <ng-template pTemplate="caption">
+                <div class="grid no-gutter">
+                  <div class="col-6">
+                    <p-multiSelect [options]="filterAssetTypes" [(ngModel)]="selectedFilters"></p-multiSelect>
+                    <!-- <al-multiselect-list placeholder="Select Filters" [options]="filterAssetTypes" [(ngModel)]="selectedFilters"></al-multiselect-list> -->
+                  </div>
+                  <div class="col-6">
+                    <al-search-bar [searchIcon]="'header'" (input)="tt.filterGlobal($any($event.target).value, 'contains')"></al-search-bar>
+                  </div>
+                </div>
+              </ng-template>
+
+              <!-- TREE VIEW BODY -->
+              <ng-template pTemplate="body" let-rowNode let-rowData="rowData" let-columns="columns">
+                <tr [ttRow]="rowNode" [ttSelectableRow]="rowNode">
+                  <td *ngFor="let col of columns; let i = index" [hidden]="!col.show">
+                    <p-treeTableToggler [rowNode]="rowNode" *ngIf="i == 0"></p-treeTableToggler>
+                    <!-- <p-treeTableCheckbox [value]="rowNode" *ngIf="i == 0"></p-treeTableCheckbox> -->
+                    <i class="al" *ngIf="col.field == 'name'"
+                      pTooltip="{{rowData.type}}"
+                      tooltipPosition="top"
+                      [ngClass]="{
+                        'al-aws': rowData.type === 'deployment/aws',
+                        'al-topology-region-1': rowData.type === 'region',
+                        'al-vpc': rowData.type === 'vpc',
+                        'al-subnet': rowData.type === 'subnet',
+                        'al-host': rowData.type === 'host'
+                      }">
+                    </i>
+                    {{rowData[col.field]}}
+                  </td>
+
+                  <td>
+                    <div style="float:right;">
+                      <span *ngIf="rowData.regionCount" pTooltip="Regions" tooltipPosition="top">
+                          <i class="al al-topology-region-1"></i> {{rowData.regionCount}} |
+                        </span>
+                      <span *ngIf="rowData.vpcCount" pTooltip="VPCs" tooltipPosition="top">
+                        <i class="al al-vpc"></i> {{rowData.vpcCount}} |
+                      </span>
+                      <span *ngIf="rowData.subnetCount" pTooltip="Subnets" tooltipPosition="top">
+                        <i class="al al-subnet"></i> {{rowData.subnetCount}} |
+                      </span>
+                      <span *ngIf="rowData.hostCount" pTooltip="Hosts" tooltipPosition="top">
+                        <i class="al al-host"></i> {{rowData.hostCount}}
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+              </ng-template>
+            </p-treeTable>
+          </p-tabPanel>
+
+          <!-- TAG TAB PANEL -->
+          <p-tabPanel header="Tags">
+            <div class="grid">
+              <div class="col-12">
+                <p-table
+                  #tagtable
+                  [value]="tags"
+                  [globalFilterFields]="['key', 'value']"
+                  selectionMode="multiple"
+                  [(selection)]="selectedTags">
+                  <ng-template pTemplate="caption">
+                    <div class="title">
+                      <al-search-bar [searchIcon]="'header'" (input)="tagtable.filterGlobal($any($event.target).value, 'contains')"></al-search-bar>
+                    </div>
+                  </ng-template>
+
+                  <ng-template pTemplate="body" let-rowData>
+                    <tr [pSelectableRow]="rowData">
+                      <td>
+                        <i class="al al-tag" pTooltip="Tag"></i>
+                        {{rowData.key}}: <span class="tagValue">{{rowData.value}}</span>
+                      </td>
+                    </tr>
+                  </ng-template>
+                </p-table>
+              </div>
+
+            </div>
+          </p-tabPanel>
+
+          <!-- ASSET GROUPS TAB PANEL -->
+          <p-tabPanel header="Asset Groups">
+            <div class="grid">
+              <div class="col-12">
+                <div *ngIf="!assetGroups.length">No asset groups available</div>
+                <p-table
+                  *ngIf="assetGroups.length"
+                  #assetGroupTable
+                  [value]="assetGroups"
+                  [globalFilterFields]="['name']"
+                  selectionMode="multiple"
+                  [(selection)]="selectedGroups">
+                  <ng-template pTemplate="caption">
+                    <div class="title">
+                      <al-search-bar [searchIcon]="'header'" (input)="assetGroupTable.filterGlobal($any($event.target).value, 'contains')"></al-search-bar>
+                    </div>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-rowData>
+                    <tr [pSelectableRow]="rowData">
+                      <td>
+                        <i class="ui-icon-group-work" pTooltip="Asset Group"></i>
+                        {{rowData.caption}}
+                      </td>
+                    </tr>
+                  </ng-template>
+                </p-table>
+              </div>
+
+            </div>
+          </p-tabPanel>
+
+        </p-tabView>
+      </div> <!-- END TREE VIEW AREA -->
+
+      <!-- RIGHT COLUMN OF DETAILS -->
+    <div class="col-4">
+
+        <!-- EXPRESSION JSON -->
+        <div class="label">Expression</div>
+        <div style="margin-bottom: 12px;">
+          <ngx-monaco-editor style="max-height:300px;" [options]="$any(editorOptions)" [(ngModel)]="editor"></ngx-monaco-editor>
+        </div>
+
+        <!-- ASSET SUMMARY -->
+        <div class="grid p-justify-between grid-nogutter">
+          <!-- INCLUDED ASSET SUMMARY -->
+          <div style="margin-bottom: 12px;">
+            <span class="label" style="vertical-align: middle;"><i class="ui-icon-add-circle asset-included" style="font-size: 14px"></i> Includes</span>
+            <div class="grid grid-nogutter p-justify-end">
+              <span pTooltip="Regions" tooltipPosition="top">
+                  <i class="al al-topology-region-1"></i> {{ assetGroupSummary.includes.regions }} |
+                </span>
+              <span pTooltip="VPCs" tooltipPosition="top">
+                <i class="al al-vpc"></i> {{ assetGroupSummary.includes.vpcs }} |
+              </span>
+              <span pTooltip="Subnets" tooltipPosition="top">
+                <i class="al al-subnet"></i> {{ assetGroupSummary.includes.subnets }} |
+              </span>
+              <span pTooltip="Hosts" tooltipPosition="top">
+                <i class="al al-host"></i> {{ assetGroupSummary.includes.hosts }}
+              </span>
+            </div>
+          </div>
+
+          <!-- EXCLUDED ASSET SUMMARY -->
+          <div style="margin-bottom: 12px;">
+            <span class="label" style="vertical-align: middle"><i class="ui-icon-remove-circle asset-excluded" style="font-size: 14px"></i> Excludes</span>
+            <div class="grid grid-nogutter p-justify-end">
+              <span pTooltip="Regions" tooltipPosition="top">
+                  <i class="al al-topology-region-1"></i> {{ assetGroupSummary.excludes.regions }} |
+                </span>
+              <span pTooltip="VPCs" tooltipPosition="top">
+                <i class="al al-vpc"></i> {{ assetGroupSummary.excludes.vpcs }} |
+              </span>
+              <span pTooltip="Subnets" tooltipPosition="top">
+                <i class="al al-subnet"></i> {{ assetGroupSummary.excludes.subnets }} |
+              </span>
+              <span pTooltip="Hosts" tooltipPosition="top">
+                <i class="al al-host"></i> {{ assetGroupSummary.excludes.hosts }}
+              </span>
+            </div>
+          </div>
+
+          <div class="p-justify-end">
+            <button pButton type="button" class="flat" icon="ui-icon-replay" (click)="runExpression()" pTooltip="Update" tooltipPosition="top"></button>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- ASSET DETAILS -->
+        <div *ngFor="let detail of assetDetails | keyvalue; let i = index" (mouseover)="showBootons = $any(detail).key" (mouseout)="showBootons = null" style="margin-top: 12px;">
+          <div class="grid grid-nogutter p-justify-between" *ngIf="detail.key !== 'tags' && detail.key !== 'node' && detail.value != ''">
+            <div>
+              <div class="label">{{detail.key}}</div>
+              <div class="desc">{{detail.value}}</div>
+            </div>
+            <div [hidden]="showBootons !== detail.key">
+              <button type="button" icon="ui-icon-add-circle-outline" pButton class="flat asset-included" (click)="includeExpression(detail)"></button>
+              <button type="button" icon="ui-icon-remove-circle-outline" pButton class="flat asset-excluded" (click)="excludeExpression(detail)"></button>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="assetDetails">
+          <div class="label">tags</div>
+          <div class="desc" *ngFor="let tag of assetDetails.tags | keyvalue">{{tag.key}} {{tag.value}}</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</al-bottom-sheet>

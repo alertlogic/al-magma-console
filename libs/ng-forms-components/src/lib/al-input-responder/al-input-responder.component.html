@@ -1,0 +1,103 @@
+<div class="grid grid-nogutter p-justify-end">
+    <button pButton
+            #responderButton
+            type="button"
+            class="flat icon-gray"
+            iconPos="right"
+            icon="ui-icon-arrow-drop-down"
+            [pTooltip]="buttonTooltip"
+            tooltipStyleClass="responder-tooltip"
+            tooltipPosition="top"
+            [label]="buttonLabel"
+            (click)="toggleSuggestion()"></button>
+</div>
+<div class="suggestion-container">
+    <div *ngIf="showSuggestions"
+         class="suggestion-list" #responderList>
+        <div class="search">
+            <al-search-bar #responderSearch
+                           width="100%"
+                           [placeholder]="'Search'"
+                           (onSearchChanged)="applyTextFilter($event)"
+                           [autofocus]="true"></al-search-bar>
+        </div>
+
+        <div class="list-container">
+            <div *ngFor="let itemGroup of suggestionsItems"
+                 class="list-group">
+                <div
+                    *ngIf="!search"
+                    [pTooltip]="itemGroup.description || ''"
+                    tooltipStyleClass="responder-tooltip"
+                    tooltipPosition="top">{{ itemGroup.group }}</div>
+                <div *ngFor="let itemSuggestion of itemGroup.options | alFilterSuggestionPipe:search"
+                     class="list-item"
+                     (click)="insertText($event, itemSuggestion.value)"
+                     [pTooltip]="itemSuggestion.description || ''"
+                     tooltipStyleClass="responder-tooltip"
+                     tooltipPosition="top">
+                    {{ itemSuggestion.label }}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<span class="md-inputfield"
+      *ngIf="visual ==='input'">
+    <input pInputText
+           #responderInput
+           [disabled]="isDisabled"
+           [id]="key"
+           [type]="'text'"
+           [placeholder]="placeholder ? placeholder : ''"
+           [(ngModel)]="value"
+           (click)="onFocusEvent($event)"
+           (keyup)="onFocusEvent($event)"
+           (blur)="onBlur()"
+           (change)="change()">
+    <label [for]="key">{{label}} <span *ngIf="required"> *</span></label>
+</span>
+
+<span class="md-inputfield"
+      *ngIf="visual === 'textarea'">
+    <textarea pInputTextarea
+              [id]="key"
+              [name]="key"
+              [placeholder]="placeholder ? placeholder : ''"
+              [(ngModel)]="value"
+              [autoResize]="true"
+              rows="5"
+              (click)="onFocusEvent($event)"
+              (keyup)="onFocusEvent($event)"
+              (blur)="onBlur()"
+              (change)="change()">
+        </textarea>
+    <label [for]="key">{{label}} <span *ngIf="required"> *</span></label>
+</span>
+
+<span class="md-inputfield"
+      *ngIf="visual === 'dropdown'">
+      <div class="label-row">
+        <span class="dynamic-label">{{label}}<span *ngIf="required"> *</span></span>
+        <ng-container *ngTemplateOutlet="infoIconRight"></ng-container>
+    </div>
+    <p-dropdown [options]="dropdownOptions || []"
+                [editable]="true"
+                [placeholder]="placeholder != null ? placeholder : ''"
+                [id]="key"
+                [filter]="true"
+                [(ngModel)]="value"
+                [style]="{'width':'100%'}"
+                (onClick)="onFocusEvent($event)"
+                (onBlur)="onBlur()"
+                (onChange)="change()">></p-dropdown>
+</span>
+
+<ng-template #infoIconRight>
+    <i *ngIf="element?.description"
+    class="material-icons tooltip-icon info-icon-form"
+    [pTooltip]="element?.description || ''"
+    tooltipPosition="right">info</i>
+</ng-template>

@@ -1,0 +1,17 @@
+{
+    "account_id":"134249236",
+    "created":{
+       "at":1595604727,
+       "by":"E20086A7-B60C-43B5-B2B2-5FAA432CCA32"
+    },
+    "data_type":"fimdata",
+    "deleted":false,
+    "group_id":null,
+    "id":"DBF28E4C-ECD5-4BDC-83DC-BFB0D13ECDAA",
+    "modified":{
+       "at":1595611682,
+       "by":"E20086A7-B60C-43B5-B2B2-5FAA432CCA32"
+    },
+    "name":"Fabio Wednesday Search 09:00 1231 (Test EM FIMDATA template)",
+    "search_request":"SELECT * FROM fimdata WHERE EXISTS(ts)"
+ }

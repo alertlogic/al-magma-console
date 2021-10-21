@@ -1,0 +1,34 @@
+@import "@al/ng-generic-components/styles/utility";
+
+:host ::ng-deep .al-zero-state-icon {
+    i {
+        font-size: 3em;
+    }
+}
+.al-zero-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 40px;
+    margin: 24px 0;
+    background: al-color($al-gray, 50);
+
+    .al-zero-state-icon {
+        color: al-color($al-gray, 200);
+    }
+
+    .al-zero-state-body {
+        padding-bottom: 0;
+        text-align: center;
+
+        & > .primaryText {
+            font-size: 1.286em;
+            color: al-color($al-gray, 300);
+        }
+
+        & > .secondaryText {
+            font-size: 1em;
+            color: al-color($al-gray, 200);
+        }
+    }
+}

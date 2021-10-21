@@ -1,0 +1,15 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.head-override {
+
+    h1{
+        font-size: 28px;
+        border-bottom: none;
+        padding-left: 0;
+    }
+
+    h2 {
+        font-size: 24px;
+        border-bottom: none;
+    }
+}

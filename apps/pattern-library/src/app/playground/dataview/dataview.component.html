@@ -1,0 +1,10 @@
+<h1>Incidents (DataView)</h1>
+
+<p-dataView [value]="data">
+    <p-header>List of Incidents</p-header>
+    <ng-template let-data pTemplate="listItem">
+        <div>
+            {{data.threatRating.rating}} {{data.id}} {{data.date}} {{data.summary}} {{data.class}} {{data.attacker}} {{data.target}} {{data.account}} {{data.deployment}}
+        </div>
+    </ng-template>
+</p-dataView>

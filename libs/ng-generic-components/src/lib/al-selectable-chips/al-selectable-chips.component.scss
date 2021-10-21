@@ -1,0 +1,30 @@
+.options-container {
+    max-height: 50vh;
+    overflow-y: scroll;
+    overflow-x: scroll;
+
+    .chips {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        border-bottom: none;
+        .options {
+            list-style-type: none;
+            .chip {
+                padding: 4px;
+                -moz-border-radius: 0;
+                -webkit-border-radius: 0;
+                border-radius: 1.5;
+            }
+            .separator {
+                color: black;
+                padding-right: 7px;
+            }
+        }
+    }
+    .big-or {
+        padding: 40px;
+        display: flex;
+    }
+}

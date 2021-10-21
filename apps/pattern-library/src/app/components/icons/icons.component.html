@@ -1,0 +1,34 @@
+<div class="al-icons">
+    <div class="card card-w-title">
+        <h1>Material Icons</h1>
+        <div class="card-content">
+            <p>
+                Material icons can be found <a href="https://material.io/resources/icons/?style=baseline">on their website. </a>
+            </p>
+        </div>
+    </div>
+    <div class="card card-w-title">
+        <h1>Alert Logic Custom Icons</h1>
+        <div class="card-content">
+            <p>
+                All icons should be prefixed with the .al class. Please note that the (+) icons have extra classes that
+                will require an extra click into the inspector panel.
+            </p>
+            <p>
+                Here is an icon: <i class="al al-logo"></i>
+            </p>
+            <code>class="al al-logo"</code>
+            <div class="tile-container">
+                <div class="tile" *ngFor="let icon of iconList" (click)="select(icon)">
+                    <i class="al {{icon.name}}"><span *ngFor="let colorPath of icon.colorPaths"
+                            class="{{colorPath}}"></span></i>
+                    <h4 class="name">{{icon.name}} <span *ngIf="icon.colorPaths.length > 0">(+)</span></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<p-sidebar [(visible)]="selectedIconDisplayed" position="bottom">
+    <h2>{{selectedIcon?.name}}</h2>
+    <pre [innerHTML]="exampleIconMarkup"></pre>
+</p-sidebar>

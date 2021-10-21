@@ -1,0 +1,32 @@
+<div class="header-container" fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="risk-icon" *ngIf="icon">
+        <al-icon-block
+            [iconClass]="icon.iconClass"
+            [matIcon]="icon.icon"
+            [label]="icon.label">
+        </al-icon-block>
+    </div>
+
+    <div class="titles"
+         fxLayoutAlign="center stretch"
+         fxLayout="column"
+         fxFlexAlign="stretch"
+         fxFlex >
+            <div class="upper-title">{{ titles.upperTitle | titlecase }}</div>
+            <div class="main-title">{{ titles.mainTitle }}</div>
+            <div  *ngIf="titles.lowerTitle" class="lower-title">{{ titles.lowerTitle }}</div>
+    </div>
+
+    <div class="action-buttons">
+        <ng-container *ngFor="let action of actions">
+                <al-icon-block
+                    (click)="!action.disable ? action.callback():''"
+                    [iconClass]="action.icon.iconClass"
+                    [matIcon]="action.icon.icon"
+                    [label]="action.icon.label"
+                    [disabled]="action.disable"
+                    [tooltip]="action.tooltip">
+                </al-icon-block>
+        </ng-container>
+    </div>
+</div>

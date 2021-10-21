@@ -1,0 +1,8 @@
+<div *ngIf="!item.expanded && (item.entity.state=='disposed' || item.entity.state=='concluded') ">
+    <div class="assessedby">
+        <i class="material-icons icon-bottom">{{ item.entity.state=="disposed" ? 'block': 'check' }}</i>
+        <span>{{item.entity.state | titlecase }} at {{ item.entity.modified_on | date:'HH:mm'}} on {{ item.entity.modified_on | date:'yyyy-MM-dd'}} by {{usersMap[item.entity.user_id]?.name}}</span>
+        <span *ngIf="item.entity.state=='disposed' && item.entity.expires"> | Expires on {{ item.entity.expires | date:'yyyy-MM-dd'}}</span>
+        <span *ngIf="item.entity.state=='disposed' && !item.entity.expires"> | Expires on Never</span>
+    </div>
+</div>

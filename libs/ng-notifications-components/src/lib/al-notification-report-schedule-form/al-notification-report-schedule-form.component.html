@@ -1,0 +1,94 @@
+<div class="report-schedule-form">
+    <al-bottom-sheet
+        #alBottomSheet
+        [headerOptions]="headerOptions"
+        (onPrimaryAction)="save()"
+        (onSecondaryAction)="cancel()">
+        <!-- Loading -->
+        <al-view-helper [loading]="loading" [notifyPanel]="true"></al-view-helper>
+        <!-- Notification form subscribers -->
+        <al-notification-form
+            [loading]="loading"
+            [accountId]="accountId"
+            [showAttach]="true"
+            [editMode]="editMode"
+            [type]="scheduleReport?.type"
+            (onChanged)="onSubscribersChanged()">
+            <!-- Content projection -->
+
+            <div class="details-column grid p-dir-col">
+                <div class="col">
+                    <h1 class="columnHeader">Details</h1>
+                </div>
+                <div class="col input-report-name">
+                    <span class="md-inputfield">
+                        <input
+                            type="text"
+                            #ctrl="ngModel"
+                            class="col-12"
+                            [ngClass]="{'ng-dirty ng-invalid': !reportName && ctrl.touched}"
+                            name="reportName"
+                            [(ngModel)]="reportName"
+                            (ngModelChange)="validateForm()"
+                            pInputText/>
+                        <label for="float-input">Name *</label>
+                    </span>
+                </div>
+                <div class="col input-is-active">
+                    <p-inputSwitch [(ngModel)]="isActive" (ngModelChange)="validateForm()" name="isActive"></p-inputSwitch>
+                    <span class="padding-left-10">Schedule Is {{ isActive ? 'Active' : 'Inactive' }}</span>
+                </div>
+                <div class="col al-cadende-selector">
+                    <div *ngIf="scheduleReport && scheduleReport.type !== 'search_v2' ">
+                        <al-cadence-selector
+                        name="cadence-selector"
+                        [initialSchedule]="$any(cadenceInitialSchedule)"
+                        [frequencies]="frequencies"
+                        (onCadenceChanged)="onCadenceChanged($event)"></al-cadence-selector>
+                    </div>
+                    <!-- Searches (FIM and Saved) -->
+                    <al-schedule-report-form #scheduleForm
+                        [visible]="scheduleReport && scheduleReport.type === 'search_v2'"
+                        [allowMoreFrecuencies]="!isFim"
+                        (onScheduleFormChanged)="onScheduleFormChanged($any($event))"
+                        (isValidForm)="isScheduleFormValid($event)">
+                    </al-schedule-report-form>
+                    <div class="fim-search-input" *ngIf="scheduleReport && scheduleReport.type === 'search_v2' && isFim">
+                        <div class="label-title">FIM Search Templates</div>
+                        <p-dropdown [disabled]="editMode" [(ngModel)]="selectedTemplate" [options]="fimSearches" name="selectedTemplate"></p-dropdown>
+                    </div>
+                </div>
+            </div>
+        </al-notification-form>
+        <div class="filters-section" *ngIf="scheduleReport && scheduleReport.type !== 'search_v2' && !loading">
+            <div class="col">
+                <h1 class="columnHeader">Report Settings</h1>
+                <div>To change these settings, click "CANCEL" to go back to the report.</div>
+            </div>
+            <div class="col">
+                <al-aggregation-filter-content [filters]="filters" [columns]="2" [filtersSort]="filtersSort">
+                </al-aggregation-filter-content>
+            </div>
+        </div>
+        <div class="query-column col-12" *ngIf="!loading && scheduleReport && scheduleReport.type === 'search_v2' && !isFim">
+            <div class="grid p-dir-col">
+                <div class="col-12">
+                    <h1 class="columnHeader">Search Query</h1>
+                    <ngx-monaco-editor #editor [options]="editorOptions"
+                        [ngModel]="savedSearch?.search_request" (init)="onMonacoEditorInit($event)">
+                    </ngx-monaco-editor>
+                    <button
+                        *ngIf="editMode"
+                        pButton
+                        type="button"
+                        class="search-button"
+                        label="EDIT IN SEARCH"
+                        icon="ui-icon-chevron-right"
+                        iconPos="right"
+                        (click)="editInSearch()">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </al-bottom-sheet>
+</div>

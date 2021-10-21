@@ -1,0 +1,73 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.al-collapsible-layout{
+    display: flex;
+    flex: 1 1;
+
+    .layoutLeft{
+        display: flex;
+        flex: 1;
+        max-width: 280px;
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12), 0 1px 5px 0 rgba(0,0,0,.2);
+    }
+
+    .layoutCenter{
+        display: flex;
+        flex: 3;
+        padding-top: 50px;
+
+        incident-denser-list-content {
+            width: 100%;
+        }
+
+    }
+
+    .layoutRight{
+        display: flex;
+        flex: 1;
+        max-width: 280px;
+        padding-left: 5px;
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12), 0 1px 5px 0 rgba(0,0,0,.2);
+    }
+
+    .layoutLeft, .layoutRight{
+        transition: 1s;
+        min-height: calc(100vh - 170px);
+        flex: 1;
+    }
+
+    .layoutLeft.hide,  .layoutRight.hide{
+        transition: 1s;
+        width: 0;
+        overflow: hidden;
+        flex: 0;
+        padding: 0px;
+    }
+
+    .hide-left, .hide-right{
+        margin-top: 2px;
+
+        :hover{
+            background-color:#cbcbcb;
+            cursor: pointer;
+        }
+
+        button {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 100px;
+            padding: 8px 3px;
+            border: solid 1px #ededed;
+            color: #868686;
+
+            &.left{
+                border-bottom-right-radius: 3px;
+            }
+
+            &.right{
+                border-bottom-left-radius: 3px;
+            }
+
+        }
+    }
+}

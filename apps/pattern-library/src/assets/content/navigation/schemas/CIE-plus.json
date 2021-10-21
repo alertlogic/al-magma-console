@@ -1,0 +1,2205 @@
+{
+    "definitions": {
+        "CloudInsight": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "cloud_insight|cloud_defender"
+                }
+            ]
+        },
+        "LogManager": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "log_manager|cloud_defender"
+                }
+            ]
+        },
+        "ThreatManager": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "threat_manager|cloud_defender"
+                }
+            ]
+        },
+        "ThreatManagerDetectResponse": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "threat_manager|cloud_defender|detect|respond"
+                }
+            ]
+        },
+        "AnyDefender": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "log_manager|threat_manager|web_security_manager|cloud_defender"
+                }
+            ]
+        },
+        "CloudDefender": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "cloud_defender"
+                }
+            ]
+        },
+        "WAF": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "web_application_firewall"
+                }
+            ]
+        },
+        "WAFOrManagedWAF": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "web_application_firewall|managed_waf"
+                }
+            ]
+        },
+        "WAFOOB": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "web_security_manager|cloud_defender"
+                }
+            ]
+        },
+        "Usage": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "threat_manager|log_manager|cloud_defender"
+                }
+            ]
+        },
+        "Dunkirk": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "threat_manager|log_manager|cloud_defender"
+                }
+            ]
+        },
+        "Anything": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "cloud_insight|web_application_firewall|web_security_manager|cloud_defender|threat_manager|log_manager|detect|respond|assess"
+                }
+            ]
+        },
+        "Incidents": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "cloud_insight|cloud_defender|threat_manager|log_manager|detect|respond"
+                }
+            ]
+        },
+        "CloudInsightOnly": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "cloud_insight&!web_application_firewall|web_security_manager|cloud_defender|threat_manager|log_manager"
+                }
+            ]
+        },
+        "LogReview": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "cloud_defender|log_review"
+                }
+            ]
+        },
+        "AnythingButWAF": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "cloud_insight|web_security_manager|cloud_defender|threat_manager|log_manager"
+                }
+            ]
+        },
+        "WSMDenyLogs": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "web_application_firewall"
+                }
+            ]
+        },
+        "AnythingButCloudInsight": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "web_application_firewall|web_security_manager|cloud_defender|threat_manager|log_manager|detect|respond"
+
+                }
+            ]
+        },
+        "AnythingButCloudInsightOrDetectResponse": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "web_application_firewall|web_security_manager|cloud_defender|threat_manager|log_manager"
+
+                }
+            ]
+        },
+        "LegacyManagement": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "legacy:legacy_managment|legacy:legacy_management"
+                }
+            ]
+        },
+        "AlertLogicInternal": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "al_internal_user"
+                }
+            ]
+        },
+        "ThreatManagerOrLogManager": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "threat_manager|log_manager|cloud_defender"
+                }
+            ]
+        },
+        "Assess": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "assess"
+                }
+            ]
+        },
+        "Phoenix": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "assess|detect|respond"
+                }
+            ]
+        },
+        "MigratedPhoenix": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "phoenix_migrated"
+                }
+            ]
+        },
+        "NotPhoenix": {
+            "visible":[
+                {
+                    "operator": "entitled",
+                    "expression": "!assess|detect|respond"
+                }
+            ]
+        },
+        "DetectOrRespond": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "detect|respond"
+                }
+            ]
+        },
+        "Respond": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "respond"
+                }
+            ]
+        },
+        "RespondOrWaf": {
+           "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "respond|managed_waf"
+                }
+            ]
+        },
+        "LogManagerMessages": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "cloud_defender|log_manager|web_security_manager|web_application_manager|web_application_firewall&!detect|respond"
+                }
+            ]
+        },
+        "Remediations": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "cloud_insight|cloud_defender|assess|detect|respond"
+                }
+            ]
+        },
+        "Exposures": {
+            "visible": [
+                {
+                    "operator": "entitled",
+                    "expression": "assess|detect|respond|lmpro|tmpro"
+                }
+            ]
+        }
+    },
+    "user": {
+        "descriptor": "User Menu",
+        "structure": [
+            {
+                "caption": "Support Information",
+                "target": {
+                    "site": "cd17:accounts",
+                    "path": "/#/support/home"
+                },
+                "properties": {
+                    "iconClass": "material-icons",
+                    "iconText": "live_help"
+                },
+                "matches": "/#/support/.*",
+                "children": [
+                    {
+                        "caption": "Details",
+                        "target": {
+                            "site": "cd17:accounts",
+                            "path": "/#/support/home"
+                        },
+                        "matches": "/#/support/home/.*"
+                    },
+                    {
+                        "caption": "Install Guides & Downloads",
+                        "target": {
+                            "site": "cd17:accounts",
+                            "path": "/#/support/install-and-downloads/tm"
+                        },
+                        "children": "install-and-downloads.sidenav",
+                        "matches": [ "/#/support/install-and-downloads/.*" ],
+                        "import": "AnyDefender"
+                    },
+                    {
+                        "caption": "Support Center",
+                        "target": {
+                            "site": "cd14:support",
+                            "path": "/hc/en-us"
+                        },
+                        "properties": {
+                            "iconClass": "material-icons",
+                            "iconText": "launch",
+                            "target": "_blank"
+                        }
+                    }
+                ],
+                "disabled": false
+            },
+            {
+                "caption": "Integrations",
+                "target": {
+                    "site": "cd17:accounts",
+                    "path": "/users/developer/index.html#/"
+                },
+                "matches": "/users/developer/index.html#/*",
+                "properties": {
+                    "iconClass": "al al-logo",
+                    "iconText": ""
+                }
+            },
+            {
+                "caption": "Users",
+                "target": {
+                    "site": "cd17:accounts",
+                    "path": "/#/aims/users"
+                },
+                "properties": {
+                    "iconClass": "material-icons",
+                    "iconText": "group"
+                }
+            },
+            {
+                "caption": "Notifications",
+                "target": {
+                    "site": "cd17:accounts",
+                    "path": "/#/notifications/subscriptions/incidents"
+                },
+                "properties": {
+                    "iconClass": "material-icons",
+                    "iconText": "announcement"
+                },
+                "matches": [ "/#/notifications.*" ],
+                "children": [
+                    {
+                        "caption": "My Subscriptions",
+                        "target": {
+                            "site": "cd17:accounts",
+                            "path": "/#/notifications/subscriptions/incidents"
+                        },
+                        "children": "notifications-subscriptions.sidenav",
+                        "visible": true
+                    },
+                    {
+                        "caption": "Manage Subscriptions of Others",
+                        "target": {
+                            "site": "cd17:accounts",
+                            "path": "/#/notifications/allsubscriptions/incidents"
+                        },
+                        "children": "notifications-allsubscriptions.sidenav",
+                        "visible": true
+                    }
+                ],
+                "visible": [
+                    {
+                        "operator": "entitled",
+                        "expression": "legacy:customer_facing_incidents|assess|respond|detect|phoenix_migrated"
+                    }
+                ]
+            },
+            {
+                "caption": "FINO",
+                "target": {
+                    "site": "cd14:ui",
+                    "path": "/fino.php"
+                },
+                "properties": {
+                    "iconClass": "material-icons",
+                    "iconText": "insert_drive_file",
+                    "target": "_blank"
+                },
+                "import": "AlertLogicInternal"
+            },
+            {
+                "caption": "Security Content Center",
+                "target": {
+                    "site": "cd14:ui",
+                    "path": "/scc.php"
+                },
+                "properties": {
+                    "iconClass": "material-icons",
+                    "iconText": "security",
+                    "target": "_blank"
+                },
+                "import": "ThreatManager"
+            },
+            {
+                "caption": "Scan Disputes",
+                "target": {
+                    "site": "cd14:ui",
+                    "path": "/scan-dispute/#/"
+                },
+                "properties": {
+                    "iconClass": "material-icons",
+                    "iconText": "forum",
+                    "target": "_blank"
+                },
+                "import": "ThreatManager"
+            },
+            {
+                "caption": "Service Status",
+                "target": {
+                   "url": "https://status.alertlogic.com"
+                },
+                "properties": {
+                   "iconClass": "material-icons",
+                   "iconText": "signal_wifi_4_bar",
+                   "target": "_blank"
+                }
+            },
+            {
+                "caption": "Vulnerability Library",
+                "target": {
+					"site": "cd17:landscape",
+					"path": "/#/vulnerabilities"
+				},
+                "properties": {
+                   "iconClass": "al al-vulnerability-library",
+                   "iconText": ""
+                }
+            },
+            {
+                "caption": "PCI Scanning",
+                "import": "Phoenix",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/pci/scanning/:accountId"
+                },
+                "properties": {
+                    "iconClass": "al al-pci",
+                    "iconText": ""
+                },
+                "matches": [ "/#/pci/scanning/.*" ],
+                "children": [
+                    {
+                        "id": "cd17:config:pci-scanning",
+                        "caption": "PCI Scanning for Resource",
+                        "target": {
+                            "site": "cd17:config",
+                            "path": "/#/pci/scanning/:accountId/:resourceKey"
+                        },
+                        "bubble": true,
+                        "visible": false
+                    }
+                ]
+            },
+            {
+                "caption": "Legacy Scan Results",
+                "import": "MigratedPhoenix",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/pci/legacy-scanning/:accountId"
+                },
+                "properties": {
+                    "iconClass": "al al-scan",
+                    "iconText": ""
+                },
+                "matches": [ "/#/pci/legacy-scanning/.*" ],
+                "children": [
+                    {
+                        "id": "cd17:config:legacy-pci-scanning",
+                        "caption": "PCI Scanning for Resource",
+                        "target": {
+                            "site": "cd17:config",
+                            "path": "/#/pci/scanning/:accountId/:resourceKey"
+                        },
+                        "bubble": true,
+                        "visible": false
+                    }
+                ]
+            },
+            {
+                "caption": "PCI Scan Disputes",
+                "target": {
+                    "site": "cd14:ui",
+                    "path": "/scan-dispute/#/"
+                },
+                "properties": {
+                    "iconClass": "material-icons",
+                    "iconText": "forum",
+                    "target": "_blank"
+                },
+                "import": "Phoenix"
+            },
+            {
+                "id": "user:signout",
+                "caption": "Sign Out",
+                "action": {
+                    "type": "trigger",
+                    "hook": "Navigation.User.Signout"
+                },
+                "properties": {
+                    "css_class": "atTheEnd",
+                    "iconClass": "material-icons",
+                    "iconText": "reply"
+                }
+            }
+        ]
+    },
+    "initials": {
+        "descriptor": "Initials Menu",
+        "structure": [
+            {
+                "caption": "Sign Out",
+                "action": {
+                    "type": "trigger",
+                    "hook": "Navigation.User.Signout"
+                },
+                "properties": {
+                    "iconClass": "material-icons",
+                    "iconText": "reply"
+                }
+            }
+        ]
+    },
+    "main": {
+        "description": "Top Navigation",
+        "structure": [
+            {
+                "id": "cd17:overview",
+                "caption": "Overview",
+                "target": {
+                    "site": "cd17:overview",
+                    "path": "/#/"
+                },
+                "matches": [ "/#/.*", "/topology/index.html#/.*" ],
+                "children": [
+                    {
+                        "id": "cd17:overview:dashboards",
+                        "caption": "Dashboards",
+                        "import":"NotPhoenix",
+                        "target": {
+                            "site": "cd17:overview",
+                            "path": "/#/remediations-scan-status/:accountId"
+                        },
+                        "matches": [ "/#/remediations-scan-status.*" ],
+                        "children": "overview.sidenav"
+                    },
+                    {
+                        "id": "cd17:overview:security",
+                        "caption": "Security Posture",
+                        "import": "Phoenix",
+                        "target": {
+                            "site": "cd17:overview",
+                            "path": "/#/security-postures/:accountId"
+                        },
+                        "matches": [ "/#/security-postures/.*" ]
+                    },
+                    {
+                        "id": "cd17:topology",
+                        "caption": "Topology",
+                        "import": "CloudInsight",
+                        "target": {
+                            "site": "cd17:overview",
+                            "path": "/topology/index.html#/:accountId"
+                        },
+                        "matches": [ "/topology/index.html#/.*" ],
+                        "children": [
+                            {
+                                "caption": "Topology for specific accountId/deploymentId",
+                                "visible": false,
+                                "target": {
+                                    "site": "cd17:overview",
+                                    "path": "/topology/index.html#/:accountId/:deploymentId"
+                                },
+                                "bubble": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": "cd17:topology-phoenix",
+                        "caption": "Topology",
+                        "import": "Phoenix",
+                        "target": {
+                            "site": "cd17:overview",
+                            "path": "/#/topology/:accountId"
+                        },
+                        "matches": ["/#/topology/.*"]
+                    },
+                    {
+                        "id": "cd17:topology-phoenix:deployment",
+                        "caption": "Topology for specific accountId/deploymentId",
+                        "visible": false,
+                        "target": {
+                            "site": "cd17:overview",
+                            "path": "/#/topology/:accountId/:deploymentId"
+                        }
+                    },
+                    {
+                        "id": "cd17:topology-phoenix:deployment:asset",
+                        "caption": "Topology for specific accountId/deploymentId",
+                        "visible": false,
+                        "target": {
+                            "site": "cd17:overview",
+                            "path": "/#/topology/:accountId/:deploymentId/asset/:assetType/:assetKey"
+                        }
+                    },
+                    {
+                        "caption": "Tutorial",
+                        "import": "Phoenix",
+                        "matches": "/#/tutorial.*",
+                        "properties": {
+                            "css_class": "atTheEnd"
+                        },
+                        "action": {
+                            "type": "trigger",
+                            "hook": "Navigation.Open.Tutorial"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "cd17:incidents",
+                "caption": "Incidents",
+                "target": {
+                    "site": "cd17:incidents",
+                    "path": "/#/"
+                },
+                "matches": ["/#/monitor/.*", "/#/summary/.*", "/#/incidents/.*", "/#/tutorial.*"],
+                "import": "Incidents",
+                "children": [
+                    {
+                        "id": "cd17:incidents:list",
+                        "caption": "List",
+                        "target": {
+                            "site": "cd17:incidents",
+                            "path": "/#/monitor/:accountId"
+                        },
+                        "matches": [
+                            "/#/monitor/.*"
+                        ],
+                        "visible": [
+                            {
+                                "operator": "entitled",
+                                "expression": "threat_manager|log_manager|cloud_defender&!legacy:customer_facing_incidents"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "cd17:incidents:summary",
+                        "caption": "Summary",
+                        "target": {
+                            "site": "cd17:incidents",
+                            "path": "/#/summary/:accountId"
+                        },
+                        "matches": [
+                            "/#/summary/.*"
+                        ],
+                        "visible": [
+                            {
+                                "operator": "entitled",
+                                "expression": "cloud_insight&!web_application_firewall|web_security_manager|cloud_defender|threat_manager|log_manager|legacy:customer_facing_incidents"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "cd17:incidents:summaryV2",
+                        "caption": "Summary",
+                        "target": {
+                            "site": "cd17:incidents",
+                            "path": "/#/summary/:accountId"
+                        },
+                        "matches": [
+                            "/#/summary/.*"
+                        ],
+                        "visible": [
+                            {
+                                "operator": "entitled",
+                                "expression": "legacy:customer_facing_incidents|respond|detect"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "cd17:incidents:guardduty",
+                        "caption": "Guardduty",
+                        "target": {
+                            "site": "cd17:incidents",
+                            "path": "/#/incidents/:accountId/open"
+                        },
+                        "matches": [
+                            "/#/incidents/.*"
+                        ],
+                        "visible": [
+                            {
+                                "operator": "entitled",
+                                "expression": "cloud_insight|cloud_defender&web_application_firewall|web_security_manager|cloud_defender|threat_manager|log_manager&!legacy:customer_facing_incidents"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "cd17:incidents:guarddutyV2",
+                        "caption": "List",
+                        "target": {
+                            "site": "cd17:incidents",
+                            "path": "/#/incidents/:accountId/open"
+                        },
+                        "matches": [
+                            "/#/incidents/.*"
+                        ],
+                        "visible": [
+                            {
+                                "operator": "entitled",
+                                "expression": "legacy:customer_facing_incidents|respond|detect"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "cd17:incidents:guarddutyCIOnly",
+                        "caption": "List",
+                        "target": {
+                            "site": "cd17:incidents",
+                            "path": "/#/incidents/:accountId/open"
+                        },
+                        "matches": [
+                            "/#/incidents/.*"
+                        ],
+                        "visible": [
+                            {
+                                "operator": "entitled",
+                                "expression": "cloud_insight&!web_application_firewall|web_security_manager|cloud_defender|threat_manager|log_manager|legacy:customer_facing_incidents"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "cd17:incidents:notifications",
+                        "caption": "Notifications",
+                        "action": {
+                            "type": "trigger",
+                            "hook": "Incidents.Notifications.Panel"
+                        },
+                        "visible": [
+                            {
+                                "operator": "entitled",
+                                "expression": "legacy:customer_facing_incidents|respond|detect"
+                            }
+                        ]
+                    },
+                    {
+                        "caption": "Tutorial",
+                        "matches": "/#/tutorial.*",
+                        "properties": {
+                            "css_class": "atTheEnd"
+                        },
+                        "action": {
+                            "type": "trigger",
+                            "hook": "Navigation.Open.Tutorial"
+                        },
+                        "import": "Incidents"
+                    },
+                    {
+                        "id": "cd17:incidents:investigation_view_by_id",
+                        "caption": "Retrieves the UI url for a specific incident.",
+                        "target": {
+                            "site": "cd17:incidents",
+                            "path": "/#/incidents/:accountId/:incidentId/investigation"
+                        },
+                        "visible": false
+                    }
+                ]
+            },
+            {
+                "id": "cd17:exposures",
+                "caption": "exposures",
+                "target": {
+                    "site": "cd17:exposures",
+                    "path": "/#/"
+                },
+                "matches": ["/#/summary/.*"],
+                "import": "Exposures",
+                "children": [
+                    {
+                        "id": "cd17:exposures:summary",
+                        "caption": "Summary",
+                        "target": {
+                            "site": "cd17:exposures",
+                            "path": "/#/summary/:accountId"
+                        },
+                        "matches": [
+                            "/#/summary/.*"
+                        ],
+                        "import": "Exposures"
+                    },
+                    {
+                        "id": "cd17:exposures:exposures-open",
+                        "caption": "List",
+                        "target": {
+                            "site": "cd17:exposures",
+                            "path": "/#/exposures/open/:accountId"
+                        },
+                        "matches": [
+                            "/#/exposures|remediations/.*"
+                        ],
+                        "import": "Exposures"
+                    },
+                    {
+                        "id": "cd17:exposures:exposures-disposed",
+                        "caption": "List",
+                        "target": {
+                            "site": "cd17:exposures",
+                            "path": "/#/exposures/disposed/:accountId"
+                        },
+                        "visible": false
+                    },
+                    {
+                        "id": "cd17:exposures:exposures-concluded",
+                        "caption": "List",
+                        "target": {
+                            "site": "cd17:exposures",
+                            "path": "/#/exposures/concluded/:accountId"
+                        },
+                        "visible": false
+                    },
+                    {
+                        "id": "cd17:exposures:remediations-open",
+                        "caption": "List",
+                        "target": {
+                            "site": "cd17:exposures",
+                            "path": "/#/remediations/open/:accountId"
+                        },
+                        "visible": false
+                    },
+                    {
+                        "id": "cd17:exposures:remediations-disposed",
+                        "caption": "List",
+                        "target": {
+                            "site": "cd17:exposures",
+                            "path": "/#/remediations/disposed/:accountId"
+                        },
+                        "visible": false
+                    },
+                    {
+                        "id": "cd17:exposures:remediations-concluded",
+                        "caption": "List",
+                        "target": {
+                            "site": "cd17:exposures",
+                            "path": "/#/remediations/concluded/:accountId"
+                        },
+                        "visible": false
+                    },
+                    {
+                        "id": "cd17:exposures:remediation-details",
+                        "caption": "Details",
+                        "target": {
+                            "site": "cd17:exposures",
+                            "path": "/#/remediations/:accountId/:remediationId"
+                        },
+                        "visible": false
+                    },
+                    {
+                        "id": "cd17:exposures:exposure-details",
+                        "caption": "Details",
+                        "target": {
+                            "site": "cd17:exposures",
+                            "path": "/#/exposures/:accountId/:exposureId"
+                        },
+                        "visible": false
+                    },
+                    {
+                        "id": "cd17:exposures:tutorial",
+                        "caption": "Tutorial",
+                        "action": {
+                            "type": "trigger",
+                            "hook": "Navigation.Open.Tutorial"
+                        },
+                        "properties": {
+                            "css_class": "atTheEnd"
+                        },
+                        "import": "Exposures"
+                    }
+                ]
+            },
+            {
+                "id": "cd17:remediations",
+                "caption": "Remediations",
+                "target": {
+                    "site": "cd17:remediations",
+                    "path": "/#/summary/:accountId"
+                },
+                "children": [
+                    {
+                        "id": "cd17:remediations:summary",
+                        "caption": "Summary",
+                        "target": {
+                            "site": "cd17:remediations",
+                            "path": "/#/summary/:accountId"
+                        },
+                        "matches": "/#/summary/.*",
+                        "import": "Remediations"
+                    },
+                    {
+                        "id": "cd17:remediations:list",
+                        "caption": "List",
+                        "target": {
+                            "site": "cd17:remediations",
+                            "path": "/#/remediations/:accountId"
+                        },
+                        "matches": "/#/remediations|myplan|disposed|completed/.*",
+                        "import": "Remediations"
+                    },
+                    {
+                        "caption": "Tutorial",
+                        "action": {
+                            "type": "trigger",
+                            "hook": "Navigation.Open.Tutorial"
+                        },
+                        "properties": {
+                            "css_class": "atTheEnd"
+                        },
+                        "import": "Remediations"
+                    },
+                    {
+                        "id": "cd17:remediations:remediationsByDeployment",
+                        "caption": "Remediations By Deployment",
+                        "target": {
+                            "site": "cd17:remediations",
+                            "path": "/#/remediations/:accountId/:deploymentId"
+                        },
+                        "visible": false
+                    },
+                    {
+                        "id": "cd17:remediations:remediationsByFilter",
+                        "caption": "Remediations By Saved Filter",
+                        "target": {
+                            "site": "cd17:remediations",
+                            "path": "/#/remediations/:accountId/:deploymentId/filter/:filterId"
+                        },
+                        "visible": false
+                    },
+                    {
+                        "id": "cd17:remediations:remediationsByAsset",
+                        "caption": "Remediations By Asset",
+                        "target": {
+                            "site": "cd17:remediations",
+                            "path": "/#/remediations/:accountId/:deploymentId/asset/:assetType/:assetKey"
+                        },
+                        "visible": false
+                    }
+                ],
+                "import": "Remediations"
+            },
+            {
+                "id": "cd17:search",
+                "caption": "Search",
+                "target": {
+                    "site": "cd17:search",
+                    "path": "/#/"
+                },
+                "matches": "/#/.*",
+                "children": [
+                    {
+                        "id": "cd17:search:log-messages",
+                        "caption": "Log Messages",
+                        "target": {
+                            "site": "cd17:search",
+                            "path": "/#/log-messages/:accountId"
+                        },
+                        "matches": [
+                            "/#/log-messages/.*"
+                        ],
+                        "import": "LogManagerMessages"
+                    },
+                    {
+                        "id": "cd17:search:search",
+                        "caption": "Log Search",
+                        "target": {
+                            "site": "cd17:search",
+                            "path": "/#/search/:accountId"
+                        },
+                        "matches": [
+                            "/#/search/.*"
+                        ],
+                        "import": "Phoenix"
+                    },
+                    {
+                        "id": "cd17:search:search-beta",
+                        "caption": "Log Search BETA",
+                        "target": {
+                            "site": "cd17:search",
+                            "path": "/#/search/:accountId"
+                        },
+                        "matches": [
+                            "/#/search/.*"
+                        ],
+                        "import": "LogManagerMessages"
+                    },
+                    {
+                        "id": "cd17:search:events",
+                        "caption": "Events",
+                        "target": {
+                            "site": "cd17:search",
+                            "path": "/#/events/:accountId"
+                        },
+                        "matches": [
+                            "/#/(events|signature)/.*"
+                        ],
+                        "import": "ThreatManagerDetectResponse"
+                    },
+                    {
+                        "id": "cd17:search:blocks",
+                        "caption": "Blocks",
+                        "target": {
+                            "site": "cd17:search",
+                            "path": "/#/blocks/:accountId"
+                        },
+                        "matches": [
+                            "/#/blocks/.*"
+                        ],
+                        "import": "ThreatManager"
+                    },
+                    {
+                        "id": "cd17:search:cases",
+                        "caption": "Cases",
+                        "target": {
+                            "site": "cd17:search",
+                            "path": "/#/cases/:accountId"
+                        },
+                        "matches": [
+                            "/#/(cases|activeResult)/.*"
+                        ],
+                        "import": "AnythingButCloudInsightOrDetectResponse"
+                    },
+                    {
+                        "id": "cd17:search:deny-logs",
+                        "caption": "Deny Logs",
+                        "target": {
+                            "site": "cd17:search",
+                            "path": "/#/deny-logs/:accountId"
+                        },
+                        "matches": [
+                            "/#/deny-logs/.*"
+                        ],
+                        "import": "WSMDenyLogs"
+                    },
+                    {
+                        "caption": "Tutorial",
+                        "properties": {
+                            "css_class": "atTheEnd"
+                        },
+                        "action": {
+                            "type": "trigger",
+                            "hook": "Navigation.Open.Tutorial"
+                        },
+                        "comment": "This tutorial should *only* show up on the search route and its children; the visibility rule below hides it for other routes.",
+                        "visible": [
+                            {
+                                "operator": "path_matches",
+                                "expression": "/#/search.*"
+                            }
+                        ]
+                    }
+                ],
+                "import": "AnythingButCloudInsight"
+            },
+            {
+                "caption": "Endpoint Protection",
+                "visible": [
+                    {
+                        "operator": "entitled",
+                        "expression": "endpoints_enabled"
+                    }
+                ],
+                "target": {
+                    "site": "cd19:endpoints",
+                    "path": "/#/"
+                },
+                "matches": [ "/#/.*" ],
+                "children": [
+                    {
+                        "caption": "Summary",
+                        "target": {
+                            "site": "cd19:endpoints",
+                            "path": "/#/dashboard/:accountId"
+                        },
+                        "matches": [ "/#/dashboard.*" ],
+                        "bubble": true
+                    },
+                    {
+                        "caption": "Events",
+                        "target": {
+                            "site": "cd19:endpoints",
+                            "path": "/#/incidents/:accountId"
+                        },
+                        "matches": [ "/#/incidents.*" ]
+                    },
+                    {
+                        "caption": "Endpoints",
+                        "target": {
+                            "site": "cd19:endpoints",
+                            "path": "/#/endpoints/:accountId"
+                        },
+                        "matches": [ "/#/endpoints.*" ]
+                    },
+                    {
+                        "caption": "Overrides",
+                        "target": {
+                            "site": "cd19:endpoints",
+                            "path": "/#/settings/overrides"
+                        }
+                    },
+                    {
+                        "id": "cd19:endpoints:notifications",
+                        "caption": "Notifications",
+                        "action": {
+                            "type": "trigger",
+                            "hook": "Endpoints.Notifications.Panel"
+                        }
+
+                    },
+                    {
+                        "id": "cd19:endpoints:options",
+                        "caption": "Options",
+                        "action": {
+                            "type": "trigger",
+                            "hook": "Endpoints.Options.Panel"
+                        }
+
+                    }
+                ]
+            },
+            {
+                "id": "cd17:intelligence",
+                "caption": "Reports",
+                "import": "Anything",
+                "target": {
+                    "site": "cd17:intelligence",
+                    "path": "/#/"
+                },
+                "matches": [ "/#/.*" ],
+                "children": [
+                    {
+                        "id": "cd17:intelligence:listRisk",
+                        "caption": "Risk",
+                        "import": "Phoenix",
+                        "target": {
+                            "site": "cd17:intelligence",
+                            "path": "/#/dashboard/:accountId/Risk"
+                        },
+                        "matches": [ "/#/dashboard/.*/Risk/.*" ]
+                    },
+                    {
+                        "id": "cd17:intelligence:listThreats",
+                        "caption": "Threats",
+                        "target": {
+                            "site": "cd17:intelligence",
+                            "path": "/#/dashboard/:accountId/Threats"
+                        },
+                        "matches": [ "/#/dashboard/.*/Threats/.*" ],
+                        "visible": [
+                            {
+                                "operator": "entitled",
+                                "expression": "detect|respond|cloud_insight|threat_manager|log_manager|web_security_manager|cloud_defender"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "cd17:intelligence:listVulnerabilities",
+                        "caption": "Vulnerabilities",
+                        "target": {
+                            "site": "cd17:intelligence",
+                            "path": "/#/dashboard/:accountId/Vulnerability"
+                        },
+                        "matches": [ "/#/dashboard/.*/Vulnerability/.*" ],
+                        "visible": [
+                            {
+                                "operator": "entitled",
+                                "expression": "assess|detect|respond|cloud_insight|cloud_defender"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "cd17:intelligence:listRemediations",
+                        "caption": "Remediations",
+                        "target": {
+                            "site": "cd17:intelligence",
+                            "path": "/#/dashboard/:accountId/Remediations"
+                        },
+                        "matches": [ "/#/dashboard/.*/Remediations/.*" ],
+                        "visible": [
+                            {
+                                "operator": "entitled",
+                                "expression": "assess|detect|respond|cloud_insight|cloud_defender"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "cd17:intelligence:listCompliance",
+                        "caption": "Compliance",
+                        "target": {
+                            "site": "cd17:intelligence",
+                            "path": "/#/dashboard/:accountId/Compliance"
+                        },
+                        "matches": [ "/#/dashboard/.*/Compliance/.*" ],
+                        "visible": [
+                            {
+                                "operator": "entitled",
+                                "expression": "assess|detect|respond|cloud_insight|log_manager|log_review|web_application_firewall|web_security_manager|cloud_defender"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "cd17:intelligence:listService",
+                        "caption": "Service",
+                        "target": {
+                            "site": "cd17:intelligence",
+                            "path": "/#/dashboard/:accountId/Service"
+                        },
+                        "matches": [ "/#/dashboard/.*/Service/.*" ],
+                        "visible": [
+                            {
+                                "operator": "entitled",
+                                "expression": "assess|detect|respond|cloud_insight|threat_manager|log_manager|log_review|web_security_manager|cloud_defender"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "cd17:intelligence:legacyReports",
+                        "caption": "Scheduled",
+                        "target": {
+                            "site": "cd17:intelligence",
+                            "path": "/#/legacy-reports/dashboard/:accountId"
+                        },
+                        "matches": [ "/#/legacy-reports/.*" ],
+                        "visible": [
+                            {
+                                "operator": "entitled",
+                                "expression": "log_manager|threat_manager|web_security_manager|cloud_defender|phoenix_migrated"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "cd17:intelligence:legacyUsage",
+                        "caption": "Usage",
+                        "import": "Usage",
+                        "children": "legacy-usage.sidenav",
+                        "target": {
+                            "site": "cd17:intelligence",
+                            "path": "/#/legacy-usage/:accountId"
+                        },
+                        "matches": [ "/#/legacy-usage/*" ]
+                    },
+                    {
+                        "id": "cd17:intelligence:legacyWAF",
+                        "caption": "WAF",
+                        "import": "WAFOrManagedWAF",
+                        "children": "reports-waf.sidenav",
+                        "target": {
+                            "site": "cd17:intelligence",
+                            "path": "/#/legacy-waf/activity/:accountId"
+                        },
+                        "matches": [ "/#/legacy-waf/activity/:accountId.*" ]
+                    }
+                ]
+            },
+            {
+                "id": "cd17:config-phoenix",
+                "caption": "Configuration",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/deployments-adr/:accountId"
+                },
+                "import": "Phoenix",
+                "matches": [ "/#/deployments-adr/.*" ],
+                "children": [
+                    {
+                        "id": "cd17:phoenix:deployments",
+                        "caption": "Deployments",
+                        "import": "Phoenix",
+                        "target": {
+                            "site": "cd17:config",
+                            "path": "/#/deployments-adr/:accountId"
+                        },
+                        "matches": [ "/#/deployments-adr/.*" ]
+                    },
+                    {
+                        "caption": "Deployments edition",
+                        "target": {
+                            "site": "cd17:config",
+                            "path": "/#/deployments-adr/aws/:accountId/:deploymentId"
+                        },
+                        "visible": false
+                    },
+                    {
+                        "caption": "Deployments edition",
+                        "target": {
+                            "site": "cd17:config",
+                            "path": "/#/deployments-adr/azure/:accountId/:deploymentId"
+                        },
+                        "visible": false
+                    },
+                    {
+                        "caption": "Deployments edition",
+                        "target": {
+                            "site": "cd17:config",
+                            "path": "/#/deployments-adr/datacenter/:accountId/:deploymentId"
+                        },
+                        "visible": false
+                    },
+                    {
+                        "caption": "Log Management",
+                        "import": "DetectOrRespond",
+                        "children": "phoenix-log-management.sidenav",
+                        "target": {
+                            "site": "cd17:config",
+                            "path": "/#/log-management/policies-adr/flat-file/:accountId"
+                        },
+                        "matches": [ "/#/log-management/policies-adr/flat-file/.*" ]
+                    },
+                    {
+                        "caption": "Certificates and Keys",
+                        "import": "DetectOrRespond",
+                        "target": {
+                            "site": "cd17:config",
+                            "path": "/#/certificates-adr/:accountId"
+                        },
+                        "matches": [ "/#/certificates-adr/.*" ]
+                    },
+                    {
+                        "caption": "Tutorial",
+                        "matches": "/#/tutorial.*",
+                        "properties": {
+                            "css_class": "atTheEnd"
+                        },
+                        "action": {
+                            "type": "trigger",
+                            "hook": "Navigation.Open.PhoenixTutorial"
+                        }
+                    },
+                    {
+                        "caption": "WAF",
+                        "import": "RespondOrWaf",
+                        "children": "waf-adr.sidenav",
+                        "target": {
+                            "site": "cd17:config",
+                            "path": "/#/waf/websites-adr/:accountId"
+                        },
+                        "matches": [ "/#/waf/websites-adr/.*" ]
+                    }
+                ]
+            },
+            {
+                "id": "cd17:config",
+                "caption": "Configuration",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/deployments/:accountId"
+                },
+                "matches": [ "/#/deployments/.*" ],
+                "import": "NotPhoenix",
+                "children": [
+                    {
+                        "id": "cd17:config:deployments",
+                        "caption": "Deployments",
+                        "import": "AnythingButWAF",
+                        "target": {
+                            "site": "cd17:config",
+                            "path": "/#/deployments/:accountId"
+                        },
+                        "matches": [ "/#/deployments/.*" ]
+                    },
+                    {
+                        "caption": "Deployments edition",
+                        "target": {
+                            "site": "cd17:config",
+                            "path": "/#/deployments/aws/:accountId/:deploymentId"
+                        },
+                        "visible": false
+                    },
+                    {
+                        "caption": "Network IDS",
+                        "import": "ThreatManager",
+                        "children": "network-ids.sidenav",
+                        "target": {
+                            "site": "cd17:config",
+                            "path": "/#/network-ids/policies/protected-hosts/:accountId"
+                        },
+                        "matches": [ "/#/network-ids/policies/protected-hosts/.*" ]
+                    },
+                    {
+                        "caption": "Log Management",
+                        "import": "LogManager",
+                        "children": "log-management.sidenav",
+                        "target": {
+                            "site": "cd17:config",
+                            "path": "/#/log-management/policies/correlation/:accountId"
+                        },
+                        "matches": [ "/#/log-management/policies/correlation/.*" ]
+                    },
+                    {
+                        "caption": "WAF",
+                        "import": "WAF",
+                        "children": "waf.sidenav",
+                        "target": {
+                            "site": "cd17:config",
+                            "path": "/#/waf/websites/:accountId"
+                        },
+                        "matches": [ "/#/waf/websites/.*" ]
+                    },
+                    {
+                        "caption": "Web App IDS",
+                        "import": "WAFOOB",
+                        "target": {
+                            "site": "cd17:config",
+                            "path": "/#/web-app-ids/appliances/:accountId"
+                        },
+                        "matches": [ "/#/web-app-ids/appliances/.*" ]
+                    },
+                    {
+                        "caption": "Notifications",
+                        "children": "notifications.sidenav",
+                        "import": "AnyDefender",
+                        "target": {
+                            "site": "cd17:config",
+                            "path": "/#/notifications/policies/:accountId"
+                        },
+                        "matches": [ "/#/notifications/policies/.*" ]
+                    },
+                    {
+                        "caption": "Tutorial",
+                        "matches": "/#/tutorial.*",
+                        "properties": {
+                            "css_class": "atTheEnd"
+                        },
+                        "action": {
+                            "type": "trigger",
+                            "hook": "Navigation.Open.Tutorial"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "cd17:health",
+                "caption": "Health",
+                "target": {
+                    "site": "cd17:health",
+                    "path": "/#/"
+                },
+                "matches": ["/#/summary/.*"],
+                "import": "Phoenix",
+                "children": [
+                    {
+                        "id": "cd17:health:summary",
+                        "caption": "Summary",
+                        "target": {
+                            "site": "cd17:health",
+                            "path": "/#/summary/:accountId"
+                        },
+                        "matches": [
+                            "/#/summary/.*"
+                        ],
+                        "import": "Phoenix"
+                    },
+                    {
+                        "id": "cd17:health:networks",
+                        "caption": "Networks",
+                        "target": {
+                            "site": "cd17:health",
+                            "path": "/#/networks/:accountId"
+                        },
+                        "matches": [
+                            "/#/networks/.*"
+                        ],
+                        "import": "Phoenix"
+                    },
+                    {
+                        "id": "cd17:health:appliances",
+                        "caption": "Appliances and Agents",
+                        "target": {
+                            "site": "cd17:health",
+                            "path": "/#/appliances/:accountId"
+                        },
+                        "matches": [
+                            "/#/appliances/.*", "/#/agents/.*", "/#/hosts/.*"
+                        ],
+                        "import": "Phoenix"
+                    },
+                    {
+                        "id": "cd17:health:notifications",
+                        "caption": "Notifications",
+                        "target": {
+                            "site": "cd17:health",
+                            "path": "/#/notifications/:accountId"
+                        },
+                        "matches": [
+                            "/#/notifications/.*"
+                        ],
+                        "import": "Phoenix"
+                    }
+                ]
+            }
+        ]
+    },
+    "waf.sidenav" : {
+        "description": "Sidenav Menu For configuration/waf",
+        "structure": [
+            {
+                "id": "cd17:waf:websites",
+                "caption": "Websites",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/waf/websites/:accountId"
+                },
+                "matches": [ "/#/waf/websites/.*" ]
+            },
+            {
+                "id": "cd17:waf:appliances",
+                "caption": "Appliances",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/waf/appliances/:accountId"
+                },
+                "matches": [ "/#/waf/appliances/.*" ]
+            },
+            {
+                "id": "cd17:waf:certificates",
+                "caption": "Certificates",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/waf/certificates/:accountId"
+                },
+                "matches": [ "/#/waf/certificates/.*" ]
+            }
+        ]
+    },
+    "waf-adr.sidenav" : {
+        "description": "Sidenav Menu For ADR configuration/waf",
+        "structure": [
+            {
+                "id": "cd17:waf:websites",
+                "caption": "Websites",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/waf/websites-adr/:accountId"
+                },
+                "matches": [ "/#/waf/websites-adr/.*" ]
+            },
+            {
+                "id": "cd17:waf:appliances",
+                "caption": "Appliances",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/waf/appliances-adr/:accountId"
+                },
+                "matches": [ "/#/waf/appliances-adr/.*" ]
+            },
+            {
+                "id": "cd17:waf:certificates",
+                "caption": "Certificates",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/waf/certificates-adr/:accountId"
+                },
+                "matches": [ "/#/waf/certificates-adr/.*" ]
+            }
+        ]
+    },
+    "notifications.sidenav" : {
+        "description": "Sidenav Menu For configuration/notifications",
+        "structure": [
+            {
+                "id": "cd17:notifications:policies",
+                "caption": "Policies",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/notifications/policies/:accountId"
+                },
+                "matches": [ "/#/notifications/webspoliciesites/.*" ]
+            },
+            {
+                "id": "cd17:notifications:contactsandgroups",
+                "caption": "Contacts & Groups",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/notifications/contacts-and-groups/:accountId"
+                },
+                "matches": [ "/#/notifications/contacts-and-groups/.*" ]
+            },
+            {
+                "id": "cd17:notifications:webhooks",
+                "caption": "WebHooks",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/notifications/webhooks/:accountId"
+                },
+                "matches": [ "/#/notifications/webhooks/.*" ]
+            },
+            {
+                "id": "cd17:notifications:history",
+                "caption": "History",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/notifications/history/:accountId"
+                },
+                "matches": [ "/#/notifications/history/.*" ]
+            },
+            {
+                "id": "cd17:notifications:options",
+                "caption": "Options",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/notifications/options/:accountId"
+                },
+                "matches": [ "/#/notifications/options/.*" ]
+            },
+            {
+                "id": "cd17:notifications:incidents",
+                "caption": "Incidents",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/notifications/incidents/:accountId"
+                },
+                "matches": [ "/#/notifications/incidents/.*" ]
+            },
+            {
+                "id": "cd17:notifications:events",
+                "caption": "Events",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/notifications/events/:accountId"
+                },
+                "matches": [ "/#/notifications/events/.*" ]
+            },
+            {
+                "id": "cd17:notifications:cases",
+                "caption": "Cases",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/notifications/cases/:accountId"
+                },
+                "matches": [ "/#/notifications/cases/.*" ]
+            },
+            {
+                "id": "cd17:notifications:defenses",
+                "caption": "Defenses",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/notifications/defenses/:accountId"
+                },
+                "matches": [ "/#/notifications/defenses/.*" ]
+            }
+        ]
+    },
+    "phoenix-log-management.sidenav" : {
+        "description": "Sidenav Menu For configuration/log-management",
+        "structure": [
+            {
+                "id": "cd17:log-management:policies-adr",
+                "caption": "Policies",
+                "children": "phoenix-log-management.policies.tabs",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/log-management/policies-adr/flat-file/:accountId"
+                },
+                "matches": [ "/#/log-management/policies-adr/flat-file/.*" ]
+            },
+            {
+                "id": "cd17:log-management:credentials-adr",
+                "caption": "Credentials",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/log-management/credentials-adr/:accountId"
+                },
+                "matches": [ "/#/log-management/credentials-adr/.*" ]
+            }
+        ]
+    },
+    "phoenix-log-management.policies.tabs" : {
+        "description": "Tabs For configuration/log-management/policies-adr",
+        "structure": [
+            {
+                "id": "cd17:phoenix-log-management:policies:flat-file",
+                "caption": "Flat File",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/log-management/policies-adr/flat-file/:accountId"
+                },
+                "matches": [ "/#/log-management/policies-adr/flat-file/.*" ]
+            },
+            {
+                "id": "cd17:phoenix-log-management:policies:syslog",
+                "caption": "Syslog",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/log-management/policies-adr/syslog/:accountId"
+                },
+                "matches": [ "/#/log-management/policies-adr/syslog/.*" ]
+            },
+            {
+                "id": "cd17:phoenix-log-management:policies:window-event-log",
+                "caption": "Windows Event Log",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/log-management/policies-adr/window-event-log/:accountId"
+                },
+                "matches": [ "/#/log-management/policies-adr/window-event-log/.*" ]
+            },
+            {
+                "id": "cd17:phoenix-log-management:policies:s3",
+                "caption": "S3",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/log-management/policies-adr/s3/:accountId"
+                },
+                "matches": [ "/#/log-management/policies-adr/s3/.*" ]
+            }
+        ]
+    },
+    "network-ids.sidenav" : {
+        "description": "Sidenav Menu For configuration/network-ids",
+        "structure": [
+            {
+                "id": "cd17:network-ids:policies",
+                "caption": "Policies",
+                "children": "network-ids.policies.tabs",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/network-ids/policies/protected-hosts/:accountId"
+                },
+                "matches": [ "/#/network-ids/policies/protected-hosts/.*" ]
+            },
+            {
+                "id": "cd17:network-ids:certificates",
+                "caption": "Certificates and Keys",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/network-ids/certificates/:accountId"
+                },
+                "matches": [ "/#/network-ids/certificates/.*" ]
+            },
+            {
+                "id": "cd17:network-ids:alertrules",
+                "caption": "Alert Rules",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/network-ids/alertrules/collection/:accountId"
+                },
+                "matches": [ "/#/network-ids/alertrules/collection/.*" ]
+            },
+            {
+                "id": "cd17:network-ids:blocking-configuration",
+                "caption": "Blocking Configuration",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/network-ids/blocking-configuration/:accountId"
+                },
+                "matches": [ "/#/network-ids/blocking-configuration/.*" ]
+            },
+            {
+                "caption": "Browse Devices",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/network-ids/legacy/devices/:accountId"
+                },
+                "import": "ThreatManager",
+                "matches": [ "/#/network-ids/legacy/devices/.*" ]
+            },
+            {
+                "caption": "Manage Sensors",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/network-ids/legacy/appliances/:accountId"
+                },
+                "import": "LegacyManagement",
+                "matches": [ "/#/network-ids/legacy/appliances/.*" ]
+            }
+        ]
+    },
+    "network-ids.policies.tabs" : {
+        "description": "Tabs For configuration/network-ids/policies",
+        "structure": [
+            {
+                "id": "cd17:network-ids:policies:protected-hosts",
+                "caption": "Protected Hosts",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/network-ids/policies/protected-hosts/:accountId"
+                },
+                "matches": [ "/#/network-ids/policies/protected-hosts/.*" ]
+            },
+            {
+                "id": "cd17:network-ids:policies:assignment",
+                "caption": "Assignment",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/network-ids/policies/assignment/:accountId"
+                },
+                "matches": [ "/#/network-ids/policies/assignment/.*" ]
+            },
+            {
+                "id": "cd17:network-ids:policies:whitelist",
+                "caption": "Whitelist",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/network-ids/policies/whitelist/:accountId"
+                },
+                "matches": [ "/#/network-ids/policies/whitelist/.*" ]
+            },
+            {
+                "id": "cd17:network-ids:policies:monitoring",
+                "caption": "Monitoring",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/network-ids/policies/monitoring/:accountId"
+                },
+                "matches": [ "/#/network-ids/policies/monitoring/.*" ]
+            },
+            {
+                "id": "cd17:network-ids:policies:updates",
+                "caption": "Updates",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/network-ids/policies/updates/:accountId"
+                },
+                "matches": [ "/#/network-ids/policies/updates/.*" ]
+            }
+        ]
+    },
+    "log-management.sidenav" : {
+        "description": "Sidenav Menu For configuration/log-management",
+        "structure": [
+            {
+                "id": "cd17:log-management:policies",
+                "caption": "Policies",
+                "children": "log-management.policies.tabs",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/log-management/policies/correlation/:accountId"
+                },
+                "matches": [ "/#/log-management/policies/correlation/.*" ]
+            },
+            {
+                "id": "cd17:log-management:credentials",
+                "caption": "Credentials",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/log-management/credentials/:accountId"
+                },
+                "matches": [ "/#/log-management/credentials/.*" ]
+            },
+            {
+                "id": "cd17:log-management:schedules",
+                "caption": "Schedules",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/log-management/schedules/:accountId"
+                },
+                "matches": [ "/#/log-management/schedules/.*" ]
+            },
+            {
+                "id": "cd17:log-management:alertrules:collection",
+                "caption": "Alert Rules",
+                "children": "log-management.alertrules.tabs",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/log-management/alertrules/collection/:accountId"
+                },
+                "matches": [ "/#/log-management/alertrules/collection/.*" ]
+            }
+        ]
+    },
+    "log-management.policies.tabs" : {
+        "description": "Tabs For configuration/log-management/policies",
+        "structure": [
+            {
+                "id": "cd17:log-management:policies:correlation",
+                "caption": "Correlation",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/log-management/policies/correlation/:accountId"
+                },
+                "matches": [ "/#/log-management/policies/correlation/.*" ]
+            },
+            {
+                "id": "cd17:log-management:policies:flat-file",
+                "caption": "Flat File",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/log-management/policies/flat-file/:accountId"
+                },
+                "matches": [ "/#/log-management/policies/flat-file/.*" ]
+            },
+            {
+                "id": "cd17:log-management:policies:syslog",
+                "caption": "Syslog",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/log-management/policies/syslog/:accountId"
+                },
+                "matches": [ "/#/log-management/policies/syslog/.*" ]
+            },
+            {
+                "id": "cd17:log-management:policies:window-event-log",
+                "caption": "Windows Event Log",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/log-management/policies/window-event-log/:accountId"
+                },
+                "matches": [ "/#/log-management/policies/window-event-log/.*" ]
+            },
+            {
+                "id": "cd17:log-management:policies:s3",
+                "caption": "S3",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/log-management/policies/s3/:accountId"
+                },
+                "matches": [ "/#/log-management/policies/s3/.*" ]
+            },
+            {
+                "id": "cd17:log-management:policies:updates",
+                "caption": "Updates",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/log-management/policies/updates/:accountId"
+                },
+                "matches": [ "/#/log-management/policies/updates/.*" ]
+            }
+        ]
+    },
+    "log-management.alertrules.tabs" : {
+        "description": "Tabs For configuration/log-management/alertrules",
+        "structure": [
+            {
+                "id": "cd17:log-management:policies:alertrules:collection",
+                "caption": "Collection",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/log-management/alertrules/collection/:accountId"
+                },
+                "matches": [ "/#/log-management/alertrules/collection/.*" ]
+            },
+            {
+                "id": "cd17:log-management:alertrules:correlation",
+                "caption": "Correlation",
+                "target": {
+                    "site": "cd17:config",
+                    "path": "/#/log-management/alertrules/correlation/:accountId"
+                },
+                "matches": [ "/#/log-management/alertrules/correlation/.*" ]
+            }
+        ]
+    },
+    "examples.sidenav" : {
+        "description": "Sidenav Menu describing how tabs work.",
+        "structure": [
+            {
+                "caption": "Example 1",
+                "target": { "site": "cd17:config", "path": "/#/example/page1/tab1" },
+                "children": [
+                    {
+                        "caption": "Tab 1",
+                        "target": { "site": "cd17:config", "path": "/#/example/page1/tab1" }
+                    },
+                    {
+                        "caption": "Tab 2",
+                        "target": { "site": "cd17:config", "path": "/#/example/page1/tab2" }
+                    },
+                    {
+                        "caption": "Tab 3",
+                        "target": { "site": "cd17:config", "path": "/#/example/page1/tab3" }
+                    }
+                ]
+            },
+            {
+                "caption": "Example 2",
+                "target": { "site": "cd17:config", "path": "/#/example/page2/tab1" },
+                "children": [
+                    {
+                        "caption": "Tab 1",
+                        "target": { "site": "cd17:config", "path": "/#/example/page2/tab1" }
+                    },
+                    {
+                        "caption": "Tab 2",
+                        "target": { "site": "cd17:config", "path": "/#/example/page2/tab2" }
+                    },
+                    {
+                        "caption": "Tab 3",
+                        "target": { "site": "cd17:config", "path": "/#/example/page2/tab3" }
+                    }
+                ]
+            }
+        ]
+    },
+    "overview.sidenav" : {
+        "description": "Sidenav Menu For Overview/Dashboards",
+        "structure": [
+            {
+                "id": "cd17:incidents:overview:summary",
+                "caption": "Incidents",
+                "target": {
+                    "site": "cd17:incidents",
+                    "path": "/#/overview/summary/:accountId"
+                },
+                "matches": [ "/#/overview/summary/.*" ],
+                "import": "CloudInsightOnly"
+            },
+            {
+                "id": "cd17:overview:remediationsScanStatus",
+                "caption": "Remediations & Continuous Scan",
+                "target": {
+                    "site": "cd17:overview",
+                    "path": "/#/remediations-scan-status/:accountId"
+                },
+                "matches": [ "/#/remediations-scan-status/.*" ],
+                "import": "CloudInsight"
+            },
+            {
+                "id": "cd17:overview:networksIDS",
+                "caption": "Network IDS",
+                "target": {
+                    "site": "cd17:overview",
+                    "path": "/#/network-ids/:accountId"
+                },
+                "matches": [ "/#/network-ids/.*" ],
+                "import": "ThreatManager"
+            },
+            {
+                "id": "cd17:overview:logManagement",
+                "caption": "Log Management",
+                "target": {
+                    "site": "cd17:overview",
+                    "path": "/#/log-management/:accountId"
+                },
+                "matches": [ "/#/log-management/.*" ],
+                "import": "LogManager"
+            },
+            {
+                "id": "cd17:overview:waf",
+                "caption": "WAF",
+                "target": {
+                    "site": "cd17:overview",
+                    "path": "/#/waf/:accountId"
+                },
+                "matches": [ "/#/waf/.*" ],
+                "import": "WAF"
+            },
+            {
+                "id": "cd17:overview:webSecurity",
+                "caption": "Web App IDS",
+                "target": {
+                    "site": "cd17:overview",
+                    "path": "/#/web-app-ids/:accountId"
+                },
+                "matches": [ "/#/web-app-ids/.*" ],
+                "import": "WAFOOB"
+            },
+            {
+                "id": "cd17:config:exposures",
+                "caption": "Scans",
+                "target": {
+                    "site": "cd17:overview",
+                    "path": "/#/exposures/scans/:accountId"
+                },
+                "matches": [ "/#/exposures/scans/.*" ],
+                "import": "ThreatManager"
+            }
+        ]
+    },
+    "legacy-usage.sidenav": {
+        "description": "Sidenav Menu For Reports/legacyUsage",
+        "structure": [
+            {
+                "id": "cd17:intelligence:legacyUsage:networksIDS",
+                "caption": "Networks IDS",
+                "import": "ThreatManager",
+                "target": {
+                    "site": "cd17:intelligence",
+                    "path": "/#/legacy-usage/network-ids/:accountId"
+                },
+                "matches": [ "/#/legacy-usage/network-ids/.*" ]
+            },
+            {
+                "id": "cd17:intelligence:legacyUsage:logManagement",
+                "caption": "Log Management",
+                "import": "LogManager",
+                "target": {
+                    "site": "cd17:intelligence",
+                    "path": "/#/legacy-usage/log-management/:accountId"
+                },
+                "matches": [ "/#/legacy-usage/log-management/.*" ]
+            }
+        ]
+    },
+    "reports-waf.sidenav": {
+        "description": "Sidenav Menu For Reports/WAF",
+        "structure": [
+            {
+                "id": "cd17:intelligence:legacyWAF:activity",
+                "caption": "Activity",
+                "target": {
+                    "site": "cd17:intelligence",
+                    "path": "/#/legacy-waf/activity/:accountId"
+                },
+                "matches": [ "/#/legacy-waf/activity/.*" ]
+            },
+            {
+                "id": "cd17:intelligence:legacyWAF:policy",
+                "caption": "Policy",
+                "target": {
+                    "site": "cd17:intelligence",
+                    "path": "/#/legacy-waf/policy/:accountId"
+                },
+                "matches": [ "/#/legacy-waf/policy/.*" ]
+            }
+        ]
+    },
+    "notifications-subscriptions.sidenav": {
+        "description": "Sidenav Menu for Notifications",
+        "structure": [
+                        {
+                            "caption": "Incidents",
+                            "target": {
+                                "site": "cd17:accounts",
+                                "path": "/#/notifications/subscriptions/incidents"
+                            }
+                        },
+                        {
+                            "id": "cd17:accounts:subs-remediations",
+                            "caption": "Remediations",
+                            "target": {
+                                "site": "cd17:accounts",
+                                "path": "/#/notifications/subscriptions/remediations"
+                            }
+                        },
+                        {
+                            "id": "cd17:accounts:subscriptions-health",
+                            "caption": "Health",
+                            "target": {
+                                "site": "cd17:accounts",
+                                "path": "/#/notifications/subscriptions/health"
+                            },
+                            "visible": [
+                                {
+                                    "operator": "entitled",
+                                    "expression": "assess|detect|respond|phoenix_migrated"
+                                }
+                            ]
+                        }
+                ]
+    },
+    "notifications-allsubscriptions.sidenav": {
+        "description": "Sidenav Menu for Notifications",
+        "structure": [
+                        {
+                            "caption": "Incidents",
+                            "target": {
+                                "site": "cd17:accounts",
+                                "path": "/#/notifications/allsubscriptions/incidents"
+                            }
+                        },
+                        {
+                            "id": "cd17:accounts:all-subs-remediations",
+                            "caption": "Remediations",
+                            "target": {
+                                "site": "cd17:accounts",
+                                "path": "/#/notifications/allsubscriptions/remediations"
+                            }
+                        },
+                        {
+                            "id": "cd17:accounts:all-subs-health",
+                            "caption": "Health",
+                            "target": {
+                                "site": "cd17:accounts",
+                                "path": "/#/notifications/allsubscriptions/health"
+                            },
+                            "visible": [
+                                {
+                                    "operator": "entitled",
+                                    "expression": "assess|detect|respond|phoenix_migrated"
+                                }
+                            ]
+                        }
+                ]
+    },
+    "install-and-downloads.sidenav": {
+        "description": "Sidenav Menu for Install Guides & Downloads in Accounts Support Information",
+        "structure": [
+                        {
+                            "caption": "Network IDS",
+                            "import": "ThreatManager",
+                            "target": {
+                                "site": "cd17:accounts",
+                                "path": "/#/support/install-and-downloads/tm"
+                            }
+                        },
+                        {
+                            "caption": "Log Management",
+                            "import": "LogManager",
+                            "target": {
+                                "site": "cd17:accounts",
+                                "path": "/#/support/install-and-downloads/lm"
+                            }
+                        }
+                ]
+    }
+}

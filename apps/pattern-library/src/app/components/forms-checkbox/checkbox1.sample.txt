@@ -1,0 +1,7 @@
+<div class="p-grid p-nogutter">
+    <div class="p-col-12 form-row">
+        <p-checkbox name="groupname" value="val1" [(ngModel)]="selectedValues"></p-checkbox>
+    </div>
+</div>
+
+*** Use .p-grid and .p-nogutter for correct spacing.

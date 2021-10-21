@@ -1,0 +1,74 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.selector-container {
+    fieldset {
+        position: relative;
+        margin: 0;
+        padding: 18px 0 0 0;
+        border: 0;
+        legend {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 200px;
+            font-size: 12px;
+            color: al-color($al-gray, 300);
+        }
+        label {
+            display: inline-block;
+            background-color: al-color($al-gray, 50);
+            padding: 10px 6px;
+            cursor: pointer;
+            font-size: 14px;
+            min-width: 25px;
+            text-align: center;
+        }
+        input[type="radio"] {
+            opacity: 0;
+            width: 0;
+            margin: 0;
+            margin-right: 2px;
+            &:checked + label {
+                color: white;
+                background-color: al-color($al-smokeBlue, 500);
+            }
+        }
+    }
+}
+
+:host-context(.darkMode) {
+    .selector-container {
+        fieldset {
+            legend {
+                color: al-color($al-gray, 50) ;
+            }
+            label {
+                background-color: al-color($al-gray, 400) ;
+                color: al-color($al-gray, 50) ;
+            }
+            input[type="radio"] {
+                &:checked + label {
+                    background-color: al-color($al-smokeBlue, 500) ;
+                }
+            }
+        }
+    }
+}
+:host-context(.blueMode) {
+    .selector-container {
+        fieldset {
+            legend {
+                color: al-color($al-gray, 50) ;
+            }
+             > label {
+                background-color: al-color($db-blue, 600) ;
+                color: al-color($al-gray, 50) ;
+            }
+            input[type="radio"] {
+                &:checked + label {
+                    background-color: al-color($al-smokeBlue, 500) ;
+                }
+            }
+        }
+    }
+}

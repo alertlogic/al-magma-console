@@ -1,0 +1,301 @@
+@import "@al/ng-generic-components/styles/utility";
+
+
+al-filter {
+    .p-accordion {
+        .p-accordion-header {
+            border-bottom: none ;
+            margin-top: 24px;
+            padding: 0px 12px;
+        }
+    }
+    .p-accordion-toggle-icon {
+        float: right;
+
+        &:before {
+            content: "";
+        }
+    }
+
+    .al-filter .p-toggleable-content .p-accordion-content {
+        padding-top: 0px;
+        padding-bottom: 12px;
+        padding-left: 12px;
+    }
+
+
+
+    .al-filter .p-accordion .p-accordion-header {
+        background-color: inherit;
+        a {
+            font-size: 14px;
+            color: al-color($al-gray, 700);
+            span.pi {
+                color: al-color($al-gray, 500);
+            }
+        }
+    }
+
+    .al-filter {
+        .p-accordion-header {
+            color: al-color($al-gray, 700);
+        }
+        .p-accordion-header:hover {
+            a {
+                color: al-color($al-gray, 700);
+            }
+        }
+        &.filter-accordian {
+            margin: 24px 0 12px 0;
+        }
+        li {
+            cursor: pointer;
+            span {
+                float: right;
+                padding-left: 3px;
+                word-break: normal;
+            }
+        }
+    }
+
+    .al-filter .p-accordion .p-accordion-header:not(.p-state-active):not(.p-state-disabled):hover a {
+        color: al-color($al-gray, 700);
+    }
+
+    .al-filter .p-accordion .p-accordion-header:not(.p-state-active):not(.p-state-disabled):hover {
+        background-color: transparent;
+    }
+
+    .al-filter .p-accordion .p-accordion-header.p-state-active {
+        background-color: inherit;
+        a {
+            font-size: 14px;
+            color: al-color($al-gray, 700);
+            span.pi {
+                color: al-color($al-gray, 500);
+            }
+        }
+    }
+
+    .al-filter .accordion {
+
+        &.show-more {
+            .p-accordion-content {
+                padding: 0;
+                margin: 0;
+                border-bottom: none;
+            }
+        }
+        .p-accordion {
+            .p-accordion-header {
+                border-bottom: none;
+                margin-top: 0px;
+                padding: 6px 0 12px 0;
+            }
+        }
+        .scrollable {
+            overflow-y: scroll;
+            margin-top: 3px;
+        }
+    }
+
+    li{
+        display: flex;
+    }
+
+    .filter-option {
+        margin-bottom: 3px;
+        padding-left: 3px;
+    }
+
+    .search-bar {
+        margin-bottom: 3px;
+
+        .p-inputtext {
+            padding-left: 0;
+        }
+    }
+
+    .filter-option-popover {
+        margin-left: 0px;
+        margin-bottom: 3px;
+    }
+
+    .highlight-filter {
+    }
+
+    .al-filter .p-toggleable-content .p-accordion-content li {
+        color: al-color($al-gray, 700);
+        font-size: 14px;
+        justify-content: space-between;
+        word-break: break-word;
+        display: flex;
+        padding: 3px 3px 3px 0;
+
+        &.symbolic {
+            border-left: none;
+            margin-left: 12px;
+        }
+
+        &.critical {
+            border-left: 2px solid al-color($al-red, 600);
+            padding-left: 6px;
+        }
+
+        &.high {
+            border-left: 2px solid al-color($al-orange, 500);
+            padding-left: 6px;
+        }
+
+        &.medium {
+            border-left: 2px solid al-color($al-yellow, 500);
+            padding-left: 6px;
+        }
+
+        &.low {
+            border-left: 2px solid al-color($al-gray, 300);
+            padding-left: 6px;
+        }
+
+        &.info {
+            border-left: 2px solid al-color($al-gray, 300);
+            padding-left: 6px;
+        }
+
+    }
+
+    .check-icon {
+        font-size: 24px;
+        text-align: left;
+        width: 30px;
+        color: al-color($al-smokeBlue, 500);
+        cursor: pointer;
+
+        &.p-icon-check-box-outline-blank {
+            color: al-color($al-gray, 300);
+        }
+    }
+
+    .al-h-bold li:not(.al-bold) {
+        display: none;
+    }
+    .al-bold {
+        font-weight: bold;
+        display: block;
+    }
+    .show {
+        display: block;
+    }
+
+    .hide {
+        /* opacity: 0.3; */
+        /* text-decoration: line-through; */
+        display: none;
+    }
+
+    .al-filter-clear {
+        margin-top: 24px;
+        border-bottom: 1px solid al-color($al-gray, 100);
+        padding: 0px 12px 12px 12px;
+        cursor: pointer;
+        span {
+            font-size: 14px;
+            color: al-color($al-gray, 700);
+        }
+        i {
+            font-size: 1.3em;
+            float: right;
+            margin: 3px 6px;
+            color: al-color($al-gray, 500);
+            font-weight: 800;
+        }
+    }
+    .al-filter-search {
+        padding-top: 24px;
+    }
+    .al-filter-search > input {
+        width: 100%;
+        padding: 4px 12px;
+    }
+
+    i.pi.pi-search.mx {
+        font-size: 18px;
+        position: relative;
+        margin: 7px -39px;
+        color: al-color($al-gray, 500);
+    }
+
+    .custom-modal-title {
+        margin: 12px;
+        line-height: 14px;
+        font-size: 2em;
+    }
+
+    .popover .scrollable {
+        max-height: 340px;
+        /* trying clip an item at the end so that scrolling is discoverable */
+        overflow-y: scroll;
+        width: 300px;
+        margin-top: 3px;
+    }
+
+    .active {
+        display: block;
+    }
+    .deactive:not(.al-bold) {
+        display: none;
+    }
+
+    .show-help-text {
+        padding-top: 24px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid al-color($al-gray, 100);
+        .description {
+            padding-right: 24px;
+            padding-left: 36px;
+        }
+    }
+
+    .subtitle {
+        font-size: .8em;
+        margin: 6px 0;
+        color: al-color($al-gray, 200);
+    }
+}
+
+$smallfontSize: 12px;
+
+@media only screen and (max-width: 1024px) {
+    al-filter {
+        font-size: $smallfontSize;
+
+        .al-filter .p-accordion .p-accordion-header {
+            a {
+                font-size: $smallfontSize;
+            }
+        }
+
+        .al-filter .p-accordion .p-accordion-header.p-state-active {
+
+            a {
+                font-size: $smallfontSize;
+            }
+        }
+
+        .al-filter .p-toggleable-content .p-accordion-content li {
+            font-size: $smallfontSize;
+        }
+
+        .al-filter-clear {
+            span {
+                font-size: $smallfontSize;
+            }
+        }
+
+        .check-icon {
+            font-size: 22px;
+        }
+
+    }
+}
+

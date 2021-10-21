@@ -1,0 +1,94 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.authentication-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    &.overlay {
+        display: flex;
+    }
+}
+
+::ng-deep .p-sidebar.al-sidenav {
+  top:unset;
+  padding: 0; //blerghh
+  // TOD - below could be in a mixin??
+  -webkit-box-shadow: 5.5px 0px 5px 0px rgba(0,0,0,0.24);
+  -moz-box-shadow: 5.5px 0px 5px 0px rgba(0,0,0,0.24);
+  box-shadow: 5.5px 0px 5px 0px rgba(0,0,0,0.24);
+  width: 248px;
+}
+
+.sidenav-container {
+
+  height: 100%;
+  font-size: 14px;
+  color: al-color($al-gray, 700);
+  .sidenav-header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      height: 60px;
+      border-bottom: 1px solid al-color($al-gray, 700);
+      padding-left: 24px;
+  }
+
+  .sidenav-items {
+      .menu-item-parent {
+          display: flex;
+          align-items: center;
+          margin: 12px 24px 12px 60px;
+
+          &:hover {
+            color: al-color($al-gray, 700);
+            cursor: pointer;
+        }
+
+          &.active {
+              font-weight: bold;
+          }
+
+          > span {
+              margin-left: 12px;
+          }
+      }
+
+      .menu-item-children-container {
+          margin-left: 24px;
+          margin-right: 24px;
+
+          .menu-item-child{
+              margin-left: 46px;
+              border-left: 3px solid al-color($al-gray, 50);
+              height: 36px;
+              display: flex;
+              align-items: center;
+              &:hover {
+                color: al-color($al-gray, 700);
+                border-left: 3px solid al-color($al-gray, 500);
+                cursor: pointer;
+              }
+              > span {
+                  margin-left: 24px;
+              }
+          }
+      }
+  }
+}
+
+:host {
+    .navigation-frame-container {
+        .nav-container {
+            position: fixed;
+            width: 100%;
+            z-index: 2;
+        }
+        .mainContent {
+            padding-top: 100px;
+        }
+    }
+}

@@ -1,0 +1,28 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.al-loading-spinner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: block;
+    text-align: center;
+
+    .al-spinner {
+        @keyframes ui-progress-spinner-color {
+            100%,
+            0% {
+                stroke: al-color($al-amber, 500);
+            }
+            40% {
+                stroke: al-color($al-amber, 500);
+            }
+            66% {
+                stroke: al-color($al-amber, 500);
+            }
+            80%,
+            90% {
+                stroke: al-color($al-amber, 500);
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+<div class="cursor-pointer relative">
+
+    <div (click)="optionsVisible = !optionsVisible">
+        <label>{{ label }}</label>
+        <div  class="flex justify-between shadow-inner-bottom-gray-100">
+            <div>
+                <span *ngFor="let item of inputModel; last as isLast" class="inline">
+                    <i *ngIf="item.data" class="mr-1 text-base" [ngClass]="item.data.icon.iconClass ? item.data.icon.iconClass : 'material-icons'">{{ item.data.icon.icon }}</i>
+                    {{ !isLast ? item.label + ',' : item.label }}
+                </span>
+                <span *ngIf="!inputModel">{{ default }}</span>
+            </div>
+
+            <i class="material-icons">arrow_drop_down</i>
+        </div>
+    </div>
+
+
+    <div [hidden]="!optionsVisible" class="relative">
+        <div class="origin-top-left left-0 right-0 z-50 bg-white border border-gray-100 rounded-sm shadow-sm absolute">
+
+            <div *ngIf="search" class="px-1 mt-2">
+                <al2-input placeholder="search" icon="search"></al2-input>
+            </div>
+
+            <div class="">
+                <div class="divide-y divide-gray-100 my-1 overflow-scroll" style="max-height: 200px;">
+                    <div *ngFor="let item of options" class="py-1 px-2" [ngClass]="{'hover:bg-smokeblue-100 cursor-pointer': !item.items}">
+                        <al2-checkbox [label]="item.label" [checked]="item.selected" (onCheckedChange)="multiselectOption($event, item)"></al2-checkbox>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

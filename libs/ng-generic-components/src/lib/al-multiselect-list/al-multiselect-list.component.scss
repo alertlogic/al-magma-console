@@ -1,0 +1,128 @@
+@import "@al/ng-generic-components/styles/utility";
+
+:host ::ng-deep {
+
+    .p-multiselect-panel.p-widget{
+        .p-multiselect-header {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+
+            .p-multiselect-filter-container {
+                width: 100%;
+                .p-inputtext {
+                    color: al-color($al-gray, 500);
+                }
+            }
+            .p-multiselect-close{
+                span{
+                    color: al-color($al-gray, 500);
+                }
+                &:hover{
+                    background-color: al-color($al-gray, 50);
+                }
+            }
+        }
+    }
+
+    .p-multiselect-panel.p-widget.p-widget-content.p-corner-all.p-shadow{
+        box-shadow: none;
+    }
+
+    .p-multiselect-panel .p-multiselect-items-wrapper{
+        overflow-x: hidden;
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,0.3)
+    }
+
+    .p-widget-header .pi {
+        color: al-color($al-gray, 500);
+    }
+
+    .p-multiselect {
+        width: 100%;
+
+        .p-multiselect-label-container .p-multiselect-label{
+            color: al-color($al-gray, 200);
+        }
+
+        .p-widget-header{
+            color: al-color($al-gray, 500);
+            background: #fff;
+            border: none;
+            border-bottom: 2px solid al-color($al-smokeBlue, 500);
+        }
+    }
+
+    .p-multiselect-item span {
+        vertical-align: inherit;
+    }
+
+    .p-multiselect-panel {
+        width: 100%;
+        top: -5px;
+
+        .p-multiselect-item {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .p-multiselect-filter-container{
+        .p-inputtext {
+            padding-left: 0px;
+        }
+    }
+
+    .p-inputtext {
+        background-image: none;
+        background-size: 0 0px, 100% 0px;
+    }
+
+    .p-chips-token {
+        padding: 0 30px 0 12px;
+        color: al-color($al-gray, 500);
+    }
+
+    .option-container-details {
+        display:inline-flex;
+        margin-left: 3px;
+        vertical-align: middle;
+        width: 100%;
+    }
+
+    .option-container {
+        width: 98%;
+        display:inline-flex;
+        margin-left: 3px;
+    }
+
+    .option-inner-container {
+        width: 100%;
+        display:table;
+    }
+    .option-inner-container-inline{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        .option-label{
+            margin-right: 5px;
+            width: auto;
+        }
+    }
+    .option-label {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 99%;
+    }
+
+    .option-details {
+        display:table-row;
+        text-overflow: ellipsis;
+    }
+
+    .font-size-material-icons {
+        font-size: 14px;
+    }
+}

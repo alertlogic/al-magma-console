@@ -1,0 +1,147 @@
+<p-progressBar *ngIf="restoring" mode="indeterminate" [style]="{'height': '6px'}" ></p-progressBar>
+<div class="grid grid-nogutter nested-grid remediation-detail">
+    <div class="card col-fixed al-side-filter">
+        <al-left-panel-detail *ngIf="firstLoadFinished" [descriptor]="leftPanelDescriptor" [remediationItem]="remediationItem" [accountId]="accountId" [state]="pageState" ></al-left-panel-detail>
+        <al-filter *ngIf="filters && cardStackFiltersConfig" [filters]="filters"
+            [alFilterConfig]="cardStackFiltersConfig" (onClick)="setActiveFilter($event)"
+            (onClearAllFilters)="clearAllFilters()">
+        </al-filter>
+    </div>
+    <div class="col content" *ngIf="firstLoadFinished">
+        <al-detail-header [titles]="titles" [actions]="actions">
+        </al-detail-header>
+
+        <div class="grid grid-nogutter">
+            <div class="col-12">
+                <h2>Recommendation</h2>
+            </div>
+            <div class="col-12 description-content">
+                <div class="description-item">
+                   <ng-container *ngIf="pageState ==='open'">See the individual exposures listed below to view specific remediation steps.</ng-container>
+                   <ng-container *ngIf="pageState !=='open'"> {{remediation?.description}}</ng-container>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-nogutter">
+            <div class="col-12">
+                <h2>Details</h2>
+            </div>
+
+        </div>
+         <al-view-helper [loading]="loadingData" [empty]="showZeroState" [notifyPanel]="true" #generalViewHelper>
+        <span zero-state-title i18n> No remediation details Were Found.</span>
+        <span zero-state-description i18n>Clear the applied filters to broaden your results.</span>
+        <i zero-state-icon class="material-icons">info</i>
+        </al-view-helper>
+        <div class="grid">
+            <div class="col-4">
+                <h4>Exposures
+                    <span class="counts">
+                    <strong *ngIf="exposuresListFiltered.length !== exposuresList.length ">
+                        {{exposuresListFiltered.length}} / </strong>{{exposuresList.length}}
+                    </span>
+                </h4>
+                <div *ngFor="let exposureItem of exposuresListFilteredSlice">
+                    <al-vulnerability-detail-card
+                        [expanded]="exposureSelected === exposureItem"
+                        [exposure]="exposureItem">
+                    </al-vulnerability-detail-card>
+                </div>
+                <button pButton type="button"
+                    class="primaryAction full-width"
+                    *ngIf="exposuresListFilteredSlice.length !== exposuresListFiltered.length"
+                    (click)="seeMoreExposures()"
+                    label="See More" >
+                </button>
+            </div>
+            <div class="col-4">
+                <div *ngIf="showAllFutureAssets">
+                    <ng-container *ngIf="pageState ==='open'" >
+                        <h4 class="allFutureAssetTitle">Affected Assets</h4>
+                        <al-asset-card [asset]="allFutureAssetItem"
+                            [checkable]="true"
+                            (onChangeChecked)="toggleAllFutureAssetCheck($event)">
+                        </al-asset-card>
+                    </ng-container>
+                    <ng-container *ngIf="pageState =='disposed' && !remediationItemAppliesToSpecificAssets">
+                        <h4>Affected Assets</h4>
+                        <al-asset-card [asset]="allFutureAssetItem"
+                            [checkable]="false"
+                            [expandable]="false">
+                        </al-asset-card>
+                    </ng-container>
+
+                </div>
+
+                <h4>
+                    <span *ngIf="pageState ==='open' || remediationItemAppliesToSpecificAssets" class="col-fixed allAffectedAssetCheckbox" style="width:35px" >
+                        <p-checkbox [(ngModel)]="state.selectAll" [binary]="true"
+                            (onChange)="selectAllValues()">
+                        </p-checkbox>
+                    </span>
+                    <ng-container *ngIf="!showAllFutureAssets">Affected Assets</ng-container>
+                    <ng-container *ngIf="showAllFutureAssets">Current Assets</ng-container>
+                    <span class="counts">
+                    <strong *ngIf="selectedAssetCount > 0">{{selectedAssetCount}} / </strong>
+                    {{affectedAssets.length}}
+                    </span>
+                </h4>
+                <div *ngFor="let assetItem of affectedAssetsFilteredSlice">
+                    <al-asset-card [asset]="assetItem"
+                        [expanded]="affectedAssetSelected === assetItem"
+                        (onExpand)="toggleAsset($event)"
+                        [checkable]="pageState ==='open' || remediationItemAppliesToSpecificAssets"
+                        [deploymentDictionary]="filtersUtilityService.assetsList"
+                        (onChangeChecked)="toggleAssetItemChecked($event)"
+                        >
+                    </al-asset-card>
+                </div>
+                <button pButton type="button"
+                    class="primaryAction full-width"
+                    *ngIf="affectedAssetsFilteredSlice.length !== affectedAssetsFiltered.length"
+                    (click)="seeMoreAssets()"
+                    label="See More" >
+                </button>
+            </div>
+            <div class="col-4">
+                <h4>Instance Evidence
+                    <span class="counts">
+                    <strong *ngIf="evidencesFiltered.length !== evidences.length ">
+                        {{evidencesFiltered.length}} / </strong>{{evidences.length}}
+                    </span>
+                </h4>
+                <div *ngFor="let evidenceItem of evidencesFilteredSlice">
+                    <al-evidence-detail-card [evidence]="evidenceItem"
+                    [expanded]="evidenceSelected === evidenceItem"
+                    (onExpand)="toggleEvidence($event)"></al-evidence-detail-card>
+                </div>
+                <button pButton type="button"
+                    class="primaryAction full-width"
+                    *ngIf="evidencesFilteredSlice.length !== evidencesFiltered.length"
+                    (click)="seeMoreEvidence()"
+                    label="See More" >
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<al-exposure-conclude #concludeAction
+    [page]="'remediations'"
+    [filter]="selectedAssetfilters"
+    [itemIds]="remediationIds"
+    [deploymentIds]="deploymentIds"
+    [accountId]="accountId"
+    (onConcludeSuccess)="onRemediationActionSuccess()"
+    [affectedAssetDetail]="affectedAssetDetail">
+</al-exposure-conclude>
+
+<al-exposure-dispose #disposeAction
+    [page]="'remediations'"
+    [filter]="selectedAssetfilters"
+    [itemIds]="remediationIds"
+    [deploymentIds]="deploymentIds"
+    [accountId]="accountId"
+    (onDisposeSuccess)="onRemediationActionSuccess()"
+    [affectedAssetDetail]="affectedAssetDetail">
+</al-exposure-dispose>

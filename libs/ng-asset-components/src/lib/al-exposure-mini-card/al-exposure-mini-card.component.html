@@ -1,0 +1,29 @@
+<div class="al-exposure-mini-card" [ngClass]="{'expanded': expanded,
+        'card-border':cardBorder
+     }" >
+    <div class="grid grid-nogutter body-title" [ngClass]="{'card-expandable': expandable ,
+    'card-background-color':cardBackground}"
+        [ngClass]="{'border-bottom': expanded,
+        'card-background-color':cardBackground}"
+        (click)="expandToggle($event)">
+        <div class="col-11">
+            <ng-content select=".card-expandable-header"></ng-content>
+        </div>
+        <div class="col-1 expandable-icon" *ngIf="expandable">
+            <ng-container *ngIf="!tooltip?.showTooltip">
+                <i *ngIf="!expanded" class="material-icons">keyboard_arrow_down</i>
+                <i *ngIf="expanded" class="material-icons">keyboard_arrow_up</i>
+            </ng-container>
+            <ng-container *ngIf="tooltip?.showTooltip">
+                <i class="material-icons" pTooltip="{{tooltip?.tooltipText}}" tooltipPosition="{{tooltip?.tooltipPosition ||  'right'}}"  tooltipStyleClass="tool-tip-width">info</i>
+            </ng-container>
+
+        </div>
+    </div>
+    <div class="border-bottom" *ngIf="expanded">
+        <ng-content select=".card-expandable-content"></ng-content>
+    </div>
+    <div>
+        <ng-content select=".card-expandable-bottom"></ng-content>
+    </div>
+</div>

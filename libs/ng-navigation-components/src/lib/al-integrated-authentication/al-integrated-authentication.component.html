@@ -1,0 +1,60 @@
+<div class="consolidated-authentication" *ngIf="state !== 'passive'">
+    <div *ngIf="state === 'signin'">
+        <div class="login-page">
+            <div class="header">
+                <div class="circle-logo"><i class="icon-logo al al-logo"></i></div>
+                <div class="title"><h2>Log In</h2></div>
+            </div>
+            <div class="form-div">
+                <al-view-helper [loading]="!formReady"></al-view-helper>
+                <form #loginForm="ngForm">
+                    <div class="grid form-group">
+                        <div class="p-field">
+                            <input type="text"
+                                pInputText
+                                class="input-text-field"
+                                [(ngModel)]="userName"
+                                autocomplete="username"
+                                name="email"
+                                pattern="^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+                                placeholder="Email address"
+                                required
+                                [alForceFocus]="true"
+                            />
+                        </div>
+                        <div class="p-field">
+                            <input [type]="showPassword ? 'text' : 'password'"
+                                pInputText
+                                (keydown)="onKeyDown($event)"
+                                [(ngModel)]="passPhrase"
+                                autocomplete="current-password"
+                                class="input-text-field"
+                                name="password"
+                                placeholder="Password"
+                                required
+                            />
+                            <div class="show-toggle"(click)="toggleShowPassword()">SHOW</div>
+                        </div>
+                        <div class="page-buttons">
+                            <button pButton class="primaryAction full-width-button" type="button" [disabled]="!loginForm.form.valid" (click)="executeAuthentication()" label="LOG IN"></button>
+                        </div>
+                        <div class="page-bottom">
+                            <a class='gray-text' href="#" (click)="goToForgotPassword($event)">
+                                <b>FORGOT YOUR PASSWORD?</b>
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="state === 'validate'">
+    </div>
+    <div *ngIf="state === 'signout'">
+    </div>
+    <div class="api-doc">
+        <a href="https://www.alertlogic.com/privacy-statement/" class="api-doc-link" target="_blank">Privacy Statement</a>
+        <a href="#" class="api-doc-link" (click)="onClickIntegrations($event)">Integrations</a>
+        <a href="https://status.alertlogic.com" class="api-doc-link" target="_blank">Service Status</a>
+    </div>
+</div>

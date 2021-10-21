@@ -1,0 +1,14 @@
+<div class="al-search-bar">
+    <div class="bar-content" [ngStyle]="{'width': width}">
+        <span class="ui-float-label">
+            <input #searchBar [id]="inputId" type="text" [placeholder]="showLabel?'':placeholder"
+                [formControl]="searchControl" (focusout)="onFocusOutEvent($event)" pInputText (keyup.enter)="executeSearch()">
+            <label *ngIf="showLabel" for="al-search-input">{{placeholder}}</label>
+            <i class="material-icons" [ngClass]="searchIcon" (click)="executeSearch()">search</i>
+        </span>
+        <div class="input-error"
+            *ngIf="invalidPattern">
+            {{invalidSearchPatternText}}
+        </div>
+    </div>
+</div>

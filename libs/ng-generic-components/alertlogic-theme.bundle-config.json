@@ -1,0 +1,13 @@
+{
+  "bundlerOptions": {
+      "entryFile": "./libs/ng-generic-components/src/styles/theme/index.scss",
+      "rootDir": "./libs/ng-generic-components/src/styles",
+      "outFile": "./dist/libs/ng-generic-components/styles/alertlogic-theme.scss",
+      "ignoreImports": [
+          "@al/ng-generic-components/styles/utility"
+      ],
+      "includePaths": [
+          ".aliases"
+      ]
+  }
+}

@@ -1,0 +1,98 @@
+<ng-template #reportCardCompact let-characteristics="characteristics"></ng-template>
+<ng-template #reportCardExpanded let-cardItem>
+    <!-- chore(kjn): $any -->
+    <al-base-card
+        [config]="configAlBaseCard"
+        [item]="cardItem"
+        [iconFunction]="iconCardFunction"
+        [footerFunction]="$any(functionFooterActions)"
+        [checked]="cardItem.checked"
+        (onChangeChecked)="changeSimpleSelection($event)"
+        (onFooterAction)="actionFooterEvent($event)"
+        (onExpand)="itemExpanded($any($event))">    <!-- chore(kjn): why is this $any cast required? -->
+        <ng-template alBaseCardBodyContent>
+            <al-saved-searches-content [item]="cardItem" (onEditSchedule)="onEditScheduleSavedSearch($event)"></al-saved-searches-content>
+        </ng-template>
+        <ng-template alBaseCardHeaderRight>
+            <div class="col-1">
+                <button
+                    type="button"
+                    icon="ui-icon-search"
+                    (click)="onSearchSavedSearch(cardItem)"
+                    class="cardBtn flat inline-card-btn"
+                    style="background-color: transparent;"
+                    label="SEARCH"
+                    pButton>
+                </button>
+            </div>
+            <div class="col-1" *ngIf="cardItem.properties?.schedulesTotal">
+                <div class="al-cardstack-icon" (click)="cardItem.expanded = true && configAlBaseCard.toggleable">
+                    <div class="ui-panel-title">{{ cardItem.properties?.schedulesTotal }} <i class="material-icons">date_range</i></div>
+                    <div class="al-cardstack-icon-label">SCHEDULE{{cardItem.properties?.schedulesTotal !== 1 ? 'S' : ''}}</div>
+                </div>
+            </div>
+        </ng-template>
+    </al-base-card>
+</ng-template>
+
+<al-view-helper [error]="viewError"></al-view-helper>
+
+<al-cardstack #alCardstack
+    [view]="savedSearchCardstack"
+    [cardExpanded]="reportCardExpanded"
+    (onCheckAll)="changeAllSelection($event)"
+    (onScrollDown)="changeAllSelection()">
+    <div class="zero-state">
+        <al-zero-state>
+            <i zero-state-icon class="material-icons">{{zeroStateConfig.icon}}</i>
+            <div zero-state-title>
+                No {{zeroStateConfig.entityNamePlural}} were found.
+            </div>
+        </al-zero-state>
+    </div>
+</al-cardstack>
+
+<p-confirmDialog #confirmDialog
+    [acceptButtonStyleClass]="'primaryAction'"
+    [style]="{'width':'500px'}">
+    <p-footer>
+        <button pButton
+        type="button"
+        [label]="confirmDialog.rejectLabel"
+        (click)="confirmDialog.reject()">
+    </button>
+    <button pButton
+        type="button"
+        class="primaryAction"
+        [label]="confirmDialog.acceptLabel"
+        (click)="confirmDialog.accept()">
+    </button>
+    </p-footer>
+</p-confirmDialog>
+
+<al-toast key="saved_searches"></al-toast>
+
+<al-action-snackbar
+    [text]="actionSnackbarText"
+    [visible]="actionSnackbarVisible"
+    [elements]="actionSnackbarButtons"
+    (onElementPressed)="actionSnackbarEvent($event)">
+</al-action-snackbar>
+
+<al-saved-searches-form
+    #savedSearchForm
+    [accountId]="accountId"
+    (goToSchedule)="goToSchedule($event)"
+    (onSuccess)="onCreateSavedSearchSuccess($event)"
+    (onError)="onCreateSavedSearchError($event)"
+    (onCancel)="onCreateSavedSearchCancel()">
+</al-saved-searches-form>
+
+<al-notification-report-schedule-form
+    #savedSearchScheduleForm
+    [accountId]="accountId"
+    [isFim]="false"
+    (onSuccess)="onCreateSavedSearchSuccess($event)"
+    (onError)="onCreateSavedSearchError($event)"
+    (onCancel)="onCreateSavedSearchCancel()">
+</al-notification-report-schedule-form>

@@ -1,0 +1,26 @@
+<div class="card card-w-title">
+    <h1>Login</h1>
+    <div class="card-content login-page">
+        <div>
+            <p>You are currently targeting the <strong> {{environment}} </strong> environment.</p>
+        </div>
+        <div *ngIf="authenticated">
+            <p>You are currently logged in as {{actingUser.name}} ({{actingUser.email}}).</p>
+            <p>You are currently acting as account <strong>{{actingAccount.id}} - {{actingAccount.name}}</strong>.</p>
+            <button type="button" pButton (click)="doLogOut()" label="Logout"
+                class="ui-button-danger primaryAction"></button>
+        </div>
+        <div *ngIf="!authenticated">
+            <p>Change targeted environment:</p>
+            <div>
+                <p-radioButton name="development" value="development" label="Development"
+                    [(ngModel)]="targetEnvironment"></p-radioButton>
+                <p-radioButton name="integration" value="integration" label="Integration"
+                    [(ngModel)]="targetEnvironment"></p-radioButton>
+                <p-radioButton name="production" value="production" label="Production" [(ngModel)]="targetEnvironment">
+                </p-radioButton>
+            </div>
+            <al-integrated-authentication></al-integrated-authentication>
+        </div>
+    </div>
+</div>

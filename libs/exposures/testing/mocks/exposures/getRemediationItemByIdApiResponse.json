@@ -1,0 +1,335 @@
+{
+    "summary": {
+        "severities": {
+            "medium": 0,
+            "low": 0,
+            "info": 0,
+            "high": 5,
+            "all": 5
+        }
+    },
+    "remediation-items": {
+        "rows": 1,
+        "assets": [
+            {
+                "vulnerability_id": "489a02c4d2022eb7c2550801df621be4",
+                "vulnerability": {
+                    "vulnerability_id": "489a02c4d2022eb7c2550801df621be4",
+                    "type": "vulnerability",
+                    "threat_score": 10.0,
+                    "severity": "high",
+                    "name": "Host Without Alert Logic Agent",
+                    "categories": [
+                        "configuration"
+                    ]
+                },
+                "vinstances_count": 5,
+                "user_id": "BE985D6B-CA20-416D-A7AD-86D86FBB96C9",
+                "type": "remediation-item",
+                "threatiness": 0.0,
+                "threat_level": 0,
+                "tags": {},
+                "state": "disposed",
+                "severities": {
+                    "medium": 0,
+                    "low": 0,
+                    "info": 0,
+                    "high": 5,
+                    "all": 5
+                },
+                "remediation": {
+                    "type": "remediation",
+                    "threatiness": 320.0,
+                    "threat_level": 0,
+                    "target_asset_type": "host",
+                    "tags": {},
+                    "remediation_id": "agent_install_agent",
+                    "name": "Alert Logic recommends that you add an Alert Logic agent to this host.",
+                    "key": "/al/134249236:9969EC98-F3DD-4040-86C5-6A9019E2F07E/remediation/agent_install_agent",
+                    "deployment_id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+                    "categories": [
+                        "configuration"
+                    ],
+                    "account_id": "134249236"
+                },
+                "reason": "acceptable_risk",
+                "modified_on": 1585692578410,
+                "key": "/al/134249236:9969EC98-F3DD-4040-86C5-6A9019E2F07E/remediation-item/9621A75A65716336FABC181FFCE706F5",
+                "item_id": "9621A75A65716336FABC181FFCE706F5",
+                "filters": [],
+                "exposures_count": 1,
+                "exposures": [
+                    {
+                        "vulnerability_id": "489a02c4d2022eb7c2550801df621be4",
+                        "vinstances_count": 5,
+                        "vinstances": [
+                            {
+                                "threatiness": 8.0,
+                                "target": {
+                                    "type": "host",
+                                    "threatiness": 8.0,
+                                    "threat_level": 3,
+                                    "tags": {
+                                        "mgr": "wesley-reynolds",
+                                        "base-stack-name": "global-integration",
+                                        "base-stack-id": "arn:aws:cloudformation:us-west-2:948063967832:stack/global-integration/034c4f60-b04a-11e6-ac7b-50d5ca789eae",
+                                        "aws:cloudformation:stack-name": "global-integration-cfnStackAIMSGlobal-1OFPP5DHQ8FUG",
+                                        "aws:cloudformation:stack-id": "arn:aws:cloudformation:us-west-2:948063967832:stack/global-integration-cfnStackAIMSGlobal-1OFPP5DHQ8FUG/964d6870-b04b-11e6-90ed-503aca41a035",
+                                        "aws:cloudformation:logical-id": "asgAIMSGlobalServer",
+                                        "aws:autoscaling:groupName": "global-integration-cfnStackAIMSGlobal-1OFPP5DHQ8FUG-asgAIMSGlobalServer-1MSK8698B3YRR",
+                                        "Name": "AIMSGlobal"
+                                    },
+                                    "public_ipv6_addresses": [],
+                                    "public_ipv4_addresses": [],
+                                    "public_ip_addresses": [],
+                                    "private_ipv6_addresses": [],
+                                    "private_ipv4_addresses": [
+                                        "10.246.0.164"
+                                    ],
+                                    "private_ip_addresses": [
+                                        "10.246.0.164"
+                                    ],
+                                    "private_ip_address": "10.246.0.164",
+                                    "private_dns_name": "ip-10-246-0-164.us-west-2.compute.internal",
+                                    "name": "AIMSGlobal",
+                                    "key": "/aws/us-west-2/host/i-0f45f6e8c826a8ade",
+                                    "ip_address": "",
+                                    "instance_name": "AIMSGlobal",
+                                    "instance_id": "i-0f45f6e8c826a8ade",
+                                    "dns_name": "",
+                                    "deployment_id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+                                    "alertlogic_appliance": false,
+                                    "account_id": "134249236"
+                                },
+                                "modified_on": 1585278582886,
+                                "key": "/aws/us-west-2/host/i-0f45f6e8c826a8ade/vulnerability/fbfd50aa180091eee78761c07d62f93f",
+                                "disposed": true,
+                                "details": "The host does not have an agent installed",
+                                "concluded": false,
+                                "categories": [
+                                    "configuration"
+                                ]
+                            },
+                            {
+                                "threatiness": 8.0,
+                                "target": {
+                                    "type": "host",
+                                    "threatiness": 8.0,
+                                    "threat_level": 3,
+                                    "tags": {
+                                        "mgr": "Michal-trybulec",
+                                        "base-stack-name": "global-integration",
+                                        "base-stack-id": "arn:aws:cloudformation:us-west-2:948063967832:stack/global-integration/034c4f60-b04a-11e6-ac7b-50d5ca789eae",
+                                        "aws:cloudformation:stack-name": "global-integration-cfnStackHostmeta-YJWRHPNO1DP4",
+                                        "aws:cloudformation:stack-id": "arn:aws:cloudformation:us-west-2:948063967832:stack/global-integration-cfnStackHostmeta-YJWRHPNO1DP4/07327c60-86e6-11e9-b4e4-06dcf5c4ac1e",
+                                        "aws:cloudformation:logical-id": "asgHostmetaServer",
+                                        "aws:autoscaling:groupName": "global-integration-cfnStackHostmeta-YJWRHPNO1DP4-asgHostmetaServer-T3V5PK6P3USQ",
+                                        "Name": "Hostmeta"
+                                    },
+                                    "public_ipv6_addresses": [],
+                                    "public_ipv4_addresses": [],
+                                    "public_ip_addresses": [],
+                                    "private_ipv6_addresses": [],
+                                    "private_ipv4_addresses": [
+                                        "10.246.0.156"
+                                    ],
+                                    "private_ip_addresses": [
+                                        "10.246.0.156"
+                                    ],
+                                    "private_ip_address": "10.246.0.156",
+                                    "private_dns_name": "ip-10-246-0-156.us-west-2.compute.internal",
+                                    "name": "Hostmeta",
+                                    "key": "/aws/us-west-2/host/i-0ebc1a19b784024e1",
+                                    "ip_address": "",
+                                    "instance_name": "Hostmeta",
+                                    "instance_id": "i-0ebc1a19b784024e1",
+                                    "dns_name": "",
+                                    "deployment_id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+                                    "alertlogic_appliance": false,
+                                    "account_id": "134249236"
+                                },
+                                "modified_on": 1585249470488,
+                                "key": "/aws/us-west-2/host/i-0ebc1a19b784024e1/vulnerability/fbfd50aa180091eee78761c07d62f93f",
+                                "disposed": true,
+                                "details": "The host does not have an agent installed",
+                                "concluded": false,
+                                "categories": [
+                                    "configuration"
+                                ]
+                            },
+                            {
+                                "threatiness": 8.0,
+                                "target": {
+                                    "type": "host",
+                                    "threatiness": 8.0,
+                                    "threat_level": 3,
+                                    "tags": {
+                                        "mgr": "sysops-manager",
+                                        "color": "blue",
+                                        "base-stack-name": "global-integration",
+                                        "base-stack-id": "arn:aws:cloudformation:us-west-2:948063967832:stack/global-integration/034c4f60-b04a-11e6-ac7b-50d5ca789eae",
+                                        "aws:cloudformation:stack-name": "global-integration-cfnStackRabbitMQ-JP01VPX41GI4",
+                                        "aws:cloudformation:stack-id": "arn:aws:cloudformation:us-west-2:948063967832:stack/global-integration-cfnStackRabbitMQ-JP01VPX41GI4/42fcd340-b04b-11e6-9bac-503acbd4dcfd",
+                                        "aws:cloudformation:logical-id": "asgRabbitMQServerBlue",
+                                        "aws:autoscaling:groupName": "global-integration-cfnStackRabbitMQ-JP01VPX41GI4-asgRabbitMQServerBlue-1OYCC6RRBDH2S",
+                                        "Network": "Private",
+                                        "Name": "RabbitMQ"
+                                    },
+                                    "public_ipv6_addresses": [],
+                                    "public_ipv4_addresses": [],
+                                    "public_ip_addresses": [],
+                                    "private_ipv6_addresses": [],
+                                    "private_ipv4_addresses": [
+                                        "10.246.3.140"
+                                    ],
+                                    "private_ip_addresses": [
+                                        "10.246.3.140"
+                                    ],
+                                    "private_ip_address": "10.246.3.140",
+                                    "private_dns_name": "ip-10-246-3-140.us-west-2.compute.internal",
+                                    "name": "RabbitMQ",
+                                    "key": "/aws/us-west-2/host/i-0e846a097d2cee2ca",
+                                    "ip_address": "",
+                                    "instance_name": "RabbitMQ",
+                                    "instance_id": "i-0e846a097d2cee2ca",
+                                    "dns_name": "",
+                                    "deployment_id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+                                    "alertlogic_appliance": false,
+                                    "account_id": "134249236"
+                                },
+                                "modified_on": 1585009945700,
+                                "key": "/aws/us-west-2/host/i-0e846a097d2cee2ca/vulnerability/fbfd50aa180091eee78761c07d62f93f",
+                                "disposed": true,
+                                "details": "The host does not have an agent installed",
+                                "concluded": false,
+                                "categories": [
+                                    "configuration"
+                                ]
+                            },
+                            {
+                                "threatiness": 8.0,
+                                "target": {
+                                    "type": "host",
+                                    "threatiness": 8.0,
+                                    "threat_level": 3,
+                                    "tags": {
+                                        "mgr": "sheraz-khan",
+                                        "base-stack-name": "global-integration",
+                                        "base-stack-id": "arn:aws:cloudformation:us-west-2:948063967832:stack/global-integration/034c4f60-b04a-11e6-ac7b-50d5ca789eae",
+                                        "aws:cloudformation:stack-name": "global-integration-cfnStackDaccess-D1XLTPELWN8Q",
+                                        "aws:cloudformation:stack-id": "arn:aws:cloudformation:us-west-2:948063967832:stack/global-integration-cfnStackDaccess-D1XLTPELWN8Q/dec1f400-b4d7-11e6-aa85-50d5ca11b856",
+                                        "aws:cloudformation:logical-id": "asgDaccessServer",
+                                        "aws:autoscaling:groupName": "global-integration-cfnStackDaccess-D1XLTPELWN8Q-asgDaccessServer-SSNGNL6Z3USF",
+                                        "PCI-Scope": "true",
+                                        "Name": "Daccess"
+                                    },
+                                    "public_ipv6_addresses": [],
+                                    "public_ipv4_addresses": [],
+                                    "public_ip_addresses": [],
+                                    "private_ipv6_addresses": [],
+                                    "private_ipv4_addresses": [
+                                        "10.246.0.101"
+                                    ],
+                                    "private_ip_addresses": [
+                                        "10.246.0.101"
+                                    ],
+                                    "private_ip_address": "10.246.0.101",
+                                    "private_dns_name": "ip-10-246-0-101.us-west-2.compute.internal",
+                                    "name": "Daccess",
+                                    "key": "/aws/us-west-2/host/i-0db281735ba334d96",
+                                    "ip_address": "",
+                                    "instance_name": "Daccess",
+                                    "instance_id": "i-0db281735ba334d96",
+                                    "dns_name": "",
+                                    "deployment_id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+                                    "alertlogic_appliance": false,
+                                    "account_id": "134249236"
+                                },
+                                "modified_on": 1585657580317,
+                                "key": "/aws/us-west-2/host/i-0db281735ba334d96/vulnerability/fbfd50aa180091eee78761c07d62f93f",
+                                "disposed": true,
+                                "details": "The host does not have an agent installed",
+                                "concluded": false,
+                                "categories": [
+                                    "configuration"
+                                ]
+                            },
+                            {
+                                "threatiness": 8.0,
+                                "target": {
+                                    "type": "host",
+                                    "threatiness": 8.0,
+                                    "threat_level": 3,
+                                    "tags": {
+                                        "mgr": "sheraz-khan",
+                                        "base-stack-name": "global-integration",
+                                        "base-stack-id": "arn:aws:cloudformation:us-west-2:948063967832:stack/global-integration/034c4f60-b04a-11e6-ac7b-50d5ca789eae",
+                                        "aws:cloudformation:stack-name": "global-integration-cfnStackDaccess-D1XLTPELWN8Q",
+                                        "aws:cloudformation:stack-id": "arn:aws:cloudformation:us-west-2:948063967832:stack/global-integration-cfnStackDaccess-D1XLTPELWN8Q/dec1f400-b4d7-11e6-aa85-50d5ca11b856",
+                                        "aws:cloudformation:logical-id": "asgDaccessServer",
+                                        "aws:autoscaling:groupName": "global-integration-cfnStackDaccess-D1XLTPELWN8Q-asgDaccessServer-SSNGNL6Z3USF",
+                                        "PCI-Scope": "true",
+                                        "Name": "Daccess"
+                                    },
+                                    "public_ipv6_addresses": [],
+                                    "public_ipv4_addresses": [],
+                                    "public_ip_addresses": [],
+                                    "private_ipv6_addresses": [],
+                                    "private_ipv4_addresses": [
+                                        "10.246.3.253"
+                                    ],
+                                    "private_ip_addresses": [
+                                        "10.246.3.253"
+                                    ],
+                                    "private_ip_address": "10.246.3.253",
+                                    "private_dns_name": "ip-10-246-3-253.us-west-2.compute.internal",
+                                    "name": "Daccess",
+                                    "key": "/aws/us-west-2/host/i-0d34b2734bf3a4d22",
+                                    "ip_address": "",
+                                    "instance_name": "Daccess",
+                                    "instance_id": "i-0d34b2734bf3a4d22",
+                                    "dns_name": "",
+                                    "deployment_id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+                                    "alertlogic_appliance": false,
+                                    "account_id": "134249236"
+                                },
+                                "modified_on": 1585657580053,
+                                "key": "/aws/us-west-2/host/i-0d34b2734bf3a4d22/vulnerability/fbfd50aa180091eee78761c07d62f93f",
+                                "disposed": true,
+                                "details": "The host does not have an agent installed",
+                                "concluded": false,
+                                "categories": [
+                                    "configuration"
+                                ]
+                            }
+                        ],
+                        "type": "vulnerability",
+                        "threatiness": 320.0,
+                        "threat_vector": "AV:N/AC:L/Au:N/C:C/I:C/A:C/PL:A/EM:A",
+                        "threat_score": 10.0,
+                        "threat_level": 3,
+                        "tags": {},
+                        "severity": "high",
+                        "remediation_id": "agent_install_agent",
+                        "name": "Host Without Alert Logic Agent",
+                        "external": false,
+                        "cvss_vector": "AV:N/AC:L/Au:N/C:C/I:C/A:C/PL:A/EM:A",
+                        "cvss_score": 10.0,
+                        "categories": [
+                            "configuration"
+                        ],
+                        "asset_count": 5,
+                        "account_id": "134249236"
+                    }
+                ],
+                "expires": 1585699200000,
+                "deployment_id": "9969EC98-F3DD-4040-86C5-6A9019E2F07E",
+                "created_on": 1583444952339,
+                "comment": "No comments",
+                "asset_count": 5,
+                "account_id": "134249236"
+            }
+        ]
+    },
+    "filters": []
+}

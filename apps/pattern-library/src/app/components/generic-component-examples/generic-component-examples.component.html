@@ -1,0 +1,129 @@
+<div class="grid p-justify-center">
+    <h1>Generic Components Samples</h1>
+    <div class="col-11">
+        <div class="card card-w-title">
+            <h1>Al Search bar with label</h1>
+            <al-search-bar placeholder="Search" [maxSearchLength]=5 [width]="'400px'"
+                (onSearchChanged)="getData($event)" [autofocus]="true" [showLabel]="true"></al-search-bar>
+        </div>
+        <div class="card card-w-title">
+            <h1>Al Search bar without label</h1>
+            <al-search-bar #alSearchBar placeholder="Perform Search" [autofocus]="false" [showLabel]="false" (onSearchChanged)=searchTest($event) (onFocusOut)="lostFocus()"></al-search-bar>
+            <button (click)="forceFocus()">Force Focus</button>
+        </div>
+    </div>
+    <div class="col-11">
+        <div class="card card-w-title">
+            <h1>Al Score Count</h1>
+
+            <al-score-count (onSelected)="selectedScore($event)" [config]="alScoreCountConfig" [displayMode]="'big'"
+                [name]="'Exposures'"></al-score-count>
+
+        </div>
+    </div>
+    <div class="col-11">
+        <div class="card card-w-title">
+            <h1>Al Loading Spinner</h1>
+            <button (click)="toggleLoading()">Toggle Loading Spinner</button>
+            <al-loading-spinner *ngIf="loading"></al-loading-spinner>
+        </div>
+    </div>
+    <div class="col-11">
+        <div class="card card-w-title">
+            <h1>Al Initials</h1>
+            <div class="col-11">
+                <al-initials [name]="'Test Name'" [subname]="'test@alertlogic.com'" [circular]="true"
+                    [selected]="false" [labelled]="true"></al-initials>
+            </div>
+        </div>
+    </div>
+    <div class="col-11">
+        <div class="card card-w-title">
+            <h1>Al View Helper</h1>
+            <al-view-helper [loading]="true" [empty]="true" [notifyPanel]="true">
+                <span zero-state-title>Top level text for a zero state condition goes here.</span>
+                <span zero-state-description>Secondary text for a zero-state condition goes here.</span>
+                <i zero-state-icon class="material-icons">info</i>
+            </al-view-helper>
+        </div>
+    </div>
+    <div class="col-11">
+        <div class="card card-w-title">
+            <h1>Al Notification Panel</h1>
+            <button (click)="triggerNotification()" pButton type="button" label="Hit to get notification"></button>
+            <al-notification-panel #notificationPanel [alertSource]="notifications"
+                (onButtonClicked)="notificationButtonClick()" [displayMaximum]="5">
+            </al-notification-panel>
+        </div>
+    </div>
+    <div class="col-11">
+        <div class="card card-w-title">
+            <h1>Zero state</h1>
+            <al-zero-state>
+                <span zero-state-title>Top level text for a zero state condition goes here.</span>
+                <span zero-state-description>Secondary text for a zero-state condition goes here.
+                    <button pButton type="button" (click)="notifyConsole()" label="Notify Console"></button>
+                </span>
+                <i zero-state-icon class="material-icons">info</i>
+            </al-zero-state>
+        </div>
+    </div>
+    <div class="col-11">
+        <div class="card card-w-title">
+            <h1>Expanded</h1>
+            <al-json-viewer [json]="jsonViewerMock" [expanded]="true"></al-json-viewer>
+        </div>
+    </div>
+    <div class="col-11">
+        <div class="card card-w-title">
+            <h1>Collapsed</h1>
+            <al-json-viewer [json]="jsonViewerMock" [expanded]="false"></al-json-viewer>
+        </div>
+    </div>
+    <div class="col-11">
+        <div class="card card-w-title">
+            <h1>Base Card</h1>
+            <h2>Basic use with right-header content projection</h2>
+            <al-base-card [item]="$any(alBaseCardBasicItem)">
+                <ng-template alBaseCardHeaderRight>
+                    <div class="col-1 al-cardstack-icon pointer">
+                        <i class="material-icons">get_app</i>
+                        <div class="al-cardstack-icon-label">Download</div>
+                    </div>
+                </ng-template>
+            </al-base-card>
+            <h2>Toggleagle with content projection</h2>
+            <al-base-card [config]="alBaseCardConfigToggleable"
+                          [item]="$any(alBaseCardToggleableItem)">
+                <ng-template alBaseCardBodyContent>
+                    Hello Alert Logic!
+                </ng-template>
+            </al-base-card>
+            <h2>Footer actions and checkable</h2>
+            <al-base-card [config]="alBaseCardConfigFooterActions"
+                          [item]="$any(alBaseCardFooterActionsItem)"
+                          (onFooterAction)="alBaseCardFooterAction($event)">
+                <ng-template alBaseCardBodyContent>
+                    Hello Houston!
+                </ng-template>
+            </al-base-card>
+            <h2>Icon and checkable</h2>
+            <al-base-card [config]="alBaseCardConfigIcon"
+                          [item]="$any(alBaseCardIconItem)"
+                          (onFooterAction)="alBaseCardFooterAction($event)">
+                <ng-template alBaseCardBodyContent>
+                    Hello Cali!
+                </ng-template>
+            </al-base-card>
+            <h2>Item count</h2>
+            <al-base-card [config]="alBaseCardConfigIcon"
+                          [item]="$any(alBaseCardItemCountItem)"
+                          (onFooterAction)="alBaseCardFooterAction($event)">
+                <ng-template alBaseCardBodyContent>
+                    Hello World!
+                </ng-template>
+            </al-base-card>
+        </div>
+    </div>
+
+</div>

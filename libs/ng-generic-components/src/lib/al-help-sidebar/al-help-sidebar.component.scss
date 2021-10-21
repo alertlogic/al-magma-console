@@ -1,0 +1,48 @@
+@import "@al/ng-generic-components/styles/utility";
+
+:host ::ng-deep .help-sidebar {
+    .p-sidebar {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        box-shadow: -2px 1px 2px 1px rgba(100, 100, 100, 0.5);
+        height: calc(100% - 40px);
+        margin-top: 40px;
+    }
+
+    .box {
+        display: flex;
+        flex-flow: column;
+        height: 100%;
+    }
+  
+    .box .row.header {
+        flex: 0 1 auto;
+    }
+
+    .box .row.content {
+        flex: 1 1 auto;
+        padding-bottom: 7px;
+    }
+
+    .box .row.footer {
+        flex: 0 1 40px;
+    }
+
+    .box .actions {
+        .p-button {
+            width: 14em;
+            background-color: transparent;
+        }
+        .close {
+            .p-button-label {
+                color: black;
+            }
+        }
+        .link {
+            .p-button-text {
+                color: #F78C1E;
+            }
+        }
+    }
+}
+

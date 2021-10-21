@@ -1,0 +1,58 @@
+@import "@al/ng-generic-components/styles/utility";
+
+:host ::ng-deep {
+
+    .toggle-select{
+        margin-bottom: 10px;
+        margin-top: 10px;
+        display: flex;
+        font-size: 14px;
+        justify-content: space-between;
+        border-bottom: 1px solid al-color($al-gray, 50);
+
+        .p-chkbox-label {
+            margin-left: 0;
+        }
+    }
+
+    .options-container {
+        max-height: 35vh;
+        overflow-y: auto;
+
+        .item{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 14px;
+            padding-top: var(--ald-g-space-2);
+
+            .selectable-title {
+                font-weight: bold;
+                word-break: break-all;
+                display: inline-flex;
+
+                .material-icons {
+                    font-size: 14px;
+                }
+            }
+
+            .subtitle{
+                font-weight: normal;
+            }
+        }
+
+    }
+
+    .close-sign{
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        i{
+            font-size: 20px;
+            color: al-color($al-gray, 500);
+            height: 24px;
+            width: 24px;
+        }
+    }
+
+}

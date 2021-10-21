@@ -1,0 +1,6 @@
+{
+  "bundlerOptions": {
+    "entryFile": "./libs/ng-generic-components/src/styles/utility/index.scss",
+    "outFile": "./dist/libs/ng-generic-components/styles/utility.scss"
+  }
+}

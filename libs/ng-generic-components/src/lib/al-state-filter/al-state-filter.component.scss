@@ -1,0 +1,33 @@
+@import "@al/ng-generic-components/styles/utility";
+
+:host {
+    ::ng-deep .p-listbox-list {
+        border-bottom: 1px solid al-color($al-gray, 100);
+    }
+
+    ::ng-deep .p-listbox-item.p-state-highlight {
+        background-color: al-color($al-gray, 500) ;
+    }
+}
+
+.item-content {
+    margin-left: 34px;
+    width: 100%;
+    .icon {
+        font-size: 19px;
+        margin-right: 6px;
+    }
+
+    .total-showing {
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .show-total {
+        font-size: 12px;
+    }
+
+    .item-active {
+       font-weight: bold;
+    }
+}

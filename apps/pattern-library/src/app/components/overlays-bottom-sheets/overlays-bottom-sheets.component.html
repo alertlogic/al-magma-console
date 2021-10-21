@@ -1,0 +1,130 @@
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>Bottom Sheet</h1>
+            <div class="card-content">
+                <button (click)="toggle()" pButton label="Open"></button>
+                <al-bottom-sheet [headerOptions]="headerOptions" (onPrimaryAction)="save()"
+                    (onSecondaryAction)="cancel()" (onTertiaryAction)="toggle()">
+                    <div class="body-content user-guide">
+                        <div class="grid grid-nogutter">
+                            <div class="col-12">
+                                <h2 class="first">First Title in Bottom Sheet</h2>
+                                <p>Use this for the first titles in the bottom sheet for correct margin and padding.</p>
+                            </div>
+                            <div class="col-12 grid-nogutter">
+                                <code-example language="markup" resourceId="sample/components/overlays-bottom-sheets/1">
+                                </code-example>
+                            </div>
+
+                            <div class="col-12 grid-nogutter">
+                                <h2>Default Labels and Descriptions</h2>
+                            </div>
+                            <div class="col-3">
+                                <div class="label">Label</div>
+                                <div class="desc">Description</div>
+                            </div>
+                            <div class="col-3">
+                                <div class="label">Label</div>
+                                <div class="desc">Description</div>
+                            </div>
+                            <div class="col-3">
+                                <div class="label">Label</div>
+                                <div class="desc">Description</div>
+                            </div>
+                            <div class="col-3 grid-nogutter">
+                                <div class="label">Label</div>
+                                <div class="desc">Description</div>
+                            </div>
+                            <div class="col-12 grid-nogutter">
+                                <p>Use the <code>.label</code> and <code>.desc</code> classes for default views.</p>
+                                <code-example language="markup" resourceId="sample/components/overlays-bottom-sheets/2">
+                                </code-example>
+                            </div>
+
+                            <div class="col-12 grid-nogutter">
+                                <h2>ul List Samples</h2>
+                            </div>
+                            <div class="col-3">
+                                <div class="label">Label</div>
+                                <div class="desc">
+                                    <ul>
+                                        <li>list item</li>
+                                        <li>list item</li>
+                                        <li>list item</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="label">Label</div>
+                                <div class="desc">
+                                    <ul>
+                                        <li>list item</li>
+                                        <li>list item</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="label">Label</div>
+                                <div class="desc">
+                                    <ul>
+                                        <li>list item</li>
+                                        <li>list item</li>
+                                        <li>list item</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-3 grid-nogutter">
+                                <div class="label">Label</div>
+                                <div class="desc">
+                                    <ul>
+                                        <li>list item</li>
+                                        <li>list item</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-12 grid-nogutter">
+                                <p>Use an unordered list if the description has more than one item.</p>
+                                <code-example language="markup" resourceId="sample/components/overlays-bottom-sheets/3">
+                                </code-example>
+                            </div>
+
+                            <div class="col-12 grid-nogutter">
+                                <h2 class="form-h2">Title with input field directly below any h2.</h2>
+                            </div>
+
+                            <div class="col-12 grid-nogutter ui-fluid">
+                                <div class="form-row-top">
+                                    <span class="md-inputfield">
+                                        <input type="text" pInputText>
+                                        <label>Input Field</label>
+                                        <div class="ui-message ui-messages-default ui-corner-all">
+                                            This header class creates more padding for the input float label
+                                        </div>
+                                    </span>
+                                </div>
+                                <p>Use <code class="language-css" pCode>.form-h2</code> in the h2 tag when you have an
+                                    input field directly below it.</p>
+                                <code-example language="markup" resourceId="sample/components/overlays-bottom-sheets/4">
+                                </code-example>
+                            </div>
+                        </div>
+                    </div>
+                </al-bottom-sheet>
+                <h5>Component Name:</h5>
+                <code class="language-css" pCode>al-bottom-sheet-component</code>
+                <h5>Tips and Tricks:</h5>
+                <p>Wrap the bottom sheet body content in <code class="language-css" pCode>class="body-content"</code></p>
+                <p>Form styles are documented inside the bottom sheet.</p>
+            </div>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Usage Guide">
+        <div class="card card-w-title">
+            <h1>Usage Guide</h1>
+            <div class="card-content">
+                <embedded-markdown resourceId="readme/al-bottom-sheet/README"></embedded-markdown>
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>

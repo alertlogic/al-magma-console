@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="utf-8">
+  <meta name="description" content="Alert Logic managed Security-as-a-Service solutions provide network, system, and web application security, wherever your infrastructure resides">
+  <meta name="keywords" content="security as a service, cloud security provider">
+  <meta name="author" content="Alert Logic">
+  <meta name="copyright" content="Alert Logic">
+  <title>Alert Logic Console</title>
+  <base href="/">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;900&display=swap" rel="stylesheet">
+  <link href="https://console.account.alertlogic.com/assets/static/fonts/alertlogic-icons/v1/style.css" rel="stylesheet" />
+
+  <script>
+    __Zone_enable_cross_context_check = true;
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body class="al-light-theme">
+    <al-root>
+        <div class='loading'>
+            <div></div>
+            <div></div>
+        </div>
+    </al-root>
+    <div id="error-page" style="display: none">
+        <div style="width: 300px; margin:auto; justify-content: center;">
+            <div>
+                <p>We were unable to log you in.</p>
+                <p>This could be due to browser settings that block third-party cookies and prevent cross-site tracking.
+                Change your browser settings and try again. If you are still unable to log in, contact
+                <a href="https://support.alertlogic.com/" style="color: #ff9800;" target="_blank">Alert Logic Support</a>.</p>
+                <p>Try again</p>
+                <p><a href="https://support.alertlogic.com/hc/en-us/articles/360029486612-Why-do-I-need-to-enable-third-party-cookies-to-log-into-the-Alert-Logic-console-"
+                style="color: #ff9800;" target="_blank">Why do you need to enable third-party cookies?</a></p>
+            </div>
+        </div>
+        <div style="position: absolute; bottom: 0; right: 0; padding: 20px;">
+            <a href="https://www.alertlogic.com/privacy-statement/" style="padding: 10px; color: #ff9800;" target="_blank">Privacy Statement</a>
+            <a href="https://status.alertlogic.com" style="padding: 10px; color: #ff9800;" target="_blank">Service Status</a>
+        </div>
+    </div>
+    <script>
+        var errorPage = document.getElementById("error-page");
+        if(!navigator.cookieEnabled){
+            errorPage.style.display = "block";
+        }
+    </script>
+</body>
+</html>

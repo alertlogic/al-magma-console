@@ -1,0 +1,191 @@
+.welcomePage .main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 100;
+  min-height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.welcomePage img {
+  width: 100%;
+  height: auto;
+}
+
+.welcomePage .close {
+  position: absolute;
+  top:20px;
+  right: 24px;
+  width: 24px;
+  height: auto;
+  opacity:0.3;
+  transition: all .3s;
+  cursor: pointer;
+}
+
+.welcomePage .close:hover {
+  opacity: 1;
+}
+
+.welcomePage .logo {
+  width:120px;
+  margin: 0 auto 5px auto;
+  display: block;
+}
+
+.welcomePage .hello {
+  background: black;
+  color: white;
+  padding: 1.5rem 2rem;
+  width: 900px;
+  min-height: 550px;
+  border-radius: 7px;
+  border:1px solid rgba(255,255,255,0.1);
+  position: relative;
+}
+
+.welcomePage .hello a {
+  color:white;
+  transition: all .3s;
+  text-decoration: none;
+}
+
+.welcomePage .hello a:hover {
+  color:#c8c8c8;
+}
+
+.welcomePage .hello h1 {
+  text-align: center;
+  font-weight: 200;
+  font-size: 2rem;
+  margin: 0 0 1rem 0;
+}
+
+.welcomePage .hello h3 {
+  font-weight: 200;
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.welcomePage .linklist {
+  list-style-type: none;
+  margin:0 0 20px 0;
+  padding: 0;
+}
+
+.welcomePage .linklist li  {
+  padding: 4px 3px 3px 24px;
+  background: url('../img/arrow.svg') no-repeat;
+  background-size: 12px auto;
+  background-position: left center;
+}
+
+.welcomePage .slick-dots {
+  filter: invert(100);
+}
+
+.welcomePage .carousel {
+  width: 100%;
+  display: block;
+}
+
+.welcomePage .feature {
+  position: relative;
+}
+
+.welcomePage .feature span {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1.15rem;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 400;
+  font-weight: 200;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.welcomePage .feature span a {
+  font-size: 1rem;
+  margin-top: 0.3rem;
+  text-decoration: none;
+  color: white;
+  position: relative;
+}
+
+.welcomePage .feature span a:after {
+  content: "";
+  width:0;
+  display: inline-block;
+  background: #FF7F00;
+  height: 0.5px;
+  position: absolute;
+  left:0;
+  bottom: -8px;
+  transition: all .4s;
+}
+
+.welcomePage .feature span a:hover:after {
+  width:100%;
+}
+
+/* layout */
+
+.welcomePage .top-row, .bottom-row {
+  display:grid;
+  grid-template-columns: 70% 1fr;
+  grid-gap:1.5rem;
+}
+
+.welcomePage .bottom-row {
+  padding-top: 10px;
+}
+
+.welcomePage .left-section {
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.welcomePage .video-section {
+  position: relative;
+  overflow:hidden;
+  height: 100%;
+}
+
+.welcomePage .video-wrap {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  grid-gap: 10px;
+  margin-bottom: 20px;
+}
+
+.welcomePage .video-meta h4 {
+  margin: 0 0 2px 0;
+  font-size: 0.8rem;
+}
+
+.welcomePage .video-meta p {
+  margin: 0 0 10px 0;
+  font-size: 0.9rem;
+}
+
+.welcomePage .inner-scroll {
+  position:absolute;
+  width:100%;
+  height: 100%;
+  top:0;
+  left: 0;
+  overflow-y:scroll;
+}
+
+.welcomePage .dismiss label {
+  font-size:0.9rem;
+}

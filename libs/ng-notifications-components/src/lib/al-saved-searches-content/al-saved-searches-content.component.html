@@ -1,0 +1,108 @@
+<div class="grid grid-nogutter nested-grid">
+    <div class="col-12 al-cardstack-content-first-title-margin grid-nogutter">
+        <div class="al-cardstack-content-title">Saved Search Details
+        </div>
+    </div>
+    <div class="col-12 grid-nogutter">
+        <div class="grid grid-nogutter">
+            <div class="col-4 grid-nogutter al-cardstack-content-column-righ-padding">
+                <div class="al-cardstack-content-label ">Created</div>
+                <div *ngIf="item.properties.created.at">
+                    <div *ngIf="item.properties.createdByName">{{item.properties.createdByName}}</div>
+                    <div>{{item.properties.created.at *1000 | date: 'MMM dd yyyy HH:mm z'}}</div>
+                </div>
+                <div *ngIf="!item.properties.created.at">
+                    N/A
+                </div>
+            </div>
+            <div class="col-4 grid-nogutter al-cardstack-content-column-righ-padding">
+                <div class="al-cardstack-content-label">Last Modified</div>
+                <div *ngIf="item.properties.modifiedByName">{{item.properties.modifiedByName}}</div>
+                <div *ngIf="item.properties.modified.at">
+                    {{item.properties.modified.at *1000 | date: 'MMM dd yyyy HH:mm z'}}
+                </div>
+                <div *ngIf="!item.properties.modified.at">
+                    N/A
+                </div>
+            </div>
+            <div class="col-4 grid-nogutter al-cardstack-content-column-righ-padding">
+                <div class="al-cardstack-content-label">Description</div>
+                <div *ngIf="item.properties.description">
+                    {{item.properties.description}}
+                </div>
+                <div *ngIf="!item.properties.description">
+                    N/A
+                </div>
+            </div>
+            <div class="col-4 grid-nogutter al-cardstack-content-column-righ-padding not-first-row">
+                <div class="al-cardstack-content-label">Tags</div>
+                <div *ngIf="item.properties.tags">
+                    <p-chips class="chips" [(ngModel)]="item.properties.tags" [disabled]="true">
+                        <ng-template let-item pTemplate="item">
+                            <span><strong>{{item}}</strong>&nbsp;Tag&nbsp;</span>
+                        </ng-template>
+                    </p-chips>
+                </div>
+                <div *ngIf="!item.properties.tags">
+                    N/A
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 grid-nogutter">
+        <div class="al-cardstack-content-title">
+            Search Query
+        </div>
+    </div>
+    <div class="col-12 grid-nogutter" *ngIf="item.properties.search_request">
+        <ngx-monaco-editor
+            class="monaco-editor"
+            [options]="editorOptions"
+            [(ngModel)]="item.properties.search_request"
+            (init)="onMonacoEditorInit($event)">
+        </ngx-monaco-editor>
+    </div>
+    <div class="col-12 grid-nogutter" *ngIf="!item.properties.search_request">
+        No search query available
+    </div>
+
+    <div class="col-12 grid-nogutter">
+        <div class="al-cardstack-content-title">
+            Schedules
+        </div>
+    </div>
+    <div class="col-12 grid-nogutter">
+        <div class="grid grid-nogutter">
+            <div class="col-4 grid-nogutter">
+                Schedules for the search query to run automatically.
+            </div>
+            <div class="col-8 grid-nogutter">
+                <div class="al-schedule-action-item" *ngFor="let schedule of item.properties.schedules">
+                    <i class="material-icons icon">date_range</i>
+                    <span class="text">
+                        {{schedule.name}}
+                    </span>
+                    <span class="right-icons">
+                    <button
+                        type="button"
+                        class="cardBtn flat schedule-button"
+                        icon="ui-icon-edit"
+                        label="EDIT"
+                        pButton
+                        (click)="onEditScheduleItem(schedule)">
+                    </button>
+                    <button
+                        type="button"
+                        class="cardBtn flat schedule-button"
+                        icon="ui-icon-delete"
+                        label="DELETE"
+                        pButton
+                        (click)="onDeleteItemConfirmation(schedule)">
+                    </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

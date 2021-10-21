@@ -1,0 +1,91 @@
+<div class="create-incident-alert">
+    <al-bottom-sheet
+        #alBottomSheet
+        [headerOptions]="headerOptions"
+        (onPrimaryAction)="save()"
+        (onSecondaryAction)="cancel()">
+        <!-- Loading -->
+        <al-view-helper [loading]="loading" [notifyPanel]="true"></al-view-helper>
+        <!-- Notification form subscribers -->
+        <al-notification-form
+            [loading]="loading"
+            [accountId]="accountId"
+            [showAttach]="false"
+            [editMode]="editMode"
+            type="incidents/alerts"
+            [formDescription]="formDescription"
+            (onChanged)="onSubscribersChanged()">
+            <!-- Content projection -->
+            <div class="details-column grid p-dir-col">
+                <div class="col">
+                    <h1 class="columnHeader">Details</h1>
+                </div>
+                <div class="col input-name">
+                    <span class="md-inputfield">
+                        <input
+                            type="text"
+                            class="col-12"
+                            name="incidentAlertName"
+                            [(ngModel)]="form.incidentAlertName"
+                            (ngModelChange)="validateForm()"
+                            pInputText
+                            required/>
+                        <label for="float-input">Name *</label>
+                    </span>
+                </div>
+                <div class="col">
+                    <p-inputSwitch (onChange)="validateForm()" [(ngModel)]="form.alertIsActive" name="alertIsActive"></p-inputSwitch>
+                    <span class="padding-left-10">Notification Is {{ form.alertIsActive ? 'Active' : 'Inactive' }}</span>
+                </div>
+                <!-- If only have one selectable account (current account), that means it doesn't manage accounts, so we can hide it -->
+                <span class="col section-title" [hidden]="correlationRule">
+                    {{ accountDetails }}
+                </span>
+                <al-multiselect-list
+                    *ngIf="!correlationRule"
+                    [hidden]="allSelectableAccounts.length <= 1 || correlationRule"
+                    class="col"
+                    placeholder="Account"
+                    name="selectedAccounts"
+                    [(ngModel)]="selectedAccounts"
+                    [options]="allSelectableAccounts"
+                    (onSelectionChanged)="onSelectedAccounts($event)"></al-multiselect-list>
+                <span class="col section-title follow-criteria" *ngIf="allSelectableAccounts.length > 1 || this.correlationRule !== undefined">
+                    {{criteriaLabel}}:
+                </span>
+                <ng-container *ngIf="!correlationRule">
+                    <div class="col">
+                        <h1 class="columnHeader">Escalations</h1>
+                    </div>
+                    <div class="col">Select escalations if you want to be notified when Alert Logic escalates an incident, regardless of threat level.</div>
+                    <div class="col">
+                        <p-inputSwitch
+                            name="isEscalation"
+                            [(ngModel)]="form.escalated"
+                            (onChange)="validateForm()">
+                        </p-inputSwitch>
+                        <span class="padding-left-10">Escalated Incidents</span>
+                    </div>
+                </ng-container>
+                <div class="col">
+                    <h1 class="columnHeader">{{filtersTitle}}</h1>
+                </div>
+                <div class="col">
+                    If you select escalations and threat levels, incidents must match both criteria to trigger a notification.
+                </div>
+                <div class="filtersDropdown">
+                    <al-multiselect-list
+                        name="filters"
+                        [filter]="false"
+                        [inline]="true"
+                        placeholder="{{filtersPlaceholder}}"
+                        [options]="allSelectableFilters"
+                        [readonly]="isCorrelationFiltered"
+                        [(ngModel)]="selectedFilters"
+                        (ngModelChange)="onSelectedFilters($event)">
+                    </al-multiselect-list>
+                </div>
+            </div>
+        </al-notification-form>
+    </al-bottom-sheet>
+</div>

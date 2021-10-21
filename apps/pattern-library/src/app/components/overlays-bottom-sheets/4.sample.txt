@@ -1,0 +1,11 @@
+<div class="p-col-12">
+    <h2 class="form-h2">Title with input field directly below</h2>
+</div>
+<div class="p-col-12 p-nogutter ui-fluid">
+    <div class="form-row-top">
+        <span class="md-inputfield">
+            <input type="text" pInputText>
+            <label>Input Field</label>
+        </span>
+    </div>
+</div>

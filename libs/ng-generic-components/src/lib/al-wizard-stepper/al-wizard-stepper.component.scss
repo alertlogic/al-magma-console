@@ -1,0 +1,93 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.al-wizard-stepper-header {
+    border-bottom: 1px solid al-color($al-gray, 100);
+    padding: 20px 40px;
+}
+.steps-group {
+    align-items: center;
+    display: flex;
+    .check-icon {
+        i {
+            font-size: 18px;
+        }
+    }
+}
+.step {
+    display: flex;
+    align-items: center;
+    height: 36px;
+    color: al-color($al-gray, 200);
+    cursor: pointer;
+    font-size: 16px;
+    &.complete {
+        color: #57a0d7;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    &.disabled {
+        cursor: not-allowed;
+    }
+    .step-no {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include font-size(xs);
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        color: white;
+        background-color: al-color($al-gray, 200);
+
+    }
+    &.active, &.complete > {
+        .step-no {
+            background-color: al-color($al-smokeBlue, 500);
+        }
+        > .step-title {
+            color: al-color($al-smokeBlue, 500);
+        }
+    }
+    .step-title {
+        font-weight: 600;
+        margin-left: 6px;
+        @include font-size(sm);
+    }
+    &.active .step-title {
+        color: al-color($al-smokeBlue, 500);
+    }
+    &.active .step-no {
+        box-shadow: 0 0 0 3px al-color($al-smokeBlue, 100);
+    }
+}
+.step-separator {
+    width: 30px;
+    height: 2px;
+    background-color: al-color($al-gray, 200);
+    margin-left: 18px;
+    margin-right: 18px;
+}
+.stepper-content {
+    padding: 20px 40px 0;
+    height: 86vh;
+    overflow: auto;
+}
+
+.step-content {
+    min-height: 86vh;
+    margin-bottom: 14vh;
+}
+
+.title-header {
+    padding: 24px 6px 0 6px;
+    p {
+        font-size: 28px;
+        margin: 5px 0px 5px 12px;
+        letter-spacing: 0;
+        color: al-color($al-gray, 500);
+    }
+}
+
+.margin-top-12 {
+    margin-top: 12px;
+}

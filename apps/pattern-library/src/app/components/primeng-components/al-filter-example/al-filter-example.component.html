@@ -1,0 +1,21 @@
+<div class=" grid grid-nogutter nested-grid">
+    <div class="card col-2 al-cardstack-filter">
+        <div class="al-cardstack-filter-title">Filter with 'plain' show more </div>
+        <al-filter [filters]="filters" [alFilterConfig]="cardStackFiltersConfig"
+            (onClick)="setActiveFilter($event,'plain')" (onClearAllFilters)="clearAllFilters('popover')">
+        </al-filter>
+    </div>
+    <div class="card col-3 al-cardstack-filter">
+        <div class="al-cardstack-filter-title">Filter with 'popover' show more </div>
+        <al-filter [filters]="filters" [alFilterConfig]="cardStackFiltersConfigforPopover"
+            (onClick)="setActiveFilter($event,'popover')" (onClearAllFilters)="clearAllFilters('popover')">
+        </al-filter>
+    </div>
+
+    <div class="card col-3 al-cardstack-filter">
+        <div class="al-cardstack-filter-title">Filter with 'accordion' show more </div>
+        <al-filter [filters]="filters" [alFilterConfig]="cardStackFiltersConfigforAccordion"
+            (onClick)="setActiveFilter($event,'popover')" (onClearAllFilters)="clearAllFilters('popover')">
+        </al-filter>
+    </div>
+</div>

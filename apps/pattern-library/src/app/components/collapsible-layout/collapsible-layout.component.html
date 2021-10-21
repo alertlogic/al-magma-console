@@ -1,0 +1,36 @@
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>Al Collapsible Layout</h1>
+            <div class="card-content">
+                <h5>Component Name:</h5>
+                <code class="language-css" pCode>al-collapsible-layout</code>
+                <div class="pad-top">
+                    <al-collapsible-layout
+                        [rightTooltipLabel]="rightTooltipLabel"
+                        [leftTooltipLabel]="leftTooltipLabel"
+                        [leftPanel]="leftPanel"
+                        [rightPanel]="rightPanel">
+                        <div left>
+                            <p>Left Panel</p>
+                        </div>
+                        <div center>
+                            <p>Center Panel</p>
+                        </div>
+                        <div right>
+                            <p>Right Panel</p>
+                        </div>
+                    </al-collapsible-layout>
+                </div>
+            </div>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Usage Guide">
+        <div class="card card-w-title">
+            <h1>Usage Guide</h1>
+            <div class="card-content">
+                <embedded-markdown resourceId="readme/al-collapsible-layout/README"></embedded-markdown>
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>

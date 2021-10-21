@@ -1,0 +1,65 @@
+{
+    "id": "F1EDB47E-C7AB-4283-AFEF-91AAD07BAE0F",
+    "account_id": "2",
+    "name": "Robert Parker",
+    "username": "robert.parker@alertlogic.com",
+    "email": "robert.parker@alertlogic.com",
+    "active": true,
+    "locked": false,
+    "version": 35,
+    "linked_users": [
+        {
+            "user_id": 2100005005,
+            "location": "defender-uk-newport"
+        },
+        {
+            "user_id": 2100005005,
+            "location": "defender-us-ashburn"
+        },
+        {
+            "user_id": 2100005005,
+            "location": "defender-us-denver"
+        },
+        {
+            "user_id": 743,
+            "location": "esb-us-1"
+        }
+    ],
+    "endpoints_user_id": 743,
+    "created": {
+        "at": 1539695158,
+        "by": "9E431986-BF9E-4DB9-911B-D16E06B9420E"
+    },
+    "modified": {
+        "at": 1592209601,
+        "by": "system"
+    },
+    "user_credential": {
+        "version": 1672,
+        "one_time_password": false,
+        "last_login": 1594968049,
+        "created": {
+            "at": 1539695159,
+            "by": "9E431986-BF9E-4DB9-911B-D16E06B9420E"
+        },
+        "modified": {
+            "at": 1592209599,
+            "by": "system"
+        }
+    },
+    "access_keys": [
+        {
+            "label": "Untitled Key #1",
+            "last_login": 0,
+            "created": {
+                "at": 1575460194,
+                "by": "F1EDB47E-C7AB-4283-AFEF-91AAD07BAE0F"
+            },
+            "modified": {
+                "at": 1575460194,
+                "by": "F1EDB47E-C7AB-4283-AFEF-91AAD07BAE0F"
+            },
+            "access_key_id": "f0e52a9e48d4ddb7"
+        }
+    ]
+}

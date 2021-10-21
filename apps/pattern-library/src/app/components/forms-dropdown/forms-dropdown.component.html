@@ -1,0 +1,108 @@
+<div class="card card-w-title">
+    <h1>Basic Dropdown</h1>
+    <div class="card-content">
+        <p>This component and the usage guide can be found in the <a
+                href="https://www.primefaces.org/primeng/showcase/#/dropdown" target="_blank">PrimeNG component
+                library</a>.</p>
+        <div class="grid">
+            <div class="col-4">
+                <p-dropdown [options]="cities" placeholder="Select an Option" [(ngModel)]="selectedCity"
+                    [showClear]="false">
+                </p-dropdown>
+            </div>
+        </div>
+    </div>
+</div>
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>AL Dropdown Filter</h1>
+            <div class="card-content">
+                <strong>Component Name:</strong>
+                <p><code class="language-css" pCode>al-dropdown-filter</code></p>
+                <div class="grid">
+                    <div class="col-4">
+                        <al-dropdown-filter [filterOptions]="dashboards"></al-dropdown-filter>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Usage Guide">
+        <div class="card card-w-title">
+            <h1>Usage Guide</h1>
+            <div class="card-content">
+                <embedded-markdown resourceId="readme/al-dropdown-filter/README"></embedded-markdown>
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>AL Multiselect List</h1>
+            <div class="card-content">
+                <strong>Component Name:</strong>
+                <p><code class="language-css" pCode>al-multiselect-list</code></p>
+                <div class="grid">
+                    <div class="col-4">
+                        <al-multiselect-list placeholder="Change the label here" [options]="mockOptions"
+                            (onSelectionChanged)="multiSelectOption($event)">
+                        </al-multiselect-list>
+                    </div>
+                    <div>
+                        <div *ngFor="let result of multiselected">{{result| json}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Usage Guide">
+        <div class="card card-w-title">
+            <h1>Usage Guide</h1>
+            <div class="card-content">
+                <embedded-markdown resourceId="readme/al-multiselect-list/README"></embedded-markdown>
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>AL Dropdown List</h1>
+            <div class="card-content">
+                <strong>Component Name:</strong>
+                <p><code class="language-css" pCode>al-dropdown-list</code></p>
+                <div class="grid">
+                    <div class="col-4">
+                        <al-dropdown-list placeholder="Choose a filter" [(ngModel)]="selectedValues2"
+                            [options]="checkboxes" (ngModelChange)="selectOption($event)">
+                        </al-dropdown-list>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Usage Guide">
+        <div class="card card-w-title">
+            <h1>Usage Guide</h1>
+            <div class="card-content">
+                <embedded-markdown resourceId="readme/al-dropdown-list/README"></embedded-markdown>
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>
+<div class="card card-w-title">
+    <h1>Category Menu Dropdown</h1>
+    <div class="card-content">
+        <p>This component and the usage guide can be found in the <a
+                href="https://www.primefaces.org/primeng/showcase/#/menu" target="_blank">PrimeNG component
+                library</a>.</p>
+        <div class="grid">
+            <div class="col-4">
+                <p-menu #menu [popup]="true" [model]="items"></p-menu>
+                <button type="button" pButton icon="pi pi-bars" label="Show" (click)="menu.toggle($event)"></button>
+            </div>
+        </div>
+    </div>
+</div>

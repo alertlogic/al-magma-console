@@ -1,0 +1,16 @@
+<al-sidebar
+    [config]="config"
+    (onSaved)="conclude()"
+    (onClosed)="close()">
+    <div class="right-drawer-generic">
+
+        <p *ngIf="page === pageConstants.EXPOSURES" i18n="conclude sidenav paragraph | what applied assets means">
+            When you conclude an exposure, you mark instances of the exposure as resolved for the assets you selected. The exposures can reappear if you did not resolve them on the selected assets or if the exposure becomes an issue again on those assets.
+        </p>
+        <p *ngIf="page === pageConstants.REMEDIATIONS" i18n="conclude sidenav paragraph | what applied assets means">
+            When you conclude a remediation, you mark the exposure instance(s) as resolved for the assets you selected. The remediation for the exposures can reappear if you did not resolve the exposures on the selected assets or if the exposure becomes an issue again on those assets.
+        </p>
+        <br/>
+        <al-affected-asset [affectedAssetDetail]="affectedAssetDetail"></al-affected-asset>
+    </div>
+</al-sidebar>

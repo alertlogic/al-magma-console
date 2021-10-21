@@ -1,0 +1,222 @@
+@import "@al/ng-generic-components/styles/utility";
+
+:host ::ng-deep .welcome-dialog {
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 7px;
+    .p-dialog-titlebar, .p-dialog-content {
+        width: 800px;
+        background-color: black;
+        color: white;
+    }
+    .p-dialog-titlebar {
+        height: 108px;
+        padding: 20px 24px 0 24px;
+        border-radius: 7px;
+    }
+    .p-dialog-content {
+        height: 470px;
+        min-height: 470px;
+        overflow-y: hidden;
+        border-radius: 7px;
+    }
+    .dialog-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .welcome-label {
+        max-height: 40px;
+        font-size: 2.1rem;
+    }
+    .galleria-slide {
+        width: 100%;
+        height: 250px;
+        text-align: center;
+        background-color: al-color($al-gray, 800);
+        background-size: 100% 250px !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 20px;
+        opacity:0;
+        animation-name: fade;
+        animation-duration: 6s;
+        animation-iteration-count: infinite;
+        @keyframes fade {
+            0%   { opacity: 0; }
+            25%   { opacity: 1; }
+            50%  { opacity: 1; }
+            75%  { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        cursor: pointer;
+        .title-slide {
+            font-size: 22px;
+        }
+        .subtitle-slide {
+            font-size: 16px;
+        }
+        .title-slide, .subtitle-slide {
+            text-align: initial;
+            width: 50%;
+        }
+    }
+    .galleria-innovations {
+        width: 66%;
+        margin-left: 16px;
+    }
+    .innovations-section {
+        width: 100%;
+        .subtitle {
+            margin-bottom: 5px;
+        }
+    }
+    .video-tutorials-section {
+        width: 26%;
+        margin-left: 4%;
+        .subtitle {
+            margin-bottom: 0;
+        }
+    }
+    .col-12 {
+        padding: 0;
+    }
+    .subtitle {
+        font-size: 1.4rem;
+    }
+    .subtitle, .welcome-label {
+        font-weight: 200;
+    }
+    .info-item {
+        display: flex;
+        padding: 6px 0;
+        max-height: 30px;
+        align-items: center;
+        cursor: pointer;
+        span {
+            color: al-color($al-orange, 600);
+            margin-right: 5px;
+            font-size: 16px;
+        }
+        .label-item {
+            transition: all .3s;
+        }
+        :hover {
+            color: al-color($al-gray, 300);
+        }
+    }
+    .subtitle, .info-item, .info-phrase, .title-slide, .subtitle-slide {
+        color: al-color($al-gray, 50);
+    }
+    .label-item, .info-phrase {
+        font-size: 1.15rem;
+    }
+    .hide-option {
+        display: flex;
+        padding-left: 10px;
+        align-items: center;
+        .hide-label {
+            font-size: 1rem;
+            padding-left: 5px;
+        }
+        input {
+            display: flex !important;
+        }
+    }
+    .indicator-gallery {
+        display: flex;
+        cursor: pointer;
+        justify-content: center;
+        font-size: 15px;
+        padding: 8px 0 6px 0;
+        color: al-color($al-gray, 300);
+        .indicator {
+            margin: 0 12px;
+            .material-icons {
+                font-size: 6px;
+            }
+        }
+        :hover {
+            color: white;
+        }
+    }
+    .active-item-galleria {
+        color: white;
+    }
+    .video-list {
+        max-width: 226px;
+        margin-top: 10px;
+        overflow-y: scroll;
+        max-height: 400px;
+        scrollbar-color: rgba(255, 255, 255, 0.4) rgba(77, 74, 74, 0.6);
+        scrollbar-width: thin;
+        .video-item {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            cursor: pointer;
+            margin: 0 5px 12px 0;
+            :hover {
+                color: al-color($al-gray, 300);
+            }
+            img {
+                margin-right: 12px;
+                max-width: 70px;
+                max-height: 50px;
+            }
+        }
+        iframe {
+            pointer-events: none;
+        }
+        .video-label {
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: bold;
+            transition: all .3s;
+        }
+    }
+}
+
+:host ::ng-deep .p-dialog-mask.p-widget-overlay {
+    overflow-y: auto;
+    backdrop-filter: blur(5px);
+    background: rgba(0,0,0,0.75);
+}
+
+:host ::ng-deep .al-header-logo {
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 130px;
+    height: 39px;
+    min-height: 39px;
+}
+
+:host ::ng-deep .p-dialog-titlebar-close {
+    position: absolute;
+    right: 24px;
+    top: 15px;
+}
+
+/* custom scrollbars safari/chrome */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #202020;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(77, 74, 74, 0.6);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(255, 255, 255, 0.4);
+}

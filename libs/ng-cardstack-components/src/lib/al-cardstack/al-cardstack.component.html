@@ -1,0 +1,73 @@
+<div class="al-card-stack grid-nogutter {{theme}}">
+    <div class="grid grid-nogutter">
+        <ng-template #cardStackSidenav>
+            <div class="cardstack-sidenav">
+                <div class="al-side-filter ui-fluid"
+                    #alCardStackFilter>
+                    <al-state-filter *ngIf="characteristics && characteristics.stateFilters"
+                                    [selectedState]="characteristics.selectedState"
+                                    [stateFilters]="characteristics.stateFilters"
+                                    (filterSelected)="filterSelected($event)">
+                    </al-state-filter>
+                    <al-filter #alFilter  *ngIf="characteristics && filters"  [filters]="filters"
+                                         [alFilterConfig]="alFilterConfig"
+                                         (onClick)="setActiveFilter($event)"
+                                         (onClearAllFilters)="clearAllFilters()" >
+                    </al-filter>
+                </div>
+            </div>
+        </ng-template>
+        <ng-container alNavigationCustomSidenav [contentRef]="cardStackSidenav" *ngIf="displayFilterSideNav"></ng-container>
+        <div class="col grid-nogutter">
+            <div>
+                <div class="al-head-list">
+                    <div class="description" *ngIf="description">{{ description }}</div>
+                    <al-content-header *ngIf="characteristics && characteristics.header"
+                                       [icon]="characteristics.header.icon"
+                                       [iconConfig]="characteristics.header.iconConfig"
+                                       [title]="characteristics.header.title"
+                                       [defaultDate]="characteristics.header.defaultDate"
+                                       [descriptionHeader]="characteristics.header.descriptionBelowHeader"
+                                       [showCalendar]="characteristics.header.calendar"
+                                       [showAddButton]="characteristics.header.addButton"
+                                       (onDateRangeSelected)="dateRangeSelected($event)"
+                                       (onButtonClicked)="onAddButton.emit($event)">
+                    </al-content-header>
+                    <al-content-toolbar *ngIf="characteristics"
+                                        #alContentToolbar
+                                        [config]="toolbarConfig"
+                                        (onOrderBy)="sortByOrder($event)"
+                                        (onGroupSelection)="groupByChange($event)"
+                                        (onSearched)="applyTextFilter($event)"
+                                        (onSortSelection)="sortByChanged($event)"
+                                        (onSelectAll)="applySelect($event)"
+                                        (onViewSelection)="viewChanged($event)" >
+                    </al-content-toolbar>
+                    <al-view-helper [empty]="false"
+                                    [loading]="false"
+                                    [notifyPanel]="true"
+                                    [error]="view?.error"
+                                    [retryHandler]="reloadView"></al-view-helper>
+                    <div class="al-list">
+                        <div *ngFor="let cards of view.cards | cardGroupBy:view.groupingBy; trackBy: cardGroupTrackByFn">
+                            <h2>{{cards.groupByValue}}</h2>
+                            <div *ngFor="let content of cards.cards; trackBy: cardTrackByFn; let i = index">
+                                <ng-container *ngTemplateOutlet="cardCompact; context: view"></ng-container>
+                                <ng-container *ngTemplateOutlet="cardExpanded; context: { $implicit: content }"></ng-container>
+                            </div>
+                        </div>
+                        <div class="zero-state-body"
+                             *ngIf="!view.loading && !view.error && view.cards.length == 0">
+                            <ng-content select=".zero-state"></ng-content>
+                        </div>
+                        <div *ngIf="view.loading"
+                             class="al-loading">
+                            <span class="al-loading-txt">loading...</span>
+                            <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw margin-bottom"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

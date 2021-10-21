@@ -1,0 +1,30 @@
+@import "@al/ng-generic-components/styles/utility";
+
+code, pre {
+}
+
+div.container {
+    position: relative;
+
+    .overlay {
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        button {
+            transition: opacity .5s ease-in-out;
+        }
+
+        &.active {
+            button {
+                opacity: 1.0;
+            }
+        }
+
+        &.inactive {
+            button {
+                opacity: 0.25;
+            }
+        }
+    }
+}

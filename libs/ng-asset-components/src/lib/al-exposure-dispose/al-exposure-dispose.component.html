@@ -1,0 +1,88 @@
+<div class="al-exposure-dispose">
+    <al-sidebar [config]="config"
+        (onSaved)="dispose()"
+        (onClosed)="close()">
+        <div class="right-drawer-generic">
+            <p *ngIf="page === pageConstants.EXPOSURES" i18n="dispose sidenav paragraph| what are you going to dispose">
+                When you dispose an exposure, you suppress instances of the exposure
+                from appearing for the assets you selected. The exposures can reappear if
+                you do not address them on the selected assets after the disposal period
+                you specify expires.
+            </p>
+            <p *ngIf="page === pageConstants.REMEDIATIONS" i18n="dispose sidenav paragraph|  what are you going to dispose">
+                When you dispose a remediation, you suppress it from appearing for the
+                assets you selected. The exposure(s) for this remediation can reappear if
+                you do not address them on selected assets after the disposal period you specify expires.
+            </p>
+
+            <al-affected-asset [affectedAssetDetail]="affectedAssetDetail"></al-affected-asset>
+            <h4>
+                <b i18n="dispose sidenav title | dispose title">Dispose</b>
+            </h4>
+            <p i18n="dispose sidenav paragraph|">
+                Select an option below to provide additional information about this action taken.
+            </p>
+            <div class="help-section" (click)="popHelper.toggle($event)">
+                <i class="material-icons">help</i>
+                <small class="sub-title" i18n="label radio button">How does dispose work?</small>
+            </div>
+
+            <p-overlayPanel #popHelper styleClass="help-popover">
+                <div class="hover-content">
+                    <i class='icon-dispose al al-sg'></i>
+                    <p *ngIf="page === pageConstants.REMEDIATIONS" i18n="popover content| how dispose work">
+                        Dispose marks a remediation or set of remediations as disposed in your remediations suggestions and
+                        excludes the calculated risk of their vulnerabilities from the overall risk of your deployment.
+                    </p>
+                    <p *ngIf="page === pageConstants.EXPOSURES" i18n="popover content| how dispose work">
+                        Dispose marks the exposure(s) as disposed in your remediations suggestions and excludes the
+                        calculated risk of their vulnerabilities from the overall risk of your deployment.
+                    </p>
+                </div>
+
+            </p-overlayPanel>
+
+            <div class="form">
+                <div class="sub-title-input" i18n="label radio button | Assessment type">Assessment Type:</div>
+                <div class="grid" style="width:250px;margin-bottom:10px">
+                    <div class="col-12" *ngFor="let reason of disposition.reasons">
+                        <p-radioButton name="assessmentType"
+                            value="{{reason.value}}"
+                            label="{{reason.caption}}"
+                            [(ngModel)]="disposition.reason"
+                            inputId="preopt1"></p-radioButton>
+                    </div>
+                </div>
+
+                <div *ngIf="page === pageConstants.EXPOSURES" class="sub-title-input padding-top"
+                    i18n="label select| close exposure">Dispose the exposure(s) on selected assets for this time period:*</div>
+                <div *ngIf="page === pageConstants.REMEDIATIONS" class="sub-title-input padding-top"
+                    i18n="label select| close exposure">Dispose the remediation on selected assets for this time period:*</div>
+
+                <div class="padding-form">
+                    <div class="grid">
+                        <div class="col-12">
+                            <p-dropdown [scrollHeight]="'250px'"
+                                [options]="disposition.expirations"
+                                (onChange)="setExpiry($event)"
+                                [showClear]="false">
+                            </p-dropdown>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="no-margin-bottom" i18n="label select| close exposure">Add note</h4>
+                <br>
+                <span class="ui-float-label">
+                    <textarea id="float-input"
+                        class="notes"
+                        pInputTextarea
+                        [(ngModel)]="disposition.comment">
+                    </textarea>
+                    <label for="float-input">Notes</label>
+                </span>
+            </div>
+        </div>
+    </al-sidebar>
+
+</div>

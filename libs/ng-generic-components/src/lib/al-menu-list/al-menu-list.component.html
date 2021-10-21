@@ -1,0 +1,11 @@
+<p-listbox [options]="options" [(ngModel)]="selectedItem" (onClick)="onMenuItemClicked($event)">
+    <ng-template let-item pTemplate="item">
+        <div class="item-container">
+            <div class="menu-text">{{item.title}} <b *ngIf="item.subtitle">{{item.subtitle}}</b>
+            </div>
+            <div class="menu-arrow">
+                <i class="material-icons icon">keyboard_arrow_right</i>
+            </div>
+        </div>
+    </ng-template>
+</p-listbox>

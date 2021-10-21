@@ -1,0 +1,25 @@
+<div class="al-action-snackbar" *ngIf="visible">
+    <div class="al-action-snackbar-content">
+        <div class="text">{{ text }}</div>
+        <div class="elements">
+            <ng-container *ngFor="let element of elements">
+                <div *ngIf="element.type === 'button' && element.visible"
+                     class="action-element"
+                     [ngClass]="{'disabled': element.disabled}"
+                     (click)="!element.disabled ? actionSelected(element.event) : null">
+                        <i class="material-icons icon">
+                            {{element.icon}}
+                        </i>
+                        <div class="label">{{element.text}}</div>
+                </div>
+                <div class="switch" *ngIf="element.type === 'input_switch' && element.visible">
+                    <p-inputSwitch class="action-element"
+                        [(ngModel)]="element.checked"
+                        (onChange)="actionSelected(element.event)">
+                    </p-inputSwitch>
+                    <div class="label">{{element.text}}</div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,82 @@
+{
+  "npmScope": "al",
+  "affected": {
+    "defaultBase": "integration"
+  },
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".eslintrc.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e", "base-build"],
+        "accessToken": "ZWNjYzRmMjYtMGIzYi00NzhkLWIyMjItMWZhNmMyNzA4N2QwfHJlYWQtd3JpdGU="
+      }
+    }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  },
+  "projects": {
+    "api": {
+      "tags": []
+    },
+    "api-interfaces": {
+      "tags": []
+    },
+    "console": {
+      "tags": []
+    },
+    "console-e2e": {
+      "tags": [],
+      "implicitDependencies": ["console"]
+    },
+    "dashboards": {
+      "tags": []
+    },
+    "exposures": {
+      "tags": []
+    },
+    "feature-auth": {
+      "tags": []
+    },
+    "ng-asset-components": {
+      "tags": []
+    },
+    "ng-cardstack-components": {
+      "tags": []
+    },
+    "ng-forms-components": {
+      "tags": []
+    },
+    "ng-generic-components": {
+      "tags": []
+    },
+    "ng-navigation-components": {
+      "tags": []
+    },
+    "ng-notifications-components": {
+      "tags": []
+    },
+    "ng-visualizations-components": {
+      "tags": []
+    },
+    "pattern-library": {
+      "tags": []
+    },
+    "pattern-library-e2e": {
+      "tags": [],
+      "implicitDependencies": ["pattern-library"]
+    }
+  }
+}

@@ -1,0 +1,46 @@
+<div class="date-range-selector-container grid">
+    <div *ngIf="!hideSelector" class="fixed-range-selector-container">
+        <div class="label">{{selectorTitle}}</div>
+        <p-selectButton [options]="fixedRanges"
+                        [(ngModel)]="selectedFixedDate"
+                        (onChange)="updateCalendarFromFixedRange($event.value)">
+        </p-selectButton>
+    </div>
+    <div class="calendar-container" *ngIf="showCalendar" [ngClass]="{ 'with-time': showTimePicker }">
+        <div class="label" *ngIf="calendarSelectionMode !== 'single'">{{customRangeTitle}}</div>
+        <p-calendar class="calendar-input" [selectionMode]="calendarSelectionMode"
+                    [disabled]="disableCalendar"
+                    [dateFormat]="calendarDateFormat"
+                    [maxDate]="calendarMaxDate"
+                    [minDate]="calendarMinDate"
+                    [showIcon]="true"
+                    [appendTo]="'body'"
+                    [placeholder]="placeholder"
+                    [(ngModel)]="selectedDateRange"
+                    (onSelect)="selectDate($event)"
+                    (onShow)="updateCalendarOnShow()"
+                    (onClose)="selectDate($event, true)">
+            <p-footer *ngIf="calendarSelectionMode !== 'single' && showTimePicker" class="timepicker-container grid">
+                <div class="start-time col">
+                    <div class="timepicker-title">Start time</div>
+                    <al-time-selector [time]="startTime"
+                                        (onTimeSelected)="startTime = $event; selectDate(startTime.toString())">
+                    </al-time-selector>
+                </div>
+                <div class="divider"></div>
+                <div class="end-time col">
+                    <div class="timepicker-title">End time</div>
+                    <al-time-selector [time]="endTime"
+                                        (onTimeSelected)="endTime = $event; selectDate($event.toString())">
+                    </al-time-selector>
+                </div>
+                <div *ngIf="timeZoneOffset" class="time-zone-offset col-12">GMT{{ timeZoneOffset }}</div>
+            </p-footer>
+        </p-calendar>
+        <div *ngIf="!hideCalendar && calendarSelectionMode !== 'single' && showTimePicker" class="time-range-label">
+            {{ startTime | date:'HH:mm:ss' }} -
+            <span *ngIf="timeZoneOffset">{{ endTime | date:'HH:mm:ss' }} GMT{{ timeZoneOffset }}</span>
+            <span *ngIf="!timeZoneOffset">{{ endTime | date:'HH:mm:ss zzzz' }}</span>
+        </div>
+    </div>
+</div>

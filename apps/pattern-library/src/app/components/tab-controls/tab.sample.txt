@@ -1,0 +1,12 @@
+
+<p-tabView>
+    <p-tabPanel header="Tab One">
+        Tab Content
+    </p-tabPanel>
+    <p-tabPanel header="Tab Two">
+        Tab Content
+    </p-tabPanel>
+    <p-tabPanel header="Tab Three">
+        Tab Content
+    </p-tabPanel>
+</p-tabView>

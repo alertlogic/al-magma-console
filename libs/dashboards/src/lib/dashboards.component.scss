@@ -1,0 +1,167 @@
+@import "@al/ng-visualizations-components/styles/styles.scss";
+@import "@al/ng-generic-components/styles/utility.scss";
+
+.dropdowns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    fieldset {
+      border: 0;
+    }
+    .date-controls-container {
+      align-items: start;
+    }
+    .date-picker-container {
+      flex-direction: column;
+      align-items: start;
+      span {
+        font-size: 12px;
+        color: #868686;
+        margin-bottom: 9px;
+      }
+    }
+  }
+  al-dropdown-filter, al-selector, p-calendar {
+    margin-right: 25px
+  }
+}
+
+:host-context(.darkMode),
+:host-context(.blueMode) {
+  .dropdowns {
+    .date-picker-container span {
+      color: al-color($al-gray, 50);
+    }
+  }
+}
+
+
+#presentation-button, #theme-button {
+  background-color: transparent;
+  color: #535353;
+}
+al-dashboard-layout {
+  display: block;
+  margin-top: 20px;
+}
+
+button#theme-button {
+  margin-left: auto;
+}
+
+span.section-1, span.section-2, span.section-3 {
+  display: inline-block;
+  width: 33%;
+  text-align: center;
+  vertical-align: middle;
+  height: 250px;
+
+  i {
+    font-size: 85px;
+  }
+
+  p {
+    width: 95%;
+  }
+}
+
+span.section-1 i {
+  color: al-color($al-green, 500);
+}
+span.section-2 i {
+  color: al-color($al-amber, 600);
+}
+span.section-3 i {
+  color: al-color($al-smokeBlue, 500);
+}
+
+::ng-deep {
+  .empty-reason-dialog {
+    width: 705px;
+    height: 338px;
+  }
+  .p-slidemenu-wrapper {
+    max-height: 9em !important;
+  }
+  .p-slidemenu-backward {
+    padding: 0px !important;
+    background-color: transparent !important;
+    span {
+      color: al-color($al-gray, 700) !important;
+    }
+  }
+}
+
+.inaccessible {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  width: 50%;
+  margin-top: 24px;
+  padding: 12px;
+  margin-left:auto;
+  margin-right:auto;
+  background: white;
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    > i {
+      font-size: 48px;
+      color: al-color($al-gray, 500)
+    }
+  }
+}
+
+// Temporary below to make date picker look decent enough, this needs to be revisted when we build out a proper al-xxx implementation
+// in ng-common-components with styles scoped in actual component!
+::ng-deep .dropdowns {
+  .p-calendar {
+    > input {
+      width: 220px;
+      margin-left: 22px;
+      background: none;
+      &:disabled {
+        border: none;
+        opacity: 1;
+      }
+    }
+    > button {
+      height: unset;
+      width: 18px;
+      padding: 0;
+      bottom: 0;
+      left: 0;
+      > span {
+        color: al-color($al-gray, 500)!important;
+      }
+    }
+  }
+}
+
+:host-context(.darkMode) {
+  ::ng-deep p-menu {
+    .p-menu {
+      background-color: al-color($al-gray, 700);
+      .p-menuitem {
+        background-color: al-color($al-gray, 700);
+          .p-menuitem-link {
+            color: white;
+            &:hover {
+              background-color: al-color($al-gray, 500);
+            }
+            .p-menuitem-icon {
+              color: white;
+            }
+          }
+          &:hover {
+            background-color: al-color($al-gray, 500);
+          }
+      }
+    }
+  }
+}

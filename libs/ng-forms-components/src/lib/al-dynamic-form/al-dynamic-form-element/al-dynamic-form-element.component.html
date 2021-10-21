@@ -1,0 +1,244 @@
+<div class="dynamic-form"
+     [formGroup]="form">
+    <div *ngIf="element.title" class="form-content-title">
+        {{element.title}}
+    </div>
+    <div [ngClass]="{'input-row': element.type !== 'hidden'}"
+         [ngSwitch]="element.controlType">
+
+        <div *ngSwitchCase="'inputText'">
+            <!-- <ng-container *ngTemplateOutlet="aboveDescription"></ng-container> -->
+            <span class="p-field">
+                <label *ngIf="element.type !== 'hidden'"
+                       [for]="element.key">{{element.label}} <span *ngIf="element.required"> *</span>
+                       <ng-container *ngTemplateOutlet="infoIconLeft"></ng-container></label>
+                <input pInputText
+                       [id]="element.key"
+                       [type]="element.type"
+                       [placeholder]="element.placeholder ? element.placeholder : ''"
+                       [formControlName]="element.key">
+                <ng-container *ngTemplateOutlet="errorForm"></ng-container>
+            </span>
+            <ng-container *ngTemplateOutlet="belowDescription"></ng-container>
+        </div>
+
+        <div *ngSwitchCase="'inputResponder'">
+            <ng-container *ngTemplateOutlet="aboveDescription"></ng-container>
+
+            <div class="md-inputfield inputfield-responder">
+                <div class="flex-row">
+                    <al-input-responder [element]="element"
+                        [formControlName]="element.key"
+                        [options]="element.responderOptions">
+                    </al-input-responder>
+                    <ng-container *ngTemplateOutlet="infoIconRight"></ng-container>
+                </div>
+                <ng-container *ngTemplateOutlet="errorForm"></ng-container>
+                <div *ngIf="element?.responderOptions?.type !=='dropdown'">
+                    <ng-container *ngTemplateOutlet="infoIconLeft"></ng-container>
+                </div>
+            </div>
+            <ng-container *ngTemplateOutlet="belowDescription"></ng-container>
+        </div>
+
+        <div *ngSwitchCase="'inputSwitch'">
+            <ng-container *ngTemplateOutlet="aboveDescription"></ng-container>
+            <div class="input-switch">
+                <p-inputSwitch [formControlName]="element.key"></p-inputSwitch>
+                <label class="switch-label">{{element.label}}<ng-container *ngTemplateOutlet="infoIconRight"></ng-container></label>
+                
+            </div>
+            <ng-container *ngTemplateOutlet="belowDescription"></ng-container>
+        </div>
+
+        <div *ngSwitchCase="'checkbox'">
+            <ng-container *ngTemplateOutlet="aboveDescriptionPlain"></ng-container>
+
+            <div class="checkbox-header">
+                <!-- Using getControls to avoid error
+                    This will have just 1 item in the controls
+                    [formControl]="form.controls[element.key]" -->
+                <p-checkbox [formControl]="getControl()"
+                            [binary]="true"
+                            [label]="element.label || ''">
+                </p-checkbox>
+                
+            </div>
+            <ng-container *ngTemplateOutlet="belowDescription"></ng-container>
+        </div>
+
+        <div *ngSwitchCase="'checkbox-group'">
+            <ng-container *ngTemplateOutlet="aboveDescriptionPlain"></ng-container>
+
+            <ng-container *ngTemplateOutlet="labelRow"></ng-container>
+            <ng-container *ngTemplateOutlet="belowDescription"></ng-container>
+            <div *ngFor="let control of getControls(); let i = index" class="form-row">
+                <!-- Using getControls to avoid error
+                    [formControl]="form.controls[element.key].controls[i]"
+                    -->
+                <p-checkbox *ngIf="element.options && element.options[i]"
+                            [binary]="true"
+                            [formControl]="control"
+                            [label]="element.options[i].label">
+                </p-checkbox>
+            </div>
+            <div class="belowDescriptionPlain" *ngIf="element.belowDescription" [innerHTML]="element.belowDescription | markdown"></div>
+        </div>
+
+        <div *ngSwitchCase="'textarea'"
+             class="textarea-field form-row">
+             <ng-container *ngTemplateOutlet="aboveDescription"></ng-container>
+
+            <span class=" ui-float-label md-inputfield">
+                <textarea pInputTextarea
+                          [formControlName]="element.key"
+                          [placeholder]="element.placeholder ? element.placeholder : ''"
+                          [id]="element.key"
+                          [name]="element.key"
+                          [autoResize]="true"
+                          rows="5">
+                </textarea>
+                <label>{{element.label}} <span *ngIf="element.required"> *</span> <ng-container *ngTemplateOutlet="infoIconLeft"></ng-container></label>
+                
+                <ng-container *ngTemplateOutlet="errorForm"></ng-container>
+            </span>
+            <ng-container *ngTemplateOutlet="belowDescription"></ng-container>
+        </div>
+
+        <div *ngSwitchCase="'radio'">
+            <ng-container *ngTemplateOutlet="aboveDescriptionPlain"></ng-container>
+            <div *ngFor="let options of element.options; let i = index" class="form-row">
+                <p-radioButton [formControlName]="element.key"
+                               [name]="element.key"
+                               [label]="options.label"
+                               [value]="options.value">
+                </p-radioButton>
+            </div>
+            <div class="belowDescriptionPlain" *ngIf="element.belowDescription" [innerHTML]="element.belowDescription | markdown"></div>
+        </div>
+
+        <div *ngSwitchCase="'dropdown'">
+            <ng-container *ngTemplateOutlet="aboveDescriptionPlain"></ng-container>
+            <div class="label-row">
+                <span class="dynamic-label">{{element.label}}<span *ngIf="element.required"> *</span></span>
+                <ng-container *ngTemplateOutlet="infoIconRight"></ng-container>
+            </div>
+            <p-dropdown [options]="element.options || []"
+                        [placeholder]="element.placeholder != null ? element.placeholder : ''"
+                        [formControlName]="element.key"
+                        [filter]="true"
+                        [style]="{'width':'100%'}"></p-dropdown>
+            <ng-container *ngTemplateOutlet="belowDescription"></ng-container>
+        </div>
+
+        <div *ngSwitchCase="'multiSelectList'">
+            <ng-container *ngTemplateOutlet="aboveDescription"></ng-container>
+
+            <div class="md-inputfield inputfield-responder">
+                <ng-container *ngTemplateOutlet="labelRow"></ng-container>
+
+                <al-multiselect-list [placeholder]="element.placeholder || ''"
+                    [formControlName]="element.key"
+                    [options]="element.multiSelectOptions || []"
+                    ></al-multiselect-list>
+                <ng-container *ngTemplateOutlet="errorForm"></ng-container>
+            </div>
+            <ng-container *ngTemplateOutlet="belowDescription"></ng-container>
+        </div>
+
+        <div *ngSwitchCase="'monacoEditor'">
+            <ng-container *ngTemplateOutlet="aboveDescriptionPlain"></ng-container>
+            <ng-container *ngTemplateOutlet="labelRow"></ng-container>
+            <ng-container *ngTemplateOutlet="belowDescription"></ng-container>
+            <ngx-monaco-editor [formControlName]="element.key"
+                               [options]="element.editorOptions"></ngx-monaco-editor>
+            <div class="belowDescriptionPlain" *ngIf="element.belowDescription" [innerHTML]="element.belowDescription | markdown"></div>
+        </div>
+        <div *ngSwitchCase="'downloadButton'">
+            <div class="aboveDescriptionPlain" *ngIf="element.aboveDescription" [innerHTML]="element.aboveDescription | markdown"></div>
+            <al-download-button-element [url]="element.value" [label]="element.label"></al-download-button-element>
+            <div class="belowDescriptionPlain" *ngIf="element.belowDescription" [innerHTML]="element.belowDescription | markdown"></div>
+        </div>
+        <div *ngSwitchCase="'title'">
+            <div class="label-row title-boder">
+                <h3 class="title title-dynamic">{{element.label}}</h3>
+                <i class="material-icons tooltip-icon info-icon-form title-icon"
+                   [pTooltip]="element.description"
+                   tooltipPosition="right">info_outline</i>
+            </div>
+        </div>
+    </div>
+    <ng-template #errorForm>
+        <div *ngIf="element && form != undefined && form.controls != undefined &&
+                    (form.controls[element.key]?.dirty || form.controls[element.key]?.touched)
+                    && form.controls[element.key]?.errors"
+            class="ui-message ui-messages-error ui-corner-all">
+
+            <ng-container *ngIf="element.required && form && form.controls && form.controls[element.key]?.errors?.required">
+                <div *ngIf="!element.requiredError">{{element.label}} is required.</div>
+                <div *ngIf="element.requiredError">{{element.requiredError}}</div>
+            </ng-container>
+            <ng-container *ngIf="element.validationPattern
+                        && form.controls[element.key].errors?.pattern">
+                <div *ngIf="!element.patternError">{{element.label}} does not meet the defined pattern.</div>
+                <div *ngIf="element.patternError">{{element.patternError}}</div>
+            </ng-container>
+            <ng-container *ngIf="element.minLength
+                        && form.controls[element.key].errors?.minlength">
+                <div *ngIf="!element.minLengthError">{{element.label}} should contain minimum {{element.minLength}} characters.</div>
+                <div *ngIf="element.minLengthError">{{element.minLengthError}}</div>
+            </ng-container>
+            <ng-container *ngIf="element.maxLength
+                        && form.controls[element.key].errors?.maxlength">
+                <div *ngIf="!element.maxLengthError">{{element.label}} should contain maximum {{element.maxLength}} characters.</div>
+                <div *ngIf="element.maxLengthError">{{element.maxLengthError}}</div>
+            </ng-container>
+            <ng-container *ngIf="form.controls[element.key].errors?.max">
+                <div>{{element.label}} should be maximun {{element.maxValue}}.</div>
+            </ng-container>
+            <ng-container *ngIf="form.controls[element.key].errors?.min">
+                <div>{{element.label}} should be at least {{element.minValue}}.</div>
+            </ng-container>
+        </div>
+    </ng-template>
+    <ng-template #labelRow>
+        <div *ngIf="element.label" class="label-row">
+            <legend class="dynamic-label">{{element.label}}</legend>
+            <ng-container *ngTemplateOutlet="infoIconRight"></ng-container>
+        </div>
+    </ng-template>
+
+    <ng-template #infoIconRight>
+        <i *ngIf="element.type !== 'hidden' && element.description"
+        class="material-icons tooltip-icon info-icon-form"
+        [pTooltip]="element.description"
+        tooltipPosition="right">info_outline</i>
+    </ng-template>
+
+    <ng-template #infoIconLeft>
+        <i *ngIf="element.type !== 'hidden' && element.description"
+        class="material-icons tooltip-icon info-icon-form info-icon-input-position"
+        [ngClass]="{'info-icon-input-position': element.controlType !== 'inputResponder' ,
+                    'info-icon-input-position-responder': element.controlType === 'inputResponder'}"
+        [pTooltip]="element.description"
+        tooltipPosition="right">info_outline</i>
+    </ng-template>
+
+    <ng-template #aboveDescriptionPlain>
+        <div class="aboveDescriptionPlain"
+            *ngIf="element.aboveDescription"
+            [innerHTML]="element.aboveDescription | markdown"></div>
+    </ng-template>
+
+    <ng-template #aboveDescription>
+        <div class="aboveDescription"
+            *ngIf="element.aboveDescription"
+            [innerHTML]="element.aboveDescription"></div>
+    </ng-template>
+
+    <ng-template #belowDescription>
+        <div class="belowDescriptionPlain"
+            *ngIf="element.belowDescription"
+            [innerHTML]="element.belowDescription"></div>
+    </ng-template>
+</div>

@@ -1,0 +1,146 @@
+{
+    "global": {
+        "navigation": {
+            "archipeligo17": {
+                "name": "Universal Navigation (Archipeligo 2017 Project)",
+                "entryRoute": {
+                    "type": "link",
+                    "location": "cd17:overview",
+                    "path": "/#/"
+                }
+            },
+            "archipeligo19": {
+                "name": "Siemless Navigation (Archipeligo 2019 Project + Dashboards)",
+                "entryRoute": {
+                    "type": "link",
+                    "location": "cd19:dashboards",
+                    "path": "/#/"
+                },
+                "prompt": {
+                    "strategy": "trigger",
+                    "trigger": "Navigation.Prompt.Dashboards"
+                }
+            }
+        },
+        "welcomePage": {
+            "name": "Welcome Page",
+            "trigger": {
+                "environments": [ "integration", "development" ],
+                "accounts": [ "2" ],
+                "after": "2020-08-10T21:00:00+0000"
+            }
+        }
+    },
+    "log": {
+        "legacy-defender": {
+            "name": "Legacy Log Management Feature",
+            "entryRoute": {
+                "type": "link",
+                "location": "cd17:overview",
+                "path": "/#/"
+            }
+        },
+        "siemless": {
+            "name": "SIEMless Log Management",
+            "entryRoute": {
+                "type": "link",
+                "location": "cd19:dashboards",
+                "path": "/#/"
+            }
+        }
+    },
+    "search": {
+        "legacy-defender": {
+            "name": "Log Search Beta",
+            "availabilityQuery": "entitlements:acting CONTAINS_ANY(cloud_defender, log_manager, web_security_manager, web_application_firewall)",
+            "entryRoute": {
+                "type": "link",
+                "location": "cd17:search",
+                "path": "/#/log-messages/:accountId"
+            }
+        },
+        "siemless": {
+            "name": "Log Search BETA",
+            "availabilityQuery": "entitlements:acting CONTAINS_ANY(cloud_defender, log_manager, web_security_manager, web_application_firewall, assess, detect, respond, lmpro)",
+            "entryRoute": {
+                "type": "link",
+                "location": "cd17:search",
+                "path": "/#/search/:accountId"
+            }
+        },
+        "son-of-omnibox": {
+            "name": "Search Console V2",
+            "entryRoute": {
+                "type": "link",
+                "location": "usage-guide",
+                "path": "/#/playground/search-console"
+            },
+            "crosslink": [
+                {
+                    "experienceId": "search#ems",
+                    "strategy": "above-content",
+                    "caption": "Expert mode search is also available for this account."
+                }
+            ],
+            "trigger": {
+                "environments": [ "integration", "production", "development" ],
+                "accounts": [ "2", "962" ],
+                "after": "2020-07-07T21:00:00+0000"
+            }
+        },
+        "ems": {
+            "name": "Expert Mode Search",
+            "availabilityQuery": "entitlements:acting CONTAINS_ANY(cloud_defender, log_manager, web_security_manager, web_application_firewal, assess, detect, respond, lmpro)",
+            "entryRoute": {
+                "type": "link",
+                "location": "cd17:search",
+                "path": "/#/search/expert/:accountId"
+            }
+        }
+    },
+    "example": {
+        "feature1": {
+            "variant-a": {
+                "name": "Variant A of Example Feature 1",
+                "availabilityQuery": "entitlements:acting CONTAINS herald_v2 AND entitlements:acting CONTAINS_ANY( assess, detect, respond, lmpro, log_manager, cloud_defender )",
+                "entryRoute": {
+                    "type": "link",
+                    "location": "usage-guide",
+                    "path": "/#/navigation/feature1a"
+                },
+                "unavailable": {
+                    "title": true,
+                    "description": true
+                },
+                "crosslink": [
+                    {
+                        "experienceId": "example.feature1#variant-b",
+                        "strategy": "reroute",
+                        "caption": "A newer version of this feature is also available in this account!"
+                    }
+                ],
+                "trigger": [
+                    {
+                        "environments": [ "integration", "development" ],
+                        "accounts": [ "2" ]
+                    },
+                    {
+                        "environments": [ "integration", "development" ],
+                        "accounts": [ "962" ],
+                        "after": "2020-07-07T22:00:00+0000"
+                    }
+                ]
+            },
+            "variant-b": {
+                "name": "Variant B of Example Feature 2",
+                "entryRoute": {
+                    "type": "link",
+                    "location": "usage-guide",
+                    "path": "/#/navigation/feature1b"
+                },
+                "availabilityQuery": "entitlements:acting CONTAINS cloud_defender",
+                "trigger": true
+            }
+        }
+    }
+}

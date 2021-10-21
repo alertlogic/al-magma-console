@@ -1,0 +1,57 @@
+@import "@al/ng-generic-components/styles/utility";
+
+:host ::ng-deep .p-overlaypanel {
+    top: inherit !important;
+    left: inherit !important;
+}
+.al-exposure-dispose {
+    .right-drawer-generic {
+        h4 {
+            margin: 24px 0 6px 0;
+        }
+
+        color: al-color($al-gray, 500);
+
+        .sub-title-input {
+            color: al-color($al-gray, 100);
+            font-size: 14px;
+            padding-bottom: 10px;
+
+            &.padding-top {
+                padding-top: 10px;
+            }
+        }
+
+        .help-section {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: al-color($al-smokeBlue, 500);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+
+            i {
+                font-size: 14px;
+                padding-right: 20px;
+            }
+
+            small {
+                font-size: 12px;
+            }
+        }
+
+        .hover-content {
+            display: flex;
+            i {
+                padding: 8px 0px;
+            }
+            p {
+                padding: 5px 10px;
+                margin: 0px;
+            }
+        }
+        .notes {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,214 @@
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <h5>Component Name:</h5>
+        <code class="language-css" pCode>al-base-card</code>
+
+        <h5>Base Card with (allthethings)</h5>
+        <p>Open card to view card styles.</p>
+        <al-base-card [config]="alBaseCardConfigIcon" [item]="$any(alBaseCardItemCountItem)"
+            (onFooterAction)="alBaseCardFooterAction($event)">
+
+            <ng-template alBaseCardHeaderRight>
+                <div class="al-cardstack-icon pointer divider">
+                    <div class="labeled-switch">
+                        <p-inputSwitch></p-inputSwitch>
+                        <div class="label">Monitor</div>
+                    </div>
+                </div>
+                <div class="al-cardstack-icon pointer divider">
+                    <i class="material-icons">navigate_next</i>
+                    <div class="al-cardstack-icon-label">Open</div>
+                </div>
+            </ng-template>
+            <ng-template alBaseCardBodyContent>
+                <div class="grid grid-nogutter">
+                    <div class="col-12">
+                        <h2 class="first">First Title in Card Body</h2>
+                        <p>Use this for the top titles in the bottom sheet for correct margin and padding.</p>
+                    </div>
+                    <div class="col-12 grid-nogutter">
+                        <code-example language="markup" resourceId="sample/components/overlays-bottom-sheets/1">
+                        </code-example>
+                    </div>
+
+                    <div class="col-12 grid-nogutter">
+                        <h2>Default Labels and Descriptions</h2>
+                    </div>
+                    <div class="col-3">
+                        <div class="label">Label</div>
+                        <div class="desc">Description</div>
+                    </div>
+                    <div class="col-3">
+                        <div class="label">Label</div>
+                        <div class="desc">Description</div>
+                    </div>
+                    <div class="col-3">
+                        <div class="label">Label</div>
+                        <div class="desc">Description</div>
+                    </div>
+                    <div class="col-3 grid-nogutter">
+                        <div class="label">Label</div>
+                        <div class="desc">Description</div>
+                    </div>
+                    <div class="col-12 grid-nogutter">
+                        <p>Use the <code>.label</code> and <code>.desc</code> classes for default views.</p>
+                        <code-example language="markup" resourceId="sample/components/overlays-bottom-sheets/2">
+                        </code-example>
+                    </div>
+
+                    <div class="col-12 grid-nogutter">
+                        <h2>ul List Samples</h2>
+                    </div>
+                    <div class="col-3">
+                        <div class="label">Label</div>
+                        <div class="desc">
+                            <ul>
+                                <li>list item</li>
+                                <li>list item</li>
+                                <li>list item</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="label">Label</div>
+                        <div class="desc">
+                            <ul>
+                                <li>list item</li>
+                                <li>list item</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="label">Label</div>
+                        <div class="desc">
+                            <ul>
+                                <li>list item</li>
+                                <li>list item</li>
+                                <li>list item</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-3 grid-nogutter">
+                        <div class="label">Label</div>
+                        <div class="desc">
+                            <ul>
+                                <li>list item</li>
+                                <li>list item</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 grid-nogutter">
+                        <p>Use an unordered list if the description has more than one item.</p>
+                        <code-example language="markup" resourceId="sample/components/overlays-bottom-sheets/3">
+                        </code-example>
+                    </div>
+
+                    <div class="col-12">
+                        <h2 class="form-h2">Title with input field directly below</h2>
+                    </div>
+                    <div class="col-12 grid-nogutter ui-fluid">
+                        <div class="form-row-top">
+                            <span class="md-inputfield">
+                                <input type="text" pInputText>
+                                <label>Input Field</label>
+                                <div class="ui-message ui-messages-default ui-corner-all">
+                                    This header class creates more padding for the input float label
+                                </div>
+                            </span>
+                        </div>
+                        <p>Use <code class="language-css" pCode>.form-h2</code> in the h2 tag when you have an input
+                            field directly below it.</p>
+                        <code-example language="markup" resourceId="sample/components/overlays-bottom-sheets/4">
+                        </code-example>
+                    </div>
+                </div>
+            </ng-template>
+        </al-base-card>
+
+        <h5>Basic use with right-header content projection</h5>
+        <al-base-card [item]="$any(alBaseCardBasicItem)">
+            <ng-template alBaseCardHeaderRight>
+                <div class="col-1 al-cardstack-icon divider pointer">
+                    <i class="material-icons">get_app</i>
+                    <div class="al-cardstack-icon-label">Export</div>
+                </div>
+                <div class="col-1 al-cardstack-icon pointer">
+                    <i class="material-icons">edit</i>
+                    <div class="al-cardstack-icon-label">Edit</div>
+                </div>
+            </ng-template>
+        </al-base-card>
+
+        <h5>Toggleagle with content projection</h5>
+        <al-base-card [config]="alBaseCardConfigToggleable" [item]="$any(alBaseCardToggleableItem)">
+            <ng-template alBaseCardBodyContent>
+                <div class="grid grid-nogutter">
+                    <div class="col-12">
+                        <h2 class="first">Title</h2>
+                    </div>
+                    <div class="col-3">
+                        <div class="label">Label</div>
+                        <div class="desc">Description</div>
+                    </div>
+                </div>
+            </ng-template>
+        </al-base-card>
+
+        <h5>Footer actions and checkable</h5>
+        <al-base-card [config]="alBaseCardConfigFooterActions" [item]="$any(alBaseCardFooterActionsItem)"
+            (onFooterAction)="alBaseCardFooterAction($event)">
+            <ng-template alBaseCardBodyContent>
+                <div class="grid grid-nogutter">
+                    <div class="col-12">
+                        <h2 class="first">Title</h2>
+                    </div>
+                    <div class="col-3">
+                        <div class="label">Label</div>
+                        <div class="desc">Description</div>
+                    </div>
+                </div>
+            </ng-template>
+        </al-base-card>
+
+        <h5>Icon and checkable</h5>
+        <al-base-card [config]="alBaseCardConfigIcon" [item]="$any(alBaseCardIconItem)"
+            (onFooterAction)="alBaseCardFooterAction($event)">
+            <ng-template alBaseCardBodyContent>
+                <div class="grid grid-nogutter">
+                    <div class="col-12">
+                        <h2 class="first">Title</h2>
+                    </div>
+                    <div class="col-3">
+                        <div class="label">Label</div>
+                        <div class="desc">Description</div>
+                    </div>
+                </div>
+            </ng-template>
+        </al-base-card>
+
+        <h5>Icon and <span style='text-decoration: underline;'>NOT</span> checkable</h5>
+        <al-base-card [config]="alBaseCardConfigIconWithoutCheckbox" [item]="$any(alBaseCardIconItem)"
+            (onFooterAction)="alBaseCardFooterAction($event)">
+            <ng-template alBaseCardBodyContent>
+                <div class="grid grid-nogutter">
+                    <div class="col-12">
+                        <h2 class="first">Title</h2>
+                    </div>
+                    <div class="col-3">
+                        <div class="label">Label</div>
+                        <div class="desc">Description</div>
+                    </div>
+                </div>
+            </ng-template>
+        </al-base-card>
+
+    </p-tabPanel>
+    <p-tabPanel header="Usage Guide">
+        <div class="card card-w-title">
+            <h1>Usage Guide</h1>
+            <div class="card-content">
+                <embedded-markdown resourceId="readme/al-base-card/README"></embedded-markdown>
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>

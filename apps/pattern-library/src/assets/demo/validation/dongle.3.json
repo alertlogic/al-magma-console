@@ -1,0 +1,20 @@
+{
+    "id": "2000-0101-1234BC",
+    "name": "Meta Dongle",
+    "created": {
+        "by": "1234858585",
+        "at": 21348901235
+    },
+    "modified": {
+        "by": "1234123455",
+        "at": 1234812355
+    },
+    "locked": {
+        "by": "1234123444",
+        "at": 12341348123
+    },
+    "linked_assets": {
+        "/path/to/fake/subnet": "subnet",
+        "/path/to/fake/subnet/2": "subnet"
+    }
+}

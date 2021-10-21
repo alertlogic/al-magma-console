@@ -1,0 +1,346 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.al-base-card.al-base-card-plain:not(.card-checked) .p-panel-titlebar:not(.p-state-active):hover {
+    background-color: transparent;
+}
+.al-base-card {
+    padding: 0px;
+    @include content-shadow();
+    &.al-base-card-plain {
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+
+        border-bottom: 1px solid al-color($al-gray, 200);
+
+        .toptitle {
+            font-weight: bold;
+            color: al-color($al-gray, 700);
+        }
+
+        .caption {
+            color: al-color($al-gray, 700);
+        }
+
+        .subtitle {
+            color: al-color($al-gray, 700);
+        }
+
+        .initial-icon {
+            font-size: 42px;
+        }
+
+        .al-cardstack-icon-label {
+            font-size: 12px;
+        }
+
+        ::ng-deep {
+            .p-widget-content{
+                background-color: transparent;
+            }
+            .p-panel .p-panel-titlebar {
+                background-color: transparent;
+            }
+            .p-widget-header {
+                background-color: transparent;
+            }
+            .p-panel-titlebar:hover {
+                background-color: transparent;
+            }
+        }
+    }
+
+    .p-widget-content {
+        border: none;
+    }
+
+    .p-panel-content {
+        padding: 24px 40px;
+    }
+
+
+    .card-header{
+        margin: 6px 0;
+
+        .col-1 {
+            width: 72px;
+        }
+    }
+
+    .center-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .p-chkbox {
+        margin-right: 0;
+        margin-top: 0;
+    }
+
+    p-checkbox {
+        margin-right: 0;
+    }
+
+    .pointer {
+        cursor: pointer;
+        line-height: normal;
+    }
+
+    .toggle {
+        width: 72px;
+    }
+
+    .hidden-icon {
+        display: none;
+        cursor: pointer;
+    }
+
+    &.al-base-card .p-panel-titlebar {
+        padding: 0px;
+    }
+
+    .p-panel-titlebar-toggler {
+        display: none;
+    }
+
+    .header-left-space {
+        margin-left: 24px;
+    }
+
+    .initial-icon{
+        font-size: 28px;
+    }
+
+    .p-panel-titlebar:hover {
+        background-color: al-color($al-smokeBlue, 100);
+
+        .al-cardstack-subtitle-top-txt {
+            color: al-color($al-gray, 500);
+        }
+
+        .al-cardstack-subtitle-txt {
+            color: al-color($al-gray, 500);
+        }
+    }
+
+    // &.card-checked {
+    // //     .p-panel-titlebar{
+    // //         background-color: al-color($al-smokeBlue, 500);
+    // //         color:white;
+    // //         .al-cardstack-subtitle-txt, .al-cardstack-subtitle-top-txt {
+    // //             color:white;
+    // //         }
+    // //     }
+
+    // //     .p-chkbox .p-chkbox-box .pi.pi-check:before {
+    // //         color: white;
+    // //     }
+
+    // //     .al-cardstack-icon{
+    // //         .pi{
+    // //             color: white;
+    // //         }
+    // //     }
+
+    // //     .p-inputswitch-checked {
+    // //         .p-inputswitch-slider {
+    // //             background-color: al-color($al-smokeBlue, 300);
+
+    // //             &:before {
+    // //                 background-color: al-color($al-smokeBlue, 900);
+    // //             }
+    // //         }
+    // //     }
+
+    // //     .p-inputswitch:not(.p-state-disabled) {
+
+    // //         .p-inputswitch-slider {
+    // //             background-color: al-color($al-smokeBlue, 700);
+    // //             @include transition(background-color .3s);
+
+    // //             &:hover {
+    // //                 background-color: al-color($al-smokeBlue, 700);
+    // //             }
+    // //         }
+    // //     }
+
+    // //     .stats-graph {
+
+    // //         .graph-title {
+    // //             color: white;
+    // //         }
+    // //     }
+    // }
+
+    &.card-expanded {
+        margin-bottom: 11px;
+        margin-top: 11px;
+        margin-right: -18px;
+        margin-left: -18px;
+    }
+
+    &.card-collapsed {
+        margin-bottom: 0px;
+
+        .p-panel-titlebar{
+            border-bottom:  0px;
+        }
+    }
+
+    .al-cardstack-icon-label {
+        font-size: 10px;
+        line-height: normal;
+    }
+
+    .al-cardstack-icon-label-paded {
+        padding: 6px;
+        font-size: 10px;
+        line-height: normal;
+    }
+
+    .al-cardstack-icon {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 72px;
+
+        &.divider {
+            border-right: 1px solid al-color($al-gray, 50);
+        }
+
+        .pi {
+            color: al-color($al-gray, 500);
+        }
+    }
+
+    .al-cardstack-subtitle-txt, .al-cardstack-subtitle-top-txt {
+        color: al-color($al-gray, 200);
+        font-size: 12px;
+    }
+
+    .al-cardstack-subtitle-txt{
+        padding-top: 6px;
+    }
+
+    .al-cardstack-content-label {
+        font-size: 12px;
+        color: al-color($al-gray, 200);
+        margin-bottom: 6px;
+        padding-left: 0;
+        font-weight: normal;
+    }
+
+    ul {
+
+        &.desc {
+            padding-left: 20px;
+        }
+    }
+
+    .al-cardstack-subtitle-top-txt{
+        padding-bottom: 6px;
+    }
+
+    .al-cardstack-content-title {
+        color: al-color($al-gray, 500);
+        border-bottom: 1px solid al-color($al-gray, 50);
+        padding-bottom: 6px;
+        padding-top: 24px;
+        font-size: 20px;
+        margin: 0 0 12px 0;
+    }
+
+    .al-cardstack-content-value-top-padding {
+        padding-top: 12px;
+    }
+
+    .al-cardstack-black-icon {
+        color: black;
+    }
+
+    .al-cardstack-content-chips-wrapper{
+        padding-bottom: 6px;
+        padding-top: 6px;
+    }
+
+    .al-cardstack-chips-rounded {
+        border-radius: 15px;
+        background: al-color($al-gray, 50);
+        color: al-color($al-gray, 700);
+        padding: 6px 12px 6px 12px;
+        margin-right: 6px;
+
+        .bold{
+            color: al-color($al-gray, 600);
+            font-weight: 700;
+        }
+    }
+
+    p-footer{
+        .al-cardstack-icon{
+            width: 72px;
+        }
+
+        .footer {
+            border-top: 1px solid al-color($al-gray, 50);
+        }
+    }
+
+    .al-cardstack-content-zero-top-padding{
+        padding-top:  0px;
+    }
+    .al-cardstack-content-zero-botoom-padding{
+        padding-bottom:  0px;
+    }
+    .al-cardstack-content-column-righ-padding{
+        padding-right: 24px;
+    }
+
+
+    .al-cardstack-content-first-title-margin {
+        margin-top: -31px;
+    }
+    .al-cardstack-content-chips-section{
+        padding-top: 12px;
+    }
+    .al-cardstack-content-chips-section-title{
+        padding-bottom: 12px;
+        padding-top: 12px;
+    }
+
+    .zero-left-padding{
+        padding-left:  0px;
+    }
+
+    .p-panel {
+        .p-panel-content-wrapper{
+            .p-panel-footer{
+                padding: 0px;
+
+                .p-button-label {
+                    line-height: normal;
+                }
+            }
+        }
+    }
+
+    .chips {
+        .p-state-disabled {
+            opacity: 1 !important;
+            input {
+                display: none;
+            }
+        }
+
+        .p-inputtext.p-state-disabled {
+            border-bottom: none;
+        }
+    }
+}
+
+.al-base-card:not(.card-checked){
+    .p-panel-titlebar:not(.p-state-active):hover {
+        background-color: al-color($al-smokeBlue, 100);
+    }
+}

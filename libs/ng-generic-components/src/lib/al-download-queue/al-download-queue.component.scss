@@ -1,0 +1,109 @@
+@import "@al/ng-generic-components/styles/utility";
+
+button.continue-search {
+    width: 25px;
+    height: 25px;
+}
+
+.search-queue-area {
+
+    margin-bottom: 24px;
+    z-index: 1;
+
+    &.fixed-bottom {  
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .queued-search {
+        padding: 12px 0 0 0;
+        margin: 0;
+        background: #f5f5f5;
+
+        .search-details {
+            color: al-color($al-gray, 100);
+            cursor: pointer;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+
+            &:hover {
+                color: al-color($al-gray, 700);
+            }
+        }
+
+        .actions {
+            width: 85px;
+            .material-icons {
+                font-size: 17px;
+                float: right;
+                color: al-color($al-gray, 200);
+                text-align: center;
+                cursor: pointer;
+                &:hover {
+                    color: al-color($al-gray, 700);
+                }
+            }
+        }
+
+        .add-search {
+            padding: 0 12px;
+        }
+
+        .search-progress {
+            height: 4px;
+            margin: 6px 0 0 0;
+            width: 100%;
+            background-color: al-color($al-gray, 50);
+
+            .search-completedness {
+                height: 4px;
+                background-color: al-color($al-green, 200);
+
+                &.error {
+                    background-color: al-color($al-red, 200);
+                }
+            }
+            .search-completedness-done {
+                height: 4px;
+                background-color: al-color($al-green, 200);
+            }
+        }
+
+        &.search-selected {
+            background-color: al-color($al-gray, 50);
+
+            .search-details {
+                color: al-color($al-gray, 700);
+                padding-bottom: 6px;
+            }
+            .actions {
+                .material-icons {
+                    color: al-color($al-gray, 500);
+                }
+            }
+
+            .search-progress {
+                background-color: al-color($al-gray, 100);
+
+                .search-completedness {
+                    background-color: al-color($al-smokeBlue, 500);
+
+                    &.error {
+                        background-color: al-color($al-red, 600);
+                    }
+                }
+
+                .search-completedness-done {
+                    background-color: al-color($al-smokeBlue, 700);
+                }
+            }
+        }
+    }
+}
+
+
+

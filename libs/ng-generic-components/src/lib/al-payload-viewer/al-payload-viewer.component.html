@@ -1,0 +1,49 @@
+<div class="payload-viewer" *ngIf="payload">
+
+    <div class="payload-buttons grid">
+        <div class="col">
+            <p-selectButton [multiple]="multiple"
+                            [options]="decodeOptions"
+                            [(ngModel)]="selectedDecodeOption"
+                            (onChange)="toggleDecodeOption()">
+            </p-selectButton>
+        </div>
+        <div *ngIf="showAscii && decoderOptions.length > 0" class="decoder-options col">
+            Options:
+            <p-selectButton [multiple]="multiple"
+                            [options]="decoderOptions"
+                            [(ngModel)]="selectedDecoderOption"
+                            (onChange)="toggleDecoder()">
+            </p-selectButton>
+        </div>
+    </div>
+    <div class="payloads">
+
+        <div class="payload hex" *ngIf="showHex" [ngClass]="{'payload-50': (showAscii && showHex), 'payload-100': !(showAscii && showHex)}">
+            <code class="hex-line" style="padding-right: 10px; width: auto;"> {{ hexLineNumbers }} </code>
+            <code
+                class="hex-content" #hex
+                [irHighlightTextComp]="transformedAscii"
+                [irHexMode]="true"
+                [irHighlightTextOptions]="hightlightOptions"
+                [irDisplayHex]="(showAscii && showHex)? 'sync' : 'show' "
+                [irQuickSearchItems]="quickSearchItems"
+                (irLineNumbers)="generateHexLineNumbers($event)"
+                (irSelectionPosition)="ascii.highlightSelection($event)">
+            </code>
+        </div>
+
+        <div class="payload ascii" *ngIf="showAscii" [ngClass]="{'payload-50': (showAscii && showHex), 'payload-100': !(showAscii && showHex)}">
+            <code
+                class="ascii-content" #ascii
+                [irHighlightTextOptions]="hightlightOptions"
+                [irHighlightTextComp]="transformedAscii"
+                [irRemoveNonPrintable]="true"
+                [irDisplayHex]="(showAscii && showHex)? 'sync' : 'show' "
+                [irQuickSearchItems]="quickSearchItems"
+                (irSelectionPosition)="hex.highlightSelection($event)">
+            </code>
+        </div>
+
+    </div>
+</div>

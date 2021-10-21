@@ -1,0 +1,93 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.al-content-header {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: flex-end;
+    align-items: flex-end;
+    border-bottom: 1px solid al-color($al-gray, 50);
+    padding: 0 0 0 3px;
+    margin-bottom: 20px;
+
+    .plus-button {
+        position: relative;
+        padding-left: 5px;
+
+        button {
+            position: absolute;
+            bottom: -20px;
+            height: 56px;
+            width: 56px;
+            box-shadow: 0px 4px 5px 0 rgba(0, 0, 0, 0.3);
+
+            .p-icon-add {
+                font-size: 32px ;
+            }
+        }
+    }
+
+    .al-calender {
+        float: right;
+    }
+
+    .al-content-header-title {
+        font-size: 1.714em;
+        font-weight: 400;
+        padding: 4px 6px;
+
+        .fa, .material-icons {
+            font-size: 1.7em;
+            vertical-align: middle;
+        }
+        i {
+            margin-right: 15px;
+        }
+    }
+
+    .footer-buttons {
+        position: relative;
+        float: right;
+        margin: 30px 10px;
+    }
+
+    .al-calender-cancel-btn {
+        font-family: inherit;
+        font-size: 14px;
+        border: none;
+        cursor: pointer;
+        text-transform: uppercase;
+    }
+    .al-calendar-apply-btn {
+        font-family: inherit;
+        font-size: 14px;
+        text-transform: uppercase;
+        background-color: orange;
+        color: white;
+        margin-left: 10px;
+        cursor: pointer;
+        border: none;
+    }
+    .p-calendar.p-calendar-w-btn input {
+        font-size: 12px;
+    }
+
+    .p-calendar .p-datepicker-trigger .pi {
+        color: black;
+    }
+
+    .p-calendar .p-inputtext {
+        width: 100%;
+        margin-right: 60px;
+    }
+
+    .al-calender-clear-btn {
+        cursor: pointer;
+
+        i {
+            font-size: 18px;
+            top: 3px;
+            position: relative;
+        }
+    }
+}

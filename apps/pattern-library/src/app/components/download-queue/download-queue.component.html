@@ -1,0 +1,29 @@
+<!-- SEARCH QUEUE -->
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>Download Queue</h1>
+            <div class="card-content">
+
+                <al-download-queue></al-download-queue>
+                <button label="Top" pButton type="button" class="primaryAction" (click)="getResults()"></button>
+
+                <!-- FIXED BOTTOM EXAMPLE -->
+                <!-- <al-download-queue queuePosition="fixed-bottom"></al-download-queue> -->
+                
+                <h5>Component Name:</h5>
+                <code class="language-css" pCode>al-download-queue</code>
+                <p>To position the download queue as fixed on the bottom of the page, use class <code class="language-css" pCode>queuePosition="fixed-bottom"</code></p>
+            </div>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Usage Guide">
+        <div class="card card-w-title">
+            <h1>Usage Guide</h1>
+            <div class="card-content">
+                <embedded-markdown resourceId="readme/al-download-queue/README"></embedded-markdown>
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>
+

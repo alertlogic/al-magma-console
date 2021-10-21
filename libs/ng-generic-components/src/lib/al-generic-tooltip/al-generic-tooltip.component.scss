@@ -1,0 +1,92 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.al-generic-tooltip {
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    pointer-events: none;
+
+    .bubble-wrap {
+        transition: opacity 0.5s ease-in-out;
+        background: none repeat scroll 0 0 white; 
+        border-radius: 0;
+        border: 3px solid gray;
+        color: gray;
+        padding: 10px 10px 10px 10px; 
+        margin: 2em;
+        position: absolute;
+
+        h4 {
+            display:table-cell;
+            font-size: 1em;
+            margin-bottom: 0.5em;
+            border-bottom: 1px solid al-color($al-gray,300);
+
+            .bubbleCon {
+                font-size: 1.3em;
+                width:28px;
+                float:left;
+            }
+            .title {
+                float:left;
+                font-size: 1.3em;
+                margin-bottom:.5em;
+                width: 241px;
+            }
+            .scan-icon > .al-scan {
+                
+                font-size: 1.3em;
+
+            }
+            
+        }
+        ul {
+            list-style-type: none;
+            padding-left:0;
+            margin-top:5px;
+            li {
+                display: inline-block;
+                width: 50%;
+                text-align: center;
+                float: left;
+            }
+            h5{
+                font-size: 1.3em;
+                margin-bottom:0;
+            }
+        }
+        &.left {
+            margin-left: 30px;
+            &:after {
+                top: 20px;
+            }
+            &:before {
+                top: 20px;
+            }
+        }
+        &.bottom {
+            &:before {
+                border-color: gray transparent;
+                border-style: solid;
+                border-width: 20px 20px 0px 20px;
+                bottom:-20px;
+                content: "";
+                display: block;
+                position: absolute;
+            }
+
+            &:after {
+                border-color: white transparent;
+                border-style: solid;
+                border-width: 20px 20px 0px 20px;
+                bottom:-16px;
+                content: "";
+                display: block;
+                position: absolute;
+            }
+        }
+    }
+}

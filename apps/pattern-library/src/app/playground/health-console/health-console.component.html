@@ -1,0 +1,27 @@
+<h1>Health Console</h1>
+
+<div class="card-list">
+	<div class="card" *ngFor="let item of data">
+		<div class="icon"></div>
+		<div class="header">{{item.id}}</div>
+		<div class="title">{{item.summary}}</div>
+		<div class="footer">{{item.class}}</div>
+		<div class="actions">
+			<div class="btnGroupRight">
+		        <button type="button" icon="ui-icon-edit" class="cardBtn flat right" label="Edit" pButton></button>
+		    </div>
+		</div>
+	</div>
+</div>
+
+<!-- <p-panel *ngFor="let item of data" header="{{item.summary}}">
+	<div class="icon"></div>
+	<div class="header">{{item.id}}</div>
+	<div class="title">{{item.summary}}</div>
+	<div class="footer">{{item.class}}</div>
+	<div class="actions">
+		<div class="btnGroupRight">
+			<button type="button" icon="ui-icon-edit" class="cardBtn flat right" label="Edit" pButton></button>
+	    </div>
+	</div>
+</p-panel> -->

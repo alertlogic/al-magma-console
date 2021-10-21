@@ -1,0 +1,31 @@
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>Dynamic Progress Indicators</h1>
+            <div class="card-content">
+                <p-progressBar [value]="value"></p-progressBar>
+                <h5>Code Snippet:</h5>
+                <code-example language="markup" resourceId="sample/components/progress-indicators/progress1">
+                </code-example>
+            </div>
+        </div>
+        <div class="card card-w-title">
+            <h1>Static Progress Indicators</h1>
+            <div class="card-content">
+                <p-progressBar [value]="50"></p-progressBar>
+                <h5>Code Snippet:</h5>
+                <code-example language="markup" resourceId="sample/components/progress-indicators/progress2">
+                </code-example>
+            </div>
+        </div>
+        <div class="card card-w-title">
+            <h1>Indeterminate Progress Indicators</h1>
+            <div class="card-content">
+                <p-progressBar mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+                <h5>Code Snippet:</h5>
+                <code-example language="markup" resourceId="sample/components/progress-indicators/progress3">
+                </code-example>
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>

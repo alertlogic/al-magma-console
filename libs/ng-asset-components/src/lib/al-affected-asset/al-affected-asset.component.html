@@ -1,0 +1,23 @@
+<ng-container *ngIf="affectedAssetDetail">
+    <div class="affected-asset" *ngIf="affectedAssetDetail.selectedAssetCount">
+        <i class="affected-asset-icon al al-assets"></i>
+        <span>
+            {{affectedAssetDetail.selectedAssetCount}} {{ affectedAssetDetail.selectedAssetText||'affected asset'}}{{affectedAssetDetail.selectedAssetCount > 1 ? 's' : ''}}
+        </span>
+    </div>
+    <div class="affected-asset" *ngIf="affectedAssetDetail.allFutureAssetsToggleable; else allFutureAssetSelected">
+        <p-checkbox [(ngModel)]="affectedAssetDetail.allFutureAssetSelected" [binary]="true"></p-checkbox>
+        <i class="padding-right material-icons">add</i>
+        <span>
+            {{ affectedAssetDetail.allFutureAssetText ||'all future assets matching filters'}}
+        </span>
+    </div>
+    <ng-template #allFutureAssetSelected>
+        <div class="affected-asset" *ngIf="affectedAssetDetail.allFutureAssetSelected">
+            <i class="padding-right material-icons">add</i>
+            <span>
+                {{ affectedAssetDetail.allFutureAssetText ||'all future assets matching selected filters'}}
+            </span>
+        </div>
+    </ng-template>
+</ng-container>

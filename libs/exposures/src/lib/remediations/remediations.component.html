@@ -1,0 +1,124 @@
+<p-progressBar *ngIf="actionInProgress" mode="indeterminate" [style]="{'height': '6px'}" ></p-progressBar>
+<al-protected-content-ex [entitlements]="'assess|detect|respond|tmpro|lmpro'"
+                        (onHide)="contentUnavailable()">
+    <exposures-zero-state *ngIf="!zeroState.hasDeployments && zeroState.active; else listContent">
+    </exposures-zero-state>
+    <ng-template #listContent>
+        <ng-template #remediationCard let-item>
+            <al-base-card [config]="alBaseCardConfig"
+                    [item]="item | baseCardItem"
+                    [checked]="item.checked"
+                    (onChangeChecked)="changeSimpleSelection($event)"
+                    *ngIf="!view.loading">
+                <ng-template alBaseCardHeaderRight>
+                    <div class="col-1 al-cardstack-icon divider pointer" (click)="goToDetailPage($event, item)">
+                        <i class="material-icons">navigate_next</i>
+                        <div class="al-cardstack-icon-label">Open</div>
+                    </div>
+                </ng-template>
+                <ng-template alBaseCardBodyContent>
+                    <div class="grid grid-nogutter nested-grid">
+                        <div class="expand grid-nogutter">
+                            <al-card-assessment-content [item]="item" [usersMap]="view.usersMap" ></al-card-assessment-content>
+                            <div class="grid grid-nogutter">
+                                <div class="col-6 grid-nogutter al-cardstack-content-column-righ-padding">
+                                    <div class="al-cardstack-content-label">Exposures</div>
+                                    <div *ngFor="let exposure of item.properties.exposures | slice:0:4">
+                                        <al-remediation-asset-item [name]="$any(exposure).name" [iconClass]="$any(exposure).severity" [score]="$any(exposure).cvss_score"></al-remediation-asset-item>
+                                    </div>
+                                    <div *ngIf="item.properties.exposures.length > 4" class="extra-vulns">
+                                        <i class="fa fa-plus"></i>
+                                        {{item.properties.exposures.length - 4}}
+                                        <span i18n>other exposures...</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 grid-nogutter al-cardstack-content-column-righ-padding">
+                                    <div class="grid grid-nogutter">
+                                        <div class="col-12 grid-nogutter al-cardstack-content-column-righ-padding">
+                                            <div class="al-cardstack-content-label">Account</div>
+                                            <div class="desc">{{item.properties.accountName}}</div>
+                                        </div>
+                                        <div class="col-12 grid-nogutter al-cardstack-content-column-righ-padding">
+                                            <div class="al-cardstack-content-label">Deployment(s)</div>
+                                            <div class="desc" *ngFor="let deployment of item.properties.deploymentNames | slice:0:4">{{deployment}}</div>
+                                            <div *ngIf="item.properties.deploymentNames.length > 4" class="extra-vulns">
+                                                <i class="fa fa-plus"></i>
+                                                {{item.properties.deploymentNames.length - 4}}
+                                                <span i18n>other deployment...</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template alBaseCardSubtitle>
+                    <al-score-count [config]="item.entity.severities" [threatiness]="item.entity.threatiness? item.entity.threatiness : 0"  [displayMode]="'small'"  [limit4Levels]="true">
+                    </al-score-count>
+                    <br>
+                    <al-card-subtitle-content [item]="item" [usersMap]="view.usersMap"></al-card-subtitle-content>
+                </ng-template>
+            </al-base-card>
+        </ng-template>
+        <al-protected-content-ex [entitlements]="'assess|detect|respond|tmpro|lmpro'" (onHide)="contentUnavailable()">
+            <al-cardstack [view]="view"
+                [cardExpanded]="remediationCard"
+                (onCheckAll)="changeAllSelection($event)"
+                (onViewChanged)="onViewChanged($event)"
+                (onStateFilterChanged)="onStateFilterChanged($event)"
+                (onClearAllFilters)="onClearAllFilters()"
+                (onAlFilterChanged)="onAlFilterChanged($event)"
+                (onSortBy)="onSortBy($event)"
+                (onTextFilterApplied)="onTextFilterApplied()">
+                <div class="zero-state">
+                    <al-zero-state flavor="default">
+                        <span zero-state-title i18n>No Remediations Found</span>
+                        <span zero-state-description i18n>It looks like there are no remediations found for this search.
+                            Please choose a different search term.</span>
+                        <i zero-state-icon class="fa fa-exclamation-triangle"></i>
+                    </al-zero-state>
+                </div>
+                <div class="error-state">
+                    <al-zero-state flavor="default">
+                        <span zero-state-title i18n>Something went wrong</span>
+                        <span zero-state-description i18n>Something went wrong, please refresh page or contact support
+                            team.</span>
+                        <i zero-state-icon class="fa fa-exclamation-circle"></i>
+                    </al-zero-state>
+                </div>
+            </al-cardstack>
+        </al-protected-content-ex>
+        <al-toast key="alToast"></al-toast>
+
+        <al-action-snackbar [text]="actionSnackbarText"
+                            [visible]="actionSnackbarVisible"
+                            [elements]="actionSnackbarButtons"
+                            (onElementPressed)="actionSnackbarEvent($event)">
+        </al-action-snackbar>
+    </ng-template>
+
+    <exposures-not-available unavailable></exposures-not-available>
+
+    <al-exposure-conclude #concludeAction
+        [page]="'remediations'"
+        [filter]="selectedFilters"
+        [itemIds]="selectedItemIds"
+        [selectionCount]="currentSelection.length"
+        [deploymentIds]="selectedItemDeploymentIds"
+        [accountId]="accountId"
+        (onConcludeSuccess)="onRemediationActionSuccess('Concluded')"
+        [affectedAssetDetail]="affectedAssetDetail">
+    </al-exposure-conclude>
+
+    <al-exposure-dispose #disposeAction
+        [page]="'remediations'"
+        [filter]="selectedFilters"
+        [itemIds]="selectedItemIds"
+        [selectionCount]="currentSelection.length"
+        [deploymentIds]="selectedItemDeploymentIds"
+        [accountId]="accountId"
+        (onDisposeSuccess)="onRemediationActionSuccess('Disposed')"
+        [affectedAssetDetail]="affectedAssetDetail">
+    </al-exposure-dispose>
+</al-protected-content-ex>

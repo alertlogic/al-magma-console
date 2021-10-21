@@ -1,0 +1,58 @@
+<p-sidebar #pSidebar
+    styleClass="al-sidebar"
+    [(visible)]="visible"
+    [style]="{ width: config.expand? '50%':'25em', padding:0 }"
+    position="right"
+    [showCloseIcon]="false"
+    [modal]="config.modal"
+    [dismissible]="false">
+
+    <div class="header" [ngStyle]="{ 'background-color': config.headerColor }">
+        <div class="grid align-items-center no-margin">
+            <div *ngIf="config.expandable" class="col-1">
+                <i class="material-icons expand-icon" fxFlexAlign="baseline"
+                    (click)="toggleExpand()">
+                    {{ config.expand ? 'fullscreen_exit' : 'fullscreen' }}</i>
+            </div>
+            <div class="col title">
+                <i (click)="headerIconClicked()" *ngIf="config.header.icon?.name"
+                    class="material-icons">{{ config.header.icon?.name }}</i>
+                <i (click)="headerIconClicked()" *ngIf="config.header.icon?.cssClasses"
+                    class="{{config.header.icon?.cssClasses}}"></i>
+                <span>{{config.header.title}}</span>
+            </div>
+            <div class="col-1 no-pad-left">
+                <i *ngIf="config.header.showClose" class="material-icons close-icon" (click)="close()">close</i>
+            </div>
+        </div>
+    </div>
+    <div class="toolbar" *ngIf="config.enableButtonToolbar" [ngStyle]="{ 'backgroundColor': config.toolbarColor }">
+        <button *ngIf="config.secondary"
+                (click)="secondaryAction()"
+                type="button" pButton
+                label="{{config.secondary.text}}"
+                icon=""
+                class="accent ui-button-raised ui-button-rounded"
+                [disabled]="config.secondary.disabled"></button>
+        <button *ngIf="config.ternary"
+                (click)="tertiaryAction()"
+                type="button" pButton
+                label="{{config.ternary.text}}"
+                icon=""
+                class="ui-button-raised ui-button-rounded"
+                [disabled]="config.ternary.disabled"></button>
+        <button *ngIf="config.primary"
+                (click)="save()"
+                type="button" pButton
+                label="{{config.primary.text}}"
+                icon=""
+                class="primaryAction ui-button-raised ui-button-rounded"
+                [disabled]="config.primary.disabled"></button>
+    </div>
+    <div class="content">
+        <div class="content-body">
+            <al-view-helper #viewHelper [loading]="config.isloading" *ngIf="config.viewHelper" [notifyPanel]="true"></al-view-helper>
+            <ng-content></ng-content>
+        </div>
+    </div>
+</p-sidebar>

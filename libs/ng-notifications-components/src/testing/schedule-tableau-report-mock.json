@@ -1,0 +1,16 @@
+{
+    "reportDefinition": {
+      "site_id": "d741e65f-4798-48e8-b5ae-6ea3b270654e",
+      "workbook_id": "8bbc3c84-d634-4401-9d15-ebf130b206b8",
+      "view_id": "37705682-08b4-46fc-b64c-61913c3eb7c7"
+    },
+    "schedule": {
+      "name": "",
+      "type": "AWS Incident Daily Digest Trends",
+      "definition": {
+        "site_id": "d741e65f-4448-48e8-b5ae-6ea3b270654e",
+        "workbook_id": "8bbc3c84-d63c-4401-9d15-ebe130b206b8",
+        "view_id": "37715682-08b4-46fc-b64c-61923c3eb7c7"
+      }
+    }
+}

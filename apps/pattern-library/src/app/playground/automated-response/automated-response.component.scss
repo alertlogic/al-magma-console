@@ -1,0 +1,66 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.playbook-card {
+    border: 1px solid al-color($al-gray, 500);
+    background-color: #FFFFFF;
+    margin: 0;
+    padding: 12px;
+
+    .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .action-details {
+        display: flex;
+        justify-content: flex-start;
+    }
+}
+
+.action-sequence {
+    margin: 12px 0;
+    display: flex;
+    justify-content: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.response-action-menu {
+    button {
+        width: 100%;
+    }
+
+    .actions-menu {
+        background-color: #FFFFFF;
+        box-shadow: 0px 2px 3px 0px al-color($al-gray, 200);
+
+        ul {
+            margin-top: 0px;
+            li {
+                border-bottom: 1px solid al-color($al-gray, 100);
+                padding: 6px;
+                margin: 0px;
+
+                &:hover {
+                    background-color: al-color($al-smokeBlue, 100);
+                    cursor: pointer;
+                }
+            }
+
+        }
+    }
+}
+
+
+.action-icons > button {
+    margin-left: 12px;
+}
+
+//really?
+.hover:hover {
+    cursor: pointer;
+}

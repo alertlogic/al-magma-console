@@ -1,0 +1,398 @@
+{
+    "user": {
+        "descriptor": "User Menu",
+        "structure": [
+            {
+                "id": "user:user-management",
+                "caption": "Users",
+                "target": {
+                    "site": "cd17:accounts",
+                    "path": "/users/aims/#/"
+                }
+            },
+            {
+                "id": "user:integrations",
+                "caption": "Integrations",
+                "target": {
+                    "site": "cd17:accounts",
+                    "path": "/users/developer/#/"
+                }
+            },
+            {
+                "id": "user:support",
+                "caption": "Support",
+                "target": {
+                    "site": "cd17:accounts",
+                    "path": "/users/#/support"
+                },
+                "disabled": false
+            },
+            {
+                "id": "user:signout",
+                "caption": "Sign Out",
+                "action": {
+                    "type": "trigger",
+                    "hook": "Navigation.User.Signout"
+                }
+            }
+        ]
+    },
+    "main": {
+        "description": "Top Navigation",
+        "structure": [
+            {
+                "id": "cd14:ui:entry",
+                "caption": "Home",
+                "target": {
+                    "site": "cd14:ui",
+                    "path": "/"
+                },
+                "children": [
+                    {
+                        "caption": "Summary",
+                        "target": {
+                            "site": "cd14:ui",
+                            "path": "/summary.php"
+                        },
+                        "bubble": true
+                    },
+                    {
+                        "caption": "Dashboard",
+                        "target": {
+                            "site": "cd14:ui",
+                            "path": "/dashboard.php"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "cd14:ui:tm",
+                "caption": "Threat Manager",
+                "target": {
+                    "site": "cd14:ui",
+                    "path": "/threat-manager/#/"
+                },
+                "children": [
+                    {
+                        "caption": "Summary",
+                        "target": {
+                            "site": "cd14:ui",
+                            "path": "/threat-manager/#/summary"
+                        },
+                        "bubble": true
+                    },
+                    {
+                        "caption": "Deployments",
+                        "target": {
+                            "site": "cd14:ui",
+                            "path": "/threat-manager/#/deployments"
+                        }
+                    },
+                    {
+                        "caption": "Certificates",
+                        "target": {
+                            "site": "cd14:ui",
+                            "path": "/threat-manager/#/certificates"
+                        }
+                    },
+                    {
+                        "caption": "Policies",
+                        "target": {
+                            "site": "cd14:ui",
+                            "path": "/threat-manager/#/policies/protectedhosts"
+                        }
+                    },
+                    {
+                        "caption": "Alert Rules",
+                        "target": {
+                            "site": "cd14:ui",
+                            "path": "/threat-manager/#/alertrules/collection"
+                        }
+                    },
+                    {
+                        "caption": "Support",
+                        "target": {
+                            "site": "cd14:ui",
+                            "path": "/threat-manager/#/alertrules/collection"
+                        },
+                        "properties": {
+                            "css_class": "atTheEnd"
+                        }
+                    }
+                ]
+            },
+            {
+                "caption": "Scans",
+                "target": {
+                    "site": "cd14:ui",
+                    "path": "/exposures.php"
+                },
+                "children": [
+                    {
+                        "caption": "List",
+                        "target": {
+                            "site": "cd14:ui",
+                            "path": "/exposures.php"
+                        }
+                    }
+                ]
+            },
+            {
+                "caption": "Log Manager",
+                "target": {
+                    "site": "cd14:ui",
+                    "path": "/log-manager/#/summary"
+                },
+                "children": [
+                    {
+                        "caption": "Summary",
+                        "target": {
+                            "site": "cd14:ui",
+                            "path": "/log-manager/#/summary"
+                        },
+                        "bubble": true,
+                        "TODO": "Put more items here..." 
+                    }
+                ]
+            },
+            {
+                "caption": "WAF",
+                "target": {
+                    "site": "cd14:ui",
+                    "path": "/wsm/"
+                },
+                "children": [
+                    {
+                        "caption": "Overview",
+                        "target": {
+                            "site": "cd14:ui",
+                            "path": "/wsm/"
+                        },
+                        "bubble": true,
+                        "TODO": "Put more items here..." 
+                    }
+                ]
+            },
+            {
+                "caption": "Incidents",
+                "target": {
+                    "site": "cd14:ui",
+                    "path": "/monitor.php"
+                },
+                "children": [
+                    {
+                        "caption": "Summary",
+                        "target": {
+                            "site": "cd14:ui",
+                            "path": "/monitor.php"
+                        },
+                        "bubble": true
+                    },
+                    {
+                        "caption": "Blocks",
+                        "target": {
+                            "site": "cd14:ui",
+                            "path": "/block_monitor.php"
+                        }
+                    },
+                    {
+                        "caption": "Events",
+                        "target": {
+                            "site": "cd14:ui",
+                            "path": "/event_monitor.php"
+                        }
+                    },
+                    {
+                        "caption": "Event Alerts",
+                        "target": {
+                            "site": "cd14:ui",
+                            "path": "/event_alert_rule.php"
+                        }
+                    },
+                    {
+                        "caption": "Incident Alerts",
+                        "target": {
+                            "site": "cd14:ui",
+                            "path": "/incident_alert_rule.php"
+                        }
+                    }
+                ]
+            },
+            {
+                "caption": "Cases",
+                "target": {
+                    "site": "cd14:ui",
+                    "path": "/case_monitor.php"
+                }
+            },
+            {
+                "caption": "Management",
+                "target": {
+                    "site": "cd14:ui",
+                    "path": "/manage_sensors.php"
+                },
+                "children": [
+                    {
+                        "caption": "General",
+                        "bubble": true,
+                        "target": {
+                            "site": "cd14:ui",
+                            "path": "/branding/management"
+                        },
+                        "children": [
+                            {
+                                "caption": "Branding",
+                                "target": {
+                                    "site": "cd14:ui",
+                                    "path": "/branding/management"
+                                },
+                                "bubble": true
+                            },
+                            {
+                                "caption": "Users & Groups",
+                                "target": {
+                                    "site": "cd14:ui",
+                                    "path": "/manage_user.php"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "caption": "Assets",
+                        "bubble": true,
+                        "children": [
+                            {
+                                "caption": "Appliances",
+                                "target": {
+                                    "site": "cd14:ui",
+                                    "path": "/manage_sensors.php"
+                                },
+                                "bubble": true
+                            },
+                            {
+                                "caption": "Devices",
+                                "target": {
+                                    "site": "cd14:ui",
+                                    "path": "/devices.php"
+                                }
+                            },
+                            {
+                                "caption": "IDS Whitelist",
+                                "target": {
+                                    "site": "cd14:ui",
+                                    "path": "/incident_alert_rule.php"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "caption": "Threat Manager",
+                        "bubble": true,
+                        "target": {
+                            "site": "cd14:ui",
+                            "path": "/lm"
+                        },
+                        "children": [
+                        ]
+                    },
+                    {
+                        "caption": "Log Manager",
+                        "bubble": true,
+                        "target": {
+                            "site": "cd14:ui",
+                            "path": "/lm"
+                        },
+                        "children": [
+                        ]
+                    },
+                    {
+                        "caption": "Notifications",
+                        "bubble": true,
+                        "target": {
+                            "site": "cd14:ui",
+                            "path": "/npm/"
+                        },
+                        "children": [
+                            {
+                                "caption": "Policies",
+                                "bubble": true,
+                                "target": {
+                                    "site": "cd14:ui",
+                                    "path": "/npm/"
+                                }
+                            },
+                            {
+                                "caption": "Contacts & Groups",
+                                "target": {
+                                    "site": "cd14:ui",
+                                    "path": "/ncm/"
+                                }
+                            },
+                            {
+                                "caption": "Webhooks",
+                                "target": {
+                                    "site": "cd14:ui",
+                                    "path": "/nwm/"
+                                }
+                            },
+                            {
+                                "caption": "History",
+                                "target": {
+                                    "site": "cd14:ui",
+                                    "path": "/nh/"
+                                }
+                            },
+                            {
+                                "caption": "Options",
+                                "target": {
+                                    "site": "cd14:ui",
+                                    "path": "/npm/preferences"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "caption": "Reports",
+                "target": {
+                    "site": "cd14:ui",
+                    "path": "/reports.php"
+                },
+                "children": [
+                    {
+                        "caption": "List",
+                        "target": {
+                            "site": "cd14:ui",
+                            "path": "/reports.php"
+                        }
+                    }
+                ]
+            },
+            {
+                "caption": "Web Security",
+                "target": {
+                    "site": "cd14:ui",
+                    "path": "/websec/summary"
+                },
+                "children": [
+                    {
+                        "caption": "Summary",
+                        "target": {
+                            "site": "cd14:ui",
+                            "path": "/websec/summary"
+                        },
+                        "bubble": true
+                    },
+                    {
+                        "caption": "Appliances",
+                        "target": {
+                            "site": "cd14:ui",
+                            "path": "/websec/appliances"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,674 @@
+{
+    "name": "Navigation Schema",
+    "description": "Compiled from navigation-schemas/siemless/main.json on Thu Sep 19 2019 20:21:04 GMT-0700 (Pacific Daylight Time)",
+    "menus": {
+        "primary": {
+            "caption": "primary",
+            "children": [
+                {
+                    "caption": "Dashboards",
+                    "properties": {
+                        "iconClass": "dashboard"
+                    },
+                    "action": "cd19:dashboards"
+                },
+                {
+                    "caption": "Respond",
+                    "properties": {
+                        "iconClass": "security"
+                    },
+                    "children": [
+                        {
+                            "caption": "Incidents",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd17:incidents",
+                                "path": "/#/"
+                            }
+                        },
+                        {
+                            "caption": "Exposures",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd17:exposures",
+                                "path": "/#/exposures/open/:accountId"
+                            }
+                        },
+                        {
+                            "caption": "Health",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd17:health",
+                                "path": "/#/"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "caption": "Investigate",
+                    "properties": {
+                        "iconClass": "search"
+                    },
+                    "children": [
+                        {
+                            "caption": "Search",
+                            "properties": {
+                                "childOutlet": "content-menu"
+                            },
+                            "action": {
+                                "type": "link",
+                                "location": "cd17:search",
+                                "path": "/#/"
+                            },
+                            "children": [
+                                {
+                                    "caption": "Log Messages",
+                                    "properties": {},
+                                    "action": "cd17:search:log-messages",
+                                    "matches": [
+                                        "/#/log-messages/.*"
+                                    ],
+                                    "visible": {
+                                        "rule": "all",
+                                        "conditions": [
+                                            {
+                                                "parameters": [
+                                                    "accountId"
+                                                ]
+                                            },
+                                            {
+                                                "entitlements": "cloud_defender|log_manager|web_security_manager|web_application_manager|web_application_firewall&!detect|respond"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "caption": "Log Search",
+                                    "properties": {},
+                                    "action": "cd17:search:search",
+                                    "matches": [
+                                        "/#/search/.*"
+                                    ],
+                                    "visible": {
+                                        "rule": "all",
+                                        "conditions": [
+                                            {
+                                                "parameters": [
+                                                    "accountId"
+                                                ]
+                                            },
+                                            {
+                                                "entitlements": "assess|detect|respond"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "caption": "Log Search BETA",
+                                    "properties": {},
+                                    "action": "cd17:search:search-beta",
+                                    "matches": [
+                                        "/#/search/.*"
+                                    ],
+                                    "visible": {
+                                        "rule": "all",
+                                        "conditions": [
+                                            {
+                                                "parameters": [
+                                                    "accountId"
+                                                ]
+                                            },
+                                            {
+                                                "entitlements": "cloud_defender|log_manager|web_security_manager|web_application_manager|web_application_firewall&!detect|respond"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "caption": "Events",
+                                    "properties": {},
+                                    "action": "cd17:search:events",
+                                    "matches": [
+                                        "/#/(events|signature)/.*"
+                                    ],
+                                    "visible": {
+                                        "rule": "all",
+                                        "conditions": [
+                                            {
+                                                "parameters": [
+                                                    "accountId"
+                                                ]
+                                            },
+                                            {
+                                                "entitlements": "threat_manager|cloud_defender|detect|respond"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "caption": "Blocks",
+                                    "properties": {},
+                                    "action": "cd17:search:blocks",
+                                    "matches": [
+                                        "/#/blocks/.*"
+                                    ],
+                                    "visible": {
+                                        "rule": "all",
+                                        "conditions": [
+                                            {
+                                                "parameters": [
+                                                    "accountId"
+                                                ]
+                                            },
+                                            {
+                                                "entitlements": "threat_manager|cloud_defender"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "caption": "Cases",
+                                    "properties": {},
+                                    "action": "cd17:search:cases",
+                                    "matches": [
+                                        "/#/(cases|activeResult)/.*"
+                                    ],
+                                    "visible": {
+                                        "rule": "all",
+                                        "conditions": [
+                                            {
+                                                "parameters": [
+                                                    "accountId"
+                                                ]
+                                            },
+                                            {
+                                                "entitlements": "web_application_firewall|web_security_manager|cloud_defender|threat_manager|log_manager"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "caption": "Deny Logs",
+                                    "properties": {},
+                                    "action": "cd17:search:deny-logs",
+                                    "matches": [
+                                        "/#/deny-logs/.*"
+                                    ],
+                                    "visible": {
+                                        "rule": "all",
+                                        "conditions": [
+                                            {
+                                                "parameters": [
+                                                    "accountId"
+                                                ]
+                                            },
+                                            {
+                                                "entitlements": "web_application_firewall"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "caption": "Tutorial",
+                                    "properties": {
+                                        "css_class": "atTheEnd"
+                                    },
+                                    "action": {
+                                        "type": "trigger",
+                                        "trigger": "Navigation.Open.Tutorial"
+                                    },
+                                    "visible": {
+                                        "path_matches": "/#/search.*"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "caption": "Topology",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd17:overview",
+                                "path": "/topology/index.html"
+                            }
+                        },
+                        {
+                            "caption": "Endpoints",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd19:endpoints",
+                                "path": "/#/dashboard/:accountId"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "caption": "Validate",
+                    "properties": {
+                        "iconClass": "check_circle"
+                    },
+                    "children": [
+                        {
+                            "caption": "Reports",
+                            "properties": {
+                                "childOutlet": "content-menu"
+                            },
+                            "action": {
+                                "type": "link",
+                                "location": "cd17:intelligence",
+                                "path": "/#/"
+                            },
+                            "children": [
+                                {
+                                    "caption": "Risk",
+                                    "properties": {},
+                                    "action": "cd17:intelligence:listRisk",
+                                    "matches": [
+                                        "/#/dashboard/.*/Risk/.*"
+                                    ],
+                                    "visible": {
+                                        "rule": "all",
+                                        "conditions": [
+                                            {
+                                                "parameters": [
+                                                    "accountId"
+                                                ]
+                                            },
+                                            {
+                                                "entitlements": "assess|detect|respond"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "caption": "Threats",
+                                    "properties": {},
+                                    "action": "cd17:intelligence:listThreats",
+                                    "matches": [
+                                        "/#/dashboard/.*/Threats/.*"
+                                    ],
+                                    "visible": {
+                                        "rule": "all",
+                                        "conditions": [
+                                            {
+                                                "parameters": [
+                                                    "accountId"
+                                                ]
+                                            },
+                                            {
+                                                "entitlements": "detect|respond|cloud_insight|threat_manager|log_manager|web_security_manager|cloud_defender"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "caption": "Vulnerabilities",
+                                    "properties": {},
+                                    "action": "cd17:intelligence:listVulnerabilities",
+                                    "matches": [
+                                        "/#/dashboard/.*/Vulnerability/.*"
+                                    ],
+                                    "visible": {
+                                        "rule": "all",
+                                        "conditions": [
+                                            {
+                                                "parameters": [
+                                                    "accountId"
+                                                ]
+                                            },
+                                            {
+                                                "entitlements": "assess|detect|respond|cloud_insight|cloud_defender"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "caption": "Remediations",
+                                    "properties": {},
+                                    "action": "cd17:intelligence:listRemediations",
+                                    "matches": [
+                                        "/#/dashboard/.*/Remediations/.*"
+                                    ],
+                                    "visible": {
+                                        "rule": "all",
+                                        "conditions": [
+                                            {
+                                                "parameters": [
+                                                    "accountId"
+                                                ]
+                                            },
+                                            {
+                                                "entitlements": "assess|detect|respond|cloud_insight|cloud_defender"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "caption": "Compliance",
+                                    "properties": {},
+                                    "action": "cd17:intelligence:listCompliance",
+                                    "matches": [
+                                        "/#/dashboard/.*/Compliance/.*"
+                                    ],
+                                    "visible": {
+                                        "rule": "all",
+                                        "conditions": [
+                                            {
+                                                "parameters": [
+                                                    "accountId"
+                                                ]
+                                            },
+                                            {
+                                                "entitlements": "assess|detect|respond|cloud_insight|log_manager|log_review|web_application_firewall|web_security_manager|cloud_defender"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "caption": "Service",
+                                    "properties": {},
+                                    "action": "cd17:intelligence:listService",
+                                    "matches": [
+                                        "/#/dashboard/.*/Service/.*"
+                                    ],
+                                    "visible": {
+                                        "rule": "all",
+                                        "conditions": [
+                                            {
+                                                "parameters": [
+                                                    "accountId"
+                                                ]
+                                            },
+                                            {
+                                                "entitlements": "detect|respond|cloud_insight|threat_manager|log_manager|log_review|web_security_manager|cloud_defender"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "caption": "Scheduled",
+                                    "properties": {},
+                                    "action": "cd17:intelligence:legacyReports",
+                                    "matches": [
+                                        "/#/legacy-reports/.*"
+                                    ],
+                                    "visible": {
+                                        "rule": "all",
+                                        "conditions": [
+                                            {
+                                                "parameters": [
+                                                    "accountId"
+                                                ]
+                                            },
+                                            {
+                                                "entitlements": "log_manager|threat_manager|web_security_manager|cloud_defender|phoenix_migrated"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "caption": "Usage",
+                                    "properties": {},
+                                    "action": "cd17:intelligence:legacyUsage",
+                                    "matches": [
+                                        "/#/legacy-usage/*"
+                                    ],
+                                    "visible": {
+                                        "rule": "all",
+                                        "conditions": [
+                                            {
+                                                "parameters": [
+                                                    "accountId"
+                                                ]
+                                            },
+                                            {
+                                                "entitlements": "threat_manager|log_manager|cloud_defender"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "caption": "WAF",
+                                    "properties": {},
+                                    "action": "cd17:intelligence:legacyWAF",
+                                    "matches": [
+                                        "/#/legacy-waf/activity/:accountId.*"
+                                    ],
+                                    "visible": {
+                                        "rule": "all",
+                                        "conditions": [
+                                            {
+                                                "parameters": [
+                                                    "accountId"
+                                                ]
+                                            },
+                                            {
+                                                "entitlements": "web_application_firewall|managed_waf"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "caption": "PCI Compliance",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd17:config",
+                                "path": "/#/pci/scanning/:accountId"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "caption": "Configure",
+                    "properties": {
+                        "iconClass": "settings"
+                    },
+                    "children": [
+                        {
+                            "caption": "Deployments",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd17:config",
+                                "path": "/#/deployments/:accountId"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "caption": "Manage",
+                    "properties": {
+                        "iconClass": "supervised_user_circle"
+                    },
+                    "children": [
+                        {
+                            "caption": "Users",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd17:accounts",
+                                "path": "/#/aims/users"
+                            }
+                        },
+                        {
+                            "caption": "Integrations",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd17:accounts",
+                                "path": "/users/developer/index.html"
+                            }
+                        },
+                        {
+                            "caption": "Notifications",
+                            "properties": {},
+                            "action": {
+                                "type": "link",
+                                "location": "cd17:accounts",
+                                "path": "/#/notifications/subscriptions/incidents"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "user": {
+            "caption": "user",
+            "children": [
+                {
+                    "caption": "Logout",
+                    "properties": {},
+                    "action": {
+                        "type": "trigger",
+                        "trigger": "Navigation.User.Signout"
+                    }
+                }
+            ]
+        }
+    },
+    "namedRoutes": {
+        "cd19:dashboards": {
+            "caption": "Dashboards",
+            "action": {
+                "type": "link",
+                "location": "cd19:dashboards",
+                "path": "/#/"
+            }
+        },
+        "cd17:search:log-messages": {
+            "caption": "Log Messages",
+            "action": {
+                "type": "link",
+                "location": "cd17:search",
+                "path": "/#/log-messages/:accountId"
+            }
+        },
+        "cd17:search:search": {
+            "caption": "Log Search",
+            "action": {
+                "type": "link",
+                "location": "cd17:search",
+                "path": "/#/search/:accountId"
+            }
+        },
+        "cd17:search:search-beta": {
+            "caption": "Log Search BETA",
+            "action": {
+                "type": "link",
+                "location": "cd17:search",
+                "path": "/#/search/:accountId"
+            }
+        },
+        "cd17:search:events": {
+            "caption": "Events",
+            "action": {
+                "type": "link",
+                "location": "cd17:search",
+                "path": "/#/events/:accountId"
+            }
+        },
+        "cd17:search:blocks": {
+            "caption": "Blocks",
+            "action": {
+                "type": "link",
+                "location": "cd17:search",
+                "path": "/#/blocks/:accountId"
+            }
+        },
+        "cd17:search:cases": {
+            "caption": "Cases",
+            "action": {
+                "type": "link",
+                "location": "cd17:search",
+                "path": "/#/cases/:accountId"
+            }
+        },
+        "cd17:search:deny-logs": {
+            "caption": "Deny Logs",
+            "action": {
+                "type": "link",
+                "location": "cd17:search",
+                "path": "/#/deny-logs/:accountId"
+            }
+        },
+        "cd17:intelligence:listRisk": {
+            "caption": "Risk",
+            "action": {
+                "type": "link",
+                "location": "cd17:intelligence",
+                "path": "/#/dashboard/:accountId/Risk"
+            }
+        },
+        "cd17:intelligence:listThreats": {
+            "caption": "Threats",
+            "action": {
+                "type": "link",
+                "location": "cd17:intelligence",
+                "path": "/#/dashboard/:accountId/Threats"
+            }
+        },
+        "cd17:intelligence:listVulnerabilities": {
+            "caption": "Vulnerabilities",
+            "action": {
+                "type": "link",
+                "location": "cd17:intelligence",
+                "path": "/#/dashboard/:accountId/Vulnerability"
+            }
+        },
+        "cd17:intelligence:listRemediations": {
+            "caption": "Remediations",
+            "action": {
+                "type": "link",
+                "location": "cd17:intelligence",
+                "path": "/#/dashboard/:accountId/Remediations"
+            }
+        },
+        "cd17:intelligence:listCompliance": {
+            "caption": "Compliance",
+            "action": {
+                "type": "link",
+                "location": "cd17:intelligence",
+                "path": "/#/dashboard/:accountId/Compliance"
+            }
+        },
+        "cd17:intelligence:listService": {
+            "caption": "Service",
+            "action": {
+                "type": "link",
+                "location": "cd17:intelligence",
+                "path": "/#/dashboard/:accountId/Service"
+            }
+        },
+        "cd17:intelligence:legacyReports": {
+            "caption": "Scheduled",
+            "action": {
+                "type": "link",
+                "location": "cd17:intelligence",
+                "path": "/#/legacy-reports/dashboard/:accountId"
+            }
+        },
+        "cd17:intelligence:legacyUsage": {
+            "caption": "Usage",
+            "action": {
+                "type": "link",
+                "location": "cd17:intelligence",
+                "path": "/#/legacy-usage/:accountId"
+            }
+        },
+        "cd17:intelligence:legacyWAF": {
+            "caption": "WAF",
+            "action": {
+                "type": "link",
+                "location": "cd17:intelligence",
+                "path": "/#/legacy-waf/activity/:accountId"
+            }
+        }
+    }
+}

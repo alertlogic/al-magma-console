@@ -1,0 +1,129 @@
+{
+    "filters": [
+        {
+            "title": "Status",
+            "values": [
+                {
+                    "title": "Open",
+                    "value": "open",
+					"count": 120,
+                    "checked": true
+                },
+                {
+                    "title": "Snoozed",
+                    "value": "snoozed",
+					"checked": true,
+					"count": 13
+                },
+                {
+                    "title": "Closed",
+                    "value": "gone",
+					"count": 78
+                }
+            ]
+        },
+        {
+            "title": "Threat Level",
+            "values": [
+                {
+                    "title": "Critical",
+                    "value": "sev9",
+					"count": 6,
+					"checked": true,
+                    "css_classes": "risk-critical"
+                },
+                {
+                    "title": "High",
+                    "value": "sev7",
+					"count": 15,
+                    "css_classes": "risk-high"
+                },
+                {
+                    "title": "Medium",
+                    "value": "sev7",
+					"count": 64,
+                    "css_classes": "risk-medio"
+                },
+                {
+                    "title": "Low",
+                    "value": "sev3",
+					"count": 121,
+					"checked": true,
+                    "css_classes": "risk-low"
+                },
+                {
+                    "title": "Info",
+                    "value": "sev0",
+					"count": 3,
+					"checked": true,
+                    "css_classes": "risk-info"
+                }
+            ]
+        },
+        {
+            "title": "Host Name",
+            "values": [
+                {
+                    "title": "Son of Samantha",
+                    "value": "i-sos123456"
+                },
+                {
+                    "title": "Benedict-01",
+                    "value": "i-bcumberbatch-0101"
+                },
+                {
+                    "title": "Benedict-02",
+                    "value": "i-bcumberbatch-0202"
+                },
+                {
+                    "title": "Pixel Pounder Twenty21",
+                    "value": "i-poemrocks"
+                },
+                {
+                    "title": "Cyrano's Revenge",
+                    "value": "i-123467fh"
+                },
+                {
+                    "title": "Harkness Satellite",
+                    "value": "i-676132489f"
+                },
+                {
+                    "title": "Gideon 9",
+                    "value": "i-1435y7555baba"
+                },
+                {
+                    "title": "Harrow X",
+                    "value": "i-125y7668688"
+                },
+                {
+                    "title": "Mirrorbox",
+                    "value": "i-m67676734"
+                },
+                {
+                    "title": "Scorch Dearth",
+                    "value": "i-986868345"
+                },
+                {
+                    "title": "Charlie Black",
+                    "value": "i-1566666666"
+                },
+                {
+                    "title": "Coldspot 2",
+                    "value": "i-23145555"
+                },
+                {
+                    "title": "Mememememe",
+                    "value": "i-memememe"
+                },
+                {
+                    "title": "David's Test Instance",
+                    "value": "i-d12341235"
+                },
+                {
+                    "title": "1993 Lemolo Drive",
+                    "value": "i-23145555"
+                }
+            ]
+        }
+    ]
+}

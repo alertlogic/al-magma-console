@@ -1,0 +1,1 @@
+<p-selectButton [options]="textSelectButtons" [(ngModel)]="selectedType"></p-selectButton>

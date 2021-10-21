@@ -1,0 +1,117 @@
+.al-dynamic-table{
+
+    &.hidden{
+        display: none;
+    }
+
+    .table{
+
+        .table-caption{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .column-selector{
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: none;
+
+                .p-multiselect-trigger{
+                    float: left;
+                }
+
+                i {
+                    color: #a8a8a8;
+                    font-size: 14px;
+                    margin-right: 10px;
+                }
+            }
+
+            .selector-checkbox {
+                width: 50px;
+            }
+        }
+
+        .table-header{
+
+            .larger{
+                width: 15vw;
+            }
+
+        }
+
+        .download-icon{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #535353;
+
+            i {
+                cursor: pointer;
+            }
+        }
+
+        .table-cell {
+            word-break: break-word;
+            min-width: 200px;
+
+            &.larger {
+                width: 15vw;
+            }
+
+            &.center {
+                text-align: center;
+            }
+
+            &.left {
+                text-align: left;
+            }
+
+        }
+
+        .open-button-cell {
+            font-size: 12px;
+
+            .open-button{
+                cursor: pointer;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .icon{
+                    display: flex;
+                    justify-content: center;
+                }
+                .label{
+                    display: flex;
+                    justify-content: flex-start;
+                }
+            }
+
+        }
+
+        .loading-text {
+            display: block;
+            background-color: #f1f1f1;
+            min-height: 19px;
+            animation: pulse 1s infinite ease-in-out;
+            text-indent: -99999px;
+            overflow: hidden;
+        }
+
+    }
+
+}
+
+:host ::ng-deep .p-table .p-widget-header {
+    border: none;
+    background-color: transparent;
+}
+
+@media screen and (max-width: 64em) {
+    :host ::ng-deep .p-table .p-table-thead > tr > th {
+        top: 99px;
+    }
+}

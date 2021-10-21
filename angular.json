@@ -1,0 +1,899 @@
+{
+  "version": 1,
+  "projects": {
+    "api": {
+      "root": "apps/api",
+      "sourceRoot": "apps/api/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/api",
+            "main": "apps/api/src/main.ts",
+            "tsConfig": "apps/api/tsconfig.app.json",
+            "assets": ["apps/api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/api/src/environments/environment.ts",
+                  "with": "apps/api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "api:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/api/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/api"],
+          "options": {
+            "jestConfig": "apps/api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-interfaces": {
+      "root": "libs/api-interfaces",
+      "sourceRoot": "libs/api-interfaces/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/api-interfaces/**/*.ts"]
+          }
+        }
+      }
+    },
+    "console": {
+      "projectType": "application",
+      "root": "apps/console",
+      "sourceRoot": "apps/console/src",
+      "prefix": "magma",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/console/browser",
+            "index": "apps/console/src/index.html",
+            "main": "apps/console/src/main.ts",
+            "polyfills": "apps/console/src/polyfills.ts",
+            "tsConfig": "apps/console/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/console/src/favicon.ico",
+              "apps/console/src/assets"
+            ],
+            "styles": [
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeflex/primeflex.css",
+              "node_modules/highcharts/css/highcharts.css",
+              "node_modules/font-awesome/scss/font-awesome.scss",
+              "node_modules/@al/ui-css-kit/css/ui-css-kit-dev.min.css",
+              ".aliases/@al/ng-generic-components/styles/_alertlogic-theme.scss",
+              ".aliases/@al/ng-navigation-components/styles.scss",
+              ".aliases/@al/ng-visualizations-components/styles/styles.scss",
+              "apps/console/src/styles.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [".aliases"]
+            },
+            "scripts": [],
+            "preserveSymlinks": true,
+            "allowedCommonJsDependencies": [
+              "lodash",
+              "@al/ng-visualizations-components"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [],
+              "fileReplacements": [
+                {
+                  "replace": "apps/console/src/environments/environment.ts",
+                  "with": "apps/console/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            },
+            "integration": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": true,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": true,
+              "buildOptimizer": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "console:build:production"
+            },
+            "development": {
+              "browserTarget": "console:build:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "proxyConfig": "apps/console/proxy.conf.json",
+            "browserTarget": "console:build:development,production",
+            "port": 8888
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "console:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/console/src/**/*.ts",
+              "apps/console/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/console"],
+          "options": {
+            "jestConfig": "apps/console/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/console/server",
+            "main": "apps/console/server.ts",
+            "tsConfig": "apps/console/tsconfig.server.json",
+            "inlineStyleLanguage": "scss"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "apps/console/src/environments/environment.ts",
+                  "with": "apps/console/src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "console:build:development",
+              "serverTarget": "console:server:development"
+            },
+            "production": {
+              "browserTarget": "console:build:production",
+              "serverTarget": "console:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": ["/"]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "console:build:production",
+              "serverTarget": "console:server:production"
+            },
+            "development": {
+              "browserTarget": "console:build:development",
+              "serverTarget": "console:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
+        }
+      }
+    },
+    "console-e2e": {
+      "root": "apps/console-e2e",
+      "sourceRoot": "apps/console-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/console-e2e/cypress.json",
+            "tsConfig": "apps/console-e2e/tsconfig.json",
+            "skipServe": true,
+            "baseUrl": "http://localhost:8888"
+          },
+          "configurations": {
+            "integration": {
+              "baseUrl": "https://console.magma.product.dev.alertlogic.com"
+            },
+            "ci": {
+              "baseUrl": "https://magma-pr-DEMO_BUCKET_NUM.ui-dev.product.dev.alertlogic.com"
+            }
+          }
+        },
+        "e2e-local": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+                "npx as-a cypress nx run console-e2e:e2e"
+            ],
+            "parallel": false
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/console-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "dashboards": {
+      "projectType": "library",
+      "root": "libs/dashboards",
+      "sourceRoot": "libs/dashboards/src",
+      "prefix": "magma",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/dashboards"],
+          "options": {
+            "jestConfig": "libs/dashboards/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/dashboards/src/**/*.ts",
+              "libs/dashboards/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "exposures": {
+      "projectType": "library",
+      "root": "libs/exposures",
+      "sourceRoot": "libs/exposures/src",
+      "prefix": "magma",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/exposures"],
+          "options": {
+            "jestConfig": "libs/exposures/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/exposures/src/**/*.ts",
+              "libs/exposures/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "feature-auth": {
+      "projectType": "library",
+      "root": "libs/feature-auth",
+      "sourceRoot": "libs/feature-auth/src",
+      "prefix": "al",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/feature-auth"],
+          "options": {
+            "jestConfig": "libs/feature-auth/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/feature-auth/src/**/*.ts",
+              "libs/feature-auth/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "ng-asset-components": {
+      "projectType": "library",
+      "root": "libs/ng-asset-components",
+      "sourceRoot": "libs/ng-asset-components/src",
+      "prefix": "al",
+      "architect": {
+        "base-build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/ng-asset-components"],
+          "options": {
+            "project": "libs/ng-asset-components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ng-asset-components/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/ng-asset-components/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ng-asset-components"],
+          "options": {
+            "jestConfig": "libs/ng-asset-components/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ng-asset-components/src/**/*.ts",
+              "libs/ng-asset-components/src/**/*.html"
+            ]
+          }
+        },
+        "build": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "nx base-build ng-asset-components",
+              "cp LICENSE ./dist/libs/ng-asset-components"
+            ],
+            "parallel": false
+          }
+        }
+      }
+    },
+    "ng-cardstack-components": {
+      "projectType": "library",
+      "root": "libs/ng-cardstack-components",
+      "sourceRoot": "libs/ng-cardstack-components/src",
+      "prefix": "al",
+      "architect": {
+        "base-build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/ng-cardstack-components"],
+          "options": {
+            "project": "libs/ng-cardstack-components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ng-cardstack-components/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/ng-cardstack-components/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ng-cardstack-components"],
+          "options": {
+            "jestConfig": "libs/ng-cardstack-components/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ng-cardstack-components/src/**/*.ts",
+              "libs/ng-cardstack-components/src/**/*.html"
+            ]
+          }
+        },
+        "build": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "nx base-build ng-cardstack-components",
+              "cp LICENSE ./dist/libs/ng-cardstack-components"
+            ],
+            "parallel": false
+          }
+        }
+      }
+    },
+    "ng-forms-components": {
+      "projectType": "library",
+      "root": "libs/ng-forms-components",
+      "sourceRoot": "libs/ng-forms-components/src",
+      "prefix": "magma",
+      "architect": {
+        "base-build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/ng-forms-components"],
+          "options": {
+            "project": "libs/ng-forms-components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ng-forms-components/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/ng-forms-components/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ng-forms-components"],
+          "options": {
+            "jestConfig": "libs/ng-forms-components/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ng-forms-components/src/**/*.ts",
+              "libs/ng-forms-components/src/**/*.html"
+            ]
+          }
+        },
+        "build": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "nx base-build ng-forms-components",
+              "cp LICENSE ./dist/libs/ng-forms-components"
+            ],
+            "parallel": false
+          }
+        }
+      }
+    },
+    "ng-generic-components": {
+      "projectType": "library",
+      "root": "libs/ng-generic-components",
+      "sourceRoot": "libs/ng-generic-components/src",
+      "prefix": "al",
+      "architect": {
+        "base-build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/ng-generic-components"],
+          "options": {
+            "project": "libs/ng-generic-components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ng-generic-components/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/ng-generic-components/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ng-generic-components"],
+          "options": {
+            "jestConfig": "libs/ng-generic-components/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ng-generic-components/src/**/*.ts",
+              "libs/ng-generic-components/src/**/*.html"
+            ]
+          }
+        },
+        "build": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "nx base-build ng-generic-components",
+              "npx scss-bundle -c ./libs/ng-generic-components/utilities.bundle-config.json",
+              "npx scss-bundle -c ./libs/ng-generic-components/alertlogic-theme.bundle-config.json",
+              "npx scss-bundle -c ./libs/ng-generic-components/compatible.bundle-config.json",
+              "cp LICENSE ./dist/libs/ng-generic-components"
+            ],
+            "parallel": false
+          }
+        }
+      }
+    },
+    "ng-navigation-components": {
+      "projectType": "library",
+      "root": "libs/ng-navigation-components",
+      "sourceRoot": "libs/ng-navigation-components/src",
+      "prefix": "al",
+      "architect": {
+        "base-build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/ng-navigation-components"],
+          "options": {
+            "project": "libs/ng-navigation-components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ng-navigation-components/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/ng-navigation-components/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ng-navigation-components"],
+          "options": {
+            "jestConfig": "libs/ng-navigation-components/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ng-navigation-components/src/**/*.ts",
+              "libs/ng-navigation-components/src/**/*.html"
+            ]
+          }
+        },
+        "build": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "nx base-build ng-navigation-components",
+              "npx scss-bundle -c ./libs/ng-navigation-components/scss-bundle.config.json",
+              "cp LICENSE ./dist/libs/ng-navigation-components"
+            ],
+            "parallel": false
+          }
+        }
+      }
+    },
+    "ng-notifications-components": {
+      "projectType": "library",
+      "root": "libs/ng-notifications-components",
+      "sourceRoot": "libs/ng-notifications-components/src",
+      "prefix": "al",
+      "architect": {
+        "base-build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/ng-notifications-components"],
+          "options": {
+            "project": "libs/ng-notifications-components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ng-notifications-components/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/ng-notifications-components/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ng-notifications-components"],
+          "options": {
+            "jestConfig": "libs/ng-notifications-components/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ng-notifications-components/src/**/*.ts",
+              "libs/ng-notifications-components/src/**/*.html"
+            ]
+          }
+        },
+        "build": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "nx base-build ng-notifications-components",
+              "cp LICENSE ./dist/libs/ng-notifications-components"
+            ],
+            "parallel": false
+          }
+        }
+      }
+    },
+    "ng-visualizations-components": {
+      "projectType": "library",
+      "root": "libs/ng-visualizations-components",
+      "sourceRoot": "libs/ng-visualizations-components/src",
+      "prefix": "al",
+      "architect": {
+        "base-build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/ng-visualizations-components"],
+          "options": {
+            "project": "libs/ng-visualizations-components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ng-visualizations-components/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/ng-visualizations-components/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ng-visualizations-components"],
+          "options": {
+            "jestConfig": "libs/ng-visualizations-components/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ng-visualizations-components/src/**/*.ts",
+              "libs/ng-visualizations-components/src/**/*.html"
+            ]
+          }
+        },
+        "build": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "nx base-build ng-visualizations-components",
+              "npx scss-bundle -c ./libs/ng-visualizations-components/scss-bundle.config.json",
+              "cp LICENSE ./dist/libs/ng-visualizations-components"
+            ],
+            "parallel": false
+          }
+        }
+      }
+    },
+    "pattern-library": {
+      "projectType": "application",
+      "root": "apps/pattern-library",
+      "sourceRoot": "apps/pattern-library/src",
+      "prefix": "magma",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/pattern-library/browser",
+            "index": "apps/pattern-library/src/index.html",
+            "main": "apps/pattern-library/src/main.ts",
+            "polyfills": "apps/pattern-library/src/polyfills.ts",
+            "tsConfig": "apps/pattern-library/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/pattern-library/src/favicon.ico",
+              "apps/pattern-library/src/assets"
+            ],
+            "scripts": [],
+            "preserveSymlinks": true,
+            "styles": [
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeflex/primeflex.css",
+              "node_modules/highcharts/css/highcharts.css",
+              "node_modules/font-awesome/scss/font-awesome.scss",
+              "node_modules/@al/ui-css-kit/css/ui-css-kit-dev.min.css",
+              ".aliases/@al/ng-generic-components/styles/_alertlogic-theme.scss",
+              ".aliases/@al/ng-generic-components/styles/compatible.scss",
+              ".aliases/@al/ng-navigation-components/styles.scss",
+              ".aliases/@al/ng-visualizations-components/styles/styles.scss",
+              "apps/pattern-library/src/styles.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [".aliases"]
+            },
+            "allowedCommonJsDependencies": [
+              "lodash",
+              "@al/ng-visualizations-components",
+              "css-element-queries"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "10mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "20kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/pattern-library/src/environments/environment.ts",
+                  "with": "apps/pattern-library/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "pattern-library:build:production"
+            },
+            "development": {
+              "browserTarget": "pattern-library:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "pattern-library:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/pattern-library/src/**/*.ts",
+              "apps/pattern-library/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/pattern-library"],
+          "options": {
+            "jestConfig": "apps/pattern-library/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "pattern-library-e2e": {
+      "root": "apps/pattern-library-e2e",
+      "sourceRoot": "apps/pattern-library-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/pattern-library-e2e/cypress.json",
+            "devServerTarget": "pattern-library:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "pattern-library:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/pattern-library-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular",
+    "packageManager": "npm"
+  },
+  "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "console"
+}

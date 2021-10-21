@@ -1,0 +1,75 @@
+<!-- chore(kjn): reinstate configAlBaseCard.toggleable reference if necessary -->
+<div class="grid p-justify-center">
+    <h1>Notifications Components Samples</h1>
+
+    <div class="col-12 grid-nogutter cards-examples">
+        <h1>Incident cards</h1>
+        <al-base-card [config]="alBaseCardConfigIcon"
+                      [item]="cardIncidents">
+            <ng-template alBaseCardBodyContent>
+                <al-notification-content [item]="cardIncidents">
+                </al-notification-content>
+            </ng-template>
+            <ng-template *ngIf="cardIncidents.properties?.recipientsTotal"
+                         alBaseCardHeaderRight>
+                <div class="col-1">
+                    <div class="al-cardstack-icon"
+                         (click)="cardIncidents.expanded = true">
+                        <div class="ui-panel-title">{{ cardIncidents.properties?.recipientsTotal}}</div>
+                        <div class="al-cardstack-icon-label">Recipients</div>
+                    </div>
+                </div>
+            </ng-template>
+        </al-base-card>
+        <al-base-card [config]="alBaseCardConfigIcon"
+                      [item]="cardIncidents2">
+            <ng-template alBaseCardBodyContent>
+                <al-notification-content [item]="cardIncidents2">
+                </al-notification-content>
+            </ng-template>
+            <ng-template *ngIf="cardIncidents2.properties?.recipientsTotal"
+                         alBaseCardHeaderRight>
+                <div class="col-1">
+                    <div class="al-cardstack-icon"
+                         (click)="cardIncidents2.expanded = true">
+                        <div class="ui-panel-title">{{ cardIncidents2.properties?.recipientsTotal}}</div>
+                        <div class="al-cardstack-icon-label">Recipients</div>
+                    </div>
+                </div>
+            </ng-template>
+        </al-base-card>
+
+        <h1>Schedule card</h1>
+        <al-base-card [config]="alBaseCardConfigIcon"
+                      [item]="cardSchedule1">
+            <ng-template alBaseCardBodyContent>
+                <al-notification-content [item]="cardSchedule1">
+                </al-notification-content>
+            </ng-template>
+            <ng-template *ngIf="cardSchedule1.properties?.recipientsTotal"
+                         alBaseCardHeaderRight>
+                <div class="col-1">
+                    <div class="al-cardstack-icon"
+                         (click)="cardSchedule1.expanded = true">
+                        <div class="ui-panel-title">{{ cardSchedule1.properties?.recipientsTotal}}</div>
+                        <div class="al-cardstack-icon-label">Recipients</div>
+                    </div>
+                </div>
+            </ng-template>
+        </al-base-card>
+    </div>
+
+    <div class="col-12">
+        <div class="card card-w-title">
+            <h1>Cadence component</h1>
+            <al-cadence-selector [frequencies]="frequencies2"
+                                 (onCadenceChanged)="onCadenceChanges($event)"></al-cadence-selector>
+        </div>
+
+        <div class="card card-w-title">
+            <h1>Cadence component</h1>
+            <al-cadence-selector [frequencies]="frequencies0"
+                                 (onCadenceChanged)="onCadenceChanges($event)"></al-cadence-selector>
+        </div>
+    </div>
+</div>

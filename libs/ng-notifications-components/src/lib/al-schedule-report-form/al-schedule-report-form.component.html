@@ -1,0 +1,99 @@
+<div class="schedule-frequencies-form" *ngIf="visible">
+    <!-- Schedule Search To Run -->
+    <div class="label-title">Conduct a search</div>
+    <p-dropdown
+        [(ngModel)]="frequency"
+        [options]="scheduledFrequencyOptions"
+        placeholder="{{componentTextsConfig.scheduledFrequencyLabel}}"
+        (onChange)="onselectTemplate()">
+    </p-dropdown>
+
+    <!-- Scheduled Day -->
+    <div class="schedule-dropdown" *ngIf="frequency === 'monthly'">
+        <p-dropdown
+            id='dayOfMonth'
+            [(ngModel)]="day"
+            placeholder="{{componentTextsConfig.scheduledMonthDayLabel}}"
+            [options]="scheduleDayOfMonthOptions"
+            (onChange)="scheduleFormElementChange()">
+        </p-dropdown>
+        <label for="dayOfMonth" class="info-label">Day of the month</label>
+    </div>
+
+    <!-- Scheduled Day -->
+    <div class="schedule-dropdown" *ngIf="frequency === 'weekly'">
+        <p-dropdown
+            id='dayOfWeek'
+            [(ngModel)]="eachDay"
+            placeholder="{{componentTextsConfig.scheduledDayLabel}}"
+            [options]="scheduleDayOptions"
+            (onChange)="scheduleFormElementChange()">
+        </p-dropdown>
+        <label for="dayOfWeek" class="info-label">Day of the week</label>
+    </div>
+
+    <!-- Scheduled Calendar -->
+    <div class="schedule-dropdown" *ngIf="frequency === 'once'">
+        <div class="label-title">Select the time to schedule the search</div>
+        <p-calendar
+            [(ngModel)]="calendarDay"
+            [inline]="true"
+            [minDate]="minDate"
+            (onSelect)="scheduleFormElementChange()">
+        </p-calendar>
+    </div>
+
+    <!-- Scheduled Time -->
+    <div class="schedule-dropdown" *ngIf="frequency !== 'every_15_minutes' && frequency !== 'hourly' && frequency !== 'asap' &&
+                                          frequency !== 'every_6_hours' && frequency !== 'every_12_hours'">
+        <form [formGroup]="scheduleSearchFormGroup">
+            <p-calendar formControlName="scheduleTime"
+                id="time"
+                class="md-inputfield"
+                [timeOnly]="true"
+                hourFormat="24"
+                dataType="string"
+                (onSelect)="scheduleFormElementChange()"
+                (onBlur)="scheduleFormElementChange()"
+                [required]="true">
+            </p-calendar>
+            <label for="time" class="info-label">at time (GMT)</label>
+        </form>
+    </div>
+
+    <div class="schedule-options" *ngIf="frequency === 'every_6_hours' || frequency === 'every_12_hours'">
+        <al-schedule-with-delay #scheduleWithDelay
+                                [frequency]="scheduleFrequency"
+                                (onDelayChange)="delayChange($event)">
+        </al-schedule-with-delay>
+    </div>
+
+    <div class="label-title schedule-date-range-selector-label" *ngIf="frequency === 'once' || frequency === 'asap'">Select the time period to search</div>
+    <div class="schedule-date-range-selector" *ngIf="frequency === 'once' || frequency === 'asap'">
+        <al-date-range-selector [fixedRanges]="searchFixedRanges" class="date-range-selector"
+                                [showTimePicker]="true"
+                                [returnTimeFrame]="true"
+                                [calendarMinDate]="null"
+                                (onDateSelected)="dateRangeSelected($event)">
+        </al-date-range-selector>
+    </div>
+
+    <ng-template #errorForm>
+        <div class="ui-message ui-messages-error ui-corner-all"
+            *ngIf="scheduleSearchFormGroup.controls.scheduleTime.hasError('required')">
+            at time value is required
+        </div>
+        <div class="ui-message ui-messages-error ui-corner-all"
+            *ngIf="scheduleSearchFormGroup.controls.scheduleTime.hasError('pattern') ||
+            scheduleSearchFormGroup.controls.scheduleTime.hasError('maxLength')">
+            hour and minutes should be a valid time
+        </div>
+        <div *ngIf="scheduleSearchFormGroup.controls.scheduleTime.hasError('fiveMultipleValidator') &&
+            !scheduleSearchFormGroup.controls.scheduleTime.hasError('required') &&
+            !scheduleSearchFormGroup.controls.scheduleTime.hasError('pattern') &&
+            !scheduleSearchFormGroup.controls.scheduleTime.hasError('maxLength')">
+            minutes must be a multiple of 5
+        </div>
+    </ng-template>
+
+</div>

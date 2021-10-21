@@ -1,0 +1,362 @@
+/**
+ *  This file controls the palette and color mixins for the alertlogic theme and applications.
+ */
+$al-contrastLight: #FFFFFF;
+$al-contrastDark:  #3C3C3C;
+
+$al-yellow: (
+  500: #FFD54F,
+   50: #FFFAEC,
+  100: #FFF2C9,
+  200: #FFE9A6,
+  300: #FFE183,
+  400: #FFDB6B,
+  600: #FCC101,
+  700: #FFD800,
+  800: #FFED18,
+  900: #FFF36C,
+  contrast: (
+     50: $al-contrastDark,
+    100: $al-contrastDark,
+    200: $al-contrastDark,
+    300: $al-contrastLight,
+    400: $al-contrastLight,
+    500: $al-contrastLight,
+    600: $al-contrastLight,
+    700: $al-contrastLight,
+    800: $al-contrastDark,
+    900: $al-contrastDark)
+);
+
+$al-amber: (
+  500: #FFB74D,
+   50: #FFF7EC,
+  100: #FFE9C8,
+  200: #FFDAA5,
+  300: #FFCC81,
+  400: #FFC167,
+  600: #FFAA00,
+  700: #FFA100,
+  800: #FF9900,
+  900: #FF9100,
+  contrast: (
+     50: $al-contrastDark,
+    100: $al-contrastDark,
+    200: $al-contrastDark,
+    300: $al-contrastLight,
+    400: $al-contrastLight,
+    500: $al-contrastLight,
+    600: $al-contrastLight,
+    700: $al-contrastLight,
+    800: $al-contrastLight,
+    900: $al-contrastLight)
+);
+
+$al-orange: (
+  500: #F78C1E,
+   50: #FFF3DF,
+  100: #FFE1AF,
+  200: #FFCD7A,
+  300: #FFB840,
+  400: #FFA800,
+  600: #F57C00,
+  700: #F06C00,
+  800: #F05F11,
+  900: #E65100,
+  contrast: (
+     50: $al-contrastDark,
+    100: $al-contrastDark,
+    200: $al-contrastDark,
+    300: $al-contrastLight,
+    400: $al-contrastLight,
+    500: $al-contrastLight,
+    600: $al-contrastLight,
+    700: $al-contrastLight,
+    800: $al-contrastLight,
+    900: $al-contrastLight)
+);
+
+$al-red: (
+  500: #EF534F,
+   50: #FFEBEE,
+  100: #FFCDD2,
+  200: #EF9A9A,
+  300: #F48683,
+  400: #F16C69,
+  600: #E53935,
+  700: #D32F2F,
+  800: #C62828,
+  900: #B71C1C,
+  contrast: (
+     50: $al-contrastDark,
+    100: $al-contrastDark,
+    200: $al-contrastLight,
+    300: $al-contrastLight,
+    400: $al-contrastLight,
+    500: $al-contrastLight,
+    600: $al-contrastLight,
+    700: $al-contrastLight,
+    800: $al-contrastLight,
+    900: $al-contrastLight)
+);
+
+$al-purple: (
+  500: #BA67C8,
+   50: #F7EEF9,
+  100: #E9D0EE,
+  200: #DCB2E3,
+  300: #CE94D8,
+  400: #C47DD0,
+  600: #AC5FBA,
+  700: #9652A1,
+  800: #8A4B94,
+  900: #7E4587,
+  contrast: (
+     50: $al-contrastDark,
+    100: $al-contrastDark,
+    200: $al-contrastLight,
+    300: $al-contrastLight,
+    400: $al-contrastLight,
+    500: $al-contrastLight,
+    600: $al-contrastLight,
+    700: $al-contrastLight,
+    800: $al-contrastLight,
+    900: $al-contrastLight)
+);
+
+$al-gray: (
+  25: #F6F6F6,
+  50: #EDEDED,
+  100: #CBCBCB,
+  200: #A8A8A8,
+  300: #868686,
+  400: #6C6C6C,
+  500: #535353,
+  600: #474747,
+  700: #3C3C3C,
+  800: #2E2E2E,
+  900: #212121,
+  contrast: (
+     50: $al-contrastDark,
+    100: $al-contrastLight,
+    200: $al-contrastLight,
+    300: $al-contrastLight,
+    400: $al-contrastLight,
+    500: $al-contrastLight,
+    600: $al-contrastLight,
+    700: $al-contrastLight,
+    800: $al-contrastLight,
+    900: $al-contrastLight)
+);
+
+$al-blue: (
+  500: #3E82F7,
+   50: #EAF1FE,
+  100: #C4D8FC,
+  200: #9DC0FA,
+  300: #77A7F9,
+  400: #5A94F8,
+  600: #3B7BEB,
+  700: #3774DE,
+  800: #346ED1,
+  900: #3167C4,
+  contrast: (
+     50: $al-contrastDark,
+    100: $al-contrastDark,
+    200: $al-contrastLight,
+    300: $al-contrastLight,
+    400: $al-contrastLight,
+    500: $al-contrastLight,
+    600: $al-contrastLight,
+    700: $al-contrastLight,
+    800: $al-contrastLight,
+    900: $al-contrastLight)
+);
+
+$al-smokeBlue: (
+  500: #57A0D7,
+   50: #EDF4FA,
+  100: #CBE2F2,
+  200: #AACFEA,
+  300: #88BCE2,
+  400: #6FAEDC,
+  600: #5195C9,
+  700: #4B8CBD,
+  800: #4682B0,
+  900: #4179A3,
+  contrast: (
+     50: $al-contrastDark,
+    100: $al-contrastDark,
+    200: $al-contrastLight,
+    300: $al-contrastLight,
+    400: $al-contrastLight,
+    500: $al-contrastLight,
+    600: $al-contrastLight,
+    700: $al-contrastLight,
+    800: $al-contrastLight,
+    900: $al-contrastLight)
+);
+
+$al-green: (
+  500: #81C783,
+   50: #F2F9F2,
+  100: #D9EED9,
+  200: #C0E3C1,
+  300: #A6D7A8,
+  400: #93CF95,
+  600: #79BA7B,
+  700: #71AD73,
+  800: #68A16A,
+  900: #609462,
+  contrast: (
+     50: $al-contrastDark,
+    100: $al-contrastDark,
+    200: $al-contrastDark,
+    300: $al-contrastLight,
+    400: $al-contrastLight,
+    500: $al-contrastLight,
+    600: $al-contrastLight,
+    700: $al-contrastLight,
+    800: $al-contrastLight,
+    900: $al-contrastLight)
+);
+
+$al-essentials: (
+  400: #03638A,
+  500: #03638A,
+  contrast: (
+    400: $al-contrastLight,
+    500: $al-contrastLight)
+);
+
+$al-professional: (
+  500: #028BA3,
+  contrast: (
+    500: $al-contrastLight)
+);
+
+$al-enterprise: (
+  500: #3FC6F1,
+  contrast: (
+    500: $al-contrastLight)
+);
+
+$db-slate: (
+  500: #394B61,
+   50: #EBECEF,
+  100: #C3C8CF,
+  200: #9BA4AF,
+  300: #748090,
+  400: #566578,
+  600: #324153,
+  700: #2A3849,
+  800: #1E2B38,
+  900: #17202A,
+  contrast: (
+     50: $al-contrastDark,
+    100: $al-contrastDark,
+    200: $al-contrastLight,
+    300: $al-contrastLight,
+    400: $al-contrastLight,
+    500: $al-contrastLight,
+    600: $al-contrastLight,
+    700: $al-contrastLight,
+    800: $al-contrastLight,
+    900: $al-contrastLight
+    )
+);
+
+$db-blue: (
+  500: #6883A4,
+   50: #EFF2F6,
+  100: #D1D9E3,
+  200: #B3C1D1,
+  300: #95A8BF,
+  400: #7E95B1,
+  600: #536984,
+  700: #44576E,
+  800: #3A4B5E,
+  900: #344354,
+  contrast: (
+     50: $al-contrastDark,
+    100: $al-contrastDark,
+    200: $al-contrastLight,
+    300: $al-contrastLight,
+    400: $al-contrastLight,
+    500: $al-contrastLight,
+    600: $al-contrastLight,
+    700: $al-contrastLight,
+    800: $al-contrastLight,
+    900: $al-contrastLight
+    )
+  );
+
+  $db-charts: (
+  500: #1592E6,
+   50: #5C3A49,
+  100: #793C49,
+  200: #A13E48,
+  300: #C84049,
+  400: #F04349,
+  600: #1688D6,
+  700: #187FC6,
+  800: #1A76B6,
+  900: #1F6597,
+  contrast: (
+     50: $al-contrastLight,
+    100: $al-contrastLight,
+    200: $al-contrastLight,
+    300: $al-contrastLight,
+    400: $al-contrastLight,
+    500: $al-contrastLight,
+    600: $al-contrastLight,
+    700: $al-contrastLight,
+    800: $al-contrastLight,
+    900: $al-contrastLight
+    )
+);
+
+$paletteMap: (
+  'al-orange':$al-orange,
+  'al-amber':$al-amber,
+  'al-yellow':$al-yellow,
+  'al-smokeBlue':$al-smokeBlue,
+  'al-blue':$al-blue,
+  'al-purple':$al-purple,
+  'al-green':$al-green,
+  'al-red':$al-red,
+  'al-gray':$al-gray,
+  'db-slate':$db-slate,
+  'db-blue': $db-blue,
+  'db-charts': $db-charts,
+  'al-essentials':$al-essentials,
+  'al-professional':$al-professional,
+  'al-enterprise':$al-enterprise
+);
+
+// Gets a color from an $al theme palette - This was 'borrowed' from angular/material2 ;)
+// The hue can be one of the standard values (500, A400, etc.), one of the three preconfigured
+// hues (default, lighter, darker), or any of the aforementioned prefixed with "-contrast".
+//
+// @param $palette The theme palette.
+// @param $hue The hue from the palette to use. If this is a value between 0 and 1, it will
+//     be treated as opacity.
+// @param $opacity The alpha channel value for the color.
+@function al-color($palette, $hue: default, $opacity: null) {
+  // If hueKey is a number between zero and one, then it actually contains an
+  // opacity value, so recall this function with the default hue and that given opacity.
+  @if type-of($hue) == number and $hue >= 0 and $hue <= 1 {
+    @return al-color($palette, default, $hue);
+  }
+
+  $color: map-get($palette, $hue);
+
+  @if (type-of($color) != color) {
+    // If the $color resolved to something different from a color (e.g. a CSS variable),
+    // we can't apply the opacity anyway so we return the value as is, otherwise Sass can
+    // throw an error or output something invalid.
+    @return $color;
+  }
+
+  @return rgba($color, if($opacity == null, opacity($color), $opacity));
+}

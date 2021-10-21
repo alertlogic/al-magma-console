@@ -1,0 +1,20 @@
+<div class="al-notification-panel">
+    <ul class="al-notifications">
+        <li *ngFor="let notification of notifications; index as i" class="al-notification" [ngClass]="notification.classes">
+            <span preface></span>
+            <div *ngIf="notification.definition.icon" class="icon">
+                <i class="material-icons">{{notification.definition.icon}}</i>
+            </div>
+            <div class="text">
+                {{notification.definition.text}}
+            </div>
+            <ng-content *ngIf="allowExternalContent"></ng-content>
+            <div *ngIf="notification.definition.buttonText" class="alert-button">
+                <button (click)="onButtonClick()">
+                    <strong> {{notification.definition.buttonText}} </strong>
+                </button>
+            </div>
+            <button *ngIf="!notification.definition?.autoDismiss" pButton pRipple type="button" icon="pi pi-times" class="dismiss-button" (click)="flushByIndex(i)"></button>
+        </li>
+    </ul>
+</div>

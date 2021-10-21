@@ -1,0 +1,7 @@
+<div class="p-col-12">
+    <h2 class="form-h2">Textarea Input Field with Float Label</h2>
+</div>
+<span class="ui-float-label">
+    <textarea id="float-input" rows="3" cols="30" pInputTextarea autoResize="autoResize" class="ui-inputtext input-row top"></textarea>
+    <label for="float-input">Summary</label>
+</span>

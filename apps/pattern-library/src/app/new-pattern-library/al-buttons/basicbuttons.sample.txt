@@ -1,0 +1,3 @@
+<al2-button class="u-mr-2" type="default" label="Default"></al2-button>
+<al2-button class="u-mr-2" type="default-outline" label="Default Outline"></al2-button>
+<al2-button class="u-mr-2" type="default-ghost" label="Default Ghost"></al2-button>

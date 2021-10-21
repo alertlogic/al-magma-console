@@ -1,0 +1,76 @@
+{
+    "notification_types": [
+      {
+        "templates": [
+          "Test 1 Template",
+          "Incidents Template"
+        ],
+        "notification_type": "nf/type2",
+        "name": "nt2",
+        "default_template": "Test 1 Template"
+      },
+      {
+        "templates": [
+          "TBD"
+        ],
+        "notification_type": "search/notifications",
+        "name": "Search Notifications",
+        "default_template": "TBD",
+        "default_email_subject": "TBD"
+      },
+      {
+        "templates": [
+          "Template"
+        ],
+        "notification_type": "search/notification",
+        "name": "scheduled report",
+        "default_template": "Template"
+      },
+      {
+        "templates": [
+          "Scheduled Report Template"
+        ],
+        "notification_type": "tableau/notifications",
+        "name": "Tableau Notifications",
+        "default_template": "Scheduled Report Template",
+        "default_email_subject": "Scheduled Report {{scheduled_report_name}} was generated"
+      },
+      {
+        "templates": [
+          "Observation Template"
+        ],
+        "notification_type": "observations/notification",
+        "name": "Observation Notifications",
+        "default_template": "Observation Template",
+        "default_email_subject": "Observation : {{observation_summary}}"
+      },
+      {
+        "templates": [
+          "q",
+          "Test 1 Template",
+          "w"
+        ],
+        "notification_type": "nf/type1",
+        "name": "nt1",
+        "default_template": "Test 1 Template"
+      },
+      {
+        "templates": [
+          "TBD"
+        ],
+        "notification_type": "report/scheduled",
+        "name": "scheduled_reports",
+        "default_template": "TBD"
+      },
+      {
+        "templates": [
+          "Incidents Template v2",
+          "Log Review Created"
+        ],
+        "notification_type": "incidents/alerts",
+        "name": "Incidents Notifications",
+        "default_template": "Incidents Template v2",
+        "default_email_subject": "{{threat}} Threat Incident (ID:{{incident_id}}) : {{attack_summary}}"
+      }
+    ]
+  }

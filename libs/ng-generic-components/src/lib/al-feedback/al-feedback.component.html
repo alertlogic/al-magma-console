@@ -1,0 +1,20 @@
+<p-dialog header="What feedback would you like to give us?" [(visible)]="showFeedbackDialog" [modal]="true" showEffect="fade" [draggable]="false" [style]="{'width':'60%'}">
+    <div class="feedback-dropdown-container">
+        <p-dropdown [options]="reasons" [(ngModel)]="feedbackReason "> </p-dropdown>
+    </div>
+    <div class="feedback-textarea-container">
+        <textarea [(ngModel)]="feedbackText" pInputTextarea placeholder="Your Message" [autoResize]="true"></textarea>
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button pButton type="button" (click)="toogleFeedbackDialog()"
+                label="I DON'T WANT TO GIVE FEEDBACK"></button>
+            <button pButton type="button" class="primaryAction" [disabled]="isDisabledSubmit()" (click)="submitFeedback()"
+                label="SUBMIT"></button>
+        </div>
+    </p-footer>
+</p-dialog>
+
+<button pButton type="button" class="feedback-button primaryAction" (click)="toogleFeedbackDialog()" *ngIf="showFeedbackOption">
+    <p>Submit feedback</p>
+</button>

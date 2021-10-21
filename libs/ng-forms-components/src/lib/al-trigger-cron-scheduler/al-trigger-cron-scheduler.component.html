@@ -1,0 +1,108 @@
+<div class="col-12 form-row">
+    <div class="grid grid-nogutter form-row">
+        <span class="md-inputfield" style="width:150px; margin-top: 5px; margin-right: 8px">
+            <input id="repeatFrequency" required #repeatFrequency="ngModel" type="number" pInputText [min]="1" (input)="onFrequencyChange()" [(ngModel)]="cronFrequency"/>
+            <label>Repeat Every *</label>
+            <div class="ui-message ui-messages-error ui-corner-all"
+                *ngIf="repeatFrequency.invalid && (repeatFrequency.dirty || repeatFrequency.touched) && repeatFrequency.errors?.required">
+                Required.
+            </div>
+        </span>
+        <span class="md-inputfield">
+            <p-dropdown [options]="cronUnits" [(ngModel)]="cronSelectedUnit" (onChange)="onFrequencyChange()"></p-dropdown>
+            <label></label>
+        </span>
+    </div>
+    <div class="input-row" *ngIf="cronSelectedUnit==='week'">
+        <div class="form-row">
+            <label>On</label>
+        </div>
+        <span class="md-inputfield" style="width:350px;">
+            <p-selectButton [options]="cronDaysOptions" [(ngModel)]="cronSelectedDay" (onChange)="onSelectedDaysChange()" [multiple]="true"></p-selectButton>
+            <div class="ui-message ui-messages-error ui-corner-all"
+                *ngIf="cronSelectedDay.length === 0">
+                You must select at least one day.
+            </div>
+        </span>
+    </div>
+    <div class="form-row" *ngIf="cronSelectedUnit==='month' || cronSelectedUnit==='year'">
+        <div class="form-row">
+            <label>Recurring</label>
+        </div>
+        <div class="input-row grid grid-nogutter">
+            <p-radioButton name="recurringMonth" value="date" label="On a date" [(ngModel)]="recurringMode" (onClick)="onRecurringModeClick()"></p-radioButton>
+            <p-radioButton name="recurringMonth" value="expression" label="On the" [(ngModel)]="recurringMode" (onClick)="onRecurringModeClick()"></p-radioButton>
+        </div>
+        <div class="grid grid-nogutter input-row" *ngIf="recurringMode==='date'">
+            <span class="md-inputfield" style="width:150px; margin-top: 5px; margin-right: 8px">
+                <input id="cronRecurringDay" required
+                    #cronRecurringDay="ngModel"
+                    type="number"
+                    pInputText
+                    [min]="1"
+                    [max]="31"
+                    (input)="onRecurringDayChange()"
+                    [(ngModel)]="recurringDay"
+                    style="width: 100%"/>
+                <label>Day *</label>
+                <div class="ui-message ui-messages-error ui-corner-all"
+                    *ngIf="cronRecurringDay.invalid && (cronRecurringDay.dirty || cronRecurringDay.touched) && cronRecurringDay.errors?.required">
+                    Required.
+                </div>
+            </span>
+            <span *ngIf="cronSelectedUnit==='month'">of each month</span>
+            <p-dropdown *ngIf="cronSelectedUnit==='year'" [options]="cronMonthOptions" [(ngModel)]="cronExpressionMonth" (onChange)="onRecurringModeClick()"></p-dropdown>
+        </div>
+    </div>
+    <div class="input-row grid grid-nogutter scheduled-params" *ngIf="recurringMode==='expression' && (cronSelectedUnit==='month' || cronSelectedUnit==='year')">
+        <p-dropdown [options]="cronExpressionOptions" [(ngModel)]="cronExpression" (onChange)="onRecurringModeClick()"></p-dropdown>
+        <p-dropdown [options]="cronExpressionDayOptions" [(ngModel)]="cronExpressionDay" (onChange)="onRecurringModeClick()"></p-dropdown><span *ngIf="cronSelectedUnit==='month'">of each month</span>
+        <p-dropdown [options]="cronMonthOptions" [(ngModel)]="cronExpressionMonth" (onChange)="onRecurringModeClick()" *ngIf="cronSelectedUnit==='year'"></p-dropdown>
+    </div>
+    <div class="grid grid-nogutter">
+        <span class="md-inputfield" style="width:150px; margin-top: 5px; margin-right: 8px">
+            <input id="cronHour" required
+                #cronHour="ngModel"
+                pInputText
+                [(ngModel)]="triggerHour"
+                placeholder="23"
+                pattern="^0[0-9]|1[0-9]|2[0-3]$"
+                maxlength="2"
+                (input)="setTriggerTime()">
+            <label>At Hour *</label>
+            <div class="ui-message ui-messages-error ui-corner-all"
+                *ngIf="cronHour.invalid && (cronHour.dirty || cronHour.touched) && cronHour.errors?.required">
+                Required.
+            </div>
+            <div class="ui-message ui-messages-error ui-corner-all"
+                *ngIf="cronHour.invalid && (cronHour.dirty || cronHour.touched) && cronHour.errors?.pattern">
+                Must be between 00-23
+            </div>
+        </span>
+        <span style="width:150px; margin-top: 5px; margin-right: 8px" class="md-inputfield">
+            <input id="cronMins" required
+                #cronMins="ngModel"
+                pInputText
+                [(ngModel)]="triggerMinute"
+                placeholder="59"
+                pattern="^0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]$"
+                maxlength="2"
+                (input)="setTriggerTime()">
+            <label>Minutes *</label>
+            <div class="ui-message ui-messages-error ui-corner-all"
+                *ngIf="cronMins.invalid && (cronMins.dirty || cronMins.touched) && cronMins.errors?.required">
+                Required.
+            </div>
+            <div class="ui-message ui-messages-error ui-corner-all"
+                *ngIf="cronMins.invalid && (cronMins.dirty || cronMins.touched) && cronMins.errors?.pattern">
+                Must be between 00-59
+            </div>
+        </span>
+        <span class="md-inputfield">
+            <p-dropdown [options]="timezones" [(ngModel)]="trigger.timezone"></p-dropdown>
+            <label>Timezone</label>
+        </span>
+    </div>
+</div>
+
+

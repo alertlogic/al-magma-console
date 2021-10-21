@@ -1,0 +1,8 @@
+<div *ngIf="!tooltip.showTooltip"class="wrapper" [ngClass]="{'disabled': disabled}">
+    <i [ngClass]="(iconClass && !matIcon)? iconClass:'material-icons'">{{matIcon}}</i>
+    <span class="label" *ngIf="label">{{label}}</span>
+</div>
+<div *ngIf="tooltip.showTooltip"class="wrapper" [ngClass]="{'disabled': disabled}" pTooltip="{{tooltip.tooltipText}}" tooltipPosition="{{tooltip.tooltipPosition || 'bottom'}}">
+    <i *ngIf="tooltip.showTooltip"[ngClass]="(iconClass && !matIcon)? iconClass:'material-icons'">{{matIcon}}</i>
+    <span class="label" *ngIf="label">{{label}}</span>
+</div>

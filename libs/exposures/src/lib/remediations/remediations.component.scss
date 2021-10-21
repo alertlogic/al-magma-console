@@ -1,0 +1,24 @@
+@import "@al/ng-generic-components/styles/utility";
+
+::ng-deep.al-score-count {
+    // justify-content: start!important; //yuk
+    float: left;
+}
+
+.expand {
+    width: 100%;
+}
+
+.badget {
+    background-color: al-color($al-gray, 500);
+    padding-left: 8px;
+    padding-right: 8px;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+}
+.extra-vulns {
+    color: #a8a8a8;
+    padding-left: 25px;
+    padding-top: 5px;
+}

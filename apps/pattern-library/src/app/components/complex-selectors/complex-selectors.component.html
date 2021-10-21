@@ -1,0 +1,23 @@
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>AL Menu List</h1>
+            <div class="card-content">
+                <al-menu-list [options]="checkboxes" 
+                    [selectedItem]="selectedItemMenu"
+                    (onItemSelected)="selectOption($event)">
+                </al-menu-list>
+
+
+            </div>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Usage Guide">
+        <div class="card card-w-title">
+            <h1>Usage Guide</h1>
+            <div class="card-content">
+                <embedded-markdown resourceId="readme/al-menu-list/README"></embedded-markdown>
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>

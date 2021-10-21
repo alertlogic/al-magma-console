@@ -1,0 +1,86 @@
+{
+    "filters": [],
+    "exposures": {
+        "assets": [{
+            "vulnerability_id": "489a02c4d2022eb7c2550801df621be4",
+            "deployment_ids": [
+                "756C0413-D725-4B14-B3D3-C6348609B34E",
+                "7D5E66BE-98C6-40A2-8B09-5DC4C0FEE677",
+                "9969EC98-F3DD-4040-86C5-6A9019E2F07E"
+            ],
+            "vinstances": [
+                {
+                    "threatiness": 8.0,
+                    "target": {
+                        "type": "host",
+                        "threatiness": 16.0,
+                        "threat_level": 3,
+                        "tags": {},
+                        "state": "Succeeded",
+                        "public_ipv6_addresses": [],
+                        "public_ipv4_addresses": [
+                            "40.76.53.131"
+                        ],
+                        "public_ip_addresses": [
+                            "40.76.53.131"
+                        ],
+                        "private_ipv6_addresses": [],
+                        "private_ipv4_addresses": [
+                            "172.16.1.4"
+                        ],
+                        "private_ip_addresses": [
+                            "172.16.1.4"
+                        ],
+                        "private_ip_address": [
+                            "172.16.1.4"
+                        ],
+                        "name": "kktest",
+                        "modified_on": 1594072253331,
+                        "key": "/subscriptions/05dcd414-c680-4f2c-8716-058cd058974b/resourceGroups/DefaultResourceGroup-EUS/providers/Microsoft.Compute/virtualMachines/kktest",
+                        "ip_address": "40.76.53.131",
+                        "instance_name": "kktest",
+                        "deployment_id": "756C0413-D725-4B14-B3D3-C6348609B34E",
+                        "created_on": 1585069161892,
+                        "alertlogic_appliance": false,
+                        "account_id": "134249236"
+                    },
+                    "modified_on": 1589810446829,
+                    "key": "/subscriptions/05dcd414-c680-4f2c-8716-058cd058974b/resourceGroups/DefaultResourceGroup-EUS/providers/Microsoft.Compute/virtualMachines/kktest/vulnerability/fbfd50aa180091eee78761c07d62f93f",
+                    "disposed": false,
+                    "details": "The host does not have an agent installed",
+                    "concluded": false,
+                    "categories": [
+                        "configuration"
+                    ]
+                }
+            ],
+            "categories": [
+                "configuration"
+            ],
+            "type": "vulnerability",
+            "threatiness": 1768.0,
+            "threat_vector": "AV:N/AC:L/Au:N/C:C/I:C/A:C/PL:A/EM:A",
+            "threat_score": 10.0,
+            "threat_pct": 100.0,
+            "threat_level": 3,
+            "tags": {},
+            "severity": "high",
+            "remediations": [
+                {
+                    "type": "remediation",
+                    "threatiness": 0.0,
+                    "threat_level": 0,
+                    "target_asset_type": "host",
+                    "tags": {},
+                    "remediation_id": "agent_install_agent",
+                    "name": "Alert Logic recommends that you add an Alert Logic agent to this host.",
+                    "modified_on": 1587382215926,
+                    "created_on": 1587382215926,
+                    "account_id": "134249236"
+                }
+            ]
+        }],
+        "rows":2
+    },
+    "summary": {"severities": {"medium": 810, "low": 34, "info": 69, "high": 745, "all": 1658}}
+}

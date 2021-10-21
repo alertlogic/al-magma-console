@@ -1,0 +1,109 @@
+{
+    "id": "BE985D6B-CA20-416D-A7AD-86D86FBB96C9",
+    "account_id": "134249236",
+    "name": "Alert Logic e2e e2e Test user",
+    "username": "configui@alertlogic.com",
+    "email": "configui@alertlogic.com",
+    "active": true,
+    "locked": false,
+    "version": 25,
+    "linked_users": [
+        {
+            "user_id": 2100005082,
+            "location": "defender-us-ashburn"
+        },
+        {
+            "user_id": 870,
+            "location": "esb-us-1"
+        }
+    ],
+    "endpoints_user_id": 870,
+    "created": {
+        "at": 1542834499,
+        "by": "8EC061C3-862D-4151-98F5-FDBC11A03F74"
+    },
+    "modified": {
+        "at": 1579192784,
+        "by": "BE985D6B-CA20-416D-A7AD-86D86FBB96C9"
+    },
+    "user_credential": {
+        "version": 11342,
+        "one_time_password": false,
+        "last_login": 1585876226,
+        "created": {
+            "at": 1542834499,
+            "by": "8EC061C3-862D-4151-98F5-FDBC11A03F74"
+        },
+        "modified": {
+            "at": 1579192784,
+            "by": "BE985D6B-CA20-416D-A7AD-86D86FBB96C9"
+        }
+    },
+    "access_keys": [
+        {
+            "label": "Untitled Key #1",
+            "last_login": 1568167637,
+            "created": {
+                "at": 1555496493,
+                "by": "3578BACA-2850-4CCF-B048-46075BCF860A"
+            },
+            "modified": {
+                "at": 1555496493,
+                "by": "3578BACA-2850-4CCF-B048-46075BCF860A"
+            },
+            "access_key_id": "1f71f37dada39263"
+        },
+        {
+            "label": "Untitled Key #2",
+            "last_login": 0,
+            "created": {
+                "at": 1556551697,
+                "by": "3578BACA-2850-4CCF-B048-46075BCF860A"
+            },
+            "modified": {
+                "at": 1556551697,
+                "by": "3578BACA-2850-4CCF-B048-46075BCF860A"
+            },
+            "access_key_id": "3975fcc19ec60e55"
+        },
+        {
+            "label": "Gestal integration test",
+            "last_login": 1585858029,
+            "created": {
+                "at": 1575489881,
+                "by": "26CF3508-953E-42E0-BE09-F97E87B56FE3"
+            },
+            "modified": {
+                "at": 1575490014,
+                "by": "26CF3508-953E-42E0-BE09-F97E87B56FE3"
+            },
+            "access_key_id": "61489fe4f8d7a791"
+        },
+        {
+            "label": "Untitled Key #4",
+            "last_login": 0,
+            "created": {
+                "at": 1565973678,
+                "by": "26CF3508-953E-42E0-BE09-F97E87B56FE3"
+            },
+            "modified": {
+                "at": 1565973678,
+                "by": "26CF3508-953E-42E0-BE09-F97E87B56FE3"
+            },
+            "access_key_id": "ee0c76829fe4cbb4"
+        },
+        {
+            "label": "Untitled Key #3",
+            "last_login": 1571069867,
+            "created": {
+                "at": 1557245319,
+                "by": "3578BACA-2850-4CCF-B048-46075BCF860A"
+            },
+            "modified": {
+                "at": 1557245319,
+                "by": "3578BACA-2850-4CCF-B048-46075BCF860A"
+            },
+            "access_key_id": "ef14d2cd07ed4cf9"
+        }
+    ]
+}

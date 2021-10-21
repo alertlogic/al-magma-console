@@ -1,0 +1,84 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.count-container {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color: #fff;
+    position: relative;
+    .primary-count {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    span {
+        color: al-color($al-gray, 500);
+        font-weight: 600;
+        span {
+        font-size: 75%;
+        }
+    }
+
+    .changes, .meta {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        > div {
+            &:last-of-type {
+                border-left: 2px solid #ddd;
+                margin-left: 10px;
+                padding-left: 10px;
+            }
+            > div {
+                &:first-of-type {
+                    font-size: 25px;
+                }
+                &:last-of-type {
+                    font-size: 12px;
+                }
+            }
+            &.additional-meta {
+                border-left: 0;
+                margin: 0 10px;
+                padding-left: 0;
+                > div:first-of-type {
+                    border-bottom-style: solid;
+                    border-bottom-width: 3px;
+                    margin-bottom: 2px;
+                }
+            }
+        }
+    }
+}
+
+:host-context(.darkMode) {
+    .count-container {
+        background-color: #3C3C3C;
+        color: al-color($al-gray, 50);
+        span {
+            color: al-color($al-gray, 50);
+        }
+        .al-gray-500 {
+            fill: al-color($al-gray, 50);
+            color: al-color($al-gray, 50);
+        }
+    }
+}
+
+:host-context(.blueMode) {
+    .count-container {
+        color: al-color($al-gray, 50);
+        background-color: al-color($db-slate, 700);
+        span {
+            color: #6883A4;
+        }
+    }
+}

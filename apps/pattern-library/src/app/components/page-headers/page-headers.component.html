@@ -1,0 +1,129 @@
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>Page Header with Date Selector</h1>
+            <div class="card-content">
+                <al-content-header 
+                    icon="al al-vpc" 
+                    title="My Title" 
+                    [showCalendar]="'range'"
+                    (onDateRangeSelected)="applyDateChange($event)">
+                </al-content-header>
+
+                <h5>Component Name:</h5>
+                <code class="language-css" pCode>al-content-header</code>
+            </div>
+        </div>
+        <div class="card card-w-title">
+            <h1>Page Header with al-date-range-selector</h1>
+            <div class="card-content">
+                <al-content-header
+                    #alContentHeader
+                    icon=""
+                    title="Header Using al-date-range-selector"
+                    [showCalendar]="'al-date-range-selector'"
+                    [defaultFixedRanges]="defaultFixedRanges"
+                    [returnTimeFrame]="returnTimeFrame"
+                    (onDateRangeSelectedFromAlDateRangeSelector)="selectDateRangePicker($event)"
+                    (onClosedAlDateRangeSelector)="closedDateRangeSelector($event)"
+                    (onSelectFixedRangeAlDateRangeSelector)="fixedRangeDateRangeSelector($event)"
+                    (onShowAlDateRangeSelector)="showDateRangeSelector($event)">
+                </al-content-header>
+
+                <h5>Component Name:</h5>
+                <code class="language-css" pCode>al-content-header</code>
+            </div>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Usage Guide">
+        <div class="card card-w-title">
+            <h1>Usage Guide</h1>
+            <div class="card-content">
+                <embedded-markdown resourceId="readme/al-content-header/README"></embedded-markdown>
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>
+
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>Page Toolbar</h1>
+            <div class="card-content">
+                <al-content-toolbar 
+                    [config]="config" 
+                    (onOrderBy)="sortByOrder($event)"
+                    (onSearched)="applyTextFilter($event)" 
+                    (onSortSelection)="sortByChanged($event)"
+                    (onGroupSelection)="groupBy($event)" 
+                    (onSelectAll)="handleSelectAll($event)">
+                </al-content-toolbar>
+                <h5>Component Name:</h5>
+                <code class="language-css" pCode>al-content-toolbar</code>
+            </div>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Usage Guide">
+        <div class="card card-w-title">
+            <h1>Usage Guide</h1>
+            <div class="card-content">
+                <embedded-markdown resourceId="readme/al-content-toolbar/README"></embedded-markdown>
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>
+
+<!-- <p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>Page Toolbar with viewBy Filters</h1>
+            <div class="card-content">
+                <al-content-toolbar 
+                    [config]="config" 
+                    (onOrderBy)="sortByOrder($event)"
+                    (onGroupSelection)="groupByChange($event)"
+                    (onSearched)="applyTextFilter($event)"
+                    (onSortSelection)="sortByChanged($event)"
+                    (onSelectAll)="applySelect($event)"
+                    (onViewSelection)="viewChanged($event)">
+                </al-content-toolbar>
+                <h5>Component Name:</h5>
+                <code class="language-css" pCode>al-content-toolbar</code>
+            </div>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Usage Guide">
+        <div class="card card-w-title">
+            <h1>Usage Guide</h1>
+            <div class="card-content">
+                <embedded-markdown resourceId="readme/al-content-toolbar/README"></embedded-markdown>
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView> -->
+
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>AL Score Count</h1>
+            <div class="card-content">
+                <al-score-count (onSelected)="selectedScore($event)" 
+                    [config]="alScoreCountConfig" 
+                    [displayMode]="'big'"
+                    [name]="'Exposures'">
+                </al-score-count>
+
+                <h5>Component Name:</h5>
+                <code class="language-css" pCode>al-score-count</code>
+            </div>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Usage Guide">
+        <div class="card card-w-title">
+            <h1>Usage Guide</h1>
+            <div class="card-content">
+                <embedded-markdown resourceId="readme/al-score-count/README"></embedded-markdown>
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>

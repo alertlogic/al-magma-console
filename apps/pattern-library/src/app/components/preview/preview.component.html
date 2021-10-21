@@ -1,0 +1,32 @@
+  <p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>Al Preview</h1>
+            <div class="card-content">
+                <h5>Component Name:</h5>
+                <code class="language-css" pCode>al-preview</code>
+                <div class="al-preview-container pad-top">
+                    <al-preview [data]="data"></al-preview>
+                </div>
+            </div>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Usage Guide">
+        <div class="card card-w-title">
+            <h1>Usage Guide</h1>
+            <div class="card-content">
+                <embedded-markdown resourceId="readme/al-preview/README"></embedded-markdown>
+            </div>
+        </div>
+    </p-tabPanel>
+
+    <ng-template #template1 let-data>
+        <p>
+            You can pass a template ref as value of property using templateData key, additionally you can pass the data
+            to render properly the template. If you want to use it, you should indicate it setting isTemplate as True.
+        </p>
+        <p><span class='property-icon'><i class='fa fa-circle risk-medium'></i></span>{{data.type1}}</p>
+        <p><span class='property-icon'><i class='fa fa-circle risk-medium'></i></span>{{data.type2}}</p>
+        <p><span class='property-icon'><i class='fa fa-circle risk-medium'></i></span>{{data.type3}}</p>
+    </ng-template>
+</p-tabView>

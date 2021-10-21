@@ -1,0 +1,3058 @@
+[
+   {
+      "incident.summary":{
+         "value":"SQL Injection, Null Byte, Path Traversal Attempts from 2.0.6.4"
+      },
+      "detection_source":{
+         "value":"Web Log Analytics"
+      },
+      "customer":{
+         "value":"Web App Security Integration"
+      },
+      "correlation_name":{
+         "value":""
+      },
+      "note_count":{
+         "value":0
+      },
+      "note_last_update":{
+         "value":""
+      },
+      "customer_status_status":{
+         "value":"open"
+      },
+      "incident.threatRating":{
+         "value":"Medium",
+         "icon":"fa fa-circle-o risk-medium",
+         "cssStyle":{
+            "text-align":"center"
+         }
+      },
+      "incident.attackClassId_str":{
+         "value":"application-attack"
+      },
+      "assets.al__deployment":{
+         "value":"WLA Integration Log Source"
+      },
+      "createTime":{
+         "value":"20th Oct 2020 12:55:42 GMT-3"
+      },
+      "attacker_any":{
+         "value":"2.0.6.4"
+      },
+      "victim_any":{
+         "value":""
+      },
+      "incident":{
+         "value":{
+            "associatedEventCount":0,
+            "associatedLogCount":0,
+            "findingCount":0,
+            "flaggedEventCount":0,
+            "appliances":[
+               
+            ],
+            "incidentId":"5F8F07D4-000B-0020-0002-EB4000000000",
+            "accountId":134264762,
+            "friendlyId":"1giqkz",
+            "correlationId":null,
+            "correlationName":"",
+            "customerName":"Web App Security Integration",
+            "createdOn":"2020-10-20T15:55:42.599Z",
+            "closedAt":"2020-12-03T21:39:27.148Z",
+            "notes":{
+               
+            },
+            "notesCount":0,
+            "notesLastUpdate":"2020-12-03T21:39:27.148Z",
+            "attackerIp":"",
+            "attacker_lset":[
+               {
+                  "ip":[
+                     "2.0.6.4"
+                  ],
+                  "geo":[
+                     {
+                        "location_ip":"2.0.6.4",
+                        "ip":"2.0.6.4",
+                        "city":"Treillieres",
+                        "country":"FR",
+                        "countryName":"France",
+                        "latitude":47.3306,
+                        "longitude":-1.6192,
+                        "postcode":"44119",
+                        "regionName":"Pays de la Loire"
+                     }
+                  ],
+                  "value":""
+               }
+            ],
+            "attackerAny":[
+               "2.0.6.4"
+            ],
+            "victimIp":"",
+            "victimUser":"",
+            "victimInstance":"",
+            "victim_lset":[
+               
+            ],
+            "victimAny":[
+               
+            ],
+            "updateVersion":1,
+            "source":"WLA",
+            "detectionSource":null,
+            "summary":"SQL Injection, Null Byte, Path Traversal Attempts from 2.0.6.4",
+            "severity":"Medium",
+            "severityIcon":"fa fa-circle-o risk-medium",
+            "attackSummary":"#### Multiple Web Recon/Attacks from 2.0.6.4\n**Description**: Repeated activity indicative of reconnaissance looking for vulnerabilities and/or weaknesses.\n\n**Summary**: Tracked values from observations triggering this incident:\n* **Top Victim Virtual Hosts:** (info missing)\n* **Top Attack Types:** SQL injection, Path traversal, Null byte\n* **Top User-Agents:** Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\n* **Top CWEs:** CWE-89, CWE-22, CWE-158\n\n**Details**: The most recent triggering violation contained the following key values:\n* **Attack = Path traversal** - The attack type detected in the server log.\n* **Source IP = 2.0.6.4** - The source IP making the request.\n* **Request Data = POST /../../../etc/shadow HTTP/1.1\r\nHost: ..\r\nReferer: https://www.google.com/\r\nUser-Agent: Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\r\nX-Forwarded-For: 35.57.3.5, 63.116.246.196, 10.0.9.4** - The raw request.\n* **User-Agent = Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)** - The user agent used in the request.\n* **Accumulated Severity = 103** - The accumulated severity level of the detection.\n",
+            "recommendations":"",
+            "classKey":4,
+            "classDesc":"application-attack",
+            "customerStatus":{
+               "status":"open",
+               "status_change_time":"2020-10-20T15:55:47.667061+00:00"
+            },
+            "status":"open",
+            "customerFeedback":{
+               
+            },
+            "snoozeStatus":{
+               "period_ms":0,
+               "reason_code":"immediately",
+               "snoozed":false
+            },
+            "selectedEvent":[
+               
+            ],
+            "observable":{
+               
+            },
+            "assetType":"",
+            "assetDeploymentId":"",
+            "assetDeploymentType":"",
+            "assetHostKey":"",
+            "assetDeploymentInScope":true,
+            "assetsRemediations":[
+               
+            ],
+            "assets":false,
+            "deployment":"WLA Integration Log Source",
+            "region":"Unknown",
+            "vpc":"cas-dev-wla-us-east-1-int",
+            "subnet":"public",
+            "type":"",
+            "extraRecommendations":"",
+            "dateRange":"October 2020"
+         }
+      }
+   },
+   {
+      "incident.summary":{
+         "value":"SQL Injection, Null Byte, OS Commanding, Etc. Attempts from 63.116.246.196"
+      },
+      "detection_source":{
+         "value":"Web Log Analytics"
+      },
+      "customer":{
+         "value":"Web App Security Integration"
+      },
+      "correlation_name":{
+         "value":""
+      },
+      "note_count":{
+         "value":0
+      },
+      "note_last_update":{
+         "value":""
+      },
+      "customer_status_status":{
+         "value":"open"
+      },
+      "incident.threatRating":{
+         "value":"Medium",
+         "icon":"fa fa-circle-o risk-medium",
+         "cssStyle":{
+            "text-align":"center"
+         }
+      },
+      "incident.attackClassId_str":{
+         "value":"application-attack"
+      },
+      "assets.al__deployment":{
+         "value":"WLA Integration Log Source"
+      },
+      "createTime":{
+         "value":"20th Oct 2020 12:55:41 GMT-3"
+      },
+      "attacker_any":{
+         "value":"63.116.246.196"
+      },
+      "victim_any":{
+         "value":"suitablekid.com"
+      },
+      "incident":{
+         "value":{
+            "associatedEventCount":0,
+            "associatedLogCount":0,
+            "findingCount":0,
+            "flaggedEventCount":0,
+            "appliances":[
+               
+            ],
+            "incidentId":"5F8F07D4-0019-0020-0002-EB4000000000",
+            "accountId":134264762,
+            "friendlyId":"uj9ssi",
+            "correlationId":null,
+            "correlationName":"",
+            "customerName":"Web App Security Integration",
+            "createdOn":"2020-10-20T15:55:41.544Z",
+            "closedAt":"2020-12-03T21:39:27.148Z",
+            "notes":{
+               
+            },
+            "notesCount":0,
+            "notesLastUpdate":"2020-12-03T21:39:27.148Z",
+            "attackerIp":"",
+            "attacker_lset":[
+               {
+                  "ip":[
+                     "63.116.246.196"
+                  ],
+                  "geo":[
+                     {
+                        "location_ip":"63.116.246.196",
+                        "ip":"63.116.246.196",
+                        "city":"Bound Brook",
+                        "country":"US",
+                        "countryName":"United States",
+                        "latitude":40.5704,
+                        "longitude":-74.5369,
+                        "postcode":"08805",
+                        "regionName":"New Jersey"
+                     }
+                  ],
+                  "value":""
+               }
+            ],
+            "attackerAny":[
+               "63.116.246.196"
+            ],
+            "victimIp":"",
+            "victimUser":"",
+            "victimInstance":"",
+            "victim_lset":[
+               {
+                  "ip":[
+                     
+                  ],
+                  "geo":[
+                     
+                  ],
+                  "value":"suitablekid.com"
+               }
+            ],
+            "victimAny":[
+               "suitablekid.com"
+            ],
+            "updateVersion":1,
+            "source":"WLA",
+            "detectionSource":null,
+            "summary":"SQL Injection, Null Byte, OS Commanding, Etc. Attempts from 63.116.246.196",
+            "severity":"Medium",
+            "severityIcon":"fa fa-circle-o risk-medium",
+            "attackSummary":"#### Multiple Web Recon/Attacks from 63.116.246.196\n**Description**: Repeated activity indicative of reconnaissance looking for vulnerabilities and/or weaknesses.\n\n**Summary**: Tracked values from observations triggering this incident:\n* **Top Victim Virtual Hosts:** suitablekid.com\n* **Top Attack Types:** OS commanding, SQL injection, Path traversal, Null byte\n* **Top User-Agents:** Mozilla/5.0 (Windows NT 6.1; WOW64; rv:11.0) Gecko/20100101 Firefox/11.0, Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0), Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\n* **Top CWEs:** CWE-78, CWE-89, CWE-22, CWE-158\n\n**Details**: The most recent triggering violation contained the following key values:\n* **Attack = Path traversal** - The attack type detected in the server log.\n* **Source IP = 63.116.246.196** - The source IP making the request.\n* **Request Data = POST /../../../../../../../../../phpMyadmin HTTP/1.1\r\nHost: suitablekid.com\r\nReferer: https://www.google.com/\r\nUser-Agent: Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\r\nX-Forwarded-For: 35.57.3.5, 63.116.246.196, 10.0.9.4** - The raw request.\n* **User-Agent = Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)** - The user agent used in the request.\n* **Accumulated Severity = 103** - The accumulated severity level of the detection.\n",
+            "recommendations":"",
+            "classKey":4,
+            "classDesc":"application-attack",
+            "customerStatus":{
+               "status":"open",
+               "status_change_time":"2020-10-20T15:55:46.684475+00:00"
+            },
+            "status":"open",
+            "customerFeedback":{
+               
+            },
+            "snoozeStatus":{
+               "period_ms":0,
+               "reason_code":"immediately",
+               "snoozed":false
+            },
+            "selectedEvent":[
+               
+            ],
+            "observable":{
+               
+            },
+            "assetType":"",
+            "assetDeploymentId":"",
+            "assetDeploymentType":"",
+            "assetHostKey":"",
+            "assetDeploymentInScope":true,
+            "assetsRemediations":[
+               
+            ],
+            "assets":false,
+            "deployment":"WLA Integration Log Source",
+            "region":"Unknown",
+            "vpc":"cas-dev-wla-us-east-1-int",
+            "subnet":"public",
+            "type":"",
+            "extraRecommendations":"",
+            "dateRange":"October 2020"
+         }
+      }
+   },
+   {
+      "incident.summary":{
+         "value":"SQL Injection, Null Byte, Path Traversal Attempts from 57.3.94.3"
+      },
+      "detection_source":{
+         "value":"Web Log Analytics"
+      },
+      "customer":{
+         "value":"Web App Security Integration"
+      },
+      "correlation_name":{
+         "value":""
+      },
+      "note_count":{
+         "value":0
+      },
+      "note_last_update":{
+         "value":""
+      },
+      "customer_status_status":{
+         "value":"open"
+      },
+      "incident.threatRating":{
+         "value":"Medium",
+         "icon":"fa fa-circle-o risk-medium",
+         "cssStyle":{
+            "text-align":"center"
+         }
+      },
+      "incident.attackClassId_str":{
+         "value":"application-attack"
+      },
+      "assets.al__deployment":{
+         "value":"WLA Integration Log Source"
+      },
+      "createTime":{
+         "value":"20th Oct 2020 12:55:39 GMT-3"
+      },
+      "attacker_any":{
+         "value":"57.3.94.3"
+      },
+      "victim_any":{
+         "value":"suitablekid.com"
+      },
+      "incident":{
+         "value":{
+            "associatedEventCount":0,
+            "associatedLogCount":0,
+            "findingCount":0,
+            "flaggedEventCount":0,
+            "appliances":[
+               
+            ],
+            "incidentId":"5F8F07D4-000C-0020-0002-EB4000000000",
+            "accountId":134264762,
+            "friendlyId":"n97wfw",
+            "correlationId":null,
+            "correlationName":"",
+            "customerName":"Web App Security Integration",
+            "createdOn":"2020-10-20T15:55:39.177Z",
+            "closedAt":"2020-12-03T21:39:27.148Z",
+            "notes":{
+               
+            },
+            "notesCount":0,
+            "notesLastUpdate":"2020-12-03T21:39:27.148Z",
+            "attackerIp":"",
+            "attacker_lset":[
+               {
+                  "ip":[
+                     "57.3.94.3"
+                  ],
+                  "geo":[
+                     {
+                        "location_ip":"57.3.94.3",
+                        "ip":"57.3.94.3",
+                        "city":"",
+                        "country":"BE",
+                        "countryName":"Belgium",
+                        "latitude":50.8509,
+                        "longitude":4.3447,
+                        "postcode":null,
+                        "regionName":""
+                     }
+                  ],
+                  "value":""
+               }
+            ],
+            "attackerAny":[
+               "57.3.94.3"
+            ],
+            "victimIp":"",
+            "victimUser":"",
+            "victimInstance":"",
+            "victim_lset":[
+               {
+                  "ip":[
+                     
+                  ],
+                  "geo":[
+                     
+                  ],
+                  "value":"suitablekid.com"
+               }
+            ],
+            "victimAny":[
+               "suitablekid.com"
+            ],
+            "updateVersion":1,
+            "source":"WLA",
+            "detectionSource":null,
+            "summary":"SQL Injection, Null Byte, Path Traversal Attempts from 57.3.94.3",
+            "severity":"Medium",
+            "severityIcon":"fa fa-circle-o risk-medium",
+            "attackSummary":"#### Multiple Web Recon/Attacks from 57.3.94.3\n**Description**: Repeated activity indicative of reconnaissance looking for vulnerabilities and/or weaknesses.\n\n**Summary**: Tracked values from observations triggering this incident:\n* **Top Victim Virtual Hosts:** suitablekid.com\n* **Top Attack Types:** SQL injection, Path traversal, Null byte\n* **Top User-Agents:** Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\n* **Top CWEs:** CWE-89, CWE-22, CWE-158\n\n**Details**: The most recent triggering violation contained the following key values:\n* **Attack = SQL injection** - The attack type detected in the server log.\n* **Source IP = 57.3.94.3** - The source IP making the request.\n* **Request Data = POST /wp-content/plugins/wp-events-calendar/public/ajax/geteventslist.php?calendar_id%3D6%26year%3D1979%27+delete+id+from+users%26month%3D4 HTTP/1.1\r\nHost: suitablekid.com\r\nReferer: https://www.google.com/\r\nUser-Agent: Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\r\nX-Forwarded-For: 13.19.4.14, 23.192.163.199, 10.0.3.87** - The raw request.\n* **User-Agent = Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)** - The user agent used in the request.\n* **Accumulated Severity = 110** - The accumulated severity level of the detection.\n",
+            "recommendations":"",
+            "classKey":4,
+            "classDesc":"application-attack",
+            "customerStatus":{
+               "status":"open",
+               "status_change_time":"2020-10-20T15:55:44.261042+00:00"
+            },
+            "status":"open",
+            "customerFeedback":{
+               
+            },
+            "snoozeStatus":{
+               "period_ms":0,
+               "reason_code":"immediately",
+               "snoozed":false
+            },
+            "selectedEvent":[
+               
+            ],
+            "observable":{
+               
+            },
+            "assetType":"",
+            "assetDeploymentId":"",
+            "assetDeploymentType":"",
+            "assetHostKey":"",
+            "assetDeploymentInScope":true,
+            "assetsRemediations":[
+               
+            ],
+            "assets":false,
+            "deployment":"WLA Integration Log Source",
+            "region":"Unknown",
+            "vpc":"cas-dev-wla-us-east-1-int",
+            "subnet":"public",
+            "type":"",
+            "extraRecommendations":"",
+            "dateRange":"October 2020"
+         }
+      }
+   },
+   {
+      "incident.summary":{
+         "value":"SQL Injection, Null Byte, Path Traversal Attempts from 6.95.39.89"
+      },
+      "detection_source":{
+         "value":"Web Log Analytics"
+      },
+      "customer":{
+         "value":"Web App Security Integration"
+      },
+      "correlation_name":{
+         "value":""
+      },
+      "note_count":{
+         "value":0
+      },
+      "note_last_update":{
+         "value":""
+      },
+      "customer_status_status":{
+         "value":"open"
+      },
+      "incident.threatRating":{
+         "value":"Medium",
+         "icon":"fa fa-circle-o risk-medium",
+         "cssStyle":{
+            "text-align":"center"
+         }
+      },
+      "incident.attackClassId_str":{
+         "value":"application-attack"
+      },
+      "assets.al__deployment":{
+         "value":"WLA Integration Log Source"
+      },
+      "createTime":{
+         "value":"20th Oct 2020 12:55:38 GMT-3"
+      },
+      "attacker_any":{
+         "value":"6.95.39.89"
+      },
+      "victim_any":{
+         "value":""
+      },
+      "incident":{
+         "value":{
+            "associatedEventCount":0,
+            "associatedLogCount":0,
+            "findingCount":0,
+            "flaggedEventCount":0,
+            "appliances":[
+               
+            ],
+            "incidentId":"5F8F07D4-001C-0020-0002-EB4000000000",
+            "accountId":134264762,
+            "friendlyId":"iyz6q3",
+            "correlationId":null,
+            "correlationName":"",
+            "customerName":"Web App Security Integration",
+            "createdOn":"2020-10-20T15:55:38.321Z",
+            "closedAt":"2020-12-03T21:39:27.148Z",
+            "notes":{
+               
+            },
+            "notesCount":0,
+            "notesLastUpdate":"2020-12-03T21:39:27.148Z",
+            "attackerIp":"",
+            "attacker_lset":[
+               {
+                  "ip":[
+                     "6.95.39.89"
+                  ],
+                  "geo":[
+                     {
+                        "location_ip":"6.95.39.89",
+                        "ip":"6.95.39.89",
+                        "city":"",
+                        "country":"US",
+                        "countryName":"United States",
+                        "latitude":37.751,
+                        "longitude":-97.822,
+                        "postcode":null,
+                        "regionName":""
+                     }
+                  ],
+                  "value":""
+               }
+            ],
+            "attackerAny":[
+               "6.95.39.89"
+            ],
+            "victimIp":"",
+            "victimUser":"",
+            "victimInstance":"",
+            "victim_lset":[
+               
+            ],
+            "victimAny":[
+               
+            ],
+            "updateVersion":1,
+            "source":"WLA",
+            "detectionSource":null,
+            "summary":"SQL Injection, Null Byte, Path Traversal Attempts from 6.95.39.89",
+            "severity":"Medium",
+            "severityIcon":"fa fa-circle-o risk-medium",
+            "attackSummary":"#### Multiple Web Recon/Attacks from 6.95.39.89\n**Description**: Repeated activity indicative of reconnaissance looking for vulnerabilities and/or weaknesses.\n\n**Summary**: Tracked values from observations triggering this incident:\n* **Top Victim Virtual Hosts:** (info missing)\n* **Top Attack Types:** SQL injection, Path traversal, Null byte\n* **Top User-Agents:** Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\n* **Top CWEs:** CWE-89, CWE-22, CWE-158\n\n**Details**: The most recent triggering violation contained the following key values:\n* **Attack = Path traversal** - The attack type detected in the server log.\n* **Source IP = 6.95.39.89** - The source IP making the request.\n* **Request Data = POST /../../../../../cgi HTTP/1.1\r\nHost: ..\r\nReferer: https://www.google.com/\r\nUser-Agent: Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\r\nX-Forwarded-For: 67.3.89.50, 104.98.2.136, 10.0.6.1** - The raw request.\n* **User-Agent = Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)** - The user agent used in the request.\n* **Accumulated Severity = 103** - The accumulated severity level of the detection.\n",
+            "recommendations":"",
+            "classKey":4,
+            "classDesc":"application-attack",
+            "customerStatus":{
+               "status":"open",
+               "status_change_time":"2020-10-20T15:55:43.398775+00:00"
+            },
+            "status":"open",
+            "customerFeedback":{
+               
+            },
+            "snoozeStatus":{
+               "period_ms":0,
+               "reason_code":"immediately",
+               "snoozed":false
+            },
+            "selectedEvent":[
+               
+            ],
+            "observable":{
+               
+            },
+            "assetType":"",
+            "assetDeploymentId":"",
+            "assetDeploymentType":"",
+            "assetHostKey":"",
+            "assetDeploymentInScope":true,
+            "assetsRemediations":[
+               
+            ],
+            "assets":false,
+            "deployment":"WLA Integration Log Source",
+            "region":"Unknown",
+            "vpc":"cas-dev-wla-us-east-1-int",
+            "subnet":"public",
+            "type":"",
+            "extraRecommendations":"",
+            "dateRange":"October 2020"
+         }
+      }
+   },
+   {
+      "incident.summary":{
+         "value":"SQL Injection, Anomaly, Null Byte, Etc. Attempts from 66.3.7.12"
+      },
+      "detection_source":{
+         "value":"Web Log Analytics"
+      },
+      "customer":{
+         "value":"Web App Security Integration"
+      },
+      "correlation_name":{
+         "value":""
+      },
+      "note_count":{
+         "value":0
+      },
+      "note_last_update":{
+         "value":""
+      },
+      "customer_status_status":{
+         "value":"open"
+      },
+      "incident.threatRating":{
+         "value":"Medium",
+         "icon":"fa fa-circle-o risk-medium",
+         "cssStyle":{
+            "text-align":"center"
+         }
+      },
+      "incident.attackClassId_str":{
+         "value":"application-attack"
+      },
+      "assets.al__deployment":{
+         "value":"WLA Integration Log Source"
+      },
+      "createTime":{
+         "value":"20th Oct 2020 12:55:36 GMT-3"
+      },
+      "attacker_any":{
+         "value":"66.3.7.12"
+      },
+      "victim_any":{
+         "value":"suitablekid.com"
+      },
+      "incident":{
+         "value":{
+            "associatedEventCount":0,
+            "associatedLogCount":0,
+            "findingCount":0,
+            "flaggedEventCount":0,
+            "appliances":[
+               
+            ],
+            "incidentId":"5F8F07D4-000A-0020-0002-EB4000000000",
+            "accountId":134264762,
+            "friendlyId":"bzdx5i",
+            "correlationId":null,
+            "correlationName":"",
+            "customerName":"Web App Security Integration",
+            "createdOn":"2020-10-20T15:55:36.078Z",
+            "closedAt":"2020-12-03T21:39:27.148Z",
+            "notes":{
+               
+            },
+            "notesCount":0,
+            "notesLastUpdate":"2020-12-03T21:39:27.148Z",
+            "attackerIp":"",
+            "attacker_lset":[
+               {
+                  "ip":[
+                     "66.3.7.12"
+                  ],
+                  "geo":[
+                     {
+                        "location_ip":"66.3.7.12",
+                        "ip":"66.3.7.12",
+                        "city":"Braintree",
+                        "country":"US",
+                        "countryName":"United States",
+                        "latitude":42.2125,
+                        "longitude":-70.9961,
+                        "postcode":"02184",
+                        "regionName":"Massachusetts"
+                     }
+                  ],
+                  "value":""
+               }
+            ],
+            "attackerAny":[
+               "66.3.7.12"
+            ],
+            "victimIp":"",
+            "victimUser":"",
+            "victimInstance":"",
+            "victim_lset":[
+               {
+                  "ip":[
+                     
+                  ],
+                  "geo":[
+                     
+                  ],
+                  "value":"suitablekid.com"
+               }
+            ],
+            "victimAny":[
+               "suitablekid.com"
+            ],
+            "updateVersion":1,
+            "source":"WLA",
+            "detectionSource":null,
+            "summary":"SQL Injection, Anomaly, Null Byte, Etc. Attempts from 66.3.7.12",
+            "severity":"Medium",
+            "severityIcon":"fa fa-circle-o risk-medium",
+            "attackSummary":"#### Multiple Web Recon/Attacks from 66.3.7.12\n**Description**: Repeated activity indicative of reconnaissance looking for vulnerabilities and/or weaknesses.\n\n**Summary**: Tracked values from observations triggering this incident:\n* **Top Victim Virtual Hosts:** suitablekid.com\n* **Top Attack Types:** Anomaly, SQL injection, Path traversal, Null byte\n* **Top User-Agents:** Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\n* **Top CWEs:** CWE-89, CWE-22, CWE-158\n\n**Details**: The most recent triggering violation contained the following key values:\n* **Attack = SQL injection** - The attack type detected in the server log.\n* **Source IP = 66.3.7.12** - The source IP making the request.\n* **Request Data = GET /wp-content/plugins/wp-events-calendar/public/ajax/geteventslist.php?calendar_id%3D6%26year%3D1979%27+delete+id+from+users%26month%3D4 HTTP/1.1\r\nHost: suitablekid.com\r\nReferer: https://www.google.com/\r\nUser-Agent: Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\r\nX-Forwarded-For: 35.57.3.5, 63.116.246.196, 10.0.9.4** - The raw request.\n* **User-Agent = Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)** - The user agent used in the request.\n* **Accumulated Severity = 105** - The accumulated severity level of the detection.\n",
+            "recommendations":"",
+            "classKey":4,
+            "classDesc":"application-attack",
+            "customerStatus":{
+               "status":"open",
+               "status_change_time":"2020-10-20T15:55:41.177585+00:00"
+            },
+            "status":"open",
+            "customerFeedback":{
+               
+            },
+            "snoozeStatus":{
+               "period_ms":0,
+               "reason_code":"immediately",
+               "snoozed":false
+            },
+            "selectedEvent":[
+               
+            ],
+            "observable":{
+               
+            },
+            "assetType":"",
+            "assetDeploymentId":"",
+            "assetDeploymentType":"",
+            "assetHostKey":"",
+            "assetDeploymentInScope":true,
+            "assetsRemediations":[
+               
+            ],
+            "assets":false,
+            "deployment":"WLA Integration Log Source",
+            "region":"Unknown",
+            "vpc":"cas-dev-wla-us-east-1-int",
+            "subnet":"public",
+            "type":"",
+            "extraRecommendations":"",
+            "dateRange":"October 2020"
+         }
+      }
+   },
+   {
+      "incident.summary":{
+         "value":"SQL Injection, Null Byte, Path Traversal Attempts from 6.8.1.4"
+      },
+      "detection_source":{
+         "value":"Web Log Analytics"
+      },
+      "customer":{
+         "value":"Web App Security Integration"
+      },
+      "correlation_name":{
+         "value":""
+      },
+      "note_count":{
+         "value":0
+      },
+      "note_last_update":{
+         "value":""
+      },
+      "customer_status_status":{
+         "value":"open"
+      },
+      "incident.threatRating":{
+         "value":"Medium",
+         "icon":"fa fa-circle-o risk-medium",
+         "cssStyle":{
+            "text-align":"center"
+         }
+      },
+      "incident.attackClassId_str":{
+         "value":"application-attack"
+      },
+      "assets.al__deployment":{
+         "value":"WLA Integration Log Source"
+      },
+      "createTime":{
+         "value":"20th Oct 2020 12:55:35 GMT-3"
+      },
+      "attacker_any":{
+         "value":"6.8.1.4"
+      },
+      "victim_any":{
+         "value":"suitablekid.com"
+      },
+      "incident":{
+         "value":{
+            "associatedEventCount":0,
+            "associatedLogCount":0,
+            "findingCount":0,
+            "flaggedEventCount":0,
+            "appliances":[
+               
+            ],
+            "incidentId":"5F8F07D4-0017-0020-0002-EB4000000000",
+            "accountId":134264762,
+            "friendlyId":"ekyqw5",
+            "correlationId":null,
+            "correlationName":"",
+            "customerName":"Web App Security Integration",
+            "createdOn":"2020-10-20T15:55:35.123Z",
+            "closedAt":"2020-12-03T21:39:27.148Z",
+            "notes":{
+               
+            },
+            "notesCount":0,
+            "notesLastUpdate":"2020-12-03T21:39:27.148Z",
+            "attackerIp":"",
+            "attacker_lset":[
+               {
+                  "ip":[
+                     "6.8.1.4"
+                  ],
+                  "geo":[
+                     {
+                        "location_ip":"6.8.1.4",
+                        "ip":"6.8.1.4",
+                        "city":"Fort Huachuca",
+                        "country":"US",
+                        "countryName":"United States",
+                        "latitude":37.751,
+                        "longitude":-97.822,
+                        "postcode":"85613",
+                        "regionName":"Arizona"
+                     }
+                  ],
+                  "value":""
+               }
+            ],
+            "attackerAny":[
+               "6.8.1.4"
+            ],
+            "victimIp":"",
+            "victimUser":"",
+            "victimInstance":"",
+            "victim_lset":[
+               {
+                  "ip":[
+                     
+                  ],
+                  "geo":[
+                     
+                  ],
+                  "value":"suitablekid.com"
+               }
+            ],
+            "victimAny":[
+               "suitablekid.com"
+            ],
+            "updateVersion":1,
+            "source":"WLA",
+            "detectionSource":null,
+            "summary":"SQL Injection, Null Byte, Path Traversal Attempts from 6.8.1.4",
+            "severity":"Medium",
+            "severityIcon":"fa fa-circle-o risk-medium",
+            "attackSummary":"#### Multiple Web Recon/Attacks from 6.8.1.4\n**Description**: Repeated activity indicative of reconnaissance looking for vulnerabilities and/or weaknesses.\n\n**Summary**: Tracked values from observations triggering this incident:\n* **Top Victim Virtual Hosts:** suitablekid.com\n* **Top Attack Types:** SQL injection, Path traversal, Null byte\n* **Top User-Agents:** Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\n* **Top CWEs:** CWE-89, CWE-22, CWE-158\n\n**Details**: The most recent triggering violation contained the following key values:\n* **Attack = Path traversal** - The attack type detected in the server log.\n* **Source IP = 6.8.1.4** - The source IP making the request.\n* **Request Data = GET /../../../phpMyadmin.php HTTP/1.1\r\nHost: suitablekid.com\r\nReferer: https://www.google.com/\r\nUser-Agent: Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\r\nX-Forwarded-For: 50.4.17.4, 23.200.95.41, 10.0.67.51** - The raw request.\n* **User-Agent = Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)** - The user agent used in the request.\n* **Accumulated Severity = 103** - The accumulated severity level of the detection.\n",
+            "recommendations":"",
+            "classKey":4,
+            "classDesc":"application-attack",
+            "customerStatus":{
+               "status":"open",
+               "status_change_time":"2020-10-20T15:55:40.318912+00:00"
+            },
+            "status":"open",
+            "customerFeedback":{
+               
+            },
+            "snoozeStatus":{
+               "period_ms":0,
+               "reason_code":"immediately",
+               "snoozed":false
+            },
+            "selectedEvent":[
+               
+            ],
+            "observable":{
+               
+            },
+            "assetType":"",
+            "assetDeploymentId":"",
+            "assetDeploymentType":"",
+            "assetHostKey":"",
+            "assetDeploymentInScope":true,
+            "assetsRemediations":[
+               
+            ],
+            "assets":false,
+            "deployment":"WLA Integration Log Source",
+            "region":"Unknown",
+            "vpc":"cas-dev-wla-us-east-1-int",
+            "subnet":"public",
+            "type":"",
+            "extraRecommendations":"",
+            "dateRange":"October 2020"
+         }
+      }
+   },
+   {
+      "incident.summary":{
+         "value":"SQL Injection, Null Byte, Path Traversal Attempts from 1.8.9.1"
+      },
+      "detection_source":{
+         "value":"Web Log Analytics"
+      },
+      "customer":{
+         "value":"Web App Security Integration"
+      },
+      "correlation_name":{
+         "value":""
+      },
+      "note_count":{
+         "value":0
+      },
+      "note_last_update":{
+         "value":""
+      },
+      "customer_status_status":{
+         "value":"open"
+      },
+      "incident.threatRating":{
+         "value":"Medium",
+         "icon":"fa fa-circle-o risk-medium",
+         "cssStyle":{
+            "text-align":"center"
+         }
+      },
+      "incident.attackClassId_str":{
+         "value":"application-attack"
+      },
+      "assets.al__deployment":{
+         "value":"WLA Integration Log Source"
+      },
+      "createTime":{
+         "value":"20th Oct 2020 12:55:33 GMT-3"
+      },
+      "attacker_any":{
+         "value":"1.8.9.1"
+      },
+      "victim_any":{
+         "value":""
+      },
+      "incident":{
+         "value":{
+            "associatedEventCount":0,
+            "associatedLogCount":0,
+            "findingCount":0,
+            "flaggedEventCount":0,
+            "appliances":[
+               
+            ],
+            "incidentId":"5F8F07D4-0009-0020-0002-EB4000000000",
+            "accountId":134264762,
+            "friendlyId":"xukoce",
+            "correlationId":null,
+            "correlationName":"",
+            "customerName":"Web App Security Integration",
+            "createdOn":"2020-10-20T15:55:33.077Z",
+            "closedAt":"2020-12-03T21:39:27.148Z",
+            "notes":{
+               
+            },
+            "notesCount":0,
+            "notesLastUpdate":"2020-12-03T21:39:27.148Z",
+            "attackerIp":"",
+            "attacker_lset":[
+               {
+                  "ip":[
+                     "1.8.9.1"
+                  ],
+                  "geo":[
+                     {
+                        "location_ip":"1.8.9.1",
+                        "ip":"1.8.9.1",
+                        "city":"Beijing",
+                        "country":"CN",
+                        "countryName":"China",
+                        "latitude":39.9289,
+                        "longitude":116.3883,
+                        "postcode":null,
+                        "regionName":"Beijing"
+                     }
+                  ],
+                  "value":""
+               }
+            ],
+            "attackerAny":[
+               "1.8.9.1"
+            ],
+            "victimIp":"",
+            "victimUser":"",
+            "victimInstance":"",
+            "victim_lset":[
+               
+            ],
+            "victimAny":[
+               
+            ],
+            "updateVersion":1,
+            "source":"WLA",
+            "detectionSource":null,
+            "summary":"SQL Injection, Null Byte, Path Traversal Attempts from 1.8.9.1",
+            "severity":"Medium",
+            "severityIcon":"fa fa-circle-o risk-medium",
+            "attackSummary":"#### Multiple Web Recon/Attacks from 1.8.9.1\n**Description**: Repeated activity indicative of reconnaissance looking for vulnerabilities and/or weaknesses.\n\n**Summary**: Tracked values from observations triggering this incident:\n* **Top Victim Virtual Hosts:** (info missing)\n* **Top Attack Types:** Path traversal, SQL injection, Null byte\n* **Top User-Agents:** Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\n* **Top CWEs:** CWE-22, CWE-89, CWE-158\n\n**Details**: The most recent triggering violation contained the following key values:\n* **Attack = SQL injection** - The attack type detected in the server log.\n* **Source IP = 1.8.9.1** - The source IP making the request.\n* **Request Data = GET /wp-content/plugins/wp-events-calendar/public/ajax/geteventslist.php?calendar_id%3D6%26year%3D1979%27+select+id+from+users%26month%3D4 HTTP/1.1\r\nReferer: https://www.google.com/\r\nUser-Agent: Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\r\nX-Forwarded-For: 27.48.1.3, 184.26.136.143, 10.0.6.45** - The raw request.\n* **User-Agent = Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)** - The user agent used in the request.\n* **Accumulated Severity = 103** - The accumulated severity level of the detection.\n",
+            "recommendations":"",
+            "classKey":4,
+            "classDesc":"application-attack",
+            "customerStatus":{
+               "status":"open",
+               "status_change_time":"2020-10-20T15:55:38.241488+00:00"
+            },
+            "status":"open",
+            "customerFeedback":{
+               
+            },
+            "snoozeStatus":{
+               "period_ms":0,
+               "reason_code":"immediately",
+               "snoozed":false
+            },
+            "selectedEvent":[
+               
+            ],
+            "observable":{
+               
+            },
+            "assetType":"",
+            "assetDeploymentId":"",
+            "assetDeploymentType":"",
+            "assetHostKey":"",
+            "assetDeploymentInScope":true,
+            "assetsRemediations":[
+               
+            ],
+            "assets":false,
+            "deployment":"WLA Integration Log Source",
+            "region":"Unknown",
+            "vpc":"cas-dev-wla-us-east-1-int",
+            "subnet":"public",
+            "type":"",
+            "extraRecommendations":"",
+            "dateRange":"October 2020"
+         }
+      }
+   },
+   {
+      "incident.summary":{
+         "value":"SQL Injection, Null Byte, Path Traversal Attempts from 33.4.2.44"
+      },
+      "detection_source":{
+         "value":"Web Log Analytics"
+      },
+      "customer":{
+         "value":"Web App Security Integration"
+      },
+      "correlation_name":{
+         "value":""
+      },
+      "note_count":{
+         "value":0
+      },
+      "note_last_update":{
+         "value":""
+      },
+      "customer_status_status":{
+         "value":"open"
+      },
+      "incident.threatRating":{
+         "value":"Medium",
+         "icon":"fa fa-circle-o risk-medium",
+         "cssStyle":{
+            "text-align":"center"
+         }
+      },
+      "incident.attackClassId_str":{
+         "value":"application-attack"
+      },
+      "assets.al__deployment":{
+         "value":"WLA Integration Log Source"
+      },
+      "createTime":{
+         "value":"20th Oct 2020 12:55:31 GMT-3"
+      },
+      "attacker_any":{
+         "value":"33.4.2.44"
+      },
+      "victim_any":{
+         "value":"suitablekid.com"
+      },
+      "incident":{
+         "value":{
+            "associatedEventCount":0,
+            "associatedLogCount":0,
+            "findingCount":0,
+            "flaggedEventCount":0,
+            "appliances":[
+               
+            ],
+            "incidentId":"5F8F07D4-001B-0020-0002-EB4000000000",
+            "accountId":134264762,
+            "friendlyId":"fasuk8",
+            "correlationId":null,
+            "correlationName":"",
+            "customerName":"Web App Security Integration",
+            "createdOn":"2020-10-20T15:55:31.881Z",
+            "closedAt":"2020-12-03T21:39:27.148Z",
+            "notes":{
+               
+            },
+            "notesCount":0,
+            "notesLastUpdate":"2020-12-03T21:39:27.148Z",
+            "attackerIp":"",
+            "attacker_lset":[
+               {
+                  "ip":[
+                     "33.4.2.44"
+                  ],
+                  "geo":[
+                     {
+                        "location_ip":"33.4.2.44",
+                        "ip":"33.4.2.44",
+                        "city":"",
+                        "country":"US",
+                        "countryName":"United States",
+                        "latitude":37.751,
+                        "longitude":-97.822,
+                        "postcode":null,
+                        "regionName":""
+                     }
+                  ],
+                  "value":""
+               }
+            ],
+            "attackerAny":[
+               "33.4.2.44"
+            ],
+            "victimIp":"",
+            "victimUser":"",
+            "victimInstance":"",
+            "victim_lset":[
+               {
+                  "ip":[
+                     
+                  ],
+                  "geo":[
+                     
+                  ],
+                  "value":"suitablekid.com"
+               }
+            ],
+            "victimAny":[
+               "suitablekid.com"
+            ],
+            "updateVersion":1,
+            "source":"WLA",
+            "detectionSource":null,
+            "summary":"SQL Injection, Null Byte, Path Traversal Attempts from 33.4.2.44",
+            "severity":"Medium",
+            "severityIcon":"fa fa-circle-o risk-medium",
+            "attackSummary":"#### Multiple Web Recon/Attacks from 33.4.2.44\n**Description**: Repeated activity indicative of reconnaissance looking for vulnerabilities and/or weaknesses.\n\n**Summary**: Tracked values from observations triggering this incident:\n* **Top Victim Virtual Hosts:** suitablekid.com\n* **Top Attack Types:** SQL injection, Path traversal, Null byte\n* **Top User-Agents:** Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\n* **Top CWEs:** CWE-89, CWE-22, CWE-158\n\n**Details**: The most recent triggering violation contained the following key values:\n* **Attack = SQL injection** - The attack type detected in the server log.\n* **Source IP = 33.4.2.44** - The source IP making the request.\n* **Request Data = POST /wp-content/plugins/wp-events-calendar/public/ajax/geteventslist.php?calendar_id%3D6%26year%3D1979%27+select+id+from+users%26month%3D4 HTTP/1.1\r\nHost: suitablekid.com\r\nReferer: https://www.google.com/\r\nUser-Agent: Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\r\nX-Forwarded-For: 5.9.3.8, 184.50.26.184, 10.0.9.9** - The raw request.\n* **User-Agent = Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)** - The user agent used in the request.\n* **Accumulated Severity = 104** - The accumulated severity level of the detection.\n",
+            "recommendations":"",
+            "classKey":4,
+            "classDesc":"application-attack",
+            "customerStatus":{
+               "status":"open",
+               "status_change_time":"2020-10-20T15:55:36.983312+00:00"
+            },
+            "status":"open",
+            "customerFeedback":{
+               
+            },
+            "snoozeStatus":{
+               "period_ms":0,
+               "reason_code":"immediately",
+               "snoozed":false
+            },
+            "selectedEvent":[
+               
+            ],
+            "observable":{
+               
+            },
+            "assetType":"",
+            "assetDeploymentId":"",
+            "assetDeploymentType":"",
+            "assetHostKey":"",
+            "assetDeploymentInScope":true,
+            "assetsRemediations":[
+               
+            ],
+            "assets":false,
+            "deployment":"WLA Integration Log Source",
+            "region":"Unknown",
+            "vpc":"cas-dev-wla-us-east-1-int",
+            "subnet":"public",
+            "type":"",
+            "extraRecommendations":"",
+            "dateRange":"October 2020"
+         }
+      }
+   },
+   {
+      "incident.summary":{
+         "value":"SQL Injection, Null Byte, Path Traversal Attempts from 38.1.80.28"
+      },
+      "detection_source":{
+         "value":"Web Log Analytics"
+      },
+      "customer":{
+         "value":"Web App Security Integration"
+      },
+      "correlation_name":{
+         "value":""
+      },
+      "note_count":{
+         "value":0
+      },
+      "note_last_update":{
+         "value":""
+      },
+      "customer_status_status":{
+         "value":"open"
+      },
+      "incident.threatRating":{
+         "value":"Medium",
+         "icon":"fa fa-circle-o risk-medium",
+         "cssStyle":{
+            "text-align":"center"
+         }
+      },
+      "incident.attackClassId_str":{
+         "value":"application-attack"
+      },
+      "assets.al__deployment":{
+         "value":"WLA Integration Log Source"
+      },
+      "createTime":{
+         "value":"20th Oct 2020 12:55:30 GMT-3"
+      },
+      "attacker_any":{
+         "value":"38.1.80.28"
+      },
+      "victim_any":{
+         "value":""
+      },
+      "incident":{
+         "value":{
+            "associatedEventCount":0,
+            "associatedLogCount":0,
+            "findingCount":0,
+            "flaggedEventCount":0,
+            "appliances":[
+               
+            ],
+            "incidentId":"5F8F07D4-0016-0020-0002-EB4000000000",
+            "accountId":134264762,
+            "friendlyId":"gmf414",
+            "correlationId":null,
+            "correlationName":"",
+            "customerName":"Web App Security Integration",
+            "createdOn":"2020-10-20T15:55:30.588Z",
+            "closedAt":"2020-12-03T21:39:27.148Z",
+            "notes":{
+               
+            },
+            "notesCount":0,
+            "notesLastUpdate":"2020-12-03T21:39:27.148Z",
+            "attackerIp":"",
+            "attacker_lset":[
+               {
+                  "ip":[
+                     "38.1.80.28"
+                  ],
+                  "geo":[
+                     {
+                        "location_ip":"38.1.80.28",
+                        "ip":"38.1.80.28",
+                        "city":"",
+                        "country":"US",
+                        "countryName":"United States",
+                        "latitude":37.751,
+                        "longitude":-97.822,
+                        "postcode":null,
+                        "regionName":""
+                     }
+                  ],
+                  "value":""
+               }
+            ],
+            "attackerAny":[
+               "38.1.80.28"
+            ],
+            "victimIp":"",
+            "victimUser":"",
+            "victimInstance":"",
+            "victim_lset":[
+               
+            ],
+            "victimAny":[
+               
+            ],
+            "updateVersion":1,
+            "source":"WLA",
+            "detectionSource":null,
+            "summary":"SQL Injection, Null Byte, Path Traversal Attempts from 38.1.80.28",
+            "severity":"Medium",
+            "severityIcon":"fa fa-circle-o risk-medium",
+            "attackSummary":"#### Multiple Web Recon/Attacks from 38.1.80.28\n**Description**: Repeated activity indicative of reconnaissance looking for vulnerabilities and/or weaknesses.\n\n**Summary**: Tracked values from observations triggering this incident:\n* **Top Victim Virtual Hosts:** (info missing)\n* **Top Attack Types:** SQL injection, Path traversal, Null byte\n* **Top User-Agents:** Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\n* **Top CWEs:** CWE-89, CWE-22, CWE-158\n\n**Details**: The most recent triggering violation contained the following key values:\n* **Attack = SQL injection** - The attack type detected in the server log.\n* **Source IP = 38.1.80.28** - The source IP making the request.\n* **Request Data = POST /wp-content/plugins/wp-events-calendar/public/ajax/geteventslist.php?calendar_id%3D6%26year%3D1979%27+select+id+from+users%26month%3D4 HTTP/1.1\r\nReferer: https://www.google.com/\r\nUser-Agent: Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\r\nX-Forwarded-For: 35.57.3.5, 63.116.246.196, 10.0.9.4** - The raw request.\n* **User-Agent = Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)** - The user agent used in the request.\n* **Accumulated Severity = 105** - The accumulated severity level of the detection.\n",
+            "recommendations":"",
+            "classKey":4,
+            "classDesc":"application-attack",
+            "customerStatus":{
+               "status":"open",
+               "status_change_time":"2020-10-20T15:55:35.688278+00:00"
+            },
+            "status":"open",
+            "customerFeedback":{
+               
+            },
+            "snoozeStatus":{
+               "period_ms":0,
+               "reason_code":"immediately",
+               "snoozed":false
+            },
+            "selectedEvent":[
+               
+            ],
+            "observable":{
+               
+            },
+            "assetType":"",
+            "assetDeploymentId":"",
+            "assetDeploymentType":"",
+            "assetHostKey":"",
+            "assetDeploymentInScope":true,
+            "assetsRemediations":[
+               
+            ],
+            "assets":false,
+            "deployment":"WLA Integration Log Source",
+            "region":"Unknown",
+            "vpc":"cas-dev-wla-us-east-1-int",
+            "subnet":"public",
+            "type":"",
+            "extraRecommendations":"",
+            "dateRange":"October 2020"
+         }
+      }
+   },
+   {
+      "incident.summary":{
+         "value":"SQL Injection, Null Byte, Path Traversal Attempts from 57.11.8.71"
+      },
+      "detection_source":{
+         "value":"Web Log Analytics"
+      },
+      "customer":{
+         "value":"Web App Security Integration"
+      },
+      "correlation_name":{
+         "value":""
+      },
+      "note_count":{
+         "value":0
+      },
+      "note_last_update":{
+         "value":""
+      },
+      "customer_status_status":{
+         "value":"open"
+      },
+      "incident.threatRating":{
+         "value":"Medium",
+         "icon":"fa fa-circle-o risk-medium",
+         "cssStyle":{
+            "text-align":"center"
+         }
+      },
+      "incident.attackClassId_str":{
+         "value":"application-attack"
+      },
+      "assets.al__deployment":{
+         "value":"WLA Integration Log Source"
+      },
+      "createTime":{
+         "value":"20th Oct 2020 12:55:28 GMT-3"
+      },
+      "attacker_any":{
+         "value":"57.11.8.71"
+      },
+      "victim_any":{
+         "value":"suitablekid.com"
+      },
+      "incident":{
+         "value":{
+            "associatedEventCount":0,
+            "associatedLogCount":0,
+            "findingCount":0,
+            "flaggedEventCount":0,
+            "appliances":[
+               
+            ],
+            "incidentId":"5F8F07D4-001A-0020-0002-EB4000000000",
+            "accountId":134264762,
+            "friendlyId":"57h6mw",
+            "correlationId":null,
+            "correlationName":"",
+            "customerName":"Web App Security Integration",
+            "createdOn":"2020-10-20T15:55:28.285Z",
+            "closedAt":"2020-12-03T21:39:27.148Z",
+            "notes":{
+               
+            },
+            "notesCount":0,
+            "notesLastUpdate":"2020-12-03T21:39:27.148Z",
+            "attackerIp":"",
+            "attacker_lset":[
+               {
+                  "ip":[
+                     "57.11.8.71"
+                  ],
+                  "geo":[
+                     {
+                        "location_ip":"57.11.8.71",
+                        "ip":"57.11.8.71",
+                        "city":"",
+                        "country":"BE",
+                        "countryName":"Belgium",
+                        "latitude":50.8509,
+                        "longitude":4.3447,
+                        "postcode":null,
+                        "regionName":""
+                     }
+                  ],
+                  "value":""
+               }
+            ],
+            "attackerAny":[
+               "57.11.8.71"
+            ],
+            "victimIp":"",
+            "victimUser":"",
+            "victimInstance":"",
+            "victim_lset":[
+               {
+                  "ip":[
+                     
+                  ],
+                  "geo":[
+                     
+                  ],
+                  "value":"suitablekid.com"
+               }
+            ],
+            "victimAny":[
+               "suitablekid.com"
+            ],
+            "updateVersion":1,
+            "source":"WLA",
+            "detectionSource":null,
+            "summary":"SQL Injection, Null Byte, Path Traversal Attempts from 57.11.8.71",
+            "severity":"Medium",
+            "severityIcon":"fa fa-circle-o risk-medium",
+            "attackSummary":"#### Multiple Web Recon/Attacks from 57.11.8.71\n**Description**: Repeated activity indicative of reconnaissance looking for vulnerabilities and/or weaknesses.\n\n**Summary**: Tracked values from observations triggering this incident:\n* **Top Victim Virtual Hosts:** suitablekid.com\n* **Top Attack Types:** SQL injection, Path traversal, Null byte\n* **Top User-Agents:** Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\n* **Top CWEs:** CWE-89, CWE-22, CWE-158\n\n**Details**: The most recent triggering violation contained the following key values:\n* **Attack = SQL injection** - The attack type detected in the server log.\n* **Source IP = 57.11.8.71** - The source IP making the request.\n* **Request Data = GET /wp-content/plugins/wp-events-calendar/public/ajax/geteventslist.php?calendar_id%3D6%26year%3D1979%27+delete+id+from+users%26month%3D4 HTTP/1.1\r\nHost: suitablekid.com\r\nReferer: https://www.google.com/\r\nUser-Agent: Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\r\nX-Forwarded-For: 27.48.1.3, 184.26.136.143, 10.0.6.45** - The raw request.\n* **User-Agent = Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)** - The user agent used in the request.\n* **Accumulated Severity = 106** - The accumulated severity level of the detection.\n",
+            "recommendations":"",
+            "classKey":4,
+            "classDesc":"application-attack",
+            "customerStatus":{
+               "status":"open",
+               "status_change_time":"2020-10-20T15:55:33.370756+00:00"
+            },
+            "status":"open",
+            "customerFeedback":{
+               
+            },
+            "snoozeStatus":{
+               "period_ms":0,
+               "reason_code":"immediately",
+               "snoozed":false
+            },
+            "selectedEvent":[
+               
+            ],
+            "observable":{
+               
+            },
+            "assetType":"",
+            "assetDeploymentId":"",
+            "assetDeploymentType":"",
+            "assetHostKey":"",
+            "assetDeploymentInScope":true,
+            "assetsRemediations":[
+               
+            ],
+            "assets":false,
+            "deployment":"WLA Integration Log Source",
+            "region":"Unknown",
+            "vpc":"cas-dev-wla-us-east-1-int",
+            "subnet":"public",
+            "type":"",
+            "extraRecommendations":"",
+            "dateRange":"October 2020"
+         }
+      }
+   },
+   {
+      "incident.summary":{
+         "value":"SQL Injection, Null Byte, Path Traversal Attempts from 25.6.5.8"
+      },
+      "detection_source":{
+         "value":"Web Log Analytics"
+      },
+      "customer":{
+         "value":"Web App Security Integration"
+      },
+      "correlation_name":{
+         "value":""
+      },
+      "note_count":{
+         "value":0
+      },
+      "note_last_update":{
+         "value":""
+      },
+      "customer_status_status":{
+         "value":"open"
+      },
+      "incident.threatRating":{
+         "value":"Medium",
+         "icon":"fa fa-circle-o risk-medium",
+         "cssStyle":{
+            "text-align":"center"
+         }
+      },
+      "incident.attackClassId_str":{
+         "value":"application-attack"
+      },
+      "assets.al__deployment":{
+         "value":"WLA Integration Log Source"
+      },
+      "createTime":{
+         "value":"20th Oct 2020 12:55:27 GMT-3"
+      },
+      "attacker_any":{
+         "value":"25.6.5.8"
+      },
+      "victim_any":{
+         "value":""
+      },
+      "incident":{
+         "value":{
+            "associatedEventCount":0,
+            "associatedLogCount":0,
+            "findingCount":0,
+            "flaggedEventCount":0,
+            "appliances":[
+               
+            ],
+            "incidentId":"5F8F07D4-0013-0020-0002-EB4000000000",
+            "accountId":134264762,
+            "friendlyId":"1k9ata",
+            "correlationId":null,
+            "correlationName":"",
+            "customerName":"Web App Security Integration",
+            "createdOn":"2020-10-20T15:55:27.519Z",
+            "closedAt":"2020-12-03T21:39:27.148Z",
+            "notes":{
+               
+            },
+            "notesCount":0,
+            "notesLastUpdate":"2020-12-03T21:39:27.148Z",
+            "attackerIp":"",
+            "attacker_lset":[
+               {
+                  "ip":[
+                     "25.6.5.8"
+                  ],
+                  "geo":[
+                     {
+                        "location_ip":"25.6.5.8",
+                        "ip":"25.6.5.8",
+                        "city":"",
+                        "country":"GB",
+                        "countryName":"United Kingdom",
+                        "latitude":51.4964,
+                        "longitude":-0.1224,
+                        "postcode":null,
+                        "regionName":""
+                     }
+                  ],
+                  "value":""
+               }
+            ],
+            "attackerAny":[
+               "25.6.5.8"
+            ],
+            "victimIp":"",
+            "victimUser":"",
+            "victimInstance":"",
+            "victim_lset":[
+               
+            ],
+            "victimAny":[
+               
+            ],
+            "updateVersion":1,
+            "source":"WLA",
+            "detectionSource":null,
+            "summary":"SQL Injection, Null Byte, Path Traversal Attempts from 25.6.5.8",
+            "severity":"Medium",
+            "severityIcon":"fa fa-circle-o risk-medium",
+            "attackSummary":"#### Multiple Web Recon/Attacks from 25.6.5.8\n**Description**: Repeated activity indicative of reconnaissance looking for vulnerabilities and/or weaknesses.\n\n**Summary**: Tracked values from observations triggering this incident:\n* **Top Victim Virtual Hosts:** (info missing)\n* **Top Attack Types:** SQL injection, Path traversal, Null byte\n* **Top User-Agents:** Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\n* **Top CWEs:** CWE-89, CWE-22, CWE-158\n\n**Details**: The most recent triggering violation contained the following key values:\n* **Attack = SQL injection** - The attack type detected in the server log.\n* **Source IP = 25.6.5.8** - The source IP making the request.\n* **Request Data = POST /wp-content/plugins/wp-events-calendar/public/ajax/geteventslist.php?calendar_id%3D6%26year%3D1979%27+select+id+from+users%26month%3D4 HTTP/1.1\r\nReferer: https://www.google.com/\r\nUser-Agent: Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\r\nX-Forwarded-For: 49.81.27.50, 204.237.173.229, 10.0.3.97** - The raw request.\n* **User-Agent = Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)** - The user agent used in the request.\n* **Accumulated Severity = 105** - The accumulated severity level of the detection.\n",
+            "recommendations":"",
+            "classKey":4,
+            "classDesc":"application-attack",
+            "customerStatus":{
+               "status":"open",
+               "status_change_time":"2020-10-20T15:55:32.698196+00:00"
+            },
+            "status":"open",
+            "customerFeedback":{
+               
+            },
+            "snoozeStatus":{
+               "period_ms":0,
+               "reason_code":"immediately",
+               "snoozed":false
+            },
+            "selectedEvent":[
+               
+            ],
+            "observable":{
+               
+            },
+            "assetType":"",
+            "assetDeploymentId":"",
+            "assetDeploymentType":"",
+            "assetHostKey":"",
+            "assetDeploymentInScope":true,
+            "assetsRemediations":[
+               
+            ],
+            "assets":false,
+            "deployment":"WLA Integration Log Source",
+            "region":"Unknown",
+            "vpc":"cas-dev-wla-us-east-1-int",
+            "subnet":"public",
+            "type":"",
+            "extraRecommendations":"",
+            "dateRange":"October 2020"
+         }
+      }
+   },
+   {
+      "incident.summary":{
+         "value":"Attack Generating 500-type Server Errors from 1.8.9.1"
+      },
+      "detection_source":{
+         "value":"Web Log Analytics"
+      },
+      "customer":{
+         "value":"Web App Security Integration"
+      },
+      "correlation_name":{
+         "value":""
+      },
+      "note_count":{
+         "value":0
+      },
+      "note_last_update":{
+         "value":""
+      },
+      "customer_status_status":{
+         "value":"open"
+      },
+      "incident.threatRating":{
+         "value":"Medium",
+         "icon":"fa fa-circle-o risk-medium",
+         "cssStyle":{
+            "text-align":"center"
+         }
+      },
+      "incident.attackClassId_str":{
+         "value":"application-attack"
+      },
+      "assets.al__deployment":{
+         "value":"WLA Integration Log Source"
+      },
+      "createTime":{
+         "value":"20th Oct 2020 12:55:25 GMT-3"
+      },
+      "attacker_any":{
+         "value":"1.8.9.1"
+      },
+      "victim_any":{
+         "value":""
+      },
+      "incident":{
+         "value":{
+            "associatedEventCount":0,
+            "associatedLogCount":0,
+            "findingCount":0,
+            "flaggedEventCount":0,
+            "appliances":[
+               
+            ],
+            "incidentId":"5F8F07D4-001D-0020-0002-EB4000000000",
+            "accountId":134264762,
+            "friendlyId":"iscx7u",
+            "correlationId":null,
+            "correlationName":"",
+            "customerName":"Web App Security Integration",
+            "createdOn":"2020-10-20T15:55:25.370Z",
+            "closedAt":"2020-12-03T21:39:27.148Z",
+            "notes":{
+               
+            },
+            "notesCount":0,
+            "notesLastUpdate":"2020-12-03T21:39:27.148Z",
+            "attackerIp":"",
+            "attacker_lset":[
+               {
+                  "ip":[
+                     "1.8.9.1"
+                  ],
+                  "geo":[
+                     {
+                        "location_ip":"1.8.9.1",
+                        "ip":"1.8.9.1",
+                        "city":"Beijing",
+                        "country":"CN",
+                        "countryName":"China",
+                        "latitude":39.9289,
+                        "longitude":116.3883,
+                        "postcode":null,
+                        "regionName":"Beijing"
+                     }
+                  ],
+                  "value":""
+               }
+            ],
+            "attackerAny":[
+               "1.8.9.1"
+            ],
+            "victimIp":"",
+            "victimUser":"",
+            "victimInstance":"",
+            "victim_lset":[
+               
+            ],
+            "victimAny":[
+               
+            ],
+            "updateVersion":1,
+            "source":"WLA",
+            "detectionSource":null,
+            "summary":"Attack Generating 500-type Server Errors from 1.8.9.1",
+            "severity":"Medium",
+            "severityIcon":"fa fa-circle-o risk-medium",
+            "attackSummary":"#### Attack generating server errors from 1.8.9.1\n**Description**: Attack activity generating 500-type error responses from targeted web server. 500-type error conditions are typically unexpected exceptions and may be an indication that the server is somehow affected or may have a vulnerability in the targeted application component.\n\n**Summary**: Tracked values from observations triggering this incident:\n* **Top Victim Virtual Hosts:** (info missing)\n* **Top Attack Types:** Path traversal, SQL injection\n* **Top User-Agents:** Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\n* **Top CWEs:** CWE-22, CWE-89\n\n**Details**: The most recent triggering violation contained the following key values:\n* **Attack = Path traversal** - The attack type detected in the server log.\n* **Source IP = 1.8.9.1** - The source IP making the request.\n* **Request Data = GET /../../../../../../../../../admin.php HTTP/1.1\r\nHost: ..\r\nReferer: https://www.google.com/\r\nUser-Agent: Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\r\nX-Forwarded-For: 27.48.1.3, 184.26.136.143, 10.0.6.45** - The raw request.\n* **User-Agent = Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)** - The user agent used in the request.\n* **Accumulated Severity = 54** - The accumulated severity level of the detection.\n",
+            "recommendations":"",
+            "classKey":4,
+            "classDesc":"application-attack",
+            "customerStatus":{
+               "status":"open",
+               "status_change_time":"2020-10-20T15:55:30.456408+00:00"
+            },
+            "status":"open",
+            "customerFeedback":{
+               
+            },
+            "snoozeStatus":{
+               "period_ms":0,
+               "reason_code":"immediately",
+               "snoozed":false
+            },
+            "selectedEvent":[
+               
+            ],
+            "observable":{
+               
+            },
+            "assetType":"",
+            "assetDeploymentId":"",
+            "assetDeploymentType":"",
+            "assetHostKey":"",
+            "assetDeploymentInScope":true,
+            "assetsRemediations":[
+               
+            ],
+            "assets":false,
+            "deployment":"WLA Integration Log Source",
+            "region":"Unknown",
+            "vpc":"cas-dev-wla-us-east-1-int",
+            "subnet":"public",
+            "type":"",
+            "extraRecommendations":"",
+            "dateRange":"October 2020"
+         }
+      }
+   },
+   {
+      "incident.summary":{
+         "value":"SQL Injection, Null Byte, Path Traversal Attempts from 3.3.34.7"
+      },
+      "detection_source":{
+         "value":"Web Log Analytics"
+      },
+      "customer":{
+         "value":"Web App Security Integration"
+      },
+      "correlation_name":{
+         "value":""
+      },
+      "note_count":{
+         "value":0
+      },
+      "note_last_update":{
+         "value":""
+      },
+      "customer_status_status":{
+         "value":"open"
+      },
+      "incident.threatRating":{
+         "value":"Medium",
+         "icon":"fa fa-circle-o risk-medium",
+         "cssStyle":{
+            "text-align":"center"
+         }
+      },
+      "incident.attackClassId_str":{
+         "value":"application-attack"
+      },
+      "assets.al__deployment":{
+         "value":"WLA Integration Log Source"
+      },
+      "createTime":{
+         "value":"20th Oct 2020 12:55:24 GMT-3"
+      },
+      "attacker_any":{
+         "value":"3.3.34.7"
+      },
+      "victim_any":{
+         "value":"suitablekid.com"
+      },
+      "incident":{
+         "value":{
+            "associatedEventCount":0,
+            "associatedLogCount":0,
+            "findingCount":0,
+            "flaggedEventCount":0,
+            "appliances":[
+               
+            ],
+            "incidentId":"5F8F07D4-0015-0020-0002-EB4000000000",
+            "accountId":134264762,
+            "friendlyId":"okmaks",
+            "correlationId":null,
+            "correlationName":"",
+            "customerName":"Web App Security Integration",
+            "createdOn":"2020-10-20T15:55:24.057Z",
+            "closedAt":"2020-12-03T21:39:27.149Z",
+            "notes":{
+               
+            },
+            "notesCount":0,
+            "notesLastUpdate":"2020-12-03T21:39:27.149Z",
+            "attackerIp":"",
+            "attacker_lset":[
+               {
+                  "ip":[
+                     "3.3.34.7"
+                  ],
+                  "geo":[
+                     {
+                        "location_ip":"3.3.34.7",
+                        "ip":"3.3.34.7",
+                        "city":"Seattle",
+                        "country":"US",
+                        "countryName":"United States",
+                        "latitude":37.751,
+                        "longitude":-97.822,
+                        "postcode":"98109",
+                        "regionName":"Washington"
+                     }
+                  ],
+                  "value":""
+               }
+            ],
+            "attackerAny":[
+               "3.3.34.7"
+            ],
+            "victimIp":"",
+            "victimUser":"",
+            "victimInstance":"",
+            "victim_lset":[
+               {
+                  "ip":[
+                     
+                  ],
+                  "geo":[
+                     
+                  ],
+                  "value":"suitablekid.com"
+               }
+            ],
+            "victimAny":[
+               "suitablekid.com"
+            ],
+            "updateVersion":1,
+            "source":"WLA",
+            "detectionSource":null,
+            "summary":"SQL Injection, Null Byte, Path Traversal Attempts from 3.3.34.7",
+            "severity":"Medium",
+            "severityIcon":"fa fa-circle-o risk-medium",
+            "attackSummary":"#### Multiple Web Recon/Attacks from 3.3.34.7\n**Description**: Repeated activity indicative of reconnaissance looking for vulnerabilities and/or weaknesses.\n\n**Summary**: Tracked values from observations triggering this incident:\n* **Top Victim Virtual Hosts:** suitablekid.com\n* **Top Attack Types:** SQL injection, Null byte, Path traversal\n* **Top User-Agents:** Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\n* **Top CWEs:** CWE-89, CWE-158, CWE-22\n\n**Details**: The most recent triggering violation contained the following key values:\n* **Attack = SQL injection** - The attack type detected in the server log.\n* **Source IP = 3.3.34.7** - The source IP making the request.\n* **Request Data = POST /wp-content/plugins/wp-events-calendar/public/ajax/geteventslist.php?calendar_id%3D6%26year%3D1979%27+delete+id+from+users%26month%3D4 HTTP/1.1\r\nHost: suitablekid.com\r\nReferer: https://www.google.com/\r\nUser-Agent: Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\r\nX-Forwarded-For: 13.19.4.14, 23.192.163.199, 10.0.3.87** - The raw request.\n* **User-Agent = Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)** - The user agent used in the request.\n* **Accumulated Severity = 110** - The accumulated severity level of the detection.\n",
+            "recommendations":"",
+            "classKey":4,
+            "classDesc":"application-attack",
+            "customerStatus":{
+               "status":"open",
+               "status_change_time":"2020-10-20T15:55:29.184367+00:00"
+            },
+            "status":"open",
+            "customerFeedback":{
+               
+            },
+            "snoozeStatus":{
+               "period_ms":0,
+               "reason_code":"immediately",
+               "snoozed":false
+            },
+            "selectedEvent":[
+               
+            ],
+            "observable":{
+               
+            },
+            "assetType":"",
+            "assetDeploymentId":"",
+            "assetDeploymentType":"",
+            "assetHostKey":"",
+            "assetDeploymentInScope":true,
+            "assetsRemediations":[
+               
+            ],
+            "assets":false,
+            "deployment":"WLA Integration Log Source",
+            "region":"Unknown",
+            "vpc":"cas-dev-wla-us-east-1-int",
+            "subnet":"public",
+            "type":"",
+            "extraRecommendations":"",
+            "dateRange":"October 2020"
+         }
+      }
+   },
+   {
+      "incident.summary":{
+         "value":"SQL Injection, Null Byte, Path Traversal Attempts from 53.69.1.8"
+      },
+      "detection_source":{
+         "value":"Web Log Analytics"
+      },
+      "customer":{
+         "value":"Web App Security Integration"
+      },
+      "correlation_name":{
+         "value":""
+      },
+      "note_count":{
+         "value":0
+      },
+      "note_last_update":{
+         "value":""
+      },
+      "customer_status_status":{
+         "value":"open"
+      },
+      "incident.threatRating":{
+         "value":"Medium",
+         "icon":"fa fa-circle-o risk-medium",
+         "cssStyle":{
+            "text-align":"center"
+         }
+      },
+      "incident.attackClassId_str":{
+         "value":"application-attack"
+      },
+      "assets.al__deployment":{
+         "value":"WLA Integration Log Source"
+      },
+      "createTime":{
+         "value":"20th Oct 2020 12:55:20 GMT-3"
+      },
+      "attacker_any":{
+         "value":"53.69.1.8"
+      },
+      "victim_any":{
+         "value":""
+      },
+      "incident":{
+         "value":{
+            "associatedEventCount":0,
+            "associatedLogCount":0,
+            "findingCount":0,
+            "flaggedEventCount":0,
+            "appliances":[
+               
+            ],
+            "incidentId":"5F8F07D4-0014-0020-0002-EB4000000000",
+            "accountId":134264762,
+            "friendlyId":"8ztqea",
+            "correlationId":null,
+            "correlationName":"",
+            "customerName":"Web App Security Integration",
+            "createdOn":"2020-10-20T15:55:20.984Z",
+            "closedAt":"2020-12-03T21:39:27.149Z",
+            "notes":{
+               
+            },
+            "notesCount":0,
+            "notesLastUpdate":"2020-12-03T21:39:27.149Z",
+            "attackerIp":"",
+            "attacker_lset":[
+               {
+                  "ip":[
+                     "53.69.1.8"
+                  ],
+                  "geo":[
+                     {
+                        "location_ip":"53.69.1.8",
+                        "ip":"53.69.1.8",
+                        "city":"",
+                        "country":"DE",
+                        "countryName":"Germany",
+                        "latitude":51.2993,
+                        "longitude":9.491,
+                        "postcode":null,
+                        "regionName":""
+                     }
+                  ],
+                  "value":""
+               }
+            ],
+            "attackerAny":[
+               "53.69.1.8"
+            ],
+            "victimIp":"",
+            "victimUser":"",
+            "victimInstance":"",
+            "victim_lset":[
+               
+            ],
+            "victimAny":[
+               
+            ],
+            "updateVersion":1,
+            "source":"WLA",
+            "detectionSource":null,
+            "summary":"SQL Injection, Null Byte, Path Traversal Attempts from 53.69.1.8",
+            "severity":"Medium",
+            "severityIcon":"fa fa-circle-o risk-medium",
+            "attackSummary":"#### Multiple Web Recon/Attacks from 53.69.1.8\n**Description**: Repeated activity indicative of reconnaissance looking for vulnerabilities and/or weaknesses.\n\n**Summary**: Tracked values from observations triggering this incident:\n* **Top Victim Virtual Hosts:** (info missing)\n* **Top Attack Types:** SQL injection, Path traversal, Null byte\n* **Top User-Agents:** Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\n* **Top CWEs:** CWE-89, CWE-22, CWE-158\n\n**Details**: The most recent triggering violation contained the following key values:\n* **Attack = Null byte** - The attack type detected in the server log.\n* **Source IP = 53.69.1.8** - The source IP making the request.\n* **Request Data = GET /../../../../../%00 HTTP/1.1\r\nHost: ..\r\nReferer: https://www.google.com/\r\nUser-Agent: Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\r\nX-Forwarded-For: 6.87.4.29, 66.110.98.77, 10.0.2.4** - The raw request.\n* **User-Agent = Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)** - The user agent used in the request.\n* **Accumulated Severity = 104** - The accumulated severity level of the detection.\n",
+            "recommendations":"",
+            "classKey":4,
+            "classDesc":"application-attack",
+            "customerStatus":{
+               "status":"open",
+               "status_change_time":"2020-10-20T15:55:26.129118+00:00"
+            },
+            "status":"open",
+            "customerFeedback":{
+               
+            },
+            "snoozeStatus":{
+               "period_ms":0,
+               "reason_code":"immediately",
+               "snoozed":false
+            },
+            "selectedEvent":[
+               
+            ],
+            "observable":{
+               
+            },
+            "assetType":"",
+            "assetDeploymentId":"",
+            "assetDeploymentType":"",
+            "assetHostKey":"",
+            "assetDeploymentInScope":true,
+            "assetsRemediations":[
+               
+            ],
+            "assets":false,
+            "deployment":"WLA Integration Log Source",
+            "region":"Unknown",
+            "vpc":"cas-dev-wla-us-east-1-int",
+            "subnet":"public",
+            "type":"",
+            "extraRecommendations":"",
+            "dateRange":"October 2020"
+         }
+      }
+   },
+   {
+      "incident.summary":{
+         "value":"SQL Injection, Null Byte, Path Traversal Attempts from 7.4.69.68"
+      },
+      "detection_source":{
+         "value":"Web Log Analytics"
+      },
+      "customer":{
+         "value":"Web App Security Integration"
+      },
+      "correlation_name":{
+         "value":""
+      },
+      "note_count":{
+         "value":0
+      },
+      "note_last_update":{
+         "value":""
+      },
+      "customer_status_status":{
+         "value":"open"
+      },
+      "incident.threatRating":{
+         "value":"Medium",
+         "icon":"fa fa-circle-o risk-medium",
+         "cssStyle":{
+            "text-align":"center"
+         }
+      },
+      "incident.attackClassId_str":{
+         "value":"application-attack"
+      },
+      "assets.al__deployment":{
+         "value":"WLA Integration Log Source"
+      },
+      "createTime":{
+         "value":"20th Oct 2020 12:55:20 GMT-3"
+      },
+      "attacker_any":{
+         "value":"7.4.69.68"
+      },
+      "victim_any":{
+         "value":"suitablekid.com"
+      },
+      "incident":{
+         "value":{
+            "associatedEventCount":0,
+            "associatedLogCount":0,
+            "findingCount":0,
+            "flaggedEventCount":0,
+            "appliances":[
+               
+            ],
+            "incidentId":"5F8F07D4-0005-0020-0002-EB4000000000",
+            "accountId":134264762,
+            "friendlyId":"1d5na3",
+            "correlationId":null,
+            "correlationName":"",
+            "customerName":"Web App Security Integration",
+            "createdOn":"2020-10-20T15:55:20.575Z",
+            "closedAt":"2020-12-03T21:39:27.149Z",
+            "notes":{
+               
+            },
+            "notesCount":0,
+            "notesLastUpdate":"2020-12-03T21:39:27.149Z",
+            "attackerIp":"",
+            "attacker_lset":[
+               {
+                  "ip":[
+                     "7.4.69.68"
+                  ],
+                  "geo":[
+                     {
+                        "location_ip":"7.4.69.68",
+                        "ip":"7.4.69.68",
+                        "city":"",
+                        "country":"US",
+                        "countryName":"United States",
+                        "latitude":37.751,
+                        "longitude":-97.822,
+                        "postcode":null,
+                        "regionName":""
+                     }
+                  ],
+                  "value":""
+               }
+            ],
+            "attackerAny":[
+               "7.4.69.68"
+            ],
+            "victimIp":"",
+            "victimUser":"",
+            "victimInstance":"",
+            "victim_lset":[
+               {
+                  "ip":[
+                     
+                  ],
+                  "geo":[
+                     
+                  ],
+                  "value":"suitablekid.com"
+               }
+            ],
+            "victimAny":[
+               "suitablekid.com"
+            ],
+            "updateVersion":1,
+            "source":"WLA",
+            "detectionSource":null,
+            "summary":"SQL Injection, Null Byte, Path Traversal Attempts from 7.4.69.68",
+            "severity":"Medium",
+            "severityIcon":"fa fa-circle-o risk-medium",
+            "attackSummary":"#### Multiple Web Recon/Attacks from 7.4.69.68\n**Description**: Repeated activity indicative of reconnaissance looking for vulnerabilities and/or weaknesses.\n\n**Summary**: Tracked values from observations triggering this incident:\n* **Top Victim Virtual Hosts:** suitablekid.com\n* **Top Attack Types:** SQL injection, Path traversal, Null byte\n* **Top User-Agents:** Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\n* **Top CWEs:** CWE-89, CWE-22, CWE-158\n\n**Details**: The most recent triggering violation contained the following key values:\n* **Attack = SQL injection** - The attack type detected in the server log.\n* **Source IP = 7.4.69.68** - The source IP making the request.\n* **Request Data = POST /wp-content/plugins/wp-events-calendar/public/ajax/geteventslist.php?calendar_id%3D6%26year%3D1979%27+delete+id+from+users%26month%3D4 HTTP/1.1\r\nHost: suitablekid.com\r\nReferer: https://www.google.com/\r\nUser-Agent: Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\r\nX-Forwarded-For: 88.5.17.5, 104.84.152.207, 10.0.61.45** - The raw request.\n* **User-Agent = Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)** - The user agent used in the request.\n* **Accumulated Severity = 103** - The accumulated severity level of the detection.\n",
+            "recommendations":"",
+            "classKey":4,
+            "classDesc":"application-attack",
+            "customerStatus":{
+               "status":"open",
+               "status_change_time":"2020-10-20T15:55:25.656399+00:00"
+            },
+            "status":"open",
+            "customerFeedback":{
+               
+            },
+            "snoozeStatus":{
+               "period_ms":0,
+               "reason_code":"immediately",
+               "snoozed":false
+            },
+            "selectedEvent":[
+               
+            ],
+            "observable":{
+               
+            },
+            "assetType":"",
+            "assetDeploymentId":"",
+            "assetDeploymentType":"",
+            "assetHostKey":"",
+            "assetDeploymentInScope":true,
+            "assetsRemediations":[
+               
+            ],
+            "assets":false,
+            "deployment":"WLA Integration Log Source",
+            "region":"Unknown",
+            "vpc":"cas-dev-wla-us-east-1-int",
+            "subnet":"public",
+            "type":"",
+            "extraRecommendations":"",
+            "dateRange":"October 2020"
+         }
+      }
+   },
+   {
+      "incident.summary":{
+         "value":"SQL Injection, Null Byte, Path Traversal Attempts from 8.1.38.9"
+      },
+      "detection_source":{
+         "value":"Web Log Analytics"
+      },
+      "customer":{
+         "value":"Web App Security Integration"
+      },
+      "correlation_name":{
+         "value":""
+      },
+      "note_count":{
+         "value":0
+      },
+      "note_last_update":{
+         "value":""
+      },
+      "customer_status_status":{
+         "value":"open"
+      },
+      "incident.threatRating":{
+         "value":"Medium",
+         "icon":"fa fa-circle-o risk-medium",
+         "cssStyle":{
+            "text-align":"center"
+         }
+      },
+      "incident.attackClassId_str":{
+         "value":"application-attack"
+      },
+      "assets.al__deployment":{
+         "value":"WLA Integration Log Source"
+      },
+      "createTime":{
+         "value":"20th Oct 2020 12:55:18 GMT-3"
+      },
+      "attacker_any":{
+         "value":"8.1.38.9"
+      },
+      "victim_any":{
+         "value":"suitablekid.com"
+      },
+      "incident":{
+         "value":{
+            "associatedEventCount":0,
+            "associatedLogCount":0,
+            "findingCount":0,
+            "flaggedEventCount":0,
+            "appliances":[
+               
+            ],
+            "incidentId":"5F8F07D4-0007-0020-0002-EB4000000000",
+            "accountId":134264762,
+            "friendlyId":"w7cy6k",
+            "correlationId":null,
+            "correlationName":"",
+            "customerName":"Web App Security Integration",
+            "createdOn":"2020-10-20T15:55:18.468Z",
+            "closedAt":"2020-12-03T21:39:27.149Z",
+            "notes":{
+               
+            },
+            "notesCount":0,
+            "notesLastUpdate":"2020-12-03T21:39:27.149Z",
+            "attackerIp":"",
+            "attacker_lset":[
+               {
+                  "ip":[
+                     "8.1.38.9"
+                  ],
+                  "geo":[
+                     {
+                        "location_ip":"8.1.38.9",
+                        "ip":"8.1.38.9",
+                        "city":"",
+                        "country":"US",
+                        "countryName":"United States",
+                        "latitude":37.751,
+                        "longitude":-97.822,
+                        "postcode":null,
+                        "regionName":""
+                     }
+                  ],
+                  "value":""
+               }
+            ],
+            "attackerAny":[
+               "8.1.38.9"
+            ],
+            "victimIp":"",
+            "victimUser":"",
+            "victimInstance":"",
+            "victim_lset":[
+               {
+                  "ip":[
+                     
+                  ],
+                  "geo":[
+                     
+                  ],
+                  "value":"suitablekid.com"
+               }
+            ],
+            "victimAny":[
+               "suitablekid.com"
+            ],
+            "updateVersion":1,
+            "source":"WLA",
+            "detectionSource":null,
+            "summary":"SQL Injection, Null Byte, Path Traversal Attempts from 8.1.38.9",
+            "severity":"Medium",
+            "severityIcon":"fa fa-circle-o risk-medium",
+            "attackSummary":"#### Multiple Web Recon/Attacks from 8.1.38.9\n**Description**: Repeated activity indicative of reconnaissance looking for vulnerabilities and/or weaknesses.\n\n**Summary**: Tracked values from observations triggering this incident:\n* **Top Victim Virtual Hosts:** suitablekid.com\n* **Top Attack Types:** SQL injection, Path traversal, Null byte\n* **Top User-Agents:** Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\n* **Top CWEs:** CWE-89, CWE-22, CWE-158\n\n**Details**: The most recent triggering violation contained the following key values:\n* **Attack = SQL injection** - The attack type detected in the server log.\n* **Source IP = 8.1.38.9** - The source IP making the request.\n* **Request Data = POST /wp-content/plugins/wp-events-calendar/public/ajax/geteventslist.php?calendar_id%3D6%26year%3D1979%27+delete+id+from+users%26month%3D4 HTTP/1.1\r\nHost: suitablekid.com\r\nReferer: https://www.google.com/\r\nUser-Agent: Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\r\nX-Forwarded-For: 50.4.17.4, 23.200.95.41, 10.0.67.51** - The raw request.\n* **User-Agent = Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)** - The user agent used in the request.\n* **Accumulated Severity = 109** - The accumulated severity level of the detection.\n",
+            "recommendations":"",
+            "classKey":4,
+            "classDesc":"application-attack",
+            "customerStatus":{
+               "status":"open",
+               "status_change_time":"2020-10-20T15:55:23.577623+00:00"
+            },
+            "status":"open",
+            "customerFeedback":{
+               
+            },
+            "snoozeStatus":{
+               "period_ms":0,
+               "reason_code":"immediately",
+               "snoozed":false
+            },
+            "selectedEvent":[
+               
+            ],
+            "observable":{
+               
+            },
+            "assetType":"",
+            "assetDeploymentId":"",
+            "assetDeploymentType":"",
+            "assetHostKey":"",
+            "assetDeploymentInScope":true,
+            "assetsRemediations":[
+               
+            ],
+            "assets":false,
+            "deployment":"WLA Integration Log Source",
+            "region":"Unknown",
+            "vpc":"cas-dev-wla-us-east-1-int",
+            "subnet":"public",
+            "type":"",
+            "extraRecommendations":"",
+            "dateRange":"October 2020"
+         }
+      }
+   },
+   {
+      "incident.summary":{
+         "value":"SQL Injection, Null Byte, Path Traversal Attempts from 49.9.6.38"
+      },
+      "detection_source":{
+         "value":"Web Log Analytics"
+      },
+      "customer":{
+         "value":"Web App Security Integration"
+      },
+      "correlation_name":{
+         "value":""
+      },
+      "note_count":{
+         "value":0
+      },
+      "note_last_update":{
+         "value":""
+      },
+      "customer_status_status":{
+         "value":"open"
+      },
+      "incident.threatRating":{
+         "value":"Medium",
+         "icon":"fa fa-circle-o risk-medium",
+         "cssStyle":{
+            "text-align":"center"
+         }
+      },
+      "incident.attackClassId_str":{
+         "value":"application-attack"
+      },
+      "assets.al__deployment":{
+         "value":"WLA Integration Log Source"
+      },
+      "createTime":{
+         "value":"20th Oct 2020 12:55:17 GMT-3"
+      },
+      "attacker_any":{
+         "value":"49.9.6.38"
+      },
+      "victim_any":{
+         "value":""
+      },
+      "incident":{
+         "value":{
+            "associatedEventCount":0,
+            "associatedLogCount":0,
+            "findingCount":0,
+            "flaggedEventCount":0,
+            "appliances":[
+               
+            ],
+            "incidentId":"5F8F07D4-0002-0020-0002-EB4000000000",
+            "accountId":134264762,
+            "friendlyId":"mcizfm",
+            "correlationId":null,
+            "correlationName":"",
+            "customerName":"Web App Security Integration",
+            "createdOn":"2020-10-20T15:55:17.885Z",
+            "closedAt":"2020-12-03T21:39:27.149Z",
+            "notes":{
+               
+            },
+            "notesCount":0,
+            "notesLastUpdate":"2020-12-03T21:39:27.149Z",
+            "attackerIp":"",
+            "attacker_lset":[
+               {
+                  "ip":[
+                     "49.9.6.38"
+                  ],
+                  "geo":[
+                     {
+                        "location_ip":"49.9.6.38",
+                        "ip":"49.9.6.38",
+                        "city":"",
+                        "country":"KR",
+                        "countryName":"South Korea",
+                        "latitude":37.5112,
+                        "longitude":126.9741,
+                        "postcode":null,
+                        "regionName":""
+                     }
+                  ],
+                  "value":""
+               }
+            ],
+            "attackerAny":[
+               "49.9.6.38"
+            ],
+            "victimIp":"",
+            "victimUser":"",
+            "victimInstance":"",
+            "victim_lset":[
+               
+            ],
+            "victimAny":[
+               
+            ],
+            "updateVersion":1,
+            "source":"WLA",
+            "detectionSource":null,
+            "summary":"SQL Injection, Null Byte, Path Traversal Attempts from 49.9.6.38",
+            "severity":"Medium",
+            "severityIcon":"fa fa-circle-o risk-medium",
+            "attackSummary":"#### Multiple Web Recon/Attacks from 49.9.6.38\n**Description**: Repeated activity indicative of reconnaissance looking for vulnerabilities and/or weaknesses.\n\n**Summary**: Tracked values from observations triggering this incident:\n* **Top Victim Virtual Hosts:** (info missing)\n* **Top Attack Types:** SQL injection, Path traversal, Null byte\n* **Top User-Agents:** Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\n* **Top CWEs:** CWE-89, CWE-22, CWE-158\n\n**Details**: The most recent triggering violation contained the following key values:\n* **Attack = SQL injection** - The attack type detected in the server log.\n* **Source IP = 49.9.6.38** - The source IP making the request.\n* **Request Data = POST /wp-content/plugins/wp-events-calendar/public/ajax/geteventslist.php?calendar_id%3D6%26year%3D1979%27+select+id+from+users%26month%3D4 HTTP/1.1\r\nReferer: https://www.google.com/\r\nUser-Agent: Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\r\nX-Forwarded-For: 27.48.1.3, 184.26.136.143, 10.0.6.45** - The raw request.\n* **User-Agent = Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)** - The user agent used in the request.\n* **Accumulated Severity = 110** - The accumulated severity level of the detection.\n",
+            "recommendations":"",
+            "classKey":4,
+            "classDesc":"application-attack",
+            "customerStatus":{
+               "status":"open",
+               "status_change_time":"2020-10-20T15:55:23.103266+00:00"
+            },
+            "status":"open",
+            "customerFeedback":{
+               
+            },
+            "snoozeStatus":{
+               "period_ms":0,
+               "reason_code":"immediately",
+               "snoozed":false
+            },
+            "selectedEvent":[
+               
+            ],
+            "observable":{
+               
+            },
+            "assetType":"",
+            "assetDeploymentId":"",
+            "assetDeploymentType":"",
+            "assetHostKey":"",
+            "assetDeploymentInScope":true,
+            "assetsRemediations":[
+               
+            ],
+            "assets":false,
+            "deployment":"WLA Integration Log Source",
+            "region":"Unknown",
+            "vpc":"cas-dev-wla-us-east-1-int",
+            "subnet":"public",
+            "type":"",
+            "extraRecommendations":"",
+            "dateRange":"October 2020"
+         }
+      }
+   },
+   {
+      "incident.summary":{
+         "value":"SQL Injection, Null Byte, Path Traversal Attempts from 92.48.3.0"
+      },
+      "detection_source":{
+         "value":"Web Log Analytics"
+      },
+      "customer":{
+         "value":"Web App Security Integration"
+      },
+      "correlation_name":{
+         "value":""
+      },
+      "note_count":{
+         "value":0
+      },
+      "note_last_update":{
+         "value":""
+      },
+      "customer_status_status":{
+         "value":"open"
+      },
+      "incident.threatRating":{
+         "value":"Medium",
+         "icon":"fa fa-circle-o risk-medium",
+         "cssStyle":{
+            "text-align":"center"
+         }
+      },
+      "incident.attackClassId_str":{
+         "value":"application-attack"
+      },
+      "assets.al__deployment":{
+         "value":"WLA Integration Log Source"
+      },
+      "createTime":{
+         "value":"20th Oct 2020 12:55:17 GMT-3"
+      },
+      "attacker_any":{
+         "value":"92.48.3.0"
+      },
+      "victim_any":{
+         "value":"suitablekid.com"
+      },
+      "incident":{
+         "value":{
+            "associatedEventCount":0,
+            "associatedLogCount":0,
+            "findingCount":0,
+            "flaggedEventCount":0,
+            "appliances":[
+               
+            ],
+            "incidentId":"5F8F07D4-0003-0020-0002-EB4000000000",
+            "accountId":134264762,
+            "friendlyId":"ce8bqc",
+            "correlationId":null,
+            "correlationName":"",
+            "customerName":"Web App Security Integration",
+            "createdOn":"2020-10-20T15:55:17.184Z",
+            "closedAt":"2020-12-03T21:39:27.149Z",
+            "notes":{
+               
+            },
+            "notesCount":0,
+            "notesLastUpdate":"2020-12-03T21:39:27.149Z",
+            "attackerIp":"",
+            "attacker_lset":[
+               {
+                  "ip":[
+                     "92.48.3.0"
+                  ],
+                  "geo":[
+                     {
+                        "location_ip":"92.48.3.0",
+                        "ip":"92.48.3.0",
+                        "city":"Riyadh",
+                        "country":"SA",
+                        "countryName":"Saudi Arabia",
+                        "latitude":"24.6877",
+                        "longitude":"46.7219",
+                        "postcode":"12233",
+                        "regionName":"Ar Riyad"
+                     }
+                  ],
+                  "value":""
+               }
+            ],
+            "attackerAny":[
+               "92.48.3.0"
+            ],
+            "victimIp":"",
+            "victimUser":"",
+            "victimInstance":"",
+            "victim_lset":[
+               {
+                  "ip":[
+                     
+                  ],
+                  "geo":[
+                     
+                  ],
+                  "value":"suitablekid.com"
+               }
+            ],
+            "victimAny":[
+               "suitablekid.com"
+            ],
+            "updateVersion":1,
+            "source":"WLA",
+            "detectionSource":null,
+            "summary":"SQL Injection, Null Byte, Path Traversal Attempts from 92.48.3.0",
+            "severity":"Medium",
+            "severityIcon":"fa fa-circle-o risk-medium",
+            "attackSummary":"#### Multiple Web Recon/Attacks from 92.48.3.0\n**Description**: Repeated activity indicative of reconnaissance looking for vulnerabilities and/or weaknesses.\n\n**Summary**: Tracked values from observations triggering this incident:\n* **Top Victim Virtual Hosts:** suitablekid.com\n* **Top Attack Types:** Path traversal, SQL injection, Null byte\n* **Top User-Agents:** Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\n* **Top CWEs:** CWE-22, CWE-89, CWE-158\n\n**Details**: The most recent triggering violation contained the following key values:\n* **Attack = Path traversal** - The attack type detected in the server log.\n* **Source IP = 92.48.3.0** - The source IP making the request.\n* **Request Data = GET /../../../../../phpMyadmin HTTP/1.1\r\nHost: suitablekid.com\r\nReferer: https://www.google.com/\r\nUser-Agent: Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\r\nX-Forwarded-For: 27.48.1.3, 184.26.136.143, 10.0.6.45** - The raw request.\n* **User-Agent = Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)** - The user agent used in the request.\n* **Accumulated Severity = 102** - The accumulated severity level of the detection.\n",
+            "recommendations":"",
+            "classKey":4,
+            "classDesc":"application-attack",
+            "customerStatus":{
+               "status":"open",
+               "status_change_time":"2020-10-20T15:55:22.415619+00:00"
+            },
+            "status":"open",
+            "customerFeedback":{
+               
+            },
+            "snoozeStatus":{
+               "period_ms":0,
+               "reason_code":"immediately",
+               "snoozed":false
+            },
+            "selectedEvent":[
+               
+            ],
+            "observable":{
+               
+            },
+            "assetType":"",
+            "assetDeploymentId":"",
+            "assetDeploymentType":"",
+            "assetHostKey":"",
+            "assetDeploymentInScope":true,
+            "assetsRemediations":[
+               
+            ],
+            "assets":false,
+            "deployment":"WLA Integration Log Source",
+            "region":"Unknown",
+            "vpc":"cas-dev-wla-us-east-1-int",
+            "subnet":"public",
+            "type":"",
+            "extraRecommendations":"",
+            "dateRange":"October 2020"
+         }
+      }
+   },
+   {
+      "incident.summary":{
+         "value":"SQL Injection, Null Byte, Path Traversal Attempts from 59.2.2.9"
+      },
+      "detection_source":{
+         "value":"Web Log Analytics"
+      },
+      "customer":{
+         "value":"Web App Security Integration"
+      },
+      "correlation_name":{
+         "value":""
+      },
+      "note_count":{
+         "value":0
+      },
+      "note_last_update":{
+         "value":""
+      },
+      "customer_status_status":{
+         "value":"open"
+      },
+      "incident.threatRating":{
+         "value":"Medium",
+         "icon":"fa fa-circle-o risk-medium",
+         "cssStyle":{
+            "text-align":"center"
+         }
+      },
+      "incident.attackClassId_str":{
+         "value":"application-attack"
+      },
+      "assets.al__deployment":{
+         "value":"WLA Integration Log Source"
+      },
+      "createTime":{
+         "value":"20th Oct 2020 12:55:16 GMT-3"
+      },
+      "attacker_any":{
+         "value":"59.2.2.9"
+      },
+      "victim_any":{
+         "value":"suitablekid.com"
+      },
+      "incident":{
+         "value":{
+            "associatedEventCount":0,
+            "associatedLogCount":0,
+            "findingCount":0,
+            "flaggedEventCount":0,
+            "appliances":[
+               
+            ],
+            "incidentId":"5F8F07D4-0012-0020-0002-EB4000000000",
+            "accountId":134264762,
+            "friendlyId":"k6k4pu",
+            "correlationId":null,
+            "correlationName":"",
+            "customerName":"Web App Security Integration",
+            "createdOn":"2020-10-20T15:55:16.963Z",
+            "closedAt":"2020-12-03T21:39:27.149Z",
+            "notes":{
+               
+            },
+            "notesCount":0,
+            "notesLastUpdate":"2020-12-03T21:39:27.149Z",
+            "attackerIp":"",
+            "attacker_lset":[
+               {
+                  "ip":[
+                     "59.2.2.9"
+                  ],
+                  "geo":[
+                     {
+                        "location_ip":"59.2.2.9",
+                        "ip":"59.2.2.9",
+                        "city":"Jeonju",
+                        "country":"KR",
+                        "countryName":"South Korea",
+                        "latitude":35.8217,
+                        "longitude":127.1453,
+                        "postcode":"55000",
+                        "regionName":"Jeollabuk-do"
+                     }
+                  ],
+                  "value":""
+               }
+            ],
+            "attackerAny":[
+               "59.2.2.9"
+            ],
+            "victimIp":"",
+            "victimUser":"",
+            "victimInstance":"",
+            "victim_lset":[
+               {
+                  "ip":[
+                     
+                  ],
+                  "geo":[
+                     
+                  ],
+                  "value":"suitablekid.com"
+               }
+            ],
+            "victimAny":[
+               "suitablekid.com"
+            ],
+            "updateVersion":1,
+            "source":"WLA",
+            "detectionSource":null,
+            "summary":"SQL Injection, Null Byte, Path Traversal Attempts from 59.2.2.9",
+            "severity":"Medium",
+            "severityIcon":"fa fa-circle-o risk-medium",
+            "attackSummary":"#### Multiple Web Recon/Attacks from 59.2.2.9\n**Description**: Repeated activity indicative of reconnaissance looking for vulnerabilities and/or weaknesses.\n\n**Summary**: Tracked values from observations triggering this incident:\n* **Top Victim Virtual Hosts:** suitablekid.com\n* **Top Attack Types:** SQL injection, Path traversal, Null byte\n* **Top User-Agents:** Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\n* **Top CWEs:** CWE-89, CWE-22, CWE-158\n\n**Details**: The most recent triggering violation contained the following key values:\n* **Attack = SQL injection** - The attack type detected in the server log.\n* **Source IP = 59.2.2.9** - The source IP making the request.\n* **Request Data = GET /wp-content/plugins/wp-events-calendar/public/ajax/geteventslist.php?calendar_id%3D6%26year%3D1979%27+delete+id+from+users%26month%3D4 HTTP/1.1\r\nHost: suitablekid.com\r\nReferer: https://www.google.com/\r\nUser-Agent: Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\r\nX-Forwarded-For: 49.81.27.50, 204.237.173.229, 10.0.3.97** - The raw request.\n* **User-Agent = Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)** - The user agent used in the request.\n* **Accumulated Severity = 103** - The accumulated severity level of the detection.\n",
+            "recommendations":"",
+            "classKey":4,
+            "classDesc":"application-attack",
+            "customerStatus":{
+               "status":"open",
+               "status_change_time":"2020-10-20T15:55:22.192684+00:00"
+            },
+            "status":"open",
+            "customerFeedback":{
+               
+            },
+            "snoozeStatus":{
+               "period_ms":0,
+               "reason_code":"immediately",
+               "snoozed":false
+            },
+            "selectedEvent":[
+               
+            ],
+            "observable":{
+               
+            },
+            "assetType":"",
+            "assetDeploymentId":"",
+            "assetDeploymentType":"",
+            "assetHostKey":"",
+            "assetDeploymentInScope":true,
+            "assetsRemediations":[
+               
+            ],
+            "assets":false,
+            "deployment":"WLA Integration Log Source",
+            "region":"Unknown",
+            "vpc":"cas-dev-wla-us-east-1-int",
+            "subnet":"public",
+            "type":"",
+            "extraRecommendations":"",
+            "dateRange":"October 2020"
+         }
+      }
+   },
+   {
+      "incident.summary":{
+         "value":"SQL Injection, Null Byte, Path Traversal Attempts from 7.12.31.9"
+      },
+      "detection_source":{
+         "value":"Web Log Analytics"
+      },
+      "customer":{
+         "value":"Web App Security Integration"
+      },
+      "correlation_name":{
+         "value":""
+      },
+      "note_count":{
+         "value":0
+      },
+      "note_last_update":{
+         "value":""
+      },
+      "customer_status_status":{
+         "value":"open"
+      },
+      "incident.threatRating":{
+         "value":"Medium",
+         "icon":"fa fa-circle-o risk-medium",
+         "cssStyle":{
+            "text-align":"center"
+         }
+      },
+      "incident.attackClassId_str":{
+         "value":"application-attack"
+      },
+      "assets.al__deployment":{
+         "value":"WLA Integration Log Source"
+      },
+      "createTime":{
+         "value":"20th Oct 2020 12:55:15 GMT-3"
+      },
+      "attacker_any":{
+         "value":"7.12.31.9"
+      },
+      "victim_any":{
+         "value":"suitablekid.com"
+      },
+      "incident":{
+         "value":{
+            "associatedEventCount":0,
+            "associatedLogCount":0,
+            "findingCount":0,
+            "flaggedEventCount":0,
+            "appliances":[
+               
+            ],
+            "incidentId":"5F8F07D4-0008-0020-0002-EB4000000000",
+            "accountId":134264762,
+            "friendlyId":"hm59f5",
+            "correlationId":null,
+            "correlationName":"",
+            "customerName":"Web App Security Integration",
+            "createdOn":"2020-10-20T15:55:15.295Z",
+            "closedAt":"2020-12-03T21:39:27.149Z",
+            "notes":{
+               
+            },
+            "notesCount":0,
+            "notesLastUpdate":"2020-12-03T21:39:27.149Z",
+            "attackerIp":"",
+            "attacker_lset":[
+               {
+                  "ip":[
+                     "7.12.31.9"
+                  ],
+                  "geo":[
+                     {
+                        "location_ip":"7.12.31.9",
+                        "ip":"7.12.31.9",
+                        "city":"",
+                        "country":"US",
+                        "countryName":"United States",
+                        "latitude":37.751,
+                        "longitude":-97.822,
+                        "postcode":null,
+                        "regionName":""
+                     }
+                  ],
+                  "value":""
+               }
+            ],
+            "attackerAny":[
+               "7.12.31.9"
+            ],
+            "victimIp":"",
+            "victimUser":"",
+            "victimInstance":"",
+            "victim_lset":[
+               {
+                  "ip":[
+                     
+                  ],
+                  "geo":[
+                     
+                  ],
+                  "value":"suitablekid.com"
+               }
+            ],
+            "victimAny":[
+               "suitablekid.com"
+            ],
+            "updateVersion":1,
+            "source":"WLA",
+            "detectionSource":null,
+            "summary":"SQL Injection, Null Byte, Path Traversal Attempts from 7.12.31.9",
+            "severity":"Medium",
+            "severityIcon":"fa fa-circle-o risk-medium",
+            "attackSummary":"#### Multiple Web Recon/Attacks from 7.12.31.9\n**Description**: Repeated activity indicative of reconnaissance looking for vulnerabilities and/or weaknesses.\n\n**Summary**: Tracked values from observations triggering this incident:\n* **Top Victim Virtual Hosts:** suitablekid.com\n* **Top Attack Types:** SQL injection, Path traversal, Null byte\n* **Top User-Agents:** Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\n* **Top CWEs:** CWE-89, CWE-22, CWE-158\n\n**Details**: The most recent triggering violation contained the following key values:\n* **Attack = SQL injection** - The attack type detected in the server log.\n* **Source IP = 7.12.31.9** - The source IP making the request.\n* **Request Data = POST /wp-content/plugins/wp-events-calendar/public/ajax/geteventslist.php?calendar_id%3D6%26year%3D1979%27+delete+id+from+users%26month%3D4 HTTP/1.1\r\nHost: suitablekid.com\r\nReferer: https://www.google.com/\r\nUser-Agent: Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)\r\nX-Forwarded-For: 6.87.4.29, 66.110.98.77, 10.0.2.4** - The raw request.\n* **User-Agent = Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)** - The user agent used in the request.\n* **Accumulated Severity = 103** - The accumulated severity level of the detection.\n",
+            "recommendations":"",
+            "classKey":4,
+            "classDesc":"application-attack",
+            "customerStatus":{
+               "status":"open",
+               "status_change_time":"2020-10-20T15:55:20.503023+00:00"
+            },
+            "status":"open",
+            "customerFeedback":{
+               
+            },
+            "snoozeStatus":{
+               "period_ms":0,
+               "reason_code":"immediately",
+               "snoozed":false
+            },
+            "selectedEvent":[
+               
+            ],
+            "observable":{
+               
+            },
+            "assetType":"",
+            "assetDeploymentId":"",
+            "assetDeploymentType":"",
+            "assetHostKey":"",
+            "assetDeploymentInScope":true,
+            "assetsRemediations":[
+               
+            ],
+            "assets":false,
+            "deployment":"WLA Integration Log Source",
+            "region":"Unknown",
+            "vpc":"cas-dev-wla-us-east-1-int",
+            "subnet":"public",
+            "type":"",
+            "extraRecommendations":"",
+            "dateRange":"October 2020"
+         }
+      }
+   }
+]

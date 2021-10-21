@@ -1,0 +1,108 @@
+<!-- BUTTONS ALIGNMENT-->
+<div class="card card-w-title">
+    <h1>Card Buttons</h1>
+    <div class="grid">
+        <div class="col-6 card-content">
+            <h2>Align Buttons Left</h2>
+            <div class="btnGroupLeft">
+                <button type="button" class="cardBtn flat left" label="Edit" icon="ui-icon-edit"
+                    pButton></button>
+            </div>
+            <p>Place the button in an div with <code class="language-css" pCode>class="btnGroupLeft"</code> and the div
+                with the button will align to the left of its parent element.</p>
+
+            <p>Place <code class="language-css" pCode>class="left"</code> on the button element to give the button a 6px
+                left margin and a 0px right margin.</p>
+
+                <h5>Code Snippet:</h5>
+                <code-example language="markup" resourceId="sample/components/card-buttons/cardBtn1"></code-example>
+        </div>
+        <div class="col-6 card-content">
+            <h2>Align Buttons Right</h2>
+            <div class="btnGroupRight">
+                <button type="button" class="cardBtn flat right" label="Edit" icon="ui-icon-edit"
+                    pButton></button>
+            </div>
+            <p>Place the button in an div with <code class="language-css" pCode>class="btnGroupRight"</code> and the div
+                with the button will align to the right of its parent element.</p>
+
+            <p>Place <code class="language-css" pCode>class="right"</code> on the button element to give the button a
+                6px
+                left margin and a 0px right margin.</p>
+
+            <h5>Code Snippet:</h5>
+            <code-example language="markup" resourceId="sample/components/card-buttons/cardBtn2"></code-example>
+        </div>
+    </div>
+</div>
+
+<!-- ALIGN BUTTONS LEFT & RIGHT -->
+<div class="card card-w-title">
+    <h1>Align Buttons Left and Right</h1>
+    <div class="grid">
+        <div class="col-12 card-content">
+            <div class="btnGroup">
+                <div class="btnGroupLeft">
+                    <button type="button" class="cardBtn flat left" label="Label"
+                        icon="ui-icon-open-in-browser" pButton></button>
+                </div>
+                <div class="btnGroupRight">
+                    <button type="button" icon="ui-icon-edit" class="cardBtn flat right" label="Edit" pButton></button>
+                </div>
+            </div>
+            <p>Place all buttons in an wrapper element with <code class="language-css" pCode>class="btnGroup"</code>. To
+                align the buttons left and right,
+                place the button groups into <code class="language-css" pCode>class="btnGroupLeft"</code> or <code
+                    class="language-css" pCode>class="btnGroupRight"</code></p>
+
+            <h5>Code Snippet:</h5>
+            <code-example language="markup" resourceId="sample/components/card-buttons/cardBtn3"></code-example>
+
+        </div>
+    </div>
+</div>
+
+<!-- EXAMPLES -->
+<div class="card card-w-title">
+    <h1>Example Card with Footer</h1>
+    <div class="grid">
+        <div class="col-8 card-content">
+            <p>Glorious baklava ex librus hup hey ad infinitum</p>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="btnGroup">
+            <div class="btnGroupLeft">
+                <button type="button" class="cardBtn flat left" label="Incidents" icon="ui-icon-whatshot"
+                    pButton></button>
+                <button type="button" class="cardBtn flat left" label="Label"
+                    icon="ui-icon-open-in-browser" pButton></button>
+            </div>
+            <div class="btnGroupRight">
+                <button type="button" icon="ui-icon-delete" class="cardBtn flat right" label="Delete" pButton></button>
+                <button type="button" icon="ui-icon-edit" class="cardBtn flat right" label="Edit" pButton></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p-panel [toggleable]="true">
+    <p-header>
+        Example Panel with Footer
+    </p-header>
+    Glorious baklava ex librus hup hey ad infinitum
+    <p-footer>
+        <div class="btnGroup">
+            <div class="btnGroupLeft">
+                <button type="button" class="cardBtn flat left" label="Incidents" icon="ui-icon-whatshot"
+                    pButton></button>
+                <button type="button" class="cardBtn flat left" label="Label"
+                    icon="ui-icon-open-in-browser" pButton></button>
+            </div>
+            <div class="btnGroupRight">
+                <button type="button" icon="ui-icon-delete" class="cardBtn flat right" label="Delete" pButton></button>
+                <button type="button" icon="ui-icon-edit" class="cardBtn flat right" label="Edit" pButton></button>
+            </div>
+        </div>
+    </p-footer>
+</p-panel>

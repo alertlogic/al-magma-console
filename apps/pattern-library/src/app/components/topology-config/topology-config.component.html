@@ -1,0 +1,14 @@
+<al-view-helper [loading]="loading">
+</al-view-helper>
+
+<div class="card-container">
+    <p-card>
+        <al-environment-topology #topologyView
+                                 [topology]="topology"
+                                 [behaviors]="behaviors"
+                                 (onClickedNode)="onClickNode($event)"
+                                 (onRendering)="onRenderComplete($event)"
+                                 (viewChanged)="onZoomChanged($event)">
+        </al-environment-topology>
+    </p-card>
+</div>

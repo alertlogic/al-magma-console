@@ -1,0 +1,93 @@
+<div class="al-task-palette">
+    <div class="palette-container">
+        <div class="palette-container-top">
+            <div class="grid grid-nogutter p-justify-between title">
+                <span>{{title}}:</span>
+                <i class="material-icons close-icon"
+                (click)="onClose()">close</i>
+            </div>
+
+            <div class="search">
+                <al-search-bar
+                    width="100%"
+                    [placeholder]="'Search'"
+                    [autofocus]="true"
+                    (onSearchChanged)="onSearch($event)"
+                ></al-search-bar>
+            </div>
+        </div>
+
+        <div class="list-container">
+            <p-tabView>
+                <p-tabPanel header="All">
+                    <div class="list">
+                        <div *ngFor="let item of listOptions | alFilterTaskPalettePipe:search"
+                            class="listOptions"
+                            (click)="onSelect(item.value)">
+                            <ng-container *ngTemplateOutlet="listOptionsRow; context: { $implicit: item }"></ng-container>
+                        </div>
+                    </div>
+                </p-tabPanel>
+                <p-tabPanel header="Filter by Vendor">
+                    <p-dropdown [options]="vendors"
+                                [(ngModel)]="selectedVendor"
+                                optionLabel="label">
+                                <ng-template let-item pTemplate="selectedItem">
+                                    <div class="grid grid-nogutter">
+                                        <div class="col-fixed align-items-center vendor-icon" style="width:24px">
+                                            <i *ngIf="item?.value?.icon?.name" class="material-icons">{{ item?.value?.icon?.name }}</i>
+                                            <i *ngIf="item?.value?.icon?.cssClasses" class="{{item?.value?.icon?.cssClasses}}"></i>
+                                        </div>
+                                        <div class="col">
+                                            <div class="vendor-label-padding-left">{{item.label}}</div>
+                                        </div>
+                                    </div>
+                                </ng-template>
+
+                                <ng-template let-item pTemplate="item">
+                                    <div class="grid grid-nogutter">
+                                        <div class="col-fixed align-items-center vendor-icon" style="width:24px">
+                                            <i *ngIf="item?.value?.icon?.name" class="material-icons">{{ item?.value?.icon?.name }}</i>
+                                            <i *ngIf="item?.value?.icon?.cssClasses" class="{{item?.value?.icon?.cssClasses}}"></i>
+                                        </div>
+                                        <div class="col">
+                                            <div class="vendor-label-padding-left">{{item.label}}</div>
+                                        </div>
+                                    </div>
+                                </ng-template>
+                    </p-dropdown>
+                    <div class="list">
+                        <div *ngFor="let item of listOptions | alFilterTaskPalettePipe:search | alFilterTaskPalettePipe:selectedVendor.label"
+                            (click)="onSelect(item.value)">
+                            <ng-container *ngTemplateOutlet="listOptionsRow; context: { $implicit: item }"></ng-container>
+                        </div>
+                    </div>
+                </p-tabPanel>
+            </p-tabView>
+        </div>
+    </div>
+</div>
+
+<ng-template #listOptionsRow
+             let-item>
+             <al-task-palette-item [item]="item"></al-task-palette-item>
+    <!-- <div class="grid grid-nogutter">
+        <div class="col-fix list-icon"
+             style="width: 24px;"
+             [style.background-color]="item.icon?.color">
+
+            <i *ngIf="item?.icon?.name"
+               class="material-icons">{{ item?.icon?.name }}</i>
+            <i *ngIf="item.icon?.cssClasses"
+               class="{{item.icon?.cssClasses}}"></i>
+
+        </div>
+        <div class="col hide-overflow">
+            <div class="list-text">
+                <div *ngIf="item.label"
+                     class="title">{{ item.label }}:</div>
+                {{ item.name }}
+            </div>
+        </div>
+    </div> -->
+</ng-template>

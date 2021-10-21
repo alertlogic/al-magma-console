@@ -1,0 +1,14 @@
+<div class="grid ui-fluid">
+    <div class="col-12 ">
+        <div class="card">
+            <h1>Al Action Snackbar</h1>
+            <button (click)="actionSnackbarVisible = !actionSnackbarVisible" pButton label="Toggle"></button>
+            <al-action-snackbar [text]="actionSnackbarText" [visible]="actionSnackbarVisible"
+                [elements]="actionSnackbarButtons" (onElementPressed)="actionSnackbarEvent($event)">
+            </al-action-snackbar>
+            <p>Event: {{actionSnackbarSelectedOption}}</p>
+            <h5>Component Name:</h5>
+            <code class="language-css" pCode>al-action-snackbar</code>
+        </div>
+    </div>
+</div>

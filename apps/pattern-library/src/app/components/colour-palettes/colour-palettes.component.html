@@ -1,0 +1,76 @@
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>Colour Utlities</h1>
+            <div class="card-content">
+                By installing the
+                <pre pCode>@al/ng-generic-components</pre> package into your project (see Getting Started section on the
+                Home page), you will have access to SCSS files containing colour variables and utlities
+                enabling you to apply colours to elements you are working on to match UX requirements.
+            </div>
+        </div>
+        <div class="card card-w-title">
+            <h1>Colour Palettes</h1>
+            <div class="grid card-content">
+                <div class="col-4 " *ngFor="let palette of palettes">
+                    <h3>{{palette.name}}</h3>
+                    <div *ngFor="let color of palette.colors" class="palette-entry" [style.background]="color.color"
+                        [style.color]="color.contrast">
+                        <span>{{color.name}}</span>
+                        <span>{{color.color}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Usage Guide">
+        <div class="card card-w-title">
+            <h1>Usage Guide</h1>
+            <div class="card-content">
+                <p>
+                    Import the following into the top of of an SCSS file where you want to use Alert Logic theme
+                    colours:
+                </p>
+
+                <pre class="language-css" pCode>@import "@al/ng-generic-components/styles/utility";</pre>
+                <p>Inside the palette.scss file are a whole bunch of colour maps, such as.</p>
+
+                <pre class="language-css" pCode>
+          $al-yellow: (
+            500: #FFD54F,
+            50: #FFFAEC,
+            100: #FFF2C9,
+            200: #FFE9A6,
+            300: #FFE183,
+            400: #FFDB6B,
+            600: #FCC101,
+            700: #FFD800,
+            800: #FFED18,
+            900: #FFF36C,
+            contrast: (
+                50: $al-contrastDark,
+              100: $al-contrastDark,
+              200: $al-contrastDark,
+              300: $al-contrastLight,
+              400: $al-contrastLight,
+              500: $al-contrastLight,
+              600: $al-contrastLight,
+              700: $al-contrastLight,
+              800: $al-contrastDark,
+              900: $al-contrastDark
+            )
+          );
+        </pre>
+
+                <p>So to pick out the 500 variation of $al-yellow, you can use the <code pCode>al-color</code>
+                    function
+                    from
+                    utility.scss like so:</p>
+
+                <pre class="language-css" pCode>background: al-color($al-gray, 500);</pre>
+
+                <p>Note: db-[color] are dashboard specific colors</p>
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>

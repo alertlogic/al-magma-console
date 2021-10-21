@@ -1,0 +1,70 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.al-content-toolbar {
+    margin-top: 40px;
+    border-bottom: 1px solid al-color($al-gray, 50);
+
+    .al-search {
+        input {
+            width: 100%;
+        }
+        i {
+            position: absolute;
+            color: al-color($al-gray, 500);
+            margin-left: 215px;
+        }
+    }
+
+    .al-sort {
+        margin: 0px 15px;
+        cursor: pointer;
+        vertical-align: bottom;
+    }
+    .p-dropdown {
+        width: 240px;
+    }
+    .p-chkbox-icon {
+        padding-bottom: 15px;
+    }
+    .checkbox {
+        text-align: center;
+    }
+    .viewBy {
+        .view-list {
+            display: flex;
+            i {
+                font-size: 24px;
+            }
+        }
+        .view-selected {
+            i {
+                margin: 0px 12px 0px 0px;
+                font-size: 3em;
+            }
+            .static-label {
+                position: absolute;
+                color: al-color($al-gray, 300);
+            }
+            .view-name {
+                font-weight: 400;
+                font-size: 16px;
+            }
+        }
+
+        .p-dropdown {
+            padding-bottom: 4px;
+        }
+
+        .p-inputtext {
+            padding-bottom: 4px;
+        }
+        
+        .p-dropdown-trigger {
+            height: 100%;
+        }
+    }
+
+    .al-content-toolbar-grid{
+        height: inherit;
+    }
+}

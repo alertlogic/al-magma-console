@@ -1,0 +1,126 @@
+@import "@al/ng-generic-components/styles/utility";
+
+$header-height: 36px;
+$footer-height: 60px;
+$background: white;
+$accent-color: #535353;
+$separator-color: #ededed;
+$description-icons-color: #CBCBCB;
+
+.dashboard-widget {
+    background-color: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    display: block;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .content {
+        height: 0;
+        flex: 1;
+        &.auto-scroll {
+            overflow: auto;
+        }
+    }
+
+    button, a {
+        font-size: 14px;
+        text-transform: uppercase;
+        &:not(:first-of-type) {
+            margin-left: 16px;
+        }
+    }
+
+    a {
+        color: $accent-color;
+        text-decoration: none;
+        cursor: pointer;
+        &[pbutton] {
+            color: $background;
+            padding: 0 16px;
+        }
+    }
+
+    header, footer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-right: 12px;
+        padding-left: 24px;
+    }
+
+    header {
+        height: $header-height;
+        justify-content: space-between;
+        border-bottom: 1px solid $separator-color;
+        .title-description {
+            margin-right: 12px;
+            margin-top: 2px;
+            i {
+                color: $description-icons-color;
+                font-size: 19px;
+                cursor: pointer;
+            }
+        }
+        & > .title {
+            flex: 1;
+            min-width: 0;
+            display: inline-grid;
+            span {
+                color: $accent-color;
+                font-size: 16px;
+                font-weight: normal;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+        a {
+            color: $accent-color;
+            font-size: 24px;
+        }
+    }
+
+    footer {
+        height: $footer-height;
+        justify-content: flex-end;
+        border-top: 1px solid $separator-color;
+    }
+}
+
+:host-context(.darkMode) {
+    .dashboard-widget {
+        background-color: al-color($al-gray, 700);
+        header > .title span {
+            color: al-color($al-gray, 50);
+        }
+        .p-button.flat {
+            color: al-color($al-gray, 50);
+            &:hover {
+                background-color: al-color($al-gray, 500, 0.25);
+            }
+        }
+    }
+}
+
+:host-context(.blueMode) {
+    .dashboard-widget {
+        background-color: al-color($db-slate, 700);
+        header {
+            border-bottom: 1px solid #566578 ;
+            > .title span {
+                color: al-color($al-gray, 50);
+            }
+        }
+        footer {
+            border-top: 1px solid #566578 ;
+        }
+        .p-button.flat {
+            color: al-color($al-gray, 50);
+            &:hover {
+                background-color: al-color($al-blue, 600, 0.25);
+            }
+        }
+    }
+}

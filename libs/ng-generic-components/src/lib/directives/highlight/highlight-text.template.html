@@ -1,0 +1,21 @@
+<div style="position:relative">
+    <div *ngIf="!irHexMode && htmlService.detectHtml(irHighlightTextComp)" style="float:right">
+        <!-- <div class="roundButtonText roundButton" (click)="openModal=true">Preview HTML</div> -->
+    </div>
+    <ng-container style="display:inline" *ngFor="let i of renderThis">
+        <ng-container *ngIf="i.keys.length > 0; else notHighlight">
+            <mark #marks
+                  [style.backgroundColor]="(i.color && !i.selected) ? i.color : '#f4ff81'"
+                  [style.color]="(i.textColor && !i.selected) ? i.textColor : 'BLACK'">
+                <ng-container *ngFor="let line of ((irRemoveNonPrintable ? (i.matched | removeNonPrintable) : i.matched) | newlinesplit); let isLast = last">
+                    {{line}}<br *ngIf="!isLast">
+                </ng-container>
+            </mark>
+        </ng-container>
+        <ng-template #notHighlight>
+            <ng-container *ngFor="let line of ((irRemoveNonPrintable ? (i.matched | removeNonPrintable) : i.matched) | newlinesplit); let isLast = last">
+                {{line}}<br *ngIf="!isLast">
+            </ng-container>
+        </ng-template>
+    </ng-container>
+</div>

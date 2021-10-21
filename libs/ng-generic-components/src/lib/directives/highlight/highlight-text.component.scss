@@ -1,0 +1,8 @@
+mark{
+    //https://github.com/angular/material2/issues/7097
+    user-select: auto !important;
+    &.selected{
+        background-color: initial;
+        color:initial;
+    }
+}

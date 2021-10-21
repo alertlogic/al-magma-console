@@ -1,0 +1,26 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.al-asset-item{
+    margin: 3px 0;
+    display: flex;
+    align-items: center;
+
+    .badge {
+        background: al-color($al-gray, 300);
+        padding-left: 8px;
+        padding-right: 8px;
+        color: #fff;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 14px;
+        margin-left: 12px;
+        word-break: normal;
+    }
+
+    i{
+        font-size: 14px;
+        padding: 0px 12px 0px 0px;
+        align-items: center;
+        display: flex;
+    }
+}

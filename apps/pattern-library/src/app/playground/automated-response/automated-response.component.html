@@ -1,0 +1,180 @@
+
+
+<div style="display: flex; justify-content: space-between; align-items: center;">
+
+    <h1>New Playbook</h1>
+    <div>
+        <button pButton type="button" label="Cancel" class="flat"></button>
+        <button pButton type="button" label="Save" class="primaryAction"></button>
+    </div>
+</div>
+
+
+<div class="grid">
+
+    <div class="col-8">
+        <!--
+            SELECT A TRIGGER TYPE
+            Trigger must be selected first to filter the playbook action types
+        -->
+        <div class="response-action-menu" *ngIf="!selectedTrigger">
+            <button pButton type="menu" label="Select Trigger" icon="ui-icon-add" (click)="triggerOptions = !triggerOptions"></button>
+            <div class="actions-menu" *ngIf="triggerOptions">
+                <ul>
+                    <li *ngFor="let trigger of triggerActions" (click)="addTrigger(trigger)">
+                        <i [ngClass]="trigger.iconClass">{{ trigger.icon }}</i>
+                        {{ trigger.title }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--
+            THE SELECTED TRIGGER TYPE
+            There can only be one trigger type, so hide the select trigger button once selected.
+        -->
+        <div class="playbook-card" *ngIf="selectedTrigger">
+            <div class="title">
+                <span>
+                    <i [ngClass]="selectedTrigger.iconClass">{{ selectedTrigger.icon }}</i>
+                    {{ selectedTrigger.title }}
+                </span>
+                <span class="action-icons">
+                    <button pButton type="button" icon="ui-icon-cancel" (click)="removeTrigger()"></button>
+                    <button pButton type="button" icon="ui-icon-settings" (click)="triggerExpanded = !triggerExpanded"></button>
+                </span>
+            </div>
+
+            <!--
+                CONFIGURATION SECTION
+                Expanded config options on demand
+            -->
+            <div *ngIf="triggerExpanded">
+                <h4>Trigger Filters</h4>
+                <div class="grid" style="margin-top: 12px;">
+                    todo...
+                </div>
+
+                <h4>Details, Variables, etc</h4>
+                <div class="grid" style="margin-top: 12px;">
+                    todo...
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="selectedTrigger" class="action-sequence" (mouseenter)="splitAction = true" (mouseleave)="splitAction = false">
+            <i class="material-icons hover">arrow_downward</i>
+            <i class="material-icons hover" *ngIf="splitAction" style="transform: rotate(180deg);">call_split</i>
+        </div>
+
+
+        <!--
+            SELECTED PLAYBOOK ACTIONS
+            Available only when the Trigger Type is selected.
+        -->
+        <div *ngIf="selectedTrigger">
+            <div *ngFor="let action of selectedActions; let i = index;">
+                <div class="playbook-card">
+
+                    <!-- CARD TITLE, STATE AND OPTIONS -->
+                    <div class="title">
+                        <span>
+                            <i [ngClass]="action.iconClass">{{ action.icon }}</i>
+                            {{ action.title }}
+                            <div class="badge error" *ngIf="!action.validConfig" style="margin-left: 12px;">
+                                <i class="material-icons">error</i>
+                            </div>
+                        </span>
+                        <span class="action-icons">
+                            <button pButton type="button" icon="ui-icon-cancel" (click)="removeAction(i)"></button>
+                            <button pButton type="button" icon="ui-icon-settings" (click)="expandConfig(i)"></button>
+                        </span>
+                    </div>
+
+                    <!--
+                        CONFIGURATION SECTION
+                        Expanded config options on demand
+                    -->
+                    <div *ngIf="action.expanded">
+                        <h4>Configuration</h4>
+                        <div class="grid" style="margin-top: 12px;">
+                            <div *ngFor="let config of action.config" class="col-6">
+                                <span class="md-inputfield">
+                                    <input pInputText [id]="config.label" type="text" [(ngModel)]="config.value" style="width: 100%">
+                                    <label [for]="config.label">{{ config.label }}</label>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="grid p-justify-end">
+                            <button pButton type="button" label="Validate" class="flat" (click)="validateConfig(i)"></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-sequence">
+                    <i class="material-icons hover">arrow_downward</i>
+                </div>
+
+            </div>
+
+
+
+            <!-- ADD A PLAYBOOK ACTION OPTION -->
+            <div class="response-action-menu">
+                <button pButton type="menu" label="Add Response Action" icon="ui-icon-add" (click)="actionOptions = !actionOptions"></button>
+                <div class="actions-menu" *ngIf="actionOptions">
+                    <ul>
+                        <li *ngFor="let action of playbookActions" (click)="addAction(action)">
+                            <i [ngClass]="action.iconClass">{{ action.icon }}</i>
+                            {{ action.title }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--
+        RESERVED
+        Reserving this space for possible details, help, advanced settings, config, variables etc...
+    -->
+    <div class="col-4">
+        <!-- INPUT TRIGGERS -->
+        <!-- <h2>Trigger Types</h2>
+
+        <ul class="playbook-options">
+            <li class="grid p-justify-between hover">
+                Incidents
+                <i class="material-icons">keyboard_arrow_right</i>
+            </li>
+            <li class="grid p-justify-between hover">
+                Exposures
+                <i class="material-icons">keyboard_arrow_right</i>
+            </li>
+            <li class="grid p-justify-between hover">
+                Health
+                <i class="material-icons">keyboard_arrow_right</i>
+            </li>
+            <li class="grid p-justify-between hover">
+                Search Correlation
+                <i class="material-icons">keyboard_arrow_right</i>
+            </li>
+
+        </ul> -->
+
+        <!-- <h2>Actions</h2>
+
+        <ul class="playbook-options">
+            <li *ngFor="let action of playbookActions" class="grid p-justify-between hover" (click)="addAction(action)">
+                <span>
+                    <i [ngClass]="action.iconClass">{{ action.icon }}</i>
+                    {{ action.title }}
+                </span>
+                <i class="material-icons">add_circle_outline</i>
+            </li>
+
+        </ul> -->
+
+    </div>
+</div>

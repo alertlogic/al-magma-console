@@ -1,0 +1,76 @@
+
+<div fxLayout="row" fxLayoutAlign="center center">
+	<div class="login-page">
+		<div *ngIf="formReady">
+			<div class="header">
+                <div class="circle-logo"><i class="icon-logo al al-logo"></i></div>
+				<div class="title"><h2>Log In</h2></div>
+			</div>
+			<div class="form-div">
+				<form #loginForm="ngForm">
+					<div class="row-div">
+						<div class="cell-div">
+							<div class="inner-form">
+								<div class="login-fields">
+                                    <span class="md-inputfield">
+                                        <input
+                                            [(ngModel)]="userName"
+                                            autocomplete="username"
+                                            class="input-text-field"
+                                            matInput
+                                            name="email"
+                                            pattern="^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+                                            placeholder="Email address"
+                                            required
+                                        />
+                                        <mat-error>Invalid email</mat-error>
+                                    </span>
+								</div>
+								<div class="login-fields">
+									<span class="md-inputfield">
+                                        <input
+                                            (keydown)="onKeyDown($event)"
+                                            [(ngModel)]="passPhrase"
+                                            [type]="showPassword ? 'text' : 'password'"
+                                            autocomplete="current-password"
+                                            class="input-text-field"
+                                            matInput
+                                            name="password"
+                                            placeholder="Password"
+                                            required
+                                        />
+                                        <div class="show-toggle"
+                                             (click)="toggleShowPassword()">SHOW
+                                        </div>
+                                    </span>
+								</div>
+								<div class="page-buttons">
+									<button type="button" pButton color="primary" class="button-width" [disabled]="!loginForm.form.valid" (click)="onLogin()">LOG IN</button>
+								</div>
+								<div class="page-bottom">
+									<a class='gray-text' href="#" (click)="goToForgotPassword($event)">
+										<b>FORGOT YOUR PASSWORD?</b>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<al-view-helper [loading]="state === 'loading' || ! formReady"></al-view-helper>
+		<div *ngIf="errorMessage">
+			<mat-card class="loginErrorPanel">
+				<mat-card-title-group>
+					<mat-card-content>{{errorMessage}}</mat-card-content>
+					<i (click)="closeMessageError()" class="material-icons">cancel</i>
+				</mat-card-title-group>
+			</mat-card>
+		</div>
+	</div>
+</div>
+<div class="api-doc">
+	<a href="https://www.alertlogic.com/privacy-statement/" class="api-doc-link" target="_blank">Privacy Statement</a>
+	<a href="#" class="api-doc-link" (click)="onClickIntegrations($event)">Integrations</a>
+	<a href="https://status.alertlogic.com" class="api-doc-link" target="_blank">Service Status</a>
+</div>

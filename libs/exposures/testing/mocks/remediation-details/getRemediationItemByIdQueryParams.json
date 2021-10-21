@@ -1,0 +1,69 @@
+{
+    "remediation-items": {
+        "rows": 1,
+        "assets": [
+            {
+                "vulnerability_id": "5fe231de3e31ac7064df974341cb6efc",
+                "vulnerability": {
+                    "vulnerability_id": "5fe231de3e31ac7064df974341cb6efc",
+                    "type": "vulnerability",
+                    "severity": "high",
+                    "name": "Network Without Alert Logic Appliance",
+                    "categories": [
+                        "configuration"
+                    ]
+                },
+                "vinstances_count": 1,
+                "user_id": "B3B9691D-5924-4849-8E2C-789664A24291",
+                "type": "remediation-item",
+                "state": "concluded",
+                "remediation": {
+                    "type": "remediation",
+                    "target_asset_type": "vpc",
+                    "remediation_id": "ids_missing_appliance_dc",
+                    "name": "Alert Logic recommends that you add an Alert Logic Appliance to this Network.",
+                    "deployment_id": "0C51E404-4BB4-4228-B6B7-32B43029C76F",
+                    "categories": [
+                        "configuration"
+                    ]
+                },
+                "item_id": "B3E0FBAB682C4B5A22F47DA3A10E1EB9",
+                "filters": [],
+                "exposures": [
+                    {
+                        "vulnerability_id": "5fe231de3e31ac7064df974341cb6efc",
+                        "vinstances_count": 1,
+                        "vinstances": [
+                            {
+                                "target": {
+                                    "type": "vpc",
+                                    "name": "juan ntwk"
+                                },
+                                "details": "The network does not have a provisioned IDS appliance present.",
+                                "concluded": true,
+                                "categories": [
+                                    "configuration"
+                                ]
+                            }
+                        ],
+                        "type": "vulnerability",
+                        "severity": "high",
+                        "remediation_id": "ids_missing_appliance_dc",
+                        "name": "Network Without Alert Logic Appliance",
+                        "cvss_vector": "AV:N/AC:L/Au:N/C:C/I:C/A:C/PL:A/EM:A",
+                        "cvss_score": 10.0,
+                        "categories": [
+                            "configuration"
+                        ],
+                        "asset_count": 1
+                    }
+                ],
+                "deployment_ids": ["0C51E404-4BB4-4228-B6B7-32B43029C76F"],
+                "asset_count": 1
+            }
+        ]
+    },
+    "filters": [
+        "category:configuration"
+    ]
+}

@@ -1,0 +1,19 @@
+<div class="first-input">
+    <div class="label-title"
+        >Generate report</div>
+    <p-dropdown (onChange)="onBuildSchedule()"
+                [options]="options"
+                [(ngModel)]="selectedOption"></p-dropdown>
+    <div class="label-title"
+         *ngIf="selectedOption && selectedOption.subLabel">{{selectedOption.subLabel}}</div>
+</div>
+
+<div class="second-input">
+    <div class="label-title"
+        >{{ (selectedOption && selectedOption.hourInputLabel) ? selectedOption.hourInputLabel : 'generate at this local time' }}</div>
+    <p-calendar [(ngModel)]="hourSelected"
+                [timeOnly]="true"
+                [showTime]="true"
+                hourFormat="24"
+                (onBlur)="onBuildSchedule()"></p-calendar>
+</div>

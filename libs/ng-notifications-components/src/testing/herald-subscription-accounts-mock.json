@@ -1,0 +1,56 @@
+{
+    "subscribers": [
+      {
+        "subscriber_type": "user",
+        "subscriber": "35998B4C-5D51-4731-951C-4E5704EDD6AF",
+        "account_id": "134248568"
+      }
+    ],
+    "subscriber_count": 1,
+    "options": {
+      "email_subject": "{{threat}} Threat Incident (ID:{{incident_id}}) : {{attack_summary}}"
+    },
+    "notification_type": "incidents/alerts",
+    "name": "E2E edit notification test",
+    "id": "F7C15579-0910-4D14-952E-6A2137410A12",
+    "filters": {
+      "and": [
+        {
+          "in": [
+            {
+              "source": "notification.threat_level"
+            },
+            [
+              "Critical",
+              "High"
+            ]
+          ]
+        },
+        {
+          "=": [
+            {
+              "source": "notification.escalated"
+            },
+            true
+          ]
+        },
+        {
+          "in": [
+            {
+              "source": "account.id"
+            },
+            [
+              "134248568"
+            ]
+          ]
+        }
+      ]
+    },
+    "created": {
+      "by": "35998B4C-5D51-4731-951C-4E5704EDD6AF",
+      "at": 1587753709
+    },
+    "class": "event",
+    "active": true,
+    "account_id": "134248568"
+}

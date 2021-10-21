@@ -1,0 +1,21 @@
+{
+  "$schema": "https://on.cypress.io/cypress.schema.json",
+  "fileServerFolder": ".",
+  "fixturesFolder": "./src/fixtures",
+  "integrationFolder": "./src/integration",
+  "modifyObstructiveCode": false,
+  "supportFile": "./src/support/index.ts",
+  "pluginsFile": "./src/plugins/index.js",
+  "video": false,
+  "videosFolder": "../../dist/cypress/apps/console-e2e/videos",
+  "screenshotsFolder": "../../dist/cypress/apps/console-e2e/screenshots",
+  "chromeWebSecurity": false,
+  "testFiles": ["**/*.ts"],
+  "reporter": "../../../node_modules/cypress-mochawesome-reporter/lib/reporter.js",
+  "reporterOptions": {
+    "saveJson": true,
+    "reportDir": "../../dist/cypress/apps/console-e2e/reports"
+  },
+  "defaultCommandTimeout": 10000
+}
+

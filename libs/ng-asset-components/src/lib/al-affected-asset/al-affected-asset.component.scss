@@ -1,0 +1,14 @@
+.affected-asset {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+
+    .affected-asset-icon {
+        padding-right: 12px;
+        padding-left: 3px;
+        font-size: 18px;
+    }
+    .padding-right{
+        padding-right: 26px;
+    }
+}

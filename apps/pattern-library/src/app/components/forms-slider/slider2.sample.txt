@@ -1,0 +1,11 @@
+<div class="slider">
+    <input type="text" pInputText [(ngModel)]="val2" />
+    <p-slider [(ngModel)]="val2"></p-slider>
+    <div class="labels">
+        <div class="item left">Low</div>
+        <div class="item mid">Normal</div>
+        <div class="item right">High</div>
+    </div>
+</div>
+
+Typescript: val2: number;

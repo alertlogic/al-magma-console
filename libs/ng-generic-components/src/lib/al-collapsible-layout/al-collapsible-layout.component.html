@@ -1,0 +1,33 @@
+<div class="al-collapsible-layout">
+    <div *ngIf="leftPanel" class="layoutLeft" [ngClass]="{'hide' : !showLeft}">
+        <ng-content select="[left]"></ng-content>
+    </div>
+    <div *ngIf="leftPanel" class="hide-left">
+        <button type="button" (click)="toogleLeft()" [pTooltip]="leftTooltip"
+            tooltipPosition="right" class="left">
+            <div class="hide-left-button" *ngIf="showLeft">
+                <i class="material-icons">skip_previous</i>
+            </div>
+            <div class="hide-left-button" *ngIf="!showLeft">
+                <i class="material-icons">skip_next</i>
+            </div>
+        </button>
+    </div>
+    <div class="layoutCenter">
+        <ng-content select="[center]"></ng-content>
+    </div>
+    <div *ngIf="rightPanel" class="hide-right">
+        <button type="button" (click)="toogleRight()" [pTooltip]="rightTooltip"
+            tooltipPosition="left" class="right">
+            <div class="hide-right-button" *ngIf="showRight">
+                <i class="material-icons">skip_next</i>
+            </div>
+            <div class="hide-right-button" *ngIf="!showRight">
+                <i class="material-icons">skip_previous</i>
+            </div>
+        </button>
+    </div>
+    <div *ngIf="rightPanel" class="layoutRight" [ngClass]="{'hide' : !showRight}">
+        <ng-content select="[right]"></ng-content>
+    </div>
+</div>

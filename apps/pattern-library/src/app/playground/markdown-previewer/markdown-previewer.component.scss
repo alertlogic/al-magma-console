@@ -1,0 +1,78 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.markdown-previewer{
+    width: 90%;
+    margin: 0 auto 50px auto;
+
+    h1, h2{
+        margin-top: 0;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #a3a3a3;
+        margin-bottom: 20px;
+    }
+
+    textarea {
+        border: none;
+        font-family: 'Open Sans', Arial, sans-serif;
+        font-size: 14px;
+        padding: 10px;
+        margin: 10px auto 20px auto;
+        box-shadow: 0 1px 4px #a8a8a8;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .summary {
+
+        margin-bottom: 20px;
+
+        .markdown-styling {
+            overflow: hidden;
+
+            ::ng-deep table {
+                border-collapse: collapse;
+                &, th, td {
+                    border: 1px solid #535353;
+                }
+
+                th, td {
+                    padding: 5px 10px;
+                }
+            }
+
+            ::ng-deep pre {
+                overflow-y: auto;
+                background: #ededed;
+                border: 1px solid #535353;
+                border-radius: 5px;
+                padding: 15px;
+            }
+        }
+    }
+
+    .recommendations {
+        ul {
+            li:not(:first-child){
+                margin: 1em 0;
+            }
+        }
+    }
+
+    .notification{
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        flex-direction: row;
+        margin-top: 20px;
+
+        .p-float-label{
+            margin-top: 20px;
+        }
+
+        button.p-button.p-button-label-icon-left {
+            margin-left: 15px;
+            padding-left: 15px;
+        }
+
+    }
+}

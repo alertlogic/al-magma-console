@@ -1,0 +1,32 @@
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <h2>Asset Card</h2>
+        <h5>Component Name:</h5>
+        <code class="language-css" pCode>al-asset-card</code>
+        <h3>Default View:</h3>
+        <al-asset-card [asset]="assetMock" [checkable]="true"></al-asset-card>
+
+        <h2>Exposure Detail Card</h2>
+        <h5>Component Name:</h5>
+        <code class="language-css" pCode>al-vulnerability-detail-card</code>
+        <h3>Default View:</h3>
+        <al-vulnerability-detail-card [exposure]="exposureMock"></al-vulnerability-detail-card>
+
+        <h2>Evidence Detail Card</h2>
+        <h5>Component Name:</h5>
+        <code class="language-css" pCode>al-evidence-detail-card</code>
+        <h3>Default View:</h3>
+        <al-evidence-detail-card [evidence]="evidenceMock"></al-evidence-detail-card>
+
+    </p-tabPanel>
+    <p-tabPanel header="Usage Guide">
+        <div class="card card-w-title">
+            <h1>Usage Guide</h1>
+            <div class="card-content">
+                <embedded-markdown resourceId="readme/al-asset-card/README"></embedded-markdown>
+                <embedded-markdown resourceId="readme/al-vulnerability-detail-card/README"></embedded-markdown>
+                <embedded-markdown resourceId="readme/al-evidence-detail-card/README"></embedded-markdown>
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>

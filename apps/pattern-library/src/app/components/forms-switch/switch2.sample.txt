@@ -1,0 +1,4 @@
+<div class="labeled-switch">
+    <p-inputSwitch [(ngModel)]="checked2"></p-inputSwitch>
+    <div class="label">Enabled</div>
+</div>

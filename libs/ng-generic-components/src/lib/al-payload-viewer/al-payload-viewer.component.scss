@@ -1,0 +1,75 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.payload-viewer {
+
+    .payloads{
+        display:flex;
+        flex-direction: row; 
+    }
+
+    .payload-buttons {
+
+        .decoder-options {
+            text-align: end;
+        }
+    }
+
+    .payload-format-btn {
+        background-color: rgba(0, 0, 0, 0.12) !important;
+        color: rgba(0, 0, 0, 0.38) !important;
+    }
+    .payload-format-btn-pointer {
+        cursor: not-allowed;
+    }
+
+    .payload{
+        margin-left: unset;
+        margin-bottom: 10px;
+        flex-grow: 1;
+        word-break: break-all;
+        white-space: pre-line;
+        &.hex{
+            word-break: keep-all;
+
+            &.payload-50{
+                min-width: 450px;
+                max-width: 450px;
+            }
+
+            .hex-line{
+                padding-right: 10px;
+            }
+
+            .hex-line,.hex-content {
+                height: fit-content;
+            }
+        }
+
+        &.ascii{
+            .ascii-content {
+                height: fit-content;
+            }
+
+            &.payload-50{
+                margin-left: 10px;
+                max-width: 100%;
+            }
+        }
+
+        padding:5px;
+        border:1px solid al-color($al-gray, 50);
+        border-radius: 2px;
+        max-height: 188px;
+        overflow-y:auto;
+        margin-top:6px;
+        font-family: Courier, monospace;
+        display: inherit;
+    }
+    .payload-100 {
+        max-width: 100%;
+    }
+    .payload-50 {
+        max-width: 50%;
+    }
+
+}

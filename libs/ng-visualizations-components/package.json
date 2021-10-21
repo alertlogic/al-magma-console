@@ -1,0 +1,53 @@
+{
+  "name": "@al/ng-visualizations-components",
+  "version": "12.0.0-beta.1",
+  "license": "MIT",
+  "description": "Alert Logic Component Library for Angular projects",
+  "author": {
+    "name": "Alert Logic UI Team",
+    "email": "ui@alertlogic.com"
+  },
+  "keywords": [
+    "Alert Logic",
+    "Component Library"
+  ],
+  "maintainers": [
+    {
+      "name": "Alert Logic UI Team",
+      "email": "ui@alertlogic.com"
+    },
+    {
+      "name": "Alert Logic NPM Team",
+      "email": "npm@alertlogic.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alertlogic/al-magma-console"
+  },
+  "peerDependencies": {
+    "@angular/common": "^12.2.0",
+    "@angular/core": "^12.2.0",
+    "primeflex": "^1.0.0",
+    "primeicons": "^4.1.0",
+    "primeng": "^12.1.1",
+    "@highcharts/map-collection": "^1.1.2",
+    "angular-highcharts": "^11.4.0",
+    "highcharts": "^8.1.2",
+    "d3": "^4.10.2"
+  },
+  "dependencies": {
+    "@al/ng-generic-components": "^12.0.0-beta.1",
+    "proj4": "^2.5.0",
+    "@highcharts/map-collection": "^1.1.2",
+    "angular-highcharts": "^11.4.0",
+    "highcharts": "^8.1.2",
+    "d3": "^4.10.2",
+    "@ng-select/ng-select": "^6.1.0",
+    "tslib": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/proj4": "^2.5.0",
+    "@types/d3": "^5.7.0"
+  }
+}

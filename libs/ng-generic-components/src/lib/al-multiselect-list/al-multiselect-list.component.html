@@ -1,0 +1,69 @@
+<!-- chore(kjn): fix types in this component -->
+<!--
+<p-multiSelect [defaultLabel]="placeholder"
+               [options]="options"
+               [disabled]="isDisabled"
+               [virtualScroll]="true"
+               [readonly]="readonly"
+               [filter]="filter"
+               filterBy="value.details,title,value.title,value.subtitle"
+               [(ngModel)]="value"
+               (onChange)="selectOption($event)"
+               (onFocus)="onTouchFn()"
+               (onBlur)="onTouchFn()"
+               appendTo="body">
+    <ng-template let-value
+                 pTemplate="selectedItems">
+        <span class="ui-multiselected-empty-token ui-corner-all">{{placeholder}}</span>
+    </ng-template>
+    <ng-template let-item
+                 pTemplate="item">
+        <div class="option-container"
+             *ngIf="!item.subtitle">
+            <div class="option-inner-container">
+                <div class="option-label">
+                    <i *ngIf="item.isMaterialIcon" class="material-icons font-size-material-icons">{{item.icon}}</i>
+                    <i *ngIf="!item.isMaterialIcon" [ngClass]="item.icon"></i>
+                    {{item.title}}
+                </div>
+            </div>
+        </div>
+        <div class="option-container-details"
+             *ngIf="item.subtitle && !inline">
+            <div class="option-inner-container">
+                <div class="option-label">
+                    <i *ngIf="item.isMaterialIcon" class="material-icons font-size-material-icons">{{item.icon}}</i>
+                    <i *ngIf="!item.isMaterialIcon" [ngClass]="item.icon"></i>
+                    {{item.title}}
+                </div>
+                <div class="option-details"><strong>{{item.subtitle}}</strong> </div>
+            </div>
+        </div>
+        <div class="option-container-details"
+             *ngIf="item.subtitle && inline">
+            <div class="option-inner-container-inline">
+                <div class="option-label">
+                    <i *ngIf="item.isMaterialIcon" class="material-icons font-size-material-icons">{{item.icon}}</i>
+                    <i *ngIf="!item.isMaterialIcon" [ngClass]="item.icon"></i>
+                    <b>{{item.title}}</b>
+                </div>
+                <div class="option-details">{{item.subtitle}}</div>
+            </div>
+        </div>
+    </ng-template>
+</p-multiSelect>
+<al-selectable-list
+    *ngIf="selectableListMode === 'list'"
+    [options]="value"
+    [readonly]="readonly"
+    (onSelectionChanged)="changeValue($event)">
+</al-selectable-list>
+<al-selectable-chips
+    *ngIf="selectableListMode === 'chips'"
+    [options]="value"
+    [readonly]="readonly"
+    (onSelectionChanged)="onChangeFn($event)"
+    >
+</al-selectable-chips>
+-->
+TODO: fix this component

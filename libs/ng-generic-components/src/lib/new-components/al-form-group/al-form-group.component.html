@@ -1,0 +1,12 @@
+<div class="ald-form-group" [ngClass]="{'ald-form-group--spaced': verticalSpace}">
+
+	<div class="ald-form-group__header" [class.ald-form-group__header--multicol]="tip || required">
+		<al2-label *ngIf="label" [label]="label" [for]="id"></al2-label>
+		<al2-tip *ngIf="tip" [tip]="tip"></al2-tip>
+        <span *ngIf="required" class="ald-form-mark">(Required)</span>
+	</div>
+
+	<al2-hint *ngIf="hint" [hint]="hint"></al2-hint>
+
+    <ng-content></ng-content>
+</div>

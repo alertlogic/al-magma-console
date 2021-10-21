@@ -1,0 +1,28 @@
+<p-tabView class="user-guide">
+    <p-tabPanel header="Style Guide">
+        <div class="card card-w-title">
+            <h1>Al Notification Panel</h1>
+            <div class="card-content">
+                <h5>Component Name:</h5>
+                <code class="language-css" pCode>al-notification-panel</code>
+                <div class="grid pad-top">
+                    <div class="col">
+                        <button (click)="triggerNotification()" pButton type="button"
+                            label="Click to get notification"></button>
+                        <al-notification-panel #notificationPanel [alertSource]="notifications"
+                            (onButtonClicked)="notificationButtonClick()" [displayMaximum]="5">
+                        </al-notification-panel>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Usage Guide">
+        <div class="card card-w-title">
+            <h1>Usage Guide</h1>
+            <div class="card-content">
+                <embedded-markdown resourceId="readme/al-view-helper/README"></embedded-markdown>
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>

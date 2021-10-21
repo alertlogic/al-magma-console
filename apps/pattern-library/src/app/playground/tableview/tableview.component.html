@@ -1,0 +1,19 @@
+<h1>Incidents (TableView)</h1>
+<p-table [columns]="cols" [value]="data" [autoLayout]="true">
+    <ng-template pTemplate="header">
+        <tr>
+        	<th>Threat</th>
+            <th *ngFor="let col of cols">
+                {{col.header}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-data let-columns="columns">
+        <tr>
+        	<td>{{data.threatRating.rating}}</td>
+            <td *ngFor="let col of columns">
+				{{data[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
