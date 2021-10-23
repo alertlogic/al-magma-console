@@ -70,7 +70,7 @@
   "dependencies": {
     "@al/aecoral": "^2.0.8",
     "@al/assets-query": "^2.1.48",
-    "@al/core": "^1.0.156",
+    "@al/core": "^1.0.158",
     "@al/dashboards": "^2.0.9",
     "@al/deployments": "^2.0.10",
     "@al/endpoints": "^2.0.7",
