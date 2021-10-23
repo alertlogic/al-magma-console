@@ -1,0 +1,30 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.datacenter-network-form {
+    .add-cidr {
+        position: absolute;
+        right: 0;
+        top: 0;
+        cursor: pointer;
+    }
+    .range {
+        background-color: al-color($al-gray, 600);
+        padding: 5px 5px 5px 10px;
+        border-radius: 2px;
+        margin-bottom: 5px;
+        i {
+            cursor: pointer;
+            color: #fff !important;
+        }
+        .cidr {
+            color: #fff;
+        }
+    }
+    .mat-form-field {
+        flex: 1;
+    }
+    h5.span-port-checkbox{
+        white-space: initial;
+        font-size: small;
+    }
+}

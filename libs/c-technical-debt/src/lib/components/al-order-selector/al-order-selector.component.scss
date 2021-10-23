@@ -1,0 +1,79 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.al-selector {
+    width: 100%;
+
+    &.border-bottom {
+        border-bottom: 1px solid al-color($al-gray, 50);
+    }
+
+    .al-selector-left {
+
+        .selector {
+            width: 250px;
+            padding-right: 10px;
+            border-bottom: 1px solid al-color($al-gray, 200);
+        }
+        .sorting {
+            transition: transform 0.3s;
+            color: al-color($al-gray, 600);
+            font-size: 20px;
+            cursor: pointer;
+            &.ascending {
+                transform: rotate(180deg);
+            }
+        }
+        mat-checkbox.check-box {
+            transform: scale(0.8);
+            padding-right: 50px;
+        }
+
+    }
+
+    .al-selector-right{
+
+        .al-selector-search-bar  {
+            position: relative;
+            width: 100%;
+            margin-bottom: -7px;
+      
+            mat-form-field {
+              width: 100%;
+              font-size: 14px;
+            }
+      
+            i {
+              position: absolute;
+              right: 0px;
+              top: 10px;
+              font-size: 24px;
+              color: al-color($al-gray, 500);
+            }
+          }
+
+        .adv-search-btn-close {
+            cursor: pointer;
+            color: al-color($al-gray, 500);
+            font-size: 12px;
+
+            i{
+                font-size: 14px;
+                vertical-align: sub;
+            }
+        }
+
+        .adv-search-btn-open {
+            position: absolute;
+            right: 5px;
+            bottom: -15px;
+            cursor: pointer;
+            color: al-color($al-gray, 500);
+            font-size: 12px; 
+        }
+
+    }
+
+}
+.al-selector-height{
+    height: 50px;
+}

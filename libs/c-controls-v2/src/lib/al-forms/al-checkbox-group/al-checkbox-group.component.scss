@@ -1,0 +1,13 @@
+@import "../al-forms.component.scss";
+
+.ald-checkbox-group__row {
+	@extend %checkboxradio-group-row;
+}
+
+.ald-checkbox-group__row:first-child {
+	@extend %checkboxradio-group-row-first;
+}
+
+.ald-checkbox-group__row:last-child{
+	@extend %checkboxradio-group-row-last;
+}

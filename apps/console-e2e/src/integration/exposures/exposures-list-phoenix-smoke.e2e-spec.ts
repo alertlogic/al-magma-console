@@ -13,7 +13,7 @@ describe( 'Test Suite for Exposures List in Exposure app', () => {
         });
         it('should be able to expand card items if results are returned', () => {
             cy.get(selectors.cardstackItems).its('length').should('be.greaterThan', 0);
-            cy.get(selectors.cardstackItemExpand).first().click();
+            cy.get(selectors.cardstackItemExpand).first().click({force: true});
             cy.get(selectors.cardstackItemExpanded).its('length').should('eq', 1);
         });
         describe('and viewing the exposures details', () => {
@@ -21,7 +21,7 @@ describe( 'Test Suite for Exposures List in Exposure app', () => {
                 let exposureName: string;
                 cy.get(selectors.cardstackItemTitle).first().invoke('text').then((text) => {
                     exposureName = text.trim();
-                    cy.get(selectors.cardstackItemOpen).first().click();
+                    cy.get(selectors.cardstackItemOpen).first().click({force: true});
                     cy.scrollTo(0,0);
                     cy.get(selectors.detailViewHeader).should('include.text', exposureName);
                 });

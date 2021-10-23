@@ -32,21 +32,21 @@
                 type="button" pButton
                 label="{{config.secondary.text}}"
                 icon=""
-                class="accent ui-button-raised ui-button-rounded"
+                class="ghost light"
                 [disabled]="config.secondary.disabled"></button>
         <button *ngIf="config.ternary"
                 (click)="tertiaryAction()"
                 type="button" pButton
                 label="{{config.ternary.text}}"
                 icon=""
-                class="ui-button-raised ui-button-rounded"
+                class="outlined light"
                 [disabled]="config.ternary.disabled"></button>
         <button *ngIf="config.primary"
                 (click)="save()"
                 type="button" pButton
                 label="{{config.primary.text}}"
                 icon=""
-                class="primaryAction ui-button-raised ui-button-rounded"
+                class="light"
                 [disabled]="config.primary.disabled"></button>
     </div>
     <div class="content">

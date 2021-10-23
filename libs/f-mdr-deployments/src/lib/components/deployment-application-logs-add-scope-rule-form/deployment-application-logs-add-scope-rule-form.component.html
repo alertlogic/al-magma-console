@@ -1,0 +1,22 @@
+<al-bottom-sheet #alBottomSheet [headerOptions]="headerOptions" (onPrimaryAction)="save()"
+    (onSecondaryAction)="cancel()">
+    <!-- Content project -->
+    <div class="application-logs-add-rule-form">
+        <al-view-helper #alViewHelper [notifyPanel]="true"></al-view-helper>
+        <div class="p-grid">
+            <div class="p-col">
+                <h3 class="title" i18n>Add or Remove Assets</h3>
+                <p i18n> Add assets to collect logs from, or clear assets you no longer want to collect logs from: </p>
+                <div class="form-content">
+                    <al-multiselect-list #multiSelectList
+                        [options]="multiSelectWithListItems"
+                        [readonly]="false"
+                        [selectableListMode]="'chips'"
+                        placeholder="Search assets"
+                        [(ngModel)]=" currentlySelectedOptions">
+                    </al-multiselect-list>
+                </div>
+            </div>
+        </div>
+    </div>
+</al-bottom-sheet>

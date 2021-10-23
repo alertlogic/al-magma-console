@@ -1,0 +1,29 @@
+<ald-dropdown #multiSelectDropdown
+    [type]="type"
+    [size]="size" 
+    [label]="label"
+    [icon]="icon"
+    [iconPos]="iconPos"
+    [iconClass]="iconClass"
+    [disabled]="disabled"
+    [selected]="selected"
+    width="sm" >
+
+    <div class="ald-multiselect__header">
+        <ald-input class="ald-multiselect__search" type="search" [verticalSpace]="false"></ald-input>
+    </div>
+
+    <div class="ald-multiselect__content" style="max-height: 200px;">
+        <ald-checkbox-group [options]="options" [verticalSpace]="false"></ald-checkbox-group> 
+    </div>
+        
+    
+    <div class="ald-multiselect__footer u-px-3 u-pb-2">
+        <ald-button-group>
+            <ald-stack distribution="between" class="u-w-100%">
+                <ald-button type="default-ghost" [label]="secondaryButtonLabel" (click)="secondaryButtonAction()"></ald-button>
+                <ald-button type="primary" [label]="primaryButtonLabel" (click)="primaryButtonAction()"></ald-button>
+            </ald-stack>
+        </ald-button-group>
+    </div>
+</ald-dropdown>

@@ -1,0 +1,87 @@
+@import "../al-forms.component.scss";
+
+.ald-input {
+	position: relative;
+}
+
+.ald-input__element {
+	@extend %textual-controls;
+	height: var(--ald-g-space-9);
+	appearance: none;
+}
+
+// Placeholder
+
+input::-webkit-input-placeholder {
+	color: var(--form-input-placeholder-color)!important;
+	opacity:1;
+}
+
+input::-ms-input-placeholder {
+	color: var(--form-input-placeholder-color)!important;
+
+}
+input::placeholder {
+	color: var(--form-input-placeholder-color)!important;
+	opacity:1;
+}
+
+// Search
+
+.ald-input__element[type="search"] {
+	padding-left: var(--ald-g-space-8);
+}
+
+.ald-input__icon--md + .ald-input__element {
+	padding-left: var(--ald-g-space-9);
+}
+
+.ald-input__element[type="search"]::-webkit-search-decoration,
+.ald-input__element[type="search"]::-webkit-search-cancel-button,
+.ald-input__element[type="search"]::-webkit-search-results-button,
+.ald-input__element[type="search"]::-webkit-search-results-decoration {
+	-webkit-appearance:none;
+}
+
+.ald-input__icon {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: var(--ald-g-space-5);
+	height: var(--ald-g-space-9);
+	display: flex;
+	align-items: center;
+	margin-left: var(--ald-g-space-2);
+	pointer-events: none;
+	color: var(--form-element-icon-color);
+}
+
+// Autocomplete
+
+.ald-input__element:-webkit-autofill,
+.ald-input__element:-webkit-autofill:hover,
+.ald-input__element:-webkit-autofill:active {
+	box-shadow: inset 0px 0px 0px 1px var(--form-element-border-color)
+}
+
+.ald-input__element:-webkit-autofill:focus {
+	box-shadow: inset 0px 0px 0px 2px var(--form-element-active-color);
+}
+
+// Focus
+
+.ald-input__element:focus {
+	@extend %textual-controls-focus;
+}
+
+// Disabled
+
+.ald-input__element--disabled {
+	@extend %textual-controls-disabled;
+}
+
+// Error
+
+.ald-input__element--error {
+	@extend %textual-controls-error;
+}

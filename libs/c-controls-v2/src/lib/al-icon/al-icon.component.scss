@@ -1,0 +1,49 @@
+.ald-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	flex-shrink: 0;
+}
+
+.ald-icon--sm {
+	width: var(--icon-size-sm);
+	height: var(--icon-size-sm);
+	i {
+		font-size: var(--icon-font-size-sm);
+	}
+}
+
+.ald-icon--md {
+	width: var(--icon-size-md);
+	height: var(--icon-size-md);
+	i {
+		font-size: var(--icon-font-size-md);
+	}
+}
+
+.ald-icon--lg {
+	width: var(--icon-size-lg);
+	height: var(--icon-size-lg);
+	i {
+		font-size: var(--icon-font-size-lg);
+	}
+}
+
+.ald-icon--xl {
+	width: var(--icon-size-xl);
+	height: var(--icon-size-xl);
+	i {
+		font-size: var(--icon-font-size-xl);
+	}
+}
+
+
+
+// Chips
+
+:host-context(.ald-badge--rounded) {
+	.ald-icon i {
+		font-size:15px;
+	}
+}

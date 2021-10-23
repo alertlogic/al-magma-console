@@ -1,0 +1,305 @@
+/* ------------------------ BUTTON -----------------------  */
+
+.ald-btn {
+	cursor: pointer;
+	font-weight: 600;
+	border-radius: var(--ald-g-radius-md);
+	border:0;
+	transition: box-shadow 120ms linear, background-color 120ms linear;
+}
+
+.ald-btn:focus,
+.ald-btn:active {
+	outline: none;
+}
+
+/* ------------------- BUTTON WITH ICON ------------------  */
+
+.ald-btn--with-icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: var(--ald-g-space-1);
+}
+
+.ald-btn--with-icon-right {
+	flex-direction: row-reverse;
+}
+
+/* --------------------- BUTTON ICON ---------------------  */
+
+.ald-btn-icon {
+	cursor: pointer;
+	border-radius: var(--ald-g-radius-md);
+	border:0;
+	padding: 0;
+}
+
+.ald-btn-icon:focus {
+	outline: none;
+}
+
+.ald-btn-icon__wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* ------------------------- Size ------------------------- */
+
+/* XS */
+.ald-btn.ald-btn--xs {
+	font-size: var(--ald-g-text-xs);
+	line-height: var(--ald-g-leading-xs);
+	height: var(--ald-g-space-6);
+	padding: 0 var(--ald-g-space-2);
+}
+
+.ald-btn-icon.ald-btn--xs {
+	width: var(--ald-g-space-6);
+	height: var(--ald-g-space-6);
+}
+
+.ald-btn.ald-btn--xs {
+	&.ald-btn--with-icon-left .ald-btn__text {
+		padding-right: var(--ald-g-space-1);
+	}
+	&.ald-btn--with-icon-right .ald-btn__text {
+		padding-left: var(--ald-g-space-1);
+	}
+}
+
+
+/* SM */
+.ald-btn.ald-btn--sm {
+	font-size: var(--ald-g-text-xs);
+	line-height: var(--ald-g-leading-xs);
+	height: var(--ald-g-space-7);
+	padding: 0 var(--ald-g-space-3);
+}
+
+.ald-btn-icon.ald-btn--sm {
+	width: var(--ald-g-space-7);
+	height: var(--ald-g-space-7);
+}
+
+.ald-btn.ald-btn--sm {
+	&.ald-btn--with-icon-left .ald-btn__text {
+		padding-right: var(--ald-g-space-2);
+	}
+	&.ald-btn--with-icon-right .ald-btn__text {
+		padding-left: var(--ald-g-space-2);
+	}
+}
+
+/* MD */
+
+.ald-btn {
+	font-size: var(--ald-g-text-sm);
+	line-height: var(--ald-g-leading-sm);
+	height: var(--ald-g-space-9);
+	padding: 0 var(--ald-g-space-4);
+}
+
+.ald-btn-icon {
+	width: var(--ald-g-space-9);
+	height: var(--ald-g-space-9);
+}
+
+
+/* LG */
+.ald-btn.ald-btn--lg {
+	font-size: var(--ald-g-text-base);
+	line-height: var(--ald-g-leading-base);
+	height: var(--ald-g-space-11);
+	padding: 0 var(--ald-g-space-5);
+}
+
+.ald-btn-icon.ald-btn--lg {
+	width: var(--ald-g-space-11);
+	height: var(--ald-g-space-11);
+}
+
+.ald-btn.ald-btn--lg {
+	&.ald-btn--with-icon-left .ald-btn__text {
+		padding-right: var(--ald-g-space-3);
+	}
+	&.ald-btn--with-icon-right .ald-btn__text {
+		padding-left: var(--ald-g-space-3);
+	}
+}
+
+/* ----------------------- Themes ----------------------- */
+
+/* DEFAULT */
+
+/* filled */
+
+.ald-btn--default {
+	color: var(--ald-c-btn-default-text);
+	background-color: var(--ald-c-btn-default-bg);
+}
+
+.ald-btn--default:active {
+	background-color: var(--ald-c-btn-default-bg-active);
+}
+
+/* outline */
+
+.ald-btn--default-outline {
+	color: var(--ald-c-btn-default-outline-text);
+	background-color: transparent;
+	box-shadow: inset 0 0 0 1px var(--ald-c-btn-default-outline-border);
+}
+
+.ald-btn--default-outline:active {
+	box-shadow: inset 0 0 0 2px var(--ald-c-btn-default-outline-border-active);
+}
+
+/* ghost */
+
+.ald-btn--default-ghost {
+	color: var(--ald-c-btn-default-ghost-text);
+	background-color: transparent;
+}
+
+/* PRIMARY */
+
+/* filled */
+
+.ald-btn--primary {
+	color: var(--ald-c-btn-primary-text);
+	background-color: var(--ald-c-btn-primary-bg);
+}
+
+.ald-btn--primary:active{
+	background-color: var(--ald-c-btn-primary-bg-active);
+}
+
+/* outline */
+
+.ald-btn--primary-outline {
+	color: var(--ald-c-btn-primary-outline-text);
+	background-color: transparent;
+	box-shadow: inset 0 0 0 1px var(--ald-c-btn-primary-outline-border);
+}
+
+.ald-btn--primary-outline:active {
+	box-shadow: inset 0 0 0 2px var(--ald-c-btn-primary-outline-border-active);
+}
+
+/* ghost */
+
+.ald-btn--primary-ghost {
+	color: var(--ald-c-btn-primary-ghost-text);
+	background-color: transparent;
+}
+
+/* LIGHT */
+
+/* filled */
+
+.ald-btn--light {
+	color: var(--ald-c-btn-light-text);
+	background-color: var(--ald-c-btn-light-bg);
+}
+
+.ald-btn--light:active {
+	background-color: var(--ald-c-btn-light-bg-active);
+}
+
+/* outline */
+
+.ald-btn--light-outline {
+	color: var(--ald-c-btn-light-outline-text);
+	background-color: transparent;
+	box-shadow:inset 0 0 0 1px var(--ald-c-btn-light-outline-border);
+}
+
+.ald-btn--light-outline:active {
+	box-shadow: inset 0 0 0 2px var(--ald-c-btn-light-outline-border);
+}
+
+/* ghost */
+
+.ald-btn--light-ghost {
+	color: var(--ald-c-btn-light-ghost-text);
+	background-color: transparent;
+}
+
+/* DANGER */
+
+.ald-btn--danger {
+	color: var(--ald-c-btn-danger-text);
+	background-color: var(--ald-c-btn-danger-bg);
+}
+
+.ald-btn--danger:active {
+	background-color: var(--ald-c-btn-danger-bg-active);
+}
+
+/* SUCCESS */
+
+.ald-btn--success {
+	color: var(--ald-c-btn-success-text);
+	background-color: var(--ald-c-btn-success-bg);
+}
+
+.ald-btn--success:active {
+	background-color: var(--ald-c-btn-success-bg-active);
+}
+
+/* DISABLED */
+
+.ald-btn--disabled {
+	cursor: not-allowed;
+	background-color: var(--ald-c-btn-disabled-bg);
+	color: var(--ald-c-btn-disabled-text);
+}
+
+.ald-btn--disabled:hover,
+.ald-btn--disabled:active {
+	background-color: var(--ald-c-btn-disabled-bg);
+}
+
+/* SELECTED */
+
+.ald-btn--selected {
+	color: var(--ald-c-btn-selected-text);
+	background-color: var(--ald-c-btn-selected-bg);
+}
+
+
+/* Focused states - Common */
+
+[class*="ald-btn--default"]:focus-visible,
+[class*="ald-btn--primary"]:focus-visible,
+[class*="ald-btn--danger"]:focus-visible,
+[class*="ald-btn--success"]:focus-visible,
+[class*="ald-btn--light"]:focus-visible {
+	outline: 2px solid var(--ald-c-btn-focus-indicator);
+	outline-offset: 3px;
+}
+
+
+/* Translate animation */
+
+.ald-btn:active,
+.ald-btn-icon:active {
+	transform: translateY(1px);
+}
+
+// Full-width
+
+.ald-btn--full-width {
+	width: 100%;
+}
+
+// Chips
+
+:host-context(.ald-badge--rounded) {
+	.ald-btn-icon {
+		margin-left: var(--ald-g-space-1);
+		border-radius: var(--ald-g-radius-full);
+	}
+}

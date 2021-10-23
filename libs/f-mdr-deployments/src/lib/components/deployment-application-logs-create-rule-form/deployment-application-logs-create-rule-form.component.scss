@@ -1,0 +1,42 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.flat-file-form {
+    padding: 15px 40px;
+    .app-name {
+        padding-top: 25px;
+    }
+
+    .material-icons {
+        font-size: 1.5em;
+        height: 1em;
+        width: 1em;
+    }
+    i.tooltip-icon {
+        color: al-color($al-gray, 200);
+    }
+
+    .example-box {
+        padding-left: 12px;
+        padding-top: 15px;
+        .valid {
+            color: #81c783;
+        }
+        .invalid {
+            color: #ef534f;
+        }
+    }
+
+    .checkbox-parent{
+        display: block !important;
+    }
+    .subtitle-label {
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 11px;
+    }
+    .dropdwon-applications {
+        flex: auto;
+        min-height: 50px;
+        padding-top: 15px;
+    }
+}
+

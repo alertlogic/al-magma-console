@@ -1,0 +1,28 @@
+<div *ngIf="control && control.errors && (control.dirty || control.touched)"
+    class="ald-error-message">
+    <div class="ald-error-message__icon">
+        <i class="material-icons">error</i>
+    </div>
+    <div class="ald-error-message__text">
+        <ng-container *ngIf="control.errors.required">
+            <div *ngIf="!requiredError">{{label}} is required.</div>
+            <div *ngIf="requiredError">{{requiredError}}</div>
+        </ng-container>
+        <ng-container *ngIf="control.errors.pattern">
+            <div *ngIf="!patternError">{{label}} does not meet the defined pattern.</div>
+            <div *ngIf="patternError">{{patternError}}</div>
+        </ng-container>
+        <ng-container *ngIf="control.errors.minlength">
+            <div>{{label}} should contain minimum {{control.errors.minlength.requiredLength}} characters.</div>
+        </ng-container>
+        <ng-container *ngIf="control.errors.maxlength">
+            <div>{{label}} should contain maximum {{control.errors.maxlength.requiredLength}} characters.</div>
+        </ng-container>
+        <ng-container *ngIf="control.errors.max">
+            <div>{{label}} should be no more than {{control.errors.max.max}}.</div>
+        </ng-container>
+        <ng-container *ngIf="control.errors.min">
+            <div>{{label}} should be at least {{control.errors.min.min}}.</div>
+        </ng-container>
+    </div>
+</div>

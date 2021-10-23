@@ -1,0 +1,65 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.fim-list-cards {
+
+    .down-line {
+        border-bottom-color: al-color($al-gray, 50);
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+    }
+
+    .item-section {
+        padding-bottom: 6px;
+        padding-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .item-label {
+        flex-grow: 1;
+        -webkit-box-flex: 1;
+        padding-top: 24px;
+
+        .title-line {
+            font-size: 1em;
+            font-weight: normal;
+            color: al-color($al-gray, 200);
+            margin-bottom: 5px;
+        }
+        .title-text {
+            display: flex;
+        }
+
+        /* IE11 support */
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            .black {
+                display: table-cell !important;
+            }
+        }
+        /* EDGE support */
+        @supports (-ms-ime-align:auto) {
+            .black {
+                display: table-cell !important;
+            }
+        }
+    }
+
+    .assets-list {
+        padding-top: 20px;
+        overflow-y: auto;
+        height: 200px;
+        .scope {
+            list-style-type: none;
+            padding-left: 12px;
+            margin: 0;
+            margin-bottom: 6px;
+        }
+        i {
+            font-size: 40px;
+        }
+    }
+
+    al-icon-block {
+        height: auto;
+        font-size: 1.8em;
+    }
+}

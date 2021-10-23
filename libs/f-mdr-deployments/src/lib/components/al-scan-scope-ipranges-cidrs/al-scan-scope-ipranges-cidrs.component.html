@@ -1,0 +1,21 @@
+<div class="p-grid ipsranges-cidrs-section" [formGroup]="iprangesCidrsForm">
+    <p class="p-col-12 subtitle">Enter IP address, IP address ranges, or CIDRs.</p>
+    <div class="p-col-12 input">
+        <textarea pInputTextarea name="iprangesCidrsInput" formControlName="iprangesCidrsInput" placeholder="Example: 10.10.2.1, 10.11.4.0/24, 10.122.1.0 - 10.122.1.100">
+        </textarea>
+        <ul errors *ngIf="iprangesCidrsForm.get('iprangesCidrsInput')?.hasError('invalidEntries') && iprangesCidrsForm.get('iprangesCidrsInput').touched" class="error-message">
+            <li *ngFor="let errorMessage of iprangesCidrsForm.get('iprangesCidrsInput').getError('invalidEntries').errorMessages">
+                {{errorMessage}}
+            </li>
+        </ul>
+    </div>
+    <div class="p-col-12 button">
+        <button label="ADD TO SCAN SCOPE" pButton type="button" (click)="addToScope()"></button>
+    </div>
+    <div class="p-col-12 shared-component">
+        <al-selectable-list
+            [options]="selectedIprangesCidrsList"
+            (onSelectionChanged)="selectionChanged($event)">
+        </al-selectable-list>
+    </div>
+</div>

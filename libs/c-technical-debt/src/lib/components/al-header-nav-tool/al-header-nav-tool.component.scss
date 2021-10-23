@@ -1,0 +1,177 @@
+@import "@al/ng-generic-components/styles/utility";
+.al-list-header {
+    display: flex;
+    flex-direction: row;
+    .list-label {
+        flex-grow: 1;
+    }
+    .top-content {
+        display: flex;
+        flex-direction: row;
+        .nav-header{
+            border-bottom: 1px solid al-color($al-gray, 50);
+            margin-right: 30px;
+
+            h1 {
+                font-size: 1.714em;
+                font-weight: normal;
+                margin-bottom: 8px;
+                align-self: flex-start;
+                margin-top: auto;
+            }
+            .settings {
+                width: 90px;
+                justify-content: center;
+                display: flex;
+                border-left: 1px solid #ededed;
+                margin-top: auto;
+                mat-icon {
+                    color: al-color($al-gray, 500);
+                }
+            }
+
+            .search-bar {
+                position: relative;
+                margin-bottom: -16px;
+                margin-top: auto;
+                mat-form-field {
+                    width: 100%;
+                    font-size: 14px;
+                }
+                .mat-form-field-underline {
+                    margin-top: 14px !important;
+                }
+            }
+        }
+    }
+    .dropdown-plus {
+        margin: 0px;
+        position: relative;
+    }
+    .add-bottom-bar {
+        width: 72px;
+        display: flex;
+        justify-content: center;
+        height: 90px;
+        padding-top: 31px;
+
+        .dropdown-header-custom-plus {
+            background: al-color($al-amber, 500);
+            color: white;
+        }
+        .dropdown-menu-plus {
+            width: 220px;
+            z-index: 1000;
+            position: absolute;
+            top: 0px;
+            border: 1px solid #ccc;
+            .list-item-menu:hover {
+                background-color: al-color($al-gray, 50);
+                color: al-color($al-gray, 400);
+            }
+        }
+        ul {
+            padding: 0px;
+            margin: 0px;
+        }
+        li {
+            padding: 5px 10px;
+            cursor: pointer;
+            background: white;
+            list-style: none;
+            i {
+                font-size: medium;
+            }
+            .inline {
+                vertical-align: middle;
+            }
+        }
+        .badge-azure {
+            background: al-color($al-smokeBlue, 500);
+            color: mat-contrast($al-smokeBlue,500);
+        }
+        .badge-aws {
+            background: al-color($al-orange, 400);
+            color: mat-contrast($al-orange,400);
+        }
+        .badge-datacenter {
+            background: al-color($al-purple, 500);
+            color: mat-contrast($al-purple,500);
+        }
+        .badge-webhooks {
+            background: al-color($al-gray, 600);
+            color: mat-contrast($al-gray, 600);
+        }
+        .badge-gray-500 {
+            background: al-color($al-gray, 500);
+            color: mat-contrast($al-gray,500);
+        }
+        .circle {
+            display: flex;
+            justify-content: center;
+            height: 26px;
+            width: 26px;
+            align-items: center;
+            border-radius: 26px;
+        }
+        .inline {
+            display: inline-block;
+            padding-right: 10px;
+        }
+    }
+    .bottom-row {
+        min-height: 36px;
+        align-items: center;
+        margin-top: 5px;
+        mat-form-field {
+            &.bottom-dropdown {
+                margin: 0;
+            }
+        }
+        &.bottom-row-colored {
+            background-color: al-color($al-gray, 50);
+        }
+        .sortable-title {
+            font-size: 12px;
+            padding: 0 5px;
+            color: al-color($al-gray, 400);
+            & i.material-icons {
+                font-size: 12px;
+                transform: rotate(0);
+                transition: transform 0.3s;
+                display: none;
+                &.ascending {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+        .sortable-title.active {
+            color: al-color($al-gray, 800);
+            i.material-icons {
+                display: inline-block;
+            }
+        }
+        .columnTitle {
+            display: flex;
+            margin-right: 15px;
+            font-size: 12px;
+            color: al-color($al-gray, 400);
+            align-items: center;
+            width: 75px;
+        }
+        .archived-container {
+            margin-bottom: 25px;
+            .archived-bottom {
+                position: absolute;
+                right: 41px;
+            }
+        }
+        .filters {
+            max-width: 300px;
+            padding-left: 6px;
+        }
+    }
+    .without-icon {
+        padding-left: 72px;
+    }
+}

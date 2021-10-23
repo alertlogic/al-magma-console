@@ -10,14 +10,14 @@ export class IconMisc {
 }
 
 export class IconSeverity {
-    static readonly iconInfo: IconBase = new IconBase('', 'Info', 'fa fa-info-circle');
-    static readonly iconLow: IconBase = new IconBase('', 'Low', 'fa fa-circle-o');
-    static readonly iconMedium: IconBase = new IconBase('', 'Medium', 'fa fa-adjust');
-    static readonly iconHigh: IconBase = new IconBase('', 'High', 'fa fa-circle');
-    static readonly iconInfoColor: IconBase = new IconBase('', 'Info', 'fa fa-info-circle risk-low');
-    static readonly iconLowColor: IconBase = new IconBase('', 'Low', 'fa fa-circle-o risk-medium');
-    static readonly iconMediumColor: IconBase = new IconBase('', 'Medium', 'fa fa-adjust risk-high');
-    static readonly iconHighColor: IconBase = new IconBase('', 'High', 'fa fa-circle risk-critical');
+    static readonly iconInfo: IconBase = new IconBase('', 'Info', 'al al-risk-4');
+    static readonly iconLow: IconBase = new IconBase('', 'Low', 'al al-risk-1');
+    static readonly iconMedium: IconBase = new IconBase('', 'Medium', 'al al-risk-2');
+    static readonly iconHigh: IconBase = new IconBase('', 'High', 'al al-risk-1');
+    static readonly iconInfoColor: IconBase = new IconBase('', 'Info', 'al al-risk-1 risk low');
+    static readonly iconLowColor: IconBase = new IconBase('', 'Low', 'al al-risk-3 risk medium');
+    static readonly iconMediumColor: IconBase = new IconBase('', 'Medium', 'al al-risk-2 risk high');
+    static readonly iconHighColor: IconBase = new IconBase('', 'High', 'al al-risk-1 risk critical');
 
     public static getIconColorBySeverity(severity: string) {
         switch (severity) {

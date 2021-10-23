@@ -1,0 +1,84 @@
+<al-base-card class="system-log-card" [item]="card.data" [config]="card.config" (onFooterAction)="footerAction($event)"
+    (onExpand)="expand($event)">
+
+    <!-- ICON -->
+    <ng-template alBaseCardIcon>
+        <i class="al al-windows icon" *ngIf="card.data.properties.type==='eventlog'"></i>
+        <i class="al al-linux icon" *ngIf="card.data.properties.type==='syslog' && card.data.properties.applicationId !== 'remote-syslog'"></i>
+        <i class="material-icons" style="font-size: 28px;" *ngIf="card.data.properties.type==='syslog' && card.data.properties.applicationId === 'remote-syslog'">dns</i>
+    </ng-template>
+
+    <!-- TOGGLE -->
+    <ng-template alBaseCardHeaderRight let-item>
+        <div class="p-col-1" *ngIf="!item.properties.default">
+            <div class="al-cardstack-icon pointer divider">
+                <div class="labeled-switch">
+                    <p-inputSwitch class="toggle-style" [(ngModel)]="item.properties.collect"
+                (onChange)="collect({ status: $event.checked, value: item})"></p-inputSwitch>
+                    <div class="label">Collect</div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+    <!-- CONTENT -->
+    <ng-template alBaseCardBodyContent let-item>
+        <div class="p-grid p-nogutter" *ngIf="item.properties">
+            <div class="p-col-4">
+                <div class="label">Created by</div>
+                <div class="desc">{{ item.properties.general.created.user }}</div>
+            </div>
+            <div class="p-col-4">
+                <div class="label">Modified by</div>
+                <div class="desc">{{ item.properties.general.modified.user }}</div>
+            </div>
+            <div class="p-col-4"
+                *ngIf="item.properties.general && item.properties.general.config && item.properties.general.config.syslog && item.properties.general.config.syslog.agent_port">
+                <div class="label">Syslog Listen Port</div>
+                <div class="desc">{{ item.properties.general.config.syslog.agent_port }}</div>
+            </div>
+            <div class="p-col-4"
+                *ngIf="item.properties.general && item.properties.general.config && item.properties.general.config.eventlog">
+                <div class="label">Collect All Available Event log Streams</div>
+                <div class="desc">{{ item.properties.general.config.eventlog.collect_from_discovered_streams ? 'Yes' : 'No' }}</div>
+            </div>
+            <div class="p-col-4">
+                <div class="label">Created At</div>
+                <div class="desc">{{ item.properties.general.created.date * 1000 | date:'d MMMM y, h:mm:ss a z' }}</div>
+            </div>
+            <div class="p-col-4">
+                <div class="label">Modified At</div>
+                <div class="desc">{{ item.properties.general.modified.date * 1000 | date:'d MMMM y, h:mm:ss a z' }}</div>
+            </div>
+            <div class="p-col-4"
+                *ngIf="item.properties.general && item.properties.general.config && item.properties.general.config.syslog && item.properties.general.config.syslog.disk_limit">
+                <div class="label">Local Syslog Cache Disk Limit (MB)</div>
+                <div class="desc">{{ item.properties.general.config.syslog.disk_limit }}</div>
+            </div>
+            <div class="p-col-4"
+                *ngIf="item.properties.general && item.properties.general.config && item.properties.general.config.syslog">
+                <div class="label">Container Logs Enabled</div>
+                <div class="desc">{{ item.properties.general.config.syslog.container_logs_enabled }}</div>
+            </div>
+            <div class="p-col-4"
+                *ngIf="item.properties.general && item.properties.general.config && item.properties.general.config.eventlog && item.properties.general.config.eventlog.streams && !item.properties.general.config.eventlog.collect_from_discovered_streams">
+                <div class="label">Streams</div>
+                <div class="streams">
+                    <div class="list" *ngFor="let stream of item.properties.general.config.eventlog.streams">
+                        {{ stream }}</div>
+                </div>
+            </div>
+
+            <div class="p-col-12" *ngIf="item.properties.scope && item.properties.scope.length > 0">
+                <h2 i18n>Assets in Scope</h2>
+            </div>
+            <div class="p-col-12">
+                <div class="assets-subtitle" i18n>Assets to collect from:</div>
+            </div>
+            <div class="p-col-12" *ngFor="let item of item.properties.scope">
+                <div class="assets"><span class="bold-text">{{ item.type ==='tag' ? item.name : item.key }}</span>
+                    {{ item.type }}</div>
+            </div>
+        </div>
+    </ng-template>
+</al-base-card>

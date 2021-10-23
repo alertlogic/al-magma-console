@@ -1,0 +1,508 @@
+<div class="al-scan-window p-col">
+    <div [formGroup]="parentForm" class="timezone-container"
+        [ngClass]="{ 'default-bottom-margin':
+                    parentAutomaticForm.controls.length === 0 ||
+                    parentWeeklyForm.controls.length === 0 ||
+                    parentMonthlyForm.controls.length === 0 }">
+        <div class="info-label">Time Zone</div>
+        <p-autoComplete [suggestions]="filteredTimeZoneOptions"
+                        [dropdown]="true"
+                        field="label"
+                        size="40"
+                        formControlName="selectedTimezone"
+                        (onSelect)="onSelectTimezone($event)"
+                        (completeMethod)="searchTimezone($event)">
+        </p-autoComplete>
+    </div>
+    <ng-container [ngSwitch]="frequency">
+        <div *ngSwitchCase="'automatic'">
+            <div *ngFor="let automaticForm of parentAutomaticForm.controls; let i=index">
+                <div [formGroup]="automaticForm"
+                    [ngClass]="{'border-bottom': parentAutomaticForm.controls.length > 1 && parentAutomaticForm.controls.length !== (i+1)}">
+                    <div class="window-number-label"
+                        [ngClass]="{'default-top-margin': parentAutomaticForm.controls.length > 1}">
+                        <div class="default-label"
+                            *ngIf="parentAutomaticForm.controls.length > 1">
+                            Scan Window {{ (i+1) < 9 ? '0'+(i+1) : (i+1) }}
+                        </div>
+                        <div class="delete-window-icon">
+                            <i class="material-icons"
+                                *ngIf="parentAutomaticForm.controls.length > 1"
+                                (click)="deleteWindow(i)">
+                                clear
+                            </i>
+                        </div>
+                    </div>
+                    <div class="default-label"
+                        [ngClass]="{'default-top-margin': parentAutomaticForm.controls.length === 1}">
+                        Start Day and Time
+                    </div>
+                    <div class="p-align-center scan-range-time">
+                        <p-dropdown
+                            class="dropdown-selector"
+                            formControlName="startDay"
+                            [options]="daysOfWeek">
+                        </p-dropdown>
+                        <div>
+                            <al-time-input
+                                class="input-time-selector"
+                                [parentForm]="automaticForm.get('startTime')">
+                            </al-time-input>
+                            <div class="time-format-label">
+                                {{ formatTimeLabel }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="default-label">End Day and Time</div>
+                    <div class="p-align-center scan-range-time">
+                        <p-dropdown
+                            class="dropdown-selector"
+                            formControlName="endDay"
+                            [options]="daysOfWeek">
+                        </p-dropdown>
+                        <div>
+                            <al-time-input
+                                class="input-time-selector"
+                                [parentForm]="automaticForm.get('endTime')">
+                            </al-time-input>
+                            <div class="time-format-label">
+                                {{ formatTimeLabel }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="error-input"
+                        [ngClass]="{'default-bottom-margin': parentAutomaticForm.controls.length === 1 || parentAutomaticForm.controls.length === (i+1)}"
+                        *ngIf="automaticForm.hasError('minScanWindowDuration')">
+                        {{ minimumDurationErrorLabel }}
+                    </div>
+                </div>
+            </div>
+            <div class="add-button">
+                <button icon="ui-icon-add" class="add-window" (click)="addScanWindow()"
+                    label="ADD ANOTHER SCAN WINDOW" pButton type="button">
+                </button>
+            </div>
+        </div>
+        <div [formGroup]="parentDailyForm" *ngSwitchCase="'daily'" class="min-daily-width">
+            <div class="default-label default-top-margin">Start Time</div>
+            <div class="default-top-margin once-a-day-time">
+                <al-time-input
+                    [parentForm]="parentDailyForm.get('startTime')">
+                </al-time-input>
+                <div class="time-format-label">
+                    {{ formatTimeLabel }}
+                </div>
+            </div>
+            <div class="info-label">Scan Duration</div>
+            <div class="scan-duration">
+                <input pInputText placeholder="HH"
+                    name="scanDuration"
+                    formControlName="scanDuration"
+                    maxlength="2"
+                    pattern="([8-9]|1[0-9]|2[0-4])" required/> hours
+            </div>
+            <div class="info-label"
+                [ngClass]="{'error-input':
+                           parentDailyForm.controls.scanDuration.hasError('required') ||
+                           parentDailyForm.controls.scanDuration.hasError('pattern') }">
+                Scan duration must be 8-24 hours.
+            </div>
+            <al-boxes-selector [data]="daysOfWeekOptions" formControlName="selectedDays"></al-boxes-selector>
+        </div>
+        <div *ngSwitchCase="'weekly'">
+            <div *ngFor="let weeklyForm of parentWeeklyForm.controls; let i=index">
+                <div [formGroup]="weeklyForm"
+                    [ngClass]="{'border-bottom': parentWeeklyForm.controls.length > 1 && parentWeeklyForm.controls.length !== (i+1)}">
+                    <div class="window-number-label"
+                        [ngClass]="{'default-top-margin': parentWeeklyForm.controls.length > 1}">
+                        <div class="default-label"
+                            *ngIf="parentWeeklyForm.controls.length > 1">
+                            Scan Window {{ (i+1) < 9 ? '0'+(i+1) : (i+1) }}
+                        </div>
+                        <div class="delete-window-icon">
+                            <i class="material-icons"
+                                *ngIf="parentWeeklyForm.controls.length > 1"
+                                (click)="deleteWindow(i)">
+                                clear
+                            </i>
+                        </div>
+                    </div>
+                    <div class="default-label"
+                        [ngClass]="{'default-top-margin': parentWeeklyForm.controls.length === 1}">
+                        Start Day and Time
+                    </div>
+                    <div class="p-align-center scan-range-time">
+                        <p-dropdown
+                            class="dropdown-selector"
+                            formControlName="startDay"
+                            [options]="daysOfWeek">
+                        </p-dropdown>
+                        <div>
+                            <al-time-input
+                                class="input-time-selector"
+                                [parentForm]="weeklyForm.get('startTime')">
+                            </al-time-input>
+                            <div class="time-format-label">
+                                {{ formatTimeLabel }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="default-label">End Day and Time</div>
+                    <div class="p-align-center scan-range-time">
+                        <p-dropdown
+                            class="dropdown-selector"
+                            formControlName="endDay"
+                            [options]="daysOfWeek">
+                        </p-dropdown>
+                        <div>
+                            <al-time-input
+                                class="input-time-selector"
+                                [parentForm]="weeklyForm.get('endTime')">
+                            </al-time-input>
+                            <div class="time-format-label">
+                                {{ formatTimeLabel }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="error-input"
+                        [ngClass]="{'default-bottom-margin': parentWeeklyForm.controls.length === 1 || parentWeeklyForm.controls.length === (i+1)}"
+                        *ngIf="weeklyForm.hasError('minScanWindowDuration')">
+                        {{ minimumDurationErrorLabel }}
+                    </div>
+                </div>
+            </div>
+            <div class="add-button">
+                <button icon="ui-icon-add" class="add-window" (click)="addScanWindow()"
+                    label="ADD ANOTHER SCAN WINDOW" pButton type="button">
+                </button>
+            </div>
+        </div>
+        <div *ngSwitchCase="'monthly'">
+            <div *ngIf="scanWindow === 'certain_hours'">
+                <div *ngFor="let monthlyForm of parentMonthlyForm.controls; let i=index">
+                    <div [formGroup]="monthlyForm"
+                        [ngClass]="{'border-bottom': parentMonthlyForm.controls.length > 1 && parentMonthlyForm.controls.length !== (i+1)}">
+                        <div class="window-number-label"
+                            [ngClass]="{'default-top-margin': parentMonthlyForm.controls.length > 1}">
+                            <div class="default-label"
+                                *ngIf="parentMonthlyForm.controls.length > 1">
+                                Scan Window {{ (i+1) < 9 ? '0'+(i+1) : (i+1) }}
+                            </div>
+                            <div class="delete-window-icon">
+                                <i class="material-icons"
+                                    *ngIf="parentMonthlyForm.controls.length > 1"
+                                    (click)="deleteWindow(i)">
+                                    clear
+                                </i>
+                            </div>
+                        </div>
+                        <div class="default-label"
+                            [ngClass]="{'default-top-margin': parentMonthlyForm.controls.length === 1}">
+                            Start Day and Time
+                        </div>
+                        <div class="p-align-center scan-range-time">
+                            <span class="from-day">Day</span>
+                            <p-dropdown class="dropdown-days"
+                                formControlName="startDay"
+                                [options]="daysOfMonth">
+                            </p-dropdown>
+                            <span class="of-the-month-label">of the month</span>
+                            <div class="time-input">
+                                <al-time-input class="month-input-time"
+                                    [parentForm]="monthlyForm.get('startTime')">
+                                </al-time-input>
+                                <div class="time-format-label">
+                                    {{ formatTimeLabel }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="default-label">End Day and Time</div>
+                        <div class="p-align-center scan-range-time">
+                            <span class="from-day">Day</span>
+                            <p-dropdown class="dropdown-days"
+                                formControlName="endDay"
+                                [options]="daysOfMonth">
+                            </p-dropdown>
+                            <span class="of-the-month-label">of the month</span>
+                            <div class="time-input">
+                                <al-time-input class="month-input-time"
+                                    [parentForm]="monthlyForm.get('endTime')">
+                                </al-time-input>
+                                <div class="time-format-label">
+                                    {{ formatTimeLabel }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-label error-input"
+                            *ngIf="monthlyForm.hasError('isGreaterEndDay')">
+                            End day must be equal or greater than start day
+                        </div>
+                        <div class="error-input"
+                            [ngClass]="{'default-bottom-margin': parentMonthlyForm.controls.length === 1 || parentMonthlyForm.controls.length === (i+1)}"
+                            *ngIf="monthlyForm.hasError('minScanWindowDuration')">
+                            {{ minimumDurationErrorLabel }}
+                        </div>
+                        <div class="info-label warning-label"
+                            *ngIf="checkLastDaysOfMonth(monthlyForm)">
+                            {{ fewerDaysLabel }}
+                        </div>
+                    </div>
+                </div>
+                <div class="add-button">
+                    <button icon="ui-icon-add" class="add-window" (click)="addScanWindow()"
+                        label="ADD ANOTHER SCAN WINDOW" pButton type="button">
+                    </button>
+                </div>
+            </div>
+            <div *ngIf="scanWindow === 'certain_days'">
+                <div *ngFor="let monthlyCertainDaysForm of parentMonthlyCertainDaysForm.controls; let i=index">
+                    <div [formGroup]="monthlyCertainDaysForm"
+                        [ngClass]="{'border-bottom': parentMonthlyCertainDaysForm.controls.length > 1 && parentMonthlyCertainDaysForm.controls.length !== (i+1)}">
+                        <div class="window-number-label"
+                            [ngClass]="{'default-top-margin': parentMonthlyCertainDaysForm.controls.length > 1}">
+                            <div class="default-label"
+                                *ngIf="parentMonthlyCertainDaysForm.controls.length > 1">
+                                Scan Window {{ (i+1) < 9 ? '0'+(i+1) : (i+1) }}
+                            </div>
+                            <div class="delete-window-icon">
+                                <i class="material-icons"
+                                    *ngIf="parentMonthlyCertainDaysForm.controls.length > 1"
+                                    (click)="deleteWindow(i)">
+                                    clear
+                                </i>
+                            </div>
+                        </div>
+                        <div class="default-label"
+                            [ngClass]="{'default-top-margin': parentMonthlyCertainDaysForm.controls.length === 1}">
+                            Start Day and Time
+                        </div>
+                        <div class="p-align-center scan-range-time">
+                            <p-dropdown
+                                class="dropdown-selector"
+                                formControlName="startDay"
+                                [options]="pluralizedDaysOfWeek">
+                            </p-dropdown>
+                            <div>
+                                <al-time-input
+                                    class="input-time-selector"
+                                    [parentForm]="monthlyCertainDaysForm.get('startTime')">
+                                </al-time-input>
+                                <div class="time-format-label">
+                                    {{ formatTimeLabel }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="default-label">End Day and Time</div>
+                        <div class="p-align-center scan-range-time">
+                            <p-dropdown
+                                class="dropdown-selector"
+                                formControlName="endDay"
+                                [options]="pluralizedDaysOfWeek">
+                            </p-dropdown>
+                            <div>
+                                <al-time-input
+                                    class="input-time-selector"
+                                    [parentForm]="monthlyCertainDaysForm.get('endTime')">
+                                </al-time-input>
+                                <div class="time-format-label">
+                                    {{ formatTimeLabel }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="error-input"
+                            [ngClass]="{'default-bottom-margin': parentMonthlyCertainDaysForm.controls.length === 1 || parentMonthlyCertainDaysForm.controls.length === (i+1)}"
+                            *ngIf="monthlyCertainDaysForm.hasError('minScanWindowDuration')">
+                            {{ minimumDurationErrorLabel }}
+                        </div>
+                    </div>
+                </div>
+                <div class="add-button">
+                    <button icon="ui-icon-add" class="add-window" (click)="addScanWindow()"
+                        label="ADD ANOTHER SCAN WINDOW" pButton type="button">
+                    </button>
+                </div>
+            </div>
+            <div *ngIf="scanWindow === 'certain_week'">
+                <div [formGroup]="parentWeekDayForm">
+                    <div class="nth-label default-top-margin">Each month on:</div>
+                    <div class="nth-week-container">
+                        <p-dropdown
+                            class="nth-options"
+                            formControlName="nthWeek"
+                            [options]="nthWeekOptions">
+                        </p-dropdown>
+                        <p-dropdown
+                            class="nth-weekdays"
+                            formControlName="dayOfWeek"
+                            [options]="daysOfWeek">
+                        </p-dropdown>
+                    </div>
+                    <div class="time-schedule">
+                        <div class="start-time">
+                            <div class="default-label default-top-margin-time">Start Time</div>
+                            <div class="default-top-margin-time once-a-day-time">
+                                <al-time-input [parentForm]="parentWeekDayForm.get('startTime')">
+                                </al-time-input>
+                                <div class="time-format-label">
+                                    {{ formatTimeLabel }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="end-time">
+                            <div class="default-label default-top-margin-time">End Time</div>
+                            <div class="default-top-margin-time once-a-day-time">
+                                <al-time-input [parentForm]="parentWeekDayForm.get('endTime')">
+                                </al-time-input>
+                                <div class="time-format-label">
+                                    {{ formatTimeLabel }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngSwitchCase="'quarterly'">
+            <div *ngIf="scanWindow === 'certain_hours'">
+                <div *ngFor="let quarterlyForm of parentQuarterlyForm.controls; let i=index">
+                    <div [formGroup]="quarterlyForm"
+                        [ngClass]="{'border-bottom': parentQuarterlyForm.controls.length > 1 && parentQuarterlyForm.controls.length !== (i+1)}">
+                        <div class="window-number-label"
+                            [ngClass]="{'default-top-margin': parentQuarterlyForm.controls.length > 1}">
+                            <div class="default-label"
+                                *ngIf="parentQuarterlyForm.controls.length > 1">
+                                Scan Window {{ (i+1) < 9 ? '0'+(i+1) : (i+1) }}
+                            </div>
+                            <div class="delete-window-icon">
+                                <i class="material-icons"
+                                    *ngIf="parentQuarterlyForm.controls.length > 1"
+                                    (click)="deleteWindow(i)">
+                                    clear
+                                </i>
+                            </div>
+                        </div>
+                        <div class="info-label default-top-margin">Month of Quarter</div>
+                        <p-dropdown
+                            formControlName="monthOfQuarter"
+                            [options]="quarterOptions">
+                        </p-dropdown>
+                        <div class="default-label"
+                            [ngClass]="{'default-top-margin': parentQuarterlyForm.controls.length === 1}">
+                            Start Day and Time
+                        </div>
+                        <div class="p-align-center scan-range-time">
+                            <span class="from-day">Day</span>
+                            <p-dropdown class="dropdown-days"
+                                formControlName="startDay"
+                                [options]="daysOfMonth">
+                            </p-dropdown>
+                            <span class="of-the-month-label">of the month</span>
+                            <div class="time-input">
+                                <al-time-input class="month-input-time"
+                                    [parentForm]="quarterlyForm.get('startTime')">
+                                </al-time-input>
+                                <div class="time-format-label">
+                                    {{ formatTimeLabel }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="default-label">End Day and Time</div>
+                        <div class="p-align-center scan-range-time">
+                            <span class="from-day">Day</span>
+                            <p-dropdown class="dropdown-days"
+                                formControlName="endDay"
+                                [options]="daysOfMonth">
+                            </p-dropdown>
+                            <span class="of-the-month-label">of the month</span>
+                            <div class="time-input">
+                                <al-time-input class="month-input-time"
+                                    [parentForm]="quarterlyForm.get('endTime')">
+                                </al-time-input>
+                                <div class="time-format-label">
+                                    {{ formatTimeLabel }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-label error-input"
+                            *ngIf="quarterlyForm.hasError('isGreaterEndDay')">
+                            End day must be equal or greater than start day
+                        </div>
+                        <div class="error-input"
+                            [ngClass]="{'default-bottom-margin': parentQuarterlyForm.controls.length === 1 || parentQuarterlyForm.controls.length === (i+1)}"
+                            *ngIf="quarterlyForm.hasError('minScanWindowDuration')">
+                            {{ minimumDurationErrorLabel }}
+                        </div>
+                        <div class="info-label warning-label"
+                            *ngIf="checkLastDaysOfMonth(quarterlyForm)">
+                            {{ fewerDaysLabel }}
+                        </div>
+                    </div>
+                </div>
+                <div class="add-button">
+                    <button icon="ui-icon-add" class="add-window" (click)="addScanWindow()"
+                        label="ADD ANOTHER SCAN WINDOW" pButton type="button">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div [formGroup]="parentOnceForm" *ngSwitchCase="'once'">
+            <div class="default-label default-top-margin">Start Day and Time</div>
+            <div class="p-align-center scan-range-time default-top-margin">
+                <p-calendar class="dropdown-calendar-selector"
+                    [minDate]="todayDate"
+                    dateFormat="dd MM yy"
+                    formControlName="startDate">
+                </p-calendar>
+                <div class="time-input">
+                    <al-time-input class="month-input-time"
+                        [parentForm]="parentOnceForm.get('startTime')">
+                    </al-time-input>
+                    <div class="time-format-label">
+                        {{ formatTimeLabel }}
+                    </div>
+                </div>
+            </div>
+            <div class="default-label default-top-margin">End Day and Time</div>
+            <div class="checkboxes-group-options">
+                <p-radioButton class="p-col"
+                    formControlName="hasSpecificEndDay"
+                    name="hasSpecificEndDay"
+                    [value]="false"
+                    label="No end date (scan until done)">
+                </p-radioButton>
+                <p-radioButton class="p-col"
+                    formControlName="hasSpecificEndDay"
+                    name="hasSpecificEndDay"
+                    [value]="true"
+                    label="Specify end date and time">
+                </p-radioButton>
+            </div>
+            <div class="p-align-center scan-range-time default-top-margin"
+                *ngIf="parentOnceForm.get('hasSpecificEndDay').value">
+                <p-calendar class="dropdown-calendar-selector"
+                    [minDate]="parentOnceForm.get('startDate').value"
+                    dateFormat="dd MM yy"
+                    formControlName="endDate">
+                </p-calendar>
+                <div class="time-input">
+                    <al-time-input class="month-input-time"
+                        [parentForm]="parentOnceForm.get('endTime')">
+                    </al-time-input>
+                    <div class="time-format-label">
+                        {{ formatTimeLabel }}
+                    </div>
+                </div>
+            </div>
+            <div class="info-label error-input"
+                *ngIf="parentOnceForm.hasError('isGreaterEndDate') && parentOnceForm.get('hasSpecificEndDay').value">
+                {{ parentOnceForm.get('endDate').setValue(parentOnceForm.get('startDate').value) }}
+            </div>
+            <div class="error-input" *ngIf="parentOnceForm.hasError('minScanOnceDuration')">
+                {{ minimumDurationErrorLabel }}
+            </div>
+            <div class="error-input" *ngIf="parentOnceForm.hasError('minStartDateScanOnce')">
+                Start day and time must be later than the current time. Change the time zone, start date, and/or start time to ensure the scan window is in the future.
+            </div>
+        </div>
+    </ng-container>
+</div>

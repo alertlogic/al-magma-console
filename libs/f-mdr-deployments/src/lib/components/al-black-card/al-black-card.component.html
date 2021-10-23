@@ -1,0 +1,9 @@
+<div class="black-card-class" (click)="emitClick()">
+    <div class="icon-class">
+        <span><i class="{{dataCard.iconClass}}">{{dataCard.iconMaterial}}</i></span>
+    </div>
+    <div>
+        <h3 class="card-title" [ngClass]="{ 'card-subtitle-exist' : dataCard.subtitle }">{{dataCard.title}}</h3>
+        <div class="card-subtitle" *ngIf="dataCard.subtitle">{{dataCard.subtitle}}</div>
+    </div>
+</div>

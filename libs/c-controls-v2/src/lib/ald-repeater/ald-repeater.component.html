@@ -1,0 +1,10 @@
+
+<div class="ald-repeater" >
+
+    <ng-content></ng-content>
+
+    <div class="ald-repeater__action">
+        <ald-button type="default" icon="add" [label]="addButtonLabel" fullwidth="true" (click)="didAddItem.emit()" ></ald-button>
+    </div>
+
+</div>

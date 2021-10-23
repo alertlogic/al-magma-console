@@ -1,0 +1,53 @@
+.ald-tabs__list {
+	display: flex;
+	align-items: center;
+	overflow-x:auto;
+}
+
+.ald-tabs__list {
+	-ms-overflow-style: none;  /* Internet Explorer 10+ */
+	scrollbar-width: none;  /* Firefox */
+}
+
+.ald-tabs__list--sticky {
+	position: sticky;
+	left: 0;
+	top: 0;
+	z-index: 1;
+	background-color: white;
+	box-shadow: inset 0 -1px 0 var(--ald-g-color-gray-300), inset 0 1px 0 var(--ald-g-color-gray-300);
+}
+
+.ald-tabs__list::-webkit-scrollbar {
+	display: none;  /* Safari and Chrome */
+}
+
+.ald-tabs__button {
+	font-size: var(--ald-g-text-sm);
+	line-height: var(--ald-g-leading-sm);
+	white-space: nowrap;
+	margin-left: var(--ald-g-space-5);
+	color: var(--tabs-button-color);
+	font-weight: 500;
+	padding: var(--ald-g-space-2) 0;
+	border:0;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.ald-tabs__button[aria-selected="true"]{
+	color: var(--tabs-button-active-color);
+	box-shadow: inset 0px -2px 0 var(--tabs-button-active-border-color);
+}
+
+.ald-tabs__button:first-child {
+	margin-left: 0px;
+}
+
+.ald-tabs__button:focus {
+	outline: none;
+}
+
+.ald-tabs__content:focus {
+	outline: none;
+}

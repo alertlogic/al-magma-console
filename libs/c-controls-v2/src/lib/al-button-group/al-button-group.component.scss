@@ -1,0 +1,21 @@
+.ald-btn-group {
+	display: flex;
+	gap: var(--ald-g-space-2);
+}
+
+.ald-btn-group--between {
+	justify-content: space-between;
+}
+
+.ald-btn-group--toggle {
+	display: inline-flex;
+	padding: var(--ald-g-space-1);
+	background-color: white;
+	border-radius: var(--ald-g-radius-lg);
+	box-shadow: inset 0 0 0 1px var(--ald-g-color-gray-400);
+	gap: var(--ald-g-space-1);
+}
+
+.ald-btn-group--full-width.ald-btn-group--toggle {
+	display: flex;
+}

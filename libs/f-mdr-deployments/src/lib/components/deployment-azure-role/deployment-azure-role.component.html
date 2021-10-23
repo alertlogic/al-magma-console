@@ -1,0 +1,60 @@
+<form class="deployment-azure-role">
+    <!-- AlViewHelper handles loading, zero ("empty") states, and other universal view considerations. -->
+    <al-view-helper #alViewHelper [loading]="isBusy" [notifyPanel]="true"></al-view-helper>
+    <div>
+        <al-deployment-header [config]="alDeploymentHeaderConfig"></al-deployment-header>
+        <p class="info-text">
+            You must create a cross-account role in Microsoft Azure to allow Alert Logic to access your account. Log in with your Azure credentials, and then click "SAVE." If you need help, see the <span class="azure-tutorial-link" (click)="openTutorial()">Azure Role guide.</span>
+        </p>
+        <h2>Azure Role</h2>
+        <!-- Azure Subscription ID -->
+        <mat-form-field class="mat-block" [formGroup]="azureForm">
+            <input matInput
+                    type="text"
+                    placeholder="Subscription ID"
+                    formControlName="subscription_id"
+                    required/>
+            <mat-error *ngIf="azureForm.controls.subscription_id.hasError('required') || azureForm.controls.subscription_id.hasError('emptyString')">
+                {{formConfig.requiredError}}
+            </mat-error>
+        </mat-form-field>
+        <!-- Active Directory ID -->
+        <mat-form-field class="mat-block" [formGroup]="azureForm">
+            <input matInput
+                    type="text"
+                    placeholder="Active Directory ID"
+                    formControlName="active_directory_id"
+                    required/>
+            <mat-error *ngIf="azureForm.controls.active_directory_id.hasError('required') || azureForm.controls.active_directory_id.hasError('emptyString')">
+                {{formConfig.requiredError}}
+            </mat-error>
+        </mat-form-field>
+        <!-- Application ID -->
+        <mat-form-field class="mat-block" [formGroup]="azureForm">
+            <input matInput
+                    type="text"
+                    placeholder="Application ID"
+                    formControlName="client_id"
+                    required/>
+            <mat-error *ngIf="azureForm.controls.client_id.hasError('required') || azureForm.controls.client_id.hasError('emptyString')">
+                {{formConfig.requiredError}}
+            </mat-error>
+        </mat-form-field>
+        <!-- Client Secret Value -->
+        <mat-form-field class="mat-block" [formGroup]="azureForm">
+            <input matInput
+                    type="password"
+                    placeholder="Client Secret Value"
+                    formControlName="client_secret"
+                    required/>
+            <mat-error *ngIf="azureForm.controls.client_secret.hasError('required') || azureForm.controls.client_secret.hasError('emptyString')">
+                {{formConfig.requiredError}}
+            </mat-error>
+        </mat-form-field>
+        <!-- Buttons -->
+        <div class="buttons-group" fxLayout="row" fxLayoutAlign="start center">
+            <button mat-button (click)="resetOriginalFormValues()" [disabled]="isProcessSaved || !azureForm.valid">CANCEL</button>
+            <button mat-raised-button (click)="submit()" [disabled]="isBusy || !azureForm.valid || isProcessSaved" color="primary">{{ textButton }}</button>
+        </div>
+    </div>
+</form>

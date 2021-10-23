@@ -1,0 +1,66 @@
+<al-bottom-sheet #alBottomSheet [headerOptions]="headerOptions" (onPrimaryAction)="save()" (onSecondaryAction)="close()">
+    <al-view-helper #alViewHelper [notifyPanel]="enableNotifyPanel"></al-view-helper>
+    <form class="deployment-fim-bulk-edit-scope-form">
+        <div class="p-grid p-nogutter">
+            <div class="p-col-6 p-nogutter pad-right">
+                <h2 class="first">Selected File Paths </h2>
+                 <!-- File path selection -->
+                    <div class="filepaths">
+                        <al-search-bar
+                            width="100%"
+                            (onSearchChanged)="searchPaths($event)"
+                        ></al-search-bar>
+                        <div *ngFor="let path of filteredSelectedPaths">
+                            <div class="item-path">
+                                <div>
+                                    <span class="selectable-title">{{path.title}}</span>
+                                </div>
+                                <div class="close-sign"><i class="material-icons" (click)="removePath(path)">clear</i></div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="p-col-6 p-nogutter">
+                <h2 class="first">Asset Scoping </h2>
+                <div *ngIf="mode === 'MONITORING' ">
+                    <p> Monitoring is automatically applied to all assets in your deployment unless you have further scoped individual assets in a file path.
+                        You can bulk edit the assets in scope for all the selected file paths to:
+                    </p>
+                </div>
+                <div *ngIf="mode === 'EXCLUSIONS' ">
+                    <p> Monitoring is automatically applied to all assets in your deployment unless you have further scoped individual assets in a file path.
+                        You can bulk edit the assets in scope for all the selected file paths to:
+                    </p>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12">
+                        <p-radioButton name="radioSelect"
+                                       value="add"
+                                       label="{{addRadioButtonFormLabel}}"
+                                       [(ngModel)]="scopeRadioSelect"
+                                       inputId="preopt1">
+                        </p-radioButton></div>
+                    <div class="p-col-12">
+                        <p-radioButton name="radioSelect"
+                                       value="replace"
+                                       label="{{replaceRadioButtonFormLabel}}"
+                                       [(ngModel)]="scopeRadioSelect"
+                                       inputId="preopt2">
+                        </p-radioButton>
+                    </div>
+                </div>
+                <p i18n class="top-pad" *ngIf="mode === 'MONITORING'"> Apply the following assets in the selected file paths for monitoring: </p>
+                <p i18n class="top-pad" *ngIf="mode === 'EXCLUSIONS'"> Exclude the following assets for monitoring from the selected file paths: </p>
+                <div class="form-content">
+                    <al-multiselect-list #assetsMultiSelect
+                        [options]="scopeOptions"
+                        [readonly]="false"
+                        selectableListMode="chips"
+                        placeholder="Search assets"
+                        (onSelectionChanged)="scopeChange($event)"
+                    ></al-multiselect-list>
+                </div>
+            </div>
+        </div>
+    </form>
+</al-bottom-sheet>

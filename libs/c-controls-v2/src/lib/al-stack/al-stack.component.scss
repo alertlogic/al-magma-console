@@ -1,0 +1,5 @@
+.ald-stack {
+	display: flex;
+	flex-shrink: 0;
+	gap: var(--stack-gap);
+}

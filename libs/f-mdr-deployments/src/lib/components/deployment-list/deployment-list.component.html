@@ -1,0 +1,79 @@
+<al-protected-content [entitlement]="entitlements"
+                      [unentitledRoute]="true"
+                      (onAccountChange)="accountChanged($event)">
+    <div class="al-deployment-list">
+        <!--  Notification Panel -->
+        <al-notification-panel [alertSource]="listNotifications"
+                               [allowExternalContent]="showFirstDeploymentText"
+                               (onButtonClicked)="launchNotificationPanelButton()">
+            <div class="first-deployment-text"
+                 *ngIf="showFirstDeploymentText">
+                Your first deployment is now created. Alert Logic recommends you check the
+                <a (click)="redirectRemediationsOrExposuresList()">{{remediationsOrExposures}}</a> page in a few minutes
+                for any other necessary actions to ensure your deployment functions properly.
+            </div>
+        </al-notification-panel>
+
+        <al-toast key="deployments-list"></al-toast>
+
+        <h1 i18n>
+            Deployments
+        </h1>
+        <p i18n>
+            The Deployments page displays the deployments you manage, allows you to create multiple deployments, and
+            shows the initial scan and deployment progress. Click an existing deployment to view its details on the
+            Dashboard page. Click "EDIT" to manage a deployment, or click "DELETE" to delete the deployment.
+        </p>
+
+        <!-- Nav Tools -->
+        <al-header-nav-tool [config]="headerNavToolConf"
+                            (onOpenedForm)="onCreateForm($event)"
+                            (onSearched)="onSearch($event)"
+                            (onSorted)="onOrdering($event)">
+        </al-header-nav-tool>
+        <!-- Zero state when the search does not match with any deployment -->
+        <al-view-helper [loading]="isLoading"
+                        [empty]="searchQuery !== '' && (deployments | ngForDeploymentsFilter : searchQuery | deploymentOrderBy : orderBy).length === 0 && !isLoading">
+            <i class="material-icons"
+               zero-state-icon>info</i>
+            <span zero-state-description
+                  i18n>No Deployments available.</span>
+        </al-view-helper>
+        <al-view-helper [empty]="searchQuery === '' && deployments.length === 0 && !isLoading">
+            <i class="material-icons"
+               zero-state-icon>{{zeroState.icon}}</i>
+            <span zero-state-title>
+                <span [innerHTML]="zeroState.topText"></span>
+            </span>
+            <span zero-state-description>
+                <span [innerHTML]="zeroState.bottomText"></span>
+                <div fxLayout="row"
+                     *ngIf="isApiDown"
+                     class="reload-button">
+                    <div fxFlex></div>
+                    <button mat-raised-button
+                            color="primary"
+                            (click)="reload()"
+                            i18n>RELOAD</button>
+                    <div fxFlex></div>
+                </div>
+            </span>
+        </al-view-helper>
+        <!-- Deployment list -->
+        <div fxLayout="row wrap">
+            <al-deployment-card fxFlex="33"
+                                [id]="deployment.id"
+                                *ngFor="let deployment of deployments | ngForDeploymentsFilter : searchQuery | deploymentOrderBy : orderBy:'true'"
+                                [deployment]="deployment"
+                                (onEdit)="doEdit($event)"
+                                (onDelete)="doDelete($event)">
+            </al-deployment-card>
+        </div>
+    </div>
+
+    <deployment-assets-manager-delete-dialog #dialog
+                                             (onCancel)="closeDialog()"
+                                             (onContinue)="continueDeletion()">
+    </deployment-assets-manager-delete-dialog>
+
+</al-protected-content>

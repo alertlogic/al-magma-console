@@ -1,73 +1,47 @@
 <div class="al-content-toolbar">
-    <div class="grid grid-nogutter al-content-toolbar-grid">
-        <div class="col col-fixed checkbox align-self-end"
-             style="width: 72px"
-             *ngIf="state.showSelectAll">
-            <p-checkbox [(ngModel)]="state.selectAll"
-                        class="content-toolbar-checkall"
-                        [binary]="true"
-                        (onChange)="selectAllValues()">
-            </p-checkbox>
-        </div>
-        <div class="col align-self-end">
-            <div class="grid grid-nogutter">
-                <div class="col col-fixed align-self-end">
-                    <p-dropdown *ngIf="state.showViewBy && state.viewBy?.length > 0"
-                        class="content-toolbar-group viewBy"
-                        [options]="state.viewBy"
-                        [(ngModel)]="state.viewSelected"
-                        (onChange)="handleViewSelection()"
-                        [scrollHeight]="'unset'"
-                        [style]="{'margin-right': '15px'}">
-                        <ng-template let-item pTemplate="selectedItem">
-                            <div class="view-selected">
-                                <i *ngIf="item.icon?.name" class="material-icons">{{ item.icon?.name }}</i>
-                                <i *ngIf="item.icon?.cssClasses" class="{{item.icon?.cssClasses}}"></i>
-                                <span class="static-label">View</span>
-                                <span class="view-name">{{item.label}}</span>
-                            </div>
-                        </ng-template>
-                        <ng-template let-view pTemplate="item">
-                            <div class="view-list">
-                                <i *ngIf="view.icon?.name" class="material-icons">{{ view.icon?.name }}</i>
-                                <i *ngIf="view.icon?.cssClasses" class="{{view.icon?.cssClasses}}"></i>
-                                <div style="margin-left: 3em">{{view.label}}</div>
-                            </div>
-                        </ng-template>
-                    </p-dropdown>
-                </div>
-                <div class="col col-fixed align-self-end">
-                    <p-dropdown *ngIf="state.showGroupBy && state.group.options?.length > 0"
-                                class="content-toolbar-group"
-                                [options]="state.group.options"
-                                [(ngModel)]="state.group.selectedOption"
-                                (onChange)="handleGroupSelection()"
-                                [style]="{'margin-right': '15px'}"
-                    ></p-dropdown>
-                </div>
-                <div class="col col-fixed align-self-end">
-                    <p-dropdown *ngIf="state.showSortBy && state.sort.options?.length > 0"
-                                class="content-toolbar-sort"
-                                [options]="state.sort.options"
-                                [(ngModel)]="state.sort.selectedOption"
-                                (onChange)="handleSortSelection()"
-                    ></p-dropdown>
-
-                    <i *ngIf="state.showSortBy"
-                        class="content-toolbar-sort-direction material-icons al-sort"
-                        (click)="sort()" [pTooltip]="state.sort.order === 'asc' ?  'ascending' : 'descending'">
-                        swap_vert
-                    </i>
-                </div>
+    <div class="toolbar-l">
+      <div class="select-all" style="width: 72px" *ngIf="state.showSelectAll">
+        <p-checkbox [(ngModel)]="state.selectAll" class="content-toolbar-checkall" [binary]="true"
+          (onChange)="selectAllValues()">
+        </p-checkbox>
+      </div>
+      <div class="select-view">
+        <p-dropdown *ngIf="state.showViewBy && state.viewBy?.length > 0" class="content-toolbar-group viewBy"
+          [options]="state.viewBy" [(ngModel)]="state.viewSelected" (onChange)="handleViewSelection()"
+          [scrollHeight]="'unset'" [style]="{'margin-right': '15px'}">
+          <ng-template let-item pTemplate="selectedItem">
+            <div class="view-selected">
+              <i *ngIf="item.icon?.name" class="material-icons">{{ item.icon?.name }}</i>
+              <i *ngIf="item.icon?.cssClasses" class="{{item.icon?.cssClasses}}"></i>
+              <span class="view-name">{{item.label}}</span>
             </div>
-        </div>
-        <div *ngIf="state.showSearch" class="al-search ui-inputgroup col-fixed align-self-end"
-             style="width: 240px">
-            <al-search-bar #alSearchBar
-                           width="240px"
-                           [placeholder]="state.search.textPlaceHolder"
-                           [maxSearchLength]="state.search.maxSearchLength"
-                           (onSearchChanged)="applyTextFilter($event)"></al-search-bar>
-        </div>
+          </ng-template>
+          <ng-template let-view pTemplate="item">
+            <div class="view-list">
+              <i *ngIf="view.icon?.name" class="material-icons">{{ view.icon?.name }}</i>
+              <i *ngIf="view.icon?.cssClasses" class="{{view.icon?.cssClasses}}"></i>
+              {{view.label}}
+            </div>
+          </ng-template>
+        </p-dropdown>
+        <p-dropdown *ngIf="state.showGroupBy && state.group.options?.length > 0" class="content-toolbar-group"
+          [options]="state.group.options" [(ngModel)]="state.group.selectedOption" (onChange)="handleGroupSelection()"
+          [style]="{'margin-right': '15px'}"></p-dropdown>
+   
+        <p-dropdown *ngIf="state.showSortBy && state.sort.options?.length > 0" class="content-toolbar-sort"
+          [options]="state.sort.options" [(ngModel)]="state.sort.selectedOption" (onChange)="handleSortSelection()">
+        </p-dropdown>
+
+        <i *ngIf="state.showSortBy" class="content-toolbar-sort-direction material-icons al-sort" (click)="sort()"
+          [pTooltip]="state.sort.order === 'asc' ?  'ascending' : 'descending'">
+          swap_vert
+        </i>
+      </div>
+    </div>
+    <div class="toolbar-r">
+      <div *ngIf="state.showSearch" class="al-search ui-inputgroup" style="width: 240px">
+        <al-search-bar #alSearchBar width="240px" [placeholder]="state.search.textPlaceHolder"
+          [maxSearchLength]="state.search.maxSearchLength" (onSearchChanged)="applyTextFilter($event)"></al-search-bar>
+      </div>
     </div>
 </div>

@@ -1,0 +1,88 @@
+
+<al-view-helper class="view-helper-width"  [empty]="deployment?.platform?.type === 'aws' && deployment?.mode === 'automatic'">
+    <i class="material-icons" zero-state-icon>info</i>
+    <span zero-state-description i18n> You are not allowed to access this page</span>
+</al-view-helper>
+
+<div fxLayout="column" fxLayoutAlign=" stretch" class="deployment-protection-options" *ngIf="!(deployment?.platform?.type === 'aws' && deployment?.mode === 'automatic')">
+    <div class="instructions">
+        <div fxLayout="row" class="under-line">
+            <div fxFlex="70">
+                <h1 i18n>Options</h1>
+            </div>
+            <div fxFlex="30" fxLayoutAlign="end" fxFlexFill="0">
+                <button color="primary" mat-raised-button (click)="save()">Save</button>
+            </div>
+        </div>
+        <!-- Tabs -->
+        <al-tabs [data]="configTabs">
+        </al-tabs>
+        <div class="text-content">
+            <p  i18n class="info-text">
+Cross-Network Protection creates connections across networks (VPC, VNET, or data center networks) that uses resources from a protecting network, a network with an assigned Network IDS or scanning appliance, to protect other networks in the same account. Cross-Network Protection allows an assigned network appliance to reside outside of its protecting network, in the same or different deployment.
+            </p>
+            <p i18n class="info-text">
+
+
+                    You must first configure your agents and appliances within your environment to connect with other networks before you set up Cross-Network Protection below.
+                    For more information about Cross-Network Protection, see <a href="http://docs.alertlogic.com/deploy/cross-network-protection.htm"> Cross-Network Protection</a>.
+                    To configure Cross-Network Protection, click on a network or region you want to protect. Select the protecting network, and then click "SAVE."
+            </p>
+        </div>
+    </div>
+    <div class="options" [ngClass]="{'full-screen': fullScreen}">
+        <div>
+            <al-protection-breakdown fxLayout="column" fxLayoutAlign=" none" [config]="alProtectionBreakdownConfig"
+                [fullScreen]="fullScreen" [title]="titleCountProtected" [textSearchPlaceHolder]="SearchPlaceHolder"
+                (onSearched)="onSearchedProtected($event)">
+            </al-protection-breakdown>
+        </div>
+        <div fxLayout="column" fxLayoutAlign=" center" class="topology-col">
+
+            <al-view-helper class="view-helper-width" [loading]="isTopologyLoading || isRendering" [empty]="errorState">
+                <i class="material-icons" zero-state-icon>info</i>
+                <span zero-state-description i18n>Requested source is not available at this moment</span>
+            </al-view-helper>
+
+
+            <al-view-helper [empty]="!topology || (topology && deployment.platform.type !== 'datacenter' && topology.regions.length === 0) || (topology && deployment.platform.type === 'datacenter' && topology.vpcs.length === 0) ">
+                <i zero-state-icon
+                   class="al al-topology-network-1"></i>
+                <span zero-state-description
+                      i18n>You have no assets configured.</span>
+            </al-view-helper>
+
+            <al-deployment-topology
+                class="topology-section"
+                [ngClass]="{'full-screen': fullScreen}"
+                [selector]="selector"
+                [topology]="topology"
+                [fullScreen]="fullScreen"
+                [behaviors]="topologyBehaviors"
+                *ngIf="!errorState"
+                [searchHits]="topologySearchHits"
+                (onRendering)="rendering($event)"
+                (onUnsavedChangesDetected)="onUnsavedChangesDetected($event)"
+                (onFullScreen)="toggleFullScreen($event)"
+                (onClickSelectorUnlink)="onClickSelectorUnlink($event)"
+                (onClickSelectorList)="onClickSelectorList($event)"
+                (onClickAsset)="onClickNode($event)"
+                >
+            </al-deployment-topology>
+        </div>
+        <al-right-drawer (onClosed)="closeSideNav()" [isBusy]="isBusy" [expandable]="true">
+            <div class="al-right-drawer-body">
+                <section class="info-right-drawer">
+                   <p>View list of protected networks by deployment</p>
+                    <div class="title" *ngFor="let deploymentId of rightDrawerDataKeys">
+                        <span> {{rightDrawerData[deploymentId][0]['deploymentName']}} </span>
+                        <div class="item" *ngFor="let item of rightDrawerData[deploymentId]">
+                            <i [class]="item.icon"></i>
+                            {{item.name}}
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </al-right-drawer>
+    </div>
+</div>

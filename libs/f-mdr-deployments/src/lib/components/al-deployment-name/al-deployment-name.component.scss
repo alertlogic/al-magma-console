@@ -1,0 +1,30 @@
+@import "@al/ng-generic-components/styles/utility";
+
+al-deployment-name{
+    .wrapper{
+        line-height: 100px;
+        background-color: al-color($al-gray, 500);
+        height: 100%;
+        .content{
+            height: 100%;
+            width: 100%;
+            color: white;
+            .icon{
+                align-self: center;
+                margin-right: 25px;
+            }
+            .label-deployment {
+                font-weight: lighter;
+            }
+        }
+    }
+    .aws{
+        background-color: al-color($al-orange, 400);
+    }
+    .datacenter{
+        background-color: al-color($al-purple, 500);
+    }
+    .azure{
+        background-color: al-color($al-blue, 500);
+    }
+}

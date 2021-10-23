@@ -1,0 +1,14 @@
+<div class="u-flex u-items-center" [ngClass]="[inline ? 'u-flex-row u-justify-start' : 'u-flex-col u-justify-center']">
+    <div>
+        <ald-icon *ngIf="threat"
+            [size]="inline ? 'sm' : 'md'"
+            iconClass="al"
+            [icon]="threat.icon"
+            [title]="iconOnly ? threat.label : ''" 
+            [color]="threat.color">
+        </ald-icon>
+    </div>
+    <div *ngIf="!iconOnly && threat" [ngClass]="[inline ? 'u-text-sm u-ml-1' : 'u-text-xs']">
+        {{ threat.label | titlecase }}
+    </div>
+</div>

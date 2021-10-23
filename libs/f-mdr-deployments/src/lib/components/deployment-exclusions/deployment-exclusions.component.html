@@ -1,0 +1,330 @@
+<al-modal-cards [modalItems]="modalCard" class="deployment-exclusions" (onCloseModal)="closeExclusions()">
+    <div fxFlex fxLayout="column" class="content">
+        <div class="exclusion-header">
+            <h1>Exclusions for {{deployment.name}}</h1>
+            <!-- Exclusions Tabs -->
+            <al-tabs
+                [data]="exclusionsTabs"
+                (onClickTab)="changeTab($event)">
+            </al-tabs>
+        </div>
+
+        <div class="full-screen" [ngSwitch]="selectedTab">
+            <div fxLayout="row" fxLayoutAlign="start end" class="under-line"
+                *ngIf="selectedTab === 'internal-scanning'">
+                <h5 fxFlex>Choose Assets{{deployment.platform.type === 'aws'? ',':' or'}} Ports{{deployment.platform.type === 'aws'? ', or AWS Tags':''}} to Exclude</h5>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start end" class="under-line"
+                *ngIf="selectedTab === 'external-scanning'">
+                <h5 fxFlex>Choose Assets or Ports to Exclude</h5>
+            </div>
+            <!-- Notifications -->
+            <al-notification-panel #notificationExclusionsPanel
+                [alertSource]="notifications"
+                (onButtonClicked)="flushNotifications()">
+            </al-notification-panel>
+            <!-- External Scanning Content Tab -->
+            <div *ngSwitchCase="'external-scanning'" class="external-scanning">
+                <div fxLayout="row" class="button-section">
+                    <button fxLayout="row" class="filter-button" [ngClass]="{'selected': typeToExclude === 'assets'}" mat-raised-button (click)="onTypeToExcludeButton('assets')">
+                        <i class="material-icons magnifying-glass-icon">search</i>
+                        <span fxFlex>ASSETS</span>
+                    </button>
+                    <button fxLayout="row" class="filter-button" [ngClass]="{'selected': typeToExclude === 'ports'}" mat-raised-button (click)="onTypeToExcludeButton('ports')">
+                        <i class="material-icons magnifying-glass-icon">search</i>
+                        <span fxFlex>PORTS</span>
+                    </button>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-around start" class="full-screen">
+                    <div *ngIf="typeToExclude !== 'ports'" class="left-list full-screen" fxFlex="50">
+                        <div fxLayout="row" fxLayoutAlign="start end" class="list-header under-line">
+                            <h5 fxFlex>Assets available to Exclude</h5>
+                            <al-search-bar #alSearchBar
+                                           width="auto"
+                                           placeholder="Search"
+                                           [showLabel]="false"
+                                           (onSearchChanged)="searchFilters('external-scanning', $event)">
+                            </al-search-bar>
+                        </div>
+                        <al-config-selectable-list
+                            [data]="externalSelectableAvailable"
+                            [config]="selectLeftConfig"
+                            (onActionedItem)="moveElement(
+                                externalSelectableAvailable,
+                                externalSelectableExcluded,
+                                $event,
+                                'external-scanning',
+                                false,
+                                null,
+                                externalExcluded)">
+                        </al-config-selectable-list>
+                    </div>
+                    <div *ngIf="typeToExclude !== 'ports'" class="right-list full-screen" fxFlex="50">
+                        <div fxLayout="row" fxLayoutAlign="start end" class="list-header under-line">
+                            <h5 fxFlex>Excluded from External Scanning</h5>
+                        </div>
+                        <al-config-selectable-list
+                            [data]="externalSelectableExcluded"
+                            [config]="selectRightConfig"
+                            (onActionedItem)="moveElement(
+                                externalSelectableExcluded,
+                                externalSelectableAvailable,
+                                $event,
+                                'external-scanning',
+                                true,
+                                externalExcluded)">
+                        </al-config-selectable-list>
+                    </div>
+                    <div *ngIf="typeToExclude === 'ports'" class="left-list full-screen port-assets-container" fxFlex>
+                        <al-multiselect-list
+                            placeholder="Search for asset with port(s) to exclude"
+                            selectableListMode="list"
+                            name="externalAssetsToExcludeList"
+                            [options]="filteredAssetsList"
+                            [(ngModel)]="selectedExternalAssetsPorts"
+                            (ngModelChange)="onAssetSelected($event)"
+                            [ngModelOptions]="{standalone: true}">
+                        </al-multiselect-list>
+                        <div class="protocol-ports-options" [formGroup]="externalPortsForm">
+                            <div class="protocol">
+                                <div class="option-label">Protocol</div>
+                                <p-dropdown class="protocol-options"
+                                    formControlName="protocol"
+                                    [options]="protocolOptionsList">
+                                </p-dropdown>
+                            </div>
+                            <div class="ports">
+                                <div class="option-label">Port(s)</div>
+                                <div class="ports-input">
+                                    <input type="text" formControlName="portsInput" pInputText>
+                                    <i class="material-icons"
+                                        matTooltip="Separate multiple ports and port ranges with commas. Use a dash or colon to indicate a range. (Ex. 443, 1024:3305)"
+                                        matTooltipPosition="above">
+                                        info
+                                    </i>
+                                </div>
+                                <mat-error *ngIf="externalPortsForm.get('portsInput').invalid && externalPortsForm.get('portsInput').touched">
+                                    Invalid port format
+                                </mat-error>
+                            </div>
+                        </div>
+                        <div class="exclude-and-add-another" fxLayout="row" fxLayoutAlign="end center">
+                            <button fxLayout="row" fxLayoutAlign="center center" class="exclude-button" color="primary"
+                                mat-raised-button
+                                (click)="addAssetsWithPorts()"
+                                [disabled]="externalPortsForm.get('portsInput').invalid || selectedExternalAssetsPorts.length === 0
+                                || externalPortsForm.get('portsInput').value === null || externalPortsForm.get('portsInput').value === ''">
+                                <span>
+                                    EXCLUDE AND ADD ANOTHER
+                                    <i class="material-icons">arrow_forward</i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div *ngIf="typeToExclude === 'ports'" class="right-list full-screen" fxFlex>
+                        <div fxLayout="row" fxLayoutAlign="start end" class="list-header under-line">
+                            <h5 fxFlex>Excluded from External Scanning</h5>
+                        </div>
+                        <al-config-selectable-list
+                            [data]="externalAssetsPortsExcluded"
+                            [config]="selectRightPortsConfig"
+                            (onActionedItem)="removePortAndAsset($event)"
+                            (onActionedSubItem)="removePortFromAsset($event)">
+                        </al-config-selectable-list>
+                    </div>
+                </div>
+            </div>
+            <!-- Internal Scanning Content Tab -->
+            <div *ngSwitchCase="'internal-scanning'" class="internal-scanning">
+                <div fxLayout="row" class="button-section">
+                    <button fxLayout="row" class="filter-button" [ngClass]="{'selected': typeToExclude === 'assets'}" mat-raised-button (click)="onTypeToExcludeButton('assets')">
+                        <i class="material-icons magnifying-glass-icon">search</i>
+                        <span fxFlex>ASSETS</span>
+                    </button>
+                    <button fxLayout="row" class="filter-button" [ngClass]="{'selected': typeToExclude === 'ports'}" mat-raised-button (click)="onTypeToExcludeButton('ports')">
+                        <i class="material-icons magnifying-glass-icon">search</i>
+                        <span fxFlex>PORTS</span>
+                    </button>
+                    <button fxLayout="row" class="filter-button"
+                        *ngIf="deployment.platform.type === 'aws'"
+                        [ngClass]="{'selected': typeToExclude === 'tags' }" mat-raised-button (click)="onTypeToExcludeButton('tags')">
+                        <i class="material-icons magnifying-glass-icon">search</i>
+                        <span fxFlex>TAGS</span>
+                    </button>
+                </div>
+                <div class="full-screen">
+                    <div *ngIf="typeToExclude !== 'ports'" class="left-list full-screen" fxFlex>
+                        <div fxLayout="row" fxLayoutAlign="start end" class="list-header under-line">
+                            <al-search-bar #alSearchBar
+                                           fxFlex
+                                           [placeholder]="networkPlaceholder"
+                                           [showLabel]="true"
+                                           width="auto"
+                                           (onSearchChanged)="searchFilters('internal-scanning', $event)">
+                            </al-search-bar>
+                        </div>
+                        <al-config-selectable-list
+                            [data]="internalSelectableAvailable"
+                            [config]="selectLeftConfig"
+                            (onActionedItem)="moveElement(
+                                internalSelectableAvailable,
+                                internalSelectableExcluded,
+                                $event,
+                                'internal-scanning',
+                                false,
+                                null,
+                                $event.icon.material === 'label'? internalTagExcluded : internalAssetExcluded)">
+                        </al-config-selectable-list>
+                    </div>
+                    <div *ngIf="typeToExclude !== 'ports'" class="right-list full-screen" fxFlex>
+                        <div fxLayout="row" fxLayoutAlign="start end" class="list-header under-line">
+                            <h5 fxFlex>Excluded from Internal Scanning</h5>
+                        </div>
+                        <al-config-selectable-list
+                            [data]="internalSelectableExcluded"
+                            [config]="selectRightConfig"
+                            (onActionedItem)="moveElement(
+                                internalSelectableExcluded,
+                                internalSelectableAvailable,
+                                $event,
+                                'internal-scanning',
+                                true,
+                                $event.icon.material === 'label'? internalTagExcluded : internalAssetExcluded)">
+                        </al-config-selectable-list>
+                    </div>
+                    <div *ngIf="typeToExclude === 'ports'" class="left-list full-screen port-assets-container" fxFlex>
+                        <al-multiselect-list
+                            placeholder="Search for asset with port(s) to exclude"
+                            selectableListMode="list"
+                            name="internalAssetsToExcludeList"
+                            [options]="filteredAssetsList"
+                            [(ngModel)]="selectedInternalAssetsPorts"
+                            (ngModelChange)="onAssetSelected($event)"
+                            [ngModelOptions]="{standalone: true}">
+                        </al-multiselect-list>
+                        <div class="protocol-ports-options" [formGroup]="internalPortsForm">
+                            <div class="protocol">
+                                <div class="option-label">Protocol</div>
+                                <p-dropdown class="protocol-options"
+                                    formControlName="protocol"
+                                    [options]="protocolOptionsList">
+                                </p-dropdown>
+                            </div>
+                            <div class="ports">
+                                <div class="option-label">Port(s)</div>
+                                <div class="ports-input">
+                                    <input type="text" formControlName="portsInput" pInputText>
+                                    <i class="material-icons"
+                                        matTooltip="Separate multiple ports and port ranges with commas. Use a dash or colon to indicate a range. (Ex. 443, 1024:3305)"
+                                        matTooltipPosition="above">
+                                        info
+                                    </i>
+                                </div>
+                                <mat-error *ngIf="internalPortsForm.get('portsInput').invalid && internalPortsForm.get('portsInput').touched">
+                                    Invalid port format
+                                </mat-error>
+                            </div>
+                        </div>
+                        <div class="exclude-and-add-another" fxLayout="row" fxLayoutAlign="end center">
+                            <button fxLayout="row" fxLayoutAlign="center center" class="exclude-button" color="primary"
+                                mat-raised-button
+                                (click)="addAssetsWithPorts()"
+                                [disabled]="internalPortsForm.get('portsInput').invalid || selectedInternalAssetsPorts.length === 0
+                                            || internalPortsForm.get('portsInput').value === null || internalPortsForm.get('portsInput').value === ''">
+                                <span>
+                                    EXCLUDE AND ADD ANOTHER
+                                    <i class="material-icons">arrow_forward</i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div *ngIf="typeToExclude === 'ports'" class="right-list full-screen" fxFlex>
+                        <div fxLayout="row" fxLayoutAlign="start end" class="list-header under-line">
+                            <h5 fxFlex>Excluded from Internal Scanning</h5>
+                        </div>
+                        <al-config-selectable-list
+                            [data]="internalAssetsPortsExcluded"
+                            [config]="selectRightPortsConfig"
+                            (onActionedItem)="removePortAndAsset($event)"
+                            (onActionedSubItem)="removePortFromAsset($event)">
+                        </al-config-selectable-list>
+                    </div>
+                </div>
+            </div>
+            <!-- Network IDS Content Tab -->
+            <div *ngSwitchCase="'network-ids'" class="network-ids">
+                <div fxLayout="row" fxLayoutAlign="space-around start" class="full-screen">
+                    <div fxLayout="column" class="left-list" fxFlex="50">
+                        <div fxLayout="row" fxLayoutAlign="start end" class="list-header under-line">
+                            <h5 fxFlex>Choose Networks and Add CIDRs to Whitelist</h5>
+                        </div>
+                        <div class="inputs-container">
+                            <div class="networks-container" fxLayout="column" fxLayoutAlign="start stretch">
+
+                                <al-multi-select fxFlex
+                                [config]="multiSelectConfig"
+                                [disabled]="false"
+                                [multiple]="false"
+                                [clearable]="false"></al-multi-select>
+                            </div>
+                            <div fxLayout="row" fxLayoutAlign="space-around start" >
+                                <mat-form-field class="protocol" fxFlex="29">
+                                    <mat-select placeholder="Protocol(s)" [(ngModel)]="protocolSelected">
+                                        <mat-option *ngFor="let protocol of protocols" [value]="protocol.id">{{ protocol.name }}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field [formGroup]="networkCIDRForm" fxFlex="41">
+                                    <input matInput
+                                    [(ngModel)]="networkCIDR"
+                                    name="search"
+                                    [placeholder]="cidrFormConfig.label"
+                                    formControlName="cidr">
+                                    <mat-error *ngIf="networkCIDRForm.controls['cidr'].hasError('required')">{{cidrFormConfig.emptyLabelError}}</mat-error>
+                                    <mat-error
+                                        *ngIf="networkCIDRForm.controls['cidr'].hasError('cidrValidity') && !networkCIDRForm.controls['cidr'].hasError('required')">
+                                        {{cidrFormConfig.labelError}}
+                                    </mat-error>
+                                </mat-form-field>
+                                <mat-form-field [formGroup]="networkCIDRForm" fxFlex="25">
+                                    <input matInput
+                                        [(ngModel)]="portSelected"
+                                        name="ports"
+                                        [placeholder]="cidrFormConfig.portLabel"
+                                        formControlName="ports"
+                                        (blur)="forcedAsterisk($event)">
+                                    <mat-error *ngIf="networkCIDRForm.controls['ports'].hasError('invalidPort')">{{cidrFormConfig.portError}}</mat-error>
+                                </mat-form-field>
+                                <div fxFlex="5">
+                                    <i class="material-icons tooltip-icon" aria-hidden="true" matTooltip="{{ cidrFormConfig.portInfo }}" matTooltipPosition="left">info
+                                    </i>
+                                </div>
+    
+                            </div>
+                        </div>
+                        <div class="exclude-and-add-another" fxLayout="row" fxLayoutAlign="end center">
+                            <button fxLayout="row" fxLayoutAlign="center center" class="exclude-button" color="primary"
+                            mat-raised-button
+                            (click)="excludeNetwork()"
+                            [disabled]="networkCIDRForm.controls['cidr'].hasError('cidrValidity') || networkCIDRForm.controls['cidr'].hasError('required') || networkCIDRForm.controls['ports'].hasError('invalidPort') ">
+                                <span>
+                                    EXCLUDE AND ADD ANOTHER
+                                    <i class="material-icons">arrow_forward</i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="right-list full-screen" fxFlex="50">
+                        <div fxLayout="row" fxLayoutAlign="start end" class="list-header under-line">
+                            <h5 fxFlex>Excluded from Network IDS</h5>
+                        </div>
+                        <al-config-selectable-list
+                            [data]="networksSelectableExcluded"
+                            [config]="networkSelectLeftConfig"
+                            (onActionedItem)="removeElement(networksSelectableExcluded, $event, networksExcluded )">
+                        </al-config-selectable-list>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</al-modal-cards>

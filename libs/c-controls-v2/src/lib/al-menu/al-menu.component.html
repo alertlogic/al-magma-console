@@ -1,0 +1,7 @@
+<div class="ald-dropdown-menu">
+	<div aria-label="menu" role="menu">
+		<div *ngFor="let item of options" class="ald-dropdown-menu__item" aria-disabled="false" role="menuitem" tabindex="0" (click)="selectedItem(item)">
+			{{ item.label }}
+		</div>
+	</div>
+</div>

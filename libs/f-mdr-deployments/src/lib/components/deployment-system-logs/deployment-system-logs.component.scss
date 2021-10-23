@@ -1,0 +1,24 @@
+@import "@al/ng-generic-components/styles/utility";
+@import "@al/ng-generic-components/styles/utility.scss";
+
+.system-logs {
+    .under-line {
+        border-bottom: 1px solid #EDEDED;
+        margin-bottom: 25px;
+        line-height: normal;
+    }
+    
+    ::ng-deep .al-content-toolbar{
+        margin-top: -30px !important;
+        margin-bottom: 40px !important;
+    }
+
+    ::ng-deep al-header-nav-tool .dropdown-menu-plus {
+        width: 250px !important;
+    }
+
+    .content-toolbar-sort-direction {
+        cursor: pointer;
+    }
+
+}

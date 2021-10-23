@@ -1,0 +1,29 @@
+/* DEFAULT */
+.ald-link {
+    cursor: pointer;
+    color: var(--ald-g-color-orange);
+    font-weight: 500;
+    text-decoration: none;
+}
+/* GRAYSCALE */
+.ald-link--grayscale {
+    color: var(--ald-g-color-gray-900);
+}
+.ald-link--grayscale:hover {
+    color: var(--ald-g-color-orange);
+}
+/* UNDERLINE */
+.ald-link--underline {
+    text-decoration: underline;
+}
+/* LINK WITH ICON */
+.ald-link--has-icon {
+    display: inline-flex;
+    vertical-align: bottom;
+    align-items: center;
+    text-decoration: none;
+}
+
+.ald-link--icon-left {
+    flex-direction: row-reverse;
+}

@@ -1,0 +1,11 @@
+.ald-table-header__separator {
+    margin-top: var(--ald-g-space-3);
+    margin-bottom: var(--ald-g-space-3);
+    background-color: var(--ald-g-color-gray-300);
+    height: 1px;
+}
+
+.cdk-drag-preview {
+    box-shadow: var(--ald-g-shadow-sm);
+    background-color: white;
+}

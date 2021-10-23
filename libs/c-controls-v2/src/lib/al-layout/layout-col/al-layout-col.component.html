@@ -1,0 +1,9 @@
+<div *ngIf="scrollable; else content" class="ald-layout-scroller">
+    <div class="ald-layout-scroller__content">
+        <ng-container *ngTemplateOutlet="content"></ng-container>
+    </div>
+</div>
+
+<ng-template #content>
+    <ng-content></ng-content>
+</ng-template>

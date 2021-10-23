@@ -1,0 +1,112 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.scheduling-tabs-container-form {
+    margin: 25px 40px 0;
+    .p-col-4 {
+        padding: 0;
+    }
+}
+
+.scheduling-details, .scheduling-scan-frequency, .scheduling-scan-window,
+.assets-to-scan-container, .ips-cidrs-to-scan-container, .scheduling-ports-details {
+    .column-header {
+        font-size: 20px;
+        color: al-color($al-gray, 500);
+        padding-bottom: 6px;
+        border-bottom: 1px solid al-color($al-gray, 50);
+    }
+}
+
+.scheduling-ports-details {
+    padding: 0;
+    .protocol-options {
+        padding: 20px 0;
+    }
+    .option-label {
+        margin: 10px 0;
+    }
+    .ports-input {
+        display: flex;
+        flex-direction: row;
+        input {
+            width: 97%;
+        }
+        i {
+            width: 3%;
+            color: al-color($al-gray, 400);
+        }
+    }
+    .add-custom-ports-btt {
+        margin: 20px 0;
+    }
+}
+
+.assets-to-scan-container {
+    .asset-type-filter {
+        margin-bottom: 10px;
+    }
+}
+
+.scheduling-subcontainer {
+    padding-right: 20px !important;
+}
+
+.schudule-name {
+    width: 100%;
+    margin: 10px 0 20px;
+}
+
+.toogle-margin {
+    margin-left: 8px;
+}
+
+.option-label {
+    font-size: 14px;
+    color: al-color($al-gray, 300);
+}
+
+.radio-buttons-group {
+    margin: 10px 0 0 10px;
+    max-width: 450px;
+}
+
+.schedule-active-label {
+    margin-left: 10px;
+    font-size: 14px;
+    color: al-color($al-gray, 300);
+}
+
+.justify {
+    text-align: justify;
+}
+
+.error-input {
+    font-size: 12px;
+    color: al-color($al-red, 600);
+}
+
+.daily-width {
+    width: 32%;
+}
+
+.header-info {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+
+.selectable-port-options {
+    display: flex;
+    flex-direction: column;
+    p-checkbox {
+        margin: 7px 0;
+    }
+}
+
+.text-link {
+    font-size: 12px;
+}
+
+::ng-deep .long-tooltip-style .ui-tooltip-text {
+    min-width: 260px;
+}

@@ -1,0 +1,21 @@
+@import "../al-forms.component.scss";
+
+.ald-fieldset {
+	border:0;
+	padding:0;
+	margin-left:0;
+	margin-right:0;
+	padding-inline:0px;
+	padding-block: 0px;
+	margin-inline:0px;
+}
+
+// Legend
+
+.ald-legend {
+	@extend %label;
+}
+
+.ald-legend--large {
+	@extend %label-large;
+}

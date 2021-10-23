@@ -1,0 +1,61 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.card-item{
+    .header-icon {
+        font-size: 8em;
+    }
+
+    .title{
+        color: al-color($al-gray, 500);
+        text-align: center;
+    }
+    .item-container{
+        margin: 10px;
+        width: 100%;
+        .icon-item{
+            font-size: 4.5em;
+            margin-right: 25px;
+            margin-left: 25px;
+        }
+    }
+
+    span {
+        font-size: 12px;
+    }
+
+    .text-margin {
+        margin-left: 10px;
+        margin-right: 10px
+    }
+    .mat-ripple {
+        display: none;
+    }
+    .icons-container {
+        height: 210px;
+        padding-top: 30px;
+        box-sizing: border-box;
+
+        .aws-icon {
+            color: al-color($al-amber, 500);
+            font-size: 12em;
+            position: absolute;
+            transform: translate(-50px,30px);
+            z-index: 1;
+        }
+
+        .data-center-icon {
+            color: al-color($al-purple, 500);
+            position: absolute;
+            z-index: 2;
+            transform: translate(65px,58px);
+            font-size: 8.5em;
+        }
+
+        .cloud-icon {
+            color: al-color($al-smokeBlue, 500);
+            transform: translate(10px,-28px);
+            z-index: 0;
+            font-size: 9.5em;
+        }
+    }
+}

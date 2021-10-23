@@ -1,0 +1,64 @@
+<div fxLayout="column">
+
+    <div class="instructions">
+        <al-deployment-header [config]="alDeploymentHeaderConfig"></al-deployment-header>
+        <p i18n>
+            To protect your AWS deployment, you must set up an AWS IAM role and policy to allow Alert Logic access to your AWS account. Alert Logic provides AWS CloudFormation templates to automate creation of the correct policy and role for the deployment role you choose. The deployment mode you choose determines how Alert Logic deploys your scanning instances. You can also choose to employ manual setup in which you log into the AWS console and create your IAM policy and role.
+        </p>
+        <button class="mat-button mat-accent" color="accent" mat-button="" ng-reflect-color="accent" (click)="openLearnMore()">
+            <span class="mat-button-wrapper" i18n>LEARN MORE ABOUT IAM POLICIES AND ROLES</span>
+        </button>
+    </div>
+
+    <div class="wrapper">
+        <p i18n class="live-help-text-main">
+            Choose one of the following deployment modes. Each deployment mode allows a different level of control over the creation of scanning instances and subnets.
+        </p>
+
+        <div class="policy-content-mode">
+
+            <mat-radio-group [(ngModel)]="mode" [required]="true">
+
+                <!-- Automatic mode -->
+                <div class="instructions">
+                    <h3 i18n>I want Alert Logic to create subnets for scanning instances.</h3>
+                </div>
+                <div class="row-radio-button">
+                    <mat-radio-button class="example-radio-button" [value]="'automatic'" [checked]="isChecked('automatic')">
+                        <div>
+                            <h4>Automatic Mode</h4>
+                        </div>
+                    </mat-radio-button>
+                </div>
+                <div>
+                    <div class="selection-p">
+                        <p>
+                            Select Automatic Mode (recommended) if you want Alert Logic to deploy and maintain new VPC subnets used for scanning instances.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Manual mode -->
+                <div class="instructions">
+                    <h3 i18n>I want to deploy manually.</h3>
+                </div>
+                <div>
+                    <mat-radio-button class="row-radio-button" [value]="'manual'" [checked]="isChecked('manual')">
+                        <div>
+                            <h4>Manual Mode</h4>
+                        </div>
+                    </mat-radio-button>
+                </div>
+                <div fxLayout="row">
+                    <div class="selection-p">
+                        <p>
+                            Select Manual Mode if you want to use your own policy and role, and manage subnets for scanning instances when you create an AWS deployment.
+                        </p>
+                    </div>
+                </div>
+
+            </mat-radio-group>
+
+        </div>
+    </div>
+</div>

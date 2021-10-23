@@ -1,0 +1,5 @@
+<ul class="ald-treeview" [ngClass]="{'ald-treeview--nested': nested}">
+    <li *ngFor="let item of options">
+        <ald-tree-view-item [item]="item" [nested]="nested" (onItemCheckedChange)="checkedChanged($event, item)"></ald-tree-view-item>
+    </li>
+</ul>

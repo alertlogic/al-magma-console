@@ -23,6 +23,13 @@ be the distant past soon enough).  It is meant to address a number of concerns w
     navigation between features/deep linking fundamentally faster.  It will also make our developer experience more pleasant by providing a development environment 
     and deployment pipeline that are both faster and easier to manage.
 
+## Contributing
+
+Before adding, modifying, or refactoring anything here, please review the following documents:
+
+- [Organization Guide](ORGANIZATION.md) A brief overview of how the monorepo is structured, how library modules should be named and classified, and where the bodies are buried.  And yes, there are several bodies buried in here.
+- [Component Development Guide](COMPONENTS.md) A set of guidelines for component development.
+
 ## Getting Started
 
 ```

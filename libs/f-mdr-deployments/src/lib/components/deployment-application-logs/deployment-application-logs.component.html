@@ -1,0 +1,104 @@
+<!-- Next step and description -->
+<div fxLayout="row" class="under-line">
+    <div fxFlex="70">
+        <h1 i18n>Application Logs</h1>
+    </div>
+    <div fxFlex="30" fxLayoutAlign="end" fxFlexFill="0" >
+        <button color="primary" mat-raised-button (click)="next()">NEXT</button>
+    </div>
+</div>
+
+<span class="information">
+    <p i18n>
+        You can configure application logs to collect data from specific assets.
+        Add a new application log or add a from an existing one.
+        After you have filled out the required fields and added assets to collect from, turn on “Collect” for the applications to start collecting log data.
+    </p>
+</span>
+
+<!-- Header and Toolbar -->
+<al-content-header #header
+    title="Add Application Log"
+    showAddButton="true"
+    (onButtonClicked)="create()"
+></al-content-header>
+
+<al-content-toolbar #headerNavTool
+        [config]="toolbarConfig" 
+        (onSearched)="search($event)"
+        (onGroupSelection)="filter($event)">
+</al-content-toolbar>
+
+<!-- Zero State -->
+<al-view-helper [loading]="loading && !apiError"
+    [empty]="filteredList.length === 0 && !loading && !apiError" >
+    <i class="al al-application-set" zero-state-icon></i>
+    <span zero-state-description i18n>
+        The filters applied returned no results.
+    </span>
+</al-view-helper>
+
+<!-- Error State -->
+<al-view-helper [empty]="apiError">
+    <i class="material-icons" zero-state-icon>
+        info
+    </i>
+    <span zero-state-description i18n>
+        Requested source is not available at this moment
+    </span>
+</al-view-helper>
+
+<!-- List -->
+<div class="application-log-list" *ngIf="!loading">
+    <div *ngFor="let descriptor of filteredList">
+        <al-application-log-card
+            [cardItem]="descriptor"
+            [accountId]="deployment.account_id"
+            [usersDictionary]="usersMap"
+            (openCreateRuleModal)="create( descriptor )"
+            (onButtonClick)="cardActionClick($event)"
+            (onToggleClick)="initialize()"
+            >
+        </al-application-log-card>
+    </div>
+</div>
+
+<!-- Add scope rules modal form -->
+<al-deployment-application-logs-add-scope-rule-form 
+    #addRuleForm
+    [accountId]="deployment.account_id"
+    [deploymentId]="deployment.id"
+    [onlyTagAssets]="onlyTagAssets"
+    [assetsMap]="assetsMap"
+    [allowedAssetTypes]="allowedAssetTypes"
+    [headerOptions]="addRuleFormHeaderOptions"
+    (closeModal)="afterFormClosed('add_rule')"
+    (saveModal)="afterSubmit($event, 'add_rule')"
+    >
+</al-deployment-application-logs-add-scope-rule-form>
+
+<!-- Create, edit and duplicate items form -->
+<al-deployment-application-logs-create-rule-form *ngIf="showCreateRuleForm"
+    [applications]="applications"
+    [deploymentId]="deployment.id"
+    [item]="item"
+    [mode]="mode"
+    [toggleActivated]="toggleActivated"
+    [standAlone]="standAlone"
+    [headerOptions]="createRuleFormHeaderOptions"
+    (saveModal)="afterSubmit($event, 'create_rule')"
+    (nextModal)="afterSubmit($event, 'create_rule_and_next')"
+    (closeModal)="afterFormClosed('create_rule')">
+</al-deployment-application-logs-create-rule-form>
+
+
+<!-- delete confirm dialog -->
+<p-confirmDialog #cd header="Do you want to delete this item ?">
+    <p-footer>
+        <button type="button" pButton class="flat" label="Cancel"
+            (click)="cd.reject()"></button>
+
+        <button type="button" pButton (click)="cd.accept()" label="Delete"
+            class="primaryAction"></button>
+    </p-footer>
+</p-confirmDialog>

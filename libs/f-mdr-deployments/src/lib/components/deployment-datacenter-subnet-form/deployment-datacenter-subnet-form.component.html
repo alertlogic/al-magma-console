@@ -1,0 +1,64 @@
+<div class="datacenter-subnet-form">
+
+    <section fxLayout="row"
+             fxLayoutAlign="start center">
+        <mat-form-field fxFlex
+                        class="mat-block"
+                        [formGroup]="entityForm">
+            <input matInput
+                   name="name"
+                   type="text"
+                   placeholder="Subnet Name"
+                   formControlName="name"
+                   required />
+            <mat-error *ngIf="entityForm.controls.name.hasError('required') || entityForm.controls.name.hasError('emptyString')"
+                       i18n>
+                Name is required
+            </mat-error>
+        </mat-form-field>
+        <div fxFlex="5">
+            <i class="material-icons tooltip-icon"
+               aria-hidden="true"
+               matTooltip="Type a name that easily identifies this subnet in a list."
+               matTooltipPosition="left">info
+            </i>
+        </div>
+    </section>
+
+    <div fxLayout="row"
+         [formGroup]="entityForm">
+        <p-dropdown class="network-selector"
+                    formControlName="networkId"
+                    [options]="networks"
+                    placeholder="Select a network"
+                    optionLabel="name"></p-dropdown>
+
+    </div>
+
+    <section fxLayout="row"
+             fxLayoutAlign="start center">
+        <mat-form-field fxFlex
+                        class="mat-block"
+                        [formGroup]="entityForm">
+            <input matInput
+                   name="privateCIDRs"
+                   type="text"
+                   placeholder="Private CIDR"
+                   formControlName="privateCIDRs" />
+            <mat-error *ngIf="entityForm.controls.privateCIDRs.hasError('required') ||
+                    entityForm.controls.privateCIDRs.hasError('emptyString') ||
+                    entityForm.controls.privateCIDRs.hasError('cidrValidity')"
+                       i18n>
+                Invalid CIDR
+            </mat-error>
+        </mat-form-field>
+        <div fxFlex="5">
+            <i class="material-icons tooltip-icon"
+               aria-hidden="true"
+               matTooltip="Type a CIDR range for your private network."
+               matTooltipPosition="left">info
+            </i>
+        </div>
+    </section>
+
+</div>

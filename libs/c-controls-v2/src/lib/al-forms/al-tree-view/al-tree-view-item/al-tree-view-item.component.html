@@ -1,0 +1,19 @@
+<div class="ald-treeview-item">
+    <div class="ald-treeview-item__checkbox">
+        <ald-checkbox [id]="item.id ? item.id : item.label" [verticalSpace]="false" [checked]="item.selected" [indeterminate]="item.indeterminate" (onCheckedChange)="checkedItem($event, item)"></ald-checkbox>
+    </div>
+
+    <div *ngIf="item.items && nested && level <= levelsLimit" class="ald-treeview-item__btn" tabindex="0">
+        <ald-button type="default-ghost" [icon]="expanded ? 'keyboard_arrow_down' : 'keyboard_arrow_right'" size="sm" (click)="toggleRow()"></ald-button>
+    </div>
+
+    <label [for]="item.id ? item.id : item.label" class="ald-treeview-item__label">{{ item.label }}</label>
+</div>
+
+<ng-container *ngIf="expanded && level <= levelsLimit">
+    <ul [ngClass]="'ald-treeview__nested-list--' + level">
+        <li *ngFor="let subItem of item.items">
+            <ald-tree-view-item [item]="subItem" [nested]="nested" [level]="level +  1" (onItemCheckedChange)="checkedChanged($event, item)"></ald-tree-view-item>
+        </li>
+    </ul>
+</ng-container>

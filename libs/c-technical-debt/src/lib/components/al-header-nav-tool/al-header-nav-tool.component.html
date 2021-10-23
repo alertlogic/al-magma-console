@@ -1,0 +1,101 @@
+<div class="al-list-header">
+    <div class="list-label">
+        <div class="top-content">
+            <div class="add-bottom-bar">
+                <button (click)="onOpenForm()" *ngIf="config.withIconTitle" mat-fab color="primary">
+                    <i [ngClass]="config.iconTitle.iconClass" [style.width]="config.iconWidth">{{config.iconTitle.icon}}</i>
+                </button>
+                <div class="dropdown-plus list-header" *ngIf="config.buttonPlusMenu" #elementMenuPlus>
+                    <button mat-fab color="primary" (click)="enableButtonPlusMenu()">
+                        <i [ngClass]="config.iconTitle.iconClass" [style.width]="config.iconWidth">{{config.iconTitle.icon}}</i>
+                    </button>
+                    <ul class="dropdown-menu-plus" *ngIf="config.buttonPlusMenuToggle">
+                        <li class="dropdown-header-custom-plus">
+                            <div class="inline">
+                                <div class="circle">
+                                    <i class="fa fa-plus"></i>
+                                </div>
+                            </div>
+                            <span flex translate>{{config.menuAddTitle}}</span>
+                        </li>
+                        <li *ngFor="let item of config.menuAddItems" class="list-item-menu" (click)="onOpenForm(item)">
+                            <div class="inline">
+                                <div class="circle {{item.badge}}">
+                                    <i class="{{item.icon}}">{{item.matIcon}}</i>
+                                </div>
+                            </div>
+                            <span>{{item.description}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center stretch" fxFlex fxLayoutGap="24px">
+                <div class="nav-header" fxLayout="row" fxLayoutAlign="start end" [ngClass]="{'title-aligned': config.topRowAligned}">
+                    <!-- Title -->
+                    <div class="title" fxFlex>
+                        <h1 [ngClass]="config.titleClass" [style.padding-left]="config.titleLeftPadding" translate>
+                            {{config.title}}
+                        </h1>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="search-bar" *ngIf="config.isSearchEnable">
+                        <mat-form-field>
+                            <mat-label>{{config.textPlaceHolder}}</mat-label>
+                            <input matInput name="search" maxlength="{{config.maxSearchLength}}" [formControl]="searchControl">
+                            <mat-icon matSuffix>search</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    <!-- Settings Menu -->
+                    <div *ngIf="config.isSettingsEnable" class="settings">
+                        <button mat-button [matMenuTriggerFor]="menu">
+                            <mat-icon> settings </mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu">
+                            <button *ngFor="let item of config.settingsMenuOptions" (click)="onSettingMenuOption(item.value)" mat-menu-item>
+                                {{item.name}}
+                            </button>
+                        </mat-menu>
+                    </div>
+                </div>
+                <div class="bottom-row">
+                    <!-- Filtering -->
+                    <div *ngIf="config.enableMultipleFilter" fxFlex class="filters">
+                        <al-multi-select #alMultiSelect
+                            [config]="config.multiSelectConfig"
+                            (onChangedData)="onFilter($event)">
+                        </al-multi-select>
+                    </div>
+                    <!-- Archive Bottom -->
+                    <div class="archived-container" *ngIf="config.isArchiveEnable">
+                        <div class="archived-bottom">
+                            <div class="form-group archived">
+                                <mat-slide-toggle [(ngModel)]="showArchived" (change)="onArchive()">{{config.archiveTitle}}</mat-slide-toggle>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sorting using Select -->
+                    <div *ngIf="config.enableSortBySelect" [ngClass]="{'bottom-row-colored': config.enableSortBySelect == true }" [style.padding-left]="config.rowLeftPadding">
+                        <mat-form-field class="bottom-dropdown">
+                            <mat-select #matSelect class="select" [ngModel]="config.selectedSortName">
+                                <mat-option *ngFor="let item of config.sortItems" [value]="item.name" (click)="onSort(item)">
+                                    {{ item.caption }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <!-- Sorting and Filtering using AlSelector component -->
+                    <div *ngIf="config.enableAlSelector" >
+                        <al-order-selector
+                        (onSelected)="onFilterAlSelector($event)"
+                        (onChangeGrouping)="changeGroupingAlSelector($event)"
+                        (onSorted)="onSortAlSelector($event)"
+                        [config]="alSelectorConfig"
+                        simpleMode="true">
+                        </al-order-selector>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

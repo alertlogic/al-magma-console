@@ -66,6 +66,56 @@
         }
       }
     },
+    "c-controls-v2": {
+      "projectType": "library",
+      "root": "libs/c-controls-v2",
+      "sourceRoot": "libs/c-controls-v2/src",
+      "prefix": "al",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/c-controls-v2"],
+          "options": {
+            "jestConfig": "libs/c-controls-v2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/c-controls-v2/src/**/*.ts",
+              "libs/c-controls-v2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "c-technical-debt": {
+      "projectType": "library",
+      "root": "libs/c-technical-debt",
+      "sourceRoot": "libs/c-technical-debt/src",
+      "prefix": "al",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/c-technical-debt"],
+          "options": {
+            "jestConfig": "libs/c-technical-debt/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/c-technical-debt/src/**/*.ts",
+              "libs/c-technical-debt/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "console": {
       "projectType": "application",
       "root": "apps/console",
@@ -271,9 +321,7 @@
         "e2e-local": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-                "npx as-a cypress nx run console-e2e:e2e"
-            ],
+            "commands": ["npx as-a cypress nx run console-e2e:e2e"],
             "parallel": false
           }
         },
@@ -336,17 +384,17 @@
         }
       }
     },
-    "feature-auth": {
+    "f-authentication": {
       "projectType": "library",
-      "root": "libs/feature-auth",
-      "sourceRoot": "libs/feature-auth/src",
+      "root": "libs/f-authentication",
+      "sourceRoot": "libs/f-authentication/src",
       "prefix": "al",
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/feature-auth"],
+          "outputs": ["coverage/libs/f-authentication"],
           "options": {
-            "jestConfig": "libs/feature-auth/jest.config.js",
+            "jestConfig": "libs/f-authentication/jest.config.js",
             "passWithNoTests": true
           }
         },
@@ -354,8 +402,33 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/feature-auth/src/**/*.ts",
-              "libs/feature-auth/src/**/*.html"
+              "libs/f-authentication/src/**/*.ts",
+              "libs/f-authentication/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "f-mdr-deployments": {
+      "projectType": "library",
+      "root": "libs/f-mdr-deployments",
+      "sourceRoot": "libs/f-mdr-deployments/src",
+      "prefix": "al",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/f-mdr-deployments"],
+          "options": {
+            "jestConfig": "libs/f-mdr-deployments/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/f-mdr-deployments/src/**/*.ts",
+              "libs/f-mdr-deployments/src/**/*.html"
             ]
           }
         }

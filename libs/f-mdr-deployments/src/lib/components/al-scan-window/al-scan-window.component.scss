@@ -1,0 +1,150 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.al-scan-window {
+    .timezone-container {
+        width: 250px;
+    }
+    .info-label {
+        font-size: 12px;
+        color: al-color($al-gray, 300);
+        margin-bottom: 5px;
+    }
+    .scan-duration {
+        margin-bottom: 10px;
+        input {
+            width: 30px;
+        }
+    }
+    .error-input {
+        color: al-color($al-red, 600);
+        text-align: justify;
+    }
+    .warning-label {
+        color: al-color($al-gray, 300);
+        text-align: justify;
+    }
+    .delete-window-icon {
+        color: al-color($al-gray, 500);
+        font-size: 20px;
+        align-self: center;
+        justify-self: right;
+    }
+    .add-window, .delete-window-icon{
+        cursor: pointer;
+    }
+    .add-button {
+        text-align: right;
+    }
+    .default-label {
+        font-size: 16px;
+        width: 100%;
+    }
+    .default-top-margin {
+        margin-top: 25px;
+    }
+    .once-a-day-time {
+        margin-bottom: 8px;
+    }
+    .default-bottom-margin {
+        margin-bottom: 25px;
+    }
+    .window-number-label {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+    .dropdown-selector {
+        width: 150%;
+        margin-right: 15px;
+        margin-bottom: 22px;
+    }
+    .dropdown-calendar-selector {
+        width: 150%;
+        margin-right: 15px;
+        margin-bottom: -10px;
+    }
+    .input-time-selector {
+        width: 25%;
+    }
+    .scan-range-time {
+        display: flex;
+        .from-day {
+            margin-right: 5px;
+        }
+    }
+    .border-bottom {
+        padding: 12px 0;
+        border-bottom: 1px solid al-color($al-gray, 100);
+    }
+    .dropdown-days {
+        width: 35%;
+    }
+    .of-the-month-label {
+        width: 30%;
+    }
+    .month-input-time {
+        width: 30%;
+        padding: 0 20px;
+    }
+    .checkboxes-group-options {
+        margin: 10px 0 0 10px;
+    }
+    .time-format-label {
+        color: al-color($al-gray, 400);
+        font-size: 12px;
+    }
+    .time-input {
+        .time-format-label {
+            max-height: 30px;
+            margin-top: -20px;
+        }
+    }
+    .nth-week-container {
+        display: flex;
+        margin-top: 10px;
+        .nth-options, .nth-weekdays {
+            width: 25%;
+            margin-right: 5%;
+        }
+        .nth-label-time {
+            display: flex;
+            width: 30%;
+        }
+        .nth-at-label {
+            align-self: center;
+            margin: 0 20% 5% 0;
+        }
+        .nth-label {
+            align-self: center;
+            margin-right: 5%;
+            width: 5%;
+        }
+    }
+    .time-schedule {
+        display: flex;
+        flex-direction: column;
+        .default-top-margin-time {
+            margin-top: 20px;
+        }
+    }
+}
+
+.min-daily-width {
+    min-width: 407px;
+}
+
+:host ::ng-deep p-dropdown {
+    .ui-dropdown {
+        min-width: 95%;
+    }
+}
+
+:host ::ng-deep p-calendar {
+    .ui-calendar {
+        width: 100%;
+        input {
+            width: 90%;
+        }
+    }
+}
+

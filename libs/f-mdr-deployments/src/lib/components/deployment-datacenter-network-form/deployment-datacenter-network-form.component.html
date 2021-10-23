@@ -1,0 +1,94 @@
+<div class="datacenter-network-form">
+
+    <section fxLayout="row"
+             fxLayoutAlign="flex-between center">
+        <mat-form-field class="mat-block"
+                        [formGroup]="entityForm">
+            <input matInput
+                   name="name"
+                   type="text"
+                   placeholder="Network Name"
+                   formControlName="name"
+                   required />
+            <mat-error *ngIf="entityForm.controls.name.hasError('required') || entityForm.controls.name.hasError('emptyString')"
+                       i18n>
+                Name is required
+            </mat-error>
+        </mat-form-field>
+        <div>
+            <i class="material-icons tooltip-icon"
+               aria-hidden="true"
+               matTooltip="Type a name that easily identifies this network in a list. You can use a descriptive name, IP address, or VPC ID."
+               matTooltipPosition="left">info
+            </i>
+        </div>
+    </section>
+
+    <div fxLayout="row"
+         fxLayoutAlign="space-between center">
+        <h5>
+            Private CIDR(s)
+        </h5>
+        <div>
+            <i class="material-icons tooltip-icon"
+               aria-hidden="true"
+               matTooltip="Type a CIDR range for your private network."
+               matTooltipPosition="left">info
+            </i>
+        </div>
+    </div>
+
+    <mat-form-field class="mat-block"
+                    [formGroup]="entityForm">
+        <input matInput
+               name="privateCIDRs"
+               type="text"
+               (keyup)="validateCIDR('privateCIDRs')"
+               placeholder="Private CIDR *"
+               formControlName="privateCIDRs" />
+        <span class="add-cidr"
+              (click)="addPrivateCIDR()">+ ADD</span>
+        <mat-error *ngIf="entityForm.controls.privateCIDRs.hasError('required') ||
+                         entityForm.controls.privateCIDRs.hasError('emptyString') ||
+                         entityForm.controls.privateCIDRs.hasError('cidrValidity')"
+                   i18n>
+            Invalid CIDR
+        </mat-error>
+    </mat-form-field>
+
+    <ng-template ngFor
+                 let-privateRange
+                 *ngIf="network.cidr_ranges"
+                 [ngForOf]="network.cidr_ranges">
+        <div class="range"
+             fxLayout="row">
+            <div class="cidr"
+                 fxFlex>
+                {{privateRange}}
+            </div>
+            <i class="material-icons"
+               (click)="removePrivateCIDR(privateRange)">close</i>
+        </div>
+    </ng-template>
+
+
+    <div [formGroup]="entityForm"
+         fxLayout="row"
+         fxLayoutAlign="space-between center">
+        <mat-checkbox formControlName="spanPortEnabled"
+                      fxFlex="95">
+            <h5 class="span-port-checkbox"
+                i18n>Do not use agents for IDS traffic. My network automatically forwards traffic to my appliances
+                through a port mirroring feature.</h5>
+        </mat-checkbox>
+        <div>
+            <i class="material-icons tooltip-icon"
+               aria-hidden="true"
+               matTooltip="{{spanPortTooltipMessage}}"
+               matTooltipPosition="left">info
+            </i>
+        </div>
+    </div>
+
+</div>
+

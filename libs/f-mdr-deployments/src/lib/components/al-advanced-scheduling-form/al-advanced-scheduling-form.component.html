@@ -1,0 +1,411 @@
+<div class="al-advanced-scheduling-form">
+    <al-bottom-sheet
+        #alBottomSheet
+        [headerOptions]="headerOptions"
+        (onPrimaryAction)="save()"
+        (onSecondaryAction)="closeModal()">
+        <div class="scheduling-tabs-container-form" [formGroup]="scheduleForm">
+            <div [ngSwitch]="typeOfScan" class="p-grid">
+                <p class="p-col-12" *ngSwitchCase="'vulnerability'">
+                    Internal scans detect vulnerabilities in your internal networks. For this scan to perform more comprehensive checks,
+                    you must provide network credentials on the Topology page. You can choose when you want to perform this scan for all or selected assets and ports.
+                </p>
+                <p class="p-col-12" *ngSwitchCase="'external'">
+                    External scans detect vulnerabilities on assets and ports accessible from the Internet.
+                    You can choose when you want to perform this scan for all or selected assets and ports.
+                </p>
+                <p class="p-col-12" *ngSwitchDefault>
+                    Discovery scans find new assets and asset changes in your deployment, and they run automatically.
+                    You can choose when you want to perform this scan.
+                </p>
+            </div>
+            <!-- Loading -->
+            <al-view-helper [loading]="loading" [notifyPanel]="true"></al-view-helper>
+            <!-- Notifications -->
+            <al-notification-panel #notificationPanel
+                [alertSource]="notifications"
+                (onButtonClicked)="flushNotifications()">
+            </al-notification-panel>
+            <!-- Tabs -->
+            <p-tabView #tabView [ngStyle]="{'display': (!loading && !errorProcess)? 'block' : 'none'}" (onChange)="checkTabChanged($event)">
+                <p-tabPanel header="Schedule">
+                    <div class="p-grid">
+                        <div class="scheduling-subcontainer"
+                            [ngClass]="{'daily-width': scheduleForm.get('scanFrequency')?.value === 'daily',
+                                        'p-col-4': scheduleForm.get('scanFrequency')?.value !== 'daily'}">
+                            <!-- Details Content -->
+                            <div class="scheduling-details">
+                                <div class="p-col">
+                                    <h1 class="column-header">Details</h1>
+                                </div>
+                            </div>
+                            <!-- Schedule Name -->
+                            <div class="p-col-12">
+                                <div class="md-inputfield schudule-name">
+                                    <input pInputText
+                                        name="scheduleName"
+                                        formControlName="scheduleName"
+                                        class="p-col-12"
+                                        type="text" required/>
+                                    <label for="float-input">Name *</label>
+                                    <div class="error-input"
+                                        *ngIf="scheduleForm.controls.scheduleName.hasError('maxlength')">
+                                        Name cannot exceed 127 characters.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Schedule is Active -->
+                            <div class="p-grid p-col">
+                                <p-inputSwitch
+                                    pTooltip="Default Discovery scans cannot be disabled"
+                                    tooltipPosition="bottom"
+                                    [tooltipDisabled]="!(typeOfScan === 'discovery' && schedule.default)"
+                                    class="toogle-margin"
+                                    formControlName="enabled">
+                                </p-inputSwitch>
+                                <div class="schedule-active-label">
+                                    Schedule is Active
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Scan Frequency Content -->
+                        <div class="p-col-4 scheduling-subcontainer">
+                            <div class="scheduling-scan-frequency">
+                                <div class="p-col">
+                                    <h1 class="column-header">Scan Frequency</h1>
+                                </div>
+                            </div>
+                            <div class="p-col option-label">Choose how often to scan for {{ (typeOfScan === 'discovery')? 'asset changes' : 'vulnerabilities'}}:</div>
+                            <div class="radio-buttons-group">
+                                <p-radioButton class="p-col"
+                                    (click)="frequencyChange()"
+                                    formControlName="scanFrequency"
+                                    name="scanFrequency"
+                                    value="automatic"
+                                    label="Scan as often as necessary"
+                                    [pTooltip]="(typeOfScan === 'discovery')? 'Scans networks for new assets up to twice a day or when significant changes are detected' :
+                                           'Scans asset scope for vulnerabilities up to twice a day or when significant changes are detected'"
+                                    tooltipPosition="top"
+                                    tooltipStyleClass="long-tooltip-style">
+                                </p-radioButton>
+                                <p-radioButton class="p-col"
+                                    (click)="frequencyChange()"
+                                    formControlName="scanFrequency"
+                                    name="scanFrequency"
+                                    value="daily"
+                                    label="Scan once a day">
+                                </p-radioButton>
+                                <p-radioButton class="p-col"
+                                    (click)="frequencyChange()"
+                                    formControlName="scanFrequency"
+                                    name="scanFrequency"
+                                    value="weekly"
+                                    label="Scan once a week">
+                                </p-radioButton>
+                                <p-radioButton class="p-col"
+                                    *ngIf="typeOfScan !== 'discovery'"
+                                    (click)="frequencyChange()"
+                                    formControlName="scanFrequency"
+                                    name="scanFrequency"
+                                    value="monthly"
+                                    label="Scan once a month">
+                                </p-radioButton>
+                                <p-radioButton class="p-col"
+                                    *ngIf="typeOfScan !== 'discovery'"
+                                    (click)="frequencyChange()"
+                                    formControlName="scanFrequency"
+                                    name="scanFrequency"
+                                    value="quarterly"
+                                    label="Scan once a quarter">
+                                </p-radioButton>
+                                <p-radioButton class="p-col"
+                                    *ngIf="typeOfScan !== 'discovery'"
+                                    (click)="frequencyChange()"
+                                    formControlName="scanFrequency"
+                                    name="scanFrequency"
+                                    value="once"
+                                    label="Scan once">
+                                </p-radioButton>
+                            </div>
+                        </div>
+                        <!-- Scan Window Content -->
+                        <div class="p-col-4">
+                            <div class="scheduling-scan-window">
+                                <div class="p-col">
+                                    <h1 class="column-header">Scan Window</h1>
+                                </div>
+                            </div>
+                            <div *ngIf="scheduleForm.get('scanFrequency')?.value !== 'once'">
+                                <div class="p-col option-label">Choose when to scan for {{ (typeOfScan === 'discovery')? 'asset changes' : 'vulnerabilities'}}:</div>
+                                <div class="radio-buttons-group">
+                                    <p-radioButton class="p-col"
+                                        formControlName="scanWindow"
+                                        name="scanWindow"
+                                        value="default"
+                                        label="Scan any time"
+                                        pTooltip="Choose this option if you do not want to limit scans to certain times."
+                                        tooltipPosition="top"
+                                        tooltipStyleClass="long-tooltip-style">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-col"
+                                        formControlName="scanWindow"
+                                        name="scanWindow"
+                                        value="certain_hours"
+                                        label="Scan only during certain times">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-col"
+                                        *ngIf="scheduleForm.get('scanFrequency')?.value === 'monthly'"
+                                        formControlName="scanWindow"
+                                        name="scanWindow"
+                                        value="certain_days"
+                                        label="Scan only during certain times on certain days">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-col"
+                                        *ngIf="scheduleForm.get('scanFrequency')?.value === 'monthly'"
+                                        formControlName="scanWindow"
+                                        name="scanWindow"
+                                        value="certain_week"
+                                        label="Scan only during a certain week on certain day">
+                                    </p-radioButton>
+                                </div>
+                            </div>
+                            <al-scan-window
+                                *ngIf="scheduleForm.get('scanWindow')?.value !== 'default' || scheduleForm.get('scanFrequency')?.value === 'once'"
+                                (onTimeZoneDefaultSet)="onTimeZoneDefaultSetted($event)"
+                                [parentForm]="scheduleForm"
+                                [parentAutomaticForm]="scheduleForm.get('automaticForm')"
+                                [parentDailyForm]="scheduleForm.get('dailyForm')"
+                                [parentWeeklyForm]="scheduleForm.get('weeklyForm')"
+                                [parentMonthlyForm]="scheduleForm.get('monthlyForm')"
+                                [parentMonthlyCertainDaysForm]="scheduleForm.get('monthlyCertainDaysForm')"
+                                [parentWeekDayForm]="scheduleForm.get('monthlyWeekdayForm')"
+                                [parentQuarterlyForm]="scheduleForm.get('quarterlyForm')"
+                                [parentOnceForm]="scheduleForm.get('onceForm')"
+                                [frequency]="scheduleForm.get('scanFrequency')?.value"
+                                [scanWindow]="scheduleForm.get('scanWindow')?.value">
+                            </al-scan-window>
+                        </div>
+                    </div>
+                </p-tabPanel>
+                <p-tabPanel header="Scope">
+                    <p class="justify">
+                        Scans on all current and future assets in the scope of protection occur by default. 
+                        You can choose to scan specific assets or IP ranges for this schedule instead. 
+                        To exclude assets from all scan schedules, click "SAVE" or "CANCEL" and go back to the Scope of Protection page for this deployment.
+                    </p>
+                    <div class="option-label">Choose which assets to scan within the scope of protection:</div>
+                    <div class="p-dir-col radio-buttons-group">
+                        <div class="radio-button"
+                            pTooltip="All assets cannot be scanned for a custom discovery scan. To scan all assets, use the default schedule for discovery scans."
+                            [tooltipDisabled]="typeOfScan !== 'discovery' || (typeOfScan === 'discovery' && schedule.default)"
+                            tooltipPosition="top"
+                            tooltipStyleClass="long-tooltip-style">
+                            <p-radioButton class="p-col"
+                                [disabled]="typeOfScan === 'discovery'"
+                                formControlName="includeAllAssets"
+                                name="includeAllAssets"
+                                label="Scan all assets"
+                                [value]="true">
+                            </p-radioButton>
+                        </div>
+                        <div class="radio-button"
+                            pTooltip="The scope cannot be changed for the default discovery scan."
+                            [tooltipDisabled]="typeOfScan !== 'discovery' || (typeOfScan === 'discovery' && !schedule.default)"
+                            tooltipPosition="top"
+                            tooltipStyleClass="long-tooltip-style">
+                            <p-radioButton class="p-col"
+                                [disabled]="typeOfScan === 'discovery' && schedule.default"
+                                formControlName="includeAllAssets"
+                                name="includeAllAssets"
+                                label="Scan only selected assets"
+                                [value]="false">
+                            </p-radioButton>
+                        </div>
+                    </div>
+                    <div class="p-grid" [ngStyle]="setScopeSelectionVisibility()">
+                        <!-- Assets to Scan -->
+                        <div class="p-col-6">
+                            <div class="assets-to-scan-container">
+                                <div class="p-col">
+                                    <h1 class="column-header">Specify Assets to Scan</h1>
+                                </div>
+                                <div class="error-input"
+                                    *ngIf="scheduleForm.controls.specificAssetsToScan.hasError('allAssetsDiscoverySelected')">
+                                    All assets cannot be scanned for a custom discovery scan. To scan all assets, use the default schedule for discovery scans.
+                                </div>
+                                <div class="p-col">
+                                    <div class="asset-type-filter">
+                                        <p-selectButton [options]="assetTypeFilterOptions" formControlName="assetTypeFilter"></p-selectButton>
+                                    </div>
+                                    <al-multiselect-list class="assets-to-scan-list"
+                                        placeholder="Search for Assets"
+                                        name="assetsToScanList"
+                                        [options]="filteredAssetsList"
+                                        [(ngModel)]="selectedAssets"
+                                        (ngModelChange)="onAssetSelected($event)"
+                                        [ngModelOptions]="{standalone: true}">
+                                    </al-multiselect-list>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- IP Ranges / CIDRs to Scan -->
+                        <div class="p-col-6">
+                            <div class="ips-cidrs-to-scan-container">
+                                <div class="p-col">
+                                    <h1 class="column-header">Specify IP Address Ranges or CIDRs to Scan</h1>
+                                </div>
+                                <al-scan-scope-ipranges-cidrs #alScanScopeIprangesCidrs
+                                                                [parentForm]="scheduleForm"
+                                                                [deployment]="deployment">
+                                </al-scan-scope-ipranges-cidrs>
+                            </div>
+                        </div>
+                    </div>
+                </p-tabPanel>
+                <p-tabPanel header="Ports" *ngIf="typeOfScan !== 'discovery'">
+                    <p class="justify">
+                        Port scanning is a critical part of vulnerability scanning and identifies running services that an attacker might exploit.
+                        Scanning all ports requires additional time. To exclude ports from all scan schedules, click "SAVE" or "CANCEL" and go back
+                        to the Scope of Protection page for this deployment.
+                    </p>
+                    <div class="option-label">Choose which ports to scan within the scope of protection:</div>
+                    <div class="p-dir-col radio-buttons-group">
+                        <div class="radio-button" *ngIf="deployment.platform.type === 'aws' && typeOfScan !== 'external'">
+                            <p-radioButton class="p-col"
+                                formControlName="portOptions"
+                                name="portOptions"
+                                label="Scan only ports from AWS security groups"
+                                [value]="'security-groups'">
+                            </p-radioButton>
+                        </div>
+                        <div class="radio-button">
+                            <p-radioButton class="p-col"
+                                formControlName="portOptions"
+                                name="portOptions"
+                                label="Scan all TCP and common UDP ports"
+                                [value]="'all'">
+                            </p-radioButton>
+                        </div>
+                        <div class="radio-button">
+                            <p-radioButton class="p-col"
+                                formControlName="portOptions"
+                                name="portOptions"
+                                label="Scan selected ports"
+                                [value]="'selected'">
+                            </p-radioButton>
+                        </div>
+                    </div>
+                    <div class="p-grid" [ngStyle]="{ 'display': scheduleForm.get('portOptions').value !== 'selected' ? 'none' : 'flex' }">
+                        <div class="p-col-6 scheduling-ports-details">
+                            <div class="p-col">
+                                <h1 class="column-header header-info">
+                                    <div>Select Port Groups to Scan</div>
+                                    <div class="text-link">See list of ports for each group
+                                        <a href="https://docs.alertlogic.com/analyze/manage-scans-and-results/schedules.htm#Portgroups" target="_blank">here</a>
+                                    </div>
+                                </h1>
+                                <div class="selectable-port-options">
+                                    <p-checkbox name="optionPortGroup"
+                                        (click)="checkSelectedPortGroupsOptions()"
+                                        value='{"value":"*","proto":"t"}'
+                                        label="All TCP Ports"
+                                        [formControl]="scheduleForm.controls['selectedPortGroupsOptions']">
+                                    </p-checkbox>
+                                    <p-checkbox name="optionPortGroup"
+                                        (click)="checkSelectedPortGroupsOptions()"
+                                        value='{"value":"common","proto":"u"}'
+                                        label="Common UDP Ports"
+                                        [formControl]="scheduleForm.controls['selectedPortGroupsOptions']">
+                                    </p-checkbox>
+                                    <p-checkbox name="optionPortGroup"
+                                        (click)="checkSelectedPortGroupsOptions()"
+                                        value='{"value":"common","proto":"t"}'
+                                        label="Common TCP Ports"
+                                        [formControl]="scheduleForm.controls['selectedPortGroupsOptions']">
+                                    </p-checkbox>
+                                    <p-checkbox name="optionPortGroup"
+                                        (click)="checkSelectedPortGroupsOptions()"
+                                        value='{"value":"common","proto":"tu"}'
+                                        label="Common TCP and UDP Ports"
+                                        [formControl]="scheduleForm.controls['selectedPortGroupsOptions']">
+                                    </p-checkbox>
+                                    <p-checkbox name="optionPortGroup"
+                                        (click)="checkSelectedPortGroupsOptions()"
+                                        value='{"value":"typically_vulnerable","proto":"t"}'
+                                        label="Typically Vulnerable TCP Ports"
+                                        [formControl]="scheduleForm.controls['selectedPortGroupsOptions']">
+                                    </p-checkbox>
+                                    <p-checkbox name="optionPortGroup"
+                                        (click)="checkSelectedPortGroupsOptions()"
+                                        value='{"value":"typically_vulnerable","proto":"tu"}'
+                                        label="Typically Vulnerable TCP and UDP Ports"
+                                        [formControl]="scheduleForm.controls['selectedPortGroupsOptions']">
+                                    </p-checkbox>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-col-6 scheduling-ports-details">
+                            <div class="p-col">
+                                <h1 class="column-header header-info">
+                                    <div>Specify Custom Ports</div>
+                                    <div class="text-link">
+                                        Custom ports can overlap with selected port groups and do not result in duplicate scans.
+                                    </div>
+                                </h1>
+                                <div class="option-label">Protocol</div>
+                                <p-dropdown class="protocol-options"
+                                    (onChange)="onProtocolSelected($event)"
+                                    formControlName="protocolSelected"
+                                    [options]="protocolOptionsList">
+                                </p-dropdown>
+                                <div class="option-label">Port(s)</div>
+                                <div class="ports-input">
+                                    <input type="text" formControlName="portsInput" pInputText placeholder="1-65535">
+                                    <i class="material-icons"
+                                        pTooltip="Separate multiple ports and port ranges with commas. Use a dash or colon to indicate a range. (Ex. 443, 1024:3305)"
+                                        tooltipPosition="left">
+                                        info
+                                    </i>
+                                </div>
+                                <div class="error-input" *ngIf="scheduleForm.get('portsInput').invalid && scheduleForm.get('portsInput').touched">
+                                    Invalid port format
+                                </div>
+                                <button class="add-custom-ports-btt"
+                                    [disabled]="scheduleForm.get('portsInput').invalid ||
+                                        scheduleForm.get('portsInput').value === null ||
+                                        scheduleForm.get('portsInput').value === ''"
+                                    (click)="addCustomPort()"
+                                    pButton type="button"
+                                    label="Add Custom Ports">
+                                </button>
+                                <al-selectable-list
+                                    (onSelectionChanged)="onCustomPortsSelectedChanged($event)"
+                                    [options]="selectedCustomPortsList">
+                                </al-selectable-list>
+                            </div>
+                        </div>
+                    </div>
+                </p-tabPanel>
+            </p-tabView>
+        </div>
+    </al-bottom-sheet>
+    <p-confirmDialog
+        #confirmDialog
+        [key]="'allPorts'"
+        [acceptButtonStyleClass]="'primaryAction'"
+        [style]="{'width':'500px'}">
+        <p-footer>
+            <button type="button"
+                    pButton
+                    [label]="confirmDialog.rejectLabel"
+                    (click)="confirmDialog.reject()">
+            </button>
+            <button type="button"
+                    pButton
+                    class="primaryAction"
+                    [label]="confirmDialog.acceptLabel"
+                    (click)="confirmDialog.accept()">
+            </button>
+        </p-footer>
+    </p-confirmDialog>
+</div>

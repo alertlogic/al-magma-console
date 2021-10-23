@@ -1,0 +1,19 @@
+<ng-select #alMultiSelect
+    class="al-multi-select"
+    [placeholder]="config['placeholder']"
+    [items]="config['items']"
+    [bindLabel]="config['labelToBind']"
+    [bindValue]="config['valueToBind']"
+    [groupBy]="config['groupBy']"
+    [multiple]="multiple"
+    (change)="handleOutputData($event)"
+    [(ngModel)]="config['selectedItems']"
+    (scrollToEnd)="handleEndScroll()"
+    [disabled]="disabled"
+    [clearable]="clearable"
+    >
+    <ng-template  ng-option-tmp let-item="item" >
+            <i  *ngIf="item.icon" class="{{item.icon}}"></i>
+            {{item[myNgSelectComponent.bindLabel]}}
+    </ng-template>
+</ng-select>

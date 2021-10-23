@@ -1,70 +1,122 @@
 @import "@al/ng-generic-components/styles/utility";
 
 .al-content-toolbar {
-    margin-top: 40px;
-    border-bottom: 1px solid al-color($al-gray, 50);
+  margin-top: var(--ald-space-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    .al-search {
-        input {
-            width: 100%;
-        }
-        i {
-            position: absolute;
-            color: al-color($al-gray, 500);
-            margin-left: 215px;
-        }
-    }
+  .toolbar-l {
+    display: flex;
+    align-items: center;
+  }
 
-    .al-sort {
-        margin: 0px 15px;
-        cursor: pointer;
-        vertical-align: bottom;
-    }
-    .p-dropdown {
-        width: 240px;
-    }
-    .p-chkbox-icon {
-        padding-bottom: 15px;
-    }
-    .checkbox {
-        text-align: center;
-    }
-    .viewBy {
-        .view-list {
-            display: flex;
-            i {
-                font-size: 24px;
-            }
-        }
-        .view-selected {
-            i {
-                margin: 0px 12px 0px 0px;
-                font-size: 3em;
-            }
-            .static-label {
-                position: absolute;
-                color: al-color($al-gray, 300);
-            }
-            .view-name {
-                font-weight: 400;
-                font-size: 16px;
-            }
-        }
+  .toolbar-r {
+    display: flex;
+    align-items: center;
+  }
 
-        .p-dropdown {
-            padding-bottom: 4px;
-        }
+  .select-all {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 0 var(--ald-g-space-4);
+  }
 
-        .p-inputtext {
-            padding-bottom: 4px;
-        }
-        
-        .p-dropdown-trigger {
-            height: 100%;
-        }
+  .select-view {
+    display: flex;
+    align-items: center;
+  }
+
+  .al-search {
+    input {
+      width: 100%;
     }
 
-    .al-content-toolbar-grid{
-        height: inherit;
+    i {
+      position: absolute;
+      color: al-color($al-gray, 500);
+      margin-left: 215px;
     }
+  }
+
+  .al-sort {
+    margin: 0px 15px;
+    cursor: pointer;
+    vertical-align: bottom;
+  }
+
+  .p-dropdown {
+    width: 240px;
+  }
+
+  .p-chkbox-icon {
+    padding-bottom: 15px;
+  }
+
+  .checkbox {
+    text-align: center;
+    height: 44px;
+  }
 }
+
+.viewBy {
+  .view-list {
+    display: flex;
+    align-items: center;
+
+    i {
+      font-size: 18px;
+    }
+  }
+
+  .view-selected {
+    display: flex;
+    align-items: center;
+
+    i {
+      margin: 0px 12px 0px 0px;
+      font-size: var(--ald-g-text-base);
+    }
+
+    .static-label {
+      position: absolute;
+      color: al-color($al-gray, 300);
+    }
+
+    .view-name {
+      font-weight: 400;
+      font-size: 16px;
+    }
+  }
+
+  .p-dropdown {
+    padding-bottom: 4px;
+    display: flex;
+    align-items: center;
+  }
+
+  .p-inputtext {
+    padding-bottom: 4px;
+  }
+
+  .p-dropdown-trigger {
+    height: 100%;
+  }
+}
+
+// .al-content-toolbar-grid {
+//   height: inherit;
+//   display: flex;
+//   align-items: center;
+// }
+
+.view-list {
+    display: flex;
+    align-items: center;
+
+    i {
+      font-size: 18px;
+      margin: 0px 12px 0px 0px;
+    }
+  }

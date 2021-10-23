@@ -1,0 +1,42 @@
+<p-dialog [header]="headerText"
+          [(visible)]="display"
+          [style]="{width: '50vw'}"
+          modal="true"
+          [closable]="closeable"
+          [baseZIndex]="10000">
+    <p>
+        {{textBody}}
+        <ng-container *ngIf="!defaultWarning">
+            For more information, <a href="https://docs.alertlogic.com/configure/orphaned-agents.htm"
+               target="_blank"> see Orphaned Agents and Appliances </a>.
+        </ng-container>
+
+    </p>
+    <p class="question"
+       *ngIf="!defaultWarning">
+        <label> <b> {{confirmationText}} </b> </label>
+        <p-checkbox [(ngModel)]="accept"
+                    [binary]="true"></p-checkbox>
+    </p>
+
+    <p-footer class="footer">
+        <button type="button"
+                pButton
+                class="flat-button"
+                (click)="cancel($event)"> <span class="cancel"> Cancel </span></button>
+
+        <button *ngIf="defaultWarning"
+                type="button"
+                pButton
+                class="primary-button"
+                (click)="continue($event)"> <span class="confirm"> Delete </span> </button>
+
+        <button *ngIf="!defaultWarning"
+                type="button"
+                pButton
+                class="primary-button"
+                [ngClass]="{ disabled: !accept }"
+                [disabled]="!accept"
+                (click)="continue($event)"> <span class="confirm"> Delete </span> </button>
+    </p-footer>
+</p-dialog>

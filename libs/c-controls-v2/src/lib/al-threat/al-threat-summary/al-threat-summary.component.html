@@ -1,0 +1,47 @@
+<div class="incident-summary">
+    
+    <div class="u-text-sm u-text-gray-light u-mb-1">{{ label }}</div>
+
+    <ng-container *ngIf="threatSummary; else noThreat">
+        <ald-stack dropdown distribution="between" class="cursor-pointer">
+            <ald-stack distribution="start" gap="2">
+
+                <ald-stack *ngIf="threats.critical" distribution="start" gap="2">
+                    <ald-threat-rating [inline]="true" [iconOnly]="true" threatRating="critical"></ald-threat-rating>
+                    <div>{{ threats.critical }}</div>
+                </ald-stack>
+                
+                <ald-stack *ngIf="threats.high" distribution="start" gap="2">
+                    <ald-threat-rating [inline]="true" [iconOnly]="true" threatRating="high"></ald-threat-rating>
+                    <div>{{ threats.high }}</div>
+                </ald-stack>
+                
+                <ald-stack *ngIf="threats.medium" distribution="start" gap="2">
+                    <ald-threat-rating [inline]="true" [iconOnly]="true" threatRating="medium"></ald-threat-rating>
+                    <div>{{ threats.medium }}</div>
+                </ald-stack>
+                
+                <ald-stack *ngIf="threats.low" distribution="start" gap="2">
+                    <ald-threat-rating [inline]="true" [iconOnly]="true" threatRating="low"></ald-threat-rating>
+                    <div>{{ threats.low }}</div>
+                </ald-stack>
+                
+                <ald-stack *ngIf="threats.info" distribution="start" gap="2">
+                    <ald-threat-rating [inline]="true" [iconOnly]="true" threatRating="info"></ald-threat-rating>
+                    <div>{{ threats.info }}</div>
+                </ald-stack>
+            </ald-stack>
+            
+            <div>
+                <ald-dropdown label="" size="sm" icon="more_vert">
+                    <ald-menu [options]="actions" (selectedOption)="actionSelected($event)"></ald-menu>
+                </ald-dropdown>
+            </div>
+        
+        </ald-stack>
+    </ng-container>
+
+    <ng-template #noThreat>
+        <div class="u-text-sm">{{ noThreatText }}</div>
+    </ng-template>
+</div>

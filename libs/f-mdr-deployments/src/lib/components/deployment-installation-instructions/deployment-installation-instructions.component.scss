@@ -1,0 +1,55 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.installation-instructios {
+    .header-title {
+        margin-bottom: 10px;
+    }
+
+    .under-line {
+        border-bottom: 1px solid #EDEDED;
+        margin-bottom: 25px;
+        line-height: normal;
+    }
+
+    .description {
+        margin-bottom: 40px;
+    }
+
+    .link-container {
+        a {
+            margin: 20px;
+            text-decoration: none;
+
+            i {
+                font-size: 1.2pc;
+                margin-left: 7px;
+            }
+        }
+    }
+
+    .table-title {
+        margin-left: 70px;
+    }
+
+    .item-card {
+        border-top: 1px solid #EDEDED;
+        padding: 10px 0;
+
+        i {
+            font-size: 2pc;
+            margin: 0 20px;
+        }
+
+        .blue-icon {
+            color: al-color($al-smokeBlue, 500);
+            &:active{
+                color: al-color($al-smokeBlue, 900);
+            }
+        }
+
+        .header-label {
+            color: al-color($al-gray, 200);
+            font-size: 12px;
+        }
+    }
+}

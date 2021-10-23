@@ -1,0 +1,20 @@
+/* FORM GROUPS */
+
+.ald-form-group__header {
+	margin-bottom: var(--ald-g-space-1);
+}
+
+.ald-form-group__header--multicol {
+	display: flex;
+	align-items: center;
+}
+
+/* MARK */
+
+:host .ald-form-mark {
+	font-size: var(--ald-g-text-sm);
+	line-height: var(--ald-g-leading-sm);
+	font-weight: normal;
+	color: var(--form-hint-color);
+	margin-left: var(--ald-g-space-1);
+}

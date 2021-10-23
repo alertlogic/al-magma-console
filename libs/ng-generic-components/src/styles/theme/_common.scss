@@ -5,7 +5,7 @@
 }
 
 hr {
-    border: 1px solid al-color($al-gray, 50);
+    border: 1px solid var(--ald-g-color-gray-300);
 }
 
 body {
@@ -13,65 +13,6 @@ body {
     /* Chrome, Safari */
     -moz-osx-font-smoothing: grayscale;
     /* Firefox */
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-weight: 500;
-    margin-bottom: 0;
-}
-
-h1 {
-    margin-top: 0;
-}
-
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin-top: var(--ald-g-space-6);
-    margin-bottom: 0;
-}
-
-h1 {
-    font-size: var(--ald-g-leading-3xl);
-    line-height: var(--ald-g-leading-3xl);
-}
-
-h2 {
-    font-size: var(--ald-g-text-2xl);
-    line-height: var(--ald-g-leading-2xl);
-}
-
-h3 {
-    font-size: var(--ald-g-text-xl);
-    line-height: var(--ald-g-leading-xl);
-}
-
-h4 {
-    font-size: var(--ald-g-text-lg);
-    line-height: var(--ald-g-leading-lg);
-}
-
-h5 {
-    font-size: var(--ald-g-text-base);
-    line-height: var(--ald-g-leading-base);
-}
-
-h6,
-p {
-    font-size: var(--ald-g-text-sm);
-    line-height: var(--ald-g-leading-sm);
-}
-
-p {
-    margin-bottom: 0;
-    margin-top: var(--ald-g-space-2);
 }
 
 pre,
@@ -103,22 +44,26 @@ pre[class*="language-"] {
 }
 
 .tertiary-content {
-    padding: $bodyPadding;
+    padding: 0;
+
+    .tertiary-body {
+        padding: var(--ald-g-space-6) var(--ald-g-space-10);
+    }
 }
 
 // COLORS
 .essentials {
-    background-color: al-color($al-essentials, 500);
+    background-color: var(--ald-g-color-essentials);
     color: $headerTextColor;
 }
 
 .professional {
-    background-color: al-color($al-professional, 500);
+    background-color: var(--ald-g-color-professional);
     color: $headerTextColor;
 }
 
 .enterprise {
-    background-color: al-color($al-enterprise, 500);
+    background-color: var(--ald-g-color-enterprise);
     color: $headerTextColor;
 }
 
@@ -133,12 +78,12 @@ pre[class*="language-"] {
 }
 
 .accent {
-    background-color: var(--ald-g-accent);
+    background-color: var(--ald-accent);
     color: white;
 }
 
 .red {
-    background-color: var(--ald-g-danger);
+    background-color: var(--ald-g-color-danger);
     color: white;
 }
 
@@ -157,7 +102,7 @@ pre[class*="language-"] {
 }
 
 .green {
-    background-color: var(--ald-g-success);
+    background-color: var(--ald-g-color-success);
     color: white;
 }
 
@@ -181,41 +126,41 @@ pre[class*="language-"] {
 
 .risk {
     &.critical {
-        color: var(--ald-g-threat-critical);
+        color: var(--ald-g-color-threat-critical);
     }
 
     &.high {
-        color: var(--ald-g-threat-high);
+        color: var(--ald-g-color-threat-high);
     }
 
     &.medium {
-        color: var(--ald-g-threat-medium);
+        color: var(--ald-g-color-threat-medium);
     }
 
     &.low {
-        color: var(--ald-g-threat-low);
+        color: var(--ald-g-color-threat-low);
     }
 
     &.info {
-        color: var(--ald-g-threat-info);
+        color: var(--ald-g-color-threat-info);
     }
 }
 
 .threat {
     &.high {
-        color: var(--ald-g-threat-critical);
+        color: var(--ald-g-color-threat-critical);
     }
 
     &.medium {
-        color: var(--ald-g-threat-high);
+        color: var(--ald-g-color-threat-high);
     }
 
     &.low {
-        color: var(--ald-g-threat-medium);
+        color: var(--ald-g-color-threat-medium);
     }
 
     &.info {
-        color: var(--ald-g-threat-info);
+        color: var(--ald-g-color-threat-info);
     }
 }
 
@@ -270,7 +215,7 @@ pre[class*="language-"] {
 
         .label {
             font-size: var(--ald-g-text-xs);
-            color: inherit;
+            color: var(--ald-g-color-gray-500);
             margin-bottom: 0;
             padding-left: 0;
             font-weight: normal;
@@ -535,7 +480,7 @@ pre[class*="language-"] {
 // CONFIGURATION STYLES - o3 compatible
 
 .under-line {
-    border-bottom: 1px solid al-color($al-gray, 50);
+    border-bottom: 1px solid var(--ald-g-color-gray-300);;
     margin-bottom: 24px;
     line-height: normal;
     display: flex;
@@ -560,13 +505,13 @@ pre[class*="language-"] {
     h2 {
         font-size: 1.429em;
         margin: 36px 0 12px 0;
-        border-bottom: 1px solid al-color($al-gray, 50);
+        border-bottom: 1px solid var(--ald-g-color-gray-300);;
         padding-bottom: 6px;
 
         &.first {
             font-size: 1.429em;
             margin: 0 0 12px 0;
-            border-bottom: 1px solid al-color($al-gray, 50);
+            border-bottom: 1px solid var(--ald-g-color-gray-300);;
             padding-bottom: 6px;
         }
 
@@ -585,14 +530,14 @@ pre[class*="language-"] {
         &.first {
             font-size: 1.429em;
             margin: 0 0 24px 0;
-            border-bottom: 1px solid al-color($al-gray, 50);
+            border-bottom: 1px solid var(--ald-g-color-gray-300);
             padding-bottom: 6px;
         }
     }
 
     .label {
-        font-size: 12px;
-        color: al-color($al-gray, 200);
+        font-size: var(--ald-g-text-xs);
+        color: var(--ald-g-color-gray-500);
         margin-bottom: 0;
         padding-left: 0;
         font-weight: normal;

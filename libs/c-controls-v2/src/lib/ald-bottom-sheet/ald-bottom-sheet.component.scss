@@ -1,0 +1,198 @@
+.ald-bottom-sheet {
+	position: absolute;
+	visibility: hidden;
+}
+
+.ald-bottom-sheet.ald-bottom-sheet-is-open,
+.ald-bottom-sheet.ald-bottom-sheet-is-collapsed {
+	overflow: hidden;
+	position: relative;
+	visibility: visible;
+}
+
+.ald-bottom-sheet 
+.ald-bottom-sheet__wrapper {
+	position: fixed;
+	display: flex;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 50;
+	opacity: 0;
+	transform: translateY(65%) scale(.85);
+	transition: all 250ms ease-in;
+}
+
+/* Transition - Up move */
+.ald-bottom-sheet.ald-bottom-sheet-is-open
+.ald-bottom-sheet__wrapper {
+	opacity: 1;
+	transform: translateY(0%);
+	transition: all 300ms ease-out;
+	margin-top: var(--ald-g-space-11);
+}
+
+/* State - collapsed */
+.ald-bottom-sheet.ald-bottom-sheet-is-collapsed
+.ald-bottom-sheet__wrapper {
+	transform: translateY(60%);
+	opacity: 1;
+	margin-top: 0;
+}
+
+.ald-bottom-sheet__close {
+	position: fixed;
+	right:0;
+	top:0;
+	z-index: 60;
+}
+
+.ald-bottom-sheet__body {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	margin:0 auto;
+}
+
+.ald-bottom-sheet__header {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border-top-left-radius: var(--ald-g-radius-lg);
+	border-top-right-radius: var(--ald-g-radius-lg);
+	box-shadow: inset 0 -1px 0 var(--ald-g-color-gray-500);
+	background-color: white;
+}
+
+.ald-bottom-sheet__footer {
+	display: flex;
+	// justify-content: space-between;
+	width: 100%;
+	padding: var(--ald-g-space-3);
+	background-color: white;
+	box-shadow: inset 0 1px 0 var(--ald-g-color-gray-300);
+}
+
+.ald-bottom-sheet__stepper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: var(--ald-g-space-3);
+	background-color: white;
+	box-shadow: inset 0 -1px 0 var(--ald-g-color-gray-300), inset 0 1px 0 var(--ald-g-color-gray-300);
+}
+
+.ald-bottom-sheet__title  {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: var(--ald-g-space-3);
+	gap: var(--ald-g-space-1);
+}
+
+.ald-bottom-sheet__title-el {
+	font-size: var(--ald-g-text-xl);
+	line-height: var(--ald-g-text-xl);
+}
+
+.ald-bottom-sheet__content {
+	overflow: auto;
+	width: 100%;
+	height: 100%;
+}
+
+.ald-bottom-sheet__overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 40;
+	background-color: black;
+	transition: all linear 200ms;
+	opacity: 0;
+}
+
+/* Transition - Overlay - Dissolve */
+.ald-bottom-sheet-is-open
+.ald-bottom-sheet__overlay {
+	opacity: .75;
+	transition: all 250ms linear;
+}
+
+
+/* Stepper */
+
+.ald-stepper {
+	display: flex;
+	align-items: center;
+}
+
+.ald-stepper__step {
+	display: flex;
+	align-items: center;
+	user-select: none;
+}
+
+.ald-stepper__no {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: var(--ald-g-text-xs);
+	line-height: var(--ald-g-leading-xs);
+	font-weight: 500;
+	width: var(--ald-g-space-6);
+	height: var(--ald-g-space-6);
+	border-radius: var(--ald-g-radius-full);
+	color: var(--ald-g-color-gray-500);
+	background-color: transparent;
+}
+
+.ald-stepper__title {
+	font-size: var(--ald-g-text-sm);
+	line-height: var(--ald-g-leading-sm);
+	font-weight: 500;
+	margin-left: var(--ald-g-space-2);
+	color: var(--ald-g-color-gray-500);
+}
+
+.ald-stepper__separator {
+	width: var(--ald-g-space-7);
+	height: var(--ald-g-space-05);
+	background-color: var(--ald-g-color-gray-500);
+	margin-left: var(--ald-g-space-4);
+	margin-right: var(--ald-g-space-4);
+}
+
+
+.ald-stepper--active,
+.ald-stepper--complete {
+	cursor: pointer;
+}
+
+.ald-stepper--complete .ald-stepper__title,
+.ald-stepper--active .al-stepper__title {
+	color: var(--ald-g-color-orange);
+}
+.ald-stepper--complete .ald-stepper__no,
+.ald-stepper--active .ald-stepper__no {
+	background-color: var(--ald-g-color-orange);
+	color: white;
+}
+
+
+.ald-stepper__no {
+	box-shadow: inset 0 0 0 2px var(--ald-g-color-gray-500), 0 0 0 3px transparent;
+}
+
+
+.ald-stepper--complete .ald-stepper__no {
+	box-shadow: none;
+}
+
+.ald-stepper--active .ald-stepper__no {
+	box-shadow: inset 0 0 0 2px transparent, 0 0 0 3px #ff55003b!important;
+}

@@ -34,6 +34,12 @@
     "api-interfaces": {
       "tags": []
     },
+    "c-controls-v2": {
+      "tags": []
+    },
+    "c-technical-debt": {
+      "tags": []
+    },
     "console": {
       "tags": []
     },
@@ -47,7 +53,10 @@
     "exposures": {
       "tags": []
     },
-    "feature-auth": {
+    "f-authentication": {
+      "tags": []
+    },
+    "f-mdr-deployments": {
       "tags": []
     },
     "ng-asset-components": {

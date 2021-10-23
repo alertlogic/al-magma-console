@@ -1,0 +1,133 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.page-form {
+    .circle-logo {
+        display: flex;
+        justify-content: center;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        background-color: al-color($al-gray, 600);
+
+        .icon-logo {
+            font-size: 20pt;
+            margin-top: 6px;
+            color: white;
+            display: flex;
+            justify-content: center;
+        }
+    }
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .form-div {
+        width: 100%;
+        display: table
+    }
+
+    .row-div {
+        display: table-row;
+    }
+
+    .cell-div {
+        display: table-cell;
+    }
+
+    .inner-form {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .show-toggle {
+        position: absolute;
+        right: 0;
+        top: 0;
+        text-align: right;
+        font-size:10pt;
+        color: al-color($al-gray, 200);
+    }
+
+    .show-toggle:hover {
+        cursor: pointer;
+        cursor: hand;
+        color: al-color($al-smokeBlue, 500);
+    }
+
+    .header-text {
+        font-size: 10pt;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        font-weight: 300;
+        text-align: left;
+        margin-left: 26px;
+    }
+
+    .inner-form-div {
+        text-align: justify;
+        text-justify: inter-word;
+        margin: 20px 0 20px 0;
+    }
+
+    .page-buttons {
+        text-align: center;
+    }
+
+    .input-text-field {
+        width:300px;
+        height: 20px;
+        resize: none;
+    }
+
+    .button-width {
+        width:300px;
+    }
+
+    .reset-text {
+        text-align: justify;
+        text-justify: inter-word;
+        margin: 30px 0 30px 0;
+    }
+
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width:100%;
+        flex-direction: row;
+
+        .title {
+            width: 250px;
+        }
+    }
+
+    .material-icons{
+        width: 15%;
+        margin: auto;
+        cursor: default;
+    }
+
+    .input-authentication-code{
+        width: 100%;
+    }
+
+    .form-section {
+        padding-bottom: 15px;
+        width: 100%;
+    }
+
+    .form-section-error {
+        font-size: 9pt;
+        padding-bottom: 15px;
+        width: 100%;
+    }
+
+    .form-section-bottom {
+        font-size: 9pt;
+        color: al-color($al-gray, 300);
+    }
+}

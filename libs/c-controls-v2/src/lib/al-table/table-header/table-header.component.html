@@ -1,0 +1,74 @@
+<div class="u-p-5">
+    <ald-stack distribution="between" alignment="center">
+        <div class="u-flex u-items-center">
+            <ald-input type="search" [formControl]="tableSearchControl" [verticalSpace]="false" class="u-w-lg "></ald-input>
+			<div class="u-ml-3">
+                <ald-stack gap="1">
+                    <ald-button #filtersToggleButton type="default-ghost" label="Filters" icon="tune" (click)="displayFilters = !displayFilters"></ald-button>
+                    <ald-button *ngIf="filtersToggleButton.selected" type="default-ghost" label="Clear All" icon="close" (click)="clearAll()"></ald-button>
+                </ald-stack>
+				
+			</div>
+        </div>
+
+        <ald-stack distribution="end" alignment="center" gap="1">
+            <ald-button type="default-ghost" icon="file_download" iconClass="material-icons-outlined"></ald-button>
+
+            <ald-dropdown #columnDropdown type="default-ghost" width="sm" icon="view_week" iconClass="material-icons-outlined">
+                <div class="u-p-3">
+
+                    <ald-input class="u-w-100%" type="search" [formControl]="columnSearchControl" [verticalSpace]="false"></ald-input>
+
+                    <div cdkDropList (cdkDropListDropped)="dropColumn($event)" class="table-column-list u-my-2" style="max-height: 200px; overflow-y: scroll;">
+                        <ng-container *ngFor="let columnOption of columnsList; let index = index;">
+                            <div cdkDrag class="table-column-list--item u-py-1" cdkDragLockAxis="y" [cdkDragDisabled]="index === 0" [ngStyle]="{'cursor' : index == 0 ? 'not-allowed' : 'move'}">
+                                <ald-stack distribution="start" gap="2" cdkDragHandle>
+                                    <ald-icon *ngIf="index == 0" style="opacity:.5" icon="drag_indicator" size="sm" color="u-text-gray-light"></ald-icon>
+                                    <ald-icon *ngIf="index != 0" icon="drag_indicator" size="sm" color="u-text-gray-light"></ald-icon>
+                                    <ald-checkbox [verticalSpace]="false" [label]="columnOption.label" [id]="columnOption.value" [checked]="columnOption.selected" (onCheckedChange)="didSelectColumn($event, columnOption.value)" [disabled]="index === 0 && !columnSearchControl.value"></ald-checkbox>
+                                </ald-stack>
+                            </div>
+                        </ng-container>
+                    </div>
+                    <div class="ald-multiselect__footer u-pt-2">
+                        <ald-button-group>
+							<ald-stack distribution="between" class="u-w-100%">
+								<ald-button type="default-ghost" label="Cancel" (click)="cancelColumnConfig()"></ald-button>
+	                            <ald-button type="primary" label="Apply" (click)="applyColumnConfig()"></ald-button>
+							</ald-stack>
+                        </ald-button-group>
+                    </div>
+				</div>
+            </ald-dropdown>
+
+            <ald-dropdown #tableSettings type="default-ghost" icon="settings" label="" iconClass="material-icons-outlined">
+                <ald-menu
+                    [options]="[
+                        {label: 'Toggle multi-line table rows'}
+                    ]"
+                    (selectedOption)="tableFormat()">
+                </ald-menu>
+            </ald-dropdown>
+
+        </ald-stack>
+    </ald-stack>
+
+    <div *ngIf="displayFilters" class="u-mt-2">
+
+        <div class="ald-table-header__separator"></div>
+  
+        <ald-stack distribution="start" gap="2" class="u-flex-wrap">
+            <ng-container *ngFor="let filter of filterList">
+                <ald-multiselect
+                    type="default-outline"
+                    [label]="filter.label"
+                    [options]="filter.items"
+                    [selected]="filter.selected"
+                    (primaryAction)="applyFilters(filter)"
+                    (secondaryAction)="clearFilters(filter)">
+                </ald-multiselect>
+            </ng-container>
+        </ald-stack>
+        
+    </div>
+</div>

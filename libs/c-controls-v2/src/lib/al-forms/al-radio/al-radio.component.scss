@@ -1,0 +1,79 @@
+@import "../al-forms.component.scss";
+
+.ald-radio {
+	@extend %checkboxradio;
+}
+
+.ald-radio__circle {
+	@extend %checkboxradio-icon;
+	border-radius: var(--ald-g-radius-full);
+}
+
+.ald-radio__input {
+	@extend %checkboxradio-input;
+}
+
+.ald-radio__check {
+	width: var(--ald-g-space-2);
+	height: var(--ald-g-space-2);
+	background-color: transparent;
+	border-radius: var(--ald-g-radius-full);
+}
+
+.ald-radio__label {
+	@extend %checkboxradio-label;
+}
+
+// Checked state
+
+.ald-radio input[type=radio]:checked + .ald-radio__circle {
+	@extend %checkboxradio-checked;
+}
+
+// Focus state
+
+.ald-radio input[type=radio]:focus + .ald-radio__circle {
+	@extend %checkboxradio-focus;
+}
+
+.ald-radio input[type=radio]:checked + .ald-radio__circle  .ald-radio__check {
+	background-color: var(--form-checked-icon-color);
+}
+
+
+// Disabled state
+
+.ald-radio--disabled {
+	cursor: not-allowed;
+}
+
+.ald-radio input[type=radio]:disabled + .ald-radio__circle {
+	@extend %checkboxradio-disabled;
+}
+
+.ald-radio input[type=radio]:checked:disabled + .ald-radio__circle .ald-radio__check {
+	background-color: var(--form-element-text-color-disabled);
+}
+
+.ald-radio input[type=radio]:not(:checked):disabled + .ald-radio__circle  .ald-radio__check {
+	background-color:transparent;
+}
+
+.ald-radio--disabled .ald-radio__label {
+	@extend %checkboxradio-disabled;
+}
+
+// Radio group
+
+.ald-radio-group__row .ald-radio{
+	@extend %checkboxradio-group-row;
+}
+
+.ald-radio-group__row:first-child .ald-radio{
+	@extend %checkboxradio-group-row-first;
+}
+
+.ald-radio-group__row:last-child .ald-radio{
+	@extend %checkboxradio-group-row-last;
+}
+

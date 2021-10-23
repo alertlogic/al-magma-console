@@ -1,0 +1,5 @@
+@import "../al-forms.component.scss";
+
+.ald-label {
+	@extend %label;
+}

@@ -1,0 +1,46 @@
+<div class="al-protection-breakdown">
+    <div class="action-title">
+        {{title}}
+    </div>
+    <div class="action" fxLayout="row" fxLayoutAlign="space-between center">
+            
+        <div fxLayoutAlign="start center" class="action-header-items">
+
+                <ul class="action-list-small">
+                    <li *ngIf="fullScreen">
+                        <div>
+                            <span  class="al al-logo-color logo-block">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                            </span>
+                        </div>
+                    </li>
+                    <div *ngFor="let group of config" class="group">
+                        <span class="group-label"> {{group.name}} </span>
+                        <div class="item-data">
+                            <li *ngFor="let item of group.data" [ngClass]="{'hide-left-separator': item.hideLeftSeparator}">
+                                <ng-container *ngIf="!item.hideItem">
+                                    <span class="stack">
+                                        <span *ngIf="item.showCount"  class="stack-count">{{item.count}}</span>
+                                        <i [class]="item.iconClass"></i>
+                                        <span *ngIf="item.showLabel" class="stack-bottom" i18n>{{item.label}}</span>
+                                    </span>
+                                </ng-container>
+                            </li>
+                        </div>
+                    </div>
+                   
+                </ul>
+
+        </div>
+        <!-- Search Bar -->
+        <div class="search-bar" fxLayoutAlign="end center" >
+            <mat-form-field>
+                <mat-label>{{textSearchPlaceHolder}}</mat-label>
+                <input matInput name="search"
+                    [formControl]="searchControl">
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+        </div>
+    </div>
+</div>

@@ -49,7 +49,7 @@ export class AlArchipeligo19AppHeaderComponent implements OnInit, OnDestroy
     loadedManagedAccounts                   =   false;
     loadingManagedAccounts                  =   false;
 
-    userMenuItems: MenuItem[];
+    userMenuItems: MenuItem[] = [];
 
     datacenter:AlDatacenterOptionsSummary;
 
@@ -94,15 +94,22 @@ export class AlArchipeligo19AppHeaderComponent implements OnInit, OnDestroy
                 label: AlSession.getUserName(),
                 items: [
                     {
+                        label: "Something"
+                    },
+                    {
                         label: 'Logout',
-                        icon: 'ui-icon-power-settings-new',
+                        icon: 'p-icon-power-settings-new',
                         command: () => {
-                          this.logout();
+                            this.logout();
                         }
+                    },
+                    {
+                        label: "Bleh"
                     }
                 ]
             }
         ];
+        console.log("Menu Items", this.userMenuItems );
         this.onNavigationContextChanged();
     }
 

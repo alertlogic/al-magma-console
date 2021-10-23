@@ -1,0 +1,22 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.al-time-input {
+    align-items: center;
+    max-height: 38px;
+
+    .time-separator {
+        color: al-color($al-gray, 200);
+        margin: 0px 5px 0px 5px;
+    }
+
+    .hours-input, .minutes-input {
+        color: al-color($al-gray, 500);
+        max-width: 33px;
+        max-height: 56px;
+    }
+
+    .input-align {
+        text-align: center;
+    }
+
+}

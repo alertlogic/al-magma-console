@@ -1,0 +1,90 @@
+<div class="application-log-card">
+    <al-base-card [config]="alBaseCardConfig"
+                  [item]="alBaseCardItem"
+                  (onFooterAction)="footerAction($event)">
+        <ng-template alBaseCardHeaderRight>
+            <div class="al-cardstack-icon divider labeled-switch">
+                <p-inputSwitch (onChange)="handleRule($event.checked , cardItem)"
+                               [(ngModel)]="cardItem.enabled"></p-inputSwitch>
+                <div class="label">Collect</div>
+            </div>
+        </ng-template>
+        <ng-template alBaseCardBodyContent>
+            <div class="p-grid p-nogutter">
+                <div class="p-col-12">
+                    <div class="p-grid p-nogutter">
+                        <div class="p-col-4">
+                            <div class="label">Created By</div>
+                            <div class="desc">
+                                {{ (usersDictionary[cardItem.createdBy]|async)?.name}}
+                            </div>
+                        </div>
+                        <div class="p-col-4">
+                            <div class="label">File Name or Pattern</div>
+                            <div class="desc">{{ cardItem.pattern }} </div>
+
+                        </div>
+                        <div class="p-col-4">
+                            <div class="label">Collection Schedule Time Zone</div>
+                            <div class="desc">{{ cardItem.scheduleTimeZone | titlecase }}
+                                {{ cardItem.scheduleTimeFormat | uppercase }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-col-12 padding-top">
+                    <div class="p-grid p-nogutter">
+                        <div class="p-col-4">
+                            <div class="label">Multiline Handling</div>
+                            <div class="desc"> {{ cardItem.multilineHandling }} </div>
+                        </div>
+                        <div class="p-col-4">
+                            <div class="label">Multiline Pattern or Lines</div>
+                            <div class="desc"> {{ cardItem.multilinePattern }} </div>
+                        </div>
+                        <div class="p-col-4">
+                            <div class="label">Source File Path</div>
+                            <div class="desc"> {{ cardItem.fileNameOrPattern }} </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-col-12">
+                    <h2>Assets in Scope</h2>
+                </div>
+                <div class="p-col-12">
+                    <span> Collect logs from the following assets: </span>
+                    <div class="assets-list">
+                        <div>
+                            <al-view-helper #cardZeroState
+                                            [empty]="cardItem.scope.length === 0"
+                                            [notifyPanel]="true">
+                                <div zero-state-icon>
+                                    <i *ngIf="zeroState.isAlertLogicIcon; else materialIcon"
+                                       class="{{zeroState.icon}}"></i>
+                                    <ng-template #materialIcon>
+                                        <i class="material-icons">{{zeroState.icon}}</i>
+                                    </ng-template>
+                                </div>
+                                <span zero-state-title
+                                      i18n="Zero state title">{{ zeroState.title | titlecase}}</span>
+                                <span zero-state-description>
+                                    <p i18n="Zero state description">{{zeroState.description}}</p>
+                                </span>
+                            </al-view-helper>
+                        </div>
+                        <div class="desc"
+                             *ngIf="cardItem.scope.length > 0">
+                            <ul *ngFor="let item of cardItem.scope"
+                                class="scope">
+                                <li>
+                                    <span>
+                                        <strong>{{item.name}}</strong> {{item.type | titlecase}}
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </al-base-card>
+</div>

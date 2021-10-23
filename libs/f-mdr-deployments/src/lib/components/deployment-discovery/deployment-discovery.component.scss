@@ -1,0 +1,38 @@
+.deployment-discovery {
+    background: white;
+    .primary-header {
+        padding-top: 20px;
+    }
+    .discovery {
+        background: white;
+        &.full-screen {
+            padding-left: 5px;
+            padding-right: 5px;
+            object-fit: contain;
+            position: fixed !important;
+            top: 0px !important;
+            right: 0px !important;
+            bottom: 0px !important;
+            left: 0px !important;
+            box-sizing: border-box !important;
+            min-width: 0px !important;
+            max-width: none !important;
+            min-height: 0px !important;
+            max-height: none !important;
+            width: 100% !important;
+            height: 100% !important;
+            transform: none !important;
+            margin: 0px !important;
+        }
+        .assets-discoverd-tab {
+            height: 100%;
+            .topology-section {
+                &.full-screen {
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+}
+

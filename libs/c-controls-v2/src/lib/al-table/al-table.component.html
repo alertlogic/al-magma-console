@@ -1,0 +1,147 @@
+<ald-layout-row class="ald-layout-row--auto">
+    <ald-layout-col>
+        <ald-table-header
+            [columnOptions]="columnOptions"
+            [filterOptions]="filters"
+            (didApplyColumnConfig)="applyColumnConfig($event)"
+            (didSearch)="didApplySearch($event)"
+            (didFilter)="didApplyFilter($event)"
+            (didFormatTable)="multilineRows = !multilineRows"
+    ></ald-table-header>
+    </ald-layout-col>
+</ald-layout-row>
+    
+    
+<ald-layout-row [scrollable]="true">
+    <ald-layout-col [scrollable]="true">
+        <ald-layout-row>
+
+            <table #table cdk-table class="ald-table ald-table--has-pagination" [dataSource]="displayedData$" [ngClass]="{'ald-table--multiline': multilineRows}">
+
+                <!-- Actions Column Definition -->
+                <ng-container cdkColumnDef="actions">
+                    <th cdk-header-cell
+                        *cdkHeaderCellDef
+                        class="ald-table__head-cell ald-table__action ald-table__head-cell--sticky">
+                    </th>
+                    <td cdk-cell
+                        *cdkCellDef="let row; let index = index"
+                        class="ald-table__body-row-cell ald-table__action ald-table__body-row-cell--sticky">
+                        <div 
+                            class="ald-table__body-row-action-button"
+                            [ngClass]="{'ald-table__body-row-action-button--visible': index === activeActionMenuRow}">
+                            <ald-dropdown #actionMenu type="default-ghost" icon="more_vert" size="sm" (click)="activeActionMenuRow = index">
+                                <ald-menu [options]="actions" (selectedOption)="actionSelected($event, row)"></ald-menu>
+                            </ald-dropdown>
+                        </div>
+                    </td>
+                </ng-container>
+                
+                <!-- Checkbox Column Definition -->
+                <ng-container cdkColumnDef="checkboxRows">        
+                    <th cdk-header-cell
+                        *cdkHeaderCellDef
+                        class="ald-table__head-cell ald-table__checkbox ald-table__head-cell--sticky"
+                        [class.ald-table__head-cell--actions]="actions">
+                        <ald-checkbox [id]="'selectAll'" [verticalSpace]="false" (onCheckedChange)="checkAllRows($event)"></ald-checkbox>
+                    </th>
+                    <td cdk-cell
+                        *cdkCellDef="let row; let index = index;"
+                        class="ald-table__body-row-cell ald-table__checkbox ald-table__body-row-cell--sticky"
+                        [class.ald-table__head-cell--actions]="actions">
+                        <ald-checkbox [id]="'rowIndex-' + index" [verticalSpace]="false" (onCheckedChange)="didCheckRow($event, index)" [checked]="row.checked"></ald-checkbox>
+                    </td>
+                </ng-container>
+
+                <!-- Dynamic Column Definitions -->
+                <ng-container *ngFor="let col of columns; let first = first" [cdkColumnDef]="col.header">     
+                    <!-- header cells -->
+                    <th cdk-header-cell
+                        *cdkHeaderCellDef
+                        class="ald-table__head-cell ald-table__data"
+                        [class.ald-table__head-cell--sticky]="stickyColumn && first"
+                        [ngClass]="[actions && checkboxRows ? 'ald-table__head-cell--actions-checkboxes' : actions ? 'ald-table__head-cell--actions' : checkboxRows ? 'ald-table__head-cell--checkboxes' : '']"
+                        [title]="col.headerTitle"
+                        (click)="adjustSort(col.field)"
+                        [style.max-width.px]="col.maxColWidth">
+                        <div class="ald-table__head-cell-wrapper">
+                            {{ col.header }}
+                            <div class="ald-table__head-cell-wrapper-icon" [ngClass]="{'ald-table__head-cell-wrapper-icon--visible': defaultSortKey === col.field}">
+                                <ald-icon size="sm" [icon]="sortDirection === 'asc' ? 'arrow_upward' : 'arrow_downward'"></ald-icon>
+                            </div>
+                        </div>
+                    </th>
+
+                    <!-- table cells -->
+                    <td cdk-cell
+                        *cdkCellDef="let row"
+                        class="ald-table__body-row-cell ald-table__data"
+                        [class.ald-table__body-row-cell--sticky]="stickyColumn && first"
+                        [style.max-width.px]="col.maxColWidth"
+                        [ngClass]="[actions && checkboxRows ? 'ald-table__head-cell--actions-checkboxes' : actions ? 'ald-table__head-cell--actions' : checkboxRows ? 'ald-table__head-cell--checkboxes' : '']"
+                    >
+                        <div class="ald-table__body-row-cell-text">
+
+                            <ald-table-cell-link *ngIf="col.key" [value]="row | objectValue: col.field" [path]="linkedPath" [key]="row | objectValue: col.key"></ald-table-cell-link>
+                            <ald-table-cell-threat *ngIf="col.type == columnType.threat" [threat]="row | objectValue: col.field"></ald-table-cell-threat>
+                            <ald-table-cell-icon *ngIf="col.type == columnType.icon" [icon]="row | objectValue: col.field" [iconClass]="row | objectValue: col.iconClass ? col.iconClass : ''" [title]="row | objectValue: col.fieldTitle" [color]="row | objectValue: col.iconColor ? col.iconColor : ''"></ald-table-cell-icon>
+                            <ald-table-cell-boolean *ngIf="col.type == columnType.boolean" [value]="row | objectValue: col.field"></ald-table-cell-boolean>
+                            <ald-table-cell-date *ngIf="col.type == columnType.date" [value]="row | objectValue: col.field"></ald-table-cell-date>
+                            <ald-table-cell-ip-address *ngIf="col.type == columnType.ipAddress" [value]="row | objectValue: col.field"></ald-table-cell-ip-address>
+                            <ald-table-cell-text *ngIf="!col.type && !col.key" [value]="row | objectValue: col.field"></ald-table-cell-text>
+
+                        </div>
+                    </td>
+                </ng-container>
+
+                <!-- Render The Rows -->
+                <tr cdk-header-row
+                    *cdkHeaderRowDef="displayedColumns$.value"
+                    class="ald-table__head-row">
+                </tr>
+                <tr cdk-row 
+                    *cdkRowDef="let row; columns: displayedColumns$.value; let index = index;"
+                    class="ald-table__body-row"
+                    [ngClass]="{'ald-table__body-row--active': selectedRow === index, 'ald-table__body-row--clickable': selectableRows}"
+                    (click)="rowSelected(index, row)">
+                </tr>
+            </table>
+
+        </ald-layout-row>
+
+    </ald-layout-col>
+</ald-layout-row>
+
+
+<ald-layout-row class="ald-layout-row--auto">
+    <ald-layout-col>
+        <div class="ald-table__pagination">
+            <div class="ald-table__results">
+                <ng-container *ngIf="!rowIndexesChecked.length; else selection">
+                    {{ resultsCount$.value }} Results
+                </ng-container>
+                <ng-template #selection>
+                    <ald-stack alignment="center" gap="2">
+                        
+                        <ald-dropdown #multiSelectActionMenu type="primary" icon="more_vert" [label]="'Bulk Action (' + rowIndexesChecked.length + ')'" iconPos="left">
+                            <ald-menu [options]="multiSelectActions" (selectedOption)="actionMultiItems($event)"></ald-menu>
+                        </ald-dropdown>
+
+                    </ald-stack>
+                </ng-template>
+                
+            </div>
+            <div class="ald-table__nav-buttons">
+                <ald-dropdown #resultsPerPage type="default-ghost" label="25 per page">
+                    <ald-menu
+                        [options]="[{label: '25 per page', value: 25}, {label: '50 per page', value: 50}, {label: '100 per page', value: 100}]"
+                        (selectedOption)="selectNumberOfResultsPerPage($event)">
+                    </ald-menu>
+                </ald-dropdown>
+                <ald-button type="default" icon="navigate_before" (click)="didBackPage.emit()"></ald-button>
+                <ald-button type="default" icon="navigate_next" (click)="didNextPage.emit()"></ald-button>
+            </div>
+        </div>
+    </ald-layout-col>
+</ald-layout-row>
+    

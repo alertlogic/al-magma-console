@@ -131,9 +131,11 @@
     div.tertiary-content {
       width: 100%;
       box-sizing: border-box;
+      padding: var(--ald-g-space-6) var(--ald-g-space-10);
 
-      &.with-padding {
-        padding: 36px 40px;
+      &.with-padding,
+      &.body-content {
+        padding: var(--ald-g-space-6) var(--ald-g-space-10);
       }
 
       section.navigation-tabs {

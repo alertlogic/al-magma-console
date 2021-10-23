@@ -1,0 +1,78 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.system-rule-form {
+    padding: 15px 40px;
+
+    .form-row {
+        padding-bottom: 30px;
+    }
+    
+    .description-form {
+        top: 250px;
+        width: 100%;
+        text-align: left;
+        font: Regular 14px/19px Open Sans;
+        letter-spacing: 0;
+        color: #212121;
+        opacity: 1;
+    }
+
+    .title {
+        padding: 0 0 6px;
+        margin: 24px 0;
+        border-bottom: 1px solid #ededed;
+    }
+
+    .input-field{
+        width: 100%;
+    }
+
+    .form-content {
+        padding-top: 10px;
+    }
+
+    .checkbox-header {
+        padding-bottom: 7px;
+    }
+
+    main {
+        padding-top: 8px;
+        padding-right: 8px;
+        padding-bottom: 8px;
+        padding-left: 0px;
+
+        ul {
+            padding: 0;
+            list-style: none;
+
+            &>li {
+                position: relative;
+
+                &>i {
+                    position: absolute;
+                    left: -25px;
+                    cursor: pointer;
+                    user-select: none;
+                    color: al-color($al-smokeBlue, 500);
+                }
+            }
+        }
+
+        &>ul {
+            ul {
+                padding-left: 24px;
+            }
+        }
+        .margin-ul-image {
+            margin: 0 0 40px 24px;
+        }
+
+        .margin-ul {
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 40px;
+            margin-left: 0px;
+        }
+    }
+}
+

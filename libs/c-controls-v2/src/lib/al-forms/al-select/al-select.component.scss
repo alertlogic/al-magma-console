@@ -1,0 +1,50 @@
+@import "../al-forms.component.scss";
+
+.ald-select {
+	position: relative;
+}
+
+.ald-select__element {
+	@extend %textual-controls;
+	height: var(--ald-g-space-9);
+	appearance: none;
+	text-align: left;
+	padding-right: var(--ald-g-space-10);
+
+}
+
+// Icon
+
+.ald-select__icon {
+	position: absolute;
+	top:0px;
+	right:0px;
+	display: flex;
+	align-items: center;
+	height: 100%;
+	margin-right: var(--ald-g-space-2);
+	pointer-events: none;
+	color: var(--form-element-icon-color);
+}
+
+// Focus
+
+.ald-select__element:focus {
+	@extend %textual-controls-focus;
+}
+
+// Disabled
+
+.ald-select__element--disabled {
+	@extend %textual-controls-disabled;
+}
+
+.ald-select__icon--disabled {
+	color: var(--form-element-text-color-disabled);
+}
+
+// Error
+
+.ald-select__element--error {
+	@extend %textual-controls-error;
+}

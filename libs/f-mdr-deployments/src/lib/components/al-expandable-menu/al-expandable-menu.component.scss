@@ -1,0 +1,113 @@
+@import "@al/ng-generic-components/styles/utility";
+$weightBold: 600;
+$weightNormal: 400;
+
+.al-expandable-menu {
+    padding: 0;
+    font-size: 14px;
+    h2 {
+        font-size: 1em;
+    }
+    .lonelyItem-expandable-menu {
+        padding: 0.5em 0 0.5em 0;
+        color: al-color($al-gray, 600);
+        div {
+            padding: 0.4em 24px 0.4em 30px;
+            &.label-expandable-menu {
+                font-weight: $weightNormal;
+            }
+            &.selected-expandable-menu {
+                background-color: al-color($al-gray, 500);
+                color: $al-contrastLight;
+                font-weight: $weightBold;
+            }
+            &.clickable-expandable-menu {
+                cursor: pointer;
+                &.hover-highlight-expandable-menu:hover {
+                    background-color: al-color($al-gray, 50);
+                    color: al-color($al-gray, 400);
+                }
+            }
+        }
+    }
+    .title-content-expandable-menu {
+        padding: 12px 24px 12px 30px;
+        .label-expandable-menu {
+            font-weight: $weightNormal;
+        }
+        i {
+            margin: 0;
+            font-size: 1.4em;
+        }
+        &.opened-expandable-menu {
+            color: al-color($al-gray, 600);
+        }
+        &.closed-expandable-menu {
+            color: al-color($al-gray, 300);
+        }
+        &.clickable-expandable-menu {
+            cursor: pointer;
+        }
+    }
+    .content-expandable-menu {
+        &.open-expandable-menu, &.close-expandable-menu {
+            overflow: hidden;
+            max-height: 0;
+            -webkit-transition: max-height 100.3s ease-in-out;
+            -moz-transition: max-height 100.3s ease-in-out;
+            -o-transition: max-height 100.3s ease-in-out;
+            transition: max-height 0.3s ease-in-out;
+        }
+        &.open-expandable-menu {
+            max-height: 400px;
+        }
+    }
+    .no-last-expandable-menu {
+        border-bottom: 2px solid al-color($al-gray, 50);
+    }
+    .group-expandable-menu {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+        .item-expandable-menu {
+            margin-left: 0px;
+            margin-bottom: 1px;
+            padding: 0.5em 24px 0.5em 40px;
+            justify-content: space-between;
+            align-items: center;
+            &.selected-expandable-menu {
+                background-color: al-color($al-gray, 500);
+                color: $al-contrastLight;
+                font-weight: $weightBold;
+            }
+            &.clickable-expandable-menu {
+                cursor: pointer;
+                &.hover-highlight-expandable-menu:hover {
+                    background-color: al-color($al-gray, 50);
+                    color: al-color($al-gray, 400);
+                }
+            }
+        }
+    }
+        }
+
+.al-expandable-menu-footer {
+    width: 250px;
+    min-width: 250px;
+    font-size: 13px;
+    bottom: 0;
+    position: fixed;
+    cursor: pointer;
+    background-color: al-color($al-gray, 50);
+    color: al-color($al-gray, 600);
+    font-weight: 600;
+    padding: 4px 0px 4px 30px;
+}
+.al-expandable-menu-footer-selected {
+    background-color: al-color($al-gray, 500);
+    color: $al-contrastLight;
+    font-weight: $weightBold;
+}
+.al-expandable-menu-footer-hide {
+    display:none;
+}

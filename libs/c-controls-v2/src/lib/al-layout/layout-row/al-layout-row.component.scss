@@ -1,0 +1,27 @@
+// ROW DIRECTION
+
+// Vertical
+:host(.ald-layout-row) {
+	display: flex;
+	flex-direction: column;
+}
+
+// Horizontal
+:host(.ald-layout-row--with-cols) {
+	flex-direction: row;
+}
+
+// ROW HEIGHT
+
+// 100% height
+:host(.ald-layout-row) {
+	flex-grow:1;
+	height: 100%;
+}
+
+// Auto height
+:host(.ald-layout-row--auto) {
+	flex-grow: 0;
+	flex-shrink:0;
+	height: auto;
+}

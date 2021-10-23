@@ -1,0 +1,80 @@
+@import "@al/ng-generic-components/styles/utility";
+.deployment-fim-form {
+    padding: 36px 40px 24px 40px;
+
+    .form-wrapper {
+        margin-right: 36px;
+    }
+
+    h2 {
+        margin: 24px 0;
+        border-bottom: 1px solid al-color($al-gray, 100);
+        font-size: 1.429em;
+        margin: 0 0 12px;
+        padding: 3px 0 6px 0;
+    }
+
+    .input-field {
+        width: 100%;
+    }
+
+    .file-path-input-field {
+        padding-bottom: 24px;
+        width: 100%;
+    }
+
+    .description-field {
+        textarea {
+            width: 100%;
+            height: 100px;
+        }
+        padding-top: 24px;
+        padding-left: 12px;
+    }
+
+    .pattern-input-field {
+        width: 100%;
+    }
+
+    .form-content {
+        padding-top: 12px;
+    }
+
+    .material-icons {
+        font-size: 1.5em;
+        height: 1em;
+        width: 1em;
+    }
+    i.tooltip-icon {
+        color: al-color($al-gray, 200);
+    }
+
+    .checkbox-parent{
+        align-items: center;
+        padding-left: 12px;
+
+        p {
+            display: flex;
+        }
+
+        .checkboxes {
+            display: flex;
+        }
+    }
+    .subtitle-label {
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 11px;
+    }
+    .dropdwon-file-types {
+        padding-left: 0;
+        margin-bottom: 24px;
+    }
+
+    .options {
+
+        .chips {
+            padding: 6px 3px 6px 12px;
+        }
+    }
+
+}

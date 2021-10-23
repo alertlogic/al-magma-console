@@ -1,0 +1,31 @@
+<ald-form-group [id]="id"
+    [label]="label"
+    [tip]="tip"
+    [hint]="hint"
+    [required]="required">
+
+    <textarea
+        class="ald-text-area"
+        [class.ald-input__element--error]="control?.errors && (control.dirty || control.touched)"
+        [class.ald-text-area__select--disabled]="disabled"
+        [id]="id"
+        [name]="name"
+        [disabled]="disabled"
+        [required]="required"
+        [autofocus]="autofocus"
+        [cols]="cols"
+        [rows]="rows"
+        [placeholder]="placeholder"
+        (change)="onValueChange(inputModel)"
+        (keyup)="onValueChange(inputModel)"
+        [(ngModel)]="inputModel">
+    </textarea>
+
+    <ald-form-group-errors
+        [control]="control"
+        [label]="label"
+        [requiredError]="requiredError"
+    >
+    </ald-form-group-errors>
+
+</ald-form-group>
