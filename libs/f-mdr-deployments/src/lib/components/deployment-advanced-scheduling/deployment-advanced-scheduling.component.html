@@ -1,0 +1,489 @@
+<div class="al-deployment-advanced-scheduling">
+
+    <al-deployment-header [config]="deploymentHeaderConfig"></al-deployment-header>
+
+    <p class="info-text">
+        Alert Logic automatically creates default scan schedules to perform scans to protect your deployment.
+        You can also choose when you want Alert Logic to perform specific scans for all or selected assets.
+    </p>
+    <!-- Tabs Menu -->
+    <p-tabView #mainTabView (onChange)="handleTab($event)">
+        <p-tabPanel header="Discovery Scanning" *ngIf="showDiscovery"></p-tabPanel>
+        <p-tabPanel header="Internal Scanning"></p-tabPanel>
+        <p-tabPanel header="External Scanning"></p-tabPanel>
+    </p-tabView>
+    <!-- Header Toolbar -->
+    <al-content-header
+        title="Create a Scan Schedule"
+        showAddButton="true"
+        (onButtonClicked)="createScanSchedule()">
+    </al-content-header>
+    <!-- Toolbar -->
+    <al-content-toolbar
+        [config]="toolbarConfig"
+        (onSearched)="search($event)"
+        (onOrderBy)="sortByDirection($event)"
+        (onSortSelection)="sortBy($event)">
+    </al-content-toolbar>
+    <!-- Loading and zero state -->
+    <al-view-helper #alViewHelperComponent
+        [loading]="loading"
+        [notifyPanel]="true"
+        [empty]="!loading && filteredSchedulesCollection.length === 0">
+        <i class="material-icons" zero-state-icon>warning</i>
+        <span zero-state-title i18n="">
+            <p>No scan schedules were found.</p>
+            <p>Your search did not match any existing scan schedules. Try your search again.</p>
+        </span>
+    </al-view-helper>
+    <!-- List of Schedules -->
+    <div class="list" *ngIf="!loading">
+        <al-base-card
+            *ngFor="let schedule of filteredSchedulesCollection"
+            (onExpand)="expandScheduleListRow($event, schedule)"
+            [config]="baseCardConfig"
+            [item]="schedule.item">
+            <ng-template alBaseCardHeader>
+                <div class="p-col-fix p-nogutter" style="width:72px">
+                    <div class="icon-info" (click)="schedule.item.expanded = !schedule.item.expanded">
+                        <i class="material-icons initial-icon">
+                            {{ schedule.item.icon.name }}
+                        </i>
+                        <div class="label-info">
+                            {{ schedule.rawItem.scan_frequency }}
+                        </div>
+                    </div>
+                </div>
+                <div class="p-col p-nogutter" (click)="schedule.item.expanded = !schedule.item.expanded">
+                    <div class="in-progress">
+                        <div class="scan-date" *ngIf="schedule.status !== 'in_progress' && (schedule.rawItem.enabled || schedule.item.expanded)">
+                            Last Scan Date:
+                            <span *ngIf="schedule.last_scan_date; else elseLastScanDate">{{ schedule.last_scan_date | date:'MMM d, yyyy, HH:mm:ss' }}</span>
+                            <ng-template #elseLastScanDate>Not scanned yet</ng-template>
+                        </div>
+                        <div *ngIf="schedule.status === 'in_progress'" class="scan-in-progress">
+                            <i class="material-icons">track_changes</i>Scan In Progress
+                        </div>
+                        <div *ngIf="schedule.status === 'stopped'" class="al-cardstack-chips-rounded">
+                            Incomplete Scan
+                        </div>
+                        <button class="stop-scan-button"
+                            *ngIf="isStopScanButttonVisible(schedule)"
+                            (click)="stopScan(schedule.rawItem.id)"
+                            label="STOP THIS SCAN" pButton type="button">
+                        </button>
+                    </div>
+                    <div class="schedule-name">
+                        {{ schedule.rawItem.name }}
+                    </div>
+                </div>
+                <div class="al-cardstack-icon divider" (click)="schedule.item.expanded = !schedule.item.expanded">
+                    <div class="icon-info" *ngIf="schedule.rawItem.enabled || schedule.item.expanded">
+                        <div class="number-items">{{ schedule.item.countItems[0].number }}</div>
+                        <div class="label-info">{{ schedule.item.countItems[0].text }}</div>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template alBaseCardBodyContent>
+                <div class="p-grid p-nogutter nested-grid">
+                    <div class="p-col-12 p-nogutter">
+                        <h2 class="first">Scan Schedule Details</h2>
+                    </div>
+                    <div class="p-col-12 p-nogutter">
+                        <div class="p-grid p-nogutter">
+                            <div class="p-col-3 p-nogutter al-cardstack-content-column-righ-padding">
+                                <div class="label">Date Created</div>
+                                <div class="desc" *ngIf="schedule.rawItem.created?.at; else elseCreatedAt">{{schedule.rawItem.created?.at | date:'MMM d, yyyy, HH:mm:ss'}}</div>
+                                <ng-template  class="desc" #elseCreatedAt>Not applicable</ng-template>
+                            </div>
+                            <div class="p-col-3 p-nogutter al-cardstack-content-column-righ-padding">
+                                <div class="label">Last Scan Date</div>
+                                <div class="desc" *ngIf="schedule.last_scan_date; else elseLastScanDate">{{schedule.last_scan_date | date:'MMM d, yyyy, HH:mm:ss'}}</div>
+                                <ng-template #elseLastScanDate>
+                                    <div  class="desc">Not scanned yet</div>
+                                </ng-template>
+                            </div>
+                            <div class="p-col-3 p-nogutter al-cardstack-content-column-righ-padding">
+                                <div class="label">Next Scan Date</div>
+                                <div class="desc" *ngIf="schedule.next_scan_date; else elseNextScanDate">{{schedule.next_scan_date | date:'MMM d, yyyy, HH:mm:ss'}}</div>
+                                <ng-template #elseNextScanDate>
+                                    <div  class="desc">Not applicable</div>
+                                </ng-template>
+                            </div>
+                            <div class="p-col-3 p-nogutter al-cardstack-content-column-righ-padding">
+                                <div class="label">Scan Targets Last Scanned</div>
+                                <div class="desc">{{schedule.assets_in_sla !== null ? schedule.assets_in_sla : "unknown"}} of {{schedule.assets_number}} assets scanned</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-col-12 p-nogutter margin-top-subtitle" *ngIf="schedule.rawItem.scan_windows.length === 1 || schedule.rawItem.scan_windows.length === 0">
+                        <h2 class="first">Scan Frequency and Window</h2>
+                    </div>
+                    <div class="p-col-12 p-nogutter" *ngIf="schedule.rawItem.scan_windows.length === 1 || schedule.rawItem.scan_windows.length === 0">
+                        <div class="p-grid p-nogutter">
+                            <div class="p-col-3 p-nogutter al-cardstack-content-column-righ-padding">
+                                <div class="label">Scan Frequency</div>
+                                <div class="desc">{{scanFrequencyLabelMap[schedule.rawItem.scan_frequency]}}</div>
+                            </div>
+                            <div *ngIf="schedule.rawItem.scan_windows.length === 0"
+                                 class="p-col-3 p-nogutter al-cardstack-content-column-righ-padding">
+                                <div class="label">Scan Window</div>
+                                <div class="desc">Scan any time</div>
+                            </div>
+                            <ng-container *ngIf="schedule.rawItem.scan_windows.length === 1">
+                                <div class="p-col-3 p-nogutter al-cardstack-content-column-righ-padding" *ngIf="schedule.rawItem.scan_frequency !== 'once'">
+                                    <div class="label">Scan Window</div>
+                                    <div class="desc"
+                                        *ngIf="schedule.rawItem.scan_frequency === 'monthly' && schedule.rawItem.scan_windows[0].type === 'weekly_period'">
+                                        {{scanWindowLabelMap['certain_times_certain_days']}}
+                                    </div>
+                                    <div class="desc"
+                                        *ngIf="!(schedule.rawItem.scan_frequency === 'monthly' && schedule.rawItem.scan_windows[0].type === 'weekly_period')">
+                                        {{scanWindowLabelMap[schedule.rawItem.scan_windows[0].type]}}
+                                    </div>
+                                </div>
+                                <div class="p-col-3 p-nogutter al-cardstack-content-column-righ-padding" *ngIf="schedule.rawItem.scan_frequency === 'daily'">
+                                    <div class="label">Selected Days of Week</div>
+                                    <div class="desc">
+                                        <div class="desc">{{getDaysOfWeekFromArray(schedule.rawItem.scan_windows[0].days_of_week)}}</div>
+                                    </div>
+                                </div>
+                                <div class="p-col-3 p-nogutter al-cardstack-content-column-righ-padding" *ngIf="schedule.rawItem.scan_frequency === 'monthly' && schedule.rawItem.scan_windows[0].type === 'weekday_of_month'">
+                                    <div class="label">Selected Day of Month</div>
+                                    <div class="desc">
+                                        <div class="desc">{{dayOfMonthMap[schedule.rawItem.scan_windows[0].nth_week]}} {{ daysOfWeekLabelMap[schedule.rawItem.scan_windows[0].day_of_week] }}</div>
+                                    </div>
+                                </div>
+                                <div class="p-col-3 p-nogutter al-cardstack-content-column-righ-padding" *ngIf="schedule.rawItem.scan_frequency === 'quarterly' && schedule.rawItem.scan_windows[0].type === 'quarterly'">
+                                    <div class="label">Selected Month of Quarter</div>
+                                    <div class="desc">
+                                        <div class="desc">{{quarterLabelsMap[schedule.rawItem.scan_windows[0].month_of_quarter]}}</div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="p-col-12 p-nogutter" *ngIf="schedule.rawItem.scan_windows.length === 1 || schedule.rawItem.scan_windows.length === 0">
+                        <div class="p-grid p-nogutter">
+                            <div class="p-col-3 p-nogutter al-cardstack-content-column-righ-padding">
+                                <div class="label">Time Zone</div>
+                                <div class="desc">{{getTimezoneItemLabel(schedule.rawItem.timezone)}}</div>
+                            </div>
+                            <ng-container *ngIf="schedule.rawItem.scan_windows.length === 1">
+                                <div *ngIf="schedule.rawItem.scan_windows[0].type === 'monthly_period' ||
+                                            schedule.rawItem.scan_windows[0].type === 'weekly_period' || schedule.rawItem.scan_windows[0].type === 'quarterly'"
+                                        class="p-col-3 p-nogutter al-cardstack-content-column-righ-padding">
+                                    <div class="label">Start Day and Time</div>
+                                    <div class="desc" *ngIf="schedule.rawItem.scan_windows[0].type === 'weekly_period'">
+                                        {{daysOfWeekLabelMap[schedule.rawItem.scan_windows[0].start_day]}}{{ schedule.rawItem.scan_frequency === 'monthly' ? "s":""}}, {{schedule.rawItem.scan_windows[0].start_time}}
+                                    </div>
+                                    <div class="desc" *ngIf="schedule.rawItem.scan_windows[0].type === 'monthly_period' || schedule.rawItem.scan_windows[0].type === 'quarterly'">
+                                        {{getMonthDetailLabel(schedule.rawItem.scan_windows[0].start_day)}}, {{schedule.rawItem.scan_windows[0].start_time}}
+                                    </div>
+                                </div>
+                                <div class="p-col-3 p-nogutter al-cardstack-content-column-righ-padding" *ngIf="schedule.rawItem.scan_frequency === 'once'">
+                                    <div class="label">Start Date and Time</div>
+                                    <div class="desc">
+                                        {{getDateLabel(schedule.rawItem.scan_windows[0].start_date) | date:'mediumDate'}}, {{schedule.rawItem.scan_windows[0].start_time}}
+                                    </div>
+                                </div>
+                                <div *ngIf="schedule.rawItem.scan_windows[0].type === 'monthly_period' ||
+                                            schedule.rawItem.scan_windows[0].type === 'weekly_period' || schedule.rawItem.scan_windows[0].type === 'quarterly'"
+                                        class="p-col-3 p-nogutter al-cardstack-content-column-righ-padding">
+                                    <div class="label">End Day and Time</div>
+                                    <div class="desc" *ngIf="schedule.rawItem.scan_windows[0].type === 'weekly_period'">
+                                        {{daysOfWeekLabelMap[schedule.rawItem.scan_windows[0].end_day]}}{{ schedule.rawItem.scan_frequency === 'monthly' ? "s":""}}, {{schedule.rawItem.scan_windows[0].end_time}}
+                                    </div>
+                                    <div class="desc" *ngIf="schedule.rawItem.scan_windows[0].type === 'monthly_period' || schedule.rawItem.scan_windows[0].type === 'quarterly'">
+                                        {{getMonthDetailLabel(schedule.rawItem.scan_windows[0].end_day)}}, {{schedule.rawItem.scan_windows[0].end_time}}
+                                    </div>
+                                </div>
+                                <div class="p-col-3 p-nogutter al-cardstack-content-column-righ-padding" *ngIf="schedule.rawItem.scan_frequency === 'once'">
+                                    <div class="label">End Date and Time</div>
+                                    <div class="desc" *ngIf="schedule.rawItem.scan_windows[0].end_date !== null">
+                                        {{getDateLabel(schedule.rawItem.scan_windows[0].end_date) | date:'mediumDate'}}, {{schedule.rawItem.scan_windows[0].end_time}}
+                                    </div>
+                                    <div class="desc" *ngIf="schedule.rawItem.scan_windows[0].end_date === null">
+                                        Scan until done
+                                    </div>
+                                </div>
+                                <div *ngIf="schedule.rawItem.scan_windows[0].type === 'days_of_week' || schedule.rawItem.scan_windows[0].type === 'weekday_of_month'"
+                                            class="p-col-3 p-nogutter al-cardstack-content-column-righ-padding">
+                                    <div class="label">Start Time</div>
+                                    <div class="desc">
+                                        {{schedule.rawItem.scan_windows[0].start_time}}
+                                    </div>
+                                </div>
+                                <div *ngIf="schedule.rawItem.scan_windows[0].type === 'days_of_week' || schedule.rawItem.scan_windows[0].type === 'weekday_of_month'"
+                                            class="p-col-3 p-nogutter al-cardstack-content-column-righ-padding">
+                                    <div class="label">End Time</div>
+                                    <div class="desc">
+                                        {{schedule.rawItem.scan_windows[0].end_time}}
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="p-col-12 p-nogutter" *ngIf="schedule.rawItem.scan_windows.length > 1">
+                        <ng-container *ngFor="let scanWindow of schedule.rawItem.scan_windows; let i = index;">
+                            <div class="p-col-12 p-nogutter">
+                                <h2>Scan Frequency and Window {{i + 1}}</h2>
+                            </div>
+                            <div class="p-col-12 p-nogutter">
+                                <div class="p-grid p-nogutter">
+                                    <div class="p-col-3 p-nogutter al-cardstack-content-column-righ-padding">
+                                        <div class="label">Scan Frequency</div>
+                                        <div class="desc">{{scanFrequencyLabelMap[schedule.rawItem.scan_frequency]}}</div>
+                                    </div>
+                                    <div class="p-col-3 p-nogutter al-cardstack-content-column-righ-padding">
+                                        <div class="label">Scan Window</div>
+                                        <div class="desc">{{scanWindowLabelMap[schedule.rawItem.scan_windows[i].type]}}</div>
+                                    </div>
+                                    <div class="p-col-3 p-nogutter al-cardstack-content-column-righ-padding" *ngIf="schedule.rawItem.scan_frequency === 'quarterly' && schedule.rawItem.scan_windows[i].type === 'quarterly'">
+                                        <div class="label">Selected Month of Quarter</div>
+                                        <div class="desc">
+                                            <div class="desc">{{quarterLabelsMap[schedule.rawItem.scan_windows[i].month_of_quarter]}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-nogutter">
+                                <div class="p-grid p-nogutter">
+                                    <div class="p-col-3 p-nogutter al-cardstack-content-column-righ-padding">
+                                        <div class="label">Time Zone</div>
+                                        <div class="desc">{{getTimezoneItemLabel(schedule.rawItem.timezone)}}</div>
+                                    </div>
+                                    <div *ngIf="scanWindow.type === 'monthly_period' || scanWindow.type === 'weekly_period' || scanWindow.type === 'quarterly'"
+                                            class="p-col-3 p-nogutter al-cardstack-content-column-righ-padding">
+                                        <div class="label">Start Day and Time</div>
+                                        <div class="desc" *ngIf="scanWindow.type === 'weekly_period'">
+                                            {{daysOfWeekLabelMap[scanWindow.start_day]}}{{ schedule.rawItem.scan_frequency === 'monthly' ? "s":""}}, {{scanWindow.start_time}}
+                                        </div>
+                                        <div class="desc" *ngIf="scanWindow.type === 'monthly_period' || scanWindow.type === 'quarterly'">
+                                            {{getMonthDetailLabel(scanWindow.start_day)}}, {{scanWindow.start_time}}
+                                        </div>
+                                    </div>
+                                    <div *ngIf="scanWindow.type === 'monthly_period' || scanWindow.type === 'weekly_period' || scanWindow.type === 'quarterly'"
+                                            class="p-col-3 p-nogutter al-cardstack-content-column-righ-padding">
+                                        <div class="label">End Day and Time</div>
+                                        <div class="desc" *ngIf="scanWindow.type === 'weekly_period'">
+                                            {{daysOfWeekLabelMap[scanWindow.end_day]}}{{ schedule.rawItem.scan_frequency === 'monthly' ? "s":""}}, {{scanWindow.end_time}}
+                                        </div>
+                                        <div class="desc" *ngIf="scanWindow.type === 'monthly_period' || scanWindow.type === 'quarterly'">
+                                            {{getMonthDetailLabel(scanWindow.end_day)}}, {{scanWindow.end_time}}
+                                        </div>
+                                    </div>
+                                    <div *ngIf="scanWindow.type === 'days_of_week'"
+                                            class="p-col-3 p-nogutter al-cardstack-content-column-righ-padding">
+                                        <div class="label">Start Time</div>
+                                        <div class="desc">
+                                            {{scanWindow.start_time}}
+                                        </div>
+                                    </div>
+                                    <div *ngIf="scanWindow.type === 'days_of_week'"
+                                                class="p-col-3 p-nogutter al-cardstack-content-column-righ-padding">
+                                        <div class="label">End Time</div>
+                                        <div class="desc">
+                                            {{scanWindow.end_time}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                    <div class="p-col-12 p-nogutter">
+                        <h2>Asset Scope</h2>
+                    </div>
+                    <ng-container *ngIf="!schedule.rawItem.scan_scope.include_all_assets">
+                        <div class="p-grid p-col-12 p-nogutter assets-scope-container">
+                            <div class="p-col-6">
+                                <div>
+                                    Assets in scanning scope:
+                                </div>
+                                <div class="p-col scope-list">
+                                    <div class="scope-list-item" *ngFor="let asset of (schedule.rawItem.scan_scope.include | alFilterByValuePipe:'type':'asset,tag')">
+                                        <i class="scope-list-icon"
+                                            [pTooltip]="getAssetMapValue((asset.type === 'asset')? asset.asset_type : asset.type, 'name')"
+                                            tooltipPosition="left"
+                                            [ngClass]="getAssetMapValue((asset.type === 'asset')? asset.asset_type : asset.type)">
+                                            {{getMaterialIcon((asset.type === 'asset')? asset.asset_type : asset.type)}}
+                                        </i>
+                                        <div>{{ getAssetNameFromDictionary(asset) }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-col-6">
+                                <div>
+                                    IPs and CIDRs in scanning scope:
+                                </div>
+                                <div class="p-col scope-list">
+                                    <div class="scope-list-item" *ngFor="let asset of (schedule.rawItem.scan_scope.include | alFilterByValuePipe:'type':'asset,tag':false)">
+                                        <div [ngSwitch]="asset.type">
+                                            <!-- ip_range has a particular structure -->
+                                            <ng-container *ngSwitchCase="'ip_range'">{{ asset.from_ip + ' - ' + asset.to_ip }}</ng-container>
+                                            <!--default case when there are no matches (cidr tag ip) -->
+                                            <ng-container *ngSwitchDefault>{{ asset.value }}</ng-container>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <span class="p-col-12 assets-scope-container" *ngIf="schedule.rawItem.scan_scope.include_all_assets">Scan all assets</span>
+                    <div class="p-col-12 p-nogutter" *ngIf="typeOfScan !== 'discovery'">
+                        <h2>Ports</h2>
+                    </div>
+                    <ng-container *ngIf="typeOfScan !== 'discovery'">
+                        <ng-container [ngSwitch]="getScanPortOptionToPreview(schedule.rawItem)">
+                            <span class="p-col-12 assets-scope-container" *ngSwitchCase="'security-groups'">Scan only ports from AWS security groups</span>
+                            <span class="p-col-12 assets-scope-container" *ngSwitchCase="'all'">Scan all TCP and common UDP ports</span>
+                            <div class="p-col-12 p-nogutter" *ngSwitchCase="'selected'">
+                                <div class="p-grid p-nogutter">
+                                    <div class="p-col-6 p-nogutter al-cardstack-content-column-righ-padding">
+                                        <div class="label">Port Groups to Scan</div>
+                                        <ng-container *ngFor="let scanPort of schedule.rawItem?.scan_options">
+                                            <ng-container *ngIf="scanPort.hasOwnProperty('scan_ports')">
+                                                <div class="desc" *ngFor="let portOption of scanPort.scan_ports">
+                                                    <ng-container *ngIf="portOption.hasOwnProperty('proto') && portOption.hasOwnProperty('value')">
+                                                        <span *ngIf="(portOption.value === 'all' && portOption.proto === 't') || portOption.value === '*' && portOption.proto === 't'">
+                                                            All TCP Ports
+                                                        </span>
+                                                        <span *ngIf="portOption.value === 'common' && portOption.proto === 'u'">
+                                                            Common UDP Ports
+                                                        </span>
+                                                        <span *ngIf="portOption.value === 'common' && portOption.proto === 't'">
+                                                            Common TCP Ports
+                                                        </span>
+                                                        <span *ngIf="portOption.value === 'common' && portOption.proto === 'tu'">
+                                                            Common TCP and UDP Ports
+                                                        </span>
+                                                        <span *ngIf="portOption.value === 'typically_vulnerable' && portOption.proto === 't'">
+                                                            Typically Vulnerable TCP Ports
+                                                        </span>
+                                                        <span *ngIf="portOption.value === 'typically_vulnerable' && portOption.proto === 'tu'">
+                                                            Typically Vulnerable TCP and UDP Ports
+                                                        </span>
+                                                    </ng-container>
+                                                </div>
+                                            </ng-container>
+                                        </ng-container>
+                                    </div>
+                                    <div class="p-col-6 p-nogutter al-cardstack-content-column-righ-padding">
+                                        <div class="label">Custom Ports</div>
+                                        <ng-container *ngFor="let scanPort of schedule.rawItem?.scan_options">
+                                            <ng-container *ngIf="scanPort.hasOwnProperty('scan_ports')">
+                                                <div class="scroll-container-view">
+                                                    <ng-container class="desc" *ngFor="let portOption of scanPort.scan_ports">
+                                                        <ng-container *ngIf="portOption.hasOwnProperty('proto') && portOption.hasOwnProperty('ports')">
+                                                            <p *ngFor="let port of portOption.ports">Custom {{ portOption.proto === 'u' ? 'UDP' : 'TCP' }} ({{port}})</p>
+                                                        </ng-container>
+                                                        <ng-container *ngIf="portOption.hasOwnProperty('proto') && portOption.hasOwnProperty('ranges')">
+                                                            <p *ngFor="let range of portOption.ranges">Custom {{ portOption.proto === 'u' ? 'UDP' : 'TCP' }} ({{range}})</p>
+                                                        </ng-container>
+                                                    </ng-container>
+                                                </div>
+                                            </ng-container>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                </div>
+            </ng-template>
+            <ng-template alBaseCardFooter>
+                <div class="footer btnGroup">
+                    <div class="btnGroupLeft">
+                        <button
+                            *ngIf="typeOfScan !== 'discovery'"
+                            type="button"
+                            [icon]="'ui-icon-grid-on'"
+                            (click)="goToReport('summary')"
+                            class="cardBtn flat left e2e-base-card-footer-action-"
+                            label="SCAN SUMMARY" pButton>
+                        </button>
+                        <button
+                            *ngIf="typeOfScan !== 'discovery'"
+                            type="button"
+                            [icon]="'ui-icon-grid-on'"
+                            (click)="goToReport('details')"
+                            class="cardBtn flat break-text left e2e-base-card-footer-action-"
+                            label="SCAN DETAILS" pButton>
+                        </button>
+                        <button
+                            *ngIf="typeOfScan !== 'discovery'"
+                            type="button"
+                            [icon]="'ui-icon-grid-on'"
+                            (click)="goToReport('variance')"
+                            class="cardBtn flat left e2e-base-card-footer-action-"
+                            label="SCAN VARIANCE" pButton>
+                        </button>
+                    </div>
+                    <div class="btnGroupRight">
+                        <div pTooltip="Default scan schedules cannot be deleted"
+                             tooltipPosition="top"
+                             [tooltipDisabled]="!schedule.rawItem.default">
+                            <button
+                                type="button"
+                                [disabled]="schedule.rawItem.default"
+                                (click)="deleteScanSchedule(schedule.rawItem)"
+                                [icon]="'ui-icon-delete'"
+                                class="cardBtn flat e2e-base-card-footer-action-delete"
+                                label="DELETE" pButton>
+                            </button>
+                        </div>
+                        <button
+                            type="button"
+                            (click)="editScanSchedule(schedule.rawItem)"
+                            [icon]="'ui-icon-edit'"
+                            class="cardBtn flat e2e-base-card-footer-action-edit"
+                            label="EDIT" pButton>
+                        </button>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template alBaseCardHeaderRight>
+                <div class="al-cardstack-icon divider">
+                    <div pTooltip="Default Discovery scans cannot be disabled"
+                         tooltipPosition="top"
+                         [tooltipDisabled]="!(typeOfScan === 'discovery' && schedule.rawItem.default)">
+                        <div class="labeled-switch">
+                            <p-inputSwitch
+                                [disabled]="typeOfScan === 'discovery' && schedule.rawItem.default"
+                                [(ngModel)]="schedule.rawItem.enabled"
+                                (click)="updateScanSchedule(schedule.rawItem)">
+                            </p-inputSwitch>
+                            <div class="label">{{ schedule.rawItem.enabled ? 'Active' : 'Inactive' }}</div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </al-base-card>
+    </div>
+</div>
+
+<al-advanced-scheduling-form
+    #schedulingForm
+    [typeOfScan]="typeOfScan"
+    (onSuccess)="preHandleSuccessOperation($event)"
+    (onError)="handleError($event)">
+</al-advanced-scheduling-form>
+
+<p-confirmDialog
+    #confirmDialog
+    [acceptButtonStyleClass]="'primaryAction'"
+    [style]="{'width':'500px'}">
+    <p-footer>
+        <button type="button"
+                pButton
+                [label]="confirmDialog.rejectLabel"
+                (click)="confirmDialog.reject()">
+        </button>
+        <button type="button"
+                pButton
+                class="primaryAction"
+                [label]="confirmDialog.acceptLabel"
+                (click)="confirmDialog.accept()">
+        </button>
+    </p-footer>
+</p-confirmDialog>

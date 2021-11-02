@@ -1,0 +1,210 @@
+<div class="deployment-discovery">
+    <al-deployment-header [config]="alDeploymentHeaderConfig">
+    </al-deployment-header>
+    <section [ngSwitch]="page">
+        <div *ngSwitchCase="'deployment-progress'">
+            <div fxLayout="row"
+                 class="primary-header">
+                <p i18n>
+                    Please wait while Alert Logic discovers your assets. When discovery is complete, click "NEXT"
+                    to select the scope of protection.
+                </p>
+            </div>
+            <al-deployment-progress #deploymentProgress
+                                    [activity]="'discovery'"
+                                    [status]="'in progress'"
+                                    [lowLimit]="3"
+                                    [highLimit]="30"
+                                    [unit]="'minutes'"
+                                    [type]="'semi'"
+                                    [show]="!complete">
+            </al-deployment-progress>
+        </div>
+        <div *ngSwitchCase="'assets'">
+            <div fxLayout="row"
+                 class="primary-header">
+                <p i18n>
+                    {{info}}
+                </p>
+            </div>
+            <div class="discovery"
+                 [ngClass]="{'full-screen': fullScreen}">
+                <div>
+
+                    <p-tabView #tabView
+                               (onChange)="clickTab($event)">
+                        <p-tabPanel header="Internal Assets"></p-tabPanel>
+                        <p-tabPanel header="External Assets"></p-tabPanel>
+                    </p-tabView>
+
+                </div>
+                <section [ngSwitch]="selectedTab"
+                         class="assets-discoverd-tab">
+                    <div *ngSwitchCase="'internal-assets'"
+                         style="height: 100%;">
+
+
+                        <al-content-header *ngIf="deployment.platform.type === 'datacenter'"
+                                           title="Add Assets"
+                                           showAddButton="true"
+                                           (onButtonClicked)="onClickAdd($event)">
+                        </al-content-header>
+
+                        <al-content-toolbar [config]="toolbarConfig"
+                                            (onSearched)="search($event)">
+                        </al-content-toolbar>
+
+                        <al-view-helper [empty]="hasTopologyFailed"
+                                        [loading]="isTopologyLoading || isRendering">
+                            <i class="material-icons"
+                               zero-state-icon>info</i>
+                            <span zero-state-description
+                                  i18n>Requested source is not available at this moment</span>
+                        </al-view-helper>
+
+                        <al-view-helper
+                                        [empty]="(deployment?.platform?.type === 'datacenter') && (!topology || (topology && topology.vpcs.length === 0))">
+                            <i zero-state-icon
+                               class="al al-topology-network-1"></i>
+                            <span zero-state-description
+                                  i18n>You have no networks configured.</span>
+                        </al-view-helper>
+
+                        <al-deployment-topology class="topology-section"
+                                                [ngClass]="{'full-screen': fullScreen}"
+                                                [topology]="topology"
+                                                [behaviors]="topologyBehaviors"
+                                                [searchHits]="topologySearchHits"
+                                                [fullScreen]="fullScreen"
+                                                (onClickAsset)="onClickInternalAsset($event)"
+                                                (onFullScreen)="toggleFullScreen($event)"
+                                                (onRendering)="rendering($event)">
+                        </al-deployment-topology>
+                    </div>
+                    <div *ngSwitchCase="'external-assets'">
+
+                        <al-content-header title="Add External Asset"
+                                           showAddButton="true"
+                                           (onButtonClicked)="onClickAdd($event)">
+                        </al-content-header>
+
+                        <al-content-toolbar [config]="toolbarConfig"
+                                            (onSearched)="search($event)">
+                        </al-content-toolbar>
+
+                        <al-view-helper [empty]="filteredExternalAssets.length === 0">
+                            <i zero-state-icon
+                               class="material-icons">settings_remote</i>
+                            <span zero-state-description
+                                  i18n>You have no external assets configured.</span>
+                        </al-view-helper>
+                        <div *ngIf="filteredExternalAssets.length > 0"
+                             class="al-black-cards-wrapper"
+                             fxLayout="row wrap"
+                             fxLayoutGab="10px">
+                            <al-black-card fxFlex="50"
+                                           *ngFor="let externalAsset of filteredExternalAssets"
+                                           [dataCard]="externalAsset"
+                                           (clickCard)="onClickExternalAsset($event)">
+                            </al-black-card>
+                        </div>
+
+
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+
+<al-sidebar #externalAssetsSidebar
+            [config]="externalAssetsSideBarConfig"
+            (onSaved)="saveExternalAssets()">
+
+    <div class="al-right-drawer-body">
+
+        <section [ngSwitch]="externalAssetsActiveForm">
+            <div *ngSwitchCase="'dns'">
+                <al-dns-name-form #dnsNameForm
+                                  (isValid)="onValidating($event)"
+                                  (onLoading)="onLoading($event)"
+                                  (onSucceed)="onSuccess($event)"
+                                  (onFailed)="onFailed($event)"
+                                  [accountId]="deployment.account_id"
+                                  [deploymentId]="deployment.id"
+                                  [data]="data"
+                                  [scope]="deployment.platform.type">
+                </al-dns-name-form>
+            </div>
+            <div *ngSwitchCase="'ip'">
+                <al-public-ip-form #publicIpForm
+                                   (isValid)="onValidating($event)"
+                                   (onLoading)="onLoading($event)"
+                                   (onSucceed)="onSuccess($event)"
+                                   (onFailed)="onFailed($event)"
+                                   type="external"
+                                   [accountId]="deployment.account_id"
+                                   [deploymentId]="deployment.id"
+                                   [data]="data"
+                                   [scope]="deployment.platform.type">
+                </al-public-ip-form>
+            </div>
+        </section>
+    </div>
+</al-sidebar>
+
+<al-sidebar #internalAssetsSidebar
+            [config]="internalAssetsSideBarConfig"
+            (onSaved)="saveInternalAssets()">
+    <div class="al-right-drawer-body">
+
+        <section [ngSwitch]="internalAssetsActiveForm">
+            <div *ngSwitchCase="'network'">
+                <al-deployment-datacenter-network-form #networkForm
+                                                       [entityId]="entityId"
+                                                       (onLoading)="onLoading($event)"
+                                                       (onSuccess)="onSuccess($event)"
+                                                       (onFailed)="onFailed($event)"
+                                                       (isValid)="onValidating($event)"
+                                                       (click)="moveOverlayElement($event)"
+                                                       (openDeleteDialog)="openDeleteInternalAsset('network', $event)"
+                                                       (deletable)="deletable($event)">
+                </al-deployment-datacenter-network-form>
+            </div>
+
+            <div *ngSwitchCase="'subnet'">
+                <al-deployment-datacenter-subnet-form #subnetForm
+                                                      [entityId]="entityId"
+                                                      (onLoading)="onLoading($event)"
+                                                      (onSuccess)="onSuccess($event)"
+                                                      (onFailed)="onFailed($event)"
+                                                      (isValid)="onValidating($event)"
+                                                      (click)="moveOverlayElement($event)"
+                                                      (openDeleteDialog)="openDeleteInternalAsset('subnet', $event)"
+                                                      (deletable)="deletable($event)">
+                </al-deployment-datacenter-subnet-form>
+            </div>
+
+        </section>
+
+    </div>
+</al-sidebar>
+
+<p-slideMenu #addMenu
+             appendTo="body"
+             [model]="menuItems"
+             [popup]="true"
+             [viewportHeight]="120"
+             [menuWidth]="210"
+             [style]="{'width':'210px'}"></p-slideMenu>
+
+
+<p-confirmDialog #deleteExternalAssetDialog
+                 header="Confirmation"
+                 icon="pi pi-exclamation-triangle"></p-confirmDialog>
+
+<deployment-assets-manager-delete-dialog #deleteInternalAssetDialog
+                                         (onContinue)="continueDeletionOfInternalAsset()">
+</deployment-assets-manager-delete-dialog>

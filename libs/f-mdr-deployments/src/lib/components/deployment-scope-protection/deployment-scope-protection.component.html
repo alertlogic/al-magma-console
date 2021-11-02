@@ -1,0 +1,102 @@
+<div fxLayout="column"
+     fxLayoutAlign=" stretch"
+     class="scope-protection">
+    <div class="instructions">
+        <div fxLayout="row"
+             class="under-line">
+            <div fxFlex="70"
+                 *ngIf="!overview">
+                <h1 i18n>Scope of Protection</h1>
+            </div>
+            <div fxFlex="70"
+                 *ngIf="overview">
+                <h1 i18n>Configuration Topology</h1>
+            </div>
+            <div fxFlex="30"
+                 fxLayoutAlign="end"
+                 fxFlexFill="0"
+                 *ngIf="!overview">
+                <button [disabled]="!topology"
+                        color="primary"
+                        mat-raised-button
+                        (click)="save()">{{textButton}}</button>
+            </div>
+            <div fxFlex="30"
+                 fxLayoutAlign="end"
+                 fxFlexFill="0"
+                 *ngIf="overview">
+                <button color="primary"
+                        mat-raised-button
+                        (click)="next()">{{textButton}}</button>
+            </div>
+        </div>
+        <p i18n
+           class="description">
+            {{ getTextInformation(textButton) }}
+        </p>
+    </div>
+
+    <div class="scope-setting"
+         [ngClass]="{'full-screen': fullScreen}">
+        <div class="protection-breakdown">
+            <al-protection-breakdown fxLayout="column"
+                                     fxLayoutAlign=" none"
+                                     [config]="alProtectionBreakdownConfig"
+                                     [title]="titleCountProtected"
+                                     [fullScreen]="fullScreen"
+                                     [textSearchPlaceHolder]="SearchPlaceHolder"
+                                     (onSearched)="onSearchedProtected($event)">
+            </al-protection-breakdown>
+        </div>
+        <div fxLayout="column"
+             fxLayoutAlign=" stretch"
+             class="main-col">
+            <div fxLayout="row"
+                 fxLayoutAlign="end start"
+                 *ngIf="!overview">
+                <button [ngStyle]="{'z-index': '2', 'position': 'absolute'}"
+                        mat-raised-button
+                        (click)="openExclusions()">EXCLUSIONS</button>
+            </div>
+            <div fxLayout="column"
+                 fxLayoutAlign=" center"
+                 class="topology-col">
+                <al-view-helper class="view-helper-width"
+                                [loading]="isTopologyLoading || isRendering"
+                                [empty]="errorState">
+                    <i class="material-icons"
+                       zero-state-icon>info</i>
+                    <span zero-state-description
+                          i18n>Requested source is not available at this moment</span>
+                </al-view-helper>
+
+                <al-view-helper [empty]="!topology || (topology && deployment.platform.type !== 'datacenter' && topology.regions.length === 0) || (topology && deployment.platform.type === 'datacenter' && topology.vpcs.length === 0) ">
+                    <i zero-state-icon
+                       class="al al-topology-network-1"></i>
+                    <span zero-state-description
+                          i18n>You have no assets configured.</span>
+                </al-view-helper>
+
+                <al-deployment-topology class="topology-section"
+                                        [ngClass]="{'full-screen': fullScreen}"
+                                        [topology]="topology"
+                                        [behaviors]="topologyBehaviors"
+                                        [searchHits]="topologySearchHits"
+                                        [fullScreen]="fullScreen"
+                                        [selector]="'flavor'"
+                                        *ngIf="!errorState"
+                                        (onClickFlavorSelector)="onClickSelector($event)"
+                                        (onUnsavedChangesDetected)="onUnsavedChangesDetected($event)"
+                                        (onFullScreen)="toggleFullScreen($event)"
+                                        (onRendering)="rendering($event)">
+                </al-deployment-topology>
+            </div>
+        </div>
+        <al-deployment-exclusions (click)="moveOverlayElement($event)"
+                                  [open]="openModal"
+                                  [initialExclusions]="exclusionRules"
+                                  (onCloseExclusions)="closeExclusions($event)">
+        </al-deployment-exclusions>
+    </div>
+
+</div>

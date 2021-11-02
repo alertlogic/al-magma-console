@@ -11,19 +11,19 @@
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
 
-        border-bottom: 1px solid al-color($al-gray, 200);
+        border-bottom: 1px solid var(--ald-g-color-gray-400);
 
         .toptitle {
             font-weight: bold;
-            color: al-color($al-gray, 700);
+            color: 1px solid var(--ald-g-color-gray-500);
         }
 
         .caption {
-            color: al-color($al-gray, 700);
+            color: var(--ald-g-color-gray-500);
         }
 
         .subtitle {
-            color: al-color($al-gray, 700);
+            color: var(--ald-g-color-gray-500);
         }
 
         .initial-icon {
@@ -31,7 +31,7 @@
         }
 
         .al-cardstack-icon-label {
-            font-size: 12px;
+            font-size: var(--ald-g-text-sm);
         }
 
         ::ng-deep {
@@ -55,12 +55,12 @@
     }
 
     .p-panel-content {
-        padding: 24px 40px;
+        padding: var(--ald-g-space-6) var(--ald-g-space-10);
     }
 
 
     .card-header{
-        margin: 6px 0;
+        margin: 0;
 
         .col-1 {
             width: 72px;
@@ -105,22 +105,22 @@
     }
 
     .header-left-space {
-        margin-left: 24px;
+        margin-left: var(--ald-g-space-6);
     }
 
     .initial-icon{
-        font-size: 28px;
+        font-size: var(--ald-g-space-7);
     }
 
     .p-panel-titlebar:hover {
-        background-color: al-color($al-smokeBlue, 100);
+        background-color: var(--ald-g-color-gray-200);
 
         .al-cardstack-subtitle-top-txt {
-            color: al-color($al-gray, 500);
+            color: var(--ald-g-color-gray-500);
         }
 
         .al-cardstack-subtitle-txt {
-            color: al-color($al-gray, 500);
+            color: var(--ald-g-color-gray-500);
         }
     }
 
@@ -189,13 +189,13 @@
     }
 
     .al-cardstack-icon-label {
-        font-size: 10px;
+        font-size: var(--ald-g-text-xxs);
         line-height: normal;
     }
 
     .al-cardstack-icon-label-paded {
-        padding: 6px;
-        font-size: 10px;
+        padding: var(--ald-g-space-3);
+        font-size: var(--ald-g-text-xxs);
         line-height: normal;
     }
 
@@ -206,27 +206,27 @@
         width: 72px;
 
         &.divider {
-            border-right: 1px solid al-color($al-gray, 50);
+            border-right: 1px solid var(--ald-g-color-gray-400);
         }
 
         .pi {
-            color: al-color($al-gray, 500);
+            color: var(--ald-g-color-gray-500);
         }
     }
 
     .al-cardstack-subtitle-txt, .al-cardstack-subtitle-top-txt {
-        color: al-color($al-gray, 200);
-        font-size: 12px;
+        color: var(--ald-g-color-gray-500);
+        font-size: var(--ald-g-text-sm);
     }
 
     .al-cardstack-subtitle-txt{
-        padding-top: 6px;
+        padding-top: var(--ald-g-space-3);
     }
 
     .al-cardstack-content-label {
-        font-size: 12px;
-        color: al-color($al-gray, 200);
-        margin-bottom: 6px;
+        font-size: var(--ald-g-text-xs);
+        color: var(--ald-g-color-gray-500);
+        margin-bottom: var(--ald-g-space-2);
         padding-left: 0;
         font-weight: normal;
     }
@@ -239,20 +239,20 @@
     }
 
     .al-cardstack-subtitle-top-txt{
-        padding-bottom: 6px;
+        padding-bottom: var(--ald-g-space-2);
     }
 
     .al-cardstack-content-title {
-        color: al-color($al-gray, 500);
-        border-bottom: 1px solid al-color($al-gray, 50);
-        padding-bottom: 6px;
-        padding-top: 24px;
-        font-size: 20px;
-        margin: 0 0 12px 0;
+        color: var(--ald-g-color-gray-900);
+        border-bottom: 1px solid var(--ald-g-color-gray-400);
+        padding-bottom: var(--ald-g-space-2);
+        padding-top: --ald-g-text-xl;
+        font-size: var(--ald-g-text-xl);
+        margin: 0 0 var(--ald-g-space-3) 0;
     }
 
     .al-cardstack-content-value-top-padding {
-        padding-top: 12px;
+        padding-top: var(--ald-g-space-3);
     }
 
     .al-cardstack-black-icon {
@@ -260,19 +260,19 @@
     }
 
     .al-cardstack-content-chips-wrapper{
-        padding-bottom: 6px;
-        padding-top: 6px;
+        padding-bottom: var(--ald-g-space-2);
+        padding-top: var(--ald-g-space-2);
     }
 
     .al-cardstack-chips-rounded {
-        border-radius: 15px;
-        background: al-color($al-gray, 50);
-        color: al-color($al-gray, 700);
-        padding: 6px 12px 6px 12px;
+        border-radius: var(--ald-g-radius-full);
+        background: var(--ald-g-color-gray-700);
+        color: var(--ald-g-color-gray-900);
+        padding: var(--ald-g-space-2) var(--ald-g-space-3);
         margin-right: 6px;
 
         .bold{
-            color: al-color($al-gray, 600);
+            color: var(--ald-g-color-gray-700);
             font-weight: 700;
         }
     }
@@ -283,7 +283,7 @@
         }
 
         .footer {
-            border-top: 1px solid al-color($al-gray, 50);
+            border-top: 1px solid var(--ald-g-color-gray-400);
         }
     }
 
@@ -294,7 +294,7 @@
         padding-bottom:  0px;
     }
     .al-cardstack-content-column-righ-padding{
-        padding-right: 24px;
+        padding-right: var(--ald-g-space-6);
     }
 
 
@@ -302,11 +302,11 @@
         margin-top: -31px;
     }
     .al-cardstack-content-chips-section{
-        padding-top: 12px;
+        padding-top: var(--ald-g-space-3);
     }
     .al-cardstack-content-chips-section-title{
-        padding-bottom: 12px;
-        padding-top: 12px;
+        padding-bottom: var(--ald-g-space-3);
+        padding-top: var(--ald-g-space-3);
     }
 
     .zero-left-padding{
@@ -341,6 +341,6 @@
 
 .al-base-card:not(.card-checked){
     .p-panel-titlebar:not(.p-state-active):hover {
-        background-color: al-color($al-smokeBlue, 100);
+        background-color: var(--ald-g-color-smoke-blue-100);
     }
 }

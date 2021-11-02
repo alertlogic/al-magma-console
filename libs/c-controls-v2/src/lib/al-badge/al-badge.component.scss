@@ -1,0 +1,77 @@
+.ald-badge {
+	display: inline-flex;
+	align-items: center;
+	font-size: var(--ald-g-text-xs);
+	line-height: var(--ald-g-leading-xs);
+	height: var(--ald-g-space-6);
+	padding-left: var(--ald-g-space-2);
+	padding-right: var(--ald-g-space-2);
+	border-radius: var(--ald-g-radius-default);
+	white-space: nowrap;
+	vertical-align: bottom;
+}
+
+.ald-badge--rounded {
+	padding-right: 0;
+	border-radius: var(--ald-g-radius-full);
+}
+
+.ald-badge--ald-primary {
+	background-color: var(--ald-g-color-gray-500);
+	color: white;
+}
+
+.ald-badge--ald-dark {
+	background-color: var(--ald-g-color-gray-900);
+	color: white;
+}
+
+.ald-badge--ald-light {
+	background-color: var(--ald-g-color-gray-200);
+	color:  var(--ald-g-color-gray-700);
+}
+
+.ald-badge--ald-success {
+	background-color: var(--ald-g-color-success);
+	color: white;
+}
+
+.ald-badge--ald-warning {
+	background-color: var(--ald-g-color-amber-300);
+	color:  var(--ald-g-color-gray-900);
+}
+
+.ald-badge--ald-danger {
+	background-color: var(--ald-g-color-danger);
+	color: white;
+}
+
+.ald-badge--ald-essentials {
+	background-color: var(--ald-g-color-essentials);
+	color: white;
+}
+
+.ald-badge--ald-professional {
+	background-color: var(--ald-g-color-professional);
+	color: white;
+}
+
+.ald-badge--ald-enterprise {
+	background-color: var(--ald-g-color-enterprise);
+	color: white;
+}
+
+.ald-badge--ald-aws {
+	background-color: var(--ald-g-color-aws);
+	color: white;
+}
+
+.ald-badge--ald-azure {
+	background-color: var(--ald-g-color-azure);
+	color: white;
+}
+
+.ald-badge--ald-datacenter {
+	background-color: var(--ald-g-color-datacenter);
+	color: white;
+}

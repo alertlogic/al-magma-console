@@ -1,0 +1,40 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.boxes-selector {
+
+    max-width: 392px;
+    flex-wrap: wrap;
+
+    .box-selector-item {
+        background: al-color($al-gray, 50);
+        margin: 8px 8px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .box-selector-item.selected {
+        background: al-color($al-smokeBlue, 500);
+    }
+
+    .box-selector-item > .label {
+        color: al-color($al-gray, 300);
+        text-align: center;
+        vertical-align: middle;
+        line-height: 40px;
+        font-size: 1.2em;
+    }
+
+    .box-selector-item.selected > .label {
+        color: white;
+        font-weight: bold;
+    }
+
+    .cut-text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+}

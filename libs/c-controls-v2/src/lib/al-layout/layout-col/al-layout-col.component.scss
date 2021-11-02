@@ -1,0 +1,22 @@
+:host(.ald-layout-col) {
+	width: 100%;
+	height: 100%;
+}
+
+:host(.ald-layout-col--fixed-width) {
+	flex-shrink: 0;
+	width: 320px;
+}
+
+.ald-layout-scroller {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.ald-layout-scroller__content {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}

@@ -1,0 +1,70 @@
+@import "../al-forms.component.scss";
+
+.ald-checkbox {
+	@extend %checkboxradio;
+}
+
+.ald-checkbox__box {
+	@extend %checkboxradio-icon;
+	border-radius: var(--ald-g-radius-default);
+}
+
+.ald-checkbox input {
+	@extend %checkboxradio-input;
+}
+
+.ald-checkbox__icon {
+	fill: currentColor;
+	width: var(--ald-g-space-3);
+	height: var(--ald-g-space-3);
+	color: transparent;
+	pointer-events: none;
+}
+
+.ald-checkbox__label {
+	@extend %checkboxradio-label;
+}
+
+// Checked state
+
+.ald-checkbox input[type=checkbox]:checked + .ald-checkbox__box {
+	@extend %checkboxradio-checked;
+}
+
+// Focus state
+
+.ald-checkbox input[type=checkbox]:focus + .ald-checkbox__box {
+	@extend %checkboxradio-focus;
+}
+
+// Disabled state
+
+.ald-checkbox--disabled {
+	cursor: not-allowed;
+}
+
+.ald-checkbox input[type=checkbox]:disabled + .ald-checkbox__box {
+	@extend %checkboxradio-disabled;
+}
+
+.ald-checkbox input[type=checkbox]:checked:disabled + .ald-checkbox__box .ald-checkbox__icon {
+	color: var(--form-element-text-color-disabled);
+}
+
+.ald-checkbox input[type=checkbox]:not(:checked):disabled + .ald-checkbox__box  .ald-checkbox__icon {
+	color:transparent;
+}
+
+.ald-checkbox--disabled .ald-checkbox__label {
+	@extend %checkboxradio-disabled-label;
+}
+
+// Indeterminate
+
+.ald-checkbox input[type=checkbox]:indeterminate + .ald-checkbox__box .ald-checkbox__icon {
+	color: var(--form-element-border-color);
+}
+
+.ald-checkbox input[type=checkbox]:checked + .ald-checkbox__box .ald-checkbox__icon {
+	color: var(--form-checked-icon-color);
+}

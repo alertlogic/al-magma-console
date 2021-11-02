@@ -1,0 +1,22 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.al-deployment-header {
+    border-bottom: 1px solid al-color($al-gray, 100);
+    paddiing-bottom: 10px;
+
+    .al-deployment-header-title {
+        flex-grow: 7;
+        span {
+            font-size:   2em;
+            font-family: 'Open Sans',Arial,serif;
+            color:       al-color($al-gray, 500);
+        }
+    }
+    .al-deployment-header-buttons-wrapper {
+        flex-grow: 3;
+        button {
+            margin-left: 15px;
+            margin-bottom: 20px;
+        }
+    }
+}

@@ -24,7 +24,7 @@ body {
 
         .p-dialog-header {
             background-color: white;
-            color: var(--ald-g-gray-700);
+            color: var(--ald-g-color-gray-700);
             padding: 12px 24px;
 
             .p-dialog-title {
@@ -94,6 +94,8 @@ body {
     }
 
     .p-sidebar {
+        box-shadow: 0 1px 3px 0 rgb(0 0 0 / 30%);
+        background-color: white;
         .p-sidebar-close {
             &:hover {
                 padding: 1px;
@@ -102,6 +104,75 @@ body {
 
         .p-button {
             width: auto;
+        }
+
+        .p-sidebar-content {
+            .expand {
+                width: 50%;
+            }
+            .no-margin {
+                margin: 0;
+            }
+            .header {
+                font-size: 18px;
+                color: white;
+                min-height: 50px;
+                background-color: var(--ald-g-color-slate-600);
+        
+                .expand-icon {
+                    font-size: 1.2em;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    cursor: pointer;
+                }
+                .close-icon {
+                    font-size: 1.2em;
+                    display: inline-flex;
+                    cursor: pointer;
+                }
+                .title {
+                    display: flex;
+                    line-height: 27px;
+                    align-items: center;
+                    padding: 12px;
+                    i {
+                        margin-right: 5px;
+                    }
+                }
+            }
+            .p-sidebar {
+                padding: 0;
+            }
+            .toolbar {
+                padding: 5px;
+                text-align: right;
+                width: 100%;
+                background-color: var(--ald-g-color-slate-500);
+        
+                button {
+                    margin-left: 5px;
+                    margin-right: 5px;
+                    font-weight: normal;
+                }
+            }
+            .content {
+                padding-top: 5px;
+                padding-bottom: 5px;
+        
+                .content-body {
+                    padding: 24px;
+                    width: 100%;
+                }
+            }
+            .no-pad-left {
+                padding-left: 0;
+                text-align: right;
+            }
+        
+            .p-widget-content .pi {
+                color: white;
+            }
         }
     }
 

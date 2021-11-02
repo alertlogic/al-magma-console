@@ -1,0 +1,10 @@
+.ald-tip {
+	position: relative;
+	display: flex;
+	align-items: center;
+	color: var(--form-tip-icon-color);
+	font-size: var(--ald-g-text-sm);
+	line-height: var(--ald-g-leading-sm);
+	margin-left: var(--ald-g-space-1);
+	cursor: pointer;
+}

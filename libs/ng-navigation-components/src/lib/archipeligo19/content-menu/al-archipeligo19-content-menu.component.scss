@@ -14,12 +14,12 @@
         margin-bottom: -2px;
 
         & > a {
-          color: #535353;   /* mat-color(  ); */
+          color: #535353;   /* al-color(  ); */
           text-decoration: none;
         }
 
         &.activated {
-          border-bottom: 3px solid #FFB840; /* mat-color($al-orange, 300); */
+          border-bottom: 3px solid #FFB840; /* al-color($al-orange, 300); */
           color: #3c3c3c;
         }
 

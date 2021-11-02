@@ -1,0 +1,166 @@
+<al-protected-content [entitlement]="entitlements" [accountChangeRoute]="true" [unentitledRoute]="true">
+<div>
+
+    <!--  Notification Panel -->
+    <al-notification-panel [alertSource]="listNotifications"></al-notification-panel>
+
+    <al-deployment-header class="al-deployment-header-forced-class" [config]="alDeploymentHeaderConfig"></al-deployment-header>
+    <p class="log-description">Add a log source for the data you want to collect.</p>
+
+    <!-- Nav Tools -->
+    <al-header-nav-tool [config]="headerNavToolConfig"
+        (onOpenedForm)="onCreateForm($event)"
+        (onSearched)="onSearch($event)"
+        (onArchived)="loadArchive($event)"
+        (onSettingMenu)="onSettingOptions($event)"
+        (onFiltered)="onFilter($event)">
+    </al-header-nav-tool>
+
+    <!-- AlViewHelper handles loading, zero ("empty") states, and other universal view considerations. -->
+    <al-view-helper [loading]="isLoading && !this.isScrolling" [empty]="entities.length === 0 && !isLoading" [notifyPanel]="true">
+        <i class="{{defaultIconList}}" zero-state-icon></i>
+        <span zero-state-description i18n>
+            You have no log sources for log collection. To get started, see <a href="https://docs.alertlogic.com/deploy/log-sources.htm" target="blank">Log Sources instructions</a>.
+        </span>
+    </al-view-helper>
+    <div class="table-overflow-view">
+        <!-- Sorting header list  -->
+        <al-sorting-list-header *ngIf="entities.length !== 0 || (elements.total !== 0)" [config]="sortingConfig" (onSorted)="onSort($event)">
+        </al-sorting-list-header>
+
+        <!-- List of Sources -->
+        <div class="status-list log-sources-list">
+            <a class="list-item" *ngFor="let entity of entities" (click)="onInfoForm(entity.source)" [ngClass]="{'selected': isSelected(entity.source.id)}">
+                <span class="status {{entity.source.status.status}}"></span>
+                <div class="title">
+                    <div class="status-icons">
+                        <div class="icon">
+                            <div class="icon-desc" matTooltip="{{ strSource(entity.source.config.collection_type) }}" matTooltipPosition="right">
+                                <i *ngIf="entity.source.config.collection_type === 'flatfile'"  class="font-size-30 material-icons source-icon">insert_drive_file</i>
+                                <i *ngIf="entity.source.config.collection_type === 'syslog'"  class="font-size-30 al al-policies"></i>
+                                <i *ngIf="entity.source.config.collection_type === 'o365'"  class="font-size-30 al al-office-365"></i>
+                                <i *ngIf="entity.source.config.collection_type === 'ehub'"  class="font-size-30 al al-event-hub"></i>
+                                <i *ngIf="entity.source.config.collection_type === 's3aws' ||
+                                    entity.source.config.collection_type === 's3'"  class="font-size-30 al al-aws-s3"></i>
+                                <i *ngIf="entity.source.config.collection_type === 'eventlog' ||
+                                    entity.source.config.collection_type === 'azure_table' ||
+                                    entity.source.config.collection_type === 'azure_blob' ||
+                                    entity.source.config.collection_type === 'azure_events'"  class="font-size-30 al al-azure"></i>
+                                <aside *ngIf="entity.source.config.collection_method === 'agent'">
+                                    Agent
+                                </aside>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="status-icons">
+                        <div class="icon">
+                            <div class="icon-desc">
+                                <i class="material-icons success" *ngIf="entity.source.status.status == 'ok'">check_circle</i>
+                                <i class="material-icons offline" *ngIf="entity.source.status.status == 'offline'">remove_circle</i>
+                                <i class="material-icons error" *ngIf="entity.source.status.status == 'error'">cancel</i>
+                                <i class="material-icons new" *ngIf="entity.source.status.status == 'new'">stars</i>
+                                <i class="material-icons warning" *ngIf="entity.source.status.status == 'warning'">error</i>
+                                <aside>{{entity.source.status.status}}</aside>
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <section class="icon-desc">
+                                <i class="material-icons ok" *ngIf="entity.source.enabled" >check_circle</i>
+                                <i class="material-icons offline" *ngIf="!entity.source.enabled" >cancel</i>
+                                <aside>{{entity.source.enabled ? "Enabled" : "Disabled" }}</aside>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="source-name">
+                        {{ entity.source.name }}
+                    </div>
+                    <div class="item">
+                        <div class="badge" *ngFor="let tag of entity.source.tags">{{tag.name}}</div>
+                    </div>
+                </div>
+                <div class="action-items">
+                    <section (click)="onEditForm($event, entity.source)">
+                        <i matTooltip="Edit" class="material-icons">mode_edit</i>
+                    </section>
+                    <!-- Archive -->
+                    <section *ngIf="entityType == 'collection'">
+                        <i matTooltip="Archive" class="material-icons" (click)="onDeleteForm( $event, entity.source )">move_to_inbox</i>
+                    </section>
+                    <!-- Restore -->
+                    <section *ngIf="entityType != 'collection'">
+                        <i matTooltip="Restore" class="material-icons" (click)="onDeleteForm( $event, entity.source )">move_to_inbox</i>
+                    </section>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- Pagination -->
+    <al-infinite-scroll [(params)]="params" [elements]="elements" [loading]="isScrolling" (onShowMore)="onShowMore($event)">
+    </al-infinite-scroll>
+    <!-- Right Drawer -->
+    <al-right-drawer (onClosed)="closeSideNav()" (onSaved)="save()" [isBusy]="isBusy">
+        <div class="al-right-drawer-body">
+
+            <!-- Sources Datecenter form -->
+            <al-sources-datacenter-form *ngIf="deploymentType === 'datacenter' && (rightDrawer.action === 'edit' || rightDrawer.action === 'create')"
+                [accountId]="accountId"
+                (onSucceed)="onSuccess($event)"
+                [sourceId]="selectedSourceId"
+                (isValid)="onValidating($event)"
+                (onLoading)="onLoading($event)"
+                [deploymentId]="deploymentId">
+            </al-sources-datacenter-form>
+
+            <!-- Sources AWS form -->
+            <al-sources-aws-form *ngIf="deploymentType === 'aws' && (rightDrawer.action === 'edit' || rightDrawer.action === 'create')"
+                [accountId]="accountId"
+                (onSucceed)="onSuccess($event)"
+                [sourceId]="selectedSourceId"
+                (isValid)="onValidating($event)"
+                (onLoading)="onLoading($event)"
+                [deploymentId]="deploymentId">
+            </al-sources-aws-form>
+
+            <!-- Sources Azure form -->
+            <al-sources-azure-form *ngIf="deploymentType === 'azure' && (rightDrawer.action === 'edit' || rightDrawer.action === 'create')"
+                [accountId]="accountId"
+                (onSucceed)="onSuccess($event)"
+                [sourceId]="selectedSourceId"
+                (isValid)="onValidating($event)"
+                (onLoading)="onLoading($event)"
+                [deploymentId]="deploymentId">
+            </al-sources-azure-form>
+
+            <al-delete-form *ngIf="rightDrawer.action === 'delete'" [bodyMessage]="bodyMessageDeleteForm" [isLoading]="isBusy" [deleteFormNotifications]="deleteFormNotifications">
+            </al-delete-form>
+
+            <!-- Form to show history. -->
+            <div *ngIf="rightDrawer.action === 'info'">
+                <al-history-info [accountId]="accountId"
+                                 [entity]="entityInfo"
+                                 [iconZeroState]="defaultIconList"
+                                 [historyType]="historyType"
+                ></al-history-info>
+            </div>
+
+            <!-- Form to export Sources -->
+            <al-export-form *ngIf="rightDrawer.action === 'export'"
+                            [(exportConfig)]="exportConfig"
+                            (onLoading)="onLoading($event)"
+                            (onSuccess)="handleSuccessOperation($event)">
+            </al-export-form>
+
+            <!-- Add To Case -->
+            <al-notification-panel [alertSource]="internalFormNotifications"></al-notification-panel>
+            <span *ngIf="rightDrawer.action === 'addToCase'">{{addToCaseFormMessage}}</span>
+
+            <!-- Form to apply mass edit to several Sources -->
+            <al-sources-mass-edit-form *ngIf="rightDrawer.action === 'massEdit'"
+                                        [(massEditConfig)]="massEditConfig"
+                                        (onLoading)="onLoading($event)"
+                                        (onSucceed)="onSuccess($event)">
+            </al-sources-mass-edit-form>
+        </div>
+    </al-right-drawer>
+</div>
+</al-protected-content>

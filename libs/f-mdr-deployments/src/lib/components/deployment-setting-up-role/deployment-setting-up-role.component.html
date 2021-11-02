@@ -1,0 +1,308 @@
+<div fxLayout="column" class="deployment-setting-up-role">
+    <al-deployment-header [config]="alDeploymentHeaderConfig">
+    </al-deployment-header>
+    <div class="text-header">
+        <div fxLayout="row" fxLayoutAlign="start center" class="title-info">
+            <h2>IAM Policy and Role Setup</h2>
+        </div>
+        <p i18n class="text-main">
+            Alert Logic recommends you use our CloudFormation template for quick, convenient IAM policy and role creation.
+        </p>
+        <p i18n class="text-secondary">
+            Click "CLOUDFORMATION SETUP" to use the Alert Logic CloudFormation template to create the IAM role needed for deployment creation.
+        </p>
+        <div fxLayout="row" class="button-panel">
+            <button mat-raised-button color="accent" (click)="setSetup('template')" [ngClass]="{'manual': !cloudFormation.enableTemplate}">CLOUDFORMATION SETUP</button>
+            <button mat-raised-button color="accent" (click)="setSetup('manual')" [ngClass]="{'manual': cloudFormation.enableTemplate}">MANUAL IAM SETUP</button>
+        </div>
+    </div>
+    <div  class="policy" *ngIf="cloudFormation.enableTemplate">
+        <div class="title">
+            <h2 i18n>Use the Alert Logic CloudFormation Template to Create a Policy and Role</h2>
+        </div>
+        <p i18n class="text-cloud-formation">
+            These instructions guide you on how to use the CloudFormation template to create the appropriate IAM role that allows your deployment to access your AWS assets.
+        </p>
+        <div class="title">
+            <div class="steps">1.</div>
+            <div class="step-desc">
+                <p>Click the link below to access the AWS CloudFormation Create Stack page.</p>
+                <p>All the information required for the Alert Logic CloudFormation template to create the appropriate IAM policy and role for this deployment type is prepopulated.</p>
+            </div>
+        </div>
+        <p class="caution">
+            Caution: Do not change any preselected items on the AWS CloudFormation Create Stack page, or this procedure will not complete successfully.
+        </p>
+        <div class="aws-link">
+            <button *ngIf="cloudformationUrl" class="mat-button mat-accent button-link" color="accent" mat-button="" ng-reflect-color="accent" (click)="goExternalSite(cloudformationUrl)">
+                <span class="mat-button-wrapper" i18n>https://aws.amazon.create-stack.com/</span>
+            </button>
+        </div>
+
+        <div class="title">
+            <div class="steps">2.</div>
+            <div class="step-desc">
+                <p>Select "I acknowledge that AWS CloudFormation might create IAM resources."</p>
+            </div>
+        </div>
+
+        <div class="title">
+            <div class="steps">3.</div>
+            <div class="step-desc">
+                <p>From the AWS CloudFormation Create Stack page, click "Create stack."</p>
+            </div>
+        </div>
+
+        <div class="title">
+            <div class="steps">4.</div>
+            <div class="step-desc">
+                <p>When the Status is CREATE_COMPLETE, click "Outputs."</p>
+            </div>
+        </div>
+
+        <div class="title">
+            <div class="steps">5.</div>
+            <div class="step-desc">
+                <p>Copy the Role ARN Value, which you will need to create your deployment.</p>
+            </div>
+        </div>
+
+        <div class="title">
+            <div class="steps">6.</div>
+            <div class="step-desc">
+                <p>In the Alert Logic console, click "CONTINUE."</p>
+            </div>
+        </div>
+    </div>
+
+    <!--  Manual Deployment Content -->
+
+    <div  class="policy" *ngIf="!cloudFormation.enableTemplate">
+        <div class="wrapper">
+            <div class="title">
+                <h2 i18n>Manually Create a Policy and Role</h2>
+            </div>
+            <div *ngIf="!deployment.cloud_defender.enabled">
+                <p i18n class="text-mode-none">
+                    These instructions guide you on how to manually create the appropriate IAM role that allows your deployment to access your AWS assets.
+                </p>
+            </div>
+            <div *ngIf="deployment.cloud_defender.enabled">
+                <p i18n>
+                    Before Alert Logic can manage the protection of your AWS accounts, you must log into the AWS console to create a cross-account
+                    role to allow us to access your AWS account. AWS role creation requires that you provide an AWS policy, a document
+                    that specifies the permissions assigned to the AWS role you create for Alert Logic to access to your AWS account.
+                </p>
+                <p class="text-no-margin" i18n>
+                    Our policy document does not allow us to:
+                </p>
+                <ul>
+                    <li i18n>Retrieve secret keys or credentials from IAM</li>
+                    <li i18n>Retrieve data from data stores other than S3</li>
+                    <li i18n>Perform these actions from any other AWS account</li>
+                    <li i18n>Grant access to the protected account to any other AWS account or user</li>
+                    <li i18n>Modify IAM credentials or policies.</li>
+                </ul>
+                <p class="text-no-margin" i18n>
+                        For more information about IAM roles, see
+                </p>
+                <div class="text-no-margin" layout="row">
+                    <div fxFlex="3"></div>
+                    <button *ngIf="cloudformationUrl" class="mat-button mat-accent button-link" color="accent" mat-button="" ng-reflect-color="accent" (click)="goExternalSite(iamRolesUrl)">
+                        <span class="mat-button-wrapper" i18n> https://docs.alertlogic.com/prepare/aws-cross-account-role-setup.htm </span>
+                    </button>
+                </div>
+                <br>
+            </div>
+            <div>
+                <h2 i18n="subtittle label | indicates log into your AWS account.">1. Log into your AWS account.</h2>
+            </div>
+            <button class="mat-button mat-accent button-link" color="accent" mat-button="" ng-reflect-color="accent" (click)="goExternalSite('https://aws.amazon.com')">
+                <span class="mat-button-wrapper" i18n="link | links to AWS page">https://aws.amazon.com</span>
+            </button>
+            <div>
+                <div class="title">
+                    <h2>Create an IAM policy.</h2>
+                </div>
+                <div class="list">
+                    <div class="list-content">
+                        <div class="circle">a</div>
+                        <span i18n>
+                            In the AWS Management Console, click "IAM."
+                        </span>
+                    </div>
+                    <div class="list-content">
+                        <div class="circle">b</div>
+                        <span i18n>
+                            On the navigation pane, click "Policies."
+                        </span>
+                    </div>
+                    <div class="list-content">
+                        <div class="circle">c</div>
+                        <span i18n>
+                            Click "Create policy."
+                        </span>
+                    </div>
+                    <div class="list-content">
+                        <div class="circle">d</div>
+                        <span i18n>
+                            Click the "JSON" tab.
+                        </span>
+                    </div>
+                    <div class="list-content">
+                        <div class="circle">e</div>
+                        <span i18n>
+                            Copy the Alert Logic policy document below, and past it into the JSON window.
+                        </span>
+                    </div>
+                </div>
+                <div class="well height200">
+                    <pre id="policyObjectText" #policyObject>{{policyObjectText | json}}</pre>
+                </div>
+                <button class="mat-raised-button mat-primary" color="primary" mat-button="" ng-reflect-color="primary" (click)="copyToClipboard(policyObjectText)">
+                    <span class="mat-button-wrapper" i18n=" button | indicates to copy policy">COPY POLICY</span>
+                </button>
+                <div class="list topPad">
+                    <div class="list-content">
+                        <div class="circle">f</div>
+                        <span i18n>
+                            Click "Review policy."
+                        </span>
+                    </div>
+                    <div class="list-content">
+                        <div class="circle">g</div>
+                        <span i18n>
+                            Enter a Policy Name and Description.
+                        </span>
+                    </div>
+                    <div class="list-content">
+                        <div class="circle">h</div>
+                        <span i18n>
+                            Click "Create Policy."
+                        </span>
+                    </div>
+                </div>
+                <div class="title">
+                    <h2 i18n="subtittle label | creates a role">3. Create a Role</h2>
+                </div>
+                <p i18n="paragraph |  indicates it is necessary to create a role">
+                    After you create a policy, you must return to the AWS IAM page and create an AWS role that allows us to access and monitor
+                    your deployments.
+                </p>
+                <div class="list">
+                    <div class="list-content">
+                        <div class="circle">a</div>
+                        <span i18n>
+                            From the navigation pane, click "Roles."
+                        </span>
+                    </div>
+                    <div class="list-content">
+                        <div class="circle">b</div>
+                        <span i18n>
+                            Click "Create Role."
+                        </span>
+                    </div>
+                    <div class="list-content">
+                        <div class="circle">c</div>
+                        <span i18n>
+                            Click "Another AWS Account."
+                        </span>
+                    </div>
+                    <div class="list-content">
+                        <div class="circle">d</div>
+                        <span i18n>
+                            Copy our Account ID below, and then paste it into the Account ID field in the AWS Console.
+                        </span>
+                    </div>
+                </div>
+                <div class="well">
+                    <div id='accountIdText' #accountId>{{awsAccountID}}</div>
+                </div>
+                <button class="mat-raised-button mat-primary" color="primary" mat-button="" ng-reflect-color="primary" (click)="copyToClipboard(awsAccountID)">
+                    <span class="mat-button-wrapper" i18n=" button | indicates to copy account id">COPY ACCOUNT ID</span>
+                </button>
+                <div class="list topPad">
+                    <div class="list-content">
+                        <div class="circle">e</div>
+                        <span i18n>
+                            Select "Require external ID."
+                        </span>
+                    </div>
+                    <div class="list-content">
+                        <div class="circle">f</div>
+                        <span i18n>
+                            Do not select "Require MFA."
+                        </span>
+                    </div>
+                    <div class="list-content">
+                        <div class="circle">g</div>
+                        <span i18n>
+                            Copy our External ID below, and then paste it into the External ID field in the AWS Console.
+                        </span>
+                    </div>
+                </div>
+                <div class="well">
+                    <div id="externalIdText" #externalId>{{externalID}}</div>
+                </div>
+                <button class="mat-raised-button mat-primary" color="primary" mat-button="" ng-reflect-color="primary" (click)="copyToClipboard(externalID)">
+                    <span class="mat-button-wrapper" i18n=" button | indicates to copy external id">COPY EXTERNAL ID</span>
+                </button>
+                <div class="list topPad">
+                    <div class="list-content">
+                        <div class="circle">h</div>
+                        <span i18n>
+                            Click "Next: Permissions."
+                        </span>
+                    </div>
+                    <div class="list-content">
+                        <div class="circle">i</div>
+                        <span i18n>
+                            Select the policy you created above, and then click "Next: Review."
+                        </span>
+                    </div>
+                    <div class="list-content">
+                        <div class="circle">j</div>
+                        <span i18n>
+                            Enter a Role Name, and then click "Create Role."
+                        </span>
+                    </div>
+                    <div class="list-content">
+                        <div class="circle">k</div>
+                        <span i18n>
+                            In the list of IAM roles, click the name of the role you created.
+                        </span>
+                    </div>
+                </div>
+                <h4 class="title-underline" i18n="subtittle label | ARN subtitle">
+                    ARN
+                </h4>
+                <div class="list">
+                    <div class="list-content">
+                        <div class="circle">l</div>
+                        <span i18n>
+                            Copy the Role ARN to your clipboard.
+                        </span>
+                    </div>
+                </div>
+                <div class="list topPad">
+                    <div class="list-content">
+                        <h3>
+                            <i class="material-icons">done</i>
+                            <span i18n>
+                                That's it!
+                            </span>
+                        </h3>
+                    </div>
+                </div>
+                <div class="topPad">
+                    <p i18n="paragraph |  gives an advise about Role ARN and External ID">Remember: You need your Role ARN to create your deployment.</p>
+                </div>
+            </div>
+            <div class="bottomPad">
+                <button (click)="goForward()" class="mat-raised-button mat-primary" color="primary" mat-button="" ng-reflect-color="primary">
+                    <span class="mat-button-wrapper" i18n>CONTINUE</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

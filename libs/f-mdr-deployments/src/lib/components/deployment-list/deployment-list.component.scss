@@ -1,0 +1,16 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.al-deployment-list {
+    padding: 36px 40px;
+
+    al-deployment-card {
+        .product-name {
+            display: none;
+        }
+    }
+
+    .first-deployment-text {
+        position: absolute;
+        margin-right: 10%;
+    }
+}

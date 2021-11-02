@@ -1,0 +1,23 @@
+<button type="button"
+    [ngClass]="[
+        label ? 'ald-btn' : 'ald-btn-icon',
+        (icon && label) ? 'ald-btn--with-icon ald-btn--with-icon-' + iconPos : '',
+        disabled ? 'ald-btn--disabled' : '',
+        fullwidth ? 'ald-btn--full-width' : '',
+        selected ? 'ald-btn--selected' : 'ald-btn--' + type,
+        'ald-btn--' + size
+    ]"
+    [disabled]="disabled">
+
+    <div *ngIf="icon && !loading" class="ald-btn-icon__wrapper">
+        <ald-icon [icon]="icon" [iconClass]="iconClass" [size]="iconSize"></ald-icon>
+    </div>
+
+    <ng-container *ngIf="loading">
+        <ald-icon icon="rotate_right" class="animate-spin" [size]="iconSize"></ald-icon>
+        <!-- TODO: Replace above with spinner - awaiting updates to scall the button for button sizes -->
+        <!-- <al-loading-spinner></al-loading-spinner> -->
+    </ng-container>
+
+    {{ label }}
+</button>

@@ -1,0 +1,224 @@
+<div class="tutorial-content">
+    <div mat-dialog-content>
+        <div *ngIf="data && data.skip === false" class="close-button">
+            <button matDialogClose mat-icon-button>
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+        <div class="box" *ngIf="data && data.skip">
+            <al-alert-box boxColor="gray">
+                <div class="icon">
+                    <i class="material-icons" ngClass="gray">cancel</i>
+                </div>
+                <div class="text" i18n>
+                    Use this tutorial to learn about deployments in Alert Logic Cloud Insight. Click SKIP to continue to
+                    Deployments.
+                </div>
+                <div class="alert-button">
+                    <button class="mat-button" mat-button matDialogClose matDialogClose>
+                        <strong i18n> SKIP </strong>
+                    </button>
+                </div>
+            </al-alert-box>
+        </div>
+
+        <h1 class="title-underline" i18n><i class="material-icons al-gray-500">language</i>Configuration Tutorial</h1>
+        <span class="block">
+            Deployments are a list of assets from your appliances, agents, hosts, and collectors from your environments.
+            You can deploy from Amazon Web Services and Microsoft Azure environments, and configure your data center
+            deployments. When you create or edit a deployment, you must choose a level of protection.
+
+
+        </span>
+        <div class="contentWrapper">
+            <h2 class="title-underline" i18n>Deployment Icons</h2>
+            <span>
+                The Deployments page uses the following icons to represent the assets and configuration options you can
+                take for deployments in your environment.
+            </span>
+            <div class="icon-row">
+                <div class="icon-row-item">
+                    <span class="internal-small-block">
+                        <i class="al al-region internal-icon"></i>
+                    </span>
+                    <span>region</span>
+                </div>
+                <div class="icon-row-item">
+                    <span class="internal-small-block">
+                        <i class="al al-topology-vpc-1 internal-icon"></i>
+                    </span>
+                    <span>vpc</span>
+                </div>
+                <div class="icon-row-item">
+                    <span class="internal-small-block">
+                        <i class="al al-network internal-icon"></i>
+                    </span>
+                    <span>network</span>
+                </div>
+                <div class="icon-row-item">
+                    <span class="internal-small-block">
+                        <i class="al al-subnet internal-icon"></i>
+                    </span>
+                    <span>subnet</span>
+                </div>
+                <div class="icon-row-item">
+                    <span class="internal-small-block">
+                        <i class="al al-host internal-icon"></i>
+                    </span>
+                    <span>host</span>
+                </div>
+                <div class="icon-row-item">
+                    <span class="internal-small-block">
+                        <i class="material-icons internal-icon">dns</i>
+                    </span>
+                    <span>dns</span>
+                </div>
+                <div class="icon-row-item">
+                    <span class="internal-small-block">
+                        <i class="material-icons internal-icon">pin_drop</i>
+                    </span>
+                    <span>public ip</span>
+                </div>
+                <div class="icon-row-item">
+                    <span class="internal-small-block">
+                        <i class="material-icons internal-icon">settings_ethernet</i>
+                    </span>
+                    <span>external ip</span>
+                </div>
+            </div>
+
+
+
+            <h2 class="title-underline" i18n>Scope of Protection Topology</h2>
+            <span class="block">
+                The topology diagram provides an overview of your scope of protection. See which assets are unprotected,
+                or being scanned at the Essentials or Professional levels. The following icons and colors represent the
+                protection levels of your assets:
+            </span>
+            <div class="icon-row">
+                <div class="icon-row-item">
+                    <span class="internal-small-block">
+                        <i class="fa fa-circle internal-icon unprotected"></i>
+                    </span>
+                    <span>Unprotected</span>
+                </div>
+                <div class="icon-row-item">
+                    <span class="internal-small-block">
+                        <i class="fa fa-circle internal-icon protected"></i>
+                    </span>
+                    <span>Protected</span>
+                </div>
+                <div class="icon-row-item">
+                    <span class="internal-small-block">
+                        <i class="fa fa-circle internal-icon essentials"></i>
+                    </span>
+                    <span>Essentials</span>
+                </div>
+                <div class="icon-row-item">
+                    <span class="internal-small-block">
+                        <i class="fa fa-circle internal-icon professional">
+                        </i>
+                    </span>
+                    <span>Professional</span>
+                </div>
+            </div>
+            <h2 class="title-underline" i18n>Configuration Workflow</h2>
+            <span class="block">
+                The most common workflow to configure a deployments is:
+           </span>
+
+            <div style="margin-left:30px">
+                <div class="tutorial-row">
+                    <span class="left-icon">
+                        <i class="material-icons internal-icon relative">language
+                        </i>
+                    </span>
+                    <span>
+                        <h5 class="no-top-padding">Add a Deployment</h5>
+                        <span class="block">
+                            When you add a deployment, you must specify the deployment type. Some deployment types require
+                            third-party access and additional steps. Follow the tutorial in that deployment page to configure
+                            your deployments.
+                        </span>
+                    </span>
+                </div>
+
+                <div class="horizontal-line"></div>
+
+                <div class="tutorial-row">
+                    <span class="left-icon" style="max-width:45px">
+                        <i class="al al-assets internal-icon relative">
+                        </i>
+                    </span>
+                    <span>
+                        <h5 class="no-top-padding">Discovery Assets</h5>
+                        <span class="block">
+                            If you are configuring from a cloud environment, Alert Logic automatically discovers your assets
+                            when you grant third-party access. Alert Logic displays the assets discovered in your account in
+                            topology diagrams.
+                        </span>
+
+                        <div class="tutorial-row">
+                            <span class="left-icon">
+                                <i class="icon-small material-icons">open_in_browser</i>
+                            </span>
+                            <span>
+                                <h5 class="no-top-padding"> External Assets</h5>
+                                <span class="block">
+                                    If all your assets were not discovered, you can add external assets manually by domain name
+                                    or IP address.
+                                </span>
+                            </span>
+                        </div>
+                    </span>
+                </div>
+
+                <div class="horizontal-line"></div>
+
+                <div class="tutorial-row">
+                    <span class="left-icon" style="max-width:45px">
+                        <i class="al al-sg internal-icon relative">
+                        </i>
+                    </span>
+                    <span>
+                        <h5 class="no-top-padding">Scope of Protection</h5>
+                        <span class="block">
+                            You can define the scope of your protection per network basis. Each network appears within its
+                            protected region. Click a region or individual network to set the scan level or leave it
+                            unprotected.
+                        </span>
+
+                        <div class="tutorial-row">
+                            <span class="left-icon">
+                                <i class="icon-small material-icons">remove_from_queue</i>
+                            </span>
+                            <span>
+                                <h5 class="no-top-padding"> Exclusions</h5>
+                                <span class="block">
+                                    You have the option to exclude assets or tags from external scanning, internal scanning,
+                                    and Network IDS. You can remove an asset from exclusion at any time.
+                                </span>
+                            </span>
+                        </div>
+
+                        <div class="horizontal-line"></div>
+
+                        <div class="tutorial-row" style="padding-left:0">
+                            <span class="left-icon">
+                                <i class="icon-small material-icons">today</i>
+                            </span>
+                            <span>
+                                <h5 class="no-top-padding"> Scheduling</h5>
+                                <span class="block">
+                                    Alert Logic automatically performs certain scans. You can schedule when you want Alert
+                                    Logic to scan for new assets and perform vulnerability scans. You can opt to scan on
+                                    specific hours or days.
+                                </span>
+                            </span>
+                        </div>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

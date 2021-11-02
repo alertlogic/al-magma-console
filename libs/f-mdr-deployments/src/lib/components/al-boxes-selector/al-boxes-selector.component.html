@@ -1,0 +1,7 @@
+<div class="boxes-selector" fxLayout="row">
+    <div *ngFor="let item of data">
+        <div class="box-selector-item" [ngClass]="{'selected': item.selected}" (click)="selectBox(item)">
+            <div class="label cut-text" fxFlexAlign="center">{{ item.label }}</div>
+        </div>
+    </div>
+</div>

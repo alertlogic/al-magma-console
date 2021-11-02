@@ -1,0 +1,74 @@
+/* BLOCK */
+
+.ald-repeater__block {
+	margin-bottom: var(--ald-g-space-5);
+}
+
+.ald-repeater__block--boxed {
+	position: relative;
+	padding-left: var(--ald-g-space-7);
+}
+
+.ald-repeater__block--boxed:before {
+	content:"";
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 4px;
+	height: 100%;
+	background-color: var(--ald-g-color-gray-300);
+	border-radius: var(--ald-g-radius-sm);
+}
+
+
+/* HEADER */
+/* Wraps icon and title */
+
+.ald-repeater__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-bottom: var(--ald-g-space-5);
+}
+
+.ald-repeater__title {
+	display: flex;
+	align-items: center;
+}
+
+.ald-repeater__title-el {
+	font-size: var(--ald-g-text-sm);
+	line-height: var(--ald-g-leading-sm);
+	font-weight: 600;
+}
+
+.ald-repeater__icon {
+	margin-right: var(--ald-g-space-1);	
+}
+
+/* ROW */
+/* Wraps content and remove button */
+
+.ald-repeater__row {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+}
+
+.ald-repeater__content  {
+    flex-grow:1;
+}
+
+.ald-repeater__block--inline 
+.ald-repeater__content {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    gap: var(--ald-g-space-3);
+}
+
+.ald-repeater__row
+.ald-repeater__btn {
+	align-self: flex-end;
+	margin-left: var(--ald-g-space-3);
+}

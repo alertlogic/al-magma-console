@@ -1,0 +1,42 @@
+<ald-form-group 
+    [id]="id"
+    [name]="ariaLabelledBy"
+    [label]="label"
+    [tip]="tip"
+    [hint]="hint"
+    [required]="required"
+    [verticalSpace]="verticalSpace">
+    <div class="ald-input">
+        <span *ngIf="type === 'search'" class="ald-input__icon">
+            <i class="material-icons md-18">search</i>
+        </span>
+        <input
+            [type]="type"
+            class="ald-input__element"
+            [class.ald-input__element--error]="control?.errors && (control?.dirty || control?.touched)"
+            [class.ald-input__element--disabled]="disabled"
+            [name]="name"
+            [id]="id"
+            [attr.aria-labelledby]="ariaLabelledBy"
+            [value]="value"
+            [disabled]="disabled"
+            [required]="required"
+            [placeholder]="placeholder"
+            [autofocus]="autofocus"
+            [pattern]="validationPattern"
+            [min]="minValue"
+            [max]="maxValue"
+            (input)="onChange($event.target.value)"/>
+        <ald-form-group-errors
+            [control]="control"
+            [label]="label"
+            [requiredError]="requiredError"
+            [validationPattern]="validationPattern"
+            [patternError]="patternError"
+            [minLength]="minLength"
+            [maxLength]="maxLength"
+            [minValue]="minValue"
+            [maxValue]="maxValue">
+        </ald-form-group-errors>
+    </div>
+</ald-form-group>

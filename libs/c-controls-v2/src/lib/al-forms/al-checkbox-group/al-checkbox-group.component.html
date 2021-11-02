@@ -1,0 +1,18 @@
+<ald-form-group
+    [label]="label"
+    [tip]="tip"
+    [hint]="hint">
+
+    <div class="ald-checkbox-group__row u-flex" [ngClass]="[inline ? 'u-flex-row' : 'u-flex-col']">
+        <div *ngFor="let item of options; let last = last;" class="ald-checkbox-group__row" >
+            <ald-checkbox
+                [id]="item.id"
+                [label]="item.label"
+                [checked]="item.selected"
+                [disabled]="item.disabled"
+                [verticalSpace]="false"
+                (onCheckedChange)="onChange(item, $event)">
+            </ald-checkbox>
+        </div>
+    </div>
+</ald-form-group>

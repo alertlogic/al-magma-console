@@ -1,0 +1,48 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.application-log-card {
+
+    .padding-top{
+        padding-top: 24px;
+    }
+
+    .vuln-padding-right{
+        padding-right: 36px;
+    }
+
+    .scope {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    a {
+        text-decoration: none;
+        color:al-color($al-gray, 500);
+    }
+
+    .down-line {
+        border-bottom-color: al-color($al-gray, 50);
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+    }
+
+    .top-line {
+        border-top-color: al-color($al-gray, 50);
+        border-top-style: solid;
+        border-top-width: 2px;
+    }
+
+    al-icon-block {
+        span: {
+            color:al-color($al-gray, 500);
+        }
+    }
+
+    #cardZeroState {
+        height: 20px;
+    }
+
+    .icon-block-medium{
+        font-size: 1em !important;
+    }
+}

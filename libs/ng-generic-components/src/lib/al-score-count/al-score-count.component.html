@@ -10,7 +10,7 @@
                 <div>
                     <span class="stack-count">{{config.critical|alPrefixMultiplier}}</span>
                     <span class="stack">
-                        <i class="fa fa-circle new-risk-critical"></i>
+                        <i class="al al-risk-1 new-risk-critical"></i>
                         <span class="stack-bottom">Critical</span>
                     </span>
                 </div>
@@ -20,8 +20,8 @@
                 <div>
                     <span class="stack-count">{{config.high|alPrefixMultiplier}}</span>
                     <span class="stack">
-                        <i *ngIf="limit4Levels === false" class="fa fa-adjust new-risk-high"></i>
-                        <i *ngIf="limit4Levels === true" class="fa fa-circle new-risk-critical"></i>
+                        <i *ngIf="limit4Levels === false" class="al al-risk-2 new-risk-high"></i>
+                        <i *ngIf="limit4Levels === true" class="al al-risk-1 new-risk-critical"></i>
                         <span class="stack-bottom">High</span>
                     </span>
                 </div>
@@ -31,8 +31,8 @@
                 <div>
                     <span class="stack-count">{{config.medium|alPrefixMultiplier}}</span>
                     <span class="stack">
-                        <i *ngIf="limit4Levels === false" class="fa fa-circle-o new-risk-medium"></i>
-                        <i *ngIf="limit4Levels === true" class="fa fa-adjust new-risk-high"></i>
+                        <i *ngIf="limit4Levels === false" class="al al-risk-3 new-risk-medium"></i>
+                        <i *ngIf="limit4Levels === true" class="al al-risk-2 new-risk-high"></i>
                         <span class="stack-bottom">Medium</span>
                     </span>
                 </div>
@@ -42,8 +42,8 @@
                 <div>
                     <span class="stack-count">{{config.low|alPrefixMultiplier}}</span>
                     <span class="stack">
-                        <i *ngIf="limit4Levels === false" class="fa fa-circle new-risk-low"></i>
-                        <i *ngIf="limit4Levels === true" class="fa fa-circle-o new-risk-medium"></i>
+                        <i *ngIf="limit4Levels === false" class="al al-risk-1 new-risk-low"></i>
+                        <i *ngIf="limit4Levels === true" class="al al-risk-3 new-risk-medium"></i>
                         <span class="stack-bottom">Low</span>
                     </span>
                 </div>
@@ -53,7 +53,7 @@
                 <div>
                     <span class="stack-count">{{config.info|alPrefixMultiplier}}</span>
                     <span class="stack">
-                        <i class="fa fa-info-circle new-risk-low"></i>
+                        <i class="al al-risk-1 new-risk-low"></i>
                         <span class="stack-bottom">Info</span>
                     </span>
                 </div>
@@ -67,38 +67,38 @@
         <ul>
             <li *ngIf="limit4Levels === false">
                 <div class="stack">
-                    <i class="fa fa-circle risk-critical"></i>
+                    <i class="al al-risk-1 risk critical"></i>
                     <span class="stack-bottom">Critical</span>
                     <span class="stack-count">{{config.critical|alPrefixMultiplier}}</span>
                 </div>
             </li>
             <li>
                 <div class="stack">
-                    <i *ngIf="limit4Levels === false" class="fa fa-adjust risk-high"></i>
-                    <i *ngIf="limit4Levels === true" class="fa fa-circle risk-critical"></i>
+                    <i *ngIf="limit4Levels === false" class="al al-risk-2 risk high"></i>
+                    <i *ngIf="limit4Levels === true" class="al al-risk-1 risk critical"></i>
                     <span class="stack-bottom">High</span>
                     <span class="stack-count">{{config.high|alPrefixMultiplier}}</span>
                 </div>
             </li>
             <li>
                 <div class="stack">
-                    <i *ngIf="limit4Levels === false" class="fa fa-circle-o risk-medium"></i>
-                    <i *ngIf="limit4Levels === true" class="fa fa-adjust risk-high"></i>
+                    <i *ngIf="limit4Levels === false" class="al al-risk-3 risk medium"></i>
+                    <i *ngIf="limit4Levels === true" class="al al-risk-2 risk high"></i>
                     <span class="stack-bottom">Medium</span>
                     <span class="stack-count">{{config.medium|alPrefixMultiplier}}</span>
                 </div>
             </li>
             <li>
                 <div class="stack">
-                    <i *ngIf="limit4Levels === false" class="fa fa-circle risk-low"></i>
-                    <i *ngIf="limit4Levels === true" class="fa fa-circle-o risk-medium"></i>
+                    <i *ngIf="limit4Levels === false" class="al al-risk-1 risk low"></i>
+                    <i *ngIf="limit4Levels === true" class="al al-risk-3 risk medium"></i>
                     <span class="stack-bottom">Low</span>
                     <span class="stack-count">{{config.low|alPrefixMultiplier}}</span>
                 </div>
             </li>
             <li>
                 <div class="stack">
-                    <i class="fa fa-info-circle risk-low"></i>
+                    <i class="al al-risk-1 risk-low"></i>
                     <span class="stack-bottom">Info</span>
                     <span class="stack-count">{{config.info|alPrefixMultiplier}}</span>
                 </div>
@@ -108,26 +108,26 @@
     <div class="action-list-small" *ngIf="displayMode==='small'">
         <ul>
             <li *ngIf="limit4Levels === false">
-                <i class="fa fa-circle risk-critical"></i>
+                <i class="al al-risk-1 risk critical"></i>
                 {{config.critical || 0 |alPrefixMultiplier}}
             </li>
             <li>
-                <i *ngIf="limit4Levels === false" class="fa fa-adjust risk-high"></i>
-                <i *ngIf="limit4Levels === true" class="fa fa-circle risk-critical"></i>
+                <i *ngIf="limit4Levels === false" class="al al-risk-2 risk high"></i>
+                <i *ngIf="limit4Levels === true" class="al al-risk-1 risk critical"></i>
                 {{config.high || 0 |alPrefixMultiplier}}
             </li>
             <li>
-                <i *ngIf="limit4Levels === false" class="fa fa-circle-o risk-medium"></i>
-                <i *ngIf="limit4Levels === true" class="fa fa-adjust risk-high"></i>
+                <i *ngIf="limit4Levels === false" class="al al-risk-3 risk medium"></i>
+                <i *ngIf="limit4Levels === true" class="al al-risk-2 risk high"></i>
                 {{config.medium || 0 |alPrefixMultiplier}}
             </li>
             <li>
-                <i *ngIf="limit4Levels === false" class="fa fa-circle risk-low"></i>
-                <i *ngIf="limit4Levels === true" class="fa fa-circle-o risk-medium"></i>
+                <i *ngIf="limit4Levels === false" class="al al-risk-1 risk low"></i>
+                <i *ngIf="limit4Levels === true" class="al al-risk-3 risk medium"></i>
                 {{config.low || 0 |alPrefixMultiplier}}
             </li>
             <li>
-                <i class="fa fa-info-circle risk-low"></i>
+                <i class="al al-risk-4 risk low"></i>
                 {{config.info || 0 |alPrefixMultiplier}}
             </li>
             <li *ngIf="name && showCount">
@@ -143,7 +143,7 @@
             <li *ngIf="limit4Levels === false">
                 <div>
                     <span class="stack">
-                        <i class="fa fa-circle risk-critical"></i>
+                        <i class="al al-risk-1risk critical"></i>
                     </span>
                     <span class="stack-count">{{config.critical|alPrefixMultiplier}}</span>
                 </div>
@@ -151,8 +151,8 @@
             <li>
                 <div>
                     <span class="stack">
-                        <i *ngIf="limit4Levels === false" class="fa fa-adjust risk-high"></i>
-                        <i *ngIf="limit4Levels === true" class="fa fa-circle risk-critical"></i>
+                        <i *ngIf="limit4Levels === false" class="al al-risk-2 risk high"></i>
+                        <i *ngIf="limit4Levels === true" class="al al-risk-1 risk critical"></i>
                     </span>
                     <span class="stack-count">{{config.high|alPrefixMultiplier}}</span>
                 </div>
@@ -160,8 +160,8 @@
             <li>
                 <div>
                     <span class="stack">
-                        <i *ngIf="limit4Levels === false" class="fa fa-circle-o risk-medium"></i>
-                        <i *ngIf="limit4Levels === true" class="fa fa-adjust risk-high"></i>
+                        <i *ngIf="limit4Levels === false" class="al al-risk-3 risk medium"></i>
+                        <i *ngIf="limit4Levels === true" class="al al-risk-2 risk :"></i>
                     </span>
                     <span class="stack-count">{{config.medium|alPrefixMultiplier}}</span>
                 </div>
@@ -169,8 +169,8 @@
             <li>
                 <div>
                     <span class="stack">
-                        <i *ngIf="limit4Levels === false" class="fa fa-circle risk-low"></i>
-                        <i *ngIf="limit4Levels === true" class="fa fa-circle-o risk-medium"></i>
+                        <i *ngIf="limit4Levels === false" class="al al-risk-1 risk low"></i>
+                        <i *ngIf="limit4Levels === true" class="al al-risk-3 risk medium"></i>
                     </span>
                     <span class="stack-count">{{config.low|alPrefixMultiplier}}</span>
                 </div>
@@ -178,7 +178,7 @@
             <li>
                 <div>
                     <span class="stack">
-                        <i class="risk fa fa-info-circle none"></i>
+                        <i class="risk al al-risk-4 none"></i>
                     </span>
                     <span class="stack-count">{{config.info|alPrefixMultiplier}}</span>
                 </div>

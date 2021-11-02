@@ -1,0 +1,109 @@
+<al-bottom-sheet #alBottomSheet [headerOptions]="headerOptions" (onPrimaryAction)="onSubmitForm()"
+    (onSecondaryAction)="onCancelForm()">
+    <!-- Content Projection -->
+    <div class="system-rule-form">
+        <!--  Notification Panel -->
+        <al-notification-panel [alertSource]="formNotifications"></al-notification-panel>
+        <al-view-helper [loading]="isLoading"></al-view-helper>
+        <div class="p-grid" *ngIf="!isLoading">
+            <div class="p-col-4">
+                <div class="form-wrapper">
+                    <form [formGroup]="formGroup">
+                        <h2 class="title">Name</h2>
+                        <div class="form-content">
+                            <span class="md-inputfield form-row">
+                                <input formControlName="app_name" type="text" class="input-field" pInputText>
+                                <label>System Log Name <span> *</span></label>
+                                <div class="ui-message ui-messages-error ui-corner-all"
+                                    *ngIf="formGroup.controls['app_name'].hasError('required') && (formGroup.controls['app_name'].dirty || formGroup.controls['app_name'].touched)">
+                                    System Log Name is required</div>
+                            </span>
+                            <span class="md-inputfield form-row"
+                                *ngIf="!isDefaultRule || (isDefaultRule && action === 'duplicate')">
+                                <div class="checkbox-header">
+                                    <span>Automatically enable collection from this application</span>
+                                </div>
+                                <div>
+                                    <p-checkbox binary="true" [formControl]="formGroup.controls['enabled']"
+                                        label="Collect">
+                                    </p-checkbox>
+                                </div>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="p-col" *ngIf="typeRule === 'syslog'">
+                <form [formGroup]="formGroup">
+                    <h2 class="title">Details</h2>
+                    <div class="form-content">
+                        <span class="md-inputfield form-row">
+                            <input formControlName="agent_port" type="number" class="input-field" pInputText>
+                            <label>Syslog System Port <span> *</span></label>
+                            <div class="ui-message ui-messages-error ui-corner-all"
+                                *ngIf="formGroup.controls['agent_port'].hasError('required') && (formGroup.controls['agent_port'].dirty || formGroup.controls['agent_port'].touched)">
+                                Syslog System Port is required</div>
+                        </span>
+                        <span class="md-inputfield form-row">
+                            <input formControlName="disk_limit" type="number" class="input-field" pInputText>
+                            <label>Local Syslog Cache Disk Limit (MB) <span> *</span></label>
+                            <div class="ui-message ui-messages-error ui-corner-all"
+                                *ngIf="formGroup.controls['disk_limit'].hasError('required') && (formGroup.controls['disk_limit'].dirty || formGroup.controls['disk_limit'].touched)">
+                                Local Syslog Cache Disk Limit is required</div>
+                        </span>
+                        <span class="md-inputfield form-row">
+                            <div class="checkbox-header">
+                                <span>Enable the agent to collect docker container logs</span>
+                            </div>
+                            <div>
+                                <p-checkbox [formControl]="formGroup.controls['container_logs_enabled']"
+                                            label="Container Logs Enabled"
+                                            binary="true">
+                                </p-checkbox>
+                            </div>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class="p-col-8" *ngIf="typeRule === 'eventlog'">
+                <h2 class="title">Event Streams</h2>
+                <div class="form-content">
+                    <span class="md-inputfield form-row">
+                        <div class="checkbox-header">
+                            <span>Collect Available Event Log Streams</span>
+                        </div>
+                        <section *ngIf="streams">
+                            <main>
+                                <ul
+                                    [ngClass]="{'margin-ul-image': totalChildren > 0, 'margin-ul': totalChildren === 0}">
+                                    <p-checkbox binary="true" name="collectAll" label="Collect All"
+                                        [(ngModel)]="collectAll" (onChange)="onCheckAll($event)"
+                                        [disabled]="checkingAll">
+                                    </p-checkbox>
+                                    <li *ngFor="let stream of streams; trackBy: stream?.stream_id">
+                                        <i class="material-icons" (click)="onShowHide(stream)"
+                                            *ngIf="stream.hasChildren">{{stream.icon}}</i>
+                                        <p-checkbox binary="true" [name]="stream.stream_id"
+                                            [label]="stream.display_name" [(ngModel)]="stream.selected"
+                                            (onChange)="onCheckBox(stream,$event)" [disabled]="checkingAll">
+                                        </p-checkbox>
+                                        <ul *ngIf="stream.hasChildren && stream.showChildren">
+                                            <li *ngFor="let streamChild of stream.children">
+                                                <p-checkbox binary="true" [name]="streamChild.stream_id"
+                                                    [label]="streamChild.display_name"
+                                                    [(ngModel)]="streamChild.selected"
+                                                    (onChange)="onCheckBox(streamChild, $event, stream)"
+                                                    [disabled]="checkingAll">
+                                                </p-checkbox>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </main>
+                        </section>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</al-bottom-sheet>

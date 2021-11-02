@@ -1,0 +1,84 @@
+.question {
+    padding-top: 15px;
+}
+
+.footer {
+    .flat-button {
+        pointer-events: auto;
+        border-radius: 0;
+        box-sizing: border-box;
+        position: relative;
+        text-decoration: none!important;
+        cursor: pointer;
+        text-align: center;
+        display: inline-block;
+        overflow: hidden;
+        vertical-align: middle;
+        height: 36px;
+        font-size: 14px;
+        padding: 0;
+        border: 0;
+        transition: background-color .3s;
+        font-family: Open Sans,Arial,sans-serif;
+        -webkit-box-shadow: none;
+        background-color: transparent;
+        color: #535353;
+        width: auto;
+        margin-right: .5em;
+        .cancel {
+            pointer-events: auto;
+            cursor: pointer;
+            text-align: center;
+            font-size: 14px;
+            font-family: Open Sans,Arial,sans-serif;
+            color: #535353;
+            box-sizing: border-box;
+            display: block;
+            padding: .25em 1em;
+            line-height: normal;
+            text-transform: uppercase;
+        }
+    }
+    .primary-button {
+        pointer-events: auto;
+        border-radius: 0;
+        box-sizing: border-box;
+        position: relative;
+        text-decoration: none!important;
+        cursor: pointer;
+        text-align: center;
+        display: inline-block;
+        overflow: hidden;
+        vertical-align: middle;
+        height: 36px;
+        font-size: 14px;
+        padding: 0;
+        border: 0;
+        -webkit-box-shadow: none;
+        transition: background-color .3s;
+        font-family: Open Sans,Arial,sans-serif;
+        background-color: red;
+        color: #fff;
+        width: auto;
+        margin-right: 0;
+        .confirm {
+            pointer-events: auto;
+            cursor: inherit;
+            text-align: center;
+            font-size: 14px;
+            font-family: Open Sans,Arial,sans-serif;
+            color: #fff;
+            box-sizing: border-box;
+            display: block;
+            padding: .25em 1em;
+            line-height: normal;
+            text-transform: uppercase;
+        }
+        &.disabled {
+            background-color: darkgray;
+            color: grey;
+            cursor: not-allowed;
+        }
+    }
+}
+

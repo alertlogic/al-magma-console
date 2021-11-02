@@ -1,0 +1,15 @@
+<div class="al-time-input" fxLayout="row" [formGroup]="parentForm">
+    <mat-form-field class="hours-input">
+        <input matInput placeholder="HH"
+            class="input-align" maxlength="2"
+            pattern="([01][0-9]|2[0-3])"
+            formControlName="hours" required/>
+    </mat-form-field>
+    <div class="time-separator">:</div>
+    <mat-form-field class="minutes-input">
+        <input matInput placeholder="MM"
+            class="input-align" maxlength="2"
+            pattern="([0-5][0-9])"
+            formControlName="minutes" required/>
+    </mat-form-field>
+</div>

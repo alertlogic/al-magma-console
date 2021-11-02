@@ -1,0 +1,56 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.scope-protection {
+    background: white;
+    .under-line {
+        border-bottom: 1px solid #EDEDED;
+        margin-bottom: 25px;
+        line-height: normal;
+        display: flex;
+    }
+
+    .scope-setting {
+        background: white;
+        &.full-screen {
+            padding-left: 5px;
+            padding-right: 5px;
+            object-fit: contain;
+            position: fixed !important;
+            top: 0px !important;
+            right: 0px !important;
+            bottom: 0px !important;
+            left: 0px !important;
+            box-sizing: border-box !important;
+            min-width: 0px !important;
+            max-width: none !important;
+            min-height: 0px !important;
+            max-height: none !important;
+            width: 100% !important;
+            height: 100% !important;
+            transform: none !important;
+            margin: 0px !important;
+        }
+        .main-col {
+            height: 100%;
+            .topology-col {
+                height: 100%;
+                .topology-section {
+                    &.full-screen {
+                        height: 100%;
+                    }
+                }
+            }
+        }
+        
+    }
+
+    .description{
+        margin-bottom: 25px;
+    }
+    .protection-breakdown {
+        margin-bottom: 20px;
+    }
+    .view-helper-width{
+        width: 100%;
+    }
+}

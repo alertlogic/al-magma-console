@@ -948,10 +948,17 @@ export class AlNavigationService
     public forceAuthentication( returnURL?:string ) {
         let environment = AlLocatorService.getCurrentEnvironment();
         let residency = 'US';
-        if ( environment === 'development' ) {
-            environment = 'integration';
+        let loginURL:string;
+        if ( true ) {
+            /* Traditional authentication via console.account */
+            if ( environment === 'development' ) {
+                environment = 'integration';
+            }
+            loginURL = AlLocatorService.resolveURL( AlLocation.AccountsUI, '/#/login', { environment, residency } );
+        } else {
+            /* Authentication via magma auth feature */
+            let loginURL = AlLocatorService.resolveURL( AlLocation.MagmaUI, '/#/login', { environment, residency } );
         }
-        let loginURL = AlLocatorService.resolveURL( AlLocation.AccountsUI, '/#/login', { environment, residency } );
         this.navigate.byURL( loginURL, { return: returnURL || window.location.href } );
     }
 
@@ -1057,7 +1064,8 @@ export class AlNavigationService
                         //  Only execute this logic if integrated authentication mode is disabled
                         event.respond( true );
                         AlSession.deactivateSession();
-                        this.navigate.byLocation( AlLocation.AccountsUI, '/#/logout', { return: window.location.href } );
+                        // this.navigate.byLocation( AlLocation.AccountsUI, '/#/logout', { return: window.location.href } );
+                        this.navigate.byLocation( AlLocation.MagmaUI, '/#/logout', { return: window.location.href } );
                     }
                     break;
             }

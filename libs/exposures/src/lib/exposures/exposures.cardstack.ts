@@ -204,20 +204,20 @@ export class ExposuresCardstackView extends AlCardstackView<ExposureQueryResultI
 
     deriveSeverityIconProps = (severity: string, cvssScore?:number) => {
         let icon = {
-            cssClasses: 'fa fa-info-circle risk-low',
+            cssClasses: 'al al-risk-1 risk low',
             text: 'Info'
         };
         switch (severity) {
             case 'high':
-                icon.cssClasses = 'fa fa-circle risk-critical';
+                icon.cssClasses = 'al al-risk-1 risk critical';
                 icon.text = 'High';
                 break;
             case 'medium':
-                icon.cssClasses = 'fa fa-adjust risk-high';
+                icon.cssClasses = 'al al-risk-2 risk high';
                 icon.text = 'Medium';
                 break;
             case 'low':
-                icon.cssClasses = ' fa fa-circle-o risk-medium';
+                icon.cssClasses = 'al al-risk-3 risk medium';
                 icon.text = 'Low';
                 break;
             default:

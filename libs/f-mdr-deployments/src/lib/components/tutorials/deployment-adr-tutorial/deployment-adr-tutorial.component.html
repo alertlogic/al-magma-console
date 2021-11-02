@@ -1,0 +1,49 @@
+<!-- Modal Card -->
+<al-modal-cards [modalItems]="modalCard"
+(onCardChange)="updateIndex($event)">
+    <div [ngSwitch]="index">
+        <ng-template [ngSwitchCase]="0">
+            <div class="card-item" fxLayout="column" fxLayoutAlign="space-around center">
+                <div class="icons-container">
+                    <i class='header-icon al al-aws aws-icon'></i>
+                    <i class='header-icon al al-datacenter data-center-icon'></i>
+                    <i class='header-icon material-icons cloud-icon'>cloud_circle</i>
+                </div>
+                <h3 class="title">{{card.title}}</h3>
+                <div class="item-container" *ngFor="let item of card.items" fxLayout="row" fxLayoutAlign="space-around center">
+                    <i *ngIf="item.classIcon || item.matIcon" class="icon-item {{item.classIcon}}"
+                    [ngClass]="{'material-icons': item.matIcon}" [ngStyle]="{'color': item.iconColor}">{{item.matIcon}}</i>
+                    <span [ngClass]="{'text-margin': !item.classIcon && !item.matIcon}"
+                    [ngStyle]="{'text-align': item.textAling}">{{item.text}}</span>
+                </div>
+                <button mat-raised-button color="primary" *ngIf="card.button" (click)="closeModal(true)">{{card.button}}</button>
+            </div>
+        </ng-template>
+        <ng-template [ngSwitchCase]="1">
+            <modal-card-item
+                [title]="card2.title"
+                [matIcon]="card2.matIcon"
+                [iconColor]="card2.iconColor"
+                [items]="card2.items">
+            </modal-card-item>
+        </ng-template>
+        <ng-template [ngSwitchCase]="2">
+            <modal-card-item
+                [title]="card3.title"
+                [matIcon]="card3.matIcon"
+                [iconColor]="card3.iconColor"
+                [items]="card3.items">
+            </modal-card-item>
+        </ng-template>
+        <ng-template [ngSwitchCase]="3">
+            <modal-card-item
+                [title]="card4.title"
+                [matIcon]="card4.matIcon"
+                [iconColor]="card4.iconColor"
+                [items]="card4.items"
+                [button]="card.button"
+                (onButtonPressed)="closeModal($event)">
+            </modal-card-item>
+        </ng-template>
+    </div>
+</al-modal-cards>

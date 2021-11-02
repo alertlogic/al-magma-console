@@ -1,0 +1,69 @@
+@import "@al/ng-generic-components/styles/utility";
+
+
+
+.deployment-fim-bulk-edit-scope-form {
+    padding: 24px 40px;
+
+    h2 {
+        margin: 24px 0;
+        border-bottom: 1px solid al-color($al-gray, 100);
+        font-size: 1.429em;
+        margin: 0 0 12px;
+        padding: 3px 0 6px 0;
+
+        &.first {
+            margin: 0 0 12px 0;
+            padding-bottom: 6px;
+        }
+    }
+
+    .pad-right {
+        padding-right: 36px;
+    }
+
+    .form-content {
+        padding-top: 10px;
+    }
+
+    .item-path{
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+        padding-top: 12px;
+
+        .selectable-title {
+            font-weight: bold;
+            word-break: break-all;
+        }
+
+        .subtitle{
+            font-weight: normal;
+        }
+    }
+
+    .close-sign{
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        i{
+            font-size: 20px;
+            color: al-color($al-gray, 500);
+            height: 24px;
+            width: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .filepaths {
+        min-height: 50px;
+        padding: 12px 0;
+    }
+
+    .top-pad {
+        padding-top: 24px;
+    }
+
+}

@@ -1,0 +1,18 @@
+@import "@al/ng-generic-components/styles/utility";
+.application-logs-add-rule-form {
+    padding: 15px 40px;
+
+    .title {
+        padding: 0 0 6px;
+        margin: 24px 0;
+        border-bottom: 1px solid #ededed;
+    }
+
+    .input-field {
+        width: 100%;
+    }
+
+    .form-content {
+        padding-top: 10px;
+    }
+}

@@ -1,0 +1,146 @@
+<al-protected-content [entitlement]="entitlements"
+                      [accountChangeRoute]="true"
+                      [unentitledRoute]="true">
+
+    <al-toast key="deployment-configuration"></al-toast>
+
+    <div class="al-tertiary-menu-dynamic-adr">
+        <div class="embedded-layout-adr"
+             fxLayout="row"
+             fxLayoutAlign="start stretch">
+            <div class="tertiary-navigation-left-adr"
+                 [ngClass]="{'open': sidenavOpen }">
+                <al-expandable-menu #expandablemenu
+                                    [data]="menu"
+                                    [enableClickNavigation]="true"
+                                    (onMenuProcessed)="componentSetup()"
+                                    (onClick)="handleSelectedItemMenu($event)">
+                    <div class="side-nav-title-cloud">
+                        <al-deployment-name [data]="deploymentNameConfig"></al-deployment-name>
+                    </div>
+                    <al-expandable-menu-footer [hidden]="!showLogSourcesButton"
+                                               [active]='step === "log_sources"'
+                                               (click)="changeToLogSurces()">
+                        CONFIGURE LOG SOURCES
+                    </al-expandable-menu-footer>
+                </al-expandable-menu>
+            </div>
+            <div class="tertiary-content-adr">
+                <div class="tertiary-content-adr-header">
+                    <al-deployment-summary-header-compact *ngIf="summaryHeaderConfig && deployment"
+                                                          [title]="deployment.name"
+                                                          [data]="summaryHeaderConfig">
+                    </al-deployment-summary-header-compact>
+                </div>
+                <div class="tertiary-content-body">
+                    <al-view-helper #alViewHelper
+                                    [loading]="isBusy"></al-view-helper>
+                    <section [ngSwitch]="step"
+                             *ngIf="!isBusy">
+
+                        <ng-container [alAddendumToNavTitle]="deployment ? deployment.name : 'Unknown'"></ng-container>
+
+                        <ng-container *ngIf="deployment">
+                            <al-deployment-configuration-name [textButton]="textButton"
+                                                              (onSaveAction)="handleSaveEvent()"
+                                                              (onCancelAction)="cancel()"
+                                                              *ngSwitchCase="'name'">
+                            </al-deployment-configuration-name>
+                        </ng-container>
+
+                        <al-deployment-discovery [scope]="assetsScope"
+                                                (next)="next($event)"
+                                                (assetsAvailable)="assetsAvailable($event)"
+                                                (onDeploymentDiscoveryNotifications)="handleNotifications($event)"
+                                                *ngSwitchCase="'add_assets'">
+                        </al-deployment-discovery>
+
+
+                        <al-deployment-configuration-aws-mode (onSave)="handleSaveEvent()"
+                                                              (onNotify)="handleNotifications($event)"
+                                                              *ngSwitchCase="'mode'">
+                        </al-deployment-configuration-aws-mode>
+
+                        <al-deployment-azure-role (onSaved)="handleSaveEvent()"
+                                                  (onRoleError)="disablePrevSteps('azure_role')"
+                                                  *ngSwitchCase="'azure_role'">
+                        </al-deployment-azure-role>
+
+                        <al-deployment-setting-up-role (next)="next()"
+                                                       *ngSwitchCase="'set_role'">
+                        </al-deployment-setting-up-role>
+
+                        <al-deployment-configuration-aws-role [accountId]="accountId"
+                                                              (onCancelAction)="cancel()"
+                                                              (afterSave)="handleSaveEvent()"
+                                                              *ngSwitchCase="'role_arn'">
+                        </al-deployment-configuration-aws-role>
+
+                        <al-deployment-discovery [scope]="assetsScope"
+                                                 (next)="next($event)"
+                                                 (onDiscovery)="updateSummaryBlocks($event)"
+                                                 (discoveryFinished)="enablePrevSteps()"
+                                                 (discoveryInProgress)="disablePrevSteps()"
+                                                 (assetsAvailable)="assetsAvailable($event)"
+                                                 (onDeploymentDiscoveryNotifications)="handleNotifications($event)"
+                                                 *ngSwitchCase="'discovery'">
+                        </al-deployment-discovery>
+
+                        <al-deployment-scope-protection (notify)="handleNotifications($event)"
+                                                        (onShowConfigLogSources)="onShowConfigLogSources($event)"
+                                                        *ngSwitchCase="'scope'">
+                        </al-deployment-scope-protection>
+
+                        <al-deployment-advanced-scheduling [showDiscovery]="showScanDiscovery"
+                                                           (notify)="handleNotifications($event)"
+                                                           (onNextAction)="next()"
+                                                           *ngSwitchCase="'scheduling'">
+                        </al-deployment-advanced-scheduling>
+
+                        <al-deployment-protection-options (notify)="handleNotifications($event)"
+                                                          *ngSwitchCase="'protection_options'">
+                        </al-deployment-protection-options>
+
+                        <al-deployment-application-logs *ngSwitchCase="'application_logs'"
+                                                         (notify)="handleNotifications($event)"
+                                                        (onNextAction)="next()">
+                        </al-deployment-application-logs>
+
+                        <al-deployment-system-logs *ngSwitchCase="'system_logs'"
+                                                   (onNextAction)="next()">
+                        </al-deployment-system-logs>
+
+                        <al-deployment-fim mode='MONITORING'
+                                           (notify)="handleNotifications($event)"
+                                           *ngSwitchCase="'fim_monitoring'"
+                                           (onNextAction)="next()">
+                        </al-deployment-fim>
+
+                        <al-deployment-fim mode='EXCLUSIONS'
+                                           (notify)="handleNotifications($event)"
+                                           *ngSwitchCase="'fim_exclusions'"
+                                           (onNextAction)="next()">
+                        </al-deployment-fim>
+
+                        <al-deployment-installation-instructions [accountId]="accountId"
+                                                                 *ngSwitchCase="'installation'"
+                                                                 (onExitAction)="cancel()">
+                        </al-deployment-installation-instructions>
+
+                        <al-sources-list (next)="next()"
+                                         *ngSwitchCase="'log_sources'">
+                        </al-sources-list>
+
+                        <al-deployment-scope-protection (onNextAction)="next()"
+                                                        [overview]="true"
+                                                        *ngSwitchCase="'topology'">
+                        </al-deployment-scope-protection>
+
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</al-protected-content>

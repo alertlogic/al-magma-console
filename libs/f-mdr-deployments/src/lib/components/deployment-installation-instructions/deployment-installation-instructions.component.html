@@ -1,0 +1,79 @@
+<div fxLayout="column" fxLayoutAlign=" stretch" class="installation-instructios">
+    <div class="instructions">
+        <div fxLayout="row" class="header-title under-line">
+            <div fxFlex="70">
+                <h1 i18n>Installation Instructions</h1>
+            </div>
+            <div fxFlex="30" fxLayoutAlign="end" fxFlexFill="0">
+                <button color="primary" mat-raised-button (click)="exit()">EXIT</button>
+            </div>
+        </div>
+        <!-- Exclusions Tabs -->
+        <al-tabs
+            [data]="instructionsTabs"
+            (onClickTab)="changeTab($event)">
+        </al-tabs>
+        <div [ngSwitch]="selectedTab">
+            <div class="appliances" *ngSwitchCase="'appliances'">
+                <h2 class="under-line">Install Appliances</h2>
+                <p class="description" i18n>
+                    You must assign appliances to your networks. Use the Unique Registration Key to assign one or more appliances to each network. Click the links below for more information about installing a <a href="https://docs.alertlogic.com/prepare/alert-logic-physical-appliance.htm" target="_blank">physical appliance</a> or a <a href="https://docs.alertlogic.com/prepare/virtual-appliance.htm" target="_blank">virtual appliance.</a>
+                </p>
+                <div fxLayout="row" class="link-container">
+                    <a fxLayout="row" fxLayoutAlign="start center" href="https://docs.alertlogic.com/prepare/alert-logic-physical-appliance.htm" target="_blank">
+                        PHYSICAL APPLIANCE INSTALLATION
+                        <i class="material-icons">open_in_new</i>
+                    </a>
+                    <a fxLayout="row" fxLayoutAlign="start center" href="https://docs.alertlogic.com/prepare/virtual-appliance.htm" target="_blank">
+                        VIRTUAL APPLIANCE INSTALLATION
+                        <i class="material-icons">open_in_new</i>
+                    </a>
+                </div>
+
+                <div>
+                    <div fxLayout="row" fxLayoutAlign="start end" class="list-header">
+                        <h2 fxFlex class="table-title">Networks</h2>
+                        <al-search-bar fxFlex="20"
+                            [showLabel]="false"
+                            width="auto"
+                            (searchChanged)="searchFilters($event)">
+                        </al-search-bar>
+                    </div>
+                    <al-view-helper [empty]="filteredAppliances.length === 0">
+                        <i zero-state-icon class="material-icons">settings_ethernet</i>
+                        <span zero-state-description i18n>No Networks available.</span>
+                    </al-view-helper>
+                    <div class="item-card" fxLayout="row" fxLayoutAlign=" center" *ngFor="let appliance of filteredAppliances">
+                        <i class="al al-topology-network-1"></i>
+                        <h3 fxFlex>{{appliance.name}}</h3>
+                        <div fxLayout="column" fxFlex>
+                            <span class="header-label">Unique Registration Key</span>
+                            <span>{{appliance.claim_key}}</span>
+                        </div>
+                        <button mat-icon-button (click)="copyText(appliance.claim_key)" >
+                            <i aria-label="Copy to clipboard" class="material-icons blue-icon">content_copy</i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngSwitchCase="'agents'">
+                <h2 class="under-line">Install Agent</h2>
+                <p class="description">
+                    Alert Logic provides a single agent that collects data used for analysis, such as log messages and network traffic, metadata, and host identification information. Click the links below for more information about installing the Alert Logic agent for Linux or Windows.
+                </p>
+                <div fxLayout="row" class="link-container">
+                    <a fxLayout="row" fxLayoutAlign="start center" href="https://docs.alertlogic.com/prepare/alert-logic-agent-linux.htm" target="_blank">
+                        INSTALL LINUX AGENT
+                        <i class="material-icons">open_in_new</i>
+                    </a>
+                    <a fxLayout="row" fxLayoutAlign="start center" href="https://docs.alertlogic.com/prepare/alert-logic-agent-windows.htm" target="_blank">
+                        INSTALL WINDOWS AGENT
+                        <i class="material-icons">open_in_new</i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

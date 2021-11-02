@@ -1,0 +1,29 @@
+<div class="ald-repeater__block"  [ngClass]="inline ? 'ald-repeater__block--inline' : 'ald-repeater__block--boxed'">
+
+    <div class="ald-repeater__header" *ngIf="!inline">
+
+        <div class="ald-repeater__title">
+            <h1 class="ald-repeater__title-el">
+                {{ header }}
+            </h1>
+        </div>
+
+        <div class="ald-repeater__btn">
+            <ald-button type="default-ghost" size="sm" icon="close" (click)="didRemoveItem.emit()"></ald-button>
+        </div>
+
+    </div>
+
+    <div class="ald-repeater__row">
+
+        <div class="ald-repeater__content">
+            <ng-content></ng-content>
+        </div>
+
+        <div class="ald-repeater__btn" *ngIf="inline">
+            <ald-button type="default-ghost" icon="close" (click)="didRemoveItem.emit()"></ald-button>
+        </div>
+
+    </div>
+
+</div>

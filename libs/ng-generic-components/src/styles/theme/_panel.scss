@@ -133,122 +133,122 @@
 // }
 
 
-// // ACCORDION
-// .p-accordion {
-//     padding: 0;
-//     // @include content-shadow();
+// ACCORDION
+.p-accordion {
+    padding: 0;
+    // @include content-shadow();
 
-//     .p-accordion-header {
-//         border: 0 none;
-//         border-bottom: 1px solid $dividerColor;
-//         padding: $accordionHeaderPadding;
-//         @include border-radius-top(2px);
-//         @include border-radius-bottom(0);
-//         background-color: white;
-//         color: $textColor;
-//         margin-top: 0;
+    .p-accordion-header {
+        border: 0 none;
+        border-bottom: 1px solid $dividerColor;
+        padding: $accordionHeaderPadding;
+        @include border-radius-top(2px);
+        @include border-radius-bottom(0);
+        background-color: white;
+        color: $textColor;
+        margin-top: 0;
 
-//         a {
-//             margin: 0;
-//             padding: 0;
-//             display: flex;
-//             align-items: center;
-//             justify-content: space-between;
-//             line-height: $panelContentLineHeight;
-//             font-size: 18px;
-//             color: $textColor;
+        a {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            line-height: $panelContentLineHeight;
+            font-size: 18px;
+            color: $textColor;
 
-//             i {
-//                 width: 48px;
-//                 display: flex;
-//                 justify-content: center;
-//             }
+            i {
+                width: 48px;
+                display: flex;
+                justify-content: center;
+            }
 
-//             .p-accordion-header-text {
-//                 order: 1;
-//             }
+            .p-accordion-header-text {
+                order: 1;
+            }
 
-//             .p-accordion-toggle-icon {
-//                 position: relative;
-//                 width: $iconWidth;
-//                 height: $iconHeight;
-//                 line-height: $iconHeight;
-//                 text-align: center;
-//                 color: $textColor;
-//                 margin: 0;
-//                 @include transition(background-color $transitionDuration);
-//                 @include border-radius(50%);
-//                 order: 2;
+            .p-accordion-toggle-icon {
+                position: relative;
+                width: $iconWidth;
+                height: $iconHeight;
+                line-height: $iconHeight;
+                text-align: center;
+                color: $textColor;
+                margin: 0;
+                @include transition(background-color $transitionDuration);
+                @include border-radius(50%);
+                order: 2;
 
-//                 &::before {
-//                     font-family: 'Material Icons';
-//                     content: "keyboard_arrow_down"
-//                 }
-//             }
-//         }
+                &::before {
+                    font-family: 'Material Icons';
+                    content: "keyboard_arrow_down"
+                }
+            }
+        }
 
 
 
-//         &:hover {
-//             background-color: $primaryLightestColor;
-//             color: $textColor;
-//         }
+        &:hover {
+            background-color: $primaryLightestColor;
+            color: $textColor;
+        }
 
-//         &.p-state-active {
-//             background-color: white;
-//             color: $textColor;
+        &.p-state-active {
+            background-color: white;
+            color: $textColor;
 
-//             .p-accordion-toggle-icon {
-//                 position: relative;
-//                 width: $iconWidth;
-//                 height: $iconHeight;
-//                 line-height: $iconHeight;
-//                 text-align: center;
-//                 color: $textColor;
-//                 margin: 0;
-//                 @include transition(background-color $transitionDuration);
-//                 @include border-radius(50%);
-//                 order: 2;
+            .p-accordion-toggle-icon {
+                position: relative;
+                width: $iconWidth;
+                height: $iconHeight;
+                line-height: $iconHeight;
+                text-align: center;
+                color: $textColor;
+                margin: 0;
+                @include transition(background-color $transitionDuration);
+                @include border-radius(50%);
+                order: 2;
 
-//                 &::before {
-//                     font-family: 'Material Icons';
-//                     content: "keyboard_arrow_up"
-//                 }
-//             }
+                &::before {
+                    font-family: 'Material Icons';
+                    content: "keyboard_arrow_up"
+                }
+            }
 
-//             a {
-//                 color: $textColor;
-//             }
-//         }
-//     }
+            a {
+                color: $textColor;
+            }
+        }
+    }
 
-//     .p-accordion-content {
-//         height: 100%;
-//         box-sizing: border-box;
-//         padding: 12px;
-//         line-height: $panelContentLineHeight;
-//         border: 0;
-//         border-bottom: 1px solid $dividerColor;
-//     }
+    .p-accordion-content {
+        height: 100%;
+        box-sizing: border-box;
+        padding: 12px;
+        line-height: $panelContentLineHeight;
+        border: 0;
+        border-bottom: 1px solid $dividerColor;
+    }
 
-//     .p-accordion-footer {
-//         display: flex;
-//         padding: $footerPadding;
-//         border: 0 none;
-//         margin: 0;
-//     }
+    .p-accordion-footer {
+        display: flex;
+        padding: $footerPadding;
+        border: 0 none;
+        margin: 0;
+    }
 
-//     .show-more {
+    .show-more {
 
-//         .p-accordion-header {
-//             font-style: italic;
+        .p-accordion-header {
+            font-style: italic;
 
-//             .p-accordion-toggle-icon::before {
-//                 content: "";
-//             }
-//         }
-//     }
-// }
+            .p-accordion-toggle-icon::before {
+                content: "";
+            }
+        }
+    }
+}
 
 // // TOOLBAR
 // .p-toolbar {
@@ -484,14 +484,16 @@
 // PANELS
 .p-panel {
 	.p-panel-header {
-		border: 1px solid #dee2e6;
-		padding: 1rem;
-		background: #f8f9fa;
-		color: #495057;
-		border-top-right-radius: 3px;
-		border-top-left-radius: 3px;
+		// border: 1px solid var(--ald-g-color-gray-300);
+		padding: var(--ald-g-space-3) var(--ald-g-space-4);
+		background: white;
+		color: var(--ald-g-color-gray-900);
+		border-top-right-radius: var(--ald-g-radius-default);
+		border-top-left-radius: var(--ald-g-radius-default);
+        border-bottom: 1px solid var(--ald-g-color-gray-200);
         width: 100%;
         display: inline-block;
+
 		.p-panel-title {
 			font-weight: 600;
 		}
@@ -500,25 +502,22 @@
 		}
 	}
 	.p-panel-content {
-		padding: 1rem;
-		border: 1px solid #dee2e6;
-		background: #ffffff;
-		color: #495057;
-		border-bottom-right-radius: 3px;
-		border-bottom-left-radius: 3px;
-		border-top: 0 none;
+		padding: var(--ald-g-space-3);
+		background: white;
+		color: var(--ald-g-color-gray-900);
+		border-bottom-right-radius: var(--ald-g-radius-default);
+		border-bottom-left-radius: var(--ald-g-radius-default);
 	}
 	.p-panel-footer {
-		padding: 0.5rem 1rem;
-		border: 1px solid #dee2e6;
-		background: #ffffff;
-		color: #495057;
+		padding: var(--ald-g-space-3) var(--ald-g-space-4);
+		// border: 1px solid #dee2e6;
+		background: white;
 		border-top: 0 none;
 	}
 }
 .p-panel.p-panel-toggleable {
 	.p-panel-header {
-		padding: 0.5rem 1rem;
+		padding: var(--ald-g-space-3) var(--ald-g-space-4);
 	}
 }
 .p-scrollpanel {

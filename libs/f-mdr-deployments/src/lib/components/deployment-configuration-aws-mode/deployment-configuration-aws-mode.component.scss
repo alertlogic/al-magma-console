@@ -1,0 +1,44 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.content-padding {
+    padding: 10px 0;
+}
+
+.wrapper {
+    margin-left: 24px;
+    margin-top: 0;
+}
+
+.live-help-text-main {
+    margin: 24px 0;
+}
+
+.policy-content-mode {
+    margin: 0 30px;
+}
+
+.instructions h3 {
+    padding-bottom: 6px;
+}
+
+h1, h2, h3{
+    border-bottom: 1px solid al-color($al-gray, 100);
+    margin-top: 24px;
+    line-height: normal;
+}
+
+h4 {
+    padding-left: 5px;
+}
+
+.instructions > p {
+    margin: 24px 0 12px 0;
+}
+
+mat-radio-button {
+    margin-bottom: 0px !important;
+}
+.selection-p {
+    margin-left: 34px;
+    margin-bottom: 40px;
+}

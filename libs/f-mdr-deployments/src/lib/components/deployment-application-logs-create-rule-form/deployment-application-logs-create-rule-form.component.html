@@ -1,0 +1,263 @@
+<al-bottom-sheet #alBottomSheet [headerOptions]="headerOptions" (onPrimaryAction)="save()" (onSecondaryAction)="close()">
+<!-- Content Projection -->
+<al-view-helper [loading]="isLoading"></al-view-helper>
+<div *ngIf="!isLoading">
+    <form class="flat-file-form" (ngSubmit)="onSubmit()">
+        <al-notification-panel [alertSource]="formNotifications"></al-notification-panel>
+        <div class="p-grid">
+            <div class="p-col-fixed" style="width:40%">
+                <h3 class="title" i18n>Name Application</h3>
+                <!-- Application Log Select -->
+                <div fxLayout="row" fxLayoutAlign="center center" *ngIf="!toggleActivated">
+                    <div class="dropdwon-applications">
+                        <p-dropdown
+                            [options]="applicationList"
+                            [(ngModel)]="selectedApplicationDropDown"
+                            (onChange)="selectedApplicationChange()"
+                            [showClear]="false"
+                            name="item"
+                            [style]="{'width':'350px'}">
+                        </p-dropdown>
+
+                    </div>
+                    <div>
+                        <i class="material-icons tooltip-icon" [pTooltip]="formConfig.infoName" tooltipPosition="left">info</i>
+                    </div>
+                </div>
+                <!-- Rule Name -->
+                <div fxLayout="row" style="padding-bottom: 20px;">
+                    <mat-form-field fxFlex class="mat-block" [formGroup]="form">
+                        <input matInput #ruleNameInput type="text" [(ngModel)]="ruleName" name="ruleName" placeholder="{{formConfig.infoName}}" formControlName="ruleName" required/>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" class="checkbox-parent" [formGroup]="form">
+                    <p>{{formConfig.colletMessage}}
+                        <mat-checkbox [(ngModel)]="collect" formControlName="collect" name="collect"></mat-checkbox>
+                    </p>
+                </div>
+            </div>
+            <div class="p-col">
+                <h3 class="title" i18n>Collection Method and Policy</h3>
+                <!--=======FLAT FILE PATH=======-->
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <mat-form-field fxFlex class="mat-block" [formGroup]="form">
+                        <input matInput type="text" [(ngModel)]="rule.config.flatfile.path"
+                            name="flatfilePath" placeholder="{{formConfig.flatfilePathPlaceholder}}"
+                            formControlName="flatfilePath" required />
+                        <mat-error *ngIf="form.controls.flatfilePath.hasError('required')">{{formConfig.flatfilePathTextError}}</mat-error>
+                    </mat-form-field>
+                    <div>
+                        <i class="material-icons tooltip-icon" [pTooltip]="formConfig.infoFlatfilePath" tooltipPosition="left">info</i>
+                    </div>
+                </div>
+
+                <!--=======FLAT FILE PATTERN=======-->
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <mat-form-field fxFlex class="mat-block" [formGroup]="form">
+                        <input matInput type="text" [(ngModel)]="rule.config.flatfile.filename.pattern" name="flatfilePattern" placeholder="{{formConfig.flatfilePatternPlaceholder}}"
+                            formControlName="flatfilePattern" required/>
+                        <mat-error *ngIf="form.controls.flatfilePattern.hasError('required')">{{formConfig.flatfilePatternTextError}}</mat-error>
+                    </mat-form-field>
+                    <div>
+                        <i class="material-icons tooltip-icon" [pTooltip]="formConfig.infoFlatfilePattern" tooltipPosition="left">info</i>
+                    </div>
+                </div>
+
+                <!--==========FILE NAME ROTATION SCHEME - OPTIONS=======-->
+                <h4 i18n>{{formConfig.flatfileRotationSchemaLabel}}</h4>
+                <label i18n class="subtitle-label"> {{formConfig.flatfileCollectionPolicyPlaceholder}} </label>
+                <section>
+                    <mat-radio-group name="fileNameRotationScheme" [(ngModel)]="fileNameRotationScheme" (change)="selectRotationScheme()">
+                        <mat-radio-button value="pre-defined" [checked]=true>{{formConfig.flatfileRotationSchemaPreDefinedLabel}}</mat-radio-button>
+                        <mat-radio-button value="custom">{{formConfig.flatfileRotationSchemaCustomLabel}}</mat-radio-button>
+                        <mat-radio-button value="increasing">{{formConfig.flatfileRotationSchemaCounterIncreasingLabel}}</mat-radio-button>
+                        <mat-radio-button value="decreasing">{{formConfig.flatfileRotationSchemaCounterDecreasingLabel}}</mat-radio-button>
+                    </mat-radio-group>
+                </section>
+
+                <div class="subform">
+                    <!--====PRE DEFINED OPTIONS=======-->
+                    <div class="well" *ngIf="fileNameRotationScheme === 'pre-defined'">
+                        <div fxLayout="row" fxLayoutAlign="center center">
+                            <section fxFlex>
+                                <al-dropdown-filter
+                                    [filterOptions]="timestampPatterns"
+                                    [selectedOption]=" { label:fileNameRotationSchemeValuePreDefined } "
+                                    (onFilterSelection)="checkFormatFileNameRotationScheme($event)">
+                                </al-dropdown-filter>
+                            </section>
+                            <div>
+                                <i class="material-icons tooltip-icon" [pTooltip]="formConfig.flatfileRotationSchemaPreDefinedInfo" tooltipPosition="left">info</i>
+                            </div>
+                        </div>
+
+                        <!--========EXAMPLE========-->
+                        <div fxLayout="row">
+                            <div fxFlex fxLayout="column" class="example-box">
+                                <span fxFlexlex i18n> Example </span>
+                                <span [ngClass]="patternPreview.status" fxFlex> {{patternPreview.value}} </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--======CUSTOM FORM OPTION=========-->
+                    <div class="well" *ngIf="fileNameRotationScheme === 'custom'">
+                        <div layout="row">
+
+                            <!--======CUSTOM INPUT=========-->
+                            <div fxLayout="row" fxLayoutAlign="center center">
+                                <mat-form-field fxFlex class="mat-block" [formGroup]="form">
+                                    <input matInput type="text" [(ngModel)]="fileNameRotationSchemeValueCustom"
+                                                                name="patternDateStringCustom"
+                                                                placeholder="{{formConfig.flatfileRotationSchemaCustomPlaceholder}}"
+                                                                formControlName="patternDateStringCustom"
+                                                                (keyup)="checkFormatFileNameRotationScheme( { label:$event['target']['value'] } )"
+                                                                required/>
+                                    <mat-error *ngIf="form.controls.patternDateStringCustom.hasError('required')">{{formConfig.flatfileRotationSchemaCustomTextError}}</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <!--======EXAMPLE=========-->
+                        <div fxLayout="column" class="example-box">
+                            <span fxFlex i18n> Example </span>
+                            <span [ngClass]="patternPreview.status" fxFlex> {{patternPreview.value}} </span>
+                        </div>
+                        <p>
+                            <strong i18n>Note:</strong> <span i18n>Log collection will fail if the timestamp format is invalid.</span>
+                        </p>
+
+                        <!--======INSTRUCTIONS=========-->
+                        <al-date-format-instructions></al-date-format-instructions>
+                    </div>
+                </div>
+
+
+                <!--=======MULTILINE HANDLING==========-->
+                <h4 i18n>{{formConfig.muntiLineHandlingTitle}}</h4>
+                <label class="subtitle-label"> File contains </label>
+                <section>
+                    <mat-radio-group name="multiline" [(ngModel)]="formConfig.multiline.is_multiline" (change)="onChangeMultiline()">
+                        <mat-radio-button [value]=false>{{formConfig.multiLineSingle}}</mat-radio-button>
+                        <mat-radio-button [value]=true>{{formConfig.multiLineMultipleLines}}</mat-radio-button>
+                    </mat-radio-group>
+                </section>
+
+                <div class="subform" *ngIf="formConfig.multiline.is_multiline">
+
+                    <section>
+                        <mat-radio-group name="multilineOperator" [(ngModel)]="formConfig.multiline.operator" (change)="onChangeOperator()">
+                            <mat-radio-button value="line_count">{{formConfig.multilineLineCount}}</mat-radio-button>
+                            <mat-radio-button value="pattern">{{formConfig.multilineLinePattern}}</mat-radio-button>
+                        </mat-radio-group>
+                    </section>
+
+
+                    <div class="well option" *ngIf="formConfig.multiline.operator == 'pattern'" fxLayout="column">
+
+                        <label i18n>Pattern application</label>
+
+                        <al-dropdown-filter
+                            [filterOptions]="multilineContinuationList"
+                            [selectedOption]=" { label:multilineContinuation } "
+                            (onFilterSelection)="selectMultilineContinuation($event)">
+                        </al-dropdown-filter>
+
+                        <mat-form-field fxFlex class="mat-block" [formGroup]="form">
+                            <input matInput type="text" [(ngModel)]="formConfig.multiline.pattern"
+                                                        name="pathKnownPattern"
+                                                        placeholder="{{formConfig.pathKnownPatternPlaceholder}}"
+                                                        formControlName="pathKnownPattern"
+                                                        required/>
+                            <mat-error *ngIf="form.controls.pathKnownPattern.hasError('required')">{{formConfig.pathKnownPatternError}}</mat-error>
+                        </mat-form-field>
+
+                        <section fxLayout="row" fxLayoutAlign="start center">
+                            <mat-checkbox
+                                [(ngModel)]="formConfig.multiline.is_regex"
+                                [disabled]="fieldsBlocked"
+                                class="mat-primary"
+                                fxFlex="70"
+                                name="restrict_network">
+                                <div>{{formConfig.regularEspressionLabel}}</div>
+                            </mat-checkbox>
+                        </section>
+
+                    </div>
+
+                    <!--=====NUMBER OF LINES=======-->
+                    <div class="well option" *ngIf="formConfig.multiline.operator === 'line_count'">
+                        <mat-form-field fxFlex class="mat-block" [formGroup]="form">
+                            <input matInput type="number" [(ngModel)]="formConfig.multiline.line_count"
+                                                        name="numberLines"
+                                                        placeholder="{{formConfig.numberLinesPlaceholder}}"
+                                                        formControlName="numberLines"
+                                                        required/>
+                            <mat-error *ngIf="form.controls.numberLines.hasError('required')">{{formConfig.numberLinesEmptyError}}</mat-error>
+                            <mat-error *ngIf="form.controls.numberLines.hasError('pattern')">{{formConfig.numberLinesIntegerError}}</mat-error>
+                        </mat-form-field>
+                    </div>
+
+                </div>
+
+                <!--=======TIMESTAMP RULE==========-->
+                <h4 translate>Timestamp Rule</h4>
+
+                <section>
+                    <mat-radio-group name="timestamp" [(ngModel)]="formConfig.timestamp.rule" (change)="onChangeTimestampRule()">
+                        <mat-radio-button value="actual">{{formConfig.timestampActual}}</mat-radio-button>
+                        <mat-radio-button value="predefined">{{formConfig.timestampPredefined}}</mat-radio-button>
+                        <mat-radio-button value="custom">{{formConfig.timestampCustom}}</mat-radio-button>
+                    </mat-radio-group>
+                </section>
+
+                <div class="subform">
+
+                    <!--=======TIMESTAMP RULE PREDEFINED==========-->
+                    <div class="well option" [formGroup]="form" *ngIf="formConfig.timestamp.rule === 'predefined'" fxLayout="row">
+                        <al-dropdown-filter
+                            [filterOptions]="timestampFormats"
+                            [selectedOption]=" { label:timestampFormat } "
+                            (onFilterSelection)="checkFormatTimeStampRule($event)">
+                        </al-dropdown-filter>
+                    </div>
+
+                    <!--=======TIMESTAMP RULE CUSTOM==========-->
+                    <div class="well option" *ngIf="formConfig.timestamp.rule === 'custom'">
+                        <div layout="row">
+
+                            <!--======CUSTOM INPUT=========-->
+                            <div fxLayout="row" fxLayoutAlign="center center">
+                                <mat-form-field fxFlex class="mat-block" [formGroup]="form">
+                                    <input matInput type="text" [(ngModel)]="timestampFormatCustom"
+                                                                name="formatDateStringCustom"
+                                                                placeholder="{{formConfig.timestampCustomPlaceholder}}"
+                                                                formControlName="formatDateStringCustom"
+                                                                (keyup)="checkFormatTimeStampRule( { label:$event['target']['value'] } )"
+                                                                required/>
+                                    <mat-error *ngIf="form.controls.formatDateStringCustom.hasError('required')">{{formConfig.timestampCustomCustomTextError}}</mat-error>
+                                </mat-form-field>
+                            </div>
+
+                        </div>
+
+                        <!--======EXAMPLE=========-->
+                        <div fxLayout="column" class="example-box">
+                            <span fxFlex i18n> Example </span>
+                            <span [ngClass]="patternPreviewTimestampRule.status" fxFlex> {{patternPreviewTimestampRule.value}} </span>
+                        </div>
+                        <p>
+                            <strong i18n>Note:</strong>
+                            <span i18n>Log collection will fail if the timestamp format is invalid.</span>
+                        </p>
+
+                        <!--======INSTRUCTIONS=========-->
+                        <al-date-format-instructions></al-date-format-instructions>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</al-bottom-sheet>

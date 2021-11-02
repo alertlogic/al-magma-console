@@ -3,9 +3,9 @@
     &.pi-arrow-circle-left {@include icon-override("play_circle_outline"); @include rotate(180deg);}
     &.pi-arrow-down{ @include icon-override("arrow_downward"); }
     &.pi-arrow-up { @include icon-override("arrow_upward"); }
-    &.pi-angle-up {@include icon-override("play_arrow"); @include rotate(-90deg);}
+    &.pi-angle-up {@include icon-override("arrow_drop_up");}
     &.pi-angle-double-up { @include icon-override("skip_next"); @include rotate(-90deg);}
-    &.pi-angle-down {@include icon-override("play_arrow"); @include rotate(90deg);}
+    &.pi-angle-down {@include icon-override("arrow_drop_down");}
     &.pi-angle-double-down {@include icon-override("skip_previous"); @include rotate(-90deg);}
     &.pi-angle-right {@include icon-override("play_arrow");}
     &.pi-angle-double-right {@include icon-override("fast_forward");}
@@ -389,9 +389,9 @@
 .#{$iconPrefix}-format-align-right { @include icon-override("format_align_right"); }
 .#{$iconPrefix}-format-bold { @include icon-override("format_bold"); }
 .#{$iconPrefix}-format-clear { @include icon-override("format_clear"); }
-.#{$iconPrefix}-format-color-fill { @include icon-override("format_color_fill"); }
-.#{$iconPrefix}-format-color-reset { @include icon-override("format_color_reset"); }
-.#{$iconPrefix}-format-color-text { @include icon-override("format_color_text"); }
+.#{$iconPrefix}-foral-color-fill { @include icon-override("format_color_fill"); }
+.#{$iconPrefix}-foral-color-reset { @include icon-override("format_color_reset"); }
+.#{$iconPrefix}-foral-color-text { @include icon-override("format_color_text"); }
 .#{$iconPrefix}-format-indent-decrease { @include icon-override("format_indent_decrease"); }
 .#{$iconPrefix}-format-indent-increase { @include icon-override("format_indent_increase"); }
 .#{$iconPrefix}-format-italic { @include icon-override("format_italic"); }

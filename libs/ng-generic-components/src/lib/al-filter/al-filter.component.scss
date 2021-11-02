@@ -28,21 +28,21 @@ al-filter {
     .al-filter .p-accordion .p-accordion-header {
         background-color: inherit;
         a {
-            font-size: 14px;
-            color: al-color($al-gray, 700);
+            font-size: var(--ald-g-text-base);
+            color: var(--ald-g-color-gray-700);
             span.pi {
-                color: al-color($al-gray, 500);
+                color: var(--ald-g-color-gray-500);
             }
         }
     }
 
     .al-filter {
         .p-accordion-header {
-            color: al-color($al-gray, 700);
+            color: var(--ald-g-color-gray-700);
         }
         .p-accordion-header:hover {
             a {
-                color: al-color($al-gray, 700);
+                color: var(--ald-g-color-gray-700);
             }
         }
         &.filter-accordian {
@@ -59,7 +59,7 @@ al-filter {
     }
 
     .al-filter .p-accordion .p-accordion-header:not(.p-state-active):not(.p-state-disabled):hover a {
-        color: al-color($al-gray, 700);
+        color: var(--ald-g-color-gray-700);
     }
 
     .al-filter .p-accordion .p-accordion-header:not(.p-state-active):not(.p-state-disabled):hover {
@@ -69,10 +69,10 @@ al-filter {
     .al-filter .p-accordion .p-accordion-header.p-state-active {
         background-color: inherit;
         a {
-            font-size: 14px;
-            color: al-color($al-gray, 700);
+            font-size: var(--ald-g-text-base);
+            color: var(--ald-g-color-gray-700);
             span.pi {
-                color: al-color($al-gray, 500);
+                color: var(--ald-g-color-gray-500);
             }
         }
     }
@@ -125,8 +125,8 @@ al-filter {
     }
 
     .al-filter .p-toggleable-content .p-accordion-content li {
-        color: al-color($al-gray, 700);
-        font-size: 14px;
+        color: var(--ald-g-color-gray-500);
+        font-size: var(--ald-g-text-base);
         justify-content: space-between;
         word-break: break-word;
         display: flex;
@@ -138,27 +138,27 @@ al-filter {
         }
 
         &.critical {
-            border-left: 2px solid al-color($al-red, 600);
+            border-left: 2px solid var(--ald-g-color-threat-critical);
             padding-left: 6px;
         }
 
         &.high {
-            border-left: 2px solid al-color($al-orange, 500);
+            border-left: 2px solid var(--ald-g-color-threat-high);
             padding-left: 6px;
         }
 
         &.medium {
-            border-left: 2px solid al-color($al-yellow, 500);
+            border-left: 2px solid var(--ald-g-color-threat-medium);
             padding-left: 6px;
         }
 
         &.low {
-            border-left: 2px solid al-color($al-gray, 300);
+            border-left: 2px solid var(--ald-g-color-threat-low);
             padding-left: 6px;
         }
 
         &.info {
-            border-left: 2px solid al-color($al-gray, 300);
+            border-left: 2px solid var(--ald-g-color-threat-info);
             padding-left: 6px;
         }
 
@@ -168,11 +168,11 @@ al-filter {
         font-size: 24px;
         text-align: left;
         width: 30px;
-        color: al-color($al-smokeBlue, 500);
+        color: var(--ald-g-color-smoke-blue-500);
         cursor: pointer;
 
         &.p-icon-check-box-outline-blank {
-            color: al-color($al-gray, 300);
+            color: var(--ald-g-color-gray-300);
         }
     }
 
@@ -195,34 +195,36 @@ al-filter {
 
     .al-filter-clear {
         margin-top: 24px;
-        border-bottom: 1px solid al-color($al-gray, 100);
+        border-bottom: 1px solid var(--ald-g-color-gray-200);
         padding: 0px 12px 12px 12px;
         cursor: pointer;
         span {
             font-size: 14px;
-            color: al-color($al-gray, 700);
+            color: var(--ald-g-color-gray-700);
         }
         i {
             font-size: 1.3em;
             float: right;
             margin: 3px 6px;
-            color: al-color($al-gray, 500);
+            color: var(--ald-g-color-gray-500);
             font-weight: 800;
         }
     }
     .al-filter-search {
-        padding-top: 24px;
+        padding: var(--ald-g-space-6) var(--ald-g-space-3) var(--ald-g-space-3) var(--ald-g-space-3);
+        display: flex;
+        align-items: center;
     }
     .al-filter-search > input {
         width: 100%;
-        padding: 4px 12px;
+        padding: var(--ald-g-space-2) var(--ald-g-space-3);
     }
 
     i.pi.pi-search.mx {
         font-size: 18px;
         position: relative;
-        margin: 7px -39px;
-        color: al-color($al-gray, 500);
+        margin: 7px -24px;
+        color: var(--ald-g-color-gray-500);
     }
 
     .custom-modal-title {
@@ -249,7 +251,7 @@ al-filter {
     .show-help-text {
         padding-top: 24px;
         padding-bottom: 24px;
-        border-bottom: 1px solid al-color($al-gray, 100);
+        border-bottom: 1px solid var(--ald-g-color-gray-200);
         .description {
             padding-right: 24px;
             padding-left: 36px;
@@ -259,7 +261,7 @@ al-filter {
     .subtitle {
         font-size: .8em;
         margin: 6px 0;
-        color: al-color($al-gray, 200);
+        color: var(--ald-g-color-gray-400);
     }
 }
 
@@ -293,7 +295,7 @@ $smallfontSize: 12px;
         }
 
         .check-icon {
-            font-size: 22px;
+            font-size: var(--ald-g-text-2xl);
         }
 
     }

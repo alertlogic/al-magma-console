@@ -1,0 +1,21 @@
+.ald-dropdown-menu {
+	margin: var(--ald-g-space-1) 0;
+}
+
+.ald-dropdown-menu__item {
+	cursor: pointer;
+	padding: var(--ald-g-space-2) var(--ald-g-space-5);
+	font-size: var(--ald-g-text-sm);
+	line-height: var(--ald-g-leading-sm);
+	color: var(--ald-g-color-gray-800);
+	white-space: nowrap;
+}
+
+.ald-dropdown-menu__item:hover,
+.ald-dropdown-menu__item:focus {
+	background-color: var(--al-dropdow-hover-bg-color);
+}
+
+.ald-dropdown-menu__item:focus {
+	outline: none;
+}

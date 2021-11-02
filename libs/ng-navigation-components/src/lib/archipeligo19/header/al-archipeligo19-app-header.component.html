@@ -2,7 +2,7 @@
   <div class="al-header-logo" (click)="redirectToDashboards()"></div>
   <div class="user-menus-container" *ngIf="authenticated && ready">
     <p-menubar [model]="userMenuItems" styleClass="app-user-menu"></p-menubar>
-    <span class="user-selected-separator"></span>
+    <span class="separator">|</span>
     <ng-select #accountSelector
           [items]="managedAccounts"
           [virtualScroll]="true"

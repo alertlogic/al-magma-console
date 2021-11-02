@@ -1,0 +1,27 @@
+
+.ald-multiselect__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: var(--ald-g-space-2);
+}
+
+.ald-multiselect__content {
+	overflow: auto;
+	padding-left: var(--ald-g-space-2);
+	margin-right: var(--ald-g-space-2);
+}
+
+.ald-multiselect__checkbox {
+	padding-right: var(--ald-g-space-2);
+}
+
+.ald-multiselect__search {
+	width: 100%;
+}
+
+.ald-multiselect__footer {
+	margin-left: auto;
+	padding: var(--ald-g-space-2);
+    box-shadow: inset 0 1px 0 var(--ald-g-color-gray-300);
+}

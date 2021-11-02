@@ -1,0 +1,10 @@
+<div role="tablist" class="ald-tabs__list"
+    [class.ald-tabs__list--sticky]="isSticky">
+    <button role="tab" *ngFor="let tab of tabs" class="ald-tabs__button" [attr.aria-selected]="[tab.active ? 'true' : 'false' ]" (click)="selectTab(tab)">
+        {{ tab.name | titlecase }}
+    </button>
+</div>
+
+<div class="ald-tabs__content">
+	<ng-content></ng-content>
+</div>

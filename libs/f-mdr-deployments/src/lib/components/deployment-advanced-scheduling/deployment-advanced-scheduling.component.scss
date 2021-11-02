@@ -1,0 +1,127 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.al-deployment-advanced-scheduling {
+    margin-bottom: 100px;
+    .info-text {
+        margin: 12px 0px;
+        text-align: justify;
+    }
+    .tabs {
+        margin-bottom: 36px;
+    }
+    .list {
+        margin-top: 12px;
+    }
+    .schedule-enabled {
+        margin: 0 24px 0 24px;
+        text-align: center;
+        font-size: 14px;
+        .enabled-text {
+            color: al-color($al-gray, 400);
+            font-size: 10px;
+            margin-top: 2px;
+        }
+    }
+    .initial-icon{
+        font-size: 34px;
+    }
+    .label-info {
+        font-size: 10px;
+    }
+    .scan-date {
+        font-size: 12px;
+        color: al-color($al-gray, 300);
+    }
+    .icon-info {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 72px;
+    }
+    .schedule-name, .number-items, .initial-icon {
+        color: al-color($al-gray, 500);
+    }
+    .scan-in-progress {
+        display: flex;
+        font-size: 12px;
+        font-weight: bold;
+        color: al-color($al-smokeBlue, 400);
+        i {
+            font-size: 16px;
+            margin-right: 3px;
+        }
+    }
+    .scan-windows-list {
+        padding: 0;
+    }
+    .in-progress {
+        display: flex;
+        align-items: center;
+        .stop-scan-button {
+            cursor: pointer;
+            font-size: 8px;
+            margin: 0 5px;
+        }
+        .al-cardstack-chips-rounded {
+            margin: 0 5px;
+            font-size: 10px;
+            padding: 1px 10px;
+        }
+    }
+    .assets-scope-container {
+        padding: 0;
+
+        .scope-list {
+            padding: 12px;
+            max-height: 200px;
+            overflow-y: scroll;
+
+            .scope-list-item {
+                padding-bottom: 12px;
+                display: flex;
+
+                .scope-list-icon {
+                    width: 36px;
+                    align-items: center;
+                    justify-content: center;
+                    display: flex;
+                    margin-right: 12px;
+                    font-size: 1.4em;
+                }
+            }
+        }
+    }
+
+    .labeled-switch {
+        .label {
+            color: #3C3C3C;
+        }
+    }
+
+    .margin-top-subtitle {
+        margin-top: 20px;
+    }
+
+    .scroll-container-view {
+        max-height: 115px;
+        overflow-y: scroll;
+    }
+}
+
+:host ::ng-deep p-dropdown {
+    margin-left: 80px;
+}
+
+:host ::ng-deep al-base-card {
+    .card-header {
+        margin: 12px 0;
+    }
+    .ui-panel-content .desc {
+        margin-right: 10px;
+    }
+    .break-text {
+        .ui-button-text {
+            max-width: 40px;
+        }
+    }
+}

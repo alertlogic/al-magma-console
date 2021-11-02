@@ -1,0 +1,5 @@
+<span class="ald-badge" [ngClass]="[actionIcon ? 'ald-badge--rounded' : '', 'ald-badge--ald-' + type]">
+	<ald-icon *ngIf="icon" [icon]="icon" [iconClass]="iconClass" size="sm"></ald-icon>
+    {{ label }}
+    <ald-button *ngIf="actionIcon" [type]="buttonType" [icon]="actionIcon" size="xs" (click)="didAction.emit()"></ald-button>
+</span>

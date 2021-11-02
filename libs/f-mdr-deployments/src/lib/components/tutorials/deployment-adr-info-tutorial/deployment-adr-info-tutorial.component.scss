@@ -1,0 +1,130 @@
+@import "@al/ng-generic-components/styles/utility";
+@import "@al/ng-generic-components/styles/utility";
+
+.box {
+    margin-bottom: 48px;
+}
+
+.close-button {
+    text-align: right;
+}
+
+.tutorial-content {
+    margin: 24px;
+    font-family: 'Open Sans', Arial, sans-serif !important;
+    .title-underline {
+        border-bottom: 2px solid al-color($al-gray, 50);
+        line-height: normal;
+        padding-top: 12px;
+        &>i {
+            margin-right: 12px;
+        }
+    }
+    .contentWrapper {
+        padding-right: 24px;
+        padding-left: 24px;
+        padding-bottom: 24px;
+
+        &>h2 {
+            padding-top: 24px;
+            margin-top: 0;
+        }
+        &>h3 {
+            padding-top: 38px;
+            margin-top: 0;
+        }
+        &>h4 {
+            margin-top: 36px;
+            padding-bottom: 3px;
+            &>.al {
+                width: 36px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+            &>.material-icons {
+                width: 36px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        &>.padTop {
+            padding-top: 12px;
+        }
+        &>.pad {
+            padding: 24px 0;
+        }
+        .tutorial-row {
+            margin-left:0;
+            display:flex;
+            flex-direction:row;
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+        .horizontal-line {
+            border-bottom: 2px solid al-color($al-gray, 50);
+            line-height: normal;
+            padding-top: 12px;
+            padding-left: 0;
+            margin-bottom: 12px;
+            &>i {
+                margin-right: 12px;
+            }
+        }
+        .icon-row {
+            display: flex;
+            flex-direction: row;
+            padding-top: 24px;
+            .icon-row-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                min-width: 100px;
+                .internal-small-block {
+                    display: block!important;
+                    margin: 0px 30px 5px 30px;
+                    min-height: 45px;
+                    color: mat_color($al-gray, 500)
+                }
+            }
+        }
+        .left-icon {
+            color: mat_color($al-gray, 500);
+            padding-right:10px;
+        }
+        .internal-icon {
+            font-size: 40px;
+            .relative {
+                stroke: none;
+                position: relative;
+            }
+        }
+        .icon-small {
+            stroke: none;
+            position: relative;
+            padding-top:6px;
+        }
+        .no-top-padding {
+            padding-top:0;
+        }
+    }
+}
+
+.unprotected {
+    color: al-color($al-gray, 100);
+}
+
+.protected {
+    color: al-color($al-green, 500);
+}
+
+.essentials {
+    color: al-color($al-essentials, 500);
+    background-color: white;
+}
+
+.professional {
+    color: al-color($al-professional, 500);
+    background-color: white;
+}

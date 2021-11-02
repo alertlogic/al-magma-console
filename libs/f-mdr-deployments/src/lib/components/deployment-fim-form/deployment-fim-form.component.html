@@ -1,0 +1,96 @@
+<al-bottom-sheet #alBottomSheet [headerOptions]="headerOptions" (onPrimaryAction)="save()" (onSecondaryAction)="close()">
+    <al-view-helper #alViewHelper [notifyPanel]="enableNotifyPanel"></al-view-helper>
+    <form class="deployment-fim-form">
+        <div class="p-grid p-nogutter">
+            <div class="p-col-6">
+                <div class="form-wrapper">
+                     <!-- File Type selection -->
+                     <div class="dropdwon-file-types">
+                        <p-dropdown
+                            #fileTypeSelector
+                            [(ngModel)]="selectedFileTypeDropDown"
+                            optionLabel="label"
+                            [options]="fileTypes"
+                            (onChange)="selectedFileTypeChange($event)"
+                            [showClear]="false"
+                            [style]="{'width':'100%'}"
+                            name="fileType"
+                            [disabled]="configuration.system"
+                            >
+                        </p-dropdown>
+                        <mat-error *ngIf="!selectedFileTypeDropDown">You must select a file type</mat-error>
+                    </div>
+                    <!-- File Path -->
+                    <div class="pattern-input-field">
+                        <mat-form-field fxFlex class="mat-block" [formGroup]="form">
+                            <input matInput type="text"
+                                            [pTooltip]="baseDirectoryPathInfo"
+                                            (input)="onInput($event, 'base')"
+                                            [(ngModel)]="baseDirectoryPath"
+                                            name="baseDirectoryPath"
+                                            placeholder="Base Directory Path"
+                                            formControlName="baseDirectoryPath"
+                                            required/>
+                            <mat-error *ngIf="form.controls.baseDirectoryPath.hasError('required')">Path cannot be empty</mat-error>
+                            <mat-error *ngIf="form.controls.baseDirectoryPath.hasError('pattern')">You must enter a valid path</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <!-- Pattern -->
+                    <div class="file-path-input-field">
+                        <mat-form-field fxFlex class="mat-block" [formGroup]="form">
+                            <input matInput type="text"
+                                            [pTooltip]="patternInfo"
+                                            [(ngModel)]="pattern"
+                                            name="pattern"
+                                            placeholder="File Name or Pattern"
+                                            formControlName="pattern"
+                                            />
+                        </mat-form-field>
+                    </div>
+
+
+                    <div *ngIf="mode === 'MONITORING'" class="checkbox-parent" [formGroup]="form">
+                        <p> Enable monitoring for this file or directory:</p>
+                        <p>
+                            <mat-checkbox [(ngModel)]="monitor" class="checkboxes" formControlName="monitor">Monitor
+                            </mat-checkbox>
+                        </p>
+                    </div>
+
+                    <div class="description-field">
+                            <p> Description: </p>
+                            <textarea  pInputTextarea
+                                       #descriptionField
+                                       type="text"
+                                       [(ngModel)]="description"
+                                       [pTooltip]="descriptionInfo"
+                                       [ngModelOptions]="{standalone: true}"
+                            ></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-col-6">
+                <h2 i18n *ngIf="mode === 'MONITORING'">Asset Scoping</h2>
+                <h2 i18n *ngIf="mode === 'EXCLUSIONS'">Asset Exclusions</h2>
+                <p i18n *ngIf="mode === 'MONITORING'" > Monitoring is automatically applied to all assets in your deployment.
+                    You can further define individual assets that you want to apply to this file path for monitoring.
+                    Applying assets to this file path for monitoring will override monitoring all assets in this deployment. </p>
+                <p i18n *ngIf="mode === 'EXCLUSIONS'" >Monitoring is automatically applied to all assets in your deployment unless you have further scoped individual assets in this file path.
+                    You can exclude individual assets for monitoring from this file path.
+                    Applying assets to this file path for exclusions will override exclusions for all assets in this deployment.</p>
+                <div class="form-content">
+                    <al-multiselect-list #multiSelectList
+                        [options]="multiSelectWithListItems"
+                        [readonly]="false"
+                        [selectableListMode]="'chips'"
+                        placeholder="Search assets"
+                        (onSelectionChanged)="scopeChange($event)"
+                        [(ngModel)]="currentlySelectedOptions"
+                        [ngModelOptions]="{standalone: true}">
+                    </al-multiselect-list>
+                </div>
+            </div>
+        </div>
+    </form>
+</al-bottom-sheet>

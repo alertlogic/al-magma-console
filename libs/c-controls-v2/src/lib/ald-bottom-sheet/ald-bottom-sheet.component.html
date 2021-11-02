@@ -1,0 +1,66 @@
+<div class="ald-bottom-sheet" [ngClass]="{'ald-bottom-sheet-is-open': isOpen}">
+  
+    <div class="ald-bottom-sheet__close">
+      <ald-button icon="close" size="lg" type="light-ghost" (click)="close()"></ald-button>
+    </div>
+
+    <div class="ald-bottom-sheet__wrapper">
+
+      <div class="ald-bottom-sheet__body">
+
+        <div class="ald-bottom-sheet__header">
+
+          <div class="ald-bottom-sheet__title">
+            <ald-icon *ngIf="icon" [iconClass]="iconClass" [icon]="icon" size="md"></ald-icon>
+            <h1 class="ald-bottom-sheet__title-el">{{ header }}</h1>
+          </div>
+
+          <!-- Wizard Stepper steps rendered only if bottom sheet calls for it. -->
+          <div *ngIf="isWizardStepper" class="ald-bottom-sheet__stepper">
+            <div *ngFor="let step of steps; index as index; last as isLast" 
+              class="ald-stepper__step"
+              [class.ald-stepper--complete]="step.complete"
+              [class.ald-stepper--not-complete]="!step.complete"
+              [class.ald-stepper--active]="step.active"
+              (click)="selectStep(step)">
+
+              <span 
+                class="ald-stepper__no"
+                [ngClass]="{'class-for-step-active': step.active || step.complete}">
+                  
+                <div *ngIf="step.active || !step.complete">
+                  {{ index + 1 }}
+                </div>
+
+                <ald-icon *ngIf="!step.active && step.complete" icon="check" size="sm"></ald-icon>
+              </span>
+              <span class="ald-stepper__title">{{ step.stepTitle }}</span>
+              <span *ngIf="!isLast" class="ald-stepper__separator"></span>
+              
+            </div>
+          </div>
+            
+        </div>
+        
+        <div class="ald-bottom-sheet__content" [ngClass]="[bgGray ? 'u-bg-gray-50' : 'u-bg-white']">
+            <ng-content></ng-content>
+        </div>
+
+        <div class="ald-bottom-sheet__footer" [ngClass]="[(isWizardStepper && stepIndex <= 0) ? 'u-justify-end' : 'u-justify-between']">
+          <ng-container *ngIf="!isWizardStepper; else wizardStepperControls">
+            <ald-button [label]="closeButton" type="default-ghost" (click)="close()"></ald-button>
+            <ald-button *ngIf="primaryActionButton" [label]=" primaryActionButton" type="primary" (click)="primaryAction()" [disabled]="disablePrimaryAction"></ald-button>
+          </ng-container>
+
+          <!-- Wizard Step Controls -->
+          <ng-template #wizardStepperControls>
+            <ald-button *ngIf="stepIndex > 0" label="Back" type="default-ghost" (click)="stepBack()"></ald-button>
+            <ald-button *ngIf="primaryActionButton" [label]="stepIndex < steps.length-1 ? 'Next' : primaryActionButton" type="primary" (click)="stepForward()" [disabled]="disablePrimaryAction"></ald-button>
+          </ng-template>
+        </div>
+      
+      </div>
+    </div>
+  
+    <div class="ald-bottom-sheet__overlay"></div>
+  </div>

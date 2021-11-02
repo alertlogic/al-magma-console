@@ -1,0 +1,86 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.deployment-protection-options {
+    background: white;
+
+    .text-content{
+        margin-top: 10px;
+    }
+
+    .info-text{
+        margin: 20px 0px 20px 0px;
+    }
+
+    .info-right-drawer{
+        .title {
+            color: #A8A8A8;
+            font-family: "Open Sans", sans-serif !important;
+            font-size: 1em;
+
+            i {
+                font-size: 30px;
+                margin-right: 5px;
+                vertical-align: middle;
+            }
+        }
+
+        .sub-title {
+            color: #535353;
+            font-family: "Open Sans", sans-serif !important;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .item{
+            font-size: 1em;
+            color: #535353;
+            margin: 15px 0 15px 10px;
+            i {
+                font-size: 25px;
+                margin-right: 5px;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    .options {
+        background: white;
+        &.full-screen {
+            padding-left: 5px;
+            padding-right: 5px;
+            object-fit: contain;
+            position: fixed !important;
+            top: 0px !important;
+            right: 0px !important;
+            bottom: 0px !important;
+            left: 0px !important;
+            box-sizing: border-box !important;
+            min-width: 0px !important;
+            max-width: none !important;
+            min-height: 0px !important;
+            max-height: none !important;
+            width: 100% !important;
+            height: 100% !important;
+            transform: none !important;
+            margin: 0px !important;
+        }
+        .topology-col {
+            height: 100%;
+            .topology-section {
+                &.full-screen {
+                    height: 100%;
+                }
+            }
+        }
+        
+    }
+    .under-line {
+        border-bottom: 1px solid #EDEDED;
+        margin-bottom: 25px;
+        line-height: normal;
+    }
+
+    .view-helper-width{
+        width: 100%;
+    }
+}

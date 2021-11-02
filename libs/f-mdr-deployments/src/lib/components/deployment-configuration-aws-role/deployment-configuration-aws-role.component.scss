@@ -1,0 +1,35 @@
+.deployment-name-step {
+    .text-main {
+        p {
+            margin: 20px 0;
+        }
+    }
+    .text-secondary {
+        margin: 5px 0 13px 0;
+        p {
+            margin: 2px 0;
+        }
+        i {
+            font-size: 20px;
+            margin-top: 2px;
+            margin-left: 4px;
+        }
+    }
+    .cloud-trails {
+        margin: 20px 0 13px 0;
+        p {
+            margin: 2px 0;
+        }
+        i {
+            font-size: 20px;
+            margin-top: 2px;
+            margin-left: 4px;
+        }
+    }
+    .slide {
+        margin-bottom: 15px;
+    }
+    mat-form-field {
+        margin-bottom: 0;
+    }
+}

@@ -1,0 +1,94 @@
+<div fxLayout="column" class="deployment-name-step">
+
+    <div fxLayout="row" fxLayoutAlign="start center" class="title-info">
+        <h1 i18n>Enter Your Role ARN</h1>
+        <div fxflex></div>
+    </div>
+
+    <al-view-helper #alViewHelper [loading]="isBusy" [notifyPanel]="true"></al-view-helper>
+
+    <div class="text-main">
+        <p i18n *ngIf="!cloudFormation.enableTemplate">
+            The IAM policy and role you created during the AWS Instructions step allows Alert Logic to access your AWS account. The
+            policy document grants only the permissions required to monitor your deployments.
+        </p>
+        <p i18n *ngIf="cloudFormation.enableTemplate">
+            The role you created with the CloudFormation template grants only the minimum permissions required for Alert Logic to monitor your AWS environment.
+        </p>
+    </div>
+
+    <div class="text-secondary" fxLayout="row">
+        <p i18n *ngIf="!cloudFormation.enableTemplate">
+            Enter the Role ARN, and then click "{{textButton}}"
+        </p>
+        <p i18n *ngIf="cloudFormation.enableTemplate">
+            Enter the ARN you copied from the AWS Create stack page, and then click "{{textButton}}"
+        </p>
+        <i class="material-icons icon-gray hover-icon-info" (click)="showTutorial()">info</i>
+        <div fxFlex></div>
+    </div>
+
+    <!--=======ARN=======-->
+    <div fxLayout="row" fxLayoutAlign="center center">
+        <mat-form-field fxFlex class="mat-block" [formGroup]="entityForm">
+            <input matInput type="text" [(ngModel)]="credential_discover.secrets.arn"
+                                        (ngModelChange)="verifyChangesForm()"
+                                        id="arn"
+                                        name="arn"
+                                        placeholder="{{formConfig.arnPlaceholder}}"
+                                        formControlName="arn"
+                                        required/>
+            <mat-error *ngIf="entityForm.controls.arn.hasError('required') || entityForm.controls.arn.hasError('invalidCredentialArn')">
+                {{formConfig.arnError}}
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <!--=========CLOUD TRAILS SWITCH========-->
+    <div fxLayout="row" class="cloud-trails">
+        <p i18n>
+            I want to configure centralized CloudTrail log collection for this deployment.
+        </p>
+        <i class="material-icons icon-gray hover-icon-info" (click)="showTutorialCloudTrails()">info</i>
+        <div fxFlex></div>
+    </div>
+
+    <div class="slide">
+        <section fxLayout="row" [formGroup]="entityForm">
+            <mat-slide-toggle
+                formControlName="hasCloudTrails"
+                name="hasCloudTrails"
+                [(ngModel)]="hasCloudTrails"
+                [disabled]="isBusy"
+                (change)="addControlClouldTrails(hasCloudTrails)">
+            </mat-slide-toggle>
+        </section>
+    </div>
+
+    <!--=======ARN ACCOUNT MONITOR=======-->
+    <div *ngIf="hasCloudTrails">
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <mat-form-field fxFlex class="mat-block" [formGroup]="entityForm">
+                <input matInput type="text" [(ngModel)]="credential_x_account_monitor.secrets.arn"
+                                            (ngModelChange)="verifyChangesForm()"
+                                            id="arn_monitor"
+                                            name="arn_monitor"
+                                            placeholder="{{formConfig.arnPlaceholder}}"
+                                            formControlName="arn_monitor"
+                                            required/>
+                <mat-error *ngIf="entityForm.controls.arn_monitor.hasError('required') || entityForm.controls.arn_monitor.hasError('invalidCredentialArnMonitor')">
+                    {{formConfig.arnError}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+
+     <!--======BUTTONS=======-->
+     <div fxLayout="row" class="buttons">
+        <button mat-button (click)="cancel()" [disabled]="isCancelValid">CANCEL</button>
+        <div fxFlex="1"></div>
+        <button mat-raised-button color="primary" (click)="save()" [disabled]="isSaveValid">{{textButton}}</button>
+        <div fxFlex></div>
+    </div>
+
+</div>

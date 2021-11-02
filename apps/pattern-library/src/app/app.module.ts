@@ -5,7 +5,7 @@ import { NgFormsComponentsModule } from '@al/ng-forms-components';
 import { NgNavigationModule } from '@al/ng-navigation-components';
 import { NgNotificationsModule } from '@al/ng-notifications-components';
 import { NgVisualizationModule } from '@al/ng-visualizations-components';
-
+// import { ControlsV2ComponentsModule } from '@components/controls-v2';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -166,6 +166,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         NgCardstackModule,
         NgFormsComponentsModule,
         NgGenericComponentsModule,
+//        ControlsV2ComponentsModule,
         NgNavigationModule,
         NgNotificationsModule,
         NgVisualizationModule

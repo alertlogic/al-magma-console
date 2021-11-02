@@ -1,0 +1,23 @@
+@import "../al-forms.component.scss";
+
+.ald-text-area {
+	@extend %textual-controls;
+}
+
+// Focus
+
+.ald-text-area:focus {
+	@extend %textual-controls-focus;
+}
+
+// Disabled
+
+.ald-text-area--disabled {
+	@extend %textual-controls-disabled;
+}
+
+// Error
+
+.ald-text-area--error {
+	@extend %textual-controls-error;
+}

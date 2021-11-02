@@ -8,7 +8,7 @@
         background-color: transparent;
 
         .pi {
-            color: var(--ald-g-color-gray-700);
+            color: var(--ald-g-color-gray-600);
         }
 
         &:enabled:hover,
@@ -21,8 +21,6 @@
         padding-right: var(--ald-g-space-3);
     }
 }
-
-
 
 // .p-password-panel {
 //     &.p-shadow {
@@ -226,7 +224,7 @@ i {
 
     .p-listbox-item {
         overflow: hidden;
-        padding: var(--ald-g-space-1) var(--ald-g-space-3);
+        padding: var(--ald-g-space-3) var(--ald-g-space-4);
         margin: 0;
 
         &.p-highlight {
@@ -438,9 +436,9 @@ p-radiobutton {
 .p-autocomplete-panel,
 .p-multiselect-panel {
     background: #ffffff;
-    color: var(--ald-g-color-gray-800);
+    color: var(--ald-g-color-gray-900);
     border: 0 none;
-    border-radius: 3px;
+    border-radius: var(--ald-radius-default);
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.20);
 }
 
@@ -448,7 +446,7 @@ p-radiobutton {
 .p-multiselect-item,
 .p-autocomplete-item,
 .p-multiselect-item {
-    color: var(--ald-g-color-gray-800);
+    color: var(--ald-g-color-gray-900);
     cursor: pointer;
     font-size: var(--ald-g-text-sm);
     line-height: var(--ald-g-leading-sm);
@@ -538,8 +536,8 @@ p-radiobutton {
                 background-color: white;
                 border-radius: var(--ald-g-radius-full);
                 position: absolute;
-                top: 2px;
-                left: -2px;
+                top: var(--ald-g-space-05);
+                left: 0;
                 font-family: 'Material Icons';
                 font-weight: bold;
                 content: 'check';
@@ -555,21 +553,21 @@ p-radiobutton {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    font-size: 14px;
-    margin-top: 3px;
+    font-size: var(--ald-g-text-sm);
+    margin-top: var(--ald-g-space-075);
 
     .label {
-        font-size: 10px;
-        margin-top: 4px;
+        font-size: var(--ald-g-text-xxs);
+        margin-top: var(--ald-g-space-1);
         font-weight: 400;
     }
 }
 
 // SLIDER
 .p-slider {
-    background: #dee2e6;
+    background: var(--ald-g-color-gray-300);
     border: 0 none;
-    border-radius: 3px;
+    border-radius: var(--ald-g-radius-full);
 
     .p-slider-range {
         padding: 0;
@@ -596,8 +594,8 @@ p-radiobutton {
         }
 
         .p-slider-handle {
-            margin-top: -0.7rem;
-            margin-left: -0.7rem;
+            margin-top: -10px;
+            margin-left: -10px;
         }
     }
 
@@ -611,8 +609,8 @@ p-radiobutton {
         }
 
         .p-slider-handle {
-            margin-left: -0.7rem;
-            margin-bottom: -0.7rem;
+            margin-left: -10px;
+            margin-bottom: -10px;
         }
     }
 
@@ -694,27 +692,27 @@ p-radiobutton {
 
     &.risk-critical {
         background: var(--ald-g-color-red-50);
-        color: var(--ald-g-red-color-600);
+        color: var(--ald-g-color-threat-critical);
     }
 
     &.risk-high {
         background: var(--ald-g-color-orange-50);
-        color: var(--ald-g-color-orange-700);
+        color: var(--ald-g-color-threat-high);
     }
 
     &.risk-medium {
         background: var(--ald-g-color-yellow-50);
-        color: #c39914;
+        color: var(--ald-g-color-threat-medium);
     }
 
     &.risk-low {
         background: var(--ald-g-color-gray-50);
-        color: var(--ald-g-color-gray-color-700);
+        color: var(--ald-g-color-threat-low);
     }
 
     &.risk-info {
         background: var(--ald-g-color-gray-50);
-        color: var(--ald-g-color-gray-700);
+        color: var(--ald-g-color-threat-info);
     }
 
 }
@@ -782,7 +780,7 @@ p-radiobutton {
         background-color: var(--form-element-active-color);
 
         .pi {
-            color: var(--ald-g-color-gray-500);
+            color: var(--ald-g-color-gray-800);
         }
     }
 
@@ -800,7 +798,7 @@ p-radiobutton {
     .subtitle {
         order: 2;
         margin-right: var(--ald-g-space-1);
-        color: var(--ald-g-color-gray-300);
+        color: var(--ald-g-color-gray-600);
     }
 
     .close {
@@ -885,7 +883,7 @@ p-radiobutton {
         th {
             padding: var(--ald-g-space-3);
             background-color: white;
-            border-bottom: 1px solid var(--ald-g-color-gray-200);
+            border-bottom: 1px solid var(--ald-g-color-gray-300);
         }
 
         td {

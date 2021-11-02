@@ -1,0 +1,27 @@
+<ald-fieldset [legend]="legend" [hint]="hint" [tip]="tip" [verticalSpace]="verticalSpace">
+    <div class="u-flex" [ngClass]="[inline ? 'u-flex-row' : 'u-flex-col']">
+        <div class="ald-radio-group__row " *ngFor="let option of options">
+            <label
+                [for]="option.value"
+                class="ald-radio "
+                [ngClass]="disabled ? 'ald-radio--disabled' : ''">
+                <input
+                    type="radio"
+                    class="ald-radio__input"
+                    [id]="option.value"
+                    [name]="name"
+                    [(ngModel)]="value"
+                    [value]="option.value"
+                    [disabled]="disabled"
+                    [checked]="option.selected"
+                    (ngModelChange)="onChange()">
+                <div class="ald-radio__circle">
+                    <div class="ald-radio__check"></div>
+                </div>
+                <span class="ald-radio__label">
+                    {{ option.label }}
+                </span>
+            </label>
+        </div>
+    </div>
+</ald-fieldset>

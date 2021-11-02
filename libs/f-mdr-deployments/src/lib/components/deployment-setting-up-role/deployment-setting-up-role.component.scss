@@ -1,0 +1,208 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.deployment-setting-up-role {
+    .button-link {
+        span {
+            text-transform: lowercase !important;
+        }
+    }
+    .text-header {
+        margin-top: 24px;
+
+        p {
+            margin: 24px 0;
+        }
+        .button-panel {
+
+            > button {
+                margin-right: 6px;
+            }
+        }
+    }
+    .text-main {
+        margin: 24px 0;
+    }
+    .text-secondary {
+        margin: 0 0 30px 0;
+    }
+    .manual {
+        background-color: al-color($al-gray, 50);
+        color: al-color($al-gray, 700)
+    }
+    .text-mode-none,
+    .text-mode-automatic {
+        margin: 30px 0;
+    }
+    .title {
+        h5 {
+            margin: 24px 0;
+            line-height: 30px;
+        }
+    }
+    .action-super-title {
+        position: relative;
+        height: 60px;
+        font-size: 2em;
+        border-bottom: 1px solid al-color($al-gray, 100);
+        color: #535353;
+    }
+    .text-cloud-formation {
+        margin: 24px 0;
+    }
+    .text-no-margin{
+        margin: 0;
+    }
+    .aws-link {
+        margin: 24px 0 24px 24px;
+    }
+    .policy {
+        .md-stack {
+            display: flex;
+            float: left;
+            width: 10%;
+        }
+        .md-stack-1x,
+        .md-stack-2x {
+            display: flex;
+            color: red;
+        }
+        .md-stack-1x {
+            line-height: inherit;
+            color: white;
+            transform: translate(-23px, -1px);
+            align-items: center;
+            justify-content: center;
+        }
+        .md-stack-2x {
+            font-size: 2em;
+        }
+        .title-underline {
+            border-bottom: 2px solid al-color($al-gray, 100);
+            line-height: normal;
+        }
+        .height200 {
+            height: 200px;
+            overflow-y: auto;
+        }
+        .instructions {
+            padding: 24px;
+            &>h1 {
+                padding-top: 24px;
+            }
+        }
+        .wrapper {
+            padding-top: 0;
+            &>.title {
+                display: flex;
+                margin-top: 40px;
+                &.nopad {
+                    margin: 0;
+                }
+                h2 {
+                    display: flex;
+                    align-items: center;
+                }
+                i {
+                    color: al-color($al-gray, 500);
+                    display: flex;
+                    align-content: center;
+                    margin-right: 12px;
+                    font-size: 1.286em;
+                }
+            }
+        }
+        .red {
+            color: al-color($al-red, 500);
+        }
+        .allow {
+            margin-bottom: 12px;
+            i {
+                color: al-color($al-red, 500);
+                display: flex;
+                align-content: center;
+                margin: 0 12px 0 6px;
+                font-size: 1.286em;
+            }
+        }
+        .list-content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            box-sizing: border-box;
+            font-size: 16px;
+            height: 36px;
+            padding: 0;
+            position: relative;
+            &>h3 {
+                display: flex;
+                >i {
+                    margin-right: 6px;
+                    font-size: 1.286em;
+                    ;
+                    display: flex;
+                }
+            }
+        }
+        .circle {
+            color: al-color($al-gray, 500);
+            width: 24px;
+            height: 24px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            border: 2px solid al-color($al-gray, 500);
+            margin-right: 12px;
+            font-size: 14px;
+        }
+        .list {
+            margin-left: 3px;
+        }
+        .topPad {
+            padding-top: 24px;
+        }
+        .bottomPad {
+            padding-bottom: 24px;
+        }
+        .rightPad {
+            padding-right: 12px;
+        }
+        .well {
+            background: al-color($al-gray, 50);
+            border: 0;
+            box-shadow: none;
+            margin: 24px 0;
+            &>pre {
+                background: transparent;
+                border: 0;
+                padding: 0;
+            }
+        }
+        .title {
+            display: flex;
+            align-items: left;
+            flex-direction: row;
+            margin-top: 20px;
+
+            .steps {
+                width: 24px;
+                display: flex;
+                align-items: flex-start;
+                font-weight: bold;
+            }
+            .step-desc {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+        .caution {
+            font-weight: bold;
+            margin-left: 24px;
+        }
+    }
+    .close-button {
+        text-align: right;
+    }
+}

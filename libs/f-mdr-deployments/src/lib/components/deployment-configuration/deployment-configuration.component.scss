@@ -1,0 +1,49 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.side-nav-title-cloud {
+    height: 72px;
+}
+
+.al-tertiary-menu-dynamic-adr {
+    width: 100%;
+    $line-height: 200px;
+    div.embedded-layout-adr {
+        div.tertiary-navigation-left-adr {
+            /* this avoid overlapping with the "configure log sources" menu option */
+            padding-bottom: 34px;
+            width: 0px;
+            &.open {
+                width: 280px;
+                min-width: 280px;
+            }
+            flex-flow: column;
+            border-right: 1px solid al-color($al-gray, 50);
+            justify-content: stretch;
+            h2 {
+                margin: 0;
+                font-size: 1em;
+                align-items: center;
+                color: white;
+                padding: 7px 35px;
+                &>i {
+                    font-size: 2.571em;
+                    display: flex;
+                    margin-right: 10px;
+                }
+            }
+        }
+        div.tertiary-content-adr {
+            min-height: 106vh;
+            border-left: 1px solid al-color($al-gray, 50);
+            position: absolute;
+            left: 281px;
+            right: 0;
+            div.tertiary-content-adr-header{
+                max-height: 70px;
+            }
+            div.tertiary-content-body {
+                padding: 36px 40px;
+            }
+        }
+    }
+}

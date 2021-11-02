@@ -1,5 +1,5 @@
 /**
- * This is based on the AlIdentityIconComponent from @o3/design, in turn based on the
+ * This is based on the AlIdentityIconComponent from @components/technical-debt, in turn based on the
  * NameColoredSquareComponent from dunkirk project, etc, etc.
  *
  * @author Cristhian Rendón <crendon@alertlogic.com>

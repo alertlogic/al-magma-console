@@ -75,7 +75,7 @@
                 </div>
 
                 <h4>
-                    <span *ngIf="pageState ==='open' || remediationItemAppliesToSpecificAssets" class="col-fixed allAffectedAssetCheckbox" style="width:35px" >
+                    <span *ngIf="pageState ==='open' || remediationItemAppliesToSpecificAssets" class="col-fixed allAffectedAssetCheckbox">
                         <p-checkbox [(ngModel)]="state.selectAll" [binary]="true"
                             (onChange)="selectAllValues()">
                         </p-checkbox>

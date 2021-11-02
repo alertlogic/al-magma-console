@@ -21,6 +21,7 @@
     "baseUrl": ".",
     "resolveJsonModule": true,
     "paths": {
+      "@components/controls-v2": ["libs/c-controls-v2/src/index.ts"],
       "@al/ng-asset-components": ["libs/ng-asset-components/src/index.ts"],
       "@al/ng-cardstack-components": [
         "libs/ng-cardstack-components/src/index.ts"
@@ -36,9 +37,11 @@
       "@al/ng-visualizations-components": [
         "libs/ng-visualizations-components/src/index.ts"
       ],
-      "@feature/auth": ["libs/feature-auth/src/index.ts"],
+      "@components/technical-debt": ["libs/c-technical-debt/src/index.ts"],
+      "@feature/authentication": ["libs/f-authentication/src/index.ts"],
       "@feature/dashboards": ["libs/dashboards/src/index.ts"],
       "@feature/exposures": ["libs/exposures/src/index.ts"],
+      "@feature/mdr-deployments": ["libs/f-mdr-deployments/src/index.ts"],
       "@magma/api-interfaces": ["libs/api-interfaces/src/index.ts"]
     }
   },

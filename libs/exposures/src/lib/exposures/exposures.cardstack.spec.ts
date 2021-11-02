@@ -81,7 +81,7 @@ describe('ExposuresCardstackView', () => {
 
         let derivedProps = exposuresCardstackView.deriveEntityProperties(remediations);
         expect(derivedProps.id).toEqual(remediations.vulnerability_id);
-        expect(derivedProps.icon.cssClasses).toEqual('fa fa-circle risk-critical');
+        expect(derivedProps.icon.cssClasses).toEqual('al al-risk-1 risk critical');
 
         let exposures = {
             "audit_id": "5fe231de3e31ac7064df974341cb6efc",

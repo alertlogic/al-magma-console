@@ -1,19 +1,19 @@
 @import "@al/ng-generic-components/styles/utility";
 
 .new-risk-low {
-    color: al-color($al-gray, 300);
+    color: var(--ald-g-color-threat-low);
 }
 
 .new-risk-medium {
-    color: al-color($al-yellow, 300);
+    color: var(--ald-g-color-threat-medium);
 }
 
 .new-risk-high {
-    color: al-color($al-orange, 500);
+    color: var(--ald-g-color-threat-high);
 }
 
 .new-risk-critical {
-    color:  al-color($al-red, 600);
+    color: var(--ald-g-color-threat-critical);
 }
 
 .al-score-count{

@@ -30,8 +30,12 @@ export class AlToastComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        this.showEmiter.unsubscribe();
-        this.closeEmiter.unsubscribe();
+        if ( this.showEmiter ) {
+            this.showEmiter.unsubscribe();
+        }
+        if ( this.closeEmiter ) {
+            this.closeEmiter.unsubscribe();
+        }
         this.alToastService.cleanEmitters(this.key);
     }
 

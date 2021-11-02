@@ -1,0 +1,10 @@
+<div class="al-deployment-header" fxLayout="row">
+    <div class="al-deployment-header-title" fxLayoutAlign="start center">
+        <h1>{{config.title}}</h1>
+    </div>
+    <div class="al-deployment-header-buttons-wrapper" fxLayoutAlign="end center">
+        <button *ngFor="let button of config.buttons" (click)="doAction(button)" [ngClass]="button.color" [disabled]="button.disabled" mat-raised-button>
+            {{button.label}}
+        </button>
+    </div>
+</div>

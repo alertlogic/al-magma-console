@@ -1,0 +1,17 @@
+<div
+    role="alert" 
+    aria-busy="true" 
+    class="ui-progress-spinner"
+    [ngClass]="['ui-progress-spinner--' + size, 'ui-progress-spinner--' + theme]">
+	<svg viewBox="25 25 50 50" class="ui-progress-spinner-svg" style="animation-duration: 2s;">
+		<circle 
+            cx="50" 
+            cy="50" 
+            r="20" 
+            stroke-miterlimit="10" 
+            class="ui-progress-spinner-circle" 
+            fill="none" 
+            [attr.stroke-width]="strokeWidth">
+        </circle>
+	</svg>
+</div>

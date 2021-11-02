@@ -1,0 +1,89 @@
+<div class="fim-list-cards">
+    <al-base-card [config]="alBaseCardConfig"
+                  [item]="alBaseCardItem"
+                  [checked]="selectedCard"
+                  (onChangeChecked)="toggleCard($event)"
+                  (onFooterAction)="footerAction($event)">
+        <ng-template alBaseCardIcon>
+            <al-icon-block iconClass='icon-block-medium'
+                           [matIcon]=""
+                           [ngClass]="typesMap[cardItem.type].icon"
+                           [label]="''"></al-icon-block>
+        </ng-template>
+        <ng-template alBaseCardHeaderRight>
+            <div *ngIf="mode === 'MONITORING'">
+                <div class="al-cardstack-icon divider labeled-switch">
+                    <p-inputSwitch (onChange)="monitor($event)"
+                                   [(ngModel)]="cardItem.enabled"></p-inputSwitch>
+                    <div class="label">Monitor</div>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template alBaseCardBodyContent>
+            <div class="p-grid p-nogutter">
+                <div class="p-col-6">
+                    <div class="label"
+                         i18n>File Type</div>
+                    <div class="desc">{{typesMap[cardItem.type].name}}</div>
+                </div>
+                <div class="p-col-6">
+                    <div class="label"
+                         i18n>Base File Path</div>
+                    <div class="desc">{{cardItem.base | slice: 0:60}} </div>
+                </div>
+                <div class="p-col-6"
+                     *ngIf="cardItem.pattern">
+                    <div class="label"
+                         i18n>Filename or Pattern</div>
+                    <div class="desc">{{cardItem.pattern | slice: 0:60}}</div>
+                </div>
+                <div class="p-col-6"
+                     *ngIf="cardItem.created">
+                    <div class="label"
+                         i18n>Created</div>
+                    <div class="desc first">{{ (usersMap[cardItem.created.by]|async)?.name}}</div>
+                    <div class="desc">{{cardItem.created.at * 1000 | date:"MMM d, yyyy at HH:mm":"+0000"}} (UTC)</div>
+                </div>
+                <div class="p-col-6"
+                     *ngIf="cardItem.modified">
+                    <div class="label"
+                         i18n>Modified</div>
+                    <div class="desc first">{{ (usersMap[cardItem.modified.by]|async)?.name}}</div>
+                    <div class="desc">{{cardItem.modified.at * 1000 | date:"MMM d, yyyy at HH:mm":"+0000"}} (UTC)</div>
+                </div>
+
+                <div class="p-col-12">
+                    <h2>Assets in Scope</h2>
+                </div>
+                <div class="assets-list p-col-12">
+                    <div>
+                        <al-view-helper #cardZeroState
+                                        [empty]="!cardItem.scope || (cardItem.scope && cardItem.scope.length === 0)"
+                                        [notifyPanel]="true">
+                            <div zero-state-icon>
+                                <i *ngIf="zeroState.isAlertLogicIcon; else materialIcon"
+                                   class="{{zeroState.icon}}"></i>
+                                <ng-template #materialIcon>
+                                    <i class="material-icons">{{zeroState.icon}}</i>
+                                </ng-template>
+                            </div>
+                            <span zero-state-title
+                                  i18n="Zero state title">{{ zeroState.title | titlecase}}</span>
+                            <span zero-state-description>
+                                <p i18n="Zero state description">{{zeroState.description}}</p>
+                            </span>
+                        </al-view-helper>
+                    </div>
+                    <ul *ngFor="let asset of assetsInScope"
+                        class="scope">
+                        <li>
+                            <span>
+                                <strong> {{asset.name}} </strong> {{asset.type | titlecase}}
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </ng-template>
+    </al-base-card>
+</div>

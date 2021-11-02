@@ -1,0 +1,7 @@
+<div class="ald-stack"
+    [class.u-flex-wrap]="wrap"
+    [ngClass]="[flexDirection, flexDistribution, flexAlignment]"
+    [style]="'--stack-gap:var(--ald-g-space-' + gap + ')'">
+    
+    <ng-content></ng-content>
+</div>

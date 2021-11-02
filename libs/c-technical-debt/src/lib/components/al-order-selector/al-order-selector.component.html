@@ -1,0 +1,43 @@
+<div class="al-selector" fxLayout="row" fxLayoutAlign="space-between center" [ngClass]="{'al-selector-height':!simpleMode, 'border-bottom': config.border}">
+
+    <div class="al-selector-left" fxLayout="column" fxLayoutAlign="start start" >
+        <div fxLayout="row" fxLayoutAlign="space-between end" fxLayoutGap="3px">
+                <mat-checkbox *ngIf="!simpleMode"  class="mat-primary check-box" [(ngModel)]="config.isChecked" (change)="selectAll()"></mat-checkbox>
+                <ng-container *ngIf="config.hasOwnProperty('groupSelect') && config.groupSelect && !config.groupSelect.hide">
+                    <mat-select class="selector" placeholder="{{ config.groupSelect.placeholder }}" (selectionChange)="changeGruoupingSelection($event)" [(ngModel)]="config.groupSelect.selectedOption">
+                        <mat-option *ngFor="let option of config.groupSelect.options" [value]="option.value">
+                            {{ option.name }}
+                        </mat-option>
+                    </mat-select>
+                </ng-container>
+                <mat-select class="selector" placeholder="{{ config.placeholder }}" [(ngModel)]="config.selectedOption">
+                    <mat-option *ngFor="let option of config.options" [value]="option.value" (click)="handleSelection()">
+                        {{ option.name }}
+                    </mat-option>
+                </mat-select>
+                <i *ngIf="!config.hideSelector" class="material-icons sorting"
+                   (click)="sort()"
+                   [class.ascending]="this.config.order === 'asc'">
+                   swap_vert
+                </i>
+        </div>
+    </div>
+    <div fxFlex></div>
+    <div *ngIf="advancedSearchEnabled" class="al-selector-right" fxLayout="column" fxLayoutAlign="start end" >
+            <div  fxLayout="row" fxLayoutAlign="space-between end">
+                    <div *ngIf="!showAdvancedSearch" class="al-selector-search-bar">
+                        <mat-form-field>
+                            <input matInput name="search" maxlength="{{config.maxSearchLength}}" [formControl]="searchControl" [placeholder]="config.textPlaceHolder" autocomplete="off">
+                            <mat-icon matSuffix>search</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    <div *ngIf="showAdvancedSearch" class="adv-search-btn-close">
+                        <span (click)="toggleAdvancedSearch(false)"> <i class="material-icons">close</i> advanced search</span>
+                    </div>
+            </div>
+            <div class="adv-search-btn-open">
+                <span [hidden]="!showAdvancedSearchButton" (click)="toggleAdvancedSearch(true)"> advanced search</span>
+            </div>
+    </div>
+
+</div>

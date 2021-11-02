@@ -1,0 +1,52 @@
+@import "@al/ng-generic-components/styles/utility";
+@import "@al/ng-generic-components/styles/utility.scss";
+
+.system-log-card {
+
+    .label {
+        color: al-color($al-gray, 500);
+    }
+
+    .toggle-label {
+        font-size: 10px;
+    }
+
+    .icon {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 72px;
+        font-size: 28px;
+    }
+
+    .subtitle {
+        color: al-color($al-gray, 200);
+        margin: 24px 0 12px 0;
+    }
+
+    .bold-text {
+        font-weight: 900;
+    }
+
+    .list {
+        border-bottom: 1px solid al-color($al-gray, 50);
+        margin: 0.4em 0 0.4em 0;
+    }
+
+    .assets {
+        margin: 0.6em 0 0.6em 0;
+    }
+
+    .assets-subtitle {
+        margin: 0.6em 0 0.4em 0;
+    }
+
+    .streams {
+        overflow: auto;
+        max-height: 150px;
+    }
+
+    .toggle-style {
+        font-size: 14px !important;
+    }
+}

@@ -1,0 +1,25 @@
+.ald-error-message {
+	position: relative;
+	display: flex;
+	align-items: center;
+	margin-top: var(--ald-g-space-2);
+	padding: var(--ald-g-space-1) var(--ald-g-space-2);
+	background-color: var(--form-error-message-background);
+	box-shadow: inset 2px 0 0 0px var(--form-error-message-text-color);
+}
+
+.ald-error-message__icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: var(--ald-g-space-6);
+	height: var(--ald-g-space-6);
+	color: var(--form-error-message-text-color);
+}
+
+.ald-error-message__text {
+	font-size: var(--ald-g-text-sm);
+	line-height: var(--ald-g-leading-sm);
+	color: var(--form-error-message-text-color);
+	margin-left: var(--ald-g-space-1);
+}

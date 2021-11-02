@@ -5,11 +5,11 @@
 }
 .al-left-panel-detail {
     ::ng-deep .underlineTwo {
-        border-bottom: 2px solid al-color($al-gray, 50);
+        border-bottom: 2px solid var(--ald-g-color-gray-300);
     }
 
     .header {
-        color: al-color($al-gray, 600);
+        color: var(--ald-g-color-gray-900);
         padding-top: 20px;
         padding-bottom: 20px;
 
@@ -24,25 +24,21 @@
         }
 
         &.exposure-high {
-            font-weight: lighter;
             background-color: al-color($al-red, 600);
             color: al-contrast($al-red, 600);
         }
 
         &.exposure-medium {
-            font-weight: lighter;
             background-color: al-color($al-orange, 500);
             color: al-contrast($al-orange, 500);
         }
 
         &.exposure-low {
-            font-weight: lighter;
             background-color: al-color($al-yellow, 600);
             color: al-contrast($al-yellow, 600);
         }
 
         &.exposure-info {
-            font-weight: lighter;
             background-color: al-color($al-gray, 300);
             color: al-contrast($al-gray, 300);
         }
@@ -53,36 +49,40 @@
     }
 
     .simple-panel {
-        color: al-color($al-gray, 600);
+        color: var(--ald-g-color-gray-900);
         padding: 20px;
         padding-left: 40px;
     }
 
     .assessment-header {
-        color: al-color($al-gray, 600);
+        color: var(--ald-g-color-gray-900);
         padding-top: 20px;
         padding-bottom: 20px;
         padding-left: 5px;
 
         .subtitle {
-            padding-left: 35px;
-            font-size: 12px;
-            color: al-color($al-gray, 200);
+            padding-left: var(--ald-g-space-3);
+            margin-top: var(--ald-g-space-3);
+            margin-bottom: var(--ald-g-space-1);
+            font-size: var(--ald-g-text-xs);
+            color: var(--ald-g-color-gray-500);
         }
         .status {
             i {
-                padding: 2px;
+                margin-right: var(--ald-space-1);
                 font-size: 1.2em;
+                margin-right: var(--ald-g-space-075);
             }
-            padding-left: 14px;
+            padding-left: var(--ald-g-space-3);
             font-weight: bold;
         }
         .date {
-            padding-left: 35px;
+            padding-left: 50px;
             padding-bottom: 10px;
+            margin-top: var(--ald-g-space-1);
         }
         .subtitle-data {
-            padding-left: 35px;
+            padding-left: var(--ald-g-space-3);
         }
     }
 

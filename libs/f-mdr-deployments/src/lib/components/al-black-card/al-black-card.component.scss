@@ -1,0 +1,51 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.black-card-class {
+    position: relative;
+    display: block;
+    max-height: 50%;
+    min-height: 50%;
+    background-color: al-color($al-gray, 500);
+    padding: 15px 10px 15px 10px;
+    margin: 10px;
+    cursor: pointer;
+    min-width: 335px; /*-- IE11 fix --*/
+    /* color for icon, title and subtitle text */
+    div, h3, i {
+        color: al-color($al-gray, 50);
+    }
+}
+
+.card-title {
+    font-size: 1.2em;
+    font-weight: 400;
+    padding-left: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-subtitle-exist {
+    margin-top: 4.8px;
+    margin-bottom: -0.2px;
+}
+
+.card-subtitle {
+    font-size: 0.8em;
+    padding-left: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.icon-class {
+    top: 30%;
+    position: absolute;
+    float: left;
+    font-size: 1.7em;
+    font-weight: 400;
+    padding-right: 10px;
+    i {
+        font-size: 1.3em;
+    }
+}

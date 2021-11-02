@@ -1,0 +1,144 @@
+@import "@al/ng-generic-components/styles/utility";
+
+.deployment-exclusions{
+    .content {
+        padding: 20px 40px;
+        height: 100%;
+        min-width: 900px;
+
+        .full-screen {
+            height: 100%;
+        }
+    }
+
+    .left-list {
+        margin-right: 15px;
+        padding-bottom: 50px;
+    }
+
+    .right-list {
+        margin-left: 15px;
+        padding-bottom: 50px;
+    }
+
+    .under-line{
+        border-bottom: 2px solid al-color($al-gray, 50);
+    }
+
+    .list-header {
+        height: 57px;
+    }
+
+    button {
+        span {
+            margin: 0 5px;
+        }
+    }
+
+    .external-scanning {
+        height: 90%;
+    }
+
+    .internal-scanning, .external-scanning {
+        height: 70%;
+
+        .button-section {
+
+            margin-top: 15px;
+
+            .filter-button {
+                box-shadow: none;
+                border-radius: unset;
+                margin: 0;
+                background-color: al-color($al-gray, 50);
+                color:  al-color($al-gray, 500);
+                font-size: 0.8em;
+
+                i {
+                    font-size: 1.3em;
+                }
+
+                &.selected{
+                    background-color: al-color($al-smokeBlue, 500);
+                    color: white;
+                }
+            }
+        }
+    }
+
+    .network-ids {
+        height: 90%;
+
+        .inputs-container {
+            margin-top: 20px;
+            margin-left: 10px;
+
+            .networks-container {
+                margin-left: 5px;
+            }
+            .material-icons {
+                color: al-color($al-gray, 200);
+                margin-top: 20px;
+                margin-left: -5px;
+            }
+        }
+        .protocol {
+            width: 0;
+        }
+        mat-form-field {
+            margin: 0 5px;
+        }
+    }
+
+    .exclude-and-add-another{
+        margin-top:15px;
+    }
+
+    .magnifying-glass-icon{
+        margin: auto;
+    }
+    .protocol-ports-options {
+        display: flex;
+        flex-direction: row;
+        .protocol, .ports {
+            width: 50%
+        }
+        .protocol {
+            padding: 12px 10px 12px 0;
+        }
+        .ports {
+            padding: 19px 0 0 0;
+            .ports-input {
+                display: flex;
+                flex-direction: row;
+                input {
+                    width: 90%;
+                }
+                i {
+                    width: 10%;
+                    font-size: 18px;
+                    color: al-color($al-gray, 400);
+                }
+            }
+            mat-error {
+                font-size: 11px;
+            }
+        }
+        .option-label {
+            font-size: 14px;
+            color: al-color($al-gray, 300);
+        }
+    }
+    .port-assets-container {
+        margin-top: 25px;
+    }
+    .exclude-button {
+        i {
+            font-size: 1em;
+        }
+    }
+}
+
+.action-selectable-list {
+    margin: 50px;
+}

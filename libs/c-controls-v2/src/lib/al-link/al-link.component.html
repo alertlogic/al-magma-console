@@ -1,0 +1,34 @@
+<ng-container
+  *ngIf="internalRoute; then internal; else external">
+</ng-container>
+
+<ng-template #internal>
+    <a 
+        class="ald-link" 
+        [routerLink]="internalRoute" 
+        [target]="openInNewTab ? '_blank' : '_self'"
+        [ngClass]="{
+            'ald-link--grayscale': type == 'grayscale', 
+            'ald-link--has-icon': icon,
+            'ald-link--icon-left': iconPos == 'left',
+            'ald-link--underline': underline
+        }"
+    >
+        {{ label }}<ald-icon *ngIf="icon" [icon]="icon" [iconClass]="iconClass" size="sm"></ald-icon>    
+    </a>
+</ng-template>
+
+<ng-template #external>
+    <a 
+        class="ald-link" 
+        [href]="externalUrl" 
+        target="_blank" 
+        [ngClass]="{
+            'ald-link--grayscale': type == 'grayscale', 
+            'ald-link--has-icon': icon,
+            'ald-link--underline': underline
+        }"
+    >
+        {{ label }}<ald-icon *ngIf="icon" [icon]="icon" [iconClass]="iconClass" size="sm"></ald-icon>
+    </a>
+</ng-template>
