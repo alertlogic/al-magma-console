@@ -11,9 +11,9 @@ stages:
         image: node:14
         compute_size: small
         env:
-            NX_BRANCH: $CODEBUILD_WEBHOOK_TRIGGER -replace "pr/",""
+            NX_BRANCH: $ALPS_PR_NUMBER
         commands:
-            - echo $CODEBUILD_WEBHOOK_TRIGGER -replace "pr/",""
+            - npm install
+            - npx nx affected --base=origin/integration --target=build --parallel --max-parallel=3
             - echo done
-
 
