@@ -1,0 +1,19 @@
+version: 1.0
+service_name: al-magma-console
+
+stages:
+    -
+        name: PR Test
+        when:
+            - pull_request
+            - pull_request:
+                trigger_phrase: test it
+        image: node:14
+        compute_size: small
+        env:
+            NX_BRANCH: $CODEBUILD_WEBHOOK_TRIGGER -replace "pr/",""
+        commands:
+            - echo $CODEBUILD_WEBHOOK_TRIGGER -replace "pr/",""
+            - echo done
+
+
