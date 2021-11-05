@@ -10,10 +10,11 @@ stages:
                 trigger_phrase: test it
         image: node:14
         compute_size: small
-        env:
-            NX_BRANCH: $(ALPS_PR_NUMBER)
+        # env:
+        #    NX_BRANCH: $(ALPS_PR_NUMBER)
         commands:
-            - npm install
-            - npx nx affected --base=origin/integration --target=build --parallel --max-parallel=3
+            - echo ALPS_PR_NUMBER
+            - echo ${ALPS_PR_NUMBER}
+            - echo $ALPS_PR_NUMBER
             - echo done
 
