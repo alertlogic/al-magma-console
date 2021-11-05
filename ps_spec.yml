@@ -1,0 +1,19 @@
+version: 1.0
+service_name: al-magma-console
+
+stages:
+    -
+        name: PR Test
+        when:
+            - pull_request
+            - pull_request:
+                trigger_phrase: test it
+        image: node:14
+        compute_size: small
+        commands:
+            - export NX_BRANCH=${ALPS_PR_NUMBER}
+            - echo $NX_BRANCH 
+            - npm install
+            - npx nx affected --base=origin/integration --target=build --parallel --max-parallel=3
+            - echo done
+
